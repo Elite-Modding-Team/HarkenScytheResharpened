@@ -1,0 +1,11 @@
+{
+  "parent": "block/cauldron_level1",
+  "textures": {
+    "particle": "harkenscythe:blocks/blood_crucible_side",
+    "top": "harkenscythe:blocks/blood_crucible_top",
+    "bottom": "harkenscythe:blocks/blood_crucible_bottom",
+    "side": "harkenscythe:blocks/blood_crucible_side",
+    "inside": "harkenscythe:blocks/blood_crucible_inner",
+    "water": "harkenscythe:blocks/blood_crucible_liquid"
+  }
+}

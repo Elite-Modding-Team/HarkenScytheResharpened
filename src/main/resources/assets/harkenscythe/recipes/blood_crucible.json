@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "N N",
+    "NEN",
+    "NNN"
+  ],
+  "key": {
+    "O": {
+      "type": "forge:ore_dict",
+      "ore": "netherrack"
+    },
+    "E": {
+      "type": "forge:ore_dict",
+      "ore": "enderpearl"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:blood_crucible"
+  }
+}

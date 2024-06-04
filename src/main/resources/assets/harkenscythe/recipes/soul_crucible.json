@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "O O",
+    "OEO",
+    "OOO"
+  ],
+  "key": {
+    "O": {
+      "type": "forge:ore_dict",
+      "ore": "obsidian"
+    },
+    "E": {
+      "type": "forge:ore_dict",
+      "ore": "enderpearl"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:soul_crucible"
+  }
+}

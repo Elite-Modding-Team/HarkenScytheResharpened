@@ -2,7 +2,8 @@ package mod.emt.harkenscythe.init;
 
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.blocks.HSBlock;
+import mod.emt.harkenscythe.blocks.HSBloodCrucible;
+import mod.emt.harkenscythe.blocks.HSSoulCrucible;
 import net.minecraft.block.Block;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -14,8 +15,10 @@ import net.minecraftforge.registries.IForgeRegistry;
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSBlocks
 {
-    @GameRegistry.ObjectHolder("block")
-    public static HSBlock block;
+    @GameRegistry.ObjectHolder("blood_crucible")
+    public static HSBloodCrucible blood_crucible;
+    @GameRegistry.ObjectHolder("soul_crucible")
+    public static HSSoulCrucible soul_crucible;
 
     @SubscribeEvent
     public static void onRegisterBlocksEvent(@Nonnull final RegistryEvent.Register<Block> event)
@@ -25,7 +28,8 @@ public class HSBlocks
         // BLOCKS
         registry.registerAll
             (
-                HSRegistry.setup(new HSBlock(), "block")
+                HSRegistry.setup(new HSBloodCrucible(), "blood_crucible"),
+                HSRegistry.setup(new HSSoulCrucible(), "soul_crucible")
             );
     }
 }
