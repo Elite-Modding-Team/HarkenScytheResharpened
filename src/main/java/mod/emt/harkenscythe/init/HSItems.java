@@ -1,7 +1,6 @@
 package mod.emt.harkenscythe.init;
 
 import javax.annotation.Nonnull;
-
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import mod.emt.harkenscythe.items.HSEssenceKeeperBlood;
@@ -61,24 +60,24 @@ public class HSItems
 
         // ITEMS
         registry.registerAll
-                (
-                        HSRegistry.setup(new HSEssenceKeeper(), "essence_keeper"),
-                        HSRegistry.setup(new HSEssenceKeeperBlood(), "essence_keeper_blood"),
-                        HSRegistry.setup(new HSEssenceKeeperSoul(), "essence_keeper_soul"),
-                        HSRegistry.setup(new HSEssenceVessel(), "essence_vessel"),
-                        HSRegistry.setup(new HSEssenceVesselBlood(), "essence_vessel_blood"),
-                        HSRegistry.setup(new HSEssenceVesselSoul(), "essence_vessel_soul"),
-                        HSRegistry.setup(new HSScythe(ToolMaterial.WOOD, 1.4F), "wooden_scythe"),
-                        HSRegistry.setup(new HSScythe(ToolMaterial.STONE, 1.4F), "stone_scythe"),
-                        HSRegistry.setup(new HSScythe(ToolMaterial.IRON, 1.4F), "iron_scythe"),
-                        HSRegistry.setup(new HSScythe(ToolMaterial.GOLD, 1.4F), "golden_scythe"),
-                        HSRegistry.setup(new HSScythe(ToolMaterial.DIAMOND, 1.4F), "diamond_scythe")
-                );
+            (
+                HSRegistry.setup(new HSEssenceKeeper(), "essence_keeper"),
+                HSRegistry.setup(new HSEssenceKeeperBlood(), "essence_keeper_blood"),
+                HSRegistry.setup(new HSEssenceKeeperSoul(), "essence_keeper_soul"),
+                HSRegistry.setup(new HSEssenceVessel(), "essence_vessel"),
+                HSRegistry.setup(new HSEssenceVesselBlood(), "essence_vessel_blood"),
+                HSRegistry.setup(new HSEssenceVesselSoul(), "essence_vessel_soul"),
+                HSRegistry.setup(new HSScythe(ToolMaterial.WOOD, 1.4F), "wooden_scythe"),
+                HSRegistry.setup(new HSScythe(ToolMaterial.STONE, 1.4F), "stone_scythe"),
+                HSRegistry.setup(new HSScythe(ToolMaterial.IRON, 1.4F), "iron_scythe"),
+                HSRegistry.setup(new HSScythe(ToolMaterial.GOLD, 1.4F), "golden_scythe"),
+                HSRegistry.setup(new HSScythe(ToolMaterial.DIAMOND, 1.4F), "diamond_scythe")
+            );
 
         // ITEM BLOCKS
         ForgeRegistries.BLOCKS.getValues().stream()
-                .filter(block -> block.getRegistryName().getNamespace().equals(HarkenScythe.MOD_ID))
-                .forEach(block -> registry.register(HSRegistry.setup(new ItemBlock(block), block.getRegistryName())));
+            .filter(block -> block.getRegistryName().getNamespace().equals(HarkenScythe.MOD_ID))
+            .forEach(block -> registry.register(HSRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
 
     @SideOnly(Side.CLIENT)

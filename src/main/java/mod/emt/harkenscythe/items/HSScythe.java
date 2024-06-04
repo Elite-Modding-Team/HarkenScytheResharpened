@@ -2,7 +2,6 @@ package mod.emt.harkenscythe.items;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
 import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,13 +23,39 @@ import net.minecraft.world.World;
 
 public class HSScythe extends ItemSword
 {
-    private float AttackSpeed;
+    private final float attackSpeed;
 
     public HSScythe(ToolMaterial material, float attackSpeedIn)
     {
         super(material);
         setCreativeTab(HarkenScythe.TAB);
-        AttackSpeed = attackSpeedIn;
+        attackSpeed = attackSpeedIn;
+    }
+
+    public float getAttackSpeed()
+    {
+        return attackSpeed;
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        ItemStack stack = player.getHeldItem(hand);
+        player.playSound(SoundEvents.ENTITY_PLAYER_BREATH, 0.8F, 0.9F);
+        player.setActiveHand(hand);
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+    }
+
+    @Override
+    public EnumAction getItemUseAction(ItemStack stack)
+    {
+        return EnumAction.BOW;
+    }
+
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack)
+    {
+        return 72000;
     }
 
     @Override
@@ -63,35 +88,14 @@ public class HSScythe extends ItemSword
     }
 
     @Override
-    public int getMaxItemUseDuration(ItemStack stack)
-    {
-        return 72000;
-    }
-
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack)
-    {
-        return EnumAction.BOW;
-    }
-
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
-    {
-        ItemStack stack = player.getHeldItem(hand);
-        player.playSound(SoundEvents.ENTITY_PLAYER_BREATH, 0.8F, 0.9F);
-        player.setActiveHand(hand);
-        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
-    }
-
-    @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
     {
-        Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
+        Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
         {
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Damage modifier", (double) this.getAttackDamage() + 3.0D, 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Speed modifier", (double) this.AttackSpeed - 4.0D, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Damage modifier", this.getAttackDamage() + 3.0D, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Speed modifier", this.attackSpeed - 4.0D, 0));
         }
 
         return multimap;
