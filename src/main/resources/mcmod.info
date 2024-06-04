@@ -1,0 +1,10 @@
+[
+  {
+    "modid": "harkenscythe",
+    "name": "Harken Scythe",
+    "description": "Reap -What- You -Sow-",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": ["ACGaming", "IcarussOne"]
+  }
+]
