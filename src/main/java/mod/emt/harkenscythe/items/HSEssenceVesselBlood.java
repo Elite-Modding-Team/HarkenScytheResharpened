@@ -5,5 +5,6 @@ public class HSEssenceVesselBlood extends HSEssenceKeeperBlood
     public HSEssenceVesselBlood()
     {
         super();
+        setMaxDamage(80);
     }
 }

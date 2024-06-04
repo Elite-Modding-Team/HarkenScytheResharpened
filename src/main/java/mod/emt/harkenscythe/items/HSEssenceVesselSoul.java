@@ -5,5 +5,6 @@ public class HSEssenceVesselSoul extends HSEssenceKeeperSoul
     public HSEssenceVesselSoul()
     {
         super();
+        setMaxDamage(40);
     }
 }

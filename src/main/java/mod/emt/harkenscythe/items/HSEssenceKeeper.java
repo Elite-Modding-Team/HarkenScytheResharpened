@@ -1,7 +1,6 @@
 package mod.emt.harkenscythe.items;
 
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.init.HSCreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

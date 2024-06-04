@@ -71,7 +71,7 @@ public class HSItems
         {
             if (item.getRegistryName().getNamespace().equals(HarkenScythe.MOD_ID))
             {
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
+                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
             }
         }
     }

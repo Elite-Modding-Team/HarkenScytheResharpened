@@ -2,5 +2,31 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "harkenscythe:items/essence_vessel"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "harkenscythe:level": 0.25
+      },
+      "model": "harkenscythe:item/essence_vessel_soul_025"
+    },
+    {
+      "predicate": {
+        "harkenscythe:level": 0.5
+      },
+      "model": "harkenscythe:item/essence_vessel_soul_050"
+    },
+    {
+      "predicate": {
+        "harkenscythe:level": 0.75
+      },
+      "model": "harkenscythe:item/essence_vessel_soul_075"
+    },
+    {
+      "predicate": {
+        "harkenscythe:level": 1
+      },
+      "model": "harkenscythe:item/essence_vessel_soul_100"
+    }
+  ]
 }
