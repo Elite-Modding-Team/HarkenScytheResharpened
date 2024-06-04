@@ -1,5 +1,7 @@
 package mod.emt.harkenscythe;
 
+import mod.emt.harkenscythe.init.HSCreativeTabs;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +17,7 @@ public class HarkenScythe
     public static final String VERSION = Tags.VERSION;
     public static final String ACCEPTED_VERSIONS = "[1.12.2]";
     public static final Logger LOGGER = LogManager.getLogger(NAME);
+    public static final CreativeTabs TAB = new HSCreativeTabs(CreativeTabs.CREATIVE_TAB_ARRAY.length, MOD_ID + ".tab");
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)

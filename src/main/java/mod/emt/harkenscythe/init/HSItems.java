@@ -2,7 +2,12 @@ package mod.emt.harkenscythe.init;
 
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.items.HSItem;
+import mod.emt.harkenscythe.items.HSEssenceKeeper;
+import mod.emt.harkenscythe.items.HSEssenceKeeperBlood;
+import mod.emt.harkenscythe.items.HSEssenceKeeperSoul;
+import mod.emt.harkenscythe.items.HSEssenceVessel;
+import mod.emt.harkenscythe.items.HSEssenceVesselBlood;
+import mod.emt.harkenscythe.items.HSEssenceVesselSoul;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -22,8 +27,18 @@ import net.minecraftforge.registries.IForgeRegistry;
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSItems
 {
-    @GameRegistry.ObjectHolder("item")
-    public static HSItem item;
+    @GameRegistry.ObjectHolder("essence_keeper")
+    public static HSEssenceKeeper essence_keeper;
+    @GameRegistry.ObjectHolder("essence_keeper_blood")
+    public static HSEssenceKeeperBlood essence_keeper_blood;
+    @GameRegistry.ObjectHolder("essence_keeper_soul")
+    public static HSEssenceKeeperSoul essence_keeper_soul;
+    @GameRegistry.ObjectHolder("essence_vessel")
+    public static HSEssenceVessel essence_vessel;
+    @GameRegistry.ObjectHolder("essence_vessel_blood")
+    public static HSEssenceVesselBlood essence_vessel_blood;
+    @GameRegistry.ObjectHolder("essence_vessel_soul")
+    public static HSEssenceVesselSoul essence_vessel_soul;
 
     @SubscribeEvent
     public static void onRegisterItemsEvent(@Nonnull final RegistryEvent.Register<Item> event)
@@ -33,7 +48,12 @@ public class HSItems
         // ITEMS
         registry.registerAll
             (
-                HSRegistry.setup(new HSItem(), "item")
+                HSRegistry.setup(new HSEssenceKeeper(), "essence_keeper"),
+                HSRegistry.setup(new HSEssenceKeeperBlood(), "essence_keeper_blood"),
+                HSRegistry.setup(new HSEssenceKeeperSoul(), "essence_keeper_soul"),
+                HSRegistry.setup(new HSEssenceVessel(), "essence_vessel"),
+                HSRegistry.setup(new HSEssenceVesselBlood(), "essence_vessel_blood"),
+                HSRegistry.setup(new HSEssenceVesselSoul(), "essence_vessel_soul")
             );
 
         // ITEM BLOCKS
