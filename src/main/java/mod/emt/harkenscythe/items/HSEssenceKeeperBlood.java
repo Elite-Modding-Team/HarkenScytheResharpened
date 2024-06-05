@@ -25,4 +25,11 @@ public class HSEssenceKeeperBlood extends HSEssenceKeeper
             }
         });
     }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean hasEffect(ItemStack stack)
+    {
+        return stack.getItemDamage() == 0;
+    }
 }
