@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.blocks;
 
 import java.util.Random;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import net.minecraft.block.BlockCauldron;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -9,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -28,98 +30,28 @@ public class HSSoulCrucible extends BlockCauldron
 
     }
 
-    // TODO: Works, but needs refactoring
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (world.isRemote)
-        {
-            return false;
-        }
+        if (world.isRemote) return false;
+
         ItemStack stack = player.getHeldItem(hand);
-        if (!stack.isEmpty())
+        if (stack.isEmpty()) return false;
+
+        Item item = stack.getItem();
+        if (!(item instanceof HSEssenceKeeper)) return false;
+
+        int level = state.getValue(LEVEL);
+        if (level < 3 && !player.isSneaking() && (item == HSItems.essence_keeper_soul || item == HSItems.essence_vessel_soul))
         {
-            int level = state.getValue(LEVEL);
-            Item item = stack.getItem();
-
-            if (item == HSItems.essence_keeper || item == HSItems.essence_vessel || item == HSItems.essence_keeper_soul || item == HSItems.essence_vessel_soul)
-            {
-                // Filling the crucible
-                if (level < 3 && !player.isSneaking())
-                {
-                    if (item == HSItems.essence_keeper_soul || item == HSItems.essence_vessel_soul)
-                    {
-                        if (!player.capabilities.isCreativeMode)
-                        {
-                            if (stack.getItemDamage() + 20 < stack.getMaxDamage())
-                            {
-                                stack.setItemDamage(stack.getItemDamage() + 20);
-                            }
-                            else if (item == HSItems.essence_keeper_soul)
-                            {
-                                stack.shrink(1);
-                                player.setHeldItem(hand, new ItemStack(HSItems.essence_keeper));
-                            }
-                            else if (item == HSItems.essence_vessel_soul)
-                            {
-                                stack.shrink(1);
-                                player.setHeldItem(hand, new ItemStack(HSItems.essence_vessel));
-                            }
-                        }
-
-                        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                        this.setWaterLevel(world, pos, state, level + 1);
-                    }
-                }
-                // Emptying the crucible
-                else if (level > 0 && player.isSneaking())
-                {
-                    if (!player.capabilities.isCreativeMode)
-                    {
-                        if (item == HSItems.essence_keeper || item == HSItems.essence_vessel)
-                        {
-                            stack.shrink(1);
-                            if (item == HSItems.essence_keeper)
-                            {
-                                ItemStack newEssenceKeeperSoul = new ItemStack(HSItems.essence_keeper_soul);
-                                player.setHeldItem(hand, newEssenceKeeperSoul);
-                            }
-                            else if (item == HSItems.essence_vessel)
-                            {
-                                ItemStack newEssenceVesselSoul = new ItemStack(HSItems.essence_vessel_soul);
-                                newEssenceVesselSoul.setItemDamage(newEssenceVesselSoul.getItemDamage() + 20);
-                                player.setHeldItem(hand, newEssenceVesselSoul);
-                            }
-                        }
-                        else if (item == HSItems.essence_keeper_soul || item == HSItems.essence_vessel_soul)
-                        {
-                            if (stack.getItemDamage() <= 0)
-                            {
-                                return false;
-                            }
-                            else if (stack.getItemDamage() - 20 < 0)
-                            {
-                                stack.setItemDamage(stack.getItemDamage() - 20);
-                            }
-                            else if (item == HSItems.essence_keeper_soul)
-                            {
-                                stack.shrink(1);
-                                player.setHeldItem(hand, new ItemStack(HSItems.essence_keeper_soul));
-                            }
-                            else if (item == HSItems.essence_vessel_soul)
-                            {
-                                stack.shrink(1);
-                                player.setHeldItem(hand, new ItemStack(HSItems.essence_vessel_soul));
-                            }
-                        }
-                    }
-                    world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    this.setWaterLevel(world, pos, state, level - 1);
-                }
-                return true;
-            }
+            fillCrucible(world, pos, state, player, hand, stack, item, level);
         }
-        return false;
+        else if (level > 0 && player.isSneaking())
+        {
+            emptyCrucible(world, pos, state, player, hand, stack, item, level);
+        }
+
+        return true;
     }
 
     @Override
@@ -138,5 +70,65 @@ public class HSSoulCrucible extends BlockCauldron
     public ItemStack getItem(World world, BlockPos pos, IBlockState state)
     {
         return new ItemStack(Item.getItemFromBlock(this));
+    }
+
+    private void fillCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack stack, Item item, int level)
+    {
+        if (!player.capabilities.isCreativeMode)
+        {
+            if (stack.getItemDamage() + 20 < stack.getMaxDamage())
+            {
+                stack.setItemDamage(stack.getItemDamage() + 20);
+            }
+            else
+            {
+                stack.shrink(1);
+                if (item == HSItems.essence_keeper_soul)
+                {
+                    player.setHeldItem(hand, new ItemStack(HSItems.essence_keeper));
+                }
+                else if (item == HSItems.essence_vessel_soul)
+                {
+                    player.setHeldItem(hand, new ItemStack(HSItems.essence_vessel));
+                }
+            }
+        }
+        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        setWaterLevel(world, pos, state, level + 1);
+        player.addStat(StatList.getObjectUseStats(item));
+    }
+
+    private void emptyCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack stack, Item item, int level)
+    {
+        if (!player.capabilities.isCreativeMode)
+        {
+            if (item == HSItems.essence_keeper || item == HSItems.essence_vessel)
+            {
+                stack.shrink(1);
+                ItemStack newStack = item == HSItems.essence_keeper ? new ItemStack(HSItems.essence_keeper_soul) : new ItemStack(HSItems.essence_vessel_soul);
+                if (item == HSItems.essence_vessel)
+                {
+                    newStack.setItemDamage(newStack.getMaxDamage() - 20);
+                }
+                player.setHeldItem(hand, newStack);
+            }
+            else if (item == HSItems.essence_keeper_soul || item == HSItems.essence_vessel_soul)
+            {
+                if (stack.getItemDamage() == 0) return;
+                if (stack.getItemDamage() > 0)
+                {
+                    stack.setItemDamage(stack.getItemDamage() - 20);
+                }
+                if (stack.getItemDamage() <= 0)
+                {
+                    stack.shrink(1);
+                    ItemStack newStack = item == HSItems.essence_keeper_soul ? new ItemStack(HSItems.essence_keeper_soul) : new ItemStack(HSItems.essence_vessel_soul);
+                    player.setHeldItem(hand, newStack);
+                }
+            }
+        }
+        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        setWaterLevel(world, pos, state, level - 1);
+        player.addStat(StatList.getObjectUseStats(item));
     }
 }
