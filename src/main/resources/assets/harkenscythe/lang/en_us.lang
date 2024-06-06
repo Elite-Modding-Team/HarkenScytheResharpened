@@ -4,6 +4,7 @@ itemGroup.harkenscythe.tab=Harken Scythe
 # BLOCKS
 tile.harkenscythe.blood_crucible.name=Blood Crucible
 tile.harkenscythe.soul_crucible.name=Soul Crucible
+tile.harkenscythe.soul_altar.name=Altar of Souls
 
 # ITEMS
 item.harkenscythe.diamond_scythe.name=Diamond Scythe

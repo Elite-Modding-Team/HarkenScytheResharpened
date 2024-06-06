@@ -1,5 +1,6 @@
 package mod.emt.harkenscythe.client.render;
 
+import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBook;
@@ -12,10 +13,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class HSSoulAltarRender extends TileEntitySpecialRenderer<HSSoulAltarTE>
 {
-    private static final ResourceLocation TEXTURE_BOOK = new ResourceLocation("textures/entity/enchanting_table_book.png");
+    private static final ResourceLocation TEXTURE_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_altar_book.png");
     private final ModelBook modelBook = new ModelBook();
 
     public void render(HSSoulAltarTE te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
