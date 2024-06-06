@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.items;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,7 +13,6 @@ public class HSEssenceKeeper extends Item
     public HSEssenceKeeper()
     {
         super();
-        setCreativeTab(HarkenScythe.TAB);
         setMaxStackSize(1);
     }
 

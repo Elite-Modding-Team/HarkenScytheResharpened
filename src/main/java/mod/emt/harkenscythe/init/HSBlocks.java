@@ -31,9 +31,9 @@ public class HSBlocks
         // BLOCKS
         registry.registerAll
             (
-                HSRegistry.setup(new HSBloodCrucible(), "blood_crucible"),
-                HSRegistry.setup(new HSSoulCrucible(), "soul_crucible"),
-                HSRegistry.setup(new HSSoulAltar(), "soul_altar")
+                HSRegistry.setup(new HSBloodCrucible(), "blood_crucible").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSoulCrucible(), "soul_crucible").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSoulAltar(), "soul_altar").setCreativeTab(HarkenScythe.TAB)
             );
     }
 }

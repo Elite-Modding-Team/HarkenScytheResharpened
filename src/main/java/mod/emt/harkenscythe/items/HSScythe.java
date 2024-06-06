@@ -2,7 +2,6 @@ package mod.emt.harkenscythe.items;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -28,7 +27,6 @@ public class HSScythe extends ItemSword
     public HSScythe(ToolMaterial material, float attackSpeedIn)
     {
         super(material);
-        setCreativeTab(HarkenScythe.TAB);
         attackSpeed = attackSpeedIn;
     }
 

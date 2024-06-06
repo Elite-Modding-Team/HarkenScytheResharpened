@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.items;
 
 import javax.annotation.Nullable;
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
@@ -31,5 +32,21 @@ public class HSEssenceKeeperSoul extends HSEssenceKeeper
     public boolean hasEffect(ItemStack stack)
     {
         return stack.getItemDamage() == 0;
+    }
+
+    @Override
+    public ItemStack getContainerItem(ItemStack stack)
+    {
+        if (!hasContainerItem(stack))
+        {
+            return ItemStack.EMPTY;
+        }
+        return new ItemStack(HSItems.essence_keeper);
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack)
+    {
+        return true;
     }
 }

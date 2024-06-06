@@ -3,7 +3,6 @@ package mod.emt.harkenscythe.blocks;
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import net.minecraft.block.Block;
@@ -41,7 +40,6 @@ public class HSBloodCrucible extends Block
     public HSBloodCrucible()
     {
         super(Material.IRON, MapColor.RED);
-        setCreativeTab(HarkenScythe.TAB);
         setDefaultState(blockState.getBaseState().withProperty(LEVEL, 0));
     }
 

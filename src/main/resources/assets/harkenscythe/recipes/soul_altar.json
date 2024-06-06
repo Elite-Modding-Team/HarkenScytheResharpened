@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " B ",
+    "EOE",
+    "OOO"
+  ],
+  "key": {
+    "B": {
+      "item": "harkenscythe:shadow_book"
+    },
+    "E": {
+      "type": "forge:ore_dict",
+      "ore": "enderpearl"
+    },
+    "O": {
+      "type": "forge:ore_dict",
+      "ore": "obsidian"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:soul_altar"
+  }
+}

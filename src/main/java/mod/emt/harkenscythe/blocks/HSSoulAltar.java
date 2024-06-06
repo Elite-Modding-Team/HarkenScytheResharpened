@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.blocks;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.block.BlockEnchantmentTable;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +16,6 @@ public class HSSoulAltar extends BlockEnchantmentTable
     public HSSoulAltar()
     {
         super();
-        setCreativeTab(HarkenScythe.TAB);
     }
 
     @Override
