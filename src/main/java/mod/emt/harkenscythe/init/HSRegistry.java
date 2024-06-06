@@ -3,18 +3,22 @@ package mod.emt.harkenscythe.init;
 import com.google.common.base.Preconditions;
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.render.HSSoulAltarRender;
 import mod.emt.harkenscythe.entities.HSSoul;
 import mod.emt.harkenscythe.entities.render.HSSoulRender;
+import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -54,10 +58,22 @@ public class HSRegistry
         );
     }
 
+    public static void registerTileEntities()
+    {
+        GameRegistry.registerTileEntity(HSSoulAltarTE.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
+    }
+
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
         RenderingRegistry.registerEntityRenderingHandler(HSSoul.class, new HSSoulRender.Factory());
+    }
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public static void registerTESRs(RegistryEvent<Block> event)
+    {
+        ClientRegistry.bindTileEntitySpecialRenderer(HSSoulAltarTE.class, new HSSoulAltarRender());
     }
 }

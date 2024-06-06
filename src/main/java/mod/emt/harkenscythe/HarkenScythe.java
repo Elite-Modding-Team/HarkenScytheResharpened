@@ -1,6 +1,7 @@
 package mod.emt.harkenscythe;
 
 import mod.emt.harkenscythe.init.HSCreativeTabs;
+import mod.emt.harkenscythe.init.HSRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -22,6 +23,7 @@ public class HarkenScythe
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        HSRegistry.registerTileEntities();
         LOGGER.info(NAME + " initialized");
     }
 }
