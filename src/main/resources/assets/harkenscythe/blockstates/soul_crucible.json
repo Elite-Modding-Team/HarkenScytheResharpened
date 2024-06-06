@@ -2,7 +2,14 @@
   "variants": {
     "level=0": {"model": "harkenscythe:soul_crucible_empty"},
     "level=1": {"model": "harkenscythe:soul_crucible_level1"},
-    "level=2": {"model": "harkenscythe:soul_crucible_level2"},
-    "level=3": {"model": "harkenscythe:soul_crucible_level3"}
+    "level=2": {"model": "harkenscythe:soul_crucible_level1"},
+    "level=3": {"model": "harkenscythe:soul_crucible_level1"},
+    "level=4": {"model": "harkenscythe:soul_crucible_level1"},
+    "level=5": {"model": "harkenscythe:soul_crucible_level2"},
+    "level=6": {"model": "harkenscythe:soul_crucible_level2"},
+    "level=7": {"model": "harkenscythe:soul_crucible_level2"},
+    "level=8": {"model": "harkenscythe:soul_crucible_level2"},
+    "level=9": {"model": "harkenscythe:soul_crucible_level3"},
+    "level=10": {"model": "harkenscythe:soul_crucible_level3"}
   }
 }
