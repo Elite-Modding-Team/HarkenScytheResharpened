@@ -16,6 +16,6 @@ public class HSCreativeTabs extends CreativeTabs
     @SideOnly(Side.CLIENT)
     public ItemStack createIcon()
     {
-        return new ItemStack(HSItems.essence_keeper, 1);
+        return new ItemStack(HSItems.iron_scythe, 1);
     }
 }
