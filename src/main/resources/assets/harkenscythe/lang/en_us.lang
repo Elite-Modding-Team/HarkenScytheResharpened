@@ -19,3 +19,6 @@ item.harkenscythe.iron_scythe.name=Iron Scythe
 item.harkenscythe.stone_scythe.name=Stone Scythe
 item.harkenscythe.wooden_scythe.name=Wooden Scythe
 item.harkenscythe.shadow_book.name=Book of Shadows
+
+# MESSAGES
+message.harkenscythe.hs_reap=%s was reaped

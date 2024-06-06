@@ -5,9 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class HSCreativeTabs extends CreativeTabs
+public class HSCreativeTab extends CreativeTabs
 {
-    public HSCreativeTabs(int length, String name)
+    public HSCreativeTab(int length, String name)
     {
         super(length, name);
     }

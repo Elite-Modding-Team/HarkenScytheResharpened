@@ -5,6 +5,7 @@ import mod.emt.harkenscythe.entities.HSSoul;
 import mod.emt.harkenscythe.items.HSScythe;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +19,8 @@ public class HSLivingDeathEvent
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
-        if (!world.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer)
+        DamageSource damageSource = event.getSource();
+        if (!world.isRemote && damageSource.getTrueSource() instanceof EntityPlayer && damageSource.getDamageType().equals("hs_reap"))
         {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             if (player.getHeldItemMainhand().getItem() instanceof HSScythe)

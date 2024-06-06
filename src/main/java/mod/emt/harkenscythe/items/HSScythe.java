@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.items;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import mod.emt.harkenscythe.init.HSDamageSource;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,7 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -28,11 +28,6 @@ public class HSScythe extends ItemSword
     {
         super(material);
         attackSpeed = attackSpeedIn;
-    }
-
-    public float getAttackSpeed()
-    {
-        return attackSpeed;
     }
 
     @Override
@@ -70,7 +65,7 @@ public class HSScythe extends ItemSword
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F)
             {
                 // Damage x 2 (Mojang is very strange with damage values...)
-                entityInAABB.attackEntityFrom(DamageSource.causeMobDamage(entityLiving), damage * 2);
+                entityInAABB.attackEntityFrom(new HSDamageSource("hs_reap", entityLiving), damage * 2);
             }
         }
 
