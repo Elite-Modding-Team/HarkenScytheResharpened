@@ -7,6 +7,7 @@ tile.harkenscythe.soul_crucible.name=Soul Crucible
 tile.harkenscythe.soul_altar.name=Altar of Souls
 
 # ITEMS
+item.harkenscythe.diamond_glaive.name=Diamond Glaive
 item.harkenscythe.diamond_scythe.name=Diamond Scythe
 item.harkenscythe.essence_keeper.name=Essence Keeper
 item.harkenscythe.essence_keeper_blood.name=Blood Keeper
@@ -14,11 +15,15 @@ item.harkenscythe.essence_keeper_soul.name=Soul Keeper
 item.harkenscythe.essence_vessel.name=Essence Vessel
 item.harkenscythe.essence_vessel_blood.name=Blood Vessel
 item.harkenscythe.essence_vessel_soul.name=Soul Vessel
+item.harkenscythe.golden_glaive.name=Golden Glaive
 item.harkenscythe.golden_scythe.name=Golden Scythe
+item.harkenscythe.iron_glaive.name=Iron Glaive
 item.harkenscythe.iron_scythe.name=Iron Scythe
-item.harkenscythe.stone_scythe.name=Stone Scythe
-item.harkenscythe.wooden_scythe.name=Wooden Scythe
 item.harkenscythe.shadow_book.name=Book of Shadows
+item.harkenscythe.stone_glaive.name=Stone Glaive
+item.harkenscythe.stone_scythe.name=Stone Scythe
+item.harkenscythe.wooden_glaive.name=Wooden Glaive
+item.harkenscythe.wooden_scythe.name=Wooden Scythe
 
 # MESSAGES
 message.harkenscythe.hs_reap=%s was reaped

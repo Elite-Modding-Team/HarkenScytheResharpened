@@ -8,6 +8,7 @@ import mod.emt.harkenscythe.items.HSEssenceKeeperSoul;
 import mod.emt.harkenscythe.items.HSEssenceVessel;
 import mod.emt.harkenscythe.items.HSEssenceVesselBlood;
 import mod.emt.harkenscythe.items.HSEssenceVesselSoul;
+import mod.emt.harkenscythe.items.HSGlaive;
 import mod.emt.harkenscythe.items.HSScythe;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -52,6 +53,17 @@ public class HSItems
     public static HSScythe golden_scythe;
     @GameRegistry.ObjectHolder("diamond_scythe")
     public static HSScythe diamond_scythe;
+    
+    @GameRegistry.ObjectHolder("wooden_glaive")
+    public static HSGlaive wooden_glaive;
+    @GameRegistry.ObjectHolder("stone_glaive")
+    public static HSGlaive stone_glaive;
+    @GameRegistry.ObjectHolder("iron_glaive")
+    public static HSGlaive iron_glaive;
+    @GameRegistry.ObjectHolder("golden_glaive")
+    public static HSGlaive golden_glaive;
+    @GameRegistry.ObjectHolder("diamond_glaive")
+    public static HSGlaive diamond_glaive;
 
     @GameRegistry.ObjectHolder("shadow_book")
     public static Item shadow_book;
@@ -75,6 +87,11 @@ public class HSItems
                 HSRegistry.setup(new HSScythe(ToolMaterial.IRON, 1.4F), "iron_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSScythe(ToolMaterial.GOLD, 1.4F), "golden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSScythe(ToolMaterial.DIAMOND, 1.4F), "diamond_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.WOOD, 1.4F), "wooden_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.STONE, 1.4F), "stone_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.IRON, 1.4F), "iron_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.GOLD, 1.4F), "golden_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.DIAMOND, 1.4F), "diamond_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new Item(), "shadow_book").setCreativeTab(HarkenScythe.TAB)
             );
 

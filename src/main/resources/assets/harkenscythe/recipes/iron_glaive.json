@@ -1,21 +1,21 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "N N",
-    "NEN",
-    "NNN"
+    " MM",
+    "MSM",
+    "SM "
   ],
   "key": {
-    "N": {
+    "M": {
       "type": "forge:ore_dict",
-      "ore": "netherrack"
+      "ore": "ingotIron"
     },
-    "E": {
+    "S": {
       "type": "forge:ore_dict",
-      "ore": "enderpearl"
+      "ore": "stickWood"
     }
   },
   "result": {
-    "item": "harkenscythe:blood_crucible"
+    "item": "harkenscythe:iron_glaive"
   }
 }
