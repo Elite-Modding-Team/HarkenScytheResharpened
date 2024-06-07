@@ -4,10 +4,12 @@ import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.block.BlockEnchantmentTable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -57,11 +59,13 @@ public class HSSoulAltar extends BlockEnchantmentTable
                 if (altarItem.isEmpty())
                 {
                     altar.setItem(heldItem.splitStack(1));
+                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
                 else if (altarItem.getMaxStackSize() > altarItem.getCount() && ItemStack.areItemsEqual(altarItem, heldItem) && ItemStack.areItemStackTagsEqual(altarItem, heldItem))
                 {
                     heldItem.shrink(1);
+                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altarItem.grow(1);
                     return true;
                 }
@@ -72,6 +76,7 @@ public class HSSoulAltar extends BlockEnchantmentTable
                 if (!itemStack.isEmpty())
                 {
                     player.addItemStackToInventory(itemStack);
+                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altar.setItem(ItemStack.EMPTY);
                     return true;
                 }
