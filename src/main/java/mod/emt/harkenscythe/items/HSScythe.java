@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.stats.StatList;
@@ -23,11 +24,13 @@ import net.minecraft.world.World;
 public class HSScythe extends ItemSword
 {
     private final float attackSpeed;
+    EnumRarity rarity;
 
-    public HSScythe(ToolMaterial material, float attackSpeedIn)
+    public HSScythe(ToolMaterial material, float attackSpeed, EnumRarity rarity)
     {
         super(material);
-        attackSpeed = attackSpeedIn;
+        this.attackSpeed = attackSpeed;
+        this.rarity = rarity;
     }
 
     @Override
@@ -92,5 +95,11 @@ public class HSScythe extends ItemSword
         }
 
         return multimap;
+    }
+    
+    @Override
+    public EnumRarity getRarity(ItemStack stack)
+    {
+        return rarity;
     }
 }

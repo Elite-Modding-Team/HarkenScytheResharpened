@@ -2,6 +2,8 @@ package mod.emt.harkenscythe.init;
 
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.items.HSArmor;
+import mod.emt.harkenscythe.items.HSAxe;
 import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import mod.emt.harkenscythe.items.HSEssenceKeeperBlood;
 import mod.emt.harkenscythe.items.HSEssenceKeeperSoul;
@@ -9,13 +11,24 @@ import mod.emt.harkenscythe.items.HSEssenceVessel;
 import mod.emt.harkenscythe.items.HSEssenceVesselBlood;
 import mod.emt.harkenscythe.items.HSEssenceVesselSoul;
 import mod.emt.harkenscythe.items.HSGlaive;
+import mod.emt.harkenscythe.items.HSHoe;
+import mod.emt.harkenscythe.items.HSItem;
+import mod.emt.harkenscythe.items.HSPickaxe;
 import mod.emt.harkenscythe.items.HSScythe;
+import mod.emt.harkenscythe.items.HSShovel;
+import mod.emt.harkenscythe.items.HSSword;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -65,8 +78,33 @@ public class HSItems
     @GameRegistry.ObjectHolder("diamond_glaive")
     public static HSGlaive diamond_glaive;
 
+    @GameRegistry.ObjectHolder("carnage_book")
+    public static HSItem carnage_book;
     @GameRegistry.ObjectHolder("shadow_book")
-    public static Item shadow_book;
+    public static HSItem shadow_book;
+    
+    @GameRegistry.ObjectHolder("livingmetal_ingot")
+    public static HSItem livingmetal_ingot;
+    @GameRegistry.ObjectHolder("livingmetal_shovel")
+    public static HSShovel livingmetal_shovel;
+    @GameRegistry.ObjectHolder("livingmetal_pickaxe")
+    public static HSPickaxe livingmetal_pickaxe;
+    @GameRegistry.ObjectHolder("livingmetal_axe")
+    public static HSAxe livingmetal_axe;
+    @GameRegistry.ObjectHolder("livingmetal_hoe")
+    public static HSHoe livingmetal_hoe;
+    @GameRegistry.ObjectHolder("livingmetal_helmet")
+    public static HSArmor livingmetal_helmet;
+    @GameRegistry.ObjectHolder("livingmetal_chestplate")
+    public static HSArmor livingmetal_chestplate;
+    @GameRegistry.ObjectHolder("livingmetal_leggings")
+    public static HSArmor livingmetal_leggings;
+    @GameRegistry.ObjectHolder("livingmetal_boots")
+    public static HSArmor livingmetal_boots;
+
+    public static ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("livingmetal", "livingmetal", 26, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.5F).setRepairItem(new ItemStack(livingmetal_ingot));
+    
+    public static ToolMaterial TOOL_LIVINGMETAL = EnumHelper.addToolMaterial("livingmetal", 3, 521, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(livingmetal_ingot));
 
     @SubscribeEvent
     public static void onRegisterItemsEvent(@Nonnull final RegistryEvent.Register<Item> event)
@@ -82,17 +120,30 @@ public class HSItems
                 HSRegistry.setup(new HSEssenceVessel(), "essence_vessel").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSEssenceVesselBlood(), "essence_vessel_blood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSEssenceVesselSoul(), "essence_vessel_soul").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSScythe(ToolMaterial.WOOD, 1.4F), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSScythe(ToolMaterial.STONE, 1.4F), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSScythe(ToolMaterial.IRON, 1.4F), "iron_scythe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSScythe(ToolMaterial.GOLD, 1.4F), "golden_scythe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSScythe(ToolMaterial.DIAMOND, 1.4F), "diamond_scythe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSGlaive(ToolMaterial.WOOD, 1.4F), "wooden_glaive").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSGlaive(ToolMaterial.STONE, 1.4F), "stone_glaive").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSGlaive(ToolMaterial.IRON, 1.4F), "iron_glaive").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSGlaive(ToolMaterial.GOLD, 1.4F), "golden_glaive").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSGlaive(ToolMaterial.DIAMOND, 1.4F), "diamond_glaive").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new Item(), "shadow_book").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSScythe(ToolMaterial.GOLD, 1.4F, EnumRarity.COMMON), "golden_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSScythe(ToolMaterial.DIAMOND, 1.4F, EnumRarity.COMMON), "diamond_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSScythe(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.GOLD, 1.4F, EnumRarity.COMMON), "golden_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(ToolMaterial.DIAMOND, 1.4F, EnumRarity.COMMON), "diamond_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSGlaive(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "carnage_book").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "shadow_book").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "livingmetal_ingot").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSword(TOOL_LIVINGMETAL, EnumRarity.UNCOMMON), "livingmetal_sword").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSShovel(TOOL_LIVINGMETAL, EnumRarity.UNCOMMON), "livingmetal_shovel").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSPickaxe(TOOL_LIVINGMETAL, EnumRarity.UNCOMMON), "livingmetal_pickaxe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSAxe(TOOL_LIVINGMETAL, 9.0F, 1.0F, EnumRarity.UNCOMMON), "livingmetal_axe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSHoe(TOOL_LIVINGMETAL, EnumRarity.UNCOMMON), "livingmetal_hoe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON), "livingmetal_helmet").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON), "livingmetal_chestplate").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON), "livingmetal_leggings").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON), "livingmetal_boots").setCreativeTab(HarkenScythe.TAB)
             );
 
         // ITEM BLOCKS

@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " MM",
+    "MSM",
+    "SM "
+  ],
+  "key": {
+    "M": {
+      "item": "harkenscythe:livingmetal_ingot"
+    },
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:livingmetal_glaive"
+  }
+}

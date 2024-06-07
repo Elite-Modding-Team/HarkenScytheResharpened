@@ -7,6 +7,7 @@ tile.harkenscythe.soul_crucible.name=Soul Crucible
 tile.harkenscythe.soul_altar.name=Altar of Souls
 
 # ITEMS
+item.harkenscythe.carnage_book.name=Book of Carnage
 item.harkenscythe.diamond_glaive.name=Diamond Glaive
 item.harkenscythe.diamond_scythe.name=Diamond Scythe
 item.harkenscythe.essence_keeper.name=Essence Keeper
@@ -19,6 +20,18 @@ item.harkenscythe.golden_glaive.name=Golden Glaive
 item.harkenscythe.golden_scythe.name=Golden Scythe
 item.harkenscythe.iron_glaive.name=Iron Glaive
 item.harkenscythe.iron_scythe.name=Iron Scythe
+item.harkenscythe.livingmetal_axe.name=Livingmetal Axe
+item.harkenscythe.livingmetal_boots.name=Livingmetal Boots
+item.harkenscythe.livingmetal_chestplate.name=Livingmetal Chestplate
+item.harkenscythe.livingmetal_glaive.name=Livingmetal Glaive
+item.harkenscythe.livingmetal_helmet.name=Livingmetal Helmet
+item.harkenscythe.livingmetal_hoe.name=Livingmetal Hoe
+item.harkenscythe.livingmetal_ingot.name=Livingmetal Ingot
+item.harkenscythe.livingmetal_leggings.name=Livingmetal Leggings
+item.harkenscythe.livingmetal_pickaxe.name=Livingmetal Pickaxe
+item.harkenscythe.livingmetal_scythe.name=Livingmetal Scythe
+item.harkenscythe.livingmetal_shovel.name=Livingmetal Shovel
+item.harkenscythe.livingmetal_sword.name=Livingmetal Sword
 item.harkenscythe.shadow_book.name=Book of Shadows
 item.harkenscythe.stone_glaive.name=Stone Glaive
 item.harkenscythe.stone_scythe.name=Stone Scythe
