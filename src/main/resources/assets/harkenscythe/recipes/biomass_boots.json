@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "M M",
+    "M M"
+  ],
+  "key": {
+    "M": {
+      "item": "harkenscythe:biomass"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:biomass_boots"
+  }
+}

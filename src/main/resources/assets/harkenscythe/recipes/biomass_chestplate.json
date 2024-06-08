@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "harkenscythe:biomass"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:biomass_chestplate"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "MM",
+    " S",
+    " S"
+  ],
+  "key": {
+    "M": {
+      "item": "harkenscythe:biomass"
+    },
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:biomass_hoe"
+  }
+}

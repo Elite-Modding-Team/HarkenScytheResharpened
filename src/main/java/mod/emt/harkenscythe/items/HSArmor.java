@@ -27,6 +27,16 @@ public class HSArmor extends ItemArmor
             return new ResourceLocation(HarkenScythe.MOD_ID, "textures/models/armor/livingmetal_2.png").toString();
         }
         
+        if (stack.getItem() == HSItems.biomass_helmet || stack.getItem() == HSItems.biomass_chestplate || stack.getItem() == HSItems.biomass_boots)
+        {
+            return new ResourceLocation(HarkenScythe.MOD_ID, "textures/models/armor/biomass_1.png").toString();
+        }
+        
+        if (stack.getItem() == HSItems.biomass_leggings)
+        {
+            return new ResourceLocation(HarkenScythe.MOD_ID, "textures/models/armor/biomass_2.png").toString();
+        }
+        
 		return new ResourceLocation(HarkenScythe.MOD_ID, "textures/models/armor/livingmetal_1.png").toString();
     }
 
