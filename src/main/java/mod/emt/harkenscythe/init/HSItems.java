@@ -3,6 +3,8 @@ package mod.emt.harkenscythe.init;
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.items.HSArmor;
+import mod.emt.harkenscythe.items.HSBiomassSeedGerminated;
+import mod.emt.harkenscythe.items.HSCreepball;
 import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import mod.emt.harkenscythe.items.HSEssenceKeeperBlood;
 import mod.emt.harkenscythe.items.HSEssenceKeeperSoul;
@@ -10,6 +12,7 @@ import mod.emt.harkenscythe.items.HSEssenceVessel;
 import mod.emt.harkenscythe.items.HSEssenceVesselBlood;
 import mod.emt.harkenscythe.items.HSEssenceVesselSoul;
 import mod.emt.harkenscythe.items.HSItem;
+import mod.emt.harkenscythe.items.HSNecronomicon;
 import mod.emt.harkenscythe.items.tools.HSAxe;
 import mod.emt.harkenscythe.items.tools.HSGlaive;
 import mod.emt.harkenscythe.items.tools.HSHoe;
@@ -77,12 +80,27 @@ public class HSItems
     public static HSGlaive golden_glaive;
     @GameRegistry.ObjectHolder("diamond_glaive")
     public static HSGlaive diamond_glaive;
+    
+    @GameRegistry.ObjectHolder("blood_essence")
+    public static HSItem blood_essence;
+    @GameRegistry.ObjectHolder("soul_essence")
+    public static HSItem soul_essence;
 
+    @GameRegistry.ObjectHolder("ancient_necronomicon")
+    public static HSNecronomicon ancient_necronomicon;
+    @GameRegistry.ObjectHolder("ancient_necronomicon_page")
+    public static HSItem ancient_necronomicon_page;
     @GameRegistry.ObjectHolder("carnage_book")
     public static HSItem carnage_book;
     @GameRegistry.ObjectHolder("shadow_book")
     public static HSItem shadow_book;
 
+    @GameRegistry.ObjectHolder("creepball")
+    public static HSCreepball creepball;
+    @GameRegistry.ObjectHolder("biomass_seed")
+    public static HSItem biomass_seed;
+    @GameRegistry.ObjectHolder("germinated_biomass_seed")
+    public static HSBiomassSeedGerminated germinated_biomass_seed;
     @GameRegistry.ObjectHolder("biomass")
     public static HSItem biomass;
     @GameRegistry.ObjectHolder("biomass_sword")
@@ -159,8 +177,15 @@ public class HSItems
                 HSRegistry.setup(new HSGlaive(ToolMaterial.DIAMOND, 1.4F, EnumRarity.COMMON), "diamond_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(TOOL_BIOMASS, 1.45F, EnumRarity.UNCOMMON), "biomass_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_glaive").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blood_essence").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "soul_essence").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSNecronomicon(), "ancient_necronomicon").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "ancient_necronomicon_page").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "carnage_book").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "shadow_book").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSCreepball(), "creepball").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "biomass_seed").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBiomassSeedGerminated(), "germinated_biomass_seed").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "biomass").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSword(TOOL_BIOMASS, EnumRarity.UNCOMMON), "biomass_sword").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSShovel(TOOL_BIOMASS, EnumRarity.UNCOMMON), "biomass_shovel").setCreativeTab(HarkenScythe.TAB),

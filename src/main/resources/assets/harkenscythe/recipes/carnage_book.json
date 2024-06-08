@@ -1,26 +1,22 @@
 {
-  "type": "forge:ore_shaped",
-  "pattern": [
-    "BF",
-    "GS"
-  ],
-  "key": {
-    "B": {
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
       "item": "minecraft:book"
     },
-    "F": {
+    {
       "type": "forge:ore_dict",
       "ore": "feather"
     },
-    "G": {
+    {
       "type": "forge:ore_dict",
       "ore": "ingotGold"
     },
-    "S": {
+    {
       "item": "harkenscythe:essence_keeper_blood",
       "data": 0
     }
-  },
+  ],
   "result": {
     "item": "harkenscythe:carnage_book"
   }

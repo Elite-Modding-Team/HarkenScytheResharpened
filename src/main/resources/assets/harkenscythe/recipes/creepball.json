@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "RER",
+    "ESE",
+    "RER"
+  ],
+  "key": {
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "slimeball"
+    },
+    "E": {
+      "item": "minecraft:spider_eye"
+    },
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:creepball"
+  }
+}

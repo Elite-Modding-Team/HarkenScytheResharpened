@@ -1,0 +1,19 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropNetherWart"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "netherrack"
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:biomass_seed"
+  }
+}
