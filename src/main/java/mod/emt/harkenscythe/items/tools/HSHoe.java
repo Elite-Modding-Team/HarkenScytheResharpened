@@ -1,14 +1,14 @@
-package mod.emt.harkenscythe.items;
+package mod.emt.harkenscythe.items.tools;
 
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 
-public class HSPickaxe extends ItemPickaxe
+public class HSHoe extends ItemHoe
 {
     EnumRarity rarity;
 
-    public HSPickaxe(ToolMaterial material, EnumRarity rarity)
+    public HSHoe(ToolMaterial material, EnumRarity rarity)
     {
         super(material);
         this.rarity = rarity;

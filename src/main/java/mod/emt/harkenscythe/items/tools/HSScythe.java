@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.items;
+package mod.emt.harkenscythe.items.tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -21,12 +21,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class HSGlaive extends ItemSword
+public class HSScythe extends ItemSword
 {
     private final float attackSpeed;
     private final EnumRarity rarity;
 
-    public HSGlaive(ToolMaterial material, float attackSpeed, EnumRarity rarity)
+    public HSScythe(ToolMaterial material, float attackSpeed, EnumRarity rarity)
     {
         super(material);
         this.attackSpeed = attackSpeed;
@@ -54,7 +54,6 @@ public class HSGlaive extends ItemSword
         return 72000;
     }
 
-    // TODO: The glaive does not use an AoE attack, it will only be able to attack one entity at a time but does armor piercing damage
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft)
     {
@@ -77,6 +76,7 @@ public class HSGlaive extends ItemSword
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
             player.swingArm(EnumHand.MAIN_HAND);
+            player.spawnSweepParticles();
             player.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
             stack.damageItem(2, player);
             player.addStat(StatList.getObjectUseStats(this));

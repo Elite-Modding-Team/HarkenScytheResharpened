@@ -1,16 +1,16 @@
-package mod.emt.harkenscythe.items;
+package mod.emt.harkenscythe.items.tools;
 
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 
-public class HSSword extends ItemSword
+public class HSAxe extends ItemAxe
 {
     EnumRarity rarity;
 
-    public HSSword(ToolMaterial material, EnumRarity rarity)
+    public HSAxe(ToolMaterial material, float damage, float speed, EnumRarity rarity)
     {
-        super(material);
+        super(material, damage, speed);
         this.rarity = rarity;
     }
 

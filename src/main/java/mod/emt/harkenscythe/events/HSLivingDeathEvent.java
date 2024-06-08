@@ -2,7 +2,7 @@ package mod.emt.harkenscythe.events;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entities.HSSoul;
-import mod.emt.harkenscythe.items.HSScythe;
+import mod.emt.harkenscythe.items.tools.HSScythe;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
