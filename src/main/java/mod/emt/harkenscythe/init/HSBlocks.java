@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
+@SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSBlocks

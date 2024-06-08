@@ -41,7 +41,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "unused"})
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSItems
