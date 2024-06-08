@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class HSItem extends Item
 {
-    EnumRarity rarity;
+    private final EnumRarity rarity;
 
     public HSItem(EnumRarity rarity)
     {

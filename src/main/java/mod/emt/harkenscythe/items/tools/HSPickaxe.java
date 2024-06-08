@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class HSPickaxe extends ItemPickaxe
 {
-    EnumRarity rarity;
+    private final EnumRarity rarity;
 
     public HSPickaxe(ToolMaterial material, EnumRarity rarity)
     {

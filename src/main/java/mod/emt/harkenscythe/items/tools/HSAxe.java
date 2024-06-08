@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class HSAxe extends ItemAxe
 {
-    EnumRarity rarity;
+    private final EnumRarity rarity;
 
     public HSAxe(ToolMaterial material, float damage, float speed, EnumRarity rarity)
     {

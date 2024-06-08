@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class HSShovel extends ItemSpade
 {
-    EnumRarity rarity;
+    private final EnumRarity rarity;
 
     public HSShovel(ToolMaterial material, EnumRarity rarity)
     {

@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class HSHoe extends ItemHoe
 {
-    EnumRarity rarity;
+    private final EnumRarity rarity;
 
     public HSHoe(ToolMaterial material, EnumRarity rarity)
     {

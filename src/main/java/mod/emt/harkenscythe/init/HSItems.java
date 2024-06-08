@@ -80,7 +80,7 @@ public class HSItems
     public static HSGlaive golden_glaive;
     @GameRegistry.ObjectHolder("diamond_glaive")
     public static HSGlaive diamond_glaive;
-    
+
     @GameRegistry.ObjectHolder("blood_essence")
     public static HSItem blood_essence;
     @GameRegistry.ObjectHolder("soul_essence")

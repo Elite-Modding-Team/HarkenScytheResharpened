@@ -6,7 +6,7 @@ import net.minecraft.item.ItemSword;
 
 public class HSSword extends ItemSword
 {
-    EnumRarity rarity;
+    private final EnumRarity rarity;
 
     public HSSword(ToolMaterial material, EnumRarity rarity)
     {
