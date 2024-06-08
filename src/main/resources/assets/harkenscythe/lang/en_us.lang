@@ -36,6 +36,7 @@ item.harkenscythe.essence_vessel_soul.name=Soul Vessel
 item.harkenscythe.germinated_biomass_seed.name=Germinated Biomass Seed
 item.harkenscythe.golden_glaive.name=Golden Glaive
 item.harkenscythe.golden_scythe.name=Golden Scythe
+item.harkenscythe.harken_athame.name=Harken Athame
 item.harkenscythe.iron_glaive.name=Iron Glaive
 item.harkenscythe.iron_scythe.name=Iron Scythe
 item.harkenscythe.livingmetal_axe.name=Livingmetal Axe
@@ -59,3 +60,7 @@ item.harkenscythe.wooden_scythe.name=Wooden Scythe
 
 # MESSAGES
 message.harkenscythe.hs_reap=%s was reaped
+
+# TOOLTIPS
+tooltip.harkenscythe.altar=Requires a Harken Athame for rituals
+tooltip.harkenscythe.athame=An Iron Sword could develop magical abilities if it comes into contact with blood or souls...

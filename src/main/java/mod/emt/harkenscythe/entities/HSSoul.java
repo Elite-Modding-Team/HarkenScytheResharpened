@@ -1,9 +1,13 @@
 package mod.emt.harkenscythe.entities;
 
+import java.util.List;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,11 +22,40 @@ public class HSSoul extends Entity
     public HSSoul(World worldIn)
     {
         super(worldIn);
-        this.setSize(0.8F, 2.0F);
+        this.setSize(1.5F, 2.0F);
     }
 
     @Override
     protected void entityInit() {}
+
+    @Override
+    public void onEntityUpdate()
+    {
+        super.onEntityUpdate();
+        if (this.ticksExisted % 20 == 19)
+        {
+            List<EntityItem> list = this.world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox());
+            if (!list.isEmpty())
+            {
+                for (EntityItem entityItem : list)
+                {
+                    if (!entityItem.isDead && entityItem.getItem().getItem() == Items.IRON_SWORD)
+                    {
+                        this.world.playSound(null, this.getPosition(), HSSoundEvents.ITEM_ATHAME_CREATE, SoundCategory.PLAYERS, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
+                        this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
+                        entityItem.setDead();
+                        this.setDead();
+                        if (!this.world.isRemote)
+                        {
+                            ItemStack athame = new ItemStack(HSItems.harken_athame);
+                            athame.setItemDamage(entityItem.getItem().getItemDamage());
+                            this.world.spawnEntity(new EntityItem(this.world, this.posX, this.posY, this.posZ, athame));
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     @Override
     protected boolean canTriggerWalking()

@@ -1,0 +1,7 @@
+{
+  "item.athame.create": {
+    "sounds": [
+      "harkenscythe:athame"
+    ]
+  }
+}

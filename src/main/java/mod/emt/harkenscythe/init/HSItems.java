@@ -143,6 +143,9 @@ public class HSItems
     @GameRegistry.ObjectHolder("livingmetal_boots")
     public static HSArmor livingmetal_boots;
 
+    @GameRegistry.ObjectHolder("harken_athame")
+    public static HSSword harken_athame;
+
     public static ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("biomass", "biomass", 14, new int[] {1, 4, 5, 2}, 17, SoundEvents.BLOCK_SLIME_PLACE, 0.5F).setRepairItem(new ItemStack(biomass));
     public static ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(livingmetal_ingot));
 
@@ -205,7 +208,8 @@ public class HSItems
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON), "livingmetal_helmet").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON), "livingmetal_chestplate").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON), "livingmetal_leggings").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON), "livingmetal_boots").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON), "livingmetal_boots").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSword(ToolMaterial.IRON, EnumRarity.UNCOMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB)
             );
 
         // ITEM BLOCKS
