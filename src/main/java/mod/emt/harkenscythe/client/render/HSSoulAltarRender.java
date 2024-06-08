@@ -57,19 +57,21 @@ public class HSSoulAltarRender extends TileEntitySpecialRenderer<HSSoulAltarTE>
         GlStateManager.popAttrib();
         GlStateManager.popMatrix();
 
-        String soulsText = "Souls: " + te.soulCount;
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
-        GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
-        GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
-        GlStateManager.scale(-0.025f, -0.025f, 0.025f);
-        GlStateManager.disableLighting();
-        Minecraft.getMinecraft().fontRenderer.drawString(soulsText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(soulsText) / 2, 0, 0xFFFFFF);
-        GlStateManager.enableLighting();
-        GlStateManager.popMatrix();
-
         if (!stack.isEmpty())
         {
+            // Display soul count
+            String soulsText = "Souls: " + te.soulCount;
+            GlStateManager.pushMatrix();
+            GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
+            GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
+            GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
+            GlStateManager.scale(-0.025f, -0.025f, 0.025f);
+            GlStateManager.disableLighting();
+            Minecraft.getMinecraft().fontRenderer.drawString(soulsText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(soulsText) / 2, 0, 0xFFFFFF);
+            GlStateManager.enableLighting();
+            GlStateManager.popMatrix();
+
+            // Display input stack count
             String stackText = String.valueOf(stack.getCount());
             GlStateManager.pushMatrix();
             GlStateManager.translate(x + 0.5, y + 2.7, z + 0.5);

@@ -174,9 +174,9 @@ public class HSSoulAltarTE extends TileEntity implements ITickable
         this.flipA += (f - this.flipA) * 0.9F;
         this.pageFlip += this.flipA;
 
-        if (this.world.getWorldTime() % 40 == 39)
+        if (this.world.getWorldTime() % 20 == 19 && !this.getItem().isEmpty())
         {
-            soulCount = scanCrucibleLevels() * 10;
+            this.soulCount = scanCrucibleLevels() * 10;
         }
     }
 
