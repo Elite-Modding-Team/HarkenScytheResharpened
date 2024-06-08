@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 public class HSGlaive extends ItemSword
 {
     private final float attackSpeed;
-    EnumRarity rarity;
+    private final EnumRarity rarity;
 
     public HSGlaive(ToolMaterial material, float attackSpeed, EnumRarity rarity)
     {
@@ -84,6 +84,12 @@ public class HSGlaive extends ItemSword
     }
 
     @Override
+    public EnumRarity getRarity(ItemStack stack)
+    {
+        return rarity;
+    }
+
+    @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
     {
         Multimap<String, AttributeModifier> multimap = HashMultimap.create();
@@ -95,11 +101,5 @@ public class HSGlaive extends ItemSword
         }
 
         return multimap;
-    }
-    
-    @Override
-    public EnumRarity getRarity(ItemStack stack)
-    {
-        return rarity;
     }
 }

@@ -66,7 +66,7 @@ public class HSItems
     public static HSScythe golden_scythe;
     @GameRegistry.ObjectHolder("diamond_scythe")
     public static HSScythe diamond_scythe;
-    
+
     @GameRegistry.ObjectHolder("wooden_glaive")
     public static HSGlaive wooden_glaive;
     @GameRegistry.ObjectHolder("stone_glaive")
@@ -82,7 +82,7 @@ public class HSItems
     public static HSItem carnage_book;
     @GameRegistry.ObjectHolder("shadow_book")
     public static HSItem shadow_book;
-    
+
     @GameRegistry.ObjectHolder("biomass")
     public static HSItem biomass;
     @GameRegistry.ObjectHolder("biomass_sword")
@@ -103,7 +103,7 @@ public class HSItems
     public static HSArmor biomass_leggings;
     @GameRegistry.ObjectHolder("biomass_boots")
     public static HSArmor biomass_boots;
-    
+
     @GameRegistry.ObjectHolder("livingmetal_ingot")
     public static HSItem livingmetal_ingot;
     @GameRegistry.ObjectHolder("livingmetal_sword")
@@ -127,7 +127,7 @@ public class HSItems
 
     public static ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("biomass", "biomass", 14, new int[] {1, 4, 5, 2}, 17, SoundEvents.BLOCK_SLIME_PLACE, 0.5F).setRepairItem(new ItemStack(biomass));
     public static ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(livingmetal_ingot));
-    
+
     public static ToolMaterial TOOL_BIOMASS = EnumHelper.addToolMaterial("biomass", 3, 151, 6.5F, 1.5F, 17).setRepairItem(new ItemStack(biomass));
     public static ToolMaterial TOOL_LIVINGMETAL = EnumHelper.addToolMaterial("livingmetal", 3, 481, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(livingmetal_ingot));
 
