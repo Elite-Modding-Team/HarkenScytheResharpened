@@ -18,6 +18,8 @@ import net.minecraft.world.World;
 
 public class HSSoul extends Entity
 {
+    private static final int DESPAWN_TIME = 6000;
+
     public HSSoul(World worldIn)
     {
         super(worldIn);
@@ -40,7 +42,7 @@ public class HSSoul extends Entity
                 {
                     if (!entityItem.isDead && entityItem.getItem().getItem() == HSItems.blunt_harken_blade)
                     {
-                        this.world.playSound(null, this.getPosition(), HSSoundEvents.ITEM_ATHAME_CREATE, SoundCategory.PLAYERS, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
+                        this.world.playSound(null, this.getPosition(), HSSoundEvents.ITEM_ATHAME_CREATE, SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
                         this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
                         entityItem.setDead();
                         this.setDead();
@@ -53,6 +55,12 @@ public class HSSoul extends Entity
                     }
                 }
             }
+        }
+        if (this.ticksExisted > DESPAWN_TIME)
+        {
+            this.world.playSound(null, this.getPosition(), SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
+            this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
+            this.setDead();
         }
     }
 
