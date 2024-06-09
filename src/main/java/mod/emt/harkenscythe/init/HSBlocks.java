@@ -24,7 +24,7 @@ public class HSBlocks
     public static HSSoulCrucible soul_crucible;
     @GameRegistry.ObjectHolder("soul_altar")
     public static HSSoulAltar soul_altar;
-    
+
     @GameRegistry.ObjectHolder("soul_cake")
     public static HSSoulCake soul_cake;
 

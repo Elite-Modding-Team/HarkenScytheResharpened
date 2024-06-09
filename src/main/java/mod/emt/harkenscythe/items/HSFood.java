@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class HSFood extends ItemFood
 {
-    public int itemUseDuration;
-    public boolean alwaysEdible;
     private final EnumRarity rarity;
+    private final boolean alwaysEdible;
+    private int itemUseDuration;
 
     public HSFood(int amount, float saturation, boolean isWolfFood, boolean alwaysEdible, EnumRarity rarity)
     {
@@ -34,32 +34,14 @@ public class HSFood extends ItemFood
     }
 
     @Override
-    public int getMaxItemUseDuration(ItemStack stack) {
-        if (itemUseDuration == 0) {
-            return 32;
-        }
-
-        return itemUseDuration;
-    }  
-
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    public EnumRarity getRarity(ItemStack stack)
     {
-        ItemStack itemstack = player.getHeldItem(hand);
-
-        if (player.canEat(this.alwaysEdible))
-        {
-        	player.setActiveHand(hand);
-            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-        }
-        else
-        {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
-        }
+        return rarity;
     }
 
     @Override
-    protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
+    protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
+    {
         if (this == HSItems.soul_cookie)
         {
             player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 4 * 20, 0));
@@ -69,8 +51,29 @@ public class HSFood extends ItemFood
     }
 
     @Override
-    public EnumRarity getRarity(ItemStack stack)
+    public int getMaxItemUseDuration(ItemStack stack)
     {
-        return rarity;
+        if (itemUseDuration == 0)
+        {
+            return 32;
+        }
+
+        return itemUseDuration;
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        ItemStack itemstack = player.getHeldItem(hand);
+
+        if (player.canEat(this.alwaysEdible))
+        {
+            player.setActiveHand(hand);
+            return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
+        }
+        else
+        {
+            return new ActionResult<>(EnumActionResult.FAIL, itemstack);
+        }
     }
 }
