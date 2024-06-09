@@ -146,8 +146,8 @@ public class HSItems
     @GameRegistry.ObjectHolder("livingmetal_boots")
     public static HSArmor livingmetal_boots;
 
-    /*@GameRegistry.ObjectHolder("soul_cake")
-    public static HSItemBlockSpecial soul_cake;*/
+    @GameRegistry.ObjectHolder("soul_cake")
+    public static HSItemBlockSpecial soul_cake;
     @GameRegistry.ObjectHolder("soul_cookie")
     public static HSFood soul_cookie;
 

@@ -8,8 +8,12 @@ import mod.emt.harkenscythe.entities.HSSoul;
 import mod.emt.harkenscythe.entities.render.HSSoulRender;
 import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -66,7 +70,12 @@ public class HSRegistry
 
     public static void registerRecipes()
     {
+        HSSoulAltarRecipes.addRecipe(Items.CAKE, HSItems.soul_cake, 10);
+        HSSoulAltarRecipes.addRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
+        HSSoulAltarRecipes.addRecipe(Items.GLASS_BOTTLE, Items.EXPERIENCE_BOTTLE, 20);
         HSSoulAltarRecipes.addRecipe(Items.IRON_INGOT, HSItems.livingmetal_ingot, 10);
+        HSSoulAltarRecipes.addRecipe(new ItemStack(Blocks.SAND).getItem(), new ItemStack(Blocks.SOUL_SAND).getItem(), 10); // TODO: OreDictionary
+        HSSoulAltarRecipes.addRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER).getItem(), Items.DRAGON_BREATH, 30); // TODO: Move this to blood
     }
 
     @SideOnly(Side.CLIENT)
