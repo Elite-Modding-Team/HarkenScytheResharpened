@@ -69,5 +69,5 @@ message.harkenscythe.hs_reap=%s was reaped
 tooltip.harkenscythe.altar=Requires a Harken Athame for rituals
 tooltip.harkenscythe.athame=A Blunt Harken Blade could develop magical abilities if it comes into contact with blood or souls...
 tooltip.harkenscythe.blunt_blade=It could develop magical abilities if it comes into contact with blood or souls...
-tooltip.harkenscythe.soul_cake=Gives Regeneration (0:08) when a slice is eaten and will drop itself when no slice is eaten
+tooltip.harkenscythe.soul_cake=Gives Regeneration (0:06) when a slice is eaten and will drop itself when no slice is eaten
 tooltip.harkenscythe.soul_cookie=Gives Regeneration (0:04) when eaten
