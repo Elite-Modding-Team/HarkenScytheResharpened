@@ -1,7 +1,10 @@
 package mod.emt.harkenscythe.tileentities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import mod.emt.harkenscythe.blocks.HSSoulCrucible;
+import mod.emt.harkenscythe.init.HSSoulAltarRecipes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,28 +32,39 @@ public class HSSoulAltarTE extends TileEntity implements ITickable
     public float bookRotation;
     public float bookRotationPrev;
     public float tRot;
-    public int soulCount;
-    private ItemStack item = ItemStack.EMPTY;
+    private int soulCount;
+    private boolean validRecipe;
+    private ItemStack itemStack = ItemStack.EMPTY;
 
-    public ItemStack getItem()
+    public int getSoulCount()
     {
-        return item;
+        return soulCount;
     }
 
-    public void setItem(ItemStack item)
+    public boolean isValidRecipe()
     {
-        this.item = item;
+        return validRecipe;
+    }
+
+    public ItemStack getItemStack()
+    {
+        return itemStack;
+    }
+
+    public void setItemStack(ItemStack itemStack)
+    {
+        this.itemStack = itemStack;
         markDirty();
     }
 
     public void dropItem()
     {
-        if (!world.isRemote && !item.isEmpty())
+        if (!world.isRemote && !itemStack.isEmpty())
         {
             BlockPos pos = getPos();
-            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), item);
+            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
             world.spawnEntity(entityItem);
-            setItem(ItemStack.EMPTY);
+            setItemStack(ItemStack.EMPTY);
         }
     }
 
@@ -60,7 +74,7 @@ public class HSSoulAltarTE extends TileEntity implements ITickable
         super.readFromNBT(compound);
         if (compound.hasKey("Item"))
         {
-            item = new ItemStack(compound.getCompoundTag("Item"));
+            itemStack = new ItemStack(compound.getCompoundTag("Item"));
         }
     }
 
@@ -68,10 +82,10 @@ public class HSSoulAltarTE extends TileEntity implements ITickable
     public NBTTagCompound writeToNBT(NBTTagCompound compound)
     {
         super.writeToNBT(compound);
-        if (!item.isEmpty())
+        if (!itemStack.isEmpty())
         {
             NBTTagCompound itemTag = new NBTTagCompound();
-            item.writeToNBT(itemTag);
+            itemStack.writeToNBT(itemTag);
             compound.setTag("Item", itemTag);
         }
         return compound;
@@ -174,10 +188,21 @@ public class HSSoulAltarTE extends TileEntity implements ITickable
         this.flipA += (f - this.flipA) * 0.9F;
         this.pageFlip += this.flipA;
 
-        if (this.world.getWorldTime() % 20 == 19 && !this.getItem().isEmpty())
+        if (this.world.getWorldTime() % 20 == 19 && !this.getItemStack().isEmpty())
         {
-            this.soulCount = scanCrucibleLevels() * 10;
+            updateSoulCount();
+            updateRecipe();
         }
+    }
+
+    public void updateSoulCount()
+    {
+        this.soulCount = scanCrucibleLevels() * 10;
+    }
+
+    public void updateRecipe()
+    {
+        this.validRecipe = HSSoulAltarRecipes.isValidInput(this.getItemStack().getItem()) && HSSoulAltarRecipes.getRequiredSouls(this.getItemStack().getItem()) <= this.soulCount;
     }
 
     public int scanCrucibleLevels()
@@ -205,5 +230,57 @@ public class HSSoulAltarTE extends TileEntity implements ITickable
         }
 
         return totalLevel;
+    }
+
+    public void decreaseCrucibleLevel(int levelToDecrease)
+    {
+        World world = this.getWorld();
+        if (world.isRemote) return;
+
+        BlockPos pos = this.getPos();
+        List<BlockPos> cruciblePositions = new ArrayList<>();
+
+        for (int dx = -RADIUS; dx <= RADIUS; dx++)
+        {
+            for (int dy = -RADIUS; dy <= RADIUS; dy++)
+            {
+                for (int dz = -RADIUS; dz <= RADIUS; dz++)
+                {
+                    BlockPos checkPos = pos.add(dx, dy, dz);
+                    IBlockState state = world.getBlockState(checkPos);
+
+                    if (state.getBlock() instanceof HSSoulCrucible)
+                    {
+                        cruciblePositions.add(checkPos);
+                    }
+                }
+            }
+        }
+
+        int remainingLevelToDecrease = levelToDecrease;
+
+        while (remainingLevelToDecrease > 0 && !cruciblePositions.isEmpty())
+        {
+            BlockPos selectedPos = cruciblePositions.get(world.rand.nextInt(cruciblePositions.size()));
+            IBlockState state = world.getBlockState(selectedPos);
+
+            if (state.getBlock() instanceof HSSoulCrucible)
+            {
+                int currentLevel = state.getValue(HSSoulCrucible.LEVEL);
+
+                if (currentLevel >= remainingLevelToDecrease)
+                {
+                    world.setBlockState(selectedPos, state.withProperty(HSSoulCrucible.LEVEL, currentLevel - remainingLevelToDecrease));
+                    remainingLevelToDecrease = 0;
+                }
+                else
+                {
+                    world.setBlockState(selectedPos, state.withProperty(HSSoulCrucible.LEVEL, 0));
+                    remainingLevelToDecrease -= currentLevel;
+                }
+            }
+
+            cruciblePositions.remove(selectedPos);
+        }
     }
 }

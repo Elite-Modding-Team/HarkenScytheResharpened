@@ -8,6 +8,7 @@ import mod.emt.harkenscythe.entities.HSSoul;
 import mod.emt.harkenscythe.entities.render.HSSoulRender;
 import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.block.Block;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -61,6 +62,11 @@ public class HSRegistry
     public static void registerTileEntities()
     {
         GameRegistry.registerTileEntity(HSSoulAltarTE.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
+    }
+
+    public static void registerRecipes()
+    {
+        HSSoulAltarRecipes.addRecipe(Items.IRON_INGOT, HSItems.livingmetal_ingot, 10);
     }
 
     @SideOnly(Side.CLIENT)

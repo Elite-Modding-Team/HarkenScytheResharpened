@@ -40,7 +40,7 @@ public class HSSoulAltarRender extends TileEntitySpecialRenderer<HSSoulAltarTE>
         RenderHelper.enableStandardItemLighting();
         GlStateManager.pushAttrib();
 
-        ItemStack stack = te.getItem();
+        ItemStack stack = te.getItemStack();
         if (!stack.isEmpty())
         {
             GlStateManager.pushMatrix();
@@ -56,33 +56,6 @@ public class HSSoulAltarRender extends TileEntitySpecialRenderer<HSSoulAltarTE>
 
         GlStateManager.popAttrib();
         GlStateManager.popMatrix();
-
-        if (!stack.isEmpty())
-        {
-            // Display soul count
-            String soulsText = "Souls: " + te.soulCount;
-            GlStateManager.pushMatrix();
-            GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
-            GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
-            GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
-            GlStateManager.scale(-0.025f, -0.025f, 0.025f);
-            GlStateManager.disableLighting();
-            Minecraft.getMinecraft().fontRenderer.drawString(soulsText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(soulsText) / 2, 0, 0xFFFFFF);
-            GlStateManager.enableLighting();
-            GlStateManager.popMatrix();
-
-            // Display input stack count
-            String stackText = String.valueOf(stack.getCount());
-            GlStateManager.pushMatrix();
-            GlStateManager.translate(x + 0.5, y + 2.7, z + 0.5);
-            GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
-            GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
-            GlStateManager.scale(-0.025f, -0.025f, 0.025f);
-            GlStateManager.disableLighting();
-            Minecraft.getMinecraft().fontRenderer.drawString(stackText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(stackText) / 2, 0, 0xFFFFFF);
-            GlStateManager.enableLighting();
-            GlStateManager.popMatrix();
-        }
 
         GlStateManager.pushMatrix();
         GlStateManager.translate((float) x + 0.5F, (float) y + 0.75F, (float) z + 0.5F);
@@ -130,5 +103,34 @@ public class HSSoulAltarRender extends TileEntitySpecialRenderer<HSSoulAltarTE>
         GlStateManager.enableCull();
         this.modelBook.render(null, f, f3, f4, f5, 0.0F, 0.0625F);
         GlStateManager.popMatrix();
+
+        if (!stack.isEmpty())
+        {
+            int textColor = te.isValidRecipe() ? 0x00FF00 : 0xFFFFFF;
+
+            // Display soul count
+            String soulsText = "Souls: " + te.getSoulCount();
+            GlStateManager.pushMatrix();
+            GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
+            GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
+            GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
+            GlStateManager.scale(-0.025f, -0.025f, 0.025f);
+            GlStateManager.disableLighting();
+            Minecraft.getMinecraft().fontRenderer.drawString(soulsText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(soulsText) / 2, 0, textColor);
+            GlStateManager.enableLighting();
+            GlStateManager.popMatrix();
+
+            // Display input stack count
+            String stackText = String.valueOf(stack.getCount());
+            GlStateManager.pushMatrix();
+            GlStateManager.translate(x + 0.5, y + 2.7, z + 0.5);
+            GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
+            GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
+            GlStateManager.scale(-0.025f, -0.025f, 0.025f);
+            GlStateManager.disableLighting();
+            Minecraft.getMinecraft().fontRenderer.drawString(stackText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(stackText) / 2, 0, textColor);
+            GlStateManager.enableLighting();
+            GlStateManager.popMatrix();
+        }
     }
 }

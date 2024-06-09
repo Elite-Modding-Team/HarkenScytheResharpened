@@ -24,6 +24,7 @@ public class HarkenScythe
     public void init(FMLInitializationEvent event)
     {
         HSRegistry.registerTileEntities();
+        HSRegistry.registerRecipes();
         LOGGER.info(NAME + " initialized");
     }
 }

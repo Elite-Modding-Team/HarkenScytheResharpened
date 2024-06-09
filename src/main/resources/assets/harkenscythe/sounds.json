@@ -1,4 +1,14 @@
 {
+  "block.soul_altar.enchant": {
+    "sounds": [
+      "harkenscythe:enchant_blood"
+    ]
+  },
+  "block.blood_altar.enchant": {
+    "sounds": [
+      "harkenscythe:enchant_soul"
+    ]
+  },
   "item.athame.create": {
     "sounds": [
       "harkenscythe:athame"
