@@ -3,6 +3,7 @@ itemGroup.harkenscythe.tab=Harken Scythe
 
 # BLOCKS
 tile.harkenscythe.blood_crucible.name=Blood Crucible
+tile.harkenscythe.soul_cake.name=Cake of Souls
 tile.harkenscythe.soul_crucible.name=Soul Crucible
 tile.harkenscythe.soul_altar.name=Altar of Souls
 
@@ -53,6 +54,7 @@ item.harkenscythe.livingmetal_scythe.name=Livingmetal Scythe
 item.harkenscythe.livingmetal_shovel.name=Livingmetal Shovel
 item.harkenscythe.livingmetal_sword.name=Livingmetal Sword
 item.harkenscythe.shadow_book.name=Book of Shadows
+item.harkenscythe.soul_cake.name=Cake of Souls
 item.harkenscythe.soul_cookie.name=Cookie of Souls
 item.harkenscythe.soul_essence.name=Ghostly Essence
 item.harkenscythe.stone_glaive.name=Stone Glaive
@@ -67,4 +69,5 @@ message.harkenscythe.hs_reap=%s was reaped
 tooltip.harkenscythe.altar=Requires a Harken Athame for rituals
 tooltip.harkenscythe.athame=An Iron Sword could develop magical abilities if it comes into contact with blood or souls...
 tooltip.harkenscythe.blunt_blade=It could develop magical abilities if it comes into contact with blood or souls...
+tooltip.harkenscythe.soul_cake=Gives Regeneration (0:08) when a slice is eaten and will drop itself when no slice is eaten
 tooltip.harkenscythe.soul_cookie=Gives Regeneration (0:04) when eaten

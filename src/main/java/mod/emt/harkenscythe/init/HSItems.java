@@ -13,6 +13,7 @@ import mod.emt.harkenscythe.items.HSEssenceVesselBlood;
 import mod.emt.harkenscythe.items.HSEssenceVesselSoul;
 import mod.emt.harkenscythe.items.HSFood;
 import mod.emt.harkenscythe.items.HSItem;
+import mod.emt.harkenscythe.items.HSItemBlock;
 import mod.emt.harkenscythe.items.HSNecronomicon;
 import mod.emt.harkenscythe.items.tools.HSAxe;
 import mod.emt.harkenscythe.items.tools.HSGlaive;
@@ -144,6 +145,8 @@ public class HSItems
     @GameRegistry.ObjectHolder("livingmetal_boots")
     public static HSArmor livingmetal_boots;
     
+    /*@GameRegistry.ObjectHolder("soul_cake")
+    public static HSItemBlock soul_cake;*/
     @GameRegistry.ObjectHolder("soul_cookie")
     public static HSFood soul_cookie;
 
@@ -215,6 +218,7 @@ public class HSItems
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON), "livingmetal_chestplate").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON), "livingmetal_leggings").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON), "livingmetal_boots").setCreativeTab(HarkenScythe.TAB),
+                //HSRegistry.setup(new HSItemBlock(HSBlocks.soul_cake, EnumRarity.UNCOMMON), "soul_cake").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSFood(3, 0.2F, false, 16, true, EnumRarity.UNCOMMON), "soul_cookie").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSword(ToolMaterial.IRON, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB)
