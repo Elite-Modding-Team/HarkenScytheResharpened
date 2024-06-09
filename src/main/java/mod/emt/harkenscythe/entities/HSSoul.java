@@ -7,7 +7,6 @@ import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -39,7 +38,7 @@ public class HSSoul extends Entity
             {
                 for (EntityItem entityItem : list)
                 {
-                    if (!entityItem.isDead && entityItem.getItem().getItem() == Items.IRON_SWORD)
+                    if (!entityItem.isDead && entityItem.getItem().getItem() == HSItems.blunt_harken_blade)
                     {
                         this.world.playSound(null, this.getPosition(), HSSoundEvents.ITEM_ATHAME_CREATE, SoundCategory.PLAYERS, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
                         this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);

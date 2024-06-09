@@ -16,6 +16,7 @@ public class HSItemTooltipEvent
 {
     private static final ResourceLocation BLOOD_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar");
     private static final ResourceLocation SOUL_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar");
+    private static final ResourceLocation BLUNT_HARKEN_BLADE = new ResourceLocation(HarkenScythe.MOD_ID, "blunt_harken_blade");
     private static final ResourceLocation HARKEN_ATHAME = new ResourceLocation(HarkenScythe.MOD_ID, "harken_athame");
 
     @SubscribeEvent
@@ -30,6 +31,10 @@ public class HSItemTooltipEvent
         else if (ForgeRegistries.ITEMS.getKey(item).equals(HARKEN_ATHAME))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.athame"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(BLUNT_HARKEN_BLADE))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.blunt_blade"));
         }
     }
 }

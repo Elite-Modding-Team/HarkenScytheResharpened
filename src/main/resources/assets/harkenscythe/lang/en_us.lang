@@ -23,6 +23,7 @@ item.harkenscythe.biomass_seed.name=Biomass Seed
 item.harkenscythe.biomass_shovel.name=Biomass Shovel
 item.harkenscythe.biomass_sword.name=Biomass Sword
 item.harkenscythe.blood_essence.name=Bloody Essence
+item.harkenscythe.blunt_harken_blade.name=Blunt Harken Blade
 item.harkenscythe.carnage_book.name=Book of Carnage
 item.harkenscythe.creepball.name=Creepball
 item.harkenscythe.diamond_glaive.name=Diamond Glaive
@@ -64,3 +65,4 @@ message.harkenscythe.hs_reap=%s was reaped
 # TOOLTIPS
 tooltip.harkenscythe.altar=Requires a Harken Athame for rituals
 tooltip.harkenscythe.athame=An Iron Sword could develop magical abilities if it comes into contact with blood or souls...
+tooltip.harkenscythe.blunt_blade=It could develop magical abilities if it comes into contact with blood or souls...

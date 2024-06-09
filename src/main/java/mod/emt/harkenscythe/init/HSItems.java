@@ -143,6 +143,8 @@ public class HSItems
     @GameRegistry.ObjectHolder("livingmetal_boots")
     public static HSArmor livingmetal_boots;
 
+    @GameRegistry.ObjectHolder("blunt_harken_blade")
+    public static HSItem blunt_harken_blade;
     @GameRegistry.ObjectHolder("harken_athame")
     public static HSSword harken_athame;
 
@@ -209,7 +211,8 @@ public class HSItems
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON), "livingmetal_chestplate").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON), "livingmetal_leggings").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON), "livingmetal_boots").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSSword(ToolMaterial.IRON, EnumRarity.UNCOMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSword(ToolMaterial.IRON, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB)
             );
 
         // ITEM BLOCKS
