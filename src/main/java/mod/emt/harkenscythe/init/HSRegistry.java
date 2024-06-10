@@ -74,8 +74,9 @@ public class HSRegistry
         HSSoulAltarRecipes.addRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
         HSSoulAltarRecipes.addRecipe(Items.GLASS_BOTTLE, Items.EXPERIENCE_BOTTLE, 20);
         HSSoulAltarRecipes.addRecipe(Items.IRON_INGOT, HSItems.livingmetal_ingot, 10);
-        HSSoulAltarRecipes.addRecipe(new ItemStack(Blocks.SAND).getItem(), new ItemStack(Blocks.SOUL_SAND).getItem(), 10); // TODO: OreDictionary
         HSSoulAltarRecipes.addRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER).getItem(), Items.DRAGON_BREATH, 30); // TODO: Move this to blood
+        HSSoulAltarRecipes.addRecipe(new ItemStack(Blocks.SAND).getItem(), new ItemStack(Blocks.SOUL_SAND).getItem(), 10); // TODO: OreDictionary
+        HSSoulAltarRecipes.addRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.soulweave_cloth).getItem(), 10); // TODO: OreDictionary
     }
 
     @SideOnly(Side.CLIENT)

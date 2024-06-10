@@ -4,11 +4,13 @@ itemGroup.harkenscythe.tab=Harken Scythe
 # BLOCKS
 tile.harkenscythe.blood_crucible.name=Blood Crucible
 tile.harkenscythe.biomass_block.name=Biomass Block
+tile.harkenscythe.bloodweave_cloth.name=Bloodweave Cloth
 tile.harkenscythe.creep_block.name=Creep Block
 tile.harkenscythe.livingmetal_block.name=Block of Livingmetal
+tile.harkenscythe.soul_altar.name=Altar of Souls
 tile.harkenscythe.soul_cake.name=Cake of Souls
 tile.harkenscythe.soul_crucible.name=Soul Crucible
-tile.harkenscythe.soul_altar.name=Altar of Souls
+tile.harkenscythe.soulweave_cloth.name=Soulweave Cloth
 
 # ITEMS
 item.harkenscythe.ancient_necronomicon.name=Ancient Necronomicon
