@@ -10,12 +10,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class ModelHSSoul extends ModelBase
+public class ModelHSEntityEssence extends ModelBase
 {
     private final ModelRenderer cube;
     private final ModelRenderer glass = new ModelRenderer(this, "glass");
 
-    public ModelHSSoul()
+    public ModelHSEntityEssence()
     {
         this.glass.setTextureOffset(0, 0).addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8);
         this.cube = new ModelRenderer(this, "cube");

@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " B ",
+    "ENE",
+    "NNN"
+  ],
+  "key": {
+    "B": {
+      "item": "harkenscythe:carnage_book"
+    },
+    "E": {
+      "type": "forge:ore_dict",
+      "ore": "enderpearl"
+    },
+    "N": {
+      "type": "forge:ore_dict",
+      "ore": "netherrack"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:blood_altar"
+  }
+}

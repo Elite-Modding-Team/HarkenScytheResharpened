@@ -5,6 +5,7 @@ import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.blocks.HSBlockCloth;
 import mod.emt.harkenscythe.blocks.HSBlockCreep;
 import mod.emt.harkenscythe.blocks.HSBlockMaterial;
+import mod.emt.harkenscythe.blocks.HSBloodAltar;
 import mod.emt.harkenscythe.blocks.HSBloodCrucible;
 import mod.emt.harkenscythe.blocks.HSSoulAltar;
 import mod.emt.harkenscythe.blocks.HSSoulCake;
@@ -37,12 +38,14 @@ public class HSBlocks
     @GameRegistry.ObjectHolder("soulweave_cloth")
     public static HSBlockCloth soulweave_cloth;
 
+    @GameRegistry.ObjectHolder("blood_altar")
+    public static HSBloodAltar blood_altar;
+    @GameRegistry.ObjectHolder("soul_altar")
+    public static HSSoulAltar soul_altar;
     @GameRegistry.ObjectHolder("blood_crucible")
     public static HSBloodCrucible blood_crucible;
     @GameRegistry.ObjectHolder("soul_crucible")
     public static HSSoulCrucible soul_crucible;
-    @GameRegistry.ObjectHolder("soul_altar")
-    public static HSSoulAltar soul_altar;
 
     @GameRegistry.ObjectHolder("soul_cake")
     public static HSSoulCake soul_cake;
@@ -62,6 +65,7 @@ public class HSBlocks
                 HSRegistry.setup(new HSBlockCloth(MapColor.LIGHT_BLUE), "soulweave_cloth").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBloodCrucible(), "blood_crucible").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSoulCrucible(), "soul_crucible").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBloodAltar(), "blood_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSoulAltar(), "soul_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSoulCake(), "soul_cake")
             );

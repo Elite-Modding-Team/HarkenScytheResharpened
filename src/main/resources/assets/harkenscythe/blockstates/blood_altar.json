@@ -1,0 +1,20 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "enchanting_table_base",
+    "textures": {
+      "particle": "harkenscythe:blocks/blood_altar_bottom",
+      "bottom": "harkenscythe:blocks/blood_altar_bottom",
+      "top": "harkenscythe:blocks/blood_altar_top",
+      "side": "harkenscythe:blocks/blood_altar_side"
+    }
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

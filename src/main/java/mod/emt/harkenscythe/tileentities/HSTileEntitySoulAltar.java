@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import mod.emt.harkenscythe.blocks.HSSoulCrucible;
-import mod.emt.harkenscythe.init.HSSoulAltarRecipes;
+import mod.emt.harkenscythe.init.HSAltarRecipes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class HSSoulAltarTE extends TileEntity implements ITickable
+public class HSTileEntitySoulAltar extends TileEntity implements ITickable
 {
     private static final Random rand = new Random();
     private static final int RADIUS = 4;
@@ -202,7 +202,7 @@ public class HSSoulAltarTE extends TileEntity implements ITickable
 
     public void updateRecipe()
     {
-        this.validRecipe = HSSoulAltarRecipes.isValidInput(this.getItemStack().getItem()) && HSSoulAltarRecipes.getRequiredSouls(this.getItemStack().getItem()) <= this.soulCount;
+        this.validRecipe = HSAltarRecipes.isValidInputSoul(this.getItemStack().getItem()) && HSAltarRecipes.getRequiredSouls(this.getItemStack().getItem()) <= this.soulCount;
     }
 
     public int scanCrucibleLevels()

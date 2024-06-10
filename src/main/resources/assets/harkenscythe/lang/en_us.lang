@@ -2,6 +2,7 @@
 itemGroup.harkenscythe.tab=Harken Scythe
 
 # BLOCKS
+tile.harkenscythe.blood_altar.name=Altar of Blood
 tile.harkenscythe.blood_crucible.name=Blood Crucible
 tile.harkenscythe.biomass_block.name=Biomass Block
 tile.harkenscythe.bloodweave_cloth.name=Bloodweave Cloth
@@ -67,6 +68,10 @@ item.harkenscythe.stone_glaive.name=Stone Glaive
 item.harkenscythe.stone_scythe.name=Stone Scythe
 item.harkenscythe.wooden_glaive.name=Wooden Glaive
 item.harkenscythe.wooden_scythe.name=Wooden Scythe
+
+# ENTITIES
+entity.harkenscythe.blood.name=Blood Essence
+entity.harkenscythe.soul.name=Soul Essence
 
 # MESSAGES
 message.harkenscythe.hs_reap=%s was reaped

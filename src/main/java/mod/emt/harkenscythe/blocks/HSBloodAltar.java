@@ -3,7 +3,7 @@ package mod.emt.harkenscythe.blocks;
 import mod.emt.harkenscythe.init.HSAltarRecipes;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
+import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
 import net.minecraft.block.BlockEnchantmentTable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -19,9 +19,9 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class HSSoulAltar extends BlockEnchantmentTable
+public class HSBloodAltar extends BlockEnchantmentTable
 {
-    public HSSoulAltar()
+    public HSBloodAltar()
     {
         super();
     }
@@ -36,9 +36,9 @@ public class HSSoulAltar extends BlockEnchantmentTable
     public void breakBlock(World world, BlockPos pos, IBlockState state)
     {
         TileEntity te = world.getTileEntity(pos);
-        if (te instanceof HSTileEntitySoulAltar)
+        if (te instanceof HSTileEntityBloodAltar)
         {
-            HSTileEntitySoulAltar altar = (HSTileEntitySoulAltar) te;
+            HSTileEntityBloodAltar altar = (HSTileEntityBloodAltar) te;
             altar.dropItem();
         }
         super.breakBlock(world, pos, state);
@@ -47,16 +47,16 @@ public class HSSoulAltar extends BlockEnchantmentTable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return new HSTileEntitySoulAltar();
+        return new HSTileEntityBloodAltar();
     }
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         TileEntity te = world.getTileEntity(pos);
-        if (te instanceof HSTileEntitySoulAltar)
+        if (te instanceof HSTileEntityBloodAltar)
         {
-            HSTileEntitySoulAltar altar = (HSTileEntitySoulAltar) te;
+            HSTileEntityBloodAltar altar = (HSTileEntityBloodAltar) te;
             ItemStack heldItem = player.getHeldItem(hand);
 
             if (heldItem.getItem() == HSItems.harken_athame)
@@ -64,17 +64,17 @@ public class HSSoulAltar extends BlockEnchantmentTable
                 if (altar.isValidRecipe())
                 {
                     Item item = altar.getItemStack().getItem();
-                    int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getItemStack().getItem());
-                    altar.decreaseCrucibleLevel(requiredSouls / 10);
+                    int requiredBloods = HSAltarRecipes.getRequiredBlood(altar.getItemStack().getItem());
+                    altar.decreaseCrucibleLevel(requiredBloods / 10);
                     altar.getItemStack().shrink(1);
-                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altar.getPos().getX() + 0.5D, altar.getPos().getY() + 1.5D, altar.getPos().getZ() + 0.5D, new ItemStack(HSAltarRecipes.getOutputSoul(item))));
-                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), HSSoundEvents.BLOCK_SOUL_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altar.getPos().getX() + 0.5D, altar.getPos().getY() + 1.5D, altar.getPos().getZ() + 0.5D, new ItemStack(HSAltarRecipes.getOutputBlood(item))));
+                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
-                    for (int i = 0; i < requiredSouls; i++)
+                    for (int i = 0; i < requiredBloods; i++)
                     {
                         player.world.spawnParticle(EnumParticleTypes.SPELL_WITCH, altar.getPos().getX() + 0.5D, altar.getPos().getY() + 2.0D, altar.getPos().getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
                     }
-                    altar.updateSoulCount();
+                    altar.updateBloodCount();
                     altar.updateRecipe();
                     return true;
                 }

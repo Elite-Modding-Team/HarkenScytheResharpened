@@ -1,7 +1,7 @@
 package mod.emt.harkenscythe.client.renderers;
 
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
+import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBook;
 import net.minecraft.client.renderer.GlStateManager;
@@ -17,13 +17,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderHSSoulAltar extends TileEntitySpecialRenderer<HSTileEntitySoulAltar>
+public class RenderHSBloodAltar extends TileEntitySpecialRenderer<HSTileEntityBloodAltar>
 {
-    private static final ResourceLocation TEXTURE_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_altar_book.png");
+    private static final ResourceLocation TEXTURE_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/blood_altar_book.png");
     private final ModelBook modelBook = new ModelBook();
 
     @Override
-    public void render(HSTileEntitySoulAltar te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
+    public void render(HSTileEntityBloodAltar te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
     {
         GlStateManager.pushMatrix();
         RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
@@ -109,15 +109,15 @@ public class RenderHSSoulAltar extends TileEntitySpecialRenderer<HSTileEntitySou
         {
             int textColor = te.isValidRecipe() ? 0x00FF00 : 0xFFFFFF;
 
-            // Display soul count
-            String soulsText = "Souls: " + te.getSoulCount();
+            // Display blood count
+            String bloodText = "Blood: " + te.getBloodCount();
             GlStateManager.pushMatrix();
             GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
             GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
             GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
             GlStateManager.scale(-0.025f, -0.025f, 0.025f);
             GlStateManager.disableLighting();
-            Minecraft.getMinecraft().fontRenderer.drawString(soulsText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(soulsText) / 2, 0, textColor);
+            Minecraft.getMinecraft().fontRenderer.drawString(bloodText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(bloodText) / 2, 0, textColor);
             GlStateManager.enableLighting();
             GlStateManager.popMatrix();
 

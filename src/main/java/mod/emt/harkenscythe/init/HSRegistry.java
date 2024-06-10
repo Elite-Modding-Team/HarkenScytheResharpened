@@ -3,11 +3,14 @@ package mod.emt.harkenscythe.init;
 import com.google.common.base.Preconditions;
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.renderers.RenderHSSoul;
+import mod.emt.harkenscythe.client.renderers.RenderHSBloodAltar;
+import mod.emt.harkenscythe.client.renderers.RenderHSEntityBlood;
+import mod.emt.harkenscythe.client.renderers.RenderHSEntitySoul;
 import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
-import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
+import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
+import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -55,38 +58,43 @@ public class HSRegistry
     {
         int id = 1;
         event.getRegistry().registerAll(
-            EntityEntryBuilder.create().entity(HSEntityBlood.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "blood"), id++).name("blood").tracker(64, 1, true).build(),
-            EntityEntryBuilder.create().entity(HSEntitySoul.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "soul"), id++).name("soul").tracker(64, 1, true).build()
+            EntityEntryBuilder.create().entity(HSEntityBlood.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "blood"), id++).name(HarkenScythe.MOD_ID + ".blood").tracker(64, 1, true).build(),
+            EntityEntryBuilder.create().entity(HSEntitySoul.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "soul"), id++).name(HarkenScythe.MOD_ID + ".soul").tracker(64, 1, true).build()
         );
     }
 
     public static void registerTileEntities()
     {
-        GameRegistry.registerTileEntity(HSSoulAltarTE.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
+        GameRegistry.registerTileEntity(HSTileEntityBloodAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar"));
+        GameRegistry.registerTileEntity(HSTileEntitySoulAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
     }
 
     public static void registerRecipes()
     {
-        HSSoulAltarRecipes.addRecipe(Items.CAKE, HSItems.soul_cake, 10);
-        HSSoulAltarRecipes.addRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
-        HSSoulAltarRecipes.addRecipe(Items.GLASS_BOTTLE, Items.EXPERIENCE_BOTTLE, 20);
-        HSSoulAltarRecipes.addRecipe(Items.IRON_INGOT, HSItems.livingmetal_ingot, 10);
-        HSSoulAltarRecipes.addRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER).getItem(), Items.DRAGON_BREATH, 30); // TODO: Move this to blood
-        HSSoulAltarRecipes.addRecipe(new ItemStack(Blocks.SAND).getItem(), new ItemStack(Blocks.SOUL_SAND).getItem(), 10); // TODO: OreDictionary
-        HSSoulAltarRecipes.addRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.soulweave_cloth).getItem(), 10); // TODO: OreDictionary
+        HSAltarRecipes.addBloodRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.bloodweave_cloth).getItem(), 10); // TODO: OreDictionary
+
+        HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
+        HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
+        HSAltarRecipes.addSoulRecipe(Items.GLASS_BOTTLE, Items.EXPERIENCE_BOTTLE, 20);
+        HSAltarRecipes.addSoulRecipe(Items.IRON_INGOT, HSItems.livingmetal_ingot, 10);
+        HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER).getItem(), Items.DRAGON_BREATH, 30); // TODO: Move this to blood
+        HSAltarRecipes.addSoulRecipe(new ItemStack(Blocks.SAND).getItem(), new ItemStack(Blocks.SOUL_SAND).getItem(), 10); // TODO: OreDictionary
+        HSAltarRecipes.addSoulRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.soulweave_cloth).getItem(), 10); // TODO: OreDictionary
     }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new RenderHSSoul.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityBlood.class, new RenderHSEntityBlood.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new RenderHSEntitySoul.Factory());
     }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerTESRs(RegistryEvent<Block> event)
     {
-        ClientRegistry.bindTileEntitySpecialRenderer(HSSoulAltarTE.class, new RenderHSSoulAltar());
+        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntityBloodAltar.class, new RenderHSBloodAltar());
+        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntitySoulAltar.class, new RenderHSSoulAltar());
     }
 }
