@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.client.render;
+package mod.emt.harkenscythe.client.renderers;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
@@ -17,11 +17,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class HSSoulAltarRender extends TileEntitySpecialRenderer<HSSoulAltarTE>
+public class RenderHSSoulAltar extends TileEntitySpecialRenderer<HSSoulAltarTE>
 {
     private static final ResourceLocation TEXTURE_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_altar_book.png");
     private final ModelBook modelBook = new ModelBook();
 
+    @Override
     public void render(HSSoulAltarTE te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
     {
         GlStateManager.pushMatrix();

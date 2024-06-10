@@ -3,9 +3,9 @@ package mod.emt.harkenscythe.init;
 import com.google.common.base.Preconditions;
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.render.HSSoulAltarRender;
+import mod.emt.harkenscythe.client.renderers.RenderHSSoul;
+import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
 import mod.emt.harkenscythe.entities.HSSoul;
-import mod.emt.harkenscythe.entities.render.HSSoulRender;
 import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -83,13 +83,13 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(HSSoul.class, new HSSoulRender.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSSoul.class, new RenderHSSoul.Factory());
     }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerTESRs(RegistryEvent<Block> event)
     {
-        ClientRegistry.bindTileEntitySpecialRenderer(HSSoulAltarTE.class, new HSSoulAltarRender());
+        ClientRegistry.bindTileEntitySpecialRenderer(HSSoulAltarTE.class, new RenderHSSoulAltar());
     }
 }

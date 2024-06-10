@@ -19,11 +19,18 @@ import net.minecraft.world.World;
 public class HSSoul extends Entity
 {
     private static final int DESPAWN_TIME = 6000;
+    private int innerRotation;
 
     public HSSoul(World worldIn)
     {
         super(worldIn);
-        this.setSize(1.5F, 2.0F);
+        this.setSize(1.0F, 1.0F);
+        this.innerRotation = this.rand.nextInt(100000);
+    }
+
+    public int getInnerRotation()
+    {
+        return innerRotation;
     }
 
     @Override
@@ -62,6 +69,7 @@ public class HSSoul extends Entity
             this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
             this.setDead();
         }
+        ++this.innerRotation;
     }
 
     @Override
