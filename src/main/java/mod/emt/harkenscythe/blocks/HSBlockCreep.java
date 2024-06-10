@@ -1,9 +1,7 @@
 package mod.emt.harkenscythe.blocks;
 
 import java.util.Random;
-
 import javax.annotation.Nullable;
-
 import mod.emt.harkenscythe.init.HSBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -27,16 +25,23 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class HSBlockCreep extends Block
 {
     protected static final AxisAlignedBB CREEP_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
-    
+
     public HSBlockCreep()
     {
         super(Material.GRASS, MapColor.RED);
-		this.setHardness(0.6F);
+        this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0);
-		this.setSoundType(SoundType.PLANT);
+        this.setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
     }
-    
+
+    @Nullable
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
+    {
+        return CREEP_AABB;
+    }
+
     // TODO: Creep blocks should only spread in the Nether, also see whether or not this properly works in that dimension
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
@@ -47,7 +52,8 @@ public class HSBlockCreep extends Block
             if (worldIn.getLightFromNeighbors(pos.up()) < 4 && worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > 2)
             {
                 if (this == HSBlocks.creep_block) worldIn.setBlockState(pos, Blocks.SOUL_SAND.getDefaultState());
-            } else
+            }
+            else
             {
                 if (worldIn.getLightFromNeighbors(pos.up()) >= 9)
                 {
@@ -72,21 +78,7 @@ public class HSBlockCreep extends Block
             }
         }
     }
-    
-    @Nullable
-    @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
-    {
-        return CREEP_AABB;
-    }
-	
-	@Override
-    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entity)
-	{
-		entity.motionX *= 0.4D;
-		entity.motionZ *= 0.4D;
-    }
-    
+
     // TODO: Fancier particles? Maybe little red particles?
     @Override
     @SideOnly(Side.CLIENT)
@@ -96,20 +88,26 @@ public class HSBlockCreep extends Block
 
         if (rand.nextInt(10) == 0)
         {
-            worldIn.spawnParticle(EnumParticleTypes.TOWN_AURA, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+            worldIn.spawnParticle(EnumParticleTypes.TOWN_AURA, (float) pos.getX() + rand.nextFloat(), (float) pos.getY() + 1.1F, (float) pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
         }
     }
-    
+
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-    	return Blocks.SOUL_SAND.getItemDropped(Blocks.SOUL_SAND.getDefaultState(), rand, fortune);
+        return Blocks.SOUL_SAND.getItemDropped(Blocks.SOUL_SAND.getDefaultState(), rand, fortune);
     }
 
-    
-	@Override
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entity)
+    {
+        entity.motionX *= 0.4D;
+        entity.motionZ *= 0.4D;
+    }
+
+    @Override
     public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
-	{
-		return true;
-	}
+    {
+        return true;
+    }
 }

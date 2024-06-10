@@ -14,18 +14,21 @@ public class HSBlockMaterial extends Block
     public HSBlockMaterial(Material material, MapColor mapColor, float hardness, float resistance, SoundType soundType)
     {
         super(material, mapColor);
-		this.setHardness(hardness);
-		this.setResistance(resistance);
-		this.setSoundType(soundType);
+        this.setHardness(hardness);
+        this.setResistance(resistance);
+        this.setSoundType(soundType);
     }
-    
-	@Override
+
+    public HSBlockMaterial(Material material, MapColor mapColor, float hardness, SoundType soundType)
+    {
+        super(material, mapColor);
+        this.setHardness(hardness);
+        this.setSoundType(soundType);
+    }
+
+    @Override
     public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
-	{
-		if (this == HSBlocks.biomass_block) {
-			return true;
-		}
-		
-		return false;
+    {
+        return this == HSBlocks.biomass_block;
     }
 }
