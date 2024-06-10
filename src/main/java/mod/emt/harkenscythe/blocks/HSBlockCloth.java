@@ -1,11 +1,8 @@
 package mod.emt.harkenscythe.blocks;
 
 import java.util.List;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Lists;
-
+import javax.annotation.Nullable;
 import mod.emt.harkenscythe.init.HSBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -34,12 +31,6 @@ public class HSBlockCloth extends Block implements IShearable
     }
 
     @Override
-    public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
-    {
-        return this == HSBlocks.bloodweave_cloth || this == HSBlocks.soulweave_cloth;
-    }
-    
-    @Override
     public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
     {
         if (!worldIn.isRemote && stack.getItem() instanceof ItemShears)
@@ -53,15 +44,21 @@ public class HSBlockCloth extends Block implements IShearable
         }
     }
 
-	@Override
-	public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos)
-	{
-		return true;
-	}
+    @Override
+    public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
+    {
+        return this == HSBlocks.bloodweave_cloth || this == HSBlocks.soulweave_cloth;
+    }
 
-	@Override
-	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
-	{
-		return Lists.newArrayList(new ItemStack(Item.getItemFromBlock(this)));
-	}
+    @Override
+    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos)
+    {
+        return true;
+    }
+
+    @Override
+    public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
+    {
+        return Lists.newArrayList(new ItemStack(Item.getItemFromBlock(this)));
+    }
 }
