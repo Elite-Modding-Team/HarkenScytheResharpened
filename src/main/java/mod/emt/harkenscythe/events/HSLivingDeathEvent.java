@@ -1,7 +1,9 @@
 package mod.emt.harkenscythe.events;
 
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.entities.HSSoul;
+import mod.emt.harkenscythe.entities.HSEntityBlood;
+import mod.emt.harkenscythe.entities.HSEntitySoul;
+import mod.emt.harkenscythe.items.tools.HSGlaive;
 import mod.emt.harkenscythe.items.tools.HSScythe;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,9 +25,15 @@ public class HSLivingDeathEvent
         if (!world.isRemote && damageSource.getTrueSource() instanceof EntityPlayer && damageSource.getDamageType().equals("hs_reap"))
         {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            if (player.getHeldItemMainhand().getItem() instanceof HSScythe)
+            if (player.getHeldItemMainhand().getItem() instanceof HSGlaive)
             {
-                HSSoul soul = new HSSoul(world);
+                HSEntityBlood blood = new HSEntityBlood(world);
+                blood.setPosition(entity.posX, entity.posY, entity.posZ);
+                world.spawnEntity(blood);
+            }
+            else if (player.getHeldItemMainhand().getItem() instanceof HSScythe)
+            {
+                HSEntitySoul soul = new HSEntitySoul(world);
                 soul.setPosition(entity.posX, entity.posY, entity.posZ);
                 world.spawnEntity(soul);
             }

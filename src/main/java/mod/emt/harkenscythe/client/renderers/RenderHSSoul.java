@@ -2,7 +2,7 @@ package mod.emt.harkenscythe.client.renderers;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.models.ModelHSSoul;
-import mod.emt.harkenscythe.entities.HSSoul;
+import mod.emt.harkenscythe.entities.HSEntitySoul;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderHSSoul extends Render<HSSoul>
+public class RenderHSSoul extends Render<HSEntitySoul>
 {
     private static final ResourceLocation SOUL_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_common.png");
     private final ModelBase modelSoul = new ModelHSSoul();
@@ -26,7 +26,7 @@ public class RenderHSSoul extends Render<HSSoul>
     }
 
     @Override
-    public void doRender(HSSoul entity, double x, double y, double z, float entityYaw, float partialTicks)
+    public void doRender(HSEntitySoul entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         float f = (float) entity.getInnerRotation() + partialTicks;
         GlStateManager.pushMatrix();
@@ -40,15 +40,15 @@ public class RenderHSSoul extends Render<HSSoul>
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(HSSoul entity)
+    protected ResourceLocation getEntityTexture(HSEntitySoul entity)
     {
         return SOUL_TEXTURES;
     }
 
-    public static class Factory implements IRenderFactory<HSSoul>
+    public static class Factory implements IRenderFactory<HSEntitySoul>
     {
         @Override
-        public Render<? super HSSoul> createRenderFor(RenderManager manager)
+        public Render<? super HSEntitySoul> createRenderFor(RenderManager manager)
         {
             return new RenderHSSoul(manager);
         }

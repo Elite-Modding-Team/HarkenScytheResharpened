@@ -5,7 +5,8 @@ import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.renderers.RenderHSSoul;
 import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
-import mod.emt.harkenscythe.entities.HSSoul;
+import mod.emt.harkenscythe.entities.HSEntityBlood;
+import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.tileentities.HSSoulAltarTE;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -54,12 +55,8 @@ public class HSRegistry
     {
         int id = 1;
         event.getRegistry().registerAll(
-            EntityEntryBuilder.create()
-                .entity(HSSoul.class)
-                .id(new ResourceLocation(HarkenScythe.MOD_ID, "soul"), id++)
-                .name("soul")
-                .tracker(64, 1, true)
-                .build()
+            EntityEntryBuilder.create().entity(HSEntityBlood.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "blood"), id++).name("blood").tracker(64, 1, true).build(),
+            EntityEntryBuilder.create().entity(HSEntitySoul.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "soul"), id++).name("soul").tracker(64, 1, true).build()
         );
     }
 
@@ -83,7 +80,7 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(HSSoul.class, new RenderHSSoul.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new RenderHSSoul.Factory());
     }
 
     @SideOnly(Side.CLIENT)
