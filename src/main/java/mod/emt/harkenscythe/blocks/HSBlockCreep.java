@@ -42,11 +42,11 @@ public class HSBlockCreep extends Block
         return CREEP_AABB;
     }
 
-    // TODO: Creep blocks should only spread in the Nether, also see whether or not this properly works in that dimension
+    // TODO: See whether this properly works in the Nether
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
-        if (!worldIn.isRemote)
+        if (!worldIn.isRemote && worldIn.provider.getDimension() == -1)
         {
             if (!worldIn.isAreaLoaded(pos, 3)) return;
             if (worldIn.getLightFromNeighbors(pos.up()) < 4 && worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > 2)
