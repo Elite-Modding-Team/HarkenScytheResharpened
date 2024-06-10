@@ -10,16 +10,16 @@ import net.minecraft.item.crafting.Ingredient;
 public class HSShears extends ItemShears
 {
     private final EnumRarity rarity;
-	public Ingredient repairMaterial;
+    public Ingredient repairMaterial;
 
     public HSShears(int durability, EnumRarity rarity, Ingredient repairMaterial)
     {
-    	this.maxStackSize = 1;
+        this.maxStackSize = 1;
         this.rarity = rarity;
         this.repairMaterial = repairMaterial;
         this.setMaxDamage(durability);
     }
-    
+
     // Hardcoded blocks...
     @Override
     public float getDestroySpeed(ItemStack stack, IBlockState state)
@@ -41,7 +41,7 @@ public class HSShears extends ItemShears
     {
         return rarity;
     }
-    
+
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
     {
