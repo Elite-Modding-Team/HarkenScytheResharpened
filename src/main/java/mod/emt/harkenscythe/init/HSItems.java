@@ -21,6 +21,7 @@ import mod.emt.harkenscythe.items.tools.HSGlaive;
 import mod.emt.harkenscythe.items.tools.HSHoe;
 import mod.emt.harkenscythe.items.tools.HSPickaxe;
 import mod.emt.harkenscythe.items.tools.HSScythe;
+import mod.emt.harkenscythe.items.tools.HSShears;
 import mod.emt.harkenscythe.items.tools.HSShovel;
 import mod.emt.harkenscythe.items.tools.HSSword;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -30,6 +31,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -137,6 +139,8 @@ public class HSItems
     public static HSAxe livingmetal_axe;
     @GameRegistry.ObjectHolder("livingmetal_hoe")
     public static HSHoe livingmetal_hoe;
+    @GameRegistry.ObjectHolder("livingmetal_shears")
+    public static HSShears livingmetal_shears;
     @GameRegistry.ObjectHolder("livingmetal_helmet")
     public static HSArmor livingmetal_helmet;
     @GameRegistry.ObjectHolder("livingmetal_chestplate")
@@ -215,6 +219,7 @@ public class HSItems
                 HSRegistry.setup(new HSPickaxe(TOOL_LIVINGMETAL, EnumRarity.UNCOMMON), "livingmetal_pickaxe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSAxe(TOOL_LIVINGMETAL, 8.0F, -3.0F, EnumRarity.UNCOMMON), "livingmetal_axe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSHoe(TOOL_LIVINGMETAL, EnumRarity.UNCOMMON), "livingmetal_hoe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSShears(481, EnumRarity.UNCOMMON, Ingredient.fromStacks(new ItemStack(livingmetal_ingot))), "livingmetal_shears").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON), "livingmetal_helmet").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON), "livingmetal_chestplate").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmor(ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON), "livingmetal_leggings").setCreativeTab(HarkenScythe.TAB),

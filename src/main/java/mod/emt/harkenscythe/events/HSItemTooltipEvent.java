@@ -18,6 +18,7 @@ public class HSItemTooltipEvent
     private static final ResourceLocation SOUL_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar");
     private static final ResourceLocation BLUNT_HARKEN_BLADE = new ResourceLocation(HarkenScythe.MOD_ID, "blunt_harken_blade");
     private static final ResourceLocation HARKEN_ATHAME = new ResourceLocation(HarkenScythe.MOD_ID, "harken_athame");
+    private static final ResourceLocation LIVINGMETAL_SHEARS = new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_shears");
     private static final ResourceLocation SOUL_CAKE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cake");
     private static final ResourceLocation SOUL_COOKIE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cookie");
 
@@ -37,6 +38,10 @@ public class HSItemTooltipEvent
         else if (ForgeRegistries.ITEMS.getKey(item).equals(BLUNT_HARKEN_BLADE))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.blunt_blade"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(LIVINGMETAL_SHEARS))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.shears"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(SOUL_CAKE))
         {

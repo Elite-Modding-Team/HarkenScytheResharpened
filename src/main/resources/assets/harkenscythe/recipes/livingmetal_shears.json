@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " M",
+    "M "
+  ],
+  "key": {
+    "M": {
+      "item": "harkenscythe:livingmetal_ingot"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:livingmetal_shears"
+  }
+}
