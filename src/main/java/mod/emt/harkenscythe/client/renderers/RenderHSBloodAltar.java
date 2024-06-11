@@ -41,13 +41,22 @@ public class RenderHSBloodAltar extends TileEntitySpecialRenderer<HSTileEntityBl
         RenderHelper.enableStandardItemLighting();
         GlStateManager.pushAttrib();
 
-        ItemStack stack = te.getItemStack();
+        ItemStack stack = te.getInputStack();
         if (!stack.isEmpty())
         {
+            // Display input item
             GlStateManager.pushMatrix();
             GlStateManager.translate(0.25, 1.75, 0.25);
             GlStateManager.rotate(timeD, 0, 1, 0);
+            GlStateManager.scale(0.8, 0.8, 0.8);
             renderItem.renderItem(stack, ItemCameraTransforms.TransformType.FIXED);
+            GlStateManager.popMatrix();
+
+            // Display blood essence
+            GlStateManager.pushMatrix();
+            GlStateManager.translate(0.3, 0.25, -0.25);
+            GlStateManager.scale(0.5, 0.5, 0.5);
+            renderItem.renderItem(te.getEssenceStack(), ItemCameraTransforms.TransformType.FIXED);
             GlStateManager.popMatrix();
         }
 
@@ -110,11 +119,9 @@ public class RenderHSBloodAltar extends TileEntitySpecialRenderer<HSTileEntityBl
             int textColor = te.isValidRecipe() ? 0x00FF00 : 0xFFFFFF;
 
             // Display blood count
-            String bloodText = "Blood: " + te.getBloodCount();
+            String bloodText = "x " + te.getBloodCount();
             GlStateManager.pushMatrix();
-            GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
-            GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
-            GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
+            GlStateManager.translate(x + 0.5, y + 0.25, z - 0.01);
             GlStateManager.scale(-0.025f, -0.025f, 0.025f);
             GlStateManager.disableLighting();
             Minecraft.getMinecraft().fontRenderer.drawString(bloodText, -Minecraft.getMinecraft().fontRenderer.getStringWidth(bloodText) / 2, 0, textColor);
@@ -124,7 +131,7 @@ public class RenderHSBloodAltar extends TileEntitySpecialRenderer<HSTileEntityBl
             // Display input stack count
             String stackText = String.valueOf(stack.getCount());
             GlStateManager.pushMatrix();
-            GlStateManager.translate(x + 0.5, y + 2.7, z + 0.5);
+            GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
             GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewY, 0, 1, 0);
             GlStateManager.rotate(Minecraft.getMinecraft().getRenderManager().playerViewX, 1, 0, 0);
             GlStateManager.scale(-0.025f, -0.025f, 0.025f);

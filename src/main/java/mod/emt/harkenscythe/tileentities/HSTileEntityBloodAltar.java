@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 import mod.emt.harkenscythe.blocks.HSBloodCrucible;
 import mod.emt.harkenscythe.init.HSAltarRecipes;
+import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +23,7 @@ public class HSTileEntityBloodAltar extends TileEntity implements ITickable
 {
     private static final Random rand = new Random();
     private static final int RADIUS = 4;
+    private final ItemStack essenceStack = new ItemStack(HSItems.blood_essence);
     public int tickCount;
     public float pageFlip;
     public float pageFlipPrev;
@@ -34,7 +36,12 @@ public class HSTileEntityBloodAltar extends TileEntity implements ITickable
     public float tRot;
     private int bloodCount;
     private boolean validRecipe;
-    private ItemStack itemStack = ItemStack.EMPTY;
+    private ItemStack inputStack = ItemStack.EMPTY;
+
+    public ItemStack getEssenceStack()
+    {
+        return essenceStack;
+    }
 
     public int getBloodCount()
     {
@@ -46,25 +53,25 @@ public class HSTileEntityBloodAltar extends TileEntity implements ITickable
         return validRecipe;
     }
 
-    public ItemStack getItemStack()
+    public ItemStack getInputStack()
     {
-        return itemStack;
+        return inputStack;
     }
 
-    public void setItemStack(ItemStack itemStack)
+    public void setInputStack(ItemStack inputStack)
     {
-        this.itemStack = itemStack;
+        this.inputStack = inputStack;
         markDirty();
     }
 
     public void dropItem()
     {
-        if (!world.isRemote && !itemStack.isEmpty())
+        if (!world.isRemote && !inputStack.isEmpty())
         {
             BlockPos pos = getPos();
-            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), inputStack);
             world.spawnEntity(entityItem);
-            setItemStack(ItemStack.EMPTY);
+            setInputStack(ItemStack.EMPTY);
         }
     }
 
@@ -74,7 +81,7 @@ public class HSTileEntityBloodAltar extends TileEntity implements ITickable
         super.readFromNBT(compound);
         if (compound.hasKey("Item"))
         {
-            itemStack = new ItemStack(compound.getCompoundTag("Item"));
+            inputStack = new ItemStack(compound.getCompoundTag("Item"));
         }
     }
 
@@ -82,10 +89,10 @@ public class HSTileEntityBloodAltar extends TileEntity implements ITickable
     public NBTTagCompound writeToNBT(NBTTagCompound compound)
     {
         super.writeToNBT(compound);
-        if (!itemStack.isEmpty())
+        if (!inputStack.isEmpty())
         {
             NBTTagCompound itemTag = new NBTTagCompound();
-            itemStack.writeToNBT(itemTag);
+            inputStack.writeToNBT(itemTag);
             compound.setTag("Item", itemTag);
         }
         return compound;
@@ -188,7 +195,7 @@ public class HSTileEntityBloodAltar extends TileEntity implements ITickable
         this.flipA += (f - this.flipA) * 0.9F;
         this.pageFlip += this.flipA;
 
-        if (this.world.getWorldTime() % 20 == 19 && !this.getItemStack().isEmpty())
+        if (!this.getInputStack().isEmpty())
         {
             updateBloodCount();
             updateRecipe();
@@ -202,7 +209,7 @@ public class HSTileEntityBloodAltar extends TileEntity implements ITickable
 
     public void updateRecipe()
     {
-        this.validRecipe = HSAltarRecipes.isValidInputBlood(this.getItemStack().getItem()) && HSAltarRecipes.getRequiredBlood(this.getItemStack().getItem()) <= this.bloodCount;
+        this.validRecipe = HSAltarRecipes.isValidInputBlood(this.getInputStack().getItem()) && HSAltarRecipes.getRequiredBlood(this.getInputStack().getItem()) <= this.bloodCount;
     }
 
     public int scanCrucibleLevels()
