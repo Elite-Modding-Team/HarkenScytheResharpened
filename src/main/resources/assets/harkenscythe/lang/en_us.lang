@@ -78,7 +78,8 @@ message.harkenscythe.hs_reap=%s was reaped
 
 # TOOLTIPS
 tooltip.harkenscythe.altar=Requires a Harken Athame for rituals
-tooltip.harkenscythe.athame=A Blunt Harken Blade could develop magical abilities if it comes into contact with blood or souls...
+tooltip.harkenscythe.athame=Right-click on an Altar of Blood or Altar of Souls to infuse an item with its power
+tooltip.harkenscythe.biomass_seed=This needs to be germinated on an Altar of Blood first
 tooltip.harkenscythe.blunt_blade=It could develop magical abilities if it comes into contact with blood or souls...
 tooltip.harkenscythe.shears=Effective on any types of cloth, leaves, and web
 tooltip.harkenscythe.soul_cake=Gives Regeneration (0:06) when a slice is eaten and will drop itself when no slice is eaten

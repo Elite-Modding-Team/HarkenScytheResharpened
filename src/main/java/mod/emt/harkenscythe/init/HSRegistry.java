@@ -71,13 +71,14 @@ public class HSRegistry
 
     public static void registerRecipes()
     {
+        HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
+        HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.bloodweave_cloth).getItem(), 10); // TODO: OreDictionary
 
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
-        HSAltarRecipes.addSoulRecipe(Items.GLASS_BOTTLE, Items.EXPERIENCE_BOTTLE, 20);
+        //HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.AWKWARD).getItem(), Items.EXPERIENCE_BOTTLE, 40); // TODO: Something better for this?
         HSAltarRecipes.addSoulRecipe(Items.IRON_INGOT, HSItems.livingmetal_ingot, 10);
-        HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER).getItem(), Items.DRAGON_BREATH, 30); // TODO: Move this to blood
         HSAltarRecipes.addSoulRecipe(new ItemStack(Blocks.SAND).getItem(), new ItemStack(Blocks.SOUL_SAND).getItem(), 10); // TODO: OreDictionary
         HSAltarRecipes.addSoulRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.soulweave_cloth).getItem(), 10); // TODO: OreDictionary
     }

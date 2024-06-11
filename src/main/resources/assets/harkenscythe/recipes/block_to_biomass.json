@@ -1,0 +1,12 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "harkenscythe:biomass_block"
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:biomass",
+    "count": 9
+  }
+}

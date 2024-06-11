@@ -1,0 +1,12 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "harkenscythe:livingmetal_block"
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:livingmetal_ingot",
+    "count": 9
+  }
+}
