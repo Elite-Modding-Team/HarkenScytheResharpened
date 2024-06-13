@@ -1,6 +1,8 @@
 package mod.emt.harkenscythe.events;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.items.HSEssenceKeeperBlood;
+import mod.emt.harkenscythe.items.HSEssenceKeeperSoul;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,7 +30,15 @@ public class HSItemTooltipEvent
     {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
-        if (ForgeRegistries.ITEMS.getKey(item).equals(BLOOD_ALTAR) || ForgeRegistries.ITEMS.getKey(item).equals(SOUL_ALTAR))
+        if (item instanceof HSEssenceKeeperBlood)
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.collected_blood") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage());
+        }
+        else if (item instanceof HSEssenceKeeperSoul)
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.collected_souls") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage());
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(BLOOD_ALTAR) || ForgeRegistries.ITEMS.getKey(item).equals(SOUL_ALTAR))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.altar"));
         }
