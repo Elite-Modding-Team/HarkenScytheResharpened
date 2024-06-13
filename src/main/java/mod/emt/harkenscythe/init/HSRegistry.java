@@ -15,7 +15,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -71,14 +70,14 @@ public class HSRegistry
     {
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
-        HSAltarRecipes.addBloodRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.bloodweave_cloth).getItem(), 10); // TODO: OreDictionary
+        HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
 
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
         //HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.AWKWARD).getItem(), Items.EXPERIENCE_BOTTLE, 40); // TODO: Something better for this?
-        HSAltarRecipes.addSoulRecipe(Items.IRON_INGOT, HSItems.livingmetal_ingot, 10);
-        HSAltarRecipes.addSoulRecipe(new ItemStack(Blocks.SAND).getItem(), new ItemStack(Blocks.SOUL_SAND).getItem(), 10); // TODO: OreDictionary
-        HSAltarRecipes.addSoulRecipe(new ItemStack(Blocks.WOOL).getItem(), new ItemStack(HSBlocks.soulweave_cloth).getItem(), 10); // TODO: OreDictionary
+        HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 10);
+        HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
+        HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
     }
 
     @SideOnly(Side.CLIENT)

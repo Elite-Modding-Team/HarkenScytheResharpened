@@ -1,9 +1,12 @@
 package mod.emt.harkenscythe.init;
 
+import java.util.List;
 import java.util.Map;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class HSAltarRecipes
 {
@@ -16,6 +19,12 @@ public class HSAltarRecipes
     {
         BLOOD_INPUT_OUTPUT_MAP.put(input, output);
         BLOOD_INPUT_BLOODCOUNT_MAP.put(input, Math.max(requiredBlood, 10));
+    }
+
+    public static void addBloodRecipe(String oreDictName, Item output, int requiredBlood)
+    {
+        List<ItemStack> ores = OreDictionary.getOres(oreDictName);
+        for (ItemStack ore : ores) addBloodRecipe(ore.getItem(), output, requiredBlood);
     }
 
     public static boolean isValidInputBlood(Item input)
@@ -37,6 +46,12 @@ public class HSAltarRecipes
     {
         SOUL_INPUT_OUTPUT_MAP.put(input, output);
         SOUL_INPUT_SOULCOUNT_MAP.put(input, Math.max(requiredSouls, 10));
+    }
+
+    public static void addSoulRecipe(String oreDictName, Item output, int requiredSouls)
+    {
+        List<ItemStack> ores = OreDictionary.getOres(oreDictName);
+        for (ItemStack ore : ores) addSoulRecipe(ore.getItem(), output, requiredSouls);
     }
 
     public static boolean isValidInputSoul(Item input)
