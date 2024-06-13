@@ -57,6 +57,9 @@ public class HSBloodAltar extends BlockEnchantmentTable
         if (te instanceof HSTileEntityBloodAltar)
         {
             HSTileEntityBloodAltar altar = (HSTileEntityBloodAltar) te;
+            int altarX = altar.getPos().getX();
+            int altarY = altar.getPos().getY();
+            int altarZ = altar.getPos().getZ();
             ItemStack altarItem = altar.getInputStack();
             ItemStack heldItem = player.getHeldItem(hand);
 
@@ -65,15 +68,15 @@ public class HSBloodAltar extends BlockEnchantmentTable
                 if (!altarItem.isEmpty() && altar.isValidRecipe())
                 {
                     Item item = altar.getInputStack().getItem();
-                    int requiredBloods = HSAltarRecipes.getRequiredBlood(altar.getInputStack().getItem());
-                    altar.decreaseCrucibleLevel(requiredBloods / 10);
+                    int requiredBlood = HSAltarRecipes.getRequiredBlood(altar.getInputStack().getItem());
+                    altar.decreaseCrucibleLevel(requiredBlood / 10);
                     altar.getInputStack().shrink(1);
-                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altar.getPos().getX() + 0.5D, altar.getPos().getY() + 1.5D, altar.getPos().getZ() + 0.5D, new ItemStack(HSAltarRecipes.getOutputBlood(item))));
-                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
-                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
-                    for (int i = 0; i < requiredBloods; i++)
+                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, new ItemStack(HSAltarRecipes.getOutputBlood(item))));
+                    player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    player.world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    for (int i = 0; i < requiredBlood; i++)
                     {
-                        player.world.spawnParticle(EnumParticleTypes.SPELL_WITCH, altar.getPos().getX() + 0.5D, altar.getPos().getY() + 2.0D, altar.getPos().getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
+                        player.world.spawnParticle(EnumParticleTypes.SPELL_WITCH, altarX + world.rand.nextFloat(), altarY + 1.0D + world.rand.nextFloat(), altarZ + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
                     }
                     altar.updateBloodCount();
                     altar.updateRecipe();
@@ -85,13 +88,13 @@ public class HSBloodAltar extends BlockEnchantmentTable
                 if (altarItem.isEmpty())
                 {
                     altar.setInputStack(heldItem.splitStack(1));
-                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    player.world.playSound(altarX, altarY, altarZ, SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
                 else if (altarItem.getMaxStackSize() > altarItem.getCount() && ItemStack.areItemsEqual(altarItem, heldItem) && ItemStack.areItemStackTagsEqual(altarItem, heldItem))
                 {
                     heldItem.shrink(1);
-                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    player.world.playSound(altarX, altarY, altarZ, SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altarItem.grow(1);
                     return true;
                 }
@@ -102,7 +105,7 @@ public class HSBloodAltar extends BlockEnchantmentTable
                 if (!itemStack.isEmpty())
                 {
                     player.addItemStackToInventory(itemStack);
-                    player.world.playSound(altar.getPos().getX(), altar.getPos().getY(), altar.getPos().getZ(), SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    player.world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altar.setInputStack(ItemStack.EMPTY);
                     return true;
                 }
