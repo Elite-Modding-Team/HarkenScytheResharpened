@@ -20,7 +20,6 @@ public abstract class HSEntityEssence extends Entity
     protected HSEntityEssence(World worldIn)
     {
         super(worldIn);
-        this.setSize(1.0F, 1.0F);
         this.innerRotation = this.rand.nextInt(100000);
     }
 

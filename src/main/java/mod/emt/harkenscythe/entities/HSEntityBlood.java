@@ -15,6 +15,7 @@ public class HSEntityBlood extends HSEntityEssence
     public HSEntityBlood(World worldIn)
     {
         super(worldIn);
+        this.setSize(0.8F, 0.8F);
     }
 
     @Override

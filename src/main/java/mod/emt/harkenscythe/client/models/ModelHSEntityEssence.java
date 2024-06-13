@@ -26,7 +26,7 @@ public class ModelHSEntityEssence extends ModelBase
     public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
         GlStateManager.pushMatrix();
-        GlStateManager.scale(1.0F, 1.0F, 1.0F);
+        GlStateManager.scale(entity.width, entity.height, entity.width);
         GlStateManager.translate(0.0F, -0.5F, 0.0F);
         GlStateManager.enableNormalize();
         GlStateManager.enableBlend();

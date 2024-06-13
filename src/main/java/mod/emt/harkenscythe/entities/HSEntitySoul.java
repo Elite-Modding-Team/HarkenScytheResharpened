@@ -15,6 +15,7 @@ public class HSEntitySoul extends HSEntityEssence
     public HSEntitySoul(World worldIn)
     {
         super(worldIn);
+        this.setSize(1.2F, 1.2F);
     }
 
     @Override
