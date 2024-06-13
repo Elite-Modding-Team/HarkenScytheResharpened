@@ -57,11 +57,12 @@ public class HSSoulAltar extends BlockEnchantmentTable
         if (te instanceof HSTileEntitySoulAltar)
         {
             HSTileEntitySoulAltar altar = (HSTileEntitySoulAltar) te;
+            ItemStack altarItem = altar.getInputStack();
             ItemStack heldItem = player.getHeldItem(hand);
 
             if (heldItem.getItem() == HSItems.harken_athame)
             {
-                if (altar.isValidRecipe())
+                if (!altarItem.isEmpty() && altar.isValidRecipe())
                 {
                     Item item = altar.getInputStack().getItem();
                     int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getInputStack().getItem());
@@ -81,7 +82,6 @@ public class HSSoulAltar extends BlockEnchantmentTable
             }
             else if (!heldItem.isEmpty())
             {
-                ItemStack altarItem = altar.getInputStack();
                 if (altarItem.isEmpty())
                 {
                     altar.setInputStack(heldItem.splitStack(1));
