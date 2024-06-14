@@ -70,7 +70,7 @@ public class HSRegistry
     {
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
-        HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
+        HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
 
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
