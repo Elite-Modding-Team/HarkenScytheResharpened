@@ -178,7 +178,7 @@ public class HSItems
     @GameRegistry.ObjectHolder("soulweave_shoes")
     public static HSDyableArmor soulweave_shoes;
 
-    public static ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("biomass", "biomass", 14, new int[] {1, 4, 5, 2}, 17, SoundEvents.BLOCK_SLIME_PLACE, 0.5F).setRepairItem(new ItemStack(biomass));
+    public static ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("biomass", "biomass", 14, new int[] {1, 4, 5, 2}, 17, SoundEvents.BLOCK_CHORUS_FLOWER_GROW, 0.5F).setRepairItem(new ItemStack(biomass));
     public static ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(livingmetal_ingot));
     public static ArmorMaterial ARMOR_BLOODWEAVE = EnumHelper.addArmorMaterial("bloodweave", "bloodweave", 15, new int[] {1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.bloodweave_cloth)));
     public static ArmorMaterial ARMOR_SOULWEAVE = EnumHelper.addArmorMaterial("soulweave", "soulweave", 15, new int[] {1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.soulweave_cloth)));
