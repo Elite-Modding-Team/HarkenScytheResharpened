@@ -1,0 +1,20 @@
+﻿{
+  "ingredients": [
+    {
+      "item": "harkenscythe:soulweave_hood"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 13
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:soulweave_hood",
+    "nbt": {
+      "display": {
+        "color": 13061821
+      }
+    }
+  },
+  "type": "forge:ore_shapeless"
+}

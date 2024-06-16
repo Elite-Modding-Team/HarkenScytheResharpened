@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "WWW",
+    "W W"
+  ],
+  "key": {
+    "W": {
+      "item": "harkenscythe:soulweave_cloth"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:soulweave_hood",
+    "nbt": "{display:{color:3847130}}"
+  }
+}

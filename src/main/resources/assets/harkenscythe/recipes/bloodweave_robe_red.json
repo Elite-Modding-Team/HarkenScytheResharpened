@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "W W",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "harkenscythe:bloodweave_cloth"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:bloodweave_robe",
+    "nbt": "{display:{color:11546150}}"
+  }
+}

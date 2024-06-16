@@ -1,0 +1,20 @@
+﻿{
+  "ingredients": [
+    {
+      "item": "harkenscythe:bloodweave_shoes"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 13
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:bloodweave_shoes",
+    "nbt": {
+      "display": {
+        "color": 13061821
+      }
+    }
+  },
+  "type": "forge:ore_shapeless"
+}

@@ -1,0 +1,20 @@
+﻿{
+  "ingredients": [
+    {
+      "item": "harkenscythe:bloodweave_robe"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 8
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:bloodweave_robe",
+    "nbt": {
+      "display": {
+        "color": 4673362
+      }
+    }
+  },
+  "type": "forge:ore_shapeless"
+}

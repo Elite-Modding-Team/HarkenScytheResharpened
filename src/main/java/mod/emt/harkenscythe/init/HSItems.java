@@ -6,7 +6,7 @@ import mod.emt.harkenscythe.blocks.HSSoulCake;
 import mod.emt.harkenscythe.items.HSArmor;
 import mod.emt.harkenscythe.items.HSBiomassSeedGerminated;
 import mod.emt.harkenscythe.items.HSCreepball;
-import mod.emt.harkenscythe.items.HSDyableArmor;
+import mod.emt.harkenscythe.items.HSDyeableArmor;
 import mod.emt.harkenscythe.items.HSEssenceKeeper;
 import mod.emt.harkenscythe.items.HSEssenceKeeperBlood;
 import mod.emt.harkenscythe.items.HSEssenceKeeperSoul;
@@ -162,21 +162,21 @@ public class HSItems
     public static HSSword harken_athame;
 
     @GameRegistry.ObjectHolder("bloodweave_hood")
-    public static HSDyableArmor bloodweave_hood;
+    public static HSDyeableArmor bloodweave_hood;
     @GameRegistry.ObjectHolder("bloodweave_robe")
-    public static HSDyableArmor bloodweave_robe;
+    public static HSDyeableArmor bloodweave_robe;
     @GameRegistry.ObjectHolder("bloodweave_pants")
-    public static HSDyableArmor bloodweave_pants;
+    public static HSDyeableArmor bloodweave_pants;
     @GameRegistry.ObjectHolder("bloodweave_shoes")
-    public static HSDyableArmor bloodweave_shoes;
+    public static HSDyeableArmor bloodweave_shoes;
     @GameRegistry.ObjectHolder("soulweave_hood")
-    public static HSDyableArmor soulweave_hood;
+    public static HSDyeableArmor soulweave_hood;
     @GameRegistry.ObjectHolder("soulweave_robe")
-    public static HSDyableArmor soulweave_robe;
+    public static HSDyeableArmor soulweave_robe;
     @GameRegistry.ObjectHolder("soulweave_pants")
-    public static HSDyableArmor soulweave_pants;
+    public static HSDyeableArmor soulweave_pants;
     @GameRegistry.ObjectHolder("soulweave_shoes")
-    public static HSDyableArmor soulweave_shoes;
+    public static HSDyeableArmor soulweave_shoes;
 
     public static ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("biomass", "biomass", 14, new int[] {1, 4, 5, 2}, 17, SoundEvents.BLOCK_CHORUS_FLOWER_GROW, 0.5F).setRepairItem(new ItemStack(biomass));
     public static ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(livingmetal_ingot));
@@ -248,14 +248,14 @@ public class HSItems
                 HSRegistry.setup(new HSFood(3, 0.2F, false, 16, true, EnumRarity.UNCOMMON), "soul_cookie").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSword(ToolMaterial.IRON, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_BLOODWEAVE, 4, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 0x852824), "bloodweave_hood").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_BLOODWEAVE, 4, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 0x852824), "bloodweave_robe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_BLOODWEAVE, 4, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 0x852824), "bloodweave_pants").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_BLOODWEAVE, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 0x852824), "bloodweave_shoes").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_SOULWEAVE, 4, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 0x5CAED7), "soulweave_hood").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_SOULWEAVE, 4, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 0x5CAED7), "soulweave_robe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_SOULWEAVE, 4, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 0x5CAED7), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSDyableArmor(ARMOR_SOULWEAVE, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 0x5CAED7), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 11546150), "bloodweave_hood").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 11546150), "bloodweave_robe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 11546150), "bloodweave_pants").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 11546150), "bloodweave_shoes").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 3847130), "soulweave_hood").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 3847130), "soulweave_robe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 3847130), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSDyeableArmor(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
             );
 
         // ITEM BLOCKS

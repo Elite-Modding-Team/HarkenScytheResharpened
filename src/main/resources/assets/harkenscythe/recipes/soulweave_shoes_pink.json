@@ -1,0 +1,20 @@
+﻿{
+  "ingredients": [
+    {
+      "item": "harkenscythe:soulweave_shoes"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 9
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:soulweave_shoes",
+    "nbt": {
+      "display": {
+        "color": 15961002
+      }
+    }
+  },
+  "type": "forge:ore_shapeless"
+}
