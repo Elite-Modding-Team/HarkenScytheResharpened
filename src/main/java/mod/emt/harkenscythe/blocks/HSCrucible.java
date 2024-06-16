@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 import javax.annotation.Nullable;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.items.HSDyeableArmor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -111,6 +112,27 @@ public abstract class HSCrucible extends Block
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         return Item.getItemFromBlock(this);
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        ItemStack heldStack = player.getHeldItem(hand);
+        Item heldItem = heldStack.getItem();
+        int crucibleLevel = state.getValue(LEVEL);
+        if (crucibleLevel > 0 && heldItem instanceof HSDyeableArmor)
+        {
+            HSDyeableArmor armor = (HSDyeableArmor) heldItem;
+            if (armor.hasColor(heldStack) && ((armor.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE && this instanceof HSBloodCrucible) || (armor.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE && this instanceof HSSoulCrucible)))
+            {
+                armor.removeColor(heldStack);
+                setLevel(world, pos, state, crucibleLevel - 1);
+                player.world.playSound(null, pos, SoundEvents.ENTITY_BOBBER_SPLASH, SoundCategory.BLOCKS, 0.1F, 2.0F);
+                player.addStat(StatList.ARMOR_CLEANED);
+                return true;
+            }
+        }
+        return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
     }
 
     @Override

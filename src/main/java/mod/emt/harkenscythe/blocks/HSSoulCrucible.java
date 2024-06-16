@@ -28,7 +28,7 @@ public class HSSoulCrucible extends HSCrucible
         if (heldStack.isEmpty()) return false;
 
         Item heldItem = heldStack.getItem();
-        if (!(heldItem instanceof HSEssenceKeeper)) return false;
+        if (!(heldItem instanceof HSEssenceKeeper)) return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
 
         int crucibleLevel = state.getValue(LEVEL);
         if (crucibleLevel < 10 && !player.isSneaking() && (heldItem == HSItems.essence_keeper_soul || heldItem == HSItems.essence_vessel_soul))
