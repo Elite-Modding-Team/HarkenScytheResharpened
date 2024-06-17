@@ -7,11 +7,16 @@ import mod.emt.harkenscythe.client.renderers.RenderHSBloodAltar;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntityBlood;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntitySoul;
 import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
+import mod.emt.harkenscythe.enchantments.HSEnchantBloodletting;
+import mod.emt.harkenscythe.enchantments.HSEnchantExude;
+import mod.emt.harkenscythe.enchantments.HSEnchantNourishment;
+import mod.emt.harkenscythe.enchantments.HSEnchantSoulsteal;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
 import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -78,6 +83,17 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 10);
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
+    }
+
+    @SubscribeEvent
+    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)
+    {
+        event.getRegistry().registerAll(
+            new HSEnchantBloodletting(HarkenScythe.MOD_ID + ".bloodletting"),
+            new HSEnchantExude(HarkenScythe.MOD_ID + ".exude"),
+            new HSEnchantNourishment(HarkenScythe.MOD_ID + ".nourishment"),
+            new HSEnchantSoulsteal(HarkenScythe.MOD_ID + ".soulsteal")
+        );
     }
 
     @SideOnly(Side.CLIENT)

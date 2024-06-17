@@ -81,6 +81,12 @@ item.harkenscythe.wooden_scythe.name=Wooden Scythe
 entity.harkenscythe.blood.name=Blood Essence
 entity.harkenscythe.soul.name=Soul Essence
 
+# ENCHANTMENTS
+enchantment.harkenscythe.bloodletting=Bloodletting
+enchantment.harkenscythe.exude=Exude
+enchantment.harkenscythe.nourishment=Nourishment
+enchantment.harkenscythe.soulsteal=Soulsteal
+
 # MESSAGES
 message.harkenscythe.hs_reap=%s was reaped
 
