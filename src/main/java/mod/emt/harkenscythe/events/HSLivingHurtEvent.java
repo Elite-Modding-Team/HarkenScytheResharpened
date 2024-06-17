@@ -42,14 +42,14 @@ public class HSLivingHurtEvent
             {
                 // Nourishment enchantment
                 EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-                if (player.getFoodStats().getFoodLevel() > 0 && triggerEnchantment(HSEnchantments.nourishment, player))
+                if (player.getFoodStats().getFoodLevel() > 0 && triggerEnchantment(HSEnchantments.NOURISHMENT, player))
                 {
                     int damage = Math.min(player.getFoodStats().getFoodLevel(), Math.round(event.getAmount()));
                     player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - damage);
                     event.setAmount(0);
                 }
                 // Exude enchantment
-                if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && triggerEnchantment(HSEnchantments.exude, player))
+                if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && triggerEnchantment(HSEnchantments.EXUDE, player))
                 {
                     player.removePotionEffect(MobEffects.POISON);
                     player.removePotionEffect(MobEffects.WITHER);

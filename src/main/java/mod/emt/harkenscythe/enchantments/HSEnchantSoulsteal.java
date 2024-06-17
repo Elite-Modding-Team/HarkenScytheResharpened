@@ -10,7 +10,7 @@ public class HSEnchantSoulsteal extends Enchantment
     public HSEnchantSoulsteal(String name)
     {
         super(Rarity.UNCOMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND});
-        this.setName(name);
+        this.setName(HarkenScythe.MOD_ID + "." + name);
         this.setRegistryName(HarkenScythe.MOD_ID, name);
     }
 

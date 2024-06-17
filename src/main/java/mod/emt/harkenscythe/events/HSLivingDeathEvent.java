@@ -30,7 +30,7 @@ public class HSLivingDeathEvent
             if (damageSource.getTrueSource() instanceof EntityPlayer)
             {
                 EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-                if ((player.getHeldItemMainhand().getItem() instanceof HSScythe && damageSource.getDamageType().equals("hs_reap")) || triggerEnchantment(HSEnchantments.soulsteal, player))
+                if ((player.getHeldItemMainhand().getItem() instanceof HSScythe && damageSource.getDamageType().equals("hs_reap")) || triggerEnchantment(HSEnchantments.SOULSTEAL, player))
                 {
                     HSEntitySoul soul = new HSEntitySoul(world);
                     soul.setPosition(entity.posX, entity.posY, entity.posZ);

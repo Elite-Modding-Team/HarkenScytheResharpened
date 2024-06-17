@@ -10,7 +10,7 @@ public class HSEnchantNourishment extends Enchantment
     public HSEnchantNourishment(String name)
     {
         super(Rarity.UNCOMMON, EnumEnchantmentType.ARMOR, EntityEquipmentSlot.values());
-        this.setName(name);
+        this.setName(HarkenScythe.MOD_ID + "." + name);
         this.setRegistryName(HarkenScythe.MOD_ID, name);
     }
 

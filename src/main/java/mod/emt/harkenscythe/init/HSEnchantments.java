@@ -10,12 +10,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSEnchantments
 {
-    @GameRegistry.ObjectHolder("bloodletting")
-    public static HSEnchantBloodletting bloodletting;
-    @GameRegistry.ObjectHolder("exude")
-    public static HSEnchantExude exude;
-    @GameRegistry.ObjectHolder("nourishment")
-    public static HSEnchantNourishment nourishment;
-    @GameRegistry.ObjectHolder("soulsteal")
-    public static HSEnchantSoulsteal soulsteal;
+    public static final HSEnchantBloodletting BLOODLETTING = new HSEnchantBloodletting("bloodletting");
+    public static final HSEnchantExude EXUDE = new HSEnchantExude("exude");
+    public static final HSEnchantNourishment NOURISHMENT = new HSEnchantNourishment("nourishment");
+    public static final HSEnchantSoulsteal SOULSTEAL = new HSEnchantSoulsteal("soulsteal");
 }

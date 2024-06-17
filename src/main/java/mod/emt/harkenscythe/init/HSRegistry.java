@@ -7,10 +7,6 @@ import mod.emt.harkenscythe.client.renderers.RenderHSBloodAltar;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntityBlood;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntitySoul;
 import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
-import mod.emt.harkenscythe.enchantments.HSEnchantBloodletting;
-import mod.emt.harkenscythe.enchantments.HSEnchantExude;
-import mod.emt.harkenscythe.enchantments.HSEnchantNourishment;
-import mod.emt.harkenscythe.enchantments.HSEnchantSoulsteal;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
@@ -89,10 +85,10 @@ public class HSRegistry
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)
     {
         event.getRegistry().registerAll(
-            new HSEnchantBloodletting(HarkenScythe.MOD_ID + ".bloodletting"),
-            new HSEnchantExude(HarkenScythe.MOD_ID + ".exude"),
-            new HSEnchantNourishment(HarkenScythe.MOD_ID + ".nourishment"),
-            new HSEnchantSoulsteal(HarkenScythe.MOD_ID + ".soulsteal")
+            HSEnchantments.BLOODLETTING,
+            HSEnchantments.EXUDE,
+            HSEnchantments.NOURISHMENT,
+            HSEnchantments.SOULSTEAL
         );
     }
 

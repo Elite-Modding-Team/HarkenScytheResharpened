@@ -14,7 +14,7 @@ public class HSEnchantBloodletting extends Enchantment
     public HSEnchantBloodletting(String name)
     {
         super(Rarity.UNCOMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND});
-        this.setName(name);
+        this.setName(HarkenScythe.MOD_ID + "." + name);
         this.setRegistryName(HarkenScythe.MOD_ID, name);
     }
 
