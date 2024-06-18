@@ -16,6 +16,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -89,6 +90,17 @@ public class HSRegistry
             HSEnchantments.EXUDE,
             HSEnchantments.NOURISHMENT,
             HSEnchantments.SOULSTEAL
+        );
+    }
+
+    @SubscribeEvent
+    public static void registerPotions(RegistryEvent.Register<Potion> event)
+    {
+        event.getRegistry().registerAll(
+            HSPotions.AFFLICTION,
+            HSPotions.FLAME,
+            HSPotions.PURIFYING,
+            HSPotions.WATER
         );
     }
 
