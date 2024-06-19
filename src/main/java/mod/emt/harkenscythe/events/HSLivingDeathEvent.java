@@ -3,12 +3,14 @@ package mod.emt.harkenscythe.events;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSEnchantments;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.tools.HSScythe;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +37,7 @@ public class HSLivingDeathEvent
                     HSEntitySoul soul = new HSEntitySoul(world);
                     soul.setPosition(entity.posX, entity.posY, entity.posZ);
                     world.spawnEntity(soul);
+                    world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
                 }
             }
         }

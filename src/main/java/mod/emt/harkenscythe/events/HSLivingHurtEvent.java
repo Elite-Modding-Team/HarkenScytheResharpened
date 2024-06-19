@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.events;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
 import mod.emt.harkenscythe.init.HSEnchantments;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.tools.HSGlaive;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -10,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +38,7 @@ public class HSLivingHurtEvent
                     HSEntityBlood blood = new HSEntityBlood(world);
                     blood.setPosition(entity.posX, entity.posY, entity.posZ);
                     world.spawnEntity(blood);
+                    world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
                 }
             }
             if (entity instanceof EntityPlayer)

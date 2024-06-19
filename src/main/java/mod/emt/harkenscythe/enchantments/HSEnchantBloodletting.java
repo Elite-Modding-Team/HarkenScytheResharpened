@@ -2,11 +2,13 @@ package mod.emt.harkenscythe.enchantments;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class HSEnchantBloodletting extends Enchantment
@@ -35,6 +37,7 @@ public class HSEnchantBloodletting extends Enchantment
                 HSEntityBlood blood = new HSEntityBlood(world);
                 blood.setPosition(entity.posX, entity.posY, entity.posZ);
                 world.spawnEntity(blood);
+                world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             }
         }
     }
