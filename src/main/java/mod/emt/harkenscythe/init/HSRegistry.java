@@ -80,6 +80,7 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 10);
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
+        HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 10);
     }
 
     @SubscribeEvent

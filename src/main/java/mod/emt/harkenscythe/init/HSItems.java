@@ -160,6 +160,9 @@ public class HSItems
     public static HSItem blunt_harken_blade;
     @GameRegistry.ObjectHolder("harken_athame")
     public static HSSword harken_athame;
+    
+    @GameRegistry.ObjectHolder("spectral_glass_bottle")
+    public static HSItem spectral_glass_bottle;
 
     @GameRegistry.ObjectHolder("bloodweave_hood")
     public static HSDyeableArmor bloodweave_hood;
@@ -248,6 +251,7 @@ public class HSItems
                 HSRegistry.setup(new HSFood(3, 0.2F, false, 16, true, EnumRarity.UNCOMMON), "soul_cookie").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSword(ToolMaterial.IRON, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 11546150), "bloodweave_hood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 11546150), "bloodweave_robe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 11546150), "bloodweave_pants").setCreativeTab(HarkenScythe.TAB),

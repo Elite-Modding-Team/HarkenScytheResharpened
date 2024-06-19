@@ -10,6 +10,7 @@ import mod.emt.harkenscythe.blocks.HSBloodCrucible;
 import mod.emt.harkenscythe.blocks.HSSoulAltar;
 import mod.emt.harkenscythe.blocks.HSSoulCake;
 import mod.emt.harkenscythe.blocks.HSSoulCrucible;
+import mod.emt.harkenscythe.blocks.HSSpectralGlass;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -29,6 +30,9 @@ public class HSBlocks
     public static HSBlockMaterial biomass_block;
     @GameRegistry.ObjectHolder("livingmetal_block")
     public static HSBlockMaterial livingmetal_block;
+    
+    @GameRegistry.ObjectHolder("spectral_glass")
+    public static HSSpectralGlass spectral_glass;
 
     @GameRegistry.ObjectHolder("creep_block")
     public static HSBlockCreep creep_block;
@@ -60,6 +64,7 @@ public class HSBlocks
             (
                 HSRegistry.setup(new HSBlockMaterial(Material.ROCK, MapColor.NETHERRACK, 5.0F, 5.0F, SoundType.STONE), "biomass_block").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockMaterial(Material.IRON, MapColor.DIAMOND, 5.0F, 10.0F, SoundType.METAL), "livingmetal_block").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSpectralGlass(), "spectral_glass").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCreep(), "creep_block").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCloth(MapColor.RED), "bloodweave_cloth").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCloth(MapColor.LIGHT_BLUE), "soulweave_cloth").setCreativeTab(HarkenScythe.TAB),

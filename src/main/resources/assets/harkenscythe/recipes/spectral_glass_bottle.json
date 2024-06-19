@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "G G",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "harkenscythe:spectral_glass"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:spectral_glass_bottle",
+    "count": 3
+  }
+}

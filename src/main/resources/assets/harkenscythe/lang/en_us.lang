@@ -12,6 +12,7 @@ tile.harkenscythe.soul_altar.name=Altar of Souls
 tile.harkenscythe.soul_cake.name=Cake of Souls
 tile.harkenscythe.soul_crucible.name=Soul Crucible
 tile.harkenscythe.soulweave_cloth.name=Soulweave Cloth
+tile.harkenscythe.spectral_glass.name=Spectral Glass
 
 # ITEMS
 item.harkenscythe.ancient_necronomicon.name=Ancient Necronomicon
@@ -72,6 +73,7 @@ item.harkenscythe.soulweave_hood.name=Soulweave Hood
 item.harkenscythe.soulweave_pants.name=Soulweave Pants
 item.harkenscythe.soulweave_robe.name=Soulweave Robe
 item.harkenscythe.soulweave_shoes.name=Soulweave Shoes
+item.harkenscythe.spectral_glass_bottle.name=Spectral Glass Bottle
 item.harkenscythe.stone_glaive.name=Stone Glaive
 item.harkenscythe.stone_scythe.name=Stone Scythe
 item.harkenscythe.wooden_glaive.name=Wooden Glaive
