@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "GGG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "harkenscythe:spectral_glass"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:spectral_glass_pane",
+    "count": 16
+  }
+}
