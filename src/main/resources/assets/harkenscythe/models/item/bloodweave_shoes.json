@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "harkenscythe:items/bloodweave_shoes"
+    "layer0": "harkenscythe:items/bloodweave_shoes",
+    "layer1": "harkenscythe:items/bloodweave_shoes_overlay"
   }
 }

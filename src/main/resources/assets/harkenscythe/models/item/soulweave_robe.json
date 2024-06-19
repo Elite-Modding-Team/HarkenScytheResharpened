@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "harkenscythe:items/soulweave_robe"
+    "layer0": "harkenscythe:items/soulweave_robe",
+    "layer1": "harkenscythe:items/soulweave_robe_overlay"
   }
 }
