@@ -1,10 +1,13 @@
 package mod.emt.harkenscythe.entities;
 
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
@@ -12,10 +15,46 @@ import net.minecraft.world.World;
 
 public class HSEntitySoul extends HSEntityEssence
 {
-    public HSEntitySoul(World worldIn)
+    private EntityLivingBase originalEntity;
+
+    public HSEntitySoul(World world)
     {
-        super(worldIn);
+        super(world);
         this.setSize(1.2F, 1.2F);
+    }
+
+    public HSEntitySoul(World world, EntityLivingBase entityLivingBase)
+    {
+        this(world);
+        this.setOriginalEntity(entityLivingBase);
+    }
+
+    public EntityLivingBase getOriginalEntity()
+    {
+        return originalEntity;
+    }
+
+    public void setOriginalEntity(EntityLivingBase originalEntity)
+    {
+        this.originalEntity = originalEntity;
+    }
+
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source.getTrueSource() instanceof HSEntityHarbinger)
+        {
+            this.setDead();
+            world.playSound(null, this.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+            if (this.getOriginalEntity() != null)
+            {
+                // TODO: Set entity data to determine spectral variant
+                this.getOriginalEntity().setCustomNameTag("Spectral " + this.getOriginalEntity().getName());
+                this.getOriginalEntity().setPosition(this.posX, this.posY, this.posZ);
+                if (!this.world.isRemote) world.spawnEntity(this.getOriginalEntity());
+            }
+            return true;
+        }
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override

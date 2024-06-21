@@ -1,18 +1,21 @@
 package mod.emt.harkenscythe.entities;
 
+import java.util.Collections;
 import java.util.List;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public abstract class HSEntityEssence extends Entity
+public abstract class HSEntityEssence extends EntityLivingBase
 {
     private static final int DESPAWN_TIME = 6000;
     private int innerRotation;
@@ -27,9 +30,6 @@ public abstract class HSEntityEssence extends Entity
     {
         return innerRotation;
     }
-
-    @Override
-    protected void entityInit() {}
 
     @Override
     public void onEntityUpdate()
@@ -68,10 +68,25 @@ public abstract class HSEntityEssence extends Entity
     }
 
     @Override
-    protected boolean canTriggerWalking()
+    public boolean attackEntityFrom(DamageSource source, float amount)
     {
         return false;
     }
+
+    @Override
+    public Iterable<ItemStack> getArmorInventoryList()
+    {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public ItemStack getItemStackFromSlot(EntityEquipmentSlot slotIn)
+    {
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public void setItemStackToSlot(EntityEquipmentSlot slotIn, ItemStack stack) {}
 
     @Override
     public boolean canBeCollidedWith()
@@ -80,8 +95,20 @@ public abstract class HSEntityEssence extends Entity
     }
 
     @Override
-    protected void readEntityFromNBT(NBTTagCompound compound) {}
+    public boolean canBePushed()
+    {
+        return false;
+    }
 
     @Override
-    protected void writeEntityToNBT(NBTTagCompound compound) {}
+    public EnumHandSide getPrimaryHand()
+    {
+        return EnumHandSide.RIGHT;
+    }
+
+    @Override
+    protected boolean canTriggerWalking()
+    {
+        return false;
+    }
 }

@@ -19,7 +19,7 @@ public class RenderHSEntityHarbinger extends RenderBiped<HSEntityHarbinger>
 
     public RenderHSEntityHarbinger(RenderManager renderManagerIn)
     {
-        super(renderManagerIn, new ModelHSHarbinger(), 0.5F);
+        super(renderManagerIn, new ModelHSHarbinger(), 0.0F);
     }
 
     @Nullable

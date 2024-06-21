@@ -31,13 +31,20 @@ public class HSLivingDeathEvent
             DamageSource damageSource = event.getSource();
             if (damageSource.getTrueSource() instanceof EntityPlayer)
             {
-                EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+                EntityPlayer player = (EntityPlayer) damageSource.getTrueSource();
                 if ((player.getHeldItemMainhand().getItem() instanceof HSScythe && damageSource.getDamageType().equals("hs_reap")) || triggerEnchantment(HSEnchantments.SOULSTEAL, player))
                 {
-                    HSEntitySoul soul = new HSEntitySoul(world);
-                    soul.setPosition(entity.posX, entity.posY, entity.posZ);
-                    world.spawnEntity(soul);
-                    world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+                    try
+                    {
+                        HSEntitySoul soul = new HSEntitySoul(world, entity.getClass().getConstructor(World.class).newInstance(world));
+                        soul.setPosition(entity.posX, entity.posY, entity.posZ);
+                        world.spawnEntity(soul);
+                        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

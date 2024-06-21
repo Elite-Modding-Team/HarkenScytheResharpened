@@ -10,7 +10,7 @@ public class ModelHSHarbinger extends ModelZombie
         this(0.0F, false);
     }
 
-    public ModelHSHarbinger(float modelSize, boolean p_i46303_2_)
+    public ModelHSHarbinger(float modelSize, boolean unused)
     {
         textureWidth = 64;
         textureHeight = 32;
