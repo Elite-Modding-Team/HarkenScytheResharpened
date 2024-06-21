@@ -1,9 +1,7 @@
 package mod.emt.harkenscythe.entities;
 
-import mod.emt.harkenscythe.init.HSLootTables;
-
 import javax.annotation.Nonnull;
-
+import mod.emt.harkenscythe.init.HSLootTables;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.init.SoundEvents;
@@ -20,11 +18,11 @@ public class HSEntityHarbinger extends EntityMob
         super(world);
     }
 
+    @Nonnull
     @Override
-    protected void applyEntityAttributes()
+    protected SoundEvent getAmbientSound()
     {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
+        return SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED;
     }
 
     @Nonnull
@@ -32,13 +30,6 @@ public class HSEntityHarbinger extends EntityMob
     protected ResourceLocation getLootTable()
     {
         return HSLootTables.HARBINGER;
-    }
-
-    @Nonnull
-    @Override
-    protected SoundEvent getAmbientSound()
-    {
-        return SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED;
     }
 
     @Nonnull
@@ -53,5 +44,12 @@ public class HSEntityHarbinger extends EntityMob
     protected SoundEvent getDeathSound()
     {
         return SoundEvents.ENTITY_WITHER_SPAWN;
+    }
+
+    @Override
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
     }
 }

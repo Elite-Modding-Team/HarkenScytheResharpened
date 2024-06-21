@@ -24,33 +24,20 @@ public class HSSpectralGlass extends Block
         this.setResistance(15.0F);
         this.setSoundType(SoundType.GLASS);
     }
-    
-    @Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
-        return false;
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getRenderLayer()
-    {
-        return BlockRenderLayer.CUTOUT;
-    }
-    
+
     @Override
     public boolean isFullCube(IBlockState state)
     {
         return false;
     }
-    
-	@Override
+
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
     {
         IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
         Block block = iblockstate.getBlock();
-        
+
         if (blockState != iblockstate)
         {
             return true;
@@ -60,7 +47,20 @@ public class HSSpectralGlass extends Block
         {
             return false;
         }
-        
-        return block == this ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+
+        return block != this && super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return false;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getRenderLayer()
+    {
+        return BlockRenderLayer.CUTOUT;
     }
 }

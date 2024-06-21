@@ -9,7 +9,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: Spectral Glass can be passed through during the day but is solid during the night
 // There should be a way to invert it (sneak + right-click maybe?) which changes the texture and reverses the roles (solid at day and not solid at night)
-public class HSSpectralGlassPane extends BlockPane {
+public class HSSpectralGlassPane extends BlockPane
+{
     public HSSpectralGlassPane()
     {
         super(Material.GLASS, true);

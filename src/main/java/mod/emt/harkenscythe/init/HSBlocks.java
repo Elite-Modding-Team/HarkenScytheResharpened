@@ -31,7 +31,7 @@ public class HSBlocks
     public static HSBlockMaterial biomass_block;
     @GameRegistry.ObjectHolder("livingmetal_block")
     public static HSBlockMaterial livingmetal_block;
-    
+
     @GameRegistry.ObjectHolder("spectral_glass")
     public static HSSpectralGlass spectral_glass;
     @GameRegistry.ObjectHolder("spectral_glass_pane")

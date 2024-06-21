@@ -1,7 +1,6 @@
 package mod.emt.harkenscythe.client.renderers;
 
 import javax.annotation.Nullable;
-
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.models.ModelHSHarbinger;
 import mod.emt.harkenscythe.entities.HSEntityHarbinger;
@@ -29,7 +28,7 @@ public class RenderHSEntityHarbinger extends RenderBiped<HSEntityHarbinger>
     {
         return TEXTURES;
     }
-    
+
     public static class Factory implements IRenderFactory<HSEntityHarbinger>
     {
         @Override
