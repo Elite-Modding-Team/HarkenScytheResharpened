@@ -20,6 +20,9 @@ public class HarkenScythe
     public static final Logger LOGGER = LogManager.getLogger(NAME);
     public static final CreativeTabs TAB = new HSCreativeTab(CreativeTabs.CREATIVE_TAB_ARRAY.length, MOD_ID + ".tab");
 
+    @Mod.Instance
+    public static HarkenScythe instance;
+
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {

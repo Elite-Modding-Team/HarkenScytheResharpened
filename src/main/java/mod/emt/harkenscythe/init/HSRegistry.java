@@ -6,13 +6,16 @@ import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.renderers.RenderHSBloodAltar;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntityBlood;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntitySoul;
+import mod.emt.harkenscythe.client.renderers.RenderHSEntityHarbinger;
 import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
+import mod.emt.harkenscythe.entities.HSEntityHarbinger;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
 import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -25,7 +28,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
-import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -56,11 +59,22 @@ public class HSRegistry
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event)
     {
         int id = 1;
-        event.getRegistry().registerAll(
-            EntityEntryBuilder.create().entity(HSEntityBlood.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "blood"), id++).name(HarkenScythe.MOD_ID + ".blood").tracker(64, 1, true).build(),
-            EntityEntryBuilder.create().entity(HSEntitySoul.class).id(new ResourceLocation(HarkenScythe.MOD_ID, "soul"), id++).name(HarkenScythe.MOD_ID + ".soul").tracker(64, 1, true).build()
-        );
+        
+        entityRegistryHelper("harbinger", HSEntityHarbinger.class, id++, 64, 1, true, 2829099, 14079702);
+        
+        egglessEntityRegistryHelper("blood", HSEntityBlood.class, id++, 64, 1, true);
+        egglessEntityRegistryHelper("soul", HSEntitySoul.class, id++, 64, 1, true);
     }
+  
+	public static void entityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2) {
+		EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id, HarkenScythe.instance, trackingRange,
+				updateFrequency, sendVelocityUpdates, eggColor1, eggColor2);
+	}
+	
+	public static void egglessEntityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates) {
+		EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id, HarkenScythe.instance, trackingRange,
+				updateFrequency, sendVelocityUpdates);
+	}
 
     public static void registerTileEntities()
     {
@@ -110,6 +124,7 @@ public class HSRegistry
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
         RenderingRegistry.registerEntityRenderingHandler(HSEntityBlood.class, new RenderHSEntityBlood.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new RenderHSEntityHarbinger.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new RenderHSEntitySoul.Factory());
     }
 
