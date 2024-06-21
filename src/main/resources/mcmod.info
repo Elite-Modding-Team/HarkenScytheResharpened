@@ -5,6 +5,7 @@
     "description": "Reap -What- You -Sow-",
     "version": "${version}",
     "mcversion": "${mcversion}",
+    "logoFile": "assets/harkenscythe/textures/logo.png",
     "authorList": ["ACGaming", "IcarussOne"]
   }
 ]
