@@ -2,7 +2,10 @@ package mod.emt.harkenscythe.entities;
 
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -45,12 +48,15 @@ public class HSEntitySoul extends HSEntityEssence
         {
             this.setDead();
             world.playSound(null, this.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-            if (this.getOriginalEntity() != null)
+            if (this.getOriginalEntity() instanceof EntityCreature)
             {
+                EntityCreature creature = (EntityCreature) this.getOriginalEntity();
                 // TODO: Set entity data to determine spectral variant
-                this.getOriginalEntity().setCustomNameTag("Spectral " + this.getOriginalEntity().getName());
-                this.getOriginalEntity().setPosition(this.posX, this.posY, this.posZ);
-                if (!this.world.isRemote) world.spawnEntity(this.getOriginalEntity());
+                creature.setCustomNameTag("Spectral " + creature.getName());
+                creature.setPosition(this.posX, this.posY, this.posZ);
+                creature.setHealth(creature.getMaxHealth());
+                creature.isDead = false;
+                if (!this.world.isRemote) world.spawnEntity(creature);
             }
             return true;
         }
