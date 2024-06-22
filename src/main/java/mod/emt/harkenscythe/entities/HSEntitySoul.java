@@ -2,7 +2,9 @@ package mod.emt.harkenscythe.entities;
 
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityMob;
@@ -10,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
@@ -48,15 +51,14 @@ public class HSEntitySoul extends HSEntityEssence
         {
             this.setDead();
             world.playSound(null, this.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-            if (this.getOriginalEntity() instanceof EntityCreature)
+            if (this.getOriginalEntity() != null)
             {
-                EntityCreature creature = (EntityCreature) this.getOriginalEntity();
                 // TODO: Set entity data to determine spectral variant
-                creature.setCustomNameTag("Spectral " + creature.getName());
-                creature.setPosition(this.posX, this.posY, this.posZ);
-                creature.setHealth(creature.getMaxHealth());
-                creature.isDead = false;
-                if (!this.world.isRemote) world.spawnEntity(creature);
+                this.getOriginalEntity().setCustomNameTag("Spectral " + this.getOriginalEntity().getName());
+                this.getOriginalEntity().setPosition(this.posX, this.posY, this.posZ);
+                this.getOriginalEntity().setHealth(this.getOriginalEntity().getMaxHealth());
+                this.getOriginalEntity().isDead = false;
+                if (!this.world.isRemote) world.spawnEntity(this.getOriginalEntity());
             }
             return true;
         }
@@ -96,5 +98,31 @@ public class HSEntitySoul extends HSEntityEssence
             this.setDead();
         }
         return super.processInitialInteract(player, hand);
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
+        super.writeEntityToNBT(compound);
+        if (getOriginalEntity() != null)
+        {
+            NBTTagCompound originalEntityNBT = new NBTTagCompound();
+            this.getOriginalEntity().writeToNBT(originalEntityNBT);
+            originalEntityNBT.setString("id", EntityList.getKey(this.getOriginalEntity().getClass()).toString());
+            originalEntityNBT.setString("name", this.getOriginalEntity().getName());
+            compound.setTag("OriginalEntity", originalEntityNBT);
+        }
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
+        super.readEntityFromNBT(compound);
+        if (compound.hasKey("OriginalEntity"))
+        {
+            NBTTagCompound originalEntityNBT = compound.getCompoundTag("OriginalEntity");
+            Entity originalEntity = EntityList.createEntityFromNBT(originalEntityNBT, this.world);
+            if (originalEntity instanceof EntityLivingBase) setOriginalEntity((EntityLivingBase) originalEntity);
+        }
     }
 }
