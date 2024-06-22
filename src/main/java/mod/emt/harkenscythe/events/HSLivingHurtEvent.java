@@ -22,13 +22,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class HSLivingHurtEvent
 {
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onEntityHurt(LivingHurtEvent event)
+    public static void onGlaiveReap(LivingHurtEvent event)
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
         if (!world.isRemote)
         {
-            // Glaive reap
             DamageSource damageSource = event.getSource();
             if (damageSource.getTrueSource() instanceof EntityPlayer && damageSource.getDamageType().equals("hs_reap"))
             {

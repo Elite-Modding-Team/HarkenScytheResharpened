@@ -1,16 +1,19 @@
 package mod.emt.harkenscythe.events;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entities.HSEntityHarbinger;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.tools.HSScythe;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -21,33 +24,47 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class HSLivingDeathEvent
 {
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onEntityDeath(LivingDeathEvent event)
+    public static void onScytheReap(LivingDeathEvent event)
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
-        if (!world.isRemote)
+        DamageSource damageSource = event.getSource();
+        Entity trueSource = damageSource.getTrueSource();
+        if (trueSource instanceof EntityPlayer && isPlayerReap((EntityPlayer) trueSource, damageSource) && !entity.getCustomNameTag().contains("Spectral"))
         {
-            // Scythe reap
-            DamageSource damageSource = event.getSource();
-            if (damageSource.getTrueSource() instanceof EntityPlayer)
-            {
-                EntityPlayer player = (EntityPlayer) damageSource.getTrueSource();
-                if ((player.getHeldItemMainhand().getItem() instanceof HSScythe && damageSource.getDamageType().equals("hs_reap")) || triggerEnchantment(HSEnchantments.SOULSTEAL, player))
-                {
-                    try
-                    {
-                        HSEntitySoul soul = new HSEntitySoul(world, entity);
-                        soul.setPosition(entity.posX, entity.posY, entity.posZ);
-                        world.spawnEntity(soul);
-                        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-                    }
-                    catch (Exception e)
-                    {
-                        e.printStackTrace();
-                    }
-                }
-            }
+            spawnSoul(world, entity);
         }
+        else if (trueSource instanceof HSEntityHarbinger)
+        {
+            spawnSpectralEntity(world, entity, entity.getPosition());
+        }
+    }
+
+    public static void spawnSoul(World world, EntityLivingBase entity)
+    {
+        HSEntitySoul soul = new HSEntitySoul(world, entity);
+        soul.setPosition(entity.posX, entity.posY, entity.posZ);
+        if (!world.isRemote) world.spawnEntity(soul);
+        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+    }
+
+    public static void spawnSpectralEntity(World world, EntityLivingBase entity, BlockPos pos)
+    {
+        if (entity != null)
+        {
+            // TODO: Set entity data to determine spectral variant
+            entity.setCustomNameTag("Spectral " + entity.getName());
+            entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
+            entity.setHealth(entity.getMaxHealth());
+            entity.isDead = false;
+            if (!world.isRemote) world.spawnEntity(entity);
+            world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        }
+    }
+
+    private static boolean isPlayerReap(EntityPlayer player, DamageSource damageSource)
+    {
+        return (player.getHeldItemMainhand().getItem() instanceof HSScythe && damageSource.getDamageType().equals("hs_reap")) || triggerEnchantment(HSEnchantments.SOULSTEAL, player);
     }
 
     private static boolean triggerEnchantment(Enchantment enchantment, EntityPlayer player)
