@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
@@ -89,6 +90,9 @@ public abstract class HSEntityEssence extends EntityLivingBase
     public void setItemStackToSlot(EntityEquipmentSlot slotIn, ItemStack stack) {}
 
     @Override
+    protected void collideWithNearbyEntities() {}
+
+    @Override
     public boolean canBeCollidedWith()
     {
         return true;
@@ -111,4 +115,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
     {
         return false;
     }
+
+    @Override
+    public void applyEntityCollision(Entity entity) {}
 }
