@@ -5,6 +5,7 @@ import mod.emt.harkenscythe.entities.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entities.HSEntityHarbinger;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSEnchantments;
+import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.tools.HSScythe;
 import net.minecraft.enchantment.Enchantment;
@@ -41,6 +42,11 @@ public class HSLivingDeathEvent
         {
             spawnSpectralEntity(world, entity, entity.getPosition());
         }
+        // TODO: Set entity data to determine spectral variant
+        else if (!world.isRemote && entity.getCustomNameTag().contains("Spectral"))
+        {
+            entity.dropItem(HSItems.soul_essence, 1);
+        }
     }
 
     public static void spawnSoul(World world, EntityLivingBase entity)
@@ -61,8 +67,8 @@ public class HSLivingDeathEvent
                 // TODO: Set entity data to determine spectral variant
                 entity.setCustomNameTag("Spectral " + entity.getName());
                 entity.setHealth(entity.getMaxHealth());
+                entity.deathTime = 0;
                 entity.isDead = false;
-
             }
             // Spawn ectoglobin
             else
