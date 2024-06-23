@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.events;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entities.HSEntityEctoglobin;
+import mod.emt.harkenscythe.entities.HSEntityGlobin;
 import mod.emt.harkenscythe.entities.HSEntityHarbinger;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSEnchantments;
@@ -34,7 +35,7 @@ public class HSLivingDeathEvent
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
-        if (trueSource instanceof EntityPlayer && isPlayerReap((EntityPlayer) trueSource, damageSource) && !entity.getEntityData().getBoolean("IsSpectral"))
+        if (trueSource instanceof EntityPlayer && isPlayerReap((EntityPlayer) trueSource, damageSource))
         {
             spawnSoul(world, entity);
         }
@@ -50,6 +51,7 @@ public class HSLivingDeathEvent
 
     public static void spawnSoul(World world, EntityLivingBase entity)
     {
+        if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin) return;
         HSEntitySoul soul = new HSEntitySoul(world, entity);
         soul.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(soul);
