@@ -1,6 +1,7 @@
 package mod.emt.harkenscythe.events;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entities.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entities.HSEntityHarbinger;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSEnchantments;
@@ -10,6 +11,8 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityGhast;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
@@ -50,15 +53,31 @@ public class HSLivingDeathEvent
 
     public static void spawnSpectralEntity(World world, EntityLivingBase entity, BlockPos pos)
     {
-        if (entity != null && !(entity instanceof EntityPlayer))
+        if (entity != null)
         {
-            // TODO: Set entity data to determine spectral variant
-            entity.setCustomNameTag("Spectral " + entity.getName());
+            // Reanimate original entity
+            if (isWhitelistedMob(entity))
+            {
+                // TODO: Set entity data to determine spectral variant
+                entity.setCustomNameTag("Spectral " + entity.getName());
+                entity.setHealth(entity.getMaxHealth());
+                entity.isDead = false;
+
+            }
+            // Spawn ectoglobin
+            else
+            {
+                entity = new HSEntityEctoglobin(world);
+            }
             entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
-            entity.setHealth(entity.getMaxHealth());
-            entity.isDead = false;
             if (!world.isRemote) world.spawnEntity(entity);
             world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+            //if (false && entity instanceof EntityCreature && !(entity instanceof EntityMob))
+            //{
+            //    EntityCreature creature = (EntityCreature) entity;
+            //    creature.targetTasks.addTask(0, new EntityAINearestAttackableTarget<>(creature, EntityPlayer.class, true));
+            //    creature.setAttackTarget(creature.world.getNearestAttackablePlayer(creature, 32.0D, 32.0D));
+            //}
         }
     }
 
@@ -71,5 +90,11 @@ public class HSLivingDeathEvent
     {
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
         return (level > 0 && player.getRNG().nextFloat() < 0.15F * level);
+    }
+
+    private static boolean isWhitelistedMob(Entity entity)
+    {
+        // TODO: Replace with config-defined whitelist
+        return !(entity instanceof EntityPlayer) && !(entity instanceof EntityGhast) && !(entity instanceof EntitySlime);
     }
 }

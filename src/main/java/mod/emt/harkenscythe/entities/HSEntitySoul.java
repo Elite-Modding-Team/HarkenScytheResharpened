@@ -24,6 +24,7 @@ public class HSEntitySoul extends HSEntityEssence
     {
         super(world);
         this.setSize(1.2F, 1.2F);
+        if (getOriginalEntity() == null) setOriginalEntity(new HSEntityEctoglobin(world));
     }
 
     public HSEntitySoul(World world, EntityLivingBase entityLivingBase)

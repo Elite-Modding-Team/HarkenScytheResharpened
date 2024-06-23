@@ -84,7 +84,9 @@ item.harkenscythe.wooden_scythe.name=Wooden Scythe
 
 # ENTITIES
 entity.harkenscythe.blood.name=Blood Essence
+entity.harkenscythe.ectoglobin.name=Ectoglobin
 entity.harkenscythe.harbinger.name=Harbinger
+entity.harkenscythe.hemoglobin.name=Hemoglobin
 entity.harkenscythe.soul.name=Soul Essence
 
 # ENCHANTMENTS

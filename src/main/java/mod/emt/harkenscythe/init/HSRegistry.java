@@ -4,12 +4,16 @@ import com.google.common.base.Preconditions;
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.renderers.RenderHSBloodAltar;
+import mod.emt.harkenscythe.client.renderers.RenderHSEctoglobin;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntityBlood;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntityHarbinger;
 import mod.emt.harkenscythe.client.renderers.RenderHSEntitySoul;
+import mod.emt.harkenscythe.client.renderers.RenderHSHemoglobin;
 import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
+import mod.emt.harkenscythe.entities.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entities.HSEntityHarbinger;
+import mod.emt.harkenscythe.entities.HSEntityHemoglobin;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
 import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
@@ -37,6 +41,8 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSRegistry
 {
+    private static int id = 1;
+
     @Nonnull
     public static <T extends IForgeRegistryEntry> T setup(@Nonnull final T entry, @Nonnull final String name)
     {
@@ -58,24 +64,25 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event)
     {
-        int id = 1;
+        registerEntity("harbinger", HSEntityHarbinger.class, 2829099, 14079702);
 
-        registerEntity("harbinger", HSEntityHarbinger.class, id++, 64, 1, true, 2829099, 14079702);
+        registerEntity("blood", HSEntityBlood.class);
+        registerEntity("soul", HSEntitySoul.class);
 
-        registerEntity("blood", HSEntityBlood.class, id++, 64, 1, true);
-        registerEntity("soul", HSEntitySoul.class, id++, 64, 1, true);
+        registerEntity("hemoglobin", HSEntityHemoglobin.class);
+        registerEntity("ectoglobin", HSEntityEctoglobin.class);
     }
 
-    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2)
+    public static void registerEntity(String name, Class<? extends Entity> clazz, int eggColor1, int eggColor2)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id, HarkenScythe.instance, trackingRange,
-            updateFrequency, sendVelocityUpdates, eggColor1, eggColor2);
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
+            1, true, eggColor1, eggColor2);
     }
 
-    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates)
+    public static void registerEntity(String name, Class<? extends Entity> clazz)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id, HarkenScythe.instance, trackingRange,
-            updateFrequency, sendVelocityUpdates);
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
+            1, true);
     }
 
     public static void registerTileEntities()
@@ -126,7 +133,9 @@ public class HSRegistry
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
         RenderingRegistry.registerEntityRenderingHandler(HSEntityBlood.class, new RenderHSEntityBlood.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityEctoglobin.class, new RenderHSEctoglobin.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new RenderHSEntityHarbinger.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityHemoglobin.class, new RenderHSHemoglobin.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new RenderHSEntitySoul.Factory());
     }
 
