@@ -3,7 +3,6 @@ package mod.emt.harkenscythe.entities;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import net.minecraft.entity.Entity;
@@ -71,22 +70,6 @@ public class HSEntityHarbinger extends EntityMob
             this.setAttackTarget(null);
         }
     }
-    
-    @Nullable
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
-    {
-        this.setEquipmentBasedOnDifficulty(difficulty);
-        this.setEnchantmentBasedOnDifficulty(difficulty);
-        return super.onInitialSpawn(difficulty, livingdata);
-    }
-    
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
-    {
-    	super.setEquipmentBasedOnDifficulty(difficulty);
-    	
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HSItems.reaper_scythe));
-        this.setDropChance(EntityEquipmentSlot.MAINHAND, -100.0F);
-    }
 
     @Nonnull
     @Override
@@ -139,6 +122,24 @@ public class HSEntityHarbinger extends EntityMob
     protected ResourceLocation getLootTable()
     {
         return HSLootTables.HARBINGER;
+    }
+
+    @Override
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
+    {
+        super.setEquipmentBasedOnDifficulty(difficulty);
+
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HSItems.reaper_scythe));
+        this.setDropChance(EntityEquipmentSlot.MAINHAND, -100.0F);
+    }
+
+    @Nullable
+    @Override
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
+    {
+        this.setEquipmentBasedOnDifficulty(difficulty);
+        this.setEnchantmentBasedOnDifficulty(difficulty);
+        return super.onInitialSpawn(difficulty, livingdata);
     }
 
     private boolean reapPlayer()

@@ -163,7 +163,7 @@ public class HSItems
     public static HSItem blunt_harken_blade;
     @GameRegistry.ObjectHolder("harken_athame")
     public static HSSword harken_athame;
-    
+
     @GameRegistry.ObjectHolder("spectral_glass_bottle")
     public static HSItem spectral_glass_bottle;
 

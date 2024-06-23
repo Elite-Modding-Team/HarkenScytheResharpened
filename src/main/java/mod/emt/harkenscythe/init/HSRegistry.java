@@ -60,19 +60,19 @@ public class HSRegistry
     {
         int id = 1;
 
-        entityRegistryHelper("harbinger", HSEntityHarbinger.class, id++, 64, 1, true, 2829099, 14079702);
+        registerEntity("harbinger", HSEntityHarbinger.class, id++, 64, 1, true, 2829099, 14079702);
 
-        egglessEntityRegistryHelper("blood", HSEntityBlood.class, id++, 64, 1, true);
-        egglessEntityRegistryHelper("soul", HSEntitySoul.class, id++, 64, 1, true);
+        registerEntity("blood", HSEntityBlood.class, id++, 64, 1, true);
+        registerEntity("soul", HSEntitySoul.class, id++, 64, 1, true);
     }
 
-    public static void entityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2)
+    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggColor1, int eggColor2)
     {
         EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id, HarkenScythe.instance, trackingRange,
             updateFrequency, sendVelocityUpdates, eggColor1, eggColor2);
     }
 
-    public static void egglessEntityRegistryHelper(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates)
+    public static void registerEntity(String name, Class<? extends Entity> clazz, int id, int trackingRange, int updateFrequency, boolean sendVelocityUpdates)
     {
         EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id, HarkenScythe.instance, trackingRange,
             updateFrequency, sendVelocityUpdates);
