@@ -50,7 +50,7 @@ public class HSLivingDeathEvent
 
     public static void spawnSpectralEntity(World world, EntityLivingBase entity, BlockPos pos)
     {
-        if (entity != null)
+        if (entity != null && !(entity instanceof EntityPlayer))
         {
             // TODO: Set entity data to determine spectral variant
             entity.setCustomNameTag("Spectral " + entity.getName());
