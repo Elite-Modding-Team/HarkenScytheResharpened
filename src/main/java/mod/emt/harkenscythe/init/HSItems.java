@@ -26,6 +26,7 @@ import mod.emt.harkenscythe.items.tools.HSShears;
 import mod.emt.harkenscythe.items.tools.HSShovel;
 import mod.emt.harkenscythe.items.tools.HSSword;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -75,6 +76,8 @@ public class HSItems
     public static HSScythe golden_scythe;
     @GameRegistry.ObjectHolder("diamond_scythe")
     public static HSScythe diamond_scythe;
+    @GameRegistry.ObjectHolder("reaper_scythe")
+    public static HSScythe reaper_scythe;
 
     @GameRegistry.ObjectHolder("wooden_glaive")
     public static HSGlaive wooden_glaive;
@@ -188,6 +191,7 @@ public class HSItems
 
     public static ToolMaterial TOOL_BIOMASS = EnumHelper.addToolMaterial("biomass", 3, 151, 6.5F, 1.5F, 17).setRepairItem(new ItemStack(biomass));
     public static ToolMaterial TOOL_LIVINGMETAL = EnumHelper.addToolMaterial("livingmetal", 3, 481, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(livingmetal_ingot));
+    public static ToolMaterial TOOL_REAPER = EnumHelper.addToolMaterial("reaper", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(Items.BONE));
 
     @SubscribeEvent
     public static void onRegisterItemsEvent(@Nonnull final RegistryEvent.Register<Item> event)
@@ -210,6 +214,7 @@ public class HSItems
                 HSRegistry.setup(new HSScythe(ToolMaterial.DIAMOND, 1.4F, EnumRarity.COMMON), "diamond_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSScythe(TOOL_BIOMASS, 1.45F, EnumRarity.UNCOMMON), "biomass_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSScythe(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSScythe(TOOL_REAPER, 1.5F, EnumRarity.EPIC), "reaper_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_glaive").setCreativeTab(HarkenScythe.TAB),

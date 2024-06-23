@@ -1,26 +1,26 @@
 {
   "pools": [
     {
-      "name": "flesh",
+      "name": "common",
       "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:rotten_flesh",
+          "name": "minecraft:bone",
           "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 0,
-                "max": 2
+                "min": 3,
+                "max": 6
               }
             },
             {
               "function": "looting_enchant",
               "count": {
                 "min": 0,
-                "max": 1
+                "max": 2
               }
             }
           ]
@@ -34,8 +34,8 @@
         },
         {
           "condition": "random_chance_with_looting",
-          "chance": 0.025,
-          "looting_multiplier": 0.01
+          "chance": 0.1,
+          "looting_multiplier": 0.04
         }
       ],
       "name": "rare",
@@ -43,17 +43,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:iron_ingot",
-          "weight": 1
-        },
-        {
-          "type": "item",
-          "name": "minecraft:carrot",
-          "weight": 1
-        },
-        {
-          "type": "item",
-          "name": "minecraft:potato",
+          "name": "harkenscythe:reaper_scythe",
           "weight": 1
         }
       ]

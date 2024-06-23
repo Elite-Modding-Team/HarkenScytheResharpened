@@ -22,6 +22,7 @@ public class HSItemTooltipEvent
     private static final ResourceLocation BLUNT_HARKEN_BLADE = new ResourceLocation(HarkenScythe.MOD_ID, "blunt_harken_blade");
     private static final ResourceLocation HARKEN_ATHAME = new ResourceLocation(HarkenScythe.MOD_ID, "harken_athame");
     private static final ResourceLocation LIVINGMETAL_SHEARS = new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_shears");
+    private static final ResourceLocation REAPER_SCYTHE = new ResourceLocation(HarkenScythe.MOD_ID, "reaper_scythe");
     private static final ResourceLocation SOUL_CAKE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cake");
     private static final ResourceLocation SOUL_COOKIE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cookie");
 
@@ -57,6 +58,14 @@ public class HSItemTooltipEvent
         else if (ForgeRegistries.ITEMS.getKey(item).equals(LIVINGMETAL_SHEARS))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.shears"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(REAPER_SCYTHE))
+        {
+            event.getToolTip().add(1, "");
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.reaper_scythe.4"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.reaper_scythe.3"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.reaper_scythe.2"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.reaper_scythe.1"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(SOUL_CAKE))
         {

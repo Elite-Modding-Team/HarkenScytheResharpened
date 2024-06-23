@@ -2,9 +2,13 @@ package mod.emt.harkenscythe.entities;
 
 import java.util.List;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -21,10 +25,13 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class HSEntityHarbinger extends EntityMob
@@ -63,6 +70,22 @@ public class HSEntityHarbinger extends EntityMob
         {
             this.setAttackTarget(null);
         }
+    }
+    
+    @Nullable
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
+    {
+        this.setEquipmentBasedOnDifficulty(difficulty);
+        this.setEnchantmentBasedOnDifficulty(difficulty);
+        return super.onInitialSpawn(difficulty, livingdata);
+    }
+    
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
+    {
+    	super.setEquipmentBasedOnDifficulty(difficulty);
+    	
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HSItems.reaper_scythe));
+        this.setDropChance(EntityEquipmentSlot.MAINHAND, -100.0F);
     }
 
     @Nonnull
