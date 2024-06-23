@@ -78,6 +78,8 @@ public class HSItems
     public static HSScythe diamond_scythe;
     @GameRegistry.ObjectHolder("reaper_scythe")
     public static HSScythe reaper_scythe;
+    @GameRegistry.ObjectHolder("lady_harken_scythe")
+    public static HSScythe lady_harken_scythe;
 
     @GameRegistry.ObjectHolder("wooden_glaive")
     public static HSGlaive wooden_glaive;
@@ -215,6 +217,7 @@ public class HSItems
                 HSRegistry.setup(new HSScythe(TOOL_BIOMASS, 1.45F, EnumRarity.UNCOMMON), "biomass_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSScythe(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSScythe(TOOL_REAPER, 1.5F, EnumRarity.EPIC), "reaper_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSScythe(TOOL_REAPER, 1.5F, EnumRarity.EPIC), "lady_harken_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSGlaive(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_glaive").setCreativeTab(HarkenScythe.TAB),
