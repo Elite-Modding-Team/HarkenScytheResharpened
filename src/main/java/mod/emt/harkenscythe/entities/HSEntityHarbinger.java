@@ -211,7 +211,7 @@ public class HSEntityHarbinger extends EntityMob
     {
         if (this.getActivePotionEffect(MobEffects.INVISIBILITY) == null)
         {
-            this.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 200, 1, false, false));
+            this.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 100, 1, false, false));
         }
         onDodgePhase();
     }
