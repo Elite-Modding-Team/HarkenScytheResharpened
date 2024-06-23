@@ -65,7 +65,7 @@ public class HSEntityHarbinger extends EntityMob
         {
             onSneakPhase();
         }
-        if (this.getAttackTarget() != null && this.getAttackTarget().getCustomNameTag().contains("Spectral"))
+        if (this.getAttackTarget() != null && this.getAttackTarget().getEntityData().getBoolean("IsSpectral"))
         {
             this.setAttackTarget(null);
         }

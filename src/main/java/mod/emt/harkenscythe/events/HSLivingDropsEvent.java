@@ -14,8 +14,7 @@ public class HSLivingDropsEvent
     public static void onLivingDrops(LivingDropsEvent event)
     {
         EntityLivingBase entity = event.getEntityLiving();
-        // TODO: Set entity data to determine spectral variant
-        if (entity.getCustomNameTag().contains("Spectral"))
+        if (entity.getEntityData().getBoolean("IsSpectral"))
         {
             event.getDrops().clear();
         }

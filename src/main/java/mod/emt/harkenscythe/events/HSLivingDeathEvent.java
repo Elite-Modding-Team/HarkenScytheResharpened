@@ -34,7 +34,7 @@ public class HSLivingDeathEvent
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
-        if (trueSource instanceof EntityPlayer && isPlayerReap((EntityPlayer) trueSource, damageSource) && !entity.getCustomNameTag().contains("Spectral"))
+        if (trueSource instanceof EntityPlayer && isPlayerReap((EntityPlayer) trueSource, damageSource) && !entity.getEntityData().getBoolean("IsSpectral"))
         {
             spawnSoul(world, entity);
         }
@@ -42,8 +42,7 @@ public class HSLivingDeathEvent
         {
             spawnSpectralEntity(world, entity, entity.getPosition());
         }
-        // TODO: Set entity data to determine spectral variant
-        else if (!world.isRemote && entity.getCustomNameTag().contains("Spectral"))
+        else if (!world.isRemote && entity.getEntityData().getBoolean("IsSpectral"))
         {
             entity.dropItem(HSItems.soul_essence, 1);
         }
@@ -64,7 +63,7 @@ public class HSLivingDeathEvent
             // Reanimate original entity
             if (isWhitelistedMob(entity))
             {
-                // TODO: Set entity data to determine spectral variant
+                entity.getEntityData().setBoolean("IsSpectral", true);
                 entity.setCustomNameTag("Spectral " + entity.getName());
                 entity.setHealth(entity.getMaxHealth());
                 entity.deathTime = 0;
