@@ -144,8 +144,10 @@ public class HSEntityHarbinger extends EntityMob
 
     private boolean reapPlayer()
     {
-        this.setAttackTarget(this.world.getClosestPlayerToEntity(this, 20.0D));
-        return this.getAttackTarget() != null;
+        EntityPlayer nearestPlayer = this.world.getClosestPlayerToEntity(this, 20.0D);
+        if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable()) nearestPlayer = null;
+        this.setAttackTarget(nearestPlayer);
+        return this.getAttackTarget() instanceof EntityPlayer;
     }
 
     private boolean reapForFun()
@@ -164,7 +166,8 @@ public class HSEntityHarbinger extends EntityMob
 
     private boolean isWhitelistedMob(Entity entity)
     {
-        return entity instanceof EntityPlayer || entity instanceof EntityVillager || entity instanceof EntityAnimal;
+        // TODO: Replace with config-defined whitelist
+        return entity instanceof EntityVillager || entity instanceof EntityAnimal;
     }
 
     // Phase 1: Rush towards player and attack logic
