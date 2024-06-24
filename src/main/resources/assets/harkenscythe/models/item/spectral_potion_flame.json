@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "harkenscythe:items/spectral_bottle_overlay",
+    "layer1": "harkenscythe:items/spectral_bottle"
+  }
+}

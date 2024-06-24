@@ -15,5 +15,9 @@ public class HSColorHandlerEvent
     {
         event.getItemColors().registerItemColorHandler(HSItems.bloodweave_hood, HSItems.bloodweave_hood, HSItems.bloodweave_robe, HSItems.bloodweave_pants, HSItems.bloodweave_shoes);
         event.getItemColors().registerItemColorHandler(HSItems.soulweave_hood, HSItems.soulweave_hood, HSItems.soulweave_robe, HSItems.soulweave_pants, HSItems.soulweave_shoes);
+        event.getItemColors().registerItemColorHandler(HSItems.spectral_potion_affliction, HSItems.spectral_potion_affliction);
+        event.getItemColors().registerItemColorHandler(HSItems.spectral_potion_flame, HSItems.spectral_potion_flame);
+        event.getItemColors().registerItemColorHandler(HSItems.spectral_potion_purifying, HSItems.spectral_potion_purifying);
+        event.getItemColors().registerItemColorHandler(HSItems.spectral_potion_water, HSItems.spectral_potion_water);
     }
 }

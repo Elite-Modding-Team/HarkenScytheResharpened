@@ -16,6 +16,8 @@ import mod.emt.harkenscythe.items.HSEssenceVesselSoul;
 import mod.emt.harkenscythe.items.HSFood;
 import mod.emt.harkenscythe.items.HSItem;
 import mod.emt.harkenscythe.items.HSItemBlockSpecial;
+import mod.emt.harkenscythe.items.HSItemSpectralBottle;
+import mod.emt.harkenscythe.items.HSItemSpectralPotion;
 import mod.emt.harkenscythe.items.HSNecronomicon;
 import mod.emt.harkenscythe.items.tools.HSAxe;
 import mod.emt.harkenscythe.items.tools.HSGlaive;
@@ -167,7 +169,15 @@ public class HSItems
     public static HSSword harken_athame;
 
     @GameRegistry.ObjectHolder("spectral_glass_bottle")
-    public static HSItem spectral_glass_bottle;
+    public static HSItemSpectralBottle spectral_glass_bottle;
+    @GameRegistry.ObjectHolder("spectral_potion_affliction")
+    public static HSItemSpectralPotion spectral_potion_affliction;
+    @GameRegistry.ObjectHolder("spectral_potion_flame")
+    public static HSItemSpectralPotion spectral_potion_flame;
+    @GameRegistry.ObjectHolder("spectral_potion_purifying")
+    public static HSItemSpectralPotion spectral_potion_purifying;
+    @GameRegistry.ObjectHolder("spectral_potion_water")
+    public static HSItemSpectralPotion spectral_potion_water;
 
     @GameRegistry.ObjectHolder("bloodweave_hood")
     public static HSDyeableArmor bloodweave_hood;
@@ -259,7 +269,11 @@ public class HSItems
                 HSRegistry.setup(new HSFood(3, 0.2F, false, 16, true, EnumRarity.UNCOMMON), "soul_cookie").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSword(ToolMaterial.IRON, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemSpectralBottle(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.AFFLICTION), "spectral_potion_affliction").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.FLAME), "spectral_potion_flame").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.PURIFYING), "spectral_potion_purifying").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.WATER), "spectral_potion_water").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 11546150), "bloodweave_hood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 11546150), "bloodweave_robe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSDyeableArmor(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 11546150), "bloodweave_pants").setCreativeTab(HarkenScythe.TAB),

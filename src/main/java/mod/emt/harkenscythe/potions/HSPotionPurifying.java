@@ -2,7 +2,6 @@ package mod.emt.harkenscythe.potions;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -25,9 +24,10 @@ public class HSPotionPurifying extends Potion
         }
         else
         {
-            entityLivingBase.removePotionEffect(MobEffects.POISON);
-            entityLivingBase.removePotionEffect(MobEffects.WITHER);
-            entityLivingBase.removePotionEffect(MobEffects.BLINDNESS);
+            for (PotionEffect effect : entityLivingBase.getActivePotionEffects())
+            {
+                if (effect.getPotion().isBadEffect() && !effect.getCurativeItems().isEmpty()) entityLivingBase.removePotionEffect(effect.getPotion());
+            }
         }
     }
 

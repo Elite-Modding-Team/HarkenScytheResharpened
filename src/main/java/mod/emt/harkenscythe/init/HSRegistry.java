@@ -15,9 +15,12 @@ import mod.emt.harkenscythe.entities.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entities.HSEntityHarbinger;
 import mod.emt.harkenscythe.entities.HSEntityHemoglobin;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
+import mod.emt.harkenscythe.entities.HSEntitySpectralPotion;
 import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
 import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -71,6 +74,8 @@ public class HSRegistry
 
         registerEntity("hemoglobin", HSEntityHemoglobin.class);
         registerEntity("ectoglobin", HSEntityEctoglobin.class);
+
+        registerEntity("spectral_potion", HSEntitySpectralPotion.class);
     }
 
     public static void registerEntity(String name, Class<? extends Entity> clazz, int eggColor1, int eggColor2)
@@ -97,6 +102,8 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
 
+        HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_flame, HSItems.spectral_potion_affliction, 10);
+        HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_water, HSItems.spectral_potion_purifying, 10);
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
         //HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.AWKWARD).getItem(), Items.EXPERIENCE_BOTTLE, 40); // TODO: Something better for this?
@@ -137,6 +144,8 @@ public class HSRegistry
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new RenderHSEntityHarbinger.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHemoglobin.class, new RenderHSHemoglobin.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new RenderHSEntitySoul.Factory());
+        // TODO: Render respective potions instead of bottle
+        RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralPotion.class, manager -> new RenderSnowball<>(manager, HSItems.spectral_glass_bottle, Minecraft.getMinecraft().getRenderItem()));
     }
 
     @SideOnly(Side.CLIENT)
