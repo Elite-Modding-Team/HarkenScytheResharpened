@@ -1,9 +1,9 @@
 package mod.emt.harkenscythe.items;
 
 import mod.emt.harkenscythe.entities.HSEntitySpectralPotion;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -43,7 +43,7 @@ public class HSItemSpectralPotion extends HSItem implements IItemColor
             itemStack.shrink(1);
         }
 
-        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_LINGERINGPOTION_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_POTION_THROW, SoundCategory.NEUTRAL, 0.65F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         if (!world.isRemote)
         {

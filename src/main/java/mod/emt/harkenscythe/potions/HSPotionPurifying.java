@@ -10,7 +10,7 @@ public class HSPotionPurifying extends Potion
 {
     public HSPotionPurifying(String name)
     {
-        super(false, 0xFFFFFF);
+        super(false, 0x4C7F99);
         setPotionName("effect." + HarkenScythe.MOD_ID + "." + name);
         setRegistryName(HarkenScythe.MOD_ID, name);
     }

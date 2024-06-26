@@ -1,9 +1,12 @@
 package mod.emt.harkenscythe.entities;
 
+import io.netty.buffer.ByteBuf;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.HSItemSpectralPotion;
 import mod.emt.harkenscythe.potions.HSPotionFlame;
 import mod.emt.harkenscythe.potions.HSPotionWater;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -13,8 +16,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
-public class HSEntitySpectralPotion extends EntityThrowable
+public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAdditionalSpawnData
 {
     private PotionEffect potionEffect;
     private ItemStack potionStack = new ItemStack(HSItems.spectral_glass_bottle);
@@ -58,6 +62,24 @@ public class HSEntitySpectralPotion extends EntityThrowable
     protected float getGravityVelocity()
     {
         return 0.07F;
+    }
+    
+    // Fixes buggy projectile behavior on the client
+    @Override
+    public void writeSpawnData(ByteBuf data)
+    {
+        data.writeInt(thrower != null ? thrower.getEntityId() : -1);
+    }
+
+    @Override
+    public void readSpawnData(ByteBuf data)
+    {
+        final Entity shooter = world.getEntityByID(data.readInt());
+
+        if (shooter instanceof EntityLivingBase)
+        {
+            this.thrower = (EntityLivingBase) shooter;
+        }
     }
 
     @Override
@@ -113,6 +135,7 @@ public class HSEntitySpectralPotion extends EntityThrowable
                 effectCloud.addEffect(potionEffect);
                 this.world.spawnEntity(effectCloud);
             }
+            this.playSound(HSSoundEvents.ITEM_POTION_BREAK, 0.75F, 1.0F);
             this.setDead();
         }
     }

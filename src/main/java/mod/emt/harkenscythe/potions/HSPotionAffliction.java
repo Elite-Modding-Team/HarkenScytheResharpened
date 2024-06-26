@@ -10,7 +10,7 @@ public class HSPotionAffliction extends Potion
 {
     public HSPotionAffliction(String name)
     {
-        super(true, 0x7F0000);
+        super(true, 0x484D48);
         setPotionName("effect." + HarkenScythe.MOD_ID + "." + name);
         setRegistryName(HarkenScythe.MOD_ID, name);
     }

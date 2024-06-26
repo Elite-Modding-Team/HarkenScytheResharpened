@@ -8,7 +8,7 @@ public class HSPotionWater extends Potion
 {
     public HSPotionWater(String name)
     {
-        super(false, 0x1E90FF);
+        super(false, 0x334CB2);
         setPotionName("effect." + HarkenScythe.MOD_ID + "." + name);
         setRegistryName(HarkenScythe.MOD_ID, name);
     }

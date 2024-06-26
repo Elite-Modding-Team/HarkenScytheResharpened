@@ -8,7 +8,7 @@ public class HSPotionFlame extends Potion
 {
     public HSPotionFlame(String name)
     {
-        super(false, 0xFF4500);
+        super(false, 0xE49A3A);
         setPotionName("effect." + HarkenScythe.MOD_ID + "." + name);
         setRegistryName(HarkenScythe.MOD_ID, name);
     }
