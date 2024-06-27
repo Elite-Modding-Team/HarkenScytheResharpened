@@ -16,7 +16,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderHSEctoglobin extends RenderLiving<HSEntityEctoglobin>
 {
-    private static final ResourceLocation ECTOGLOBIN_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin.png");
+    private static final ResourceLocation[] ECTOGLOBIN_TEXTURES = new ResourceLocation[] {
+    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin.png"),
+    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin2.png"),
+    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin3.png")
+	};
 
     public RenderHSEctoglobin(RenderManager renderManager)
     {
@@ -34,7 +38,6 @@ public class RenderHSEctoglobin extends RenderLiving<HSEntityEctoglobin>
     @Override
     protected void preRenderCallback(HSEntityEctoglobin entityEctoglobin, float partialTickTime)
     {
-        float f = 0.999F;
         GlStateManager.scale(0.999F, 0.999F, 0.999F);
         float f1 = (float) entityEctoglobin.getSlimeSize();
         float f2 = (entityEctoglobin.prevSquishFactor + (entityEctoglobin.squishFactor - entityEctoglobin.prevSquishFactor) * partialTickTime) / (f1 * 0.5F + 1.0F);
@@ -45,7 +48,7 @@ public class RenderHSEctoglobin extends RenderLiving<HSEntityEctoglobin>
     @Override
     protected ResourceLocation getEntityTexture(HSEntityEctoglobin entity)
     {
-        return ECTOGLOBIN_TEXTURES;
+        return ECTOGLOBIN_TEXTURES[entity.getSkin()];
     }
 
     public static class Factory implements IRenderFactory<HSEntityEctoglobin>

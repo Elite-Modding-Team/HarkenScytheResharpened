@@ -16,7 +16,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderHSHemoglobin extends RenderLiving<HSEntityHemoglobin>
 {
-    private static final ResourceLocation HEMOGLOBIN_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin.png");
+    private static final ResourceLocation[] HEMOGLOBIN_TEXTURES = new ResourceLocation[] {
+    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin.png"),
+    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin2.png"),
+    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin3.png")
+	};
 
     public RenderHSHemoglobin(RenderManager renderManager)
     {
@@ -34,7 +38,6 @@ public class RenderHSHemoglobin extends RenderLiving<HSEntityHemoglobin>
     @Override
     protected void preRenderCallback(HSEntityHemoglobin entityHemoglobin, float partialTickTime)
     {
-        float f = 0.999F;
         GlStateManager.scale(0.999F, 0.999F, 0.999F);
         float f1 = (float) entityHemoglobin.getSlimeSize();
         float f2 = (entityHemoglobin.prevSquishFactor + (entityHemoglobin.squishFactor - entityHemoglobin.prevSquishFactor) * partialTickTime) / (f1 * 0.5F + 1.0F);
@@ -45,7 +48,7 @@ public class RenderHSHemoglobin extends RenderLiving<HSEntityHemoglobin>
     @Override
     protected ResourceLocation getEntityTexture(HSEntityHemoglobin entity)
     {
-        return HEMOGLOBIN_TEXTURES;
+        return HEMOGLOBIN_TEXTURES[entity.getSkin()];
     }
 
     public static class Factory implements IRenderFactory<HSEntityHemoglobin>
