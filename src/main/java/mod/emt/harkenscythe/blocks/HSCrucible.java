@@ -202,7 +202,9 @@ public abstract class HSCrucible extends Block
                     }
                 }
             }
-            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
+            if (heldItem == keeperType) pitch += 0.5F;
+            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, pitch);
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + 1);
             player.addStat(StatList.getObjectUseStats(heldItem));
         }
@@ -237,7 +239,9 @@ public abstract class HSCrucible extends Block
                     }
                 }
             }
-            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
+            if (heldItem == keeperType) pitch += 0.5F;
+            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, pitch);
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount - 1);
             player.addStat(StatList.getObjectUseStats(heldItem));
         }
