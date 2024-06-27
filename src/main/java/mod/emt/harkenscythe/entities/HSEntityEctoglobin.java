@@ -18,19 +18,19 @@ public class HSEntityEctoglobin extends HSEntityGlobin
 
     public int getSkin()
     {
-        return this.dataManager.get(SKIN_TYPE).intValue();
+        return this.dataManager.get(SKIN_TYPE);
     }
 
     public void setSkin(int skinType)
     {
-        this.dataManager.set(SKIN_TYPE, Integer.valueOf(skinType));
+        this.dataManager.set(SKIN_TYPE, skinType);
     }
 
     @Override
     protected void entityInit()
     {
         super.entityInit();
-        this.getDataManager().register(SKIN_TYPE, Integer.valueOf(this.rand.nextInt(3)));
+        this.getDataManager().register(SKIN_TYPE, this.rand.nextInt(3));
     }
 
     @Override
