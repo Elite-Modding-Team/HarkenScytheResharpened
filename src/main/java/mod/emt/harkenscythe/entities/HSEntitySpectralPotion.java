@@ -58,12 +58,6 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
         return potionEffect;
     }
 
-    @Override
-    protected float getGravityVelocity()
-    {
-        return 0.07F;
-    }
-    
     // Fixes buggy projectile behavior on the client
     @Override
     public void writeSpawnData(ByteBuf data)
@@ -80,6 +74,12 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
         {
             this.thrower = (EntityLivingBase) shooter;
         }
+    }
+
+    @Override
+    protected float getGravityVelocity()
+    {
+        return 0.07F;
     }
 
     @Override

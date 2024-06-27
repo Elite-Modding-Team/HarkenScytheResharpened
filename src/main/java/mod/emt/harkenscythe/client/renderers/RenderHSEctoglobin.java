@@ -17,10 +17,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderHSEctoglobin extends RenderLiving<HSEntityEctoglobin>
 {
     private static final ResourceLocation[] ECTOGLOBIN_TEXTURES = new ResourceLocation[] {
-    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin.png"),
-    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin2.png"),
-    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin3.png")
-	};
+        new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin.png"),
+        new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin2.png"),
+        new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/ectoglobin3.png")
+    };
 
     public RenderHSEctoglobin(RenderManager renderManager)
     {

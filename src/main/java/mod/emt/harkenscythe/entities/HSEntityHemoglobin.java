@@ -9,20 +9,13 @@ import net.minecraft.world.World;
 
 public class HSEntityHemoglobin extends HSEntityGlobin
 {
-	private static final DataParameter<Integer> SKIN_TYPE = EntityDataManager.<Integer>createKey(HSEntityHemoglobin.class, DataSerializers.VARINT);
-	
+    private static final DataParameter<Integer> SKIN_TYPE = EntityDataManager.createKey(HSEntityHemoglobin.class, DataSerializers.VARINT);
+
     public HSEntityHemoglobin(World world)
     {
         super(world);
     }
-    
-    @Override
-    protected void entityInit()
-    {
-        super.entityInit();
-        this.getDataManager().register(SKIN_TYPE, Integer.valueOf(this.rand.nextInt(3)));
-    }
-    
+
     public int getSkin()
     {
         return this.dataManager.get(SKIN_TYPE).intValue();
@@ -31,6 +24,13 @@ public class HSEntityHemoglobin extends HSEntityGlobin
     public void setSkin(int skinType)
     {
         this.dataManager.set(SKIN_TYPE, Integer.valueOf(skinType));
+    }
+
+    @Override
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.getDataManager().register(SKIN_TYPE, Integer.valueOf(this.rand.nextInt(3)));
     }
 
     @Override

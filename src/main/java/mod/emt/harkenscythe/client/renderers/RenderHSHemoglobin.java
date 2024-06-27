@@ -17,10 +17,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderHSHemoglobin extends RenderLiving<HSEntityHemoglobin>
 {
     private static final ResourceLocation[] HEMOGLOBIN_TEXTURES = new ResourceLocation[] {
-    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin.png"),
-    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin2.png"),
-    		new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin3.png")
-	};
+        new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin.png"),
+        new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin2.png"),
+        new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hemoglobin3.png")
+    };
 
     public RenderHSHemoglobin(RenderManager renderManager)
     {
