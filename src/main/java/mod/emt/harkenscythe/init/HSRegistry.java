@@ -72,8 +72,8 @@ public class HSRegistry
         registerEntity("blood", HSEntityBlood.class);
         registerEntity("soul", HSEntitySoul.class);
 
-        registerEntity("hemoglobin", HSEntityHemoglobin.class);
-        registerEntity("ectoglobin", HSEntityEctoglobin.class);
+        registerEntity("hemoglobin", HSEntityHemoglobin.class, 2304558, 14870762);
+        registerEntity("ectoglobin", HSEntityEctoglobin.class, 3084561, 15455958);
 
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
     }
