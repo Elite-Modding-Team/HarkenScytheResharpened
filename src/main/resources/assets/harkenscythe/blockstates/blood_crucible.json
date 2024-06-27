@@ -2,14 +2,15 @@
   "variants": {
     "level=0": {"model": "harkenscythe:blood_crucible_empty"},
     "level=1": {"model": "harkenscythe:blood_crucible_level1"},
-    "level=2": {"model": "harkenscythe:blood_crucible_level1"},
-    "level=3": {"model": "harkenscythe:blood_crucible_level1"},
-    "level=4": {"model": "harkenscythe:blood_crucible_level1"},
-    "level=5": {"model": "harkenscythe:blood_crucible_level2"},
-    "level=6": {"model": "harkenscythe:blood_crucible_level2"},
-    "level=7": {"model": "harkenscythe:blood_crucible_level2"},
-    "level=8": {"model": "harkenscythe:blood_crucible_level2"},
-    "level=9": {"model": "harkenscythe:blood_crucible_level3"},
-    "level=10": {"model": "harkenscythe:blood_crucible_level3"}
+    "level=2": {"model": "harkenscythe:blood_crucible_level2"},
+    "level=3": {"model": "harkenscythe:blood_crucible_level3"},
+    "level=4": {"model": "harkenscythe:blood_crucible_level4"},
+    "level=5": {"model": "harkenscythe:blood_crucible_level5"},
+    "level=6": {"model": "harkenscythe:blood_crucible_level6"},
+    "level=7": {"model": "harkenscythe:blood_crucible_level7"},
+    "level=8": {"model": "harkenscythe:blood_crucible_level8"},
+    "level=9": {"model": "harkenscythe:blood_crucible_level9"},
+    "level=10": {"model": "harkenscythe:blood_crucible_level10"},
+    "level=11": {"model": "harkenscythe:blood_crucible_level11"}
   }
 }

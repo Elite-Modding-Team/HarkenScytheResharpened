@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.items.HSDyeableArmor;
+import mod.emt.harkenscythe.tileentities.HSTileEntityCrucible;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -18,6 +19,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -30,7 +32,8 @@ import net.minecraft.world.World;
 @SuppressWarnings("deprecation")
 public abstract class HSCrucible extends Block
 {
-    public static final PropertyInteger LEVEL = PropertyInteger.create("level", 0, 10);
+    public static final int MAX_LEVEL = 11;
+    public static final PropertyInteger LEVEL = PropertyInteger.create("level", 0, MAX_LEVEL);
     protected static final AxisAlignedBB AABB_LEGS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.3125D, 1.0D);
     protected static final AxisAlignedBB AABB_WALL_NORTH = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.125D);
     protected static final AxisAlignedBB AABB_WALL_SOUTH = new AxisAlignedBB(0.0D, 0.0D, 0.875D, 1.0D, 1.0D, 1.0D);
@@ -45,7 +48,7 @@ public abstract class HSCrucible extends Block
 
     public void setLevel(World world, BlockPos pos, IBlockState state, int level)
     {
-        world.setBlockState(pos, state.withProperty(LEVEL, MathHelper.clamp(level, 0, 10)), 2);
+        world.setBlockState(pos, state.withProperty(LEVEL, MathHelper.clamp(level, 0, MAX_LEVEL)), 2);
         world.updateComparatorOutputLevel(pos, this);
     }
 
@@ -117,19 +120,23 @@ public abstract class HSCrucible extends Block
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        ItemStack heldStack = player.getHeldItem(hand);
-        Item heldItem = heldStack.getItem();
-        int crucibleLevel = state.getValue(LEVEL);
-        if (crucibleLevel > 0 && heldItem instanceof HSDyeableArmor)
+        TileEntity te = world.getTileEntity(pos);
+        if (te instanceof HSTileEntityCrucible)
         {
-            HSDyeableArmor armor = (HSDyeableArmor) heldItem;
-            if (armor.hasColor(heldStack) && ((armor.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE && this instanceof HSBloodCrucible) || (armor.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE && this instanceof HSSoulCrucible)))
+            ItemStack heldStack = player.getHeldItem(hand);
+            Item heldItem = heldStack.getItem();
+            int essenceCount = ((HSTileEntityCrucible) te).getEssenceCount();
+            if (essenceCount > 0 && heldItem instanceof HSDyeableArmor)
             {
-                armor.removeColor(heldStack);
-                setLevel(world, pos, state, crucibleLevel - 1);
-                player.world.playSound(null, pos, SoundEvents.ENTITY_BOBBER_SPLASH, SoundCategory.BLOCKS, 0.1F, 2.0F);
-                player.addStat(StatList.ARMOR_CLEANED);
-                return true;
+                HSDyeableArmor armor = (HSDyeableArmor) heldItem;
+                if (armor.hasColor(heldStack) && ((armor.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE && this instanceof HSBloodCrucible) || (armor.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE && this instanceof HSSoulCrucible)))
+                {
+                    armor.removeColor(heldStack);
+                    ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount - 10);
+                    player.world.playSound(null, pos, SoundEvents.ENTITY_BOBBER_SPLASH, SoundCategory.BLOCKS, 0.1F, 2.0F);
+                    player.addStat(StatList.ARMOR_CLEANED);
+                    return true;
+                }
             }
         }
         return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
@@ -139,6 +146,14 @@ public abstract class HSCrucible extends Block
     public ItemStack getItem(World world, BlockPos pos, IBlockState state)
     {
         return new ItemStack(Item.getItemFromBlock(this));
+    }
+
+    @Override
+    public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player)
+    {
+        super.onBlockHarvested(world, pos, state, player);
+        TileEntity te = world.getTileEntity(pos);
+        if (te != null) te.invalidate();
     }
 
     @Override
@@ -159,60 +174,80 @@ public abstract class HSCrucible extends Block
         return new BlockStateContainer(this, LEVEL);
     }
 
-    protected void fillCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int crucibleLevel, Item keeperType, Item vesselType)
+    @Override
+    public boolean hasTileEntity(IBlockState state)
     {
-        if (!player.capabilities.isCreativeMode)
-        {
-            if (heldStack.getItemDamage() + 10 < heldStack.getMaxDamage())
-            {
-                heldStack.setItemDamage(heldStack.getItemDamage() + 10);
-            }
-            else
-            {
-                heldStack.shrink(1);
-                if (heldItem == keeperType)
-                {
-                    player.setHeldItem(hand, new ItemStack(HSItems.essence_keeper));
-                }
-                else if (heldItem == vesselType)
-                {
-                    player.setHeldItem(hand, new ItemStack(HSItems.essence_vessel));
-                }
-            }
-        }
-        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        setLevel(world, pos, state, crucibleLevel + 1);
-        player.addStat(StatList.getObjectUseStats(heldItem));
+        return true;
     }
 
-    protected void emptyCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int crucibleLevel, Item keeperType, Item vesselType)
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state)
     {
-        if (!player.capabilities.isCreativeMode)
+        return new HSTileEntityCrucible();
+    }
+
+    protected void fillCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int essenceCount, Item keeperType, Item vesselType)
+    {
+        TileEntity te = world.getTileEntity(pos);
+        if (te instanceof HSTileEntityCrucible)
         {
-            if (heldItem == HSItems.essence_keeper || heldItem == HSItems.essence_vessel)
+            if (!player.capabilities.isCreativeMode)
             {
-                heldStack.shrink(1);
-                ItemStack newStack = heldItem == HSItems.essence_keeper ? new ItemStack(keeperType) : new ItemStack(vesselType);
-                newStack.setItemDamage(newStack.getMaxDamage() - 10);
-                player.setHeldItem(hand, newStack);
-            }
-            else if (heldItem == keeperType || heldItem == vesselType)
-            {
-                if (heldStack.getItemDamage() == 0) return;
-                if (heldStack.getItemDamage() > 0)
+                if (heldStack.getItemDamage() + 1 < heldStack.getMaxDamage())
                 {
-                    heldStack.setItemDamage(heldStack.getItemDamage() - 10);
+                    heldStack.setItemDamage(heldStack.getItemDamage() + 1);
                 }
-                if (heldStack.getItemDamage() <= 0)
+                else
                 {
                     heldStack.shrink(1);
-                    ItemStack newStack = heldItem == keeperType ? new ItemStack(keeperType) : new ItemStack(vesselType);
-                    player.setHeldItem(hand, newStack);
+                    if (heldItem == keeperType)
+                    {
+                        player.setHeldItem(hand, new ItemStack(HSItems.essence_keeper));
+                    }
+                    else if (heldItem == vesselType)
+                    {
+                        player.setHeldItem(hand, new ItemStack(HSItems.essence_vessel));
+                    }
                 }
             }
+            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + 1);
+            player.addStat(StatList.getObjectUseStats(heldItem));
         }
-        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        setLevel(world, pos, state, crucibleLevel - 1);
-        player.addStat(StatList.getObjectUseStats(heldItem));
+    }
+
+    protected void emptyCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int essenceCount, Item keeperType, Item vesselType)
+    {
+        TileEntity te = world.getTileEntity(pos);
+        if (te instanceof HSTileEntityCrucible)
+        {
+            if (!player.capabilities.isCreativeMode)
+            {
+                if (heldItem == HSItems.essence_keeper || heldItem == HSItems.essence_vessel)
+                {
+                    heldStack.shrink(1);
+                    ItemStack newStack = heldItem == HSItems.essence_keeper ? new ItemStack(keeperType) : new ItemStack(vesselType);
+                    newStack.setItemDamage(newStack.getMaxDamage() - 1);
+                    player.setHeldItem(hand, newStack);
+                }
+                else if (heldItem == keeperType || heldItem == vesselType)
+                {
+                    if (heldStack.getItemDamage() == 0) return;
+                    if (heldStack.getItemDamage() > 0)
+                    {
+                        heldStack.setItemDamage(heldStack.getItemDamage() - 1);
+                    }
+                    if (heldStack.getItemDamage() <= 0)
+                    {
+                        heldStack.shrink(1);
+                        ItemStack newStack = heldItem == keeperType ? new ItemStack(keeperType) : new ItemStack(vesselType);
+                        player.setHeldItem(hand, newStack);
+                    }
+                }
+            }
+            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount - 1);
+            player.addStat(StatList.getObjectUseStats(heldItem));
+        }
     }
 }

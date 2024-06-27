@@ -18,7 +18,7 @@ public class HSAltarRecipes
     public static void addBloodRecipe(Item input, Item output, int requiredBlood)
     {
         BLOOD_INPUT_OUTPUT_MAP.put(input, output);
-        BLOOD_INPUT_BLOODCOUNT_MAP.put(input, Math.max(requiredBlood, 10));
+        BLOOD_INPUT_BLOODCOUNT_MAP.put(input, requiredBlood);
     }
 
     public static void addBloodRecipe(String oreDictName, Item output, int requiredBlood)
@@ -45,7 +45,7 @@ public class HSAltarRecipes
     public static void addSoulRecipe(Item input, Item output, int requiredSouls)
     {
         SOUL_INPUT_OUTPUT_MAP.put(input, output);
-        SOUL_INPUT_SOULCOUNT_MAP.put(input, Math.max(requiredSouls, 10));
+        SOUL_INPUT_SOULCOUNT_MAP.put(input, requiredSouls);
     }
 
     public static void addSoulRecipe(String oreDictName, Item output, int requiredSouls)

@@ -69,7 +69,7 @@ public class HSSoulAltar extends BlockEnchantmentTable
                 {
                     Item item = altar.getInputStack().getItem();
                     int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getInputStack().getItem());
-                    altar.decreaseCrucibleLevel(requiredSouls / 10);
+                    altar.decreaseCrucibleEssenceCount(requiredSouls);
                     altar.getInputStack().shrink(1);
                     if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, new ItemStack(HSAltarRecipes.getOutputSoul(item))));
                     player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_SOUL_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);

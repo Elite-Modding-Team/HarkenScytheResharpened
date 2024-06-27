@@ -17,6 +17,7 @@ import mod.emt.harkenscythe.entities.HSEntityHemoglobin;
 import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.entities.HSEntitySpectralPotion;
 import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
+import mod.emt.harkenscythe.tileentities.HSTileEntityCrucible;
 import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -93,6 +94,7 @@ public class HSRegistry
     public static void registerTileEntities()
     {
         GameRegistry.registerTileEntity(HSTileEntityBloodAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar"));
+        GameRegistry.registerTileEntity(HSTileEntityCrucible.class, new ResourceLocation(HarkenScythe.MOD_ID, "crucible"));
         GameRegistry.registerTileEntity(HSTileEntitySoulAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
     }
 
@@ -105,12 +107,12 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_flame, HSItems.spectral_potion_affliction, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_water, HSItems.spectral_potion_purifying, 10);
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
-        HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 10);
+        HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 5);
         //HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.AWKWARD).getItem(), Items.EXPERIENCE_BOTTLE, 40); // TODO: Something better for this?
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 10);
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
-        HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 10);
+        HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
     }
 
     @SubscribeEvent
