@@ -149,14 +149,6 @@ public abstract class HSCrucible extends Block
     }
 
     @Override
-    public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player)
-    {
-        super.onBlockHarvested(world, pos, state, player);
-        TileEntity te = world.getTileEntity(pos);
-        if (te != null) te.invalidate();
-    }
-
-    @Override
     public boolean hasComparatorInputOverride(IBlockState state)
     {
         return true;
