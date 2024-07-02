@@ -65,7 +65,7 @@ public class HSSoulAltar extends BlockEnchantmentTable
 
             if (heldItem.getItem() == HSItems.harken_athame)
             {
-                if (!altarItem.isEmpty() && altar.isValidRecipe())
+                if (!altarItem.isEmpty() && altar.getValidRecipe())
                 {
                     Item item = altar.getInputStack().getItem();
                     int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getInputStack().getItem());
@@ -78,8 +78,8 @@ public class HSSoulAltar extends BlockEnchantmentTable
                     {
                         player.world.spawnParticle(EnumParticleTypes.SPELL_WITCH, altarX + world.rand.nextFloat(), altarY + 1.0D + world.rand.nextFloat(), altarZ + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
                     }
-                    altar.updateSoulCount();
-                    altar.updateRecipe();
+                    altar.setEssenceCount(altar.scanCrucibleEssenceCounts());
+                    altar.getValidRecipe();
                     return true;
                 }
             }

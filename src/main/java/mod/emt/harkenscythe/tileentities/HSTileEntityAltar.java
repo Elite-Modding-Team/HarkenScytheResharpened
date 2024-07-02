@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.tileentities;
 
 import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,6 +28,8 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     public float bookRotationPrev;
     public float tRot;
     protected ItemStack inputStack = ItemStack.EMPTY;
+    protected ItemStack essenceStack = ItemStack.EMPTY;
+    protected int essenceCount;
 
     public ItemStack getInputStack()
     {
@@ -37,6 +40,31 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     {
         this.inputStack = inputStack;
         markDirty();
+    }
+
+    public ItemStack getEssenceStack()
+    {
+        return essenceStack;
+    }
+
+    public int getEssenceCount()
+    {
+        return essenceCount;
+    }
+
+    public void setEssenceCount(int essenceCount)
+    {
+        this.essenceCount = essenceCount;
+    }
+
+    public boolean getValidRecipe()
+    {
+        return false;
+    }
+
+    public Block getCrucibleType()
+    {
+        return null;
     }
 
     @Override
@@ -109,6 +137,12 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         f = MathHelper.clamp(f, -0.2F, 0.2F);
         this.flipA += (f - this.flipA) * 0.9F;
         this.pageFlip += this.flipA;
+
+        if (!getInputStack().isEmpty())
+        {
+            setEssenceCount(scanCrucibleEssenceCounts());
+            getValidRecipe();
+        }
     }
 
     @Override
@@ -117,7 +151,7 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         super.readFromNBT(compound);
         if (compound.hasKey("Item"))
         {
-            inputStack = new ItemStack(compound.getCompoundTag("Item"));
+            setInputStack(new ItemStack(compound.getCompoundTag("Item")));
         }
     }
 
@@ -125,10 +159,10 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     public NBTTagCompound writeToNBT(NBTTagCompound compound)
     {
         super.writeToNBT(compound);
-        if (!inputStack.isEmpty())
+        if (!getInputStack().isEmpty())
         {
             NBTTagCompound itemTag = new NBTTagCompound();
-            inputStack.writeToNBT(itemTag);
+            getInputStack().writeToNBT(itemTag);
             compound.setTag("Item", itemTag);
         }
         return compound;
@@ -136,16 +170,14 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
 
     public void dropItem()
     {
-        if (!world.isRemote && !inputStack.isEmpty())
+        if (!world.isRemote && !getInputStack().isEmpty())
         {
             BlockPos pos = getPos();
-            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), inputStack);
+            EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), getInputStack());
             world.spawnEntity(entityItem);
             setInputStack(ItemStack.EMPTY);
         }
     }
-
-    public void updateRecipe() {}
 
     public int scanCrucibleEssenceCounts()
     {
@@ -160,12 +192,14 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
                 for (int dz = -RADIUS; dz <= RADIUS; dz++)
                 {
                     BlockPos checkPos = pos.add(dx, dy, dz);
-                    TileEntity te = world.getTileEntity(checkPos);
-
-                    if (te instanceof HSTileEntityCrucible)
+                    if (world.getBlockState(checkPos).getBlock() == getCrucibleType())
                     {
-                        int count = ((HSTileEntityCrucible) te).getEssenceCount();
-                        totalCount += count;
+                        TileEntity te = world.getTileEntity(checkPos);
+                        if (te instanceof HSTileEntityCrucible)
+                        {
+                            int count = ((HSTileEntityCrucible) te).getEssenceCount();
+                            totalCount += count;
+                        }
                     }
                 }
             }
@@ -186,11 +220,13 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
                 for (int dz = -RADIUS; dz <= RADIUS; dz++)
                 {
                     BlockPos checkPos = pos.add(dx, dy, dz);
-                    TileEntity te = world.getTileEntity(checkPos);
-
-                    if (te instanceof HSTileEntityCrucible)
+                    if (world.getBlockState(checkPos).getBlock() == getCrucibleType())
                     {
-                        cruciblePositions.add(checkPos);
+                        TileEntity te = world.getTileEntity(checkPos);
+                        if (te instanceof HSTileEntityCrucible)
+                        {
+                            cruciblePositions.add(checkPos);
+                        }
                     }
                 }
             }
@@ -202,24 +238,24 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         {
             BlockPos selectedPos = cruciblePositions.get(world.rand.nextInt(cruciblePositions.size()));
             IBlockState state = world.getBlockState(selectedPos);
-            TileEntity te = world.getTileEntity(selectedPos);
-
-            if (te instanceof HSTileEntityCrucible)
+            if (world.getBlockState(selectedPos).getBlock() == getCrucibleType())
             {
-                int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
-
-                if (currentCount >= remainingCountToDecrease)
+                TileEntity te = world.getTileEntity(selectedPos);
+                if (te instanceof HSTileEntityCrucible)
                 {
-                    ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount - remainingCountToDecrease);
-                    remainingCountToDecrease = 0;
-                }
-                else
-                {
-                    ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, 0);
-                    remainingCountToDecrease -= currentCount;
+                    int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
+                    if (currentCount >= remainingCountToDecrease)
+                    {
+                        ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount - remainingCountToDecrease);
+                        remainingCountToDecrease = 0;
+                    }
+                    else
+                    {
+                        ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, 0);
+                        remainingCountToDecrease -= currentCount;
+                    }
                 }
             }
-
             cruciblePositions.remove(selectedPos);
         }
     }

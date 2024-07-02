@@ -1,50 +1,31 @@
 package mod.emt.harkenscythe.tileentities;
 
 import mod.emt.harkenscythe.init.HSAltarRecipes;
+import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ITickable;
 
 public class HSTileEntityBloodAltar extends HSTileEntityAltar implements ITickable
 {
-    private final ItemStack essenceStack = new ItemStack(HSItems.blood_essence);
-    protected int bloodCount;
-    protected boolean validRecipe;
+    private static final ItemStack ESSENCE_STACK = new ItemStack(HSItems.blood_essence);
 
-    public boolean isValidRecipe()
-    {
-        return validRecipe;
-    }
-
+    @Override
     public ItemStack getEssenceStack()
     {
-        return essenceStack;
-    }
-
-    public int getBloodCount()
-    {
-        return bloodCount;
+        return ESSENCE_STACK;
     }
 
     @Override
-    public void update()
+    public boolean getValidRecipe()
     {
-        super.update();
-        if (!this.getInputStack().isEmpty())
-        {
-            updateBloodCount();
-            updateRecipe();
-        }
+        return HSAltarRecipes.isValidInputBlood(getInputStack().getItem()) && HSAltarRecipes.getRequiredBlood(getInputStack().getItem()) <= getEssenceCount();
     }
 
     @Override
-    public void updateRecipe()
+    public Block getCrucibleType()
     {
-        this.validRecipe = HSAltarRecipes.isValidInputBlood(this.getInputStack().getItem()) && HSAltarRecipes.getRequiredBlood(this.getInputStack().getItem()) <= this.bloodCount;
-    }
-
-    public void updateBloodCount()
-    {
-        this.bloodCount = scanCrucibleEssenceCounts();
+        return HSBlocks.blood_crucible;
     }
 }

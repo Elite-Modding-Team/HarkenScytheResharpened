@@ -10,7 +10,7 @@ public abstract class HSEntityGlobin extends EntitySlime
         super(world);
         this.setSlimeSize(1 + world.rand.nextInt(3), true);
     }
-    
+
     @Override
     protected void alterSquishAmount()
     {

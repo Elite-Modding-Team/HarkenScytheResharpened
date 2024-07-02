@@ -1,50 +1,31 @@
 package mod.emt.harkenscythe.tileentities;
 
 import mod.emt.harkenscythe.init.HSAltarRecipes;
+import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ITickable;
 
 public class HSTileEntitySoulAltar extends HSTileEntityAltar implements ITickable
 {
-    private final ItemStack essenceStack = new ItemStack(HSItems.soul_essence);
-    protected int soulCount;
-    protected boolean validRecipe;
+    private static final ItemStack ESSENCE_STACK = new ItemStack(HSItems.soul_essence);
 
-    public boolean isValidRecipe()
-    {
-        return validRecipe;
-    }
-
+    @Override
     public ItemStack getEssenceStack()
     {
-        return essenceStack;
-    }
-
-    public int getSoulCount()
-    {
-        return soulCount;
+        return ESSENCE_STACK;
     }
 
     @Override
-    public void update()
+    public boolean getValidRecipe()
     {
-        super.update();
-        if (!this.getInputStack().isEmpty())
-        {
-            updateSoulCount();
-            updateRecipe();
-        }
+        return HSAltarRecipes.isValidInputSoul(getInputStack().getItem()) && HSAltarRecipes.getRequiredSouls(getInputStack().getItem()) <= getEssenceCount();
     }
 
     @Override
-    public void updateRecipe()
+    public Block getCrucibleType()
     {
-        this.validRecipe = HSAltarRecipes.isValidInputSoul(this.getInputStack().getItem()) && HSAltarRecipes.getRequiredSouls(this.getInputStack().getItem()) <= this.soulCount;
-    }
-
-    public void updateSoulCount()
-    {
-        this.soulCount = scanCrucibleEssenceCounts();
+        return HSBlocks.soul_crucible;
     }
 }
