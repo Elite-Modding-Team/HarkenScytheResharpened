@@ -3,9 +3,9 @@ package mod.emt.harkenscythe.events;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.items.HSCreepball;
+import net.minecraft.block.BlockSoulSand;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
@@ -27,7 +27,7 @@ public class HSRightClickBlockEvent
         EntityPlayer player = event.getEntityPlayer();
         ItemStack heldItem = event.getItemStack();
 
-        if (heldItem.getItem() instanceof HSCreepball && state.getBlock() == Blocks.SOUL_SAND)
+        if (heldItem.getItem() instanceof HSCreepball && state.getBlock() instanceof BlockSoulSand)
         {
             world.setBlockState(pos, HSBlocks.creep_block.getDefaultState());
             if (!player.capabilities.isCreativeMode)
