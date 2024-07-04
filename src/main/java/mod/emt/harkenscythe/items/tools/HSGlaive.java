@@ -2,7 +2,9 @@ package mod.emt.harkenscythe.items.tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSDamageSource;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,7 +20,10 @@ import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class HSGlaive extends ItemSword
@@ -56,15 +61,36 @@ public class HSGlaive extends ItemSword
 
     // TODO: The glaive does not use an AoE attack, it will only be able to attack one entity at a time but does armor piercing damage
     @Override
-    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft)
+    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft)
     {
+        if (!world.isRemote && entityLiving instanceof EntityPlayer)
+        {
+            EntityPlayer player = (EntityPlayer) entityLiving;
+            RayTraceResult rayTraceResult = rayTrace(world, player, false);
+            if (rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
+            {
+                BlockPos creepPos = rayTraceResult.getBlockPos();
+                IBlockState creepState = world.getBlockState(creepPos);
+                if (creepState.getBlock() == HSBlocks.creep_block)
+                {
+                    world.setBlockState(creepPos, HSBlocks.creep_block_tilled.getDefaultState());
+                    if (!player.capabilities.isCreativeMode)
+                    {
+                        stack.damageItem(1, player);
+                    }
+                    world.playSound(player, creepPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    player.addStat(StatList.getObjectUseStats(stack.getItem()));
+                }
+            }
+        }
+
         float damage = this.getAttackDamage() + 4.0F; // Has to be done like this otherwise it'll calculate wrong
         float range = 3.0F;
         AxisAlignedBB bb = new AxisAlignedBB(entityLiving.posX - range, entityLiving.posY - range, entityLiving.posZ - range, entityLiving.posX + range, entityLiving.posY + range, entityLiving.posZ + range);
 
-        for (int i = 0; i < worldIn.getEntitiesWithinAABB(EntityLiving.class, bb).size(); i++)
+        for (int i = 0; i < world.getEntitiesWithinAABB(EntityLiving.class, bb).size(); i++)
         {
-            EntityLiving entityInAABB = worldIn.getEntitiesWithinAABB(EntityLiving.class, bb).get(i);
+            EntityLiving entityInAABB = world.getEntitiesWithinAABB(EntityLiving.class, bb).get(i);
 
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F)
             {

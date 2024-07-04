@@ -4,7 +4,6 @@ import java.util.Random;
 import javax.annotation.Nullable;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.items.tools.HSGlaive;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -111,11 +110,7 @@ public class HSBlockCreep extends Block
     {
         ItemStack heldStack = player.getHeldItem(hand);
         Item heldItem = heldStack.getItem();
-        if (heldItem instanceof HSGlaive && this == HSBlocks.creep_block)
-        {
-            return tillGround(world, pos, player, heldStack, heldItem);
-        }
-        else if ((heldItem == HSItems.essence_keeper_blood || heldItem == HSItems.essence_vessel_blood) && this == HSBlocks.creep_block_tilled)
+        if ((heldItem == HSItems.essence_keeper_blood || heldItem == HSItems.essence_vessel_blood) && this == HSBlocks.creep_block_tilled)
         {
             return bloodyGround(world, pos, player, hand, heldStack, heldItem);
         }
@@ -136,18 +131,6 @@ public class HSBlockCreep extends Block
     @Override
     public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
     {
-        return true;
-    }
-
-    private boolean tillGround(World world, BlockPos pos, EntityPlayer player, ItemStack heldStack, Item heldItem)
-    {
-        world.setBlockState(pos, HSBlocks.creep_block_tilled.getDefaultState());
-        if (!player.capabilities.isCreativeMode)
-        {
-            heldStack.damageItem(1, player);
-        }
-        world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        player.addStat(StatList.getObjectUseStats(heldItem));
         return true;
     }
 
