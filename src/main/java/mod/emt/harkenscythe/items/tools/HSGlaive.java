@@ -67,7 +67,7 @@ public class HSGlaive extends ItemSword
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
             RayTraceResult rayTraceResult = rayTrace(world, player, false);
-            if (rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
+            if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
             {
                 BlockPos creepPos = rayTraceResult.getBlockPos();
                 IBlockState creepState = world.getBlockState(creepPos);

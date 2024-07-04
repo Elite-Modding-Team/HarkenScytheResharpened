@@ -16,6 +16,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -33,29 +34,23 @@ public class HSLivingDeathEvent
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
-        DamageSource damageSource = event.getSource();
-        Entity trueSource = damageSource.getTrueSource();
-        if (trueSource instanceof EntityPlayer && isPlayerReap((EntityPlayer) trueSource, damageSource))
+        if (!world.isRemote)
         {
-            spawnSoul(world, entity);
+            DamageSource damageSource = event.getSource();
+            Entity trueSource = damageSource.getTrueSource();
+            if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
+            {
+                spawnSoul(world, entity);
+            }
+            else if (trueSource instanceof HSEntityHarbinger)
+            {
+                spawnSpectralEntity(world, entity, entity.getPosition());
+            }
+            else if (entity.getEntityData().getBoolean("IsSpectral"))
+            {
+                entity.dropItem(HSItems.soul_essence, 1);
+            }
         }
-        else if (trueSource instanceof HSEntityHarbinger)
-        {
-            spawnSpectralEntity(world, entity, entity.getPosition());
-        }
-        else if (!world.isRemote && entity.getEntityData().getBoolean("IsSpectral"))
-        {
-            entity.dropItem(HSItems.soul_essence, 1);
-        }
-    }
-
-    public static void spawnSoul(World world, EntityLivingBase entity)
-    {
-        if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin) return;
-        HSEntitySoul soul = new HSEntitySoul(world, entity);
-        soul.setPosition(entity.posX, entity.posY, entity.posZ);
-        if (!world.isRemote) world.spawnEntity(soul);
-        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
     public static void spawnSpectralEntity(World world, EntityLivingBase entity, BlockPos pos)
@@ -77,7 +72,7 @@ public class HSLivingDeathEvent
                 entity = new HSEntityEctoglobin(world);
             }
             entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
-            if (!world.isRemote) world.spawnEntity(entity);
+            world.spawnEntity(entity);
             world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             //if (false && entity instanceof EntityCreature && !(entity instanceof EntityMob))
             //{
@@ -88,12 +83,32 @@ public class HSLivingDeathEvent
         }
     }
 
-    private static boolean isPlayerReap(EntityPlayer player, DamageSource damageSource)
+    private static void spawnSoul(World world, EntityLivingBase entity)
     {
-        return (player.getHeldItemMainhand().getItem() instanceof HSScythe && damageSource.getDamageType().equals("hs_reap")) || triggerEnchantment(HSEnchantments.SOULSTEAL, player);
+        if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin) return;
+        HSEntitySoul soul = new HSEntitySoul(world, entity);
+        soul.setPosition(entity.posX, entity.posY, entity.posZ);
+        world.spawnEntity(soul);
+        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
-    private static boolean triggerEnchantment(Enchantment enchantment, EntityPlayer player)
+    private static boolean isSuccessfulReap(EntityPlayer player, DamageSource damageSource)
+    {
+        return isRegularReap(player, damageSource, player.getHeldItemMainhand()) || isEnchantmentReap(HSEnchantments.SOULSTEAL, player);
+    }
+
+    private static boolean isRegularReap(EntityPlayer player, DamageSource damageSource, ItemStack stack)
+    {
+        if (player.getHeldItemMainhand().getItem() instanceof HSScythe && damageSource.getDamageType().equals("hs_reap"))
+        {
+            int damage = stack.getMaxDamage() - stack.getItemDamage();
+            double chance = Math.min(0.8D, Math.max(0.4D, (double) damage / 500));
+            return player.getRNG().nextDouble() < chance;
+        }
+        return false;
+    }
+
+    private static boolean isEnchantmentReap(Enchantment enchantment, EntityPlayer player)
     {
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
         return (level > 0 && player.getRNG().nextFloat() < 0.15F * level);

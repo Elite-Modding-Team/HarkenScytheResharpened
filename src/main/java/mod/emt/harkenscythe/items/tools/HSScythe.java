@@ -67,7 +67,7 @@ public class HSScythe extends ItemSword
         if (!world.isRemote && entityLiving instanceof EntityPlayer)
         {
             RayTraceResult rayTraceResult = rayTrace(world, (EntityPlayer) entityLiving, false);
-            if (rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
+            if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
             {
                 BlockPos cropPos = rayTraceResult.getBlockPos().up();
                 IBlockState cropState = world.getBlockState(cropPos);
