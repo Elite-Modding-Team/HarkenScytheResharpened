@@ -13,7 +13,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -23,7 +22,7 @@ import net.minecraftforge.common.ForgeHooks;
 @SuppressWarnings("deprecation")
 public class HSBiomassCrop extends BlockBush
 {
-    private static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
+    public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
     private static final AxisAlignedBB[] BIOMASS_AABB = new AxisAlignedBB[] {new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.875D, 0.3125D, 0.875D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.875D, 0.5D, 0.875D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.875D, 0.6875D, 0.875D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.875D, 0.875D, 0.875D)};
 
     public HSBiomassCrop()
@@ -63,24 +62,7 @@ public class HSBiomassCrop extends BlockBush
     {
         if (!world.isRemote)
         {
-            if (state.getValue(AGE) >= 3)
-            {
-                int i = 1 + world.rand.nextInt(3);
-
-                if (fortune > 0)
-                {
-                    i += world.rand.nextInt(fortune + 1);
-                }
-
-                for (int j = 0; j < i; ++j)
-                {
-                    spawnAsEntity(world, pos, new ItemStack(HSItems.biomass));
-                }
-            }
-            else
-            {
-                spawnAsEntity(world, pos, new ItemStack(HSItems.germinated_biomass_seed));
-            }
+            spawnAsEntity(world, pos, new ItemStack(state.getValue(AGE) >= 3 ? HSItems.biomass : HSItems.biomass_seed));
         }
     }
 
@@ -94,23 +76,6 @@ public class HSBiomassCrop extends BlockBush
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, AGE);
-    }
-
-    @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
-        Random rand = world instanceof World ? ((World) world).rand : new Random();
-        int count = 1;
-
-        if (state.getValue(AGE) >= 3)
-        {
-            count = 2 + rand.nextInt(3) + (fortune > 0 ? rand.nextInt(fortune + 1) : 0);
-        }
-
-        for (int i = 0; i < count; i++)
-        {
-            drops.add(new ItemStack(HSItems.biomass));
-        }
     }
 
     @Override

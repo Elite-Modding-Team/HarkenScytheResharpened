@@ -2,7 +2,12 @@ package mod.emt.harkenscythe.items.tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import mod.emt.harkenscythe.blocks.HSBiomassCrop;
+import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSDamageSource;
+import mod.emt.harkenscythe.init.HSItems;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -19,6 +24,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class HSScythe extends ItemSword
@@ -55,15 +62,35 @@ public class HSScythe extends ItemSword
     }
 
     @Override
-    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft)
+    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft)
     {
+        if (!world.isRemote && entityLiving instanceof EntityPlayer)
+        {
+            RayTraceResult rayTraceResult = rayTrace(world, (EntityPlayer) entityLiving, false);
+            if (rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
+            {
+                BlockPos cropPos = rayTraceResult.getBlockPos().up();
+                IBlockState cropState = world.getBlockState(cropPos);
+                if (cropState.getBlock() == HSBlocks.biomass_crop && cropState.getValue(HSBiomassCrop.AGE) >= 3)
+                {
+                    world.destroyBlock(cropPos, true);
+                    int damage = stack.getMaxDamage() - stack.getItemDamage();
+                    double chance = (double) damage / 1000;
+                    if (world.rand.nextDouble() < chance)
+                    {
+                        Block.spawnAsEntity(world, cropPos, new ItemStack(HSItems.biomass));
+                    }
+                }
+            }
+        }
+
         float damage = this.getAttackDamage() + 4.0F; // Has to be done like this otherwise it'll calculate wrong
         float range = 3.0F;
         AxisAlignedBB bb = new AxisAlignedBB(entityLiving.posX - range, entityLiving.posY - range, entityLiving.posZ - range, entityLiving.posX + range, entityLiving.posY + range, entityLiving.posZ + range);
 
-        for (int i = 0; i < worldIn.getEntitiesWithinAABB(EntityLiving.class, bb).size(); i++)
+        for (int i = 0; i < world.getEntitiesWithinAABB(EntityLiving.class, bb).size(); i++)
         {
-            EntityLiving entityInAABB = worldIn.getEntitiesWithinAABB(EntityLiving.class, bb).get(i);
+            EntityLiving entityInAABB = world.getEntitiesWithinAABB(EntityLiving.class, bb).get(i);
 
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F)
             {
