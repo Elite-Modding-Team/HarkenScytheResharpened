@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "harkenscythe:blocks/biomass_plant_stage_2"
+  }
+}

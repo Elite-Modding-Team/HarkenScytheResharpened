@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.init;
 
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.blocks.HSBiomassCrop;
 import mod.emt.harkenscythe.blocks.HSBlockCloth;
 import mod.emt.harkenscythe.blocks.HSBlockCreep;
 import mod.emt.harkenscythe.blocks.HSBlockMaterial;
@@ -39,6 +40,10 @@ public class HSBlocks
 
     @GameRegistry.ObjectHolder("creep_block")
     public static HSBlockCreep creep_block;
+    @GameRegistry.ObjectHolder("creep_block_tilled")
+    public static HSBlockCreep creep_block_tilled;
+    @GameRegistry.ObjectHolder("creep_block_tilled_bloodied")
+    public static HSBlockCreep creep_block_tilled_bloodied;
 
     @GameRegistry.ObjectHolder("bloodweave_cloth")
     public static HSBlockCloth bloodweave_cloth;
@@ -57,6 +62,9 @@ public class HSBlocks
     @GameRegistry.ObjectHolder("soul_cake")
     public static HSSoulCake soul_cake;
 
+    @GameRegistry.ObjectHolder("biomass_crop")
+    public static HSBiomassCrop biomass_crop;
+
     @SubscribeEvent
     public static void onRegisterBlocksEvent(@Nonnull final RegistryEvent.Register<Block> event)
     {
@@ -70,13 +78,16 @@ public class HSBlocks
                 HSRegistry.setup(new HSSpectralGlass(), "spectral_glass").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSpectralGlassPane(), "spectral_glass_pane").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCreep(), "creep_block").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBlockCreep(), "creep_block_tilled").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBlockCreep(), "creep_block_tilled_bloodied").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCloth(MapColor.RED), "bloodweave_cloth").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCloth(MapColor.LIGHT_BLUE), "soulweave_cloth").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBloodCrucible(), "blood_crucible").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSoulCrucible(), "soul_crucible").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBloodAltar(), "blood_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSoulAltar(), "soul_altar").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSSoulCake(), "soul_cake")
+                HSRegistry.setup(new HSSoulCake(), "soul_cake"),
+                HSRegistry.setup(new HSBiomassCrop(), "biomass_crop")
             );
     }
 }
