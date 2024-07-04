@@ -156,7 +156,9 @@ public class HSBlockCreep extends Block
                 }
             }
         }
-        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
+        if (heldItem == HSItems.essence_keeper_blood || heldItem == HSItems.essence_keeper) pitch += 0.5F;
+        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, pitch);
         player.addStat(StatList.getObjectUseStats(heldItem));
         return true;
     }

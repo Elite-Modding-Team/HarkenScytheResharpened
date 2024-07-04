@@ -3,8 +3,8 @@ package mod.emt.harkenscythe.blocks;
 import java.util.Random;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundTypes;
 import net.minecraft.block.BlockBush;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
@@ -29,7 +29,7 @@ public class HSBiomassCrop extends BlockBush
     {
         super(Material.PLANTS, MapColor.RED);
         setDefaultState(blockState.getBaseState().withProperty(AGE, 0));
-        setSoundType(SoundType.PLANT);
+        setSoundType(HSSoundTypes.BIOMASS);
         setTickRandomly(true);
     }
 

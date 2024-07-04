@@ -104,7 +104,7 @@ public class HSScythe extends ItemSword
             EntityPlayer player = (EntityPlayer) entityLiving;
             player.swingArm(EnumHand.MAIN_HAND);
             player.spawnSweepParticles();
-            player.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
+            player.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             stack.damageItem(2, player);
             player.addStat(StatList.getObjectUseStats(this));
         }

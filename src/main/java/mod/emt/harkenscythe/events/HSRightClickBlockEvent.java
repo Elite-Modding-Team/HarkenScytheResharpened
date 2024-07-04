@@ -2,11 +2,11 @@ package mod.emt.harkenscythe.events;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.HSCreepball;
 import net.minecraft.block.BlockSoulSand;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -34,7 +34,7 @@ public class HSRightClickBlockEvent
             {
                 heldItem.shrink(1);
             }
-            world.playSound(player, pos, SoundEvents.BLOCK_SLIME_PLACE, SoundCategory.BLOCKS, 0.8F, 1.2F);
+            world.playSound(player, pos, HSSoundEvents.ITEM_CREEP_BALL_USE, SoundCategory.BLOCKS, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             event.setCanceled(true);
         }
     }

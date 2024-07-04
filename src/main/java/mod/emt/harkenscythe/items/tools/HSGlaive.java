@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSDamageSource;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -78,7 +79,7 @@ public class HSGlaive extends ItemSword
                     {
                         stack.damageItem(1, player);
                     }
-                    world.playSound(player, creepPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    world.playSound(player, creepPos, HSSoundEvents.ITEM_GLAIVE_TILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
                     player.addStat(StatList.getObjectUseStats(stack.getItem()));
                 }
             }
@@ -103,7 +104,7 @@ public class HSGlaive extends ItemSword
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
             player.swingArm(EnumHand.MAIN_HAND);
-            player.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
+            player.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             stack.damageItem(2, player);
             player.addStat(StatList.getObjectUseStats(this));
         }

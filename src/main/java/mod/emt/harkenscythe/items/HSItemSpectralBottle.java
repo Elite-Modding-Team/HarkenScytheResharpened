@@ -42,7 +42,7 @@ public class HSItemSpectralBottle extends HSItem
                     if (stateUp.getMaterial() == Material.FIRE) world.setBlockState(pos.up(), Blocks.AIR.getDefaultState(), 11);
                     itemStack.shrink(1);
                     player.addItemStackToInventory(state.getMaterial() == Material.WATER ? new ItemStack(HSItems.spectral_potion_water) : new ItemStack(HSItems.spectral_potion_flame));
-                    world.playSound(null, player.getPosition(), state.getMaterial() == Material.WATER ? SoundEvents.ITEM_BOTTLE_FILL : SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                    world.playSound(null, player.getPosition(), state.getMaterial() == Material.WATER ? SoundEvents.ITEM_BOTTLE_FILL : SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
                     player.addStat(StatList.getObjectUseStats(this));
                     return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
                 }

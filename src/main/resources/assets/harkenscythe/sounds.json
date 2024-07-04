@@ -1,7 +1,8 @@
 {
-  "block.soul_altar.enchant": {
+  "block.biomass.harvest": {
     "sounds": [
-      "harkenscythe:enchant_blood"
+      "harkenscythe:biomass_harvest1",
+      "harkenscythe:biomass_harvest2"
     ]
   },
   "block.blood_altar.enchant": {
@@ -9,9 +10,26 @@
       "harkenscythe:enchant_soul"
     ]
   },
+  "block.soul_altar.enchant": {
+    "sounds": [
+      "harkenscythe:enchant_blood"
+    ]
+  },
   "item.athame.create": {
     "sounds": [
       "harkenscythe:athame"
+    ]
+  },
+  "item.creep_ball.use": {
+    "sounds": [
+      "harkenscythe:creep_ball"
+    ]
+  },
+  "item.glaive.till": {
+    "sounds": [
+      "harkenscythe:glaive_till1",
+      "harkenscythe:glaive_till2",
+      "harkenscythe:glaive_till3"
     ]
   },
   "item.potion.break": {

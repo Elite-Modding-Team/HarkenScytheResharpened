@@ -205,7 +205,7 @@ public class HSEntityHarbinger extends EntityMob
                 soul.setPosition(x, this.posY, z);
                 if (!this.world.isRemote) this.world.spawnEntity(soul);
             }
-            this.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 1.0F, 1.0F);
+            this.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
         }
     }
 
