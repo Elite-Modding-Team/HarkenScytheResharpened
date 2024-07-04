@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public class HSEntityEctoglobin extends HSEntityGlobin
 {
-    private static final DataParameter<Integer> SKIN_TYPE = EntityDataManager.createKey(HSEntityHemoglobin.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> SKIN_TYPE = EntityDataManager.createKey(HSEntityEctoglobin.class, DataSerializers.VARINT);
 
     public HSEntityEctoglobin(World world)
     {
