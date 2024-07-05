@@ -34,7 +34,7 @@ public class HSRightClickBlockEvent
             {
                 heldItem.shrink(1);
             }
-            world.playSound(player, pos, HSSoundEvents.ITEM_CREEP_BALL_USE, SoundCategory.BLOCKS, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+            world.playSound(player, pos, HSSoundEvents.ITEM_CREEP_BALL_USE, SoundCategory.BLOCKS, 0.8F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             event.setCanceled(true);
         }
     }

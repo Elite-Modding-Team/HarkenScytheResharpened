@@ -79,7 +79,7 @@ public class HSGlaive extends ItemSword
                     {
                         stack.damageItem(1, player);
                     }
-                    world.playSound(player, creepPos, HSSoundEvents.ITEM_GLAIVE_TILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+                    world.playSound(null, creepPos, HSSoundEvents.ITEM_GLAIVE_TILL, SoundCategory.BLOCKS, 0.8F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
                     player.addStat(StatList.getObjectUseStats(stack.getItem()));
                 }
             }
