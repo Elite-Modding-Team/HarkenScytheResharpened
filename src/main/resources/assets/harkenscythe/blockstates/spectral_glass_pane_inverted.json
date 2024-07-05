@@ -1,0 +1,99 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "pane_post",
+    "textures": {
+      "edge": "harkenscythe:blocks/spectral_glass_pane_top_inverted",
+      "pane": "harkenscythe:blocks/spectral_glass_inverted",
+      "layer0": "harkenscythe:blocks/spectral_glass_inverted"
+    }
+  },
+  "variants": {
+    "inventory": [
+      {
+        "transform": "forge:default-item",
+        "model": "builtin/generated",
+        "textures": {
+          "layer0": "harkenscythe:blocks/spectral_glass_inverted"
+        }
+      }
+    ],
+    "normal": [
+      {
+        "transform": "forge:default-item",
+        "model": "builtin/generated",
+        "textures": {
+          "layer0": "harkenscythe:blocks/spectral_glass_inverted"
+        }
+      }
+    ],
+    "north": {
+      "true": {
+        "submodel": {
+          "nside": {
+            "model": "pane_side"
+          }
+        }
+      },
+      "false": {
+        "submodel": {
+          "nside": {
+            "model": "pane_noside"
+          }
+        }
+      }
+    },
+    "south": {
+      "true": {
+        "submodel": {
+          "sside": {
+            "model": "pane_side_alt"
+          }
+        }
+      },
+      "false": {
+        "submodel": {
+          "sside": {
+            "model": "pane_noside_alt",
+            "y": 90
+          }
+        }
+      }
+    },
+    "west": {
+      "true": {
+        "submodel": {
+          "wside": {
+            "model": "pane_side_alt",
+            "y": 90
+          }
+        }
+      },
+      "false": {
+        "submodel": {
+          "wside": {
+            "model": "pane_noside",
+            "y": 270
+          }
+        }
+      }
+    },
+    "east": {
+      "true": {
+        "submodel": {
+          "eside": {
+            "model": "pane_side",
+            "y": 90
+          }
+        }
+      },
+      "false": {
+        "submodel": {
+          "eside": {
+            "model": "pane_noside_alt"
+          }
+        }
+      }
+    }
+  }
+}

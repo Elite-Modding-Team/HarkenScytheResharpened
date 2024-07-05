@@ -35,8 +35,12 @@ public class HSBlocks
 
     @GameRegistry.ObjectHolder("spectral_glass")
     public static HSSpectralGlass spectral_glass;
+    @GameRegistry.ObjectHolder("spectral_glass_inverted")
+    public static HSSpectralGlass spectral_glass_inverted;
     @GameRegistry.ObjectHolder("spectral_glass_pane")
     public static HSSpectralGlassPane spectral_glass_pane;
+    @GameRegistry.ObjectHolder("spectral_glass_pane_inverted")
+    public static HSSpectralGlassPane spectral_glass_pane_inverted;
 
     @GameRegistry.ObjectHolder("creep_block")
     public static HSBlockCreep creep_block;
@@ -75,8 +79,10 @@ public class HSBlocks
             (
                 HSRegistry.setup(new HSBlockMaterial(Material.ROCK, MapColor.NETHERRACK, 5.0F, 5.0F, SoundType.STONE), "biomass_block").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockMaterial(Material.IRON, MapColor.DIAMOND, 5.0F, 10.0F, SoundType.METAL), "livingmetal_block").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSSpectralGlass(), "spectral_glass").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSSpectralGlassPane(), "spectral_glass_pane").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSpectralGlass(false), "spectral_glass").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSpectralGlass(true), "spectral_glass_inverted").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSpectralGlassPane(false), "spectral_glass_pane").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSSpectralGlassPane(true), "spectral_glass_pane_inverted").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCreep(), "creep_block").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCreep(), "creep_block_tilled").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCreep(), "creep_block_tilled_bloodied").setCreativeTab(HarkenScythe.TAB),
