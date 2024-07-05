@@ -15,10 +15,10 @@ tile.harkenscythe.soul_altar.name=Altar of Souls
 tile.harkenscythe.soul_cake.name=Cake of Souls
 tile.harkenscythe.soul_crucible.name=Soul Crucible
 tile.harkenscythe.soulweave_cloth.name=Soulweave Cloth
-tile.harkenscythe.spectral_glass.name=Spectral Glass
-tile.harkenscythe.spectral_glass_inverted.name=Inverted Spectral Glass
-tile.harkenscythe.spectral_glass_pane.name=Spectral Glass Pane
-tile.harkenscythe.spectral_glass_pane_inverted.name=Inverted Spectral Glass Pane
+tile.harkenscythe.spectral_glass.name=Lunar Spectral Glass
+tile.harkenscythe.spectral_glass_inverted.name=Solar Spectral Glass
+tile.harkenscythe.spectral_glass_pane.name=Lunar Spectral Glass Pane
+tile.harkenscythe.spectral_glass_pane_inverted.name=Solar Spectral Glass Pane
 
 # ITEMS
 item.harkenscythe.ancient_necronomicon.name=Ancient Necronomicon
