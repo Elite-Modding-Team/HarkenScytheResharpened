@@ -1,8 +1,28 @@
 {
+  "block.biomass.break": {
+    "sounds": [
+      "harkenscythe:blocks/biomass/break1",
+      "harkenscythe:blocks/biomass/break2",
+      "harkenscythe:blocks/biomass/break3",
+      "harkenscythe:blocks/biomass/break4",
+      "harkenscythe:blocks/biomass/break5",
+      "harkenscythe:blocks/biomass/break6"
+    ]
+  },
   "block.biomass.harvest": {
     "sounds": [
       "harkenscythe:biomass_harvest1",
       "harkenscythe:biomass_harvest2"
+    ]
+  },
+  "block.biomass.step": {
+    "sounds": [
+      "harkenscythe:blocks/biomass/step1",
+      "harkenscythe:blocks/biomass/step2",
+      "harkenscythe:blocks/biomass/step3",
+      "harkenscythe:blocks/biomass/step4",
+      "harkenscythe:blocks/biomass/step5",
+      "harkenscythe:blocks/biomass/step6"
     ]
   },
   "block.blood_altar.enchant": {

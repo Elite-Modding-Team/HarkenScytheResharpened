@@ -19,7 +19,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
-@SuppressWarnings("deprecation")
 public class HSBiomassCrop extends BlockBush
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
@@ -29,7 +28,7 @@ public class HSBiomassCrop extends BlockBush
     {
         super(Material.PLANTS, MapColor.RED);
         setDefaultState(blockState.getBaseState().withProperty(AGE, 0));
-        setSoundType(HSSoundTypes.BIOMASS);
+        setSoundType(HSSoundTypes.BIOMASS_PLANT);
         setTickRandomly(true);
     }
 
