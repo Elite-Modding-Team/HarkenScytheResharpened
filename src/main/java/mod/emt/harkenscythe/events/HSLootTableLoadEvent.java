@@ -17,11 +17,12 @@ public class HSLootTableLoadEvent
     @SubscribeEvent
     public static void onLootTablesLoaded(LootTableLoadEvent event)
     {
-        if (event.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON))
+        if (event.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON) || event.getName().equals(LootTableList.CHESTS_DESERT_PYRAMID) || event.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE))
         {
             final LootPool main = event.getTable().getPool("main");
             if (main != null)
             {
+                main.addEntry(new LootEntryItem(HSItems.ancient_necronomicon_page, 10, 0, new LootFunction[0], new LootCondition[0], "loottable:ancient_necronomicon_page"));
                 main.addEntry(new LootEntryItem(HSItems.lady_harken_scythe, 5, 0, new LootFunction[0], new LootCondition[0], "loottable:lady_harken_scythe"));
             }
         }
