@@ -9,7 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -67,7 +66,6 @@ public class HSBloodAltar extends BlockEnchantmentTable
             {
                 if (!altarItem.isEmpty() && altar.getValidRecipe())
                 {
-                    Item item = altar.getInputStack().getItem();
                     int requiredBlood = HSAltarRecipes.getRequiredBlood(altar.getInputStack());
                     altar.decreaseCrucibleEssenceCount(requiredBlood);
                     altar.getInputStack().shrink(1);
