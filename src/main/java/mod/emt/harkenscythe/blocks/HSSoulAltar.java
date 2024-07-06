@@ -9,7 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -67,11 +66,10 @@ public class HSSoulAltar extends BlockEnchantmentTable
             {
                 if (!altarItem.isEmpty() && altar.getValidRecipe())
                 {
-                    Item item = altar.getInputStack().getItem();
-                    int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getInputStack().getItem());
+                    int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getInputStack());
                     altar.decreaseCrucibleEssenceCount(requiredSouls);
                     altar.getInputStack().shrink(1);
-                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, new ItemStack(HSAltarRecipes.getOutputSoul(item))));
+                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, HSAltarRecipes.getOutputSoul(altarItem)));
                     player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_SOUL_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     player.world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     for (int i = 0; i < requiredSouls; i++)
