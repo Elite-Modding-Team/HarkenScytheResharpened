@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " G ",
+    "GSG",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "type": "forge:ore_dict",
+      "ore": "ingotGold"
+    },
+    "S": {
+      "item": "harkenscythe:spectral_glass"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:dimensional_mirror",
+    "data": 20
+  }
+}
