@@ -1,0 +1,20 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "harkenscythe:items/dimensional_mirror_dim"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "harkenscythe:dimensional_mirror_status": 1
+      },
+      "model": "harkenscythe:item/dimensional_mirror_lit"
+    },
+    {
+      "predicate": {
+        "harkenscythe:dimensional_mirror_status": 2
+      },
+      "model": "harkenscythe:item/dimensional_mirror_active"
+    }
+  ]
+}

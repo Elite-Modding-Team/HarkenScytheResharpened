@@ -14,10 +14,10 @@ public class HSShears extends ItemShears
 
     public HSShears(int durability, EnumRarity rarity, Ingredient repairMaterial)
     {
-        this.maxStackSize = 1;
         this.rarity = rarity;
         this.repairMaterial = repairMaterial;
         this.setMaxDamage(durability);
+        this.setMaxStackSize(1);
     }
 
     // Hardcoded blocks...
