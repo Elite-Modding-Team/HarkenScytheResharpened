@@ -104,6 +104,7 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
 
+        HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_flame, HSItems.spectral_potion_affliction, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_water, HSItems.spectral_potion_purifying, 10);
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);

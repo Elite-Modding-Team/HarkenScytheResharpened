@@ -6,6 +6,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
@@ -51,7 +52,7 @@ public class HSDimensionalMirror extends HSItem
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
-        if (!world.isRemote && stack.getItemDamage() == 0)
+        if (!world.isRemote && stack.getItemDamage() <= 15)
         {
             if (this.bedPosition != null)
             {
@@ -66,9 +67,9 @@ public class HSDimensionalMirror extends HSItem
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity)
     {
-        if (!world.isRemote && entity instanceof EntityPlayer)
+        if (entity instanceof EntityPlayerMP)
         {
-            EntityPlayer player = (EntityPlayer) entity;
+            EntityPlayerMP player = (EntityPlayerMP) entity;
             if (this.bedPosition != null)
             {
                 // TODO: Make dimension configurable
@@ -79,7 +80,7 @@ public class HSDimensionalMirror extends HSItem
                 player.setPositionAndUpdate(this.bedPosition.getX(), this.bedPosition.getY(), this.bedPosition.getZ());
                 if (!player.capabilities.isCreativeMode)
                 {
-                    stack.setItemDamage(5);
+                    stack.setItemDamage(stack.getItemDamage() + 5);
                 }
                 world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
             }
@@ -102,15 +103,15 @@ public class HSDimensionalMirror extends HSItem
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if ((isSelected || entity.ticksExisted % 20 == 19) && entity instanceof EntityPlayer)
+        if (isSelected && entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entity;
             if (!world.isRemote) this.bedPosition = player.getBedLocation(0);
-            if (stack.isItemDamaged() || this.bedPosition == null)
+            if (stack.getItemDamage() > 15 || this.bedPosition == null)
             {
-                status = 0.0F;
+                this.status = 0.0F;
             }
-            else if (!player.isActiveItemStackBlocking()) status = 1.0F;
+            else if (!player.isActiveItemStackBlocking()) this.status = 1.0F;
         }
     }
 
@@ -139,7 +140,7 @@ public class HSDimensionalMirror extends HSItem
         if (entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entity;
-            status = 2.0F;
+            this.status = 2.0F;
             int duration = stack.getMaxItemUseDuration() - time;
             float progress = duration * 1.0f / stack.getMaxItemUseDuration();
             if (player.world.isRemote)

@@ -20,6 +20,10 @@ public class HSTileEntitySoulAltar extends HSTileEntityAltar implements ITickabl
     @Override
     public boolean getValidRecipe()
     {
+        if (getInputStack().getItem() == HSItems.dimensional_mirror && !getInputStack().isItemDamaged())
+        {
+            return false;
+        }
         return HSAltarRecipes.isValidInputSoul(getInputStack()) && HSAltarRecipes.getRequiredSouls(getInputStack()) <= getEssenceCount();
     }
 

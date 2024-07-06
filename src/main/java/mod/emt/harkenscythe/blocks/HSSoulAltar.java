@@ -68,8 +68,18 @@ public class HSSoulAltar extends BlockEnchantmentTable
                 {
                     int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getInputStack());
                     altar.decreaseCrucibleEssenceCount(requiredSouls);
-                    altar.getInputStack().shrink(1);
-                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, HSAltarRecipes.getOutputSoul(altarItem)));
+                    if (altarItem.getItem() == HSItems.dimensional_mirror && altarItem.isItemDamaged())
+                    {
+                        altarItem.setItemDamage(altarItem.getItemDamage() - requiredSouls);
+                    }
+                    else
+                    {
+                        altar.getInputStack().shrink(1);
+                        if (!player.world.isRemote)
+                        {
+                            player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, HSAltarRecipes.getOutputSoul(altarItem)));
+                        }
+                    }
                     player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_SOUL_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     player.world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     for (int i = 0; i < requiredSouls; i++)
