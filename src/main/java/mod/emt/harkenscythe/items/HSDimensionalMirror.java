@@ -52,7 +52,7 @@ public class HSDimensionalMirror extends HSItem
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
-        if (!world.isRemote && stack.getItemDamage() <= 15)
+        if (stack.getItemDamage() <= 15)
         {
             if (this.bedPosition != null)
             {
@@ -90,12 +90,6 @@ public class HSDimensionalMirror extends HSItem
 
     @Override
     public boolean isDamageable()
-    {
-        return false;
-    }
-
-    @Override
-    public boolean shouldRotateAroundWhenRendering()
     {
         return false;
     }
