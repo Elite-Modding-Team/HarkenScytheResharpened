@@ -54,9 +54,10 @@ public class HSNecronomicon extends HSItem
                 ItemStack bloodContainer = getBloodContainer(player);
                 if (bloodContainer != ItemStack.EMPTY)
                 {
-                    bloodContainer.damageItem(5, player);
+                    bloodContainer.setItemDamage(bloodContainer.getItemDamage() + 5);
                 }
             }
+            player.getCooldownTracker().setCooldown(stack.getItem(), 100);
         }
         return stack;
     }
