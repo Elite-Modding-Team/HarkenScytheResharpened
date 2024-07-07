@@ -1,5 +1,5 @@
 {
-  "parent": "item/handheld",
+  "parent": "harkenscythe:item/scythe",
   "textures": {
     "layer0": "harkenscythe:items/scythe_lady_harken"
   }
