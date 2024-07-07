@@ -55,7 +55,7 @@ public class HSLivingDeathEvent
 
     public static void spawnSpectralEntity(World world, EntityLivingBase entity, BlockPos pos)
     {
-        if (entity != null)
+        if (!world.isRemote && entity != null)
         {
             // Reanimate original entity
             if (isWhitelistedMob(entity))
