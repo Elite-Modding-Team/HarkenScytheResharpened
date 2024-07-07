@@ -1,5 +1,5 @@
 {
-  "parent": "item/handheld",
+  "parent": "harkenscythe:item/glaive",
   "textures": {
     "layer0": "harkenscythe:items/glaive_livingmetal"
   }
