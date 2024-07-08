@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "LSL",
+    "SRS",
+    "LSL"
+  ],
+  "key": {
+    "L": {
+      "item": "harkenscythe:livingmetal_block"
+    },
+    "S": {
+      "item": "harkenscythe:spectral_glass"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "blockRedstone"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:livingmetal_core"
+  }
+}

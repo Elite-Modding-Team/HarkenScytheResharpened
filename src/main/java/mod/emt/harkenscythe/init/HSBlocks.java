@@ -32,7 +32,7 @@ public class HSBlocks
     public static HSBlockMaterial biomass_block;
     @GameRegistry.ObjectHolder("biomass_crop")
     public static HSBiomassCrop biomass_crop;
-    
+
     @GameRegistry.ObjectHolder("livingmetal_block")
     public static HSBlockMaterial livingmetal_block;
     @GameRegistry.ObjectHolder("livingmetal_core")

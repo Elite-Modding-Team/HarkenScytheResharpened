@@ -109,6 +109,10 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_flame, HSItems.spectral_potion_affliction, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_water, HSItems.spectral_potion_purifying, 10);
+        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass), Item.getItemFromBlock(HSBlocks.spectral_glass_inverted), 1);
+        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_pane), Item.getItemFromBlock(HSBlocks.spectral_glass_pane_inverted), 1);
+        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_inverted), Item.getItemFromBlock(HSBlocks.spectral_glass), 1);
+        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_pane_inverted), Item.getItemFromBlock(HSBlocks.spectral_glass_pane), 1);
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 5);
         //HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.AWKWARD).getItem(), Items.EXPERIENCE_BOTTLE, 40); // TODO: Something better for this?

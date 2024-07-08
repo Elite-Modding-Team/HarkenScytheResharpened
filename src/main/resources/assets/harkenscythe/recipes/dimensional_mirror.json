@@ -1,9 +1,9 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    " G ",
     "GSG",
-    " G "
+    "SSS",
+    "GSG"
   ],
   "key": {
     "G": {
@@ -11,7 +11,7 @@
       "ore": "ingotGold"
     },
     "S": {
-      "item": "harkenscythe:spectral_glass"
+      "item": "harkenscythe:spectral_glass_pane_inverted"
     }
   },
   "result": {
