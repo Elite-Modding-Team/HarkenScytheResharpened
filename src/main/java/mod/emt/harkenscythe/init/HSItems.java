@@ -79,6 +79,10 @@ public class HSItems
     public static HSScythe golden_scythe;
     @GameRegistry.ObjectHolder("diamond_scythe")
     public static HSScythe diamond_scythe;
+    @GameRegistry.ObjectHolder("biomass_scythe")
+    public static HSScythe biomass_scythe;
+    @GameRegistry.ObjectHolder("livingmetal_scythe")
+    public static HSScythe livingmetal_scythe;
     @GameRegistry.ObjectHolder("reaper_scythe")
     public static HSScythe reaper_scythe;
     @GameRegistry.ObjectHolder("lady_harken_scythe")
@@ -94,6 +98,10 @@ public class HSItems
     public static HSGlaive golden_glaive;
     @GameRegistry.ObjectHolder("diamond_glaive")
     public static HSGlaive diamond_glaive;
+    @GameRegistry.ObjectHolder("biomass_glaive")
+    public static HSGlaive biomass_glaive;
+    @GameRegistry.ObjectHolder("livingmetal_glaive")
+    public static HSGlaive livingmetal_glaive;
 
     @GameRegistry.ObjectHolder("blood_essence")
     public static HSItem blood_essence;

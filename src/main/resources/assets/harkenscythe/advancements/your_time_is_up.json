@@ -1,0 +1,67 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.your_time_is_up.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.your_time_is_up.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:essence_keeper_soul"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "harkenscythe:keeper_of_the_reaper",
+  "criteria": {
+    "obtain_essence_keeper_blood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:essence_keeper_blood"
+          }
+        ]
+      }
+    },
+    "obtain_essence_keeper_soul": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:essence_keeper_soul"
+          }
+        ]
+      }
+    },
+    "obtain_essence_vessel_blood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:essence_vessel_blood"
+          }
+        ]
+      }
+    },
+    "obtain_essence_vessel_soul": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:essence_vessel_soul"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_essence_keeper_blood",
+      "obtain_essence_keeper_soul",
+      "obtain_essence_vessel_blood",
+      "obtain_essence_vessel_soul"
+    ]
+  ]
+}

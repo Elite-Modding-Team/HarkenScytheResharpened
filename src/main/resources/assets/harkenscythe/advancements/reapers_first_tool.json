@@ -1,0 +1,199 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.reapers_first_tool.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.reapers_first_tool.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:iron_scythe"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "obtain_wooden_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:wooden_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_stone_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:stone_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_iron_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:iron_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_golden_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:golden_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_diamond_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:diamond_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_biomass_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:biomass_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_livingmetal_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:livingmetal_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_reaper_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:reaper_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_lady_harken_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:lady_harken_scythe"
+          }
+        ]
+      }
+    },
+    "obtain_wooden_glaive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:wooden_glaive"
+          }
+        ]
+      }
+    },
+    "obtain_stone_glaive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:stone_glaive"
+          }
+        ]
+      }
+    },
+    "obtain_iron_glaive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:iron_glaive"
+          }
+        ]
+      }
+    },
+    "obtain_golden_glaive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:golden_glaive"
+          }
+        ]
+      }
+    },
+    "obtain_diamond_glaive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:diamond_glaive"
+          }
+        ]
+      }
+    },
+    "obtain_biomass_glaive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:biomass_glaive"
+          }
+        ]
+      }
+    },
+    "obtain_livingmetal_glaive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:livingmetal_glaive"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_wooden_scythe",
+      "obtain_stone_scythe",
+      "obtain_iron_scythe",
+      "obtain_golden_scythe",
+      "obtain_diamond_scythe",
+      "obtain_biomass_scythe",
+      "obtain_livingmetal_scythe",
+      "obtain_reaper_scythe",
+      "obtain_lady_harken_scythe",
+      "obtain_wooden_glaive",
+      "obtain_stone_glaive",
+      "obtain_iron_glaive",
+      "obtain_golden_glaive",
+      "obtain_diamond_glaive",
+      "obtain_biomass_glaive",
+      "obtain_livingmetal_glaive"
+    ]
+  ]
+}

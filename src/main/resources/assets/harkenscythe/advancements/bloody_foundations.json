@@ -1,0 +1,28 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.bloody_foundations.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.bloody_foundations.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:blood_altar"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "harkenscythe:not_a_wizard_this_time",
+  "criteria": {
+    "craft_blood_altar": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "harkenscythe:blood_altar"
+      }
+    },
+    "use_blood_altar": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.root.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.root.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:ancient_necronomicon"
+    },
+    "background": "minecraft:textures/blocks/obsidian.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

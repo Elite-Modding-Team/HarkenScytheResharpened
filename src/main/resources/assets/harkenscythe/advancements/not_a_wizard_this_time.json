@@ -1,0 +1,29 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.not_a_wizard_this_time.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.not_a_wizard_this_time.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:harken_athame"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "harkenscythe:keeper_of_the_reaper",
+  "criteria": {
+    "obtain_athame": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:harken_athame"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.souls_guidance.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.souls_guidance.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:soul_altar"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "harkenscythe:not_a_wizard_this_time",
+  "criteria": {
+    "craft_soul_altar": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "harkenscythe:soul_altar"
+      }
+    },
+    "use_soul_altar": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
