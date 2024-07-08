@@ -11,6 +11,7 @@ tile.harkenscythe.creep_block.name=Creep Block
 tile.harkenscythe.creep_block_tilled.name=Tilled Creep Block
 tile.harkenscythe.creep_block_tilled_bloodied.name=Bloodied Tilled Creep Block
 tile.harkenscythe.livingmetal_block.name=Block of Livingmetal
+tile.harkenscythe.livingmetal_core.name=Livingmetal Core
 tile.harkenscythe.soul_altar.name=Altar of Souls
 tile.harkenscythe.soul_cake.name=Cake of Souls
 tile.harkenscythe.soul_crucible.name=Soul Crucible

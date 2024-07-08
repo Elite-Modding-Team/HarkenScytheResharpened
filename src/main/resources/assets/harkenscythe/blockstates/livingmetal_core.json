@@ -1,0 +1,35 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all",
+    "textures": {
+      "all": "harkenscythe:blocks/livingmetal_core_inactive"
+    }
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ],
+    "state=0": {
+      "model": "cube_all",
+      "textures": {
+        "all": "harkenscythe:blocks/livingmetal_core_inactive"
+      }
+    },
+    "state=1": {
+      "model": "cube_all",
+      "textures": {
+        "all": "harkenscythe:blocks/livingmetal_core_active"
+      }
+    },
+    "state=2": {
+      "model": "cube_all",
+      "textures": {
+        "all": "harkenscythe:blocks/livingmetal_core_healing"
+      }
+    }
+  }
+}

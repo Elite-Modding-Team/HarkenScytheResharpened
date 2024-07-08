@@ -18,6 +18,7 @@ import mod.emt.harkenscythe.entities.HSEntitySoul;
 import mod.emt.harkenscythe.entities.HSEntitySpectralPotion;
 import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
 import mod.emt.harkenscythe.tileentities.HSTileEntityCrucible;
+import mod.emt.harkenscythe.tileentities.HSTileEntityLivingmetalCore;
 import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -95,6 +96,7 @@ public class HSRegistry
     {
         GameRegistry.registerTileEntity(HSTileEntityBloodAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar"));
         GameRegistry.registerTileEntity(HSTileEntityCrucible.class, new ResourceLocation(HarkenScythe.MOD_ID, "crucible"));
+        GameRegistry.registerTileEntity(HSTileEntityLivingmetalCore.class, new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_core"));
         GameRegistry.registerTileEntity(HSTileEntitySoulAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
     }
 

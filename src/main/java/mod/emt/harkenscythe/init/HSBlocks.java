@@ -8,6 +8,7 @@ import mod.emt.harkenscythe.blocks.HSBlockCreep;
 import mod.emt.harkenscythe.blocks.HSBlockMaterial;
 import mod.emt.harkenscythe.blocks.HSBloodAltar;
 import mod.emt.harkenscythe.blocks.HSBloodCrucible;
+import mod.emt.harkenscythe.blocks.HSLivingmetalCore;
 import mod.emt.harkenscythe.blocks.HSSoulAltar;
 import mod.emt.harkenscythe.blocks.HSSoulCake;
 import mod.emt.harkenscythe.blocks.HSSoulCrucible;
@@ -29,8 +30,13 @@ public class HSBlocks
 {
     @GameRegistry.ObjectHolder("biomass_block")
     public static HSBlockMaterial biomass_block;
+    @GameRegistry.ObjectHolder("biomass_crop")
+    public static HSBiomassCrop biomass_crop;
+    
     @GameRegistry.ObjectHolder("livingmetal_block")
     public static HSBlockMaterial livingmetal_block;
+    @GameRegistry.ObjectHolder("livingmetal_core")
+    public static HSLivingmetalCore livingmetal_core;
 
     @GameRegistry.ObjectHolder("spectral_glass")
     public static HSSpectralGlass spectral_glass;
@@ -65,9 +71,6 @@ public class HSBlocks
     @GameRegistry.ObjectHolder("soul_cake")
     public static HSSoulCake soul_cake;
 
-    @GameRegistry.ObjectHolder("biomass_crop")
-    public static HSBiomassCrop biomass_crop;
-
     @SubscribeEvent
     public static void onRegisterBlocksEvent(@Nonnull final RegistryEvent.Register<Block> event)
     {
@@ -92,7 +95,8 @@ public class HSBlocks
                 HSRegistry.setup(new HSBloodAltar(), "blood_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSoulAltar(), "soul_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSoulCake(), "soul_cake"),
-                HSRegistry.setup(new HSBiomassCrop(), "biomass_crop")
+                HSRegistry.setup(new HSBiomassCrop(), "biomass_crop"),
+                HSRegistry.setup(new HSLivingmetalCore(), "livingmetal_core")
             );
     }
 }
