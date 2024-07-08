@@ -78,7 +78,7 @@ public class HSBlocks
         registry.registerAll
             (
                 HSRegistry.setup(new HSBlockMaterial(Material.ROCK, MapColor.NETHERRACK, 5.0F, 5.0F, HSSoundTypes.BIOMASS), "biomass_block").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSBlockMaterial(Material.IRON, MapColor.DIAMOND, 5.0F, 10.0F, SoundType.METAL), "livingmetal_block").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBlockMaterial(Material.IRON, MapColor.DIAMOND, 5.0F, 10.0F, HSSoundTypes.LIVINGMETAL), "livingmetal_block").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSpectralGlass(false), "spectral_glass").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSpectralGlass(true), "spectral_glass_inverted").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSSpectralGlassPane(false), "spectral_glass_pane").setCreativeTab(HarkenScythe.TAB),

@@ -30,6 +30,24 @@
       "harkenscythe:enchant_soul"
     ]
   },
+  "block.livingmetal.break": {
+    "sounds": [
+      "harkenscythe:blocks/livingmetal/break1",
+      "harkenscythe:blocks/livingmetal/break2",
+      "harkenscythe:blocks/livingmetal/break3",
+      "harkenscythe:blocks/livingmetal/break4"
+    ]
+  },
+  "block.livingmetal.step": {
+    "sounds": [
+      "harkenscythe:blocks/livingmetal/step1",
+      "harkenscythe:blocks/livingmetal/step2",
+      "harkenscythe:blocks/livingmetal/step3",
+      "harkenscythe:blocks/livingmetal/step4",
+      "harkenscythe:blocks/livingmetal/step5",
+      "harkenscythe:blocks/livingmetal/step6"
+    ]
+  },
   "block.soul_altar.enchant": {
     "sounds": [
       "harkenscythe:enchant_blood"
