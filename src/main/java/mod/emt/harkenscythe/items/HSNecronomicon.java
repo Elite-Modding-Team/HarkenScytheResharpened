@@ -102,6 +102,7 @@ public class HSNecronomicon extends HSItem
                 for (int i = 0; i < 3; i++)
                 {
                     player.world.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, player.posX + Math.cos(theta) * r, player.posY, player.posZ + Math.sin(theta) * r, 0, 2, 0);
+                    player.world.spawnParticle(EnumParticleTypes.SPELL_WITCH, player.posX + Math.sin(theta) * r, player.posY, player.posZ + Math.cos(theta) * r, 0, 2, 0);
                     theta += Math.PI * 2 / 3;
                 }
             }
