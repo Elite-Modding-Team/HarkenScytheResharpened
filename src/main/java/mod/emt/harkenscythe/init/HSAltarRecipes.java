@@ -32,9 +32,9 @@ public class HSAltarRecipes
         return BLOOD_INPUT_OUTPUT_MAP.containsKey(input.getItem()) && BLOOD_INPUT_BLOODCOUNT_MAP.containsKey(input.getItem());
     }
 
-    public static ItemStack getOutputBlood(ItemStack input)
+    public static ItemStack getOutputBlood(Item input)
     {
-        return new ItemStack(BLOOD_INPUT_OUTPUT_MAP.get(input.getItem()));
+        return new ItemStack(BLOOD_INPUT_OUTPUT_MAP.get(input));
     }
 
     public static int getRequiredBlood(ItemStack input)
@@ -59,9 +59,9 @@ public class HSAltarRecipes
         return SOUL_INPUT_OUTPUT_MAP.containsKey(input.getItem()) && SOUL_INPUT_SOULCOUNT_MAP.containsKey(input.getItem());
     }
 
-    public static ItemStack getOutputSoul(ItemStack input)
+    public static ItemStack getOutputSoul(Item input)
     {
-        return new ItemStack(SOUL_INPUT_OUTPUT_MAP.get(input.getItem()));
+        return new ItemStack(SOUL_INPUT_OUTPUT_MAP.get(input));
     }
 
     public static int getRequiredSouls(ItemStack input)
