@@ -84,6 +84,7 @@ public class HSDimensionalMirror extends HSItem
                 }
                 world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
             }
+            player.getCooldownTracker().setCooldown(stack.getItem(), 100);
         }
         return stack;
     }
