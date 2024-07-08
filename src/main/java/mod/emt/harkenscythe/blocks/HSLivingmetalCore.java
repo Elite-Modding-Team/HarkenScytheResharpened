@@ -1,6 +1,8 @@
 package mod.emt.harkenscythe.blocks;
 
 import javax.annotation.Nullable;
+
+import mod.emt.harkenscythe.init.HSSoundTypes;
 import mod.emt.harkenscythe.tileentities.HSTileEntityLivingmetalCore;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -22,6 +24,7 @@ public class HSLivingmetalCore extends Block
     {
         super(Material.IRON);
         setDefaultState(blockState.getBaseState().withProperty(STATE, 0));
+        setSoundType(HSSoundTypes.LIVINGMETAL);
     }
 
     @Override
