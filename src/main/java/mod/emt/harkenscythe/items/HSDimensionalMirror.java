@@ -148,10 +148,10 @@ public class HSDimensionalMirror extends HSItem
                     theta += Math.PI * 2 / 3;
                 }
             }
-            int soundInterval = 16;
+            int soundInterval = 32;
             if (duration % soundInterval == 0)
             {
-                player.world.playSound(player, player.getPosition(), SoundEvents.BLOCK_NOTE_CHIME, SoundCategory.PLAYERS, 0.6F, 0.2F * (2 + (float) duration / soundInterval));
+                player.world.playSound(player, player.getPosition(), SoundEvents.ENTITY_PLAYER_BREATH, SoundCategory.PLAYERS, 0.6F, 0.2F * (2 + (float) duration / soundInterval));
             }
         }
     }
