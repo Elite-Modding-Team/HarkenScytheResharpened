@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.entities;
 
 import java.util.Collections;
 import java.util.List;
+import com.google.common.collect.Lists;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.entity.Entity;
@@ -108,6 +109,28 @@ public abstract class HSEntityEssence extends EntityLivingBase
     public EnumHandSide getPrimaryHand()
     {
         return EnumHandSide.RIGHT;
+    }
+
+    public List<ItemStack> getDamagedEntityEquipment(EntityLivingBase entity)
+    {
+        List<ItemStack> list = Lists.newArrayList();
+        for (EntityEquipmentSlot equipmentSlot : EntityEquipmentSlot.values())
+        {
+            ItemStack stack = entity.getItemStackFromSlot(equipmentSlot);
+            if (!stack.isEmpty() && stack.isItemDamaged())
+            {
+                list.add(stack);
+            }
+        }
+        return list;
+    }
+
+    public void repairEquipment(ItemStack stack)
+    {
+        if (!stack.isEmpty())
+        {
+            stack.setItemDamage(stack.getItemDamage() - 2); // TODO: Respect essence quality once implemented
+        }
     }
 
     @Override

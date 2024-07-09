@@ -1,7 +1,6 @@
 package mod.emt.harkenscythe.blocks;
 
 import javax.annotation.Nullable;
-
 import mod.emt.harkenscythe.init.HSSoundTypes;
 import mod.emt.harkenscythe.tileentities.HSTileEntityLivingmetalCore;
 import net.minecraft.block.Block;

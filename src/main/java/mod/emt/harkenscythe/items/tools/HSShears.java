@@ -1,5 +1,6 @@
 package mod.emt.harkenscythe.items.tools;
 
+import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.EnumRarity;
@@ -7,10 +8,10 @@ import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
-public class HSShears extends ItemShears
+public class HSShears extends ItemShears implements IHSTool
 {
     private final EnumRarity rarity;
-    public Ingredient repairMaterial;
+    private final Ingredient repairMaterial;
 
     public HSShears(int durability, EnumRarity rarity, Ingredient repairMaterial)
     {
@@ -46,5 +47,11 @@ public class HSShears extends ItemShears
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
     {
         return repairMaterial.test(repair) || super.getIsRepairable(toRepair, repair);
+    }
+
+    @Override
+    public ToolMaterial getToolMaterial()
+    {
+        return this.repairMaterial == Ingredient.fromStacks(new ItemStack(HSItems.livingmetal_ingot)) ? HSItems.TOOL_LIVINGMETAL : null;
     }
 }

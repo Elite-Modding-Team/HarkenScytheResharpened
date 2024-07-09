@@ -27,16 +27,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class HSGlaive extends ItemSword
+public class HSGlaive extends ItemSword implements IHSTool
 {
     private final float attackSpeed;
     private final EnumRarity rarity;
+    private final ToolMaterial material;
 
     public HSGlaive(ToolMaterial material, float attackSpeed, EnumRarity rarity)
     {
         super(material);
         this.attackSpeed = attackSpeed;
         this.rarity = rarity;
+        this.material = material;
     }
 
     @Override
@@ -128,5 +130,11 @@ public class HSGlaive extends ItemSword
         }
 
         return multimap;
+    }
+
+    @Override
+    public ToolMaterial getToolMaterial()
+    {
+        return this.material;
     }
 }
