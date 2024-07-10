@@ -126,7 +126,7 @@ public abstract class HSCrucible extends Block
             ItemStack heldStack = player.getHeldItem(hand);
             Item heldItem = heldStack.getItem();
             int essenceCount = ((HSTileEntityCrucible) te).getEssenceCount();
-            if (essenceCount > 0 && heldItem instanceof HSDyeableArmor)
+            if (heldItem instanceof HSDyeableArmor && essenceCount > 0)
             {
                 HSDyeableArmor armor = (HSDyeableArmor) heldItem;
                 if (armor.hasColor(heldStack) && ((armor.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE && this instanceof HSBloodCrucible) || (armor.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE && this instanceof HSSoulCrucible)))
@@ -137,6 +137,16 @@ public abstract class HSCrucible extends Block
                     player.addStat(StatList.ARMOR_CLEANED);
                     return true;
                 }
+            }
+            else if (essenceCount < HSTileEntityCrucible.MAX_ESSENCE_COUNT && !player.isSneaking() && (heldItem == getEssenceKeeper() || heldItem == getEssenceVessel()))
+            {
+                fillCrucible(world, pos, state, player, hand, heldStack, heldItem, essenceCount, getEssenceKeeper(), getEssenceVessel());
+                return true;
+            }
+            else if (essenceCount > 0 && player.isSneaking())
+            {
+                emptyCrucible(world, pos, state, player, hand, heldStack, heldItem, essenceCount, getEssenceKeeper(), getEssenceVessel());
+                return true;
             }
         }
         return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
@@ -177,6 +187,10 @@ public abstract class HSCrucible extends Block
     {
         return new HSTileEntityCrucible();
     }
+
+    protected abstract Item getEssenceKeeper();
+
+    protected abstract Item getEssenceVessel();
 
     protected void fillCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int essenceCount, Item keeperType, Item vesselType)
     {

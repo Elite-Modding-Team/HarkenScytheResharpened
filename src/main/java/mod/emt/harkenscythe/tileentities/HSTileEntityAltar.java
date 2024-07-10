@@ -28,7 +28,6 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     public float bookRotationPrev;
     public float tRot;
     protected ItemStack inputStack = ItemStack.EMPTY;
-    protected ItemStack essenceStack = ItemStack.EMPTY;
     protected int essenceCount;
 
     public ItemStack getInputStack()
@@ -42,10 +41,7 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         markDirty();
     }
 
-    public ItemStack getEssenceStack()
-    {
-        return essenceStack;
-    }
+    public abstract ItemStack getEssenceStack();
 
     public int getEssenceCount()
     {
@@ -57,15 +53,9 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         this.essenceCount = essenceCount;
     }
 
-    public boolean getValidRecipe()
-    {
-        return false;
-    }
+    public abstract boolean getValidRecipe();
 
-    public Block getCrucibleType()
-    {
-        return null;
-    }
+    public abstract Block getCrucibleType();
 
     @Override
     public void update()
