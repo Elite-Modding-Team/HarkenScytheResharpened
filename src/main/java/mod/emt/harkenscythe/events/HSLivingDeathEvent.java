@@ -1,5 +1,6 @@
 package mod.emt.harkenscythe.events;
 
+import javax.annotation.Nullable;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entities.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entities.HSEntityGlobin;
@@ -16,6 +17,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
@@ -41,6 +44,10 @@ public class HSLivingDeathEvent
             if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
             {
                 spawnSoul(world, entity);
+                if (isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
+                {
+                    spawnSoul(world, entity);
+                }
             }
             else if (trueSource instanceof HSEntityHarbinger)
             {
@@ -53,12 +60,12 @@ public class HSLivingDeathEvent
         }
     }
 
-    public static void spawnSpectralEntity(World world, EntityLivingBase entity, BlockPos pos)
+    public static void spawnSpectralEntity(World world, @Nullable EntityLivingBase entity, BlockPos pos)
     {
-        if (!world.isRemote && entity != null)
+        if (!world.isRemote)
         {
             // Reanimate original entity
-            if (isWhitelistedMob(entity))
+            if (entity != null && isWhitelistedMob(entity))
             {
                 entity.getEntityData().setBoolean("IsSpectral", true);
                 entity.setCustomNameTag("Spectral " + entity.getName());
@@ -118,5 +125,14 @@ public class HSLivingDeathEvent
     {
         // TODO: Replace with config-defined whitelist
         return !(entity instanceof EntityPlayer) && !(entity instanceof EntityGhast) && !(entity instanceof EntitySlime);
+    }
+
+    private static boolean isWearingFullSoulweaveSet(EntityPlayer player)
+    {
+        Item boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem();
+        Item leggings = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem();
+        Item chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
+        Item helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
+        return boots == HSItems.soulweave_shoes && leggings == HSItems.soulweave_pants && chestplate == HSItems.soulweave_robe && helmet == HSItems.soulweave_hood;
     }
 }

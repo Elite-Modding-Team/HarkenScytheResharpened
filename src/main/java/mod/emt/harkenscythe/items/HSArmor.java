@@ -45,4 +45,17 @@ public class HSArmor extends ItemArmor
 
         return new ResourceLocation(HarkenScythe.MOD_ID, "textures/models/armor/livingmetal_1.png").toString();
     }
+
+    @Override
+    public void setDamage(ItemStack stack, int damage)
+    {
+        if (this.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE || this.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE)
+        {
+            super.setDamage(stack, Math.min(stack.getMaxDamage() - 1, damage));
+        }
+        else
+        {
+            super.setDamage(stack, damage);
+        }
+    }
 }

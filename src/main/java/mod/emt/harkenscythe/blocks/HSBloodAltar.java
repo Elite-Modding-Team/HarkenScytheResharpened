@@ -68,8 +68,15 @@ public class HSBloodAltar extends BlockEnchantmentTable
                 {
                     int requiredBlood = HSAltarRecipes.getRequiredBlood(altar.getInputStack());
                     altar.decreaseCrucibleEssenceCount(requiredBlood);
-                    if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, HSAltarRecipes.getOutputBlood(altarItem.getItem())));
-                    altar.getInputStack().shrink(1);
+                    if (altarItem.isItemDamaged()) // Repair recipe
+                    {
+                        altarItem.setItemDamage(altarItem.getItemDamage() - requiredBlood);
+                    }
+                    else // Transform recipe
+                    {
+                        if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, HSAltarRecipes.getOutputBlood(altarItem.getItem())));
+                        altar.getInputStack().shrink(1);
+                    }
                     player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT, SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     player.world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     for (int i = 0; i < requiredBlood; i++)

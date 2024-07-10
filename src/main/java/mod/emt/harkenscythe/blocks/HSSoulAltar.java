@@ -68,11 +68,11 @@ public class HSSoulAltar extends BlockEnchantmentTable
                 {
                     int requiredSouls = HSAltarRecipes.getRequiredSouls(altar.getInputStack());
                     altar.decreaseCrucibleEssenceCount(requiredSouls);
-                    if (altarItem.getItem() == HSItems.dimensional_mirror && altarItem.isItemDamaged())
+                    if (altarItem.isItemDamaged()) // Repair recipe
                     {
                         altarItem.setItemDamage(altarItem.getItemDamage() - requiredSouls);
                     }
-                    else
+                    else // Transform recipe
                     {
                         if (!player.world.isRemote) player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, HSAltarRecipes.getOutputSoul(altarItem.getItem())));
                         altar.getInputStack().shrink(1);

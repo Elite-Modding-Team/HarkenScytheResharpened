@@ -103,10 +103,18 @@ public class HSRegistry
     public static void registerRecipes()
     {
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
+        HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_hood, HSItems.bloodweave_hood, 10);
+        HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_robe, HSItems.bloodweave_robe, 10);
+        HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_pants, HSItems.bloodweave_pants, 10);
+        HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_shoes, HSItems.bloodweave_shoes, 10);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
 
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
+        HSAltarRecipes.addSoulRecipe(HSItems.soulweave_hood, HSItems.soulweave_hood, 10);
+        HSAltarRecipes.addSoulRecipe(HSItems.soulweave_robe, HSItems.soulweave_robe, 10);
+        HSAltarRecipes.addSoulRecipe(HSItems.soulweave_pants, HSItems.soulweave_pants, 10);
+        HSAltarRecipes.addSoulRecipe(HSItems.soulweave_shoes, HSItems.soulweave_shoes, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_flame, HSItems.spectral_potion_affliction, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_water, HSItems.spectral_potion_purifying, 10);
         HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass), Item.getItemFromBlock(HSBlocks.spectral_glass_inverted), 1);

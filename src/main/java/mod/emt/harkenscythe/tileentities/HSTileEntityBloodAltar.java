@@ -20,6 +20,10 @@ public class HSTileEntityBloodAltar extends HSTileEntityAltar implements ITickab
     @Override
     public boolean getValidRecipe()
     {
+        if (HSAltarRecipes.getOutputBlood(getInputStack().getItem()).isItemEqualIgnoreDurability(getInputStack()) && !getInputStack().isItemDamaged())
+        {
+            return false;
+        }
         return HSAltarRecipes.isValidInputBlood(getInputStack()) && HSAltarRecipes.getRequiredBlood(getInputStack()) <= getEssenceCount();
     }
 

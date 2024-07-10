@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.events;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entities.HSEntityBlood;
 import mod.emt.harkenscythe.init.HSEnchantments;
+import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.items.tools.HSGlaive;
 import net.minecraft.enchantment.Enchantment;
@@ -11,6 +12,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
@@ -35,6 +38,10 @@ public class HSLivingHurtEvent
             if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
             {
                 spawnBlood(world, entity);
+                if (isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
+                {
+                    spawnBlood(world, entity);
+                }
             }
             if (entity instanceof EntityPlayer)
             {
@@ -87,5 +94,14 @@ public class HSLivingHurtEvent
     {
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
         return (level > 0 && player.getRNG().nextFloat() < 0.05F * level);
+    }
+
+    private static boolean isWearingFullBloodweaveSet(EntityPlayer player)
+    {
+        Item boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem();
+        Item leggings = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem();
+        Item chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
+        Item helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
+        return boots == HSItems.bloodweave_shoes && leggings == HSItems.bloodweave_pants && chestplate == HSItems.bloodweave_robe && helmet == HSItems.bloodweave_hood;
     }
 }
