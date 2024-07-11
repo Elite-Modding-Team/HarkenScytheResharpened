@@ -11,7 +11,6 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -70,7 +69,7 @@ public class HSEntitySoul extends HSEntityEssence
             ItemStack newStack = item == HSItems.essence_keeper ? new ItemStack(HSItems.essence_keeper_soul) : new ItemStack(HSItems.essence_vessel_soul);
             newStack.setItemDamage(newStack.getMaxDamage() - 1);
             player.setHeldItem(hand, newStack);
-            if (this.isWearingFullLivingmetalSet(player)) this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
+            this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
             float pitch = newStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) newStack.getItemDamage() / newStack.getMaxDamage() * 0.5F);
             if (newStack.getItem() == HSItems.essence_keeper_soul) pitch += 0.5F;
             this.world.playSound(null, player.getPosition(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, pitch);
@@ -90,7 +89,7 @@ public class HSEntitySoul extends HSEntityEssence
                 ItemStack newStack = item == HSItems.essence_keeper_soul ? new ItemStack(HSItems.essence_keeper_soul) : new ItemStack(HSItems.essence_vessel_soul);
                 player.setHeldItem(hand, newStack);
             }
-            if (this.isWearingFullLivingmetalSet(player)) this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
+            this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
             float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
             if (stack.getItem() == HSItems.essence_keeper_soul) pitch += 0.5F;
             this.world.playSound(null, player.getPosition(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, pitch);
@@ -124,15 +123,6 @@ public class HSEntitySoul extends HSEntityEssence
             Entity originalEntity = EntityList.createEntityFromNBT(originalEntityNBT, this.world);
             if (originalEntity instanceof EntityLivingBase) setOriginalEntity((EntityLivingBase) originalEntity);
         }
-    }
-
-    private boolean isWearingFullLivingmetalSet(EntityPlayer player)
-    {
-        Item boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem();
-        Item leggings = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem();
-        Item chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
-        Item helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
-        return boots == HSItems.livingmetal_boots && leggings == HSItems.livingmetal_leggings && chestplate == HSItems.livingmetal_chestplate && helmet == HSItems.livingmetal_helmet;
     }
 
     private ItemStack getRandomDamagedLivingmetalEquipment(EntityPlayer player)
