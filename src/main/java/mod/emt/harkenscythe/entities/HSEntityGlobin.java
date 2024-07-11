@@ -11,6 +11,11 @@ public abstract class HSEntityGlobin extends EntitySlime
         this.setSlimeSize(1 + world.rand.nextInt(3), true);
     }
 
+    public void setSize(int size, boolean resetHealth)
+    {
+        this.setSlimeSize(size, resetHealth);
+    }
+
     @Override
     protected void alterSquishAmount()
     {
