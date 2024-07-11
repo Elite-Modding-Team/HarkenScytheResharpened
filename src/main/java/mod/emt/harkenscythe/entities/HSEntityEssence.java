@@ -60,10 +60,25 @@ public abstract class HSEntityEssence extends EntityLivingBase
                 }
             }
         }
-        if (this.ticksExisted > DESPAWN_TIME)
+        if (this.ticksExisted >= DESPAWN_TIME)
         {
             this.world.playSound(null, this.getPosition(), SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
             this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
+            if (!this.world.isRemote)
+            {
+                if (this instanceof HSEntityBlood)
+                {
+                    HSEntityHemoglobin hemoglobin = new HSEntityHemoglobin(this.world);
+                    hemoglobin.setPosition(this.posX, this.posY, this.posZ);
+                    this.world.spawnEntity(hemoglobin);
+                }
+                else if (this instanceof HSEntitySoul)
+                {
+                    HSEntityEctoglobin ectoglobin = new HSEntityEctoglobin(this.world);
+                    ectoglobin.setPosition(this.posX, this.posY, this.posZ);
+                    this.world.spawnEntity(ectoglobin);
+                }
+            }
             this.setDead();
         }
         ++this.innerRotation;

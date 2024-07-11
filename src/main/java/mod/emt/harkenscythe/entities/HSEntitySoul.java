@@ -120,8 +120,8 @@ public class HSEntitySoul extends HSEntityEssence
         if (compound.hasKey("OriginalEntity"))
         {
             NBTTagCompound originalEntityNBT = compound.getCompoundTag("OriginalEntity");
-            Entity originalEntity = EntityList.createEntityFromNBT(originalEntityNBT, this.world);
-            if (originalEntity instanceof EntityLivingBase) setOriginalEntity((EntityLivingBase) originalEntity);
+            Entity entityFromNBT = EntityList.createEntityFromNBT(originalEntityNBT, this.world);
+            if (entityFromNBT instanceof EntityLivingBase) setOriginalEntity((EntityLivingBase) entityFromNBT);
         }
     }
 
