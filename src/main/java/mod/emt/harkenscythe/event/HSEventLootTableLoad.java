@@ -1,0 +1,30 @@
+package mod.emt.harkenscythe.event;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSItems;
+import net.minecraft.world.storage.loot.LootEntryItem;
+import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraft.world.storage.loot.conditions.LootCondition;
+import net.minecraft.world.storage.loot.functions.LootFunction;
+import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+@Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
+public class HSEventLootTableLoad
+{
+    @SubscribeEvent
+    public static void onLootTablesLoaded(LootTableLoadEvent event)
+    {
+        if (event.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON) || event.getName().equals(LootTableList.CHESTS_DESERT_PYRAMID) || event.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE))
+        {
+            final LootPool main = event.getTable().getPool("main");
+            if (main != null)
+            {
+                main.addEntry(new LootEntryItem(HSItems.ancient_necronomicon_page, 10, 0, new LootFunction[0], new LootCondition[0], "loottable:ancient_necronomicon_page"));
+                main.addEntry(new LootEntryItem(HSItems.lady_harken_scythe, 5, 0, new LootFunction[0], new LootCondition[0], "loottable:lady_harken_scythe"));
+            }
+        }
+    }
+}

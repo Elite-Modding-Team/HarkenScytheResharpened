@@ -3,23 +3,23 @@ package mod.emt.harkenscythe.init;
 import com.google.common.base.Preconditions;
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.renderers.RenderHSBloodAltar;
-import mod.emt.harkenscythe.client.renderers.RenderHSEctoglobin;
-import mod.emt.harkenscythe.client.renderers.RenderHSEntityBlood;
-import mod.emt.harkenscythe.client.renderers.RenderHSEntityHarbinger;
-import mod.emt.harkenscythe.client.renderers.RenderHSEntitySoul;
-import mod.emt.harkenscythe.client.renderers.RenderHSHemoglobin;
-import mod.emt.harkenscythe.client.renderers.RenderHSSoulAltar;
-import mod.emt.harkenscythe.entities.HSEntityBlood;
-import mod.emt.harkenscythe.entities.HSEntityEctoglobin;
-import mod.emt.harkenscythe.entities.HSEntityHarbinger;
-import mod.emt.harkenscythe.entities.HSEntityHemoglobin;
-import mod.emt.harkenscythe.entities.HSEntitySoul;
-import mod.emt.harkenscythe.entities.HSEntitySpectralPotion;
-import mod.emt.harkenscythe.tileentities.HSTileEntityBloodAltar;
-import mod.emt.harkenscythe.tileentities.HSTileEntityCrucible;
-import mod.emt.harkenscythe.tileentities.HSTileEntityLivingmetalCore;
-import mod.emt.harkenscythe.tileentities.HSTileEntitySoulAltar;
+import mod.emt.harkenscythe.client.renderer.HSRendererBlockBloodAltar;
+import mod.emt.harkenscythe.client.renderer.HSRendererBlockSoulAltar;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntityBlood;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntityEctoglobin;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntityHarbinger;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntityHemoglobin;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntitySoul;
+import mod.emt.harkenscythe.entity.HSEntityBlood;
+import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
+import mod.emt.harkenscythe.entity.HSEntityHarbinger;
+import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
+import mod.emt.harkenscythe.entity.HSEntitySoul;
+import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
+import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
+import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
+import mod.emt.harkenscythe.tileentity.HSTileEntityLivingmetalCore;
+import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -156,11 +156,11 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(HSEntityBlood.class, new RenderHSEntityBlood.Factory());
-        RenderingRegistry.registerEntityRenderingHandler(HSEntityEctoglobin.class, new RenderHSEctoglobin.Factory());
-        RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new RenderHSEntityHarbinger.Factory());
-        RenderingRegistry.registerEntityRenderingHandler(HSEntityHemoglobin.class, new RenderHSHemoglobin.Factory());
-        RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new RenderHSEntitySoul.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityBlood.class, new HSRendererEntityBlood.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityEctoglobin.class, new HSRendererEntityEctoglobin.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new HSRendererEntityHarbinger.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityHemoglobin.class, new HSRendererEntityHemoglobin.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new HSRendererEntitySoul.Factory());
         // TODO: Render respective potions instead of bottle
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralPotion.class, manager -> new RenderSnowball<>(manager, HSItems.spectral_glass_bottle, Minecraft.getMinecraft().getRenderItem()));
     }
@@ -169,7 +169,7 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerTESRs(RegistryEvent<Block> event)
     {
-        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntityBloodAltar.class, new RenderHSBloodAltar());
-        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntitySoulAltar.class, new RenderHSSoulAltar());
+        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntityBloodAltar.class, new HSRendererBlockBloodAltar());
+        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntitySoulAltar.class, new HSRendererBlockSoulAltar());
     }
 }

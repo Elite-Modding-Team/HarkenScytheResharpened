@@ -1,7 +1,7 @@
 package mod.emt.harkenscythe;
 
-import mod.emt.harkenscythe.init.HSCreativeTab;
 import mod.emt.harkenscythe.init.HSRegistry;
+import mod.emt.harkenscythe.util.HSCreativeTab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
