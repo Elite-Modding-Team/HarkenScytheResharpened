@@ -1,14 +1,13 @@
 package mod.emt.harkenscythe.item.armor;
 
 import mod.emt.harkenscythe.init.HSItems;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class HSArmorDyeable extends HSArmor implements IItemColor
+public class HSArmorDyeable extends HSArmor
 {
     private static final String[] BLOODWEAVE_ARMOR_TEXTURES = new String[] {"harkenscythe:textures/models/armor/bloodweave_1.png", "harkenscythe:textures/models/armor/bloodweave_2.png", "harkenscythe:textures/models/armor/bloodweave_1_overlay.png", "harkenscythe:textures/models/armor/bloodweave_2_overlay.png"};
     private static final String[] SOULWEAVE_ARMOR_TEXTURES = new String[] {"harkenscythe:textures/models/armor/soulweave_1.png", "harkenscythe:textures/models/armor/soulweave_2.png", "harkenscythe:textures/models/armor/soulweave_1_overlay.png", "harkenscythe:textures/models/armor/soulweave_2_overlay.png"};
@@ -111,11 +110,5 @@ public class HSArmorDyeable extends HSArmor implements IItemColor
             }
             return slot == EntityEquipmentSlot.LEGS ? SOULWEAVE_ARMOR_TEXTURES[1] : SOULWEAVE_ARMOR_TEXTURES[0];
         }
-    }
-
-    @Override
-    public int colorMultiplier(ItemStack stack, int tintIndex)
-    {
-        return tintIndex > 0 ? -1 : getColor(stack);
     }
 }

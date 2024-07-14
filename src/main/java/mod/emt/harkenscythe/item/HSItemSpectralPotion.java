@@ -2,7 +2,6 @@ package mod.emt.harkenscythe.item;
 
 import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -17,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class HSItemSpectralPotion extends HSItem implements IItemColor
+public class HSItemSpectralPotion extends HSItem
 {
     private final PotionEffect potionEffect;
 
@@ -61,11 +60,5 @@ public class HSItemSpectralPotion extends HSItem implements IItemColor
     public boolean hasEffect(ItemStack stack)
     {
         return true;
-    }
-
-    @Override
-    public int colorMultiplier(ItemStack stack, int tintIndex)
-    {
-        return tintIndex > 0 ? -1 : getPotionEffect().getPotion().getLiquidColor();
     }
 }
