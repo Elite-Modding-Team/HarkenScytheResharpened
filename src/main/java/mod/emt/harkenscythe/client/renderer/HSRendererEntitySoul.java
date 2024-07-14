@@ -16,7 +16,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class HSRendererEntitySoul extends Render<HSEntitySoul>
 {
-    private static final ResourceLocation SOUL_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_common.png");
+    private static final ResourceLocation SOUL_COMMON_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_common.png");
+    private static final ResourceLocation SOUL_CULLED_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_culled.png");
+    private static final ResourceLocation SOUL_GRIEVING_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_grieving.png");
+    private static final ResourceLocation SOUL_WRATHFUL_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_wrathful.png");
     private final ModelBase modelEssence = new HSModelEntityEssence();
 
     public HSRendererEntitySoul(RenderManager renderManagerIn)
@@ -31,7 +34,7 @@ public class HSRendererEntitySoul extends Render<HSEntitySoul>
         float f = (float) entity.getInnerRotation() + partialTicks;
         GlStateManager.pushMatrix();
         GlStateManager.translate((float) x, (float) y, (float) z);
-        this.bindTexture(SOUL_TEXTURES);
+        this.bindTexture(this.getEntityTexture(entity));
         float f1 = MathHelper.sin(f * 0.2F) / 2.0F + 0.5F;
         f1 = f1 * f1 + f1;
         this.modelEssence.render(entity, 0.0F, f * 3.0F, f1 * 0.2F, 0.0F, 0.0F, 0.0625F);
@@ -42,7 +45,17 @@ public class HSRendererEntitySoul extends Render<HSEntitySoul>
     @Override
     protected ResourceLocation getEntityTexture(HSEntitySoul entity)
     {
-        return SOUL_TEXTURES;
+        switch (entity.getSoulType())
+        {
+            case 1:
+                return SOUL_GRIEVING_TEXTURES;
+            case 2:
+                return SOUL_CULLED_TEXTURES;
+            case 3:
+                return SOUL_WRATHFUL_TEXTURES;
+            default:
+                return SOUL_COMMON_TEXTURES;
+        }
     }
 
     public static class Factory implements IRenderFactory<HSEntitySoul>

@@ -10,11 +10,13 @@ import mod.emt.harkenscythe.client.renderer.HSRendererEntityEctoglobin;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntityHarbinger;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntityHemoglobin;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySoul;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralHuman;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
+import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
 import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
 import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
 import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
@@ -77,6 +79,7 @@ public class HSRegistry
         registerEntity("ectoglobin", HSEntityEctoglobin.class, 2304558, 14870762);
         registerEntity("hemoglobin", HSEntityHemoglobin.class, 3084561, 15455958);
 
+        registerEntity("spectral_human", HSEntitySpectralHuman.class);
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
     }
 
@@ -161,6 +164,7 @@ public class HSRegistry
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new HSRendererEntityHarbinger.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHemoglobin.class, new HSRendererEntityHemoglobin.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new HSRendererEntitySoul.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralHuman.class, new HSRendererEntitySpectralHuman.Factory());
         // TODO: Render respective potions instead of bottle
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralPotion.class, manager -> new RenderSnowball<>(manager, HSItems.spectral_glass_bottle, Minecraft.getMinecraft().getRenderItem()));
     }

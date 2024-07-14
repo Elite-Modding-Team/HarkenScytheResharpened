@@ -31,37 +31,34 @@ public class HSEventLivingHurt
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
-        if (!world.isRemote)
+        DamageSource damageSource = event.getSource();
+        Entity trueSource = damageSource.getTrueSource();
+        if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
         {
-            DamageSource damageSource = event.getSource();
-            Entity trueSource = damageSource.getTrueSource();
-            if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
+            spawnBlood(world, entity);
+            if (isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
                 spawnBlood(world, entity);
-                if (isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
-                {
-                    spawnBlood(world, entity);
-                }
             }
-            if (entity instanceof EntityPlayer)
+        }
+        if (entity instanceof EntityPlayer)
+        {
+            // Nourishment enchantment
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+            if (player.getFoodStats().getFoodLevel() > 0 && isEnchantmentReap(HSEnchantments.NOURISHMENT, player))
             {
-                // Nourishment enchantment
-                EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-                if (player.getFoodStats().getFoodLevel() > 0 && isEnchantmentReap(HSEnchantments.NOURISHMENT, player))
-                {
-                    int damage = Math.min(player.getFoodStats().getFoodLevel(), Math.round(event.getAmount()));
-                    player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - damage);
-                    event.setAmount(0);
-                }
-                // Exude enchantment
-                if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && isEnchantmentReap(HSEnchantments.EXUDE, player))
-                {
-                    player.removePotionEffect(MobEffects.POISON);
-                    player.removePotionEffect(MobEffects.WITHER);
-                    player.extinguish();
-                    player.heal(event.getAmount());
-                    event.setAmount(0);
-                }
+                int damage = Math.min(player.getFoodStats().getFoodLevel(), Math.round(event.getAmount()));
+                player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - damage);
+                event.setAmount(0);
+            }
+            // Exude enchantment
+            if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && isEnchantmentReap(HSEnchantments.EXUDE, player))
+            {
+                player.removePotionEffect(MobEffects.POISON);
+                player.removePotionEffect(MobEffects.WITHER);
+                player.extinguish();
+                player.heal(event.getAmount());
+                event.setAmount(0);
             }
         }
     }

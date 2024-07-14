@@ -6,6 +6,7 @@ import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entity.HSEntityGlobin;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
+import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -37,61 +38,62 @@ public class HSEventLivingDeath
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
-        if (!world.isRemote)
+        DamageSource damageSource = event.getSource();
+        Entity trueSource = damageSource.getTrueSource();
+        if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
         {
-            DamageSource damageSource = event.getSource();
-            Entity trueSource = damageSource.getTrueSource();
-            if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
+            spawnSoul(world, entity);
+            if (isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
                 spawnSoul(world, entity);
-                if (isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
-                {
-                    spawnSoul(world, entity);
-                }
             }
-            else if (trueSource instanceof HSEntityHarbinger)
-            {
-                spawnSpectralEntity(world, entity, entity.getPosition());
-            }
-            else if (entity.getEntityData().getBoolean("IsSpectral"))
-            {
-                entity.dropItem(HSItems.soul_essence, 1);
-            }
+        }
+        else if (trueSource instanceof HSEntityHarbinger)
+        {
+            spawnSpectralEntity(world, entity, entity.getPosition());
+        }
+        else if (entity.getEntityData().getBoolean("IsSpectral"))
+        {
+            entity.dropItem(HSItems.soul_essence, 1);
         }
     }
 
     public static void spawnSpectralEntity(World world, @Nullable EntityLivingBase entity, BlockPos pos)
     {
-        if (!world.isRemote)
+        if (world.isRemote) return;
+        // Reanimate original entity
+        if (entity != null && isWhitelistedMob(entity))
         {
-            // Reanimate original entity
-            if (entity != null && isWhitelistedMob(entity))
-            {
-                entity.getEntityData().setBoolean("IsSpectral", true);
-                entity.setCustomNameTag("Spectral " + entity.getName());
-                entity.setHealth(entity.getMaxHealth());
-                entity.deathTime = 0;
-                entity.isDead = false;
-            }
-            // Spawn ectoglobin
-            else
-            {
-                entity = new HSEntityEctoglobin(world);
-            }
-            entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
-            world.spawnEntity(entity);
-            world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-            //if (false && entity instanceof EntityCreature && !(entity instanceof EntityMob))
-            //{
-            //    EntityCreature creature = (EntityCreature) entity;
-            //    creature.targetTasks.addTask(0, new EntityAINearestAttackableTarget<>(creature, EntityPlayer.class, true));
-            //    creature.setAttackTarget(creature.world.getNearestAttackablePlayer(creature, 32.0D, 32.0D));
-            //}
+            entity.getEntityData().setBoolean("IsSpectral", true);
+            entity.setCustomNameTag("Spectral " + entity.getName());
+            entity.setHealth(entity.getMaxHealth());
+            entity.deathTime = 0;
+            entity.isDead = false;
         }
+        // Spawn spectral human
+        else if (entity instanceof EntityPlayer)
+        {
+            entity = new HSEntitySpectralHuman(world, ((EntityPlayer) entity).getGameProfile());
+        }
+        // Spawn ectoglobin
+        else
+        {
+            entity = new HSEntityEctoglobin(world);
+        }
+        entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
+        world.spawnEntity(entity);
+        world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        //if (false && entity instanceof EntityCreature && !(entity instanceof EntityMob))
+        //{
+        //    EntityCreature creature = (EntityCreature) entity;
+        //    creature.targetTasks.addTask(0, new EntityAINearestAttackableTarget<>(creature, EntityPlayer.class, true));
+        //    creature.setAttackTarget(creature.world.getNearestAttackablePlayer(creature, 32.0D, 32.0D));
+        //}
     }
 
     private static void spawnSoul(World world, EntityLivingBase entity)
     {
+        if (world.isRemote) return;
         if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin) return;
         HSEntitySoul soul = new HSEntitySoul(world, entity);
         soul.setPosition(entity.posX, entity.posY, entity.posZ);
