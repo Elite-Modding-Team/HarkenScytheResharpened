@@ -8,7 +8,6 @@ import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.util.HSDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -90,9 +89,15 @@ public class HSToolScythe extends ItemSword implements IHSTool
         float range = 3.0F;
         AxisAlignedBB bb = new AxisAlignedBB(entityLiving.posX - range, entityLiving.posY - range, entityLiving.posZ - range, entityLiving.posX + range, entityLiving.posY + range, entityLiving.posZ + range);
 
-        for (int i = 0; i < world.getEntitiesWithinAABB(EntityLiving.class, bb).size(); i++)
+        for (int i = 0; i < world.getEntitiesWithinAABB(EntityLivingBase.class, bb).size(); i++)
         {
-            EntityLiving entityInAABB = world.getEntitiesWithinAABB(EntityLiving.class, bb).get(i);
+            EntityLivingBase entityInAABB = world.getEntitiesWithinAABB(EntityLivingBase.class, bb).get(i);
+
+            // Skip self
+            if (entityInAABB == entityLiving)
+            {
+                continue;
+            }
 
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F)
             {
