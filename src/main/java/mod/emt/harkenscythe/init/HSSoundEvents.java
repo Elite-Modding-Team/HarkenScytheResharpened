@@ -18,8 +18,12 @@ public class HSSoundEvents
     public static final SoundEvent ITEM_ATHAME_CREATE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.athame.create"));
     public static final SoundEvent ITEM_CREEP_BALL_USE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.creep_ball.use"));
     public static final SoundEvent ITEM_GLAIVE_TILL = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.glaive.till"));
+    public static final SoundEvent ITEM_MIRROR_INACTIVE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.mirror.inactive"));
+    public static final SoundEvent ITEM_MIRROR_TELEPORT = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.mirror.teleport"));
+    public static final SoundEvent ITEM_NECRONOMICON_ACTIVE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.necronomicon.activate"));
     public static final SoundEvent ITEM_POTION_BREAK = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.potion.break"));
     public static final SoundEvent ITEM_POTION_THROW = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.potion.throw"));
     public static final SoundEvent ESSENCE_BLOOD_SPAWN = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "essence.blood.spawn"));
     public static final SoundEvent ESSENCE_SOUL_SPAWN = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "essence.soul.spawn"));
+    public static final SoundEvent ESSENCE_SOUL_SUMMON = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "essence.soul.summon"));
 }

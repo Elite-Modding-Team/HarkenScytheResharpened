@@ -4,9 +4,9 @@ import java.util.List;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -33,7 +33,7 @@ public class HSItemNecronomicon extends HSItem
         if (player.capabilities.isCreativeMode || getBloodContainer(player) != ItemStack.EMPTY)
         {
             player.setActiveHand(hand);
-            player.playSound(SoundEvents.AMBIENT_CAVE, 1.0F, 1.0F);
+            player.playSound(HSSoundEvents.ITEM_NECRONOMICON_ACTIVE, 1.0F, 1.0F);
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
         return new ActionResult<>(EnumActionResult.PASS, stack);

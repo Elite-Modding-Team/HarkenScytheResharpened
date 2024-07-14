@@ -82,7 +82,7 @@ public class HSEventLivingDeath
         }
         entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
         world.spawnEntity(entity);
-        world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
         //if (false && entity instanceof EntityCreature && !(entity instanceof EntityMob))
         //{
         //    EntityCreature creature = (EntityCreature) entity;

@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.item;
 
 import javax.annotation.Nullable;
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -59,7 +60,7 @@ public class HSItemDimensionalMirror extends HSItem
                 player.setActiveHand(hand);
                 return new ActionResult<>(EnumActionResult.SUCCESS, stack);
             }
-            else world.playSound(null, player.getPosition(), SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, SoundCategory.PLAYERS, 0.5F, 0.5F);
+            else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_INACTIVE, SoundCategory.PLAYERS, 0.8F, 1.0F);
         }
         return new ActionResult<>(EnumActionResult.PASS, stack);
     }
@@ -82,7 +83,7 @@ public class HSItemDimensionalMirror extends HSItem
                 {
                     stack.setItemDamage(stack.getItemDamage() + 5);
                 }
-                world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_TELEPORT, SoundCategory.PLAYERS, 0.75F, 1.0F);
             }
             player.getCooldownTracker().setCooldown(stack.getItem(), 100);
         }

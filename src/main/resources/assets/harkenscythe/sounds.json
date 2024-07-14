@@ -70,6 +70,21 @@
       "harkenscythe:glaive_till3"
     ]
   },
+  "item.mirror.inactive": {
+    "sounds": [
+      "harkenscythe:mirror_inactive"
+    ]
+  },
+  "item.mirror.teleport": {
+    "sounds": [
+      "harkenscythe:mirror_teleport"
+    ]
+  },
+  "item.necronomicon.activate": {
+    "sounds": [
+      "harkenscythe:necronomicon_activate"
+    ]
+  },
   "item.potion.break": {
     "sounds": [
       "harkenscythe:potion_break"
@@ -88,6 +103,11 @@
   "essence.soul.spawn": {
     "sounds": [
       "harkenscythe:essence_soul_spawn"
+    ]
+  },
+  "essence.soul.summon": {
+    "sounds": [
+      "harkenscythe:essence_soul_summon"
     ]
   }
 }
