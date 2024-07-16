@@ -1,5 +1,6 @@
 package mod.emt.harkenscythe.event;
 
+import java.util.Iterator;
 import javax.annotation.Nullable;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
@@ -7,6 +8,7 @@ import mod.emt.harkenscythe.entity.HSEntityGlobin;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
+import mod.emt.harkenscythe.entity.ai.HSAIPassiveMobAttack;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -14,8 +16,14 @@ import mod.emt.harkenscythe.item.tools.HSToolScythe;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.monster.EntityGhast;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -50,7 +58,7 @@ public class HSEventLivingDeath
         }
         else if (trueSource instanceof HSEntityHarbinger)
         {
-            spawnSpectralEntity(world, entity, entity.getPosition());
+            spawnSpectralEntity(world, entity, entity.getPosition(), true);
         }
         else if (entity.getEntityData().getBoolean("IsSpectral"))
         {
@@ -58,7 +66,7 @@ public class HSEventLivingDeath
         }
     }
 
-    public static void spawnSpectralEntity(World world, @Nullable EntityLivingBase entity, BlockPos pos)
+    public static void spawnSpectralEntity(World world, @Nullable EntityLivingBase entity, BlockPos pos, boolean modifyAI)
     {
         if (world.isRemote) return;
         // Reanimate original entity
@@ -81,14 +89,12 @@ public class HSEventLivingDeath
             entity = new HSEntityEctoglobin(world);
         }
         entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
+        if (modifyAI && entity instanceof EntityCreature && !(entity instanceof EntityMob))
+        {
+            modifyAI((EntityCreature) entity);
+        }
         world.spawnEntity(entity);
         world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-        //if (false && entity instanceof EntityCreature && !(entity instanceof EntityMob))
-        //{
-        //    EntityCreature creature = (EntityCreature) entity;
-        //    creature.targetTasks.addTask(0, new EntityAINearestAttackableTarget<>(creature, EntityPlayer.class, true));
-        //    creature.setAttackTarget(creature.world.getNearestAttackablePlayer(creature, 32.0D, 32.0D));
-        //}
     }
 
     private static void spawnSoul(World world, EntityLivingBase entity)
@@ -136,5 +142,22 @@ public class HSEventLivingDeath
         Item chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
         Item helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
         return boots == HSItems.soulweave_shoes && leggings == HSItems.soulweave_pants && chestplate == HSItems.soulweave_robe && helmet == HSItems.soulweave_hood;
+    }
+
+    private static void modifyAI(EntityCreature entity)
+    {
+        Iterator<EntityAITasks.EntityAITaskEntry> iterator = entity.tasks.taskEntries.iterator();
+        while (iterator.hasNext())
+        {
+            EntityAITasks.EntityAITaskEntry taskEntry = iterator.next();
+            EntityAIBase ai = taskEntry.action;
+            if (ai instanceof EntityAIPanic)
+            {
+                iterator.remove();
+            }
+        }
+        entity.setAttackTarget(entity.world.getNearestAttackablePlayer(entity, 32.0D, 32.0D));
+        entity.tasks.addTask(1, new HSAIPassiveMobAttack(entity, 1.25D, true));
+        entity.targetTasks.addTask(1, new EntityAIHurtByTarget(entity, false));
     }
 }

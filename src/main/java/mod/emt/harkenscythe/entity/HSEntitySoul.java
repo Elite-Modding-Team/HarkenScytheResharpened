@@ -121,7 +121,7 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
         if (source.getTrueSource() instanceof HSEntityHarbinger)
         {
             this.setDead();
-            HSEventLivingDeath.spawnSpectralEntity(this.world, this.getOriginalEntity(), this.getPosition());
+            HSEventLivingDeath.spawnSpectralEntity(this.world, this.getOriginalEntity(), this.getPosition(), true);
             return true;
         }
         return super.attackEntityFrom(source, amount);
