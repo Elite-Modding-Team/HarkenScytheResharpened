@@ -18,7 +18,7 @@ public class HSSoundNecronomicon extends PositionedSound implements ITickableSou
 
     public HSSoundNecronomicon(EntityPlayer player)
     {
-        super(HSSoundEvents.ITEM_NECRONOMICON_ACTIVE.getSoundName(), SoundCategory.PLAYERS);
+        super(HSSoundEvents.ITEM_NECRONOMICON_ACTIVE.getSoundEvent().getSoundName(), SoundCategory.PLAYERS);
         this.repeat = true;
         this.player = player;
         this.position = player.getPosition();

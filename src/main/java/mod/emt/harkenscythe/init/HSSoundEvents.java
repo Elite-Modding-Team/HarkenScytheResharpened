@@ -1,29 +1,57 @@
 package mod.emt.harkenscythe.init;
 
+import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.registries.IForgeRegistry;
 
-@GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
-public class HSSoundEvents
+@Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
+public enum HSSoundEvents
 {
-    public static final SoundEvent BLOCK_BLOOD_ALTAR_ENCHANT = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "block.soul_altar.enchant"));
-    public static final SoundEvent BLOCK_BIOMASS_BREAK = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "block.biomass.break"));
-    public static final SoundEvent BLOCK_BIOMASS_HARVEST = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "block.biomass.harvest"));
-    public static final SoundEvent BLOCK_BIOMASS_STEP = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "block.biomass.step"));
-    public static final SoundEvent BLOCK_LIVINGMETAL_BREAK = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "block.livingmetal.break"));
-    public static final SoundEvent BLOCK_LIVINGMETAL_STEP = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "block.livingmetal.step"));
-    public static final SoundEvent BLOCK_SOUL_ALTAR_ENCHANT = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "block.blood_altar.enchant"));
-    public static final SoundEvent ITEM_ATHAME_CREATE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.athame.create"));
-    public static final SoundEvent ITEM_CREEP_BALL_USE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.creep_ball.use"));
-    public static final SoundEvent ITEM_GLAIVE_TILL = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.glaive.till"));
-    public static final SoundEvent ITEM_MIRROR_INACTIVE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.mirror.inactive"));
-    public static final SoundEvent ITEM_MIRROR_TELEPORT = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.mirror.teleport"));
-    public static final SoundEvent ITEM_NECRONOMICON_ACTIVE = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.necronomicon.activate"));
-    public static final SoundEvent ITEM_POTION_BREAK = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.potion.break"));
-    public static final SoundEvent ITEM_POTION_THROW = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "item.potion.throw"));
-    public static final SoundEvent ESSENCE_BLOOD_SPAWN = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "essence.blood.spawn"));
-    public static final SoundEvent ESSENCE_SOUL_SPAWN = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "essence.soul.spawn"));
-    public static final SoundEvent ESSENCE_SOUL_SUMMON = new SoundEvent(new ResourceLocation(HarkenScythe.MOD_ID, "essence.soul.summon"));
+    BLOCK_BLOOD_ALTAR_ENCHANT("block.soul_altar.enchant"),
+    BLOCK_BIOMASS_BREAK("block.biomass.break"),
+    BLOCK_BIOMASS_HARVEST("block.biomass.harvest"),
+    BLOCK_BIOMASS_STEP("block.biomass.step"),
+    BLOCK_LIVINGMETAL_BREAK("block.livingmetal.break"),
+    BLOCK_LIVINGMETAL_STEP("block.livingmetal.step"),
+    BLOCK_SOUL_ALTAR_ENCHANT("block.blood_altar.enchant"),
+    ITEM_ATHAME_CREATE("item.athame.create"),
+    ITEM_CREEP_BALL_USE("item.creep_ball.use"),
+    ITEM_GLAIVE_TILL("item.glaive.till"),
+    ITEM_MIRROR_INACTIVE("item.mirror.inactive"),
+    ITEM_MIRROR_TELEPORT("item.mirror.teleport"),
+    ITEM_NECRONOMICON_ACTIVE("item.necronomicon.activate"),
+    ITEM_POTION_BREAK("item.potion.break"),
+    ITEM_POTION_THROW("item.potion.throw"),
+    ESSENCE_BLOOD_SPAWN("essence.blood.spawn"),
+    ESSENCE_SOUL_SPAWN("essence.soul.spawn"),
+    ESSENCE_SOUL_SUMMON("essence.soul.summon");
+
+    @SubscribeEvent
+    public static void onRegisterSoundEventsEvent(@Nonnull final RegistryEvent.Register<SoundEvent> event)
+    {
+        final IForgeRegistry<SoundEvent> registry = event.getRegistry();
+        for (HSSoundEvents soundEvents : HSSoundEvents.values())
+        {
+            registry.register(soundEvents.soundEvent);
+        }
+    }
+
+    private final SoundEvent soundEvent;
+
+    HSSoundEvents(String path)
+    {
+        ResourceLocation resourceLocation = new ResourceLocation(HarkenScythe.MOD_ID, path);
+        this.soundEvent = new SoundEvent(resourceLocation);
+        this.soundEvent.setRegistryName(resourceLocation);
+    }
+
+    public SoundEvent getSoundEvent()
+    {
+        return this.soundEvent;
+    }
 }

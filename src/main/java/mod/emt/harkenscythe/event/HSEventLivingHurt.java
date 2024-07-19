@@ -68,7 +68,7 @@ public class HSEventLivingHurt
         HSEntityBlood blood = new HSEntityBlood(world);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
         world.spawnEntity(blood);
-        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
     private static boolean isSuccessfulReap(EntityPlayer player, DamageSource damageSource)

@@ -42,7 +42,7 @@ public class HSItemSpectralPotion extends HSItem
             itemStack.shrink(1);
         }
 
-        world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_POTION_THROW, SoundCategory.NEUTRAL, 0.65F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_POTION_THROW.getSoundEvent(), SoundCategory.NEUTRAL, 0.65F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         if (!world.isRemote)
         {

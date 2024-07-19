@@ -32,6 +32,6 @@ public class HSBlockSoulAltar extends HSBlockAltar
     @Override
     protected SoundEvent getSoundEvent()
     {
-        return HSSoundEvents.BLOCK_SOUL_ALTAR_ENCHANT;
+        return HSSoundEvents.BLOCK_SOUL_ALTAR_ENCHANT.getSoundEvent();
     }
 }

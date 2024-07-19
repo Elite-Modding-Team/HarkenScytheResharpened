@@ -135,7 +135,7 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                 effectCloud.addEffect(potionEffect);
                 this.world.spawnEntity(effectCloud);
             }
-            this.playSound(HSSoundEvents.ITEM_POTION_BREAK, 0.75F, 1.0F);
+            this.playSound(HSSoundEvents.ITEM_POTION_BREAK.getSoundEvent(), 0.75F, 1.0F);
             this.setDead();
         }
     }

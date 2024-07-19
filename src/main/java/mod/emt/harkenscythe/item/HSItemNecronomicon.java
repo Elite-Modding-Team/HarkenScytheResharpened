@@ -42,7 +42,7 @@ public class HSItemNecronomicon extends HSItem
             }
             else
             {
-                player.playSound(HSSoundEvents.ITEM_NECRONOMICON_ACTIVE, 1.0F, 1.0F);
+                player.playSound(HSSoundEvents.ITEM_NECRONOMICON_ACTIVE.getSoundEvent(), 1.0F, 1.0F);
             }
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
