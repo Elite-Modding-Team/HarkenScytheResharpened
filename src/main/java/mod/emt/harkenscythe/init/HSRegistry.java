@@ -69,6 +69,29 @@ public class HSRegistry
         return entry;
     }
 
+    public static void registerEntity(String name, Class<? extends Entity> clazz, int eggColor1, int eggColor2)
+    {
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
+            1, true, eggColor1, eggColor2);
+    }
+
+    public static void registerEntity(String name, Class<? extends Entity> clazz)
+    {
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
+            1, true);
+    }
+
+    @SubscribeEvent
+    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)
+    {
+        event.getRegistry().registerAll(
+            HSEnchantments.BLOODLETTING,
+            HSEnchantments.EXUDE,
+            HSEnchantments.NOURISHMENT,
+            HSEnchantments.SOULSTEAL
+        );
+    }
+
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event)
     {
@@ -84,24 +107,15 @@ public class HSRegistry
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
     }
 
-    public static void registerEntity(String name, Class<? extends Entity> clazz, int eggColor1, int eggColor2)
+    @SubscribeEvent
+    public static void registerPotions(RegistryEvent.Register<Potion> event)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
-            1, true, eggColor1, eggColor2);
-    }
-
-    public static void registerEntity(String name, Class<? extends Entity> clazz)
-    {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
-            1, true);
-    }
-
-    public static void registerTileEntities()
-    {
-        GameRegistry.registerTileEntity(HSTileEntityBloodAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar"));
-        GameRegistry.registerTileEntity(HSTileEntityCrucible.class, new ResourceLocation(HarkenScythe.MOD_ID, "crucible"));
-        GameRegistry.registerTileEntity(HSTileEntityLivingmetalCore.class, new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_core"));
-        GameRegistry.registerTileEntity(HSTileEntitySoulAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
+        event.getRegistry().registerAll(
+            HSPotions.AFFLICTION,
+            HSPotions.FLAME,
+            HSPotions.PURIFYING,
+            HSPotions.WATER
+        );
     }
 
     public static void registerRecipes()
@@ -135,34 +149,20 @@ public class HSRegistry
     }
 
     @SubscribeEvent
-    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)
-    {
-        event.getRegistry().registerAll(
-            HSEnchantments.BLOODLETTING,
-            HSEnchantments.EXUDE,
-            HSEnchantments.NOURISHMENT,
-            HSEnchantments.SOULSTEAL
-        );
-    }
-
-    @SubscribeEvent
-    public static void registerPotions(RegistryEvent.Register<Potion> event)
-    {
-        event.getRegistry().registerAll(
-            HSPotions.AFFLICTION,
-            HSPotions.FLAME,
-            HSPotions.PURIFYING,
-            HSPotions.WATER
-        );
-    }
-
-    @SubscribeEvent
     public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event)
     {
         for (HSSoundEvents soundEvents : HSSoundEvents.values())
         {
             event.getRegistry().register(soundEvents.getSoundEvent());
         }
+    }
+
+    public static void registerTileEntities()
+    {
+        GameRegistry.registerTileEntity(HSTileEntityBloodAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar"));
+        GameRegistry.registerTileEntity(HSTileEntityCrucible.class, new ResourceLocation(HarkenScythe.MOD_ID, "crucible"));
+        GameRegistry.registerTileEntity(HSTileEntityLivingmetalCore.class, new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_core"));
+        GameRegistry.registerTileEntity(HSTileEntitySoulAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
     }
 
     @SideOnly(Side.CLIENT)
