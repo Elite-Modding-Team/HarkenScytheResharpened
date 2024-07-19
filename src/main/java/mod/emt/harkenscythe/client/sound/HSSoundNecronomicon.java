@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.sound;
+package mod.emt.harkenscythe.client.sound;
 
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.HSItemNecronomicon;
@@ -7,12 +7,14 @@ import net.minecraft.client.audio.PositionedSound;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class HSSoundNecronomicon extends PositionedSound implements ITickableSound
 {
     protected EntityPlayer player;
     protected BlockPos position;
-    protected boolean donePlaying;
 
     public HSSoundNecronomicon(EntityPlayer player)
     {
@@ -32,15 +34,11 @@ public class HSSoundNecronomicon extends PositionedSound implements ITickableSou
         {
             this.volume = this.volume - 0.1F;
         }
-        if (this.volume <= 0.0F)
-        {
-            this.donePlaying = true;
-        }
     }
 
     @Override
     public boolean isDonePlaying()
     {
-        return this.donePlaying;
+        return this.volume <= 0.0F;
     }
 }

@@ -1,11 +1,11 @@
 package mod.emt.harkenscythe.item;
 
 import java.util.List;
+import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.sound.HSSoundNecronomicon;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
