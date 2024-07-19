@@ -109,5 +109,35 @@
     "sounds": [
       "harkenscythe:essence_soul_summon"
     ]
+  },
+  "entity.spectral_human.hurt": {
+    "sounds": [
+      "harkenscythe:spectral_human_hurt"
+    ]
+  },
+  "entity.spectral_miner.hit": {
+    "sounds": [
+      "harkenscythe:spectral_miner_hit1",
+      "harkenscythe:spectral_miner_hit2",
+      "harkenscythe:spectral_miner_hit3"
+    ]
+  },
+  "entity.spectral_miner.death": {
+    "sounds": [
+      "harkenscythe:spectral_miner_death"
+    ]
+  },
+  "entity.spectral_miner.step": {
+    "sounds": [
+      "harkenscythe:spectral_miner_step1",
+      "harkenscythe:spectral_miner_step2",
+      "harkenscythe:spectral_miner_step3",
+      "harkenscythe:spectral_miner_step4"
+    ]
+  },
+  "entity.spectral_miner.run": {
+    "sounds": [
+      "harkenscythe:spectral_miner_run"
+    ]
   }
 }

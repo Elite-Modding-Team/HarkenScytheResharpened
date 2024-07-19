@@ -11,12 +11,14 @@ import mod.emt.harkenscythe.client.renderer.HSRendererEntityHarbinger;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntityHemoglobin;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySoul;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralHuman;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralMiner;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
+import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
 import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
 import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
@@ -27,12 +29,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -41,6 +47,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -104,7 +111,20 @@ public class HSRegistry
         registerEntity("hemoglobin", HSEntityHemoglobin.class, 3084561, 15455958);
 
         registerEntity("spectral_human", HSEntitySpectralHuman.class);
+        registerEntity("spectral_miner", HSEntitySpectralMiner.class);
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
+
+        registerEntitySpawns();
+    }
+
+    public static void registerEntitySpawns()
+    {
+        for (Biome biome : ForgeRegistries.BIOMES.getValues())
+        {
+            EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+        }
+
+        EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralMiner.class, EntityLiving.SpawnPlacementType.ON_GROUND);
     }
 
     @SubscribeEvent
@@ -175,6 +195,7 @@ public class HSRegistry
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHemoglobin.class, new HSRendererEntityHemoglobin.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new HSRendererEntitySoul.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralHuman.class, new HSRendererEntitySpectralHuman.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralMiner.class, new HSRendererEntitySpectralMiner.Factory());
         // TODO: Render respective potions instead of bottle
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralPotion.class, manager -> new RenderSnowball<>(manager, HSItems.spectral_glass_bottle, Minecraft.getMinecraft().getRenderItem()));
     }

@@ -8,6 +8,7 @@ import mod.emt.harkenscythe.entity.HSEntityGlobin;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
+import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 import mod.emt.harkenscythe.entity.ai.HSAIPassiveMobAttack;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSItems;
@@ -55,6 +56,10 @@ public class HSEventLivingDeath
             {
                 spawnSoul(world, entity);
             }
+        }
+        else if (entity instanceof HSEntitySpectralMiner)
+        {
+            spawnSoul(world, entity);
         }
         else if (trueSource instanceof HSEntityHarbinger)
         {

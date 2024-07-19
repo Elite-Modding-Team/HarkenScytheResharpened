@@ -23,7 +23,12 @@ public enum HSSoundEvents
     ITEM_POTION_THROW("item.potion.throw"),
     ESSENCE_BLOOD_SPAWN("essence.blood.spawn"),
     ESSENCE_SOUL_SPAWN("essence.soul.spawn"),
-    ESSENCE_SOUL_SUMMON("essence.soul.summon");
+    ESSENCE_SOUL_SUMMON("essence.soul.summon"),
+    ENTITY_SPECTRAL_HUMAN_HURT("entity.spectral_human.hurt"),
+    ENTITY_SPECTRAL_MINER_HIT("entity.spectral_miner.hit"),
+    ENTITY_SPECTRAL_MINER_DEATH("entity.spectral_miner.death"),
+    ENTITY_SPECTRAL_MINER_STEP("entity.spectral_miner.step"),
+    ENTITY_SPECTRAL_MINER_RUN("entity.spectral_miner.run");
 
     private final SoundEvent soundEvent;
 

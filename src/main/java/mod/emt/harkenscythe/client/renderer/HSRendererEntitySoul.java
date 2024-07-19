@@ -20,6 +20,7 @@ public class HSRendererEntitySoul extends Render<HSEntitySoul>
     private static final ResourceLocation SOUL_CULLED_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_culled.png");
     private static final ResourceLocation SOUL_GRIEVING_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_grieving.png");
     private static final ResourceLocation SOUL_WRATHFUL_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_wrathful.png");
+    private static final ResourceLocation SOUL_SPECTRAL_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_spectral.png");
     private final ModelBase modelEssence = new HSModelEntityEssence();
 
     public HSRendererEntitySoul(RenderManager renderManagerIn)
@@ -45,7 +46,7 @@ public class HSRendererEntitySoul extends Render<HSEntitySoul>
     @Override
     protected ResourceLocation getEntityTexture(HSEntitySoul entity)
     {
-        switch (entity.getSoulType())
+        switch (entity.getDataManager().get(HSEntitySoul.SOUL_TYPE))
         {
             case 1:
                 return SOUL_GRIEVING_TEXTURES;
@@ -53,6 +54,8 @@ public class HSRendererEntitySoul extends Render<HSEntitySoul>
                 return SOUL_CULLED_TEXTURES;
             case 3:
                 return SOUL_WRATHFUL_TEXTURES;
+            case 4:
+                return SOUL_SPECTRAL_TEXTURES;
             default:
                 return SOUL_COMMON_TEXTURES;
         }

@@ -2,11 +2,12 @@ package mod.emt.harkenscythe.entity;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import io.netty.buffer.ByteBuf;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tools.IHSTool;
+import mod.emt.harkenscythe.network.HSNetworkHandler;
+import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,24 +16,25 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
-public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSpawnData
+public class HSEntitySoul extends HSEntityEssence
 {
+    public static final DataParameter<Integer> SOUL_TYPE = EntityDataManager.createKey(HSEntitySoul.class, DataSerializers.VARINT);
     private EntityLivingBase originalEntity;
-    private int soulType;
 
     public HSEntitySoul(World world)
     {
         super(world);
         this.setSize(1.2F, 1.2F);
         if (this.getOriginalEntity() == null) this.setOriginalEntity(new HSEntityEctoglobin(world));
-        this.setSoulType(0);
     }
 
     public HSEntitySoul(World world, EntityLivingBase entity)
@@ -53,46 +55,50 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
         this.originalEntity = originalEntity;
     }
 
-    public int getSoulType()
-    {
-        return this.soulType;
-    }
-
-    public void setSoulType(int soulType)
-    {
-        this.soulType = soulType;
-    }
-
     public void setSoulType(EntityLivingBase entity)
     {
-        if (!entity.isNonBoss())
+        int soulType;
+
+        if (entity instanceof HSEntitySpectralMiner)
         {
-            this.soulType = 3; // Wrathful
+            soulType = 4; // Spectral
+        }
+        else if (!entity.isNonBoss())
+        {
+            soulType = 3; // Wrathful
         }
         else if (!world.isDaytime() && world.getCurrentMoonPhaseFactor() == 1.0F)
         {
-            this.soulType = 2; // Culled
+            soulType = 2; // Culled
         }
         else if (entity instanceof EntityPlayer)
         {
-            this.soulType = 1; // Grieving
+            soulType = 1; // Grieving
         }
         else
         {
-            this.soulType = 0; // Common
+            soulType = 0; // Common
+        }
+
+        this.dataManager.set(SOUL_TYPE, soulType);
+
+        if (!this.world.isRemote)
+        {
+            HSNetworkHandler.instance.sendToAllTracking(new HSSoulTypePacket(this.getEntityId(), soulType), this);
         }
     }
 
     public int getSoulQuantity()
     {
-        switch (this.getSoulType())
+        switch (this.getDataManager().get(SOUL_TYPE))
         {
             case 1:
                 return 2;
             case 2:
                 return 5;
             case 3:
-                return 50;
+            case 4:
+                return 40;
             default:
                 return 1;
         }
@@ -151,10 +157,17 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
     }
 
     @Override
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.dataManager.register(SOUL_TYPE, 0);
+    }
+
+    @Override
     public void writeEntityToNBT(NBTTagCompound compound)
     {
         super.writeEntityToNBT(compound);
-        compound.setInteger("SoulType", this.getSoulType());
+        compound.setInteger("SoulType", this.getDataManager().get(SOUL_TYPE));
         if (this.getOriginalEntity() != null)
         {
             NBTTagCompound originalEntityNBT = new NBTTagCompound();
@@ -169,25 +182,13 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
     public void readEntityFromNBT(NBTTagCompound compound)
     {
         super.readEntityFromNBT(compound);
-        this.setSoulType(compound.getInteger("SoulType"));
+        this.dataManager.set(SOUL_TYPE, compound.getInteger("SoulType"));
         if (compound.hasKey("OriginalEntity"))
         {
             NBTTagCompound originalEntityNBT = compound.getCompoundTag("OriginalEntity");
             Entity entityFromNBT = EntityList.createEntityFromNBT(originalEntityNBT, this.world);
             if (entityFromNBT instanceof EntityLivingBase) this.setOriginalEntity((EntityLivingBase) entityFromNBT);
         }
-    }
-
-    @Override
-    public void writeSpawnData(ByteBuf data)
-    {
-        data.writeInt(this.getSoulType());
-    }
-
-    @Override
-    public void readSpawnData(ByteBuf data)
-    {
-        this.setSoulType(data.readInt());
     }
 
     private ItemStack getRandomDamagedLivingmetalEquipment(EntityPlayer player)

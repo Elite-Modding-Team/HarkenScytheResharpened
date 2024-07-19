@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.event;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
+import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,11 +16,23 @@ public class HSEventRenderLiving
     public static void onRenderLivingPre(RenderLivingEvent.Pre event)
     {
         // TODO: Replace with entity data instead of name tags
-        if (event.getEntity().getCustomNameTag().startsWith("Spectral") || event.getEntity() instanceof HSEntitySpectralHuman)
+        if (event.getEntity().getCustomNameTag().startsWith("Spectral"))
         {
             GlStateManager.enableBlend();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             GlStateManager.color(0.5F, 0.5F, 1.0F, 0.5F);
+        }
+        else if (event.getEntity() instanceof HSEntitySpectralHuman)
+        {
+            GlStateManager.enableBlend();
+            GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+            GlStateManager.color(0.5F, 0.5F, 0.5F, 0.5F);
+        }
+        else if (event.getEntity() instanceof HSEntitySpectralMiner)
+        {
+            GlStateManager.enableBlend();
+            GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+            GlStateManager.color(0.6F, 0.6F, 0.6F, 0.8F);
         }
     }
 
@@ -27,7 +40,7 @@ public class HSEventRenderLiving
     public static void onRenderLivingPost(RenderLivingEvent.Post event)
     {
         // TODO: Replace with entity data instead of name tags
-        if (event.getEntity().getCustomNameTag().startsWith("Spectral") || event.getEntity() instanceof HSEntitySpectralHuman)
+        if (event.getEntity().getCustomNameTag().startsWith("Spectral") || event.getEntity() instanceof HSEntitySpectralHuman || event.getEntity() instanceof HSEntitySpectralMiner)
         {
             GlStateManager.disableBlend();
         }

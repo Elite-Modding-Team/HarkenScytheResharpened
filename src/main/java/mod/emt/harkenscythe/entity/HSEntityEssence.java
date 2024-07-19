@@ -74,9 +74,18 @@ public abstract class HSEntityEssence extends EntityLivingBase
                 }
                 else if (this instanceof HSEntitySoul)
                 {
-                    HSEntityEctoglobin ectoglobin = new HSEntityEctoglobin(this.world);
-                    ectoglobin.setPosition(this.posX, this.posY, this.posZ);
-                    this.world.spawnEntity(ectoglobin);
+                    if (((HSEntitySoul) this).getOriginalEntity() instanceof HSEntitySpectralMiner)
+                    {
+                        HSEntitySpectralMiner spectralMiner = new HSEntitySpectralMiner(this.world);
+                        spectralMiner.setPosition(this.posX, this.posY, this.posZ);
+                        this.world.spawnEntity(spectralMiner);
+                    }
+                    else
+                    {
+                        HSEntityEctoglobin ectoglobin = new HSEntityEctoglobin(this.world);
+                        ectoglobin.setPosition(this.posX, this.posY, this.posZ);
+                        this.world.spawnEntity(ectoglobin);
+                    }
                 }
             }
             this.setDead();

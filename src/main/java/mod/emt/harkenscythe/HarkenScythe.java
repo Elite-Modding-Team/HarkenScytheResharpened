@@ -1,10 +1,12 @@
 package mod.emt.harkenscythe;
 
 import mod.emt.harkenscythe.init.HSRegistry;
+import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.util.HSCreativeTab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,6 +24,13 @@ public class HarkenScythe
 
     @Mod.Instance
     public static HarkenScythe instance;
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event)
+    {
+        HSNetworkHandler.registerPackets();
+        LOGGER.info(NAME + " pre-initialized");
+    }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
