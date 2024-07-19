@@ -5,6 +5,8 @@ import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.sound.HSSoundNecronomicon;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -15,6 +17,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -33,7 +36,14 @@ public class HSItemNecronomicon extends HSItem
         if (player.capabilities.isCreativeMode || getBloodContainer(player) != ItemStack.EMPTY)
         {
             player.setActiveHand(hand);
-            player.playSound(HSSoundEvents.ITEM_NECRONOMICON_ACTIVE, 1.0F, 1.0F);
+            if (FMLLaunchHandler.side().isClient() && player.getEntityWorld().isRemote)
+            {
+                playSound(player);
+            }
+            else
+            {
+                player.playSound(HSSoundEvents.ITEM_NECRONOMICON_ACTIVE, 1.0F, 1.0F);
+            }
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
         return new ActionResult<>(EnumActionResult.PASS, stack);
@@ -125,5 +135,11 @@ public class HSItemNecronomicon extends HSItem
             }
         }
         return ItemStack.EMPTY;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void playSound(EntityPlayer player)
+    {
+        Minecraft.getMinecraft().getSoundHandler().playSound(new HSSoundNecronomicon(player));
     }
 }
