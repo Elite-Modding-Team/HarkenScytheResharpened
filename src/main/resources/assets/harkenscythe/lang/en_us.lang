@@ -115,6 +115,8 @@ entity.harkenscythe.ectoglobin.name=Ectoglobin
 entity.harkenscythe.harbinger.name=Harbinger
 entity.harkenscythe.hemoglobin.name=Hemoglobin
 entity.harkenscythe.soul.name=Soul Essence
+entity.harkenscythe.spectral_human.name=Spectral Human
+entity.harkenscythe.spectral_potion.name=Spectral Potion
 
 # ENCHANTMENTS
 enchantment.harkenscythe.bloodletting=Bloodletting

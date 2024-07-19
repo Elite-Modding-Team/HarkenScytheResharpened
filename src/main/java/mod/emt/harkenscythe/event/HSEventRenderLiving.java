@@ -1,6 +1,7 @@
 package mod.emt.harkenscythe.event;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -14,17 +15,21 @@ public class HSEventRenderLiving
     public static void onRenderLivingPre(RenderLivingEvent.Pre event)
     {
         // TODO: Replace with entity data instead of name tags
-        if (!event.getEntity().getCustomNameTag().startsWith("Spectral")) return;
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(0.5F, 0.5F, 1.0F, 0.5F);
+        if (event.getEntity().getCustomNameTag().startsWith("Spectral") || event.getEntity() instanceof HSEntitySpectralHuman)
+        {
+            GlStateManager.enableBlend();
+            GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+            GlStateManager.color(0.5F, 0.5F, 1.0F, 0.5F);
+        }
     }
 
     @SubscribeEvent
     public static void onRenderLivingPost(RenderLivingEvent.Post event)
     {
         // TODO: Replace with entity data instead of name tags
-        if (!event.getEntity().getCustomNameTag().startsWith("Spectral")) return;
-        GlStateManager.disableBlend();
+        if (event.getEntity().getCustomNameTag().startsWith("Spectral") || event.getEntity() instanceof HSEntitySpectralHuman)
+        {
+            GlStateManager.disableBlend();
+        }
     }
 }

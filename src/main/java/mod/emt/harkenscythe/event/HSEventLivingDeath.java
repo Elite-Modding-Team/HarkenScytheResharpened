@@ -68,7 +68,6 @@ public class HSEventLivingDeath
 
     public static void spawnSpectralEntity(World world, @Nullable EntityLivingBase entity, BlockPos pos, boolean modifyAI)
     {
-        if (world.isRemote) return;
         // Reanimate original entity
         if (entity != null && isWhitelistedMob(entity))
         {
@@ -81,7 +80,7 @@ public class HSEventLivingDeath
         // Spawn spectral human
         else if (entity instanceof EntityPlayer)
         {
-            entity = new HSEntitySpectralHuman(world, ((EntityPlayer) entity).getGameProfile());
+            entity = new HSEntitySpectralHuman(world);
         }
         // Spawn ectoglobin
         else
@@ -93,17 +92,16 @@ public class HSEventLivingDeath
         {
             modifyAI((EntityCreature) entity);
         }
-        world.spawnEntity(entity);
+        if (!world.isRemote) world.spawnEntity(entity);
         world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
     private static void spawnSoul(World world, EntityLivingBase entity)
     {
-        if (world.isRemote) return;
         if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin) return;
         HSEntitySoul soul = new HSEntitySoul(world, entity);
         soul.setPosition(entity.posX, entity.posY, entity.posZ);
-        world.spawnEntity(soul);
+        if (!world.isRemote) world.spawnEntity(soul);
         world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN, SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 

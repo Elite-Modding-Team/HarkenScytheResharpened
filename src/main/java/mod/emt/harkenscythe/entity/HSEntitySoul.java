@@ -1,9 +1,7 @@
 package mod.emt.harkenscythe.entity;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
-import com.mojang.authlib.GameProfile;
 import io.netty.buffer.ByteBuf;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
@@ -22,13 +20,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSpawnData
 {
     private EntityLivingBase originalEntity;
-    private GameProfile playerGameProfile;
     private int soulType;
 
     public HSEntitySoul(World world)
@@ -45,10 +41,6 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
         this.setSize(1.2F, 1.2F);
         this.setOriginalEntity(entity);
         this.setSoulType(entity);
-        if (entity instanceof EntityPlayer)
-        {
-            this.setPlayerGameProfile(((EntityPlayer) entity).getGameProfile());
-        }
     }
 
     public EntityLivingBase getOriginalEntity()
@@ -59,16 +51,6 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
     public void setOriginalEntity(EntityLivingBase originalEntity)
     {
         this.originalEntity = originalEntity;
-    }
-
-    public GameProfile getPlayerGameProfile()
-    {
-        return this.playerGameProfile;
-    }
-
-    public void setPlayerGameProfile(GameProfile playerGameProfile)
-    {
-        this.playerGameProfile = playerGameProfile;
     }
 
     public int getSoulType()
@@ -177,16 +159,8 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
         {
             NBTTagCompound originalEntityNBT = new NBTTagCompound();
             this.getOriginalEntity().writeToNBT(originalEntityNBT);
-            if (this.getOriginalEntity() instanceof EntityPlayer)
-            {
-                originalEntityNBT.setString("id", ((EntityPlayer) this.getOriginalEntity()).getGameProfile().getId().toString());
-                originalEntityNBT.setString("name", ((EntityPlayer) this.getOriginalEntity()).getGameProfile().getName());
-            }
-            else
-            {
-                originalEntityNBT.setString("id", EntityList.getKey(this.getOriginalEntity().getClass()).toString());
-                originalEntityNBT.setString("name", this.getOriginalEntity().getName());
-            }
+            originalEntityNBT.setString("id", EntityList.getKey(this.getOriginalEntity().getClass()).toString());
+            originalEntityNBT.setString("name", this.getOriginalEntity().getName());
             compound.setTag("OriginalEntity", originalEntityNBT);
         }
     }
@@ -201,12 +175,6 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
             NBTTagCompound originalEntityNBT = compound.getCompoundTag("OriginalEntity");
             Entity entityFromNBT = EntityList.createEntityFromNBT(originalEntityNBT, this.world);
             if (entityFromNBT instanceof EntityLivingBase) this.setOriginalEntity((EntityLivingBase) entityFromNBT);
-            if (entityFromNBT instanceof EntityPlayer)
-            {
-                UUID uuid = UUID.fromString(originalEntityNBT.getString("id"));
-                String name = originalEntityNBT.getString("name");
-                this.setPlayerGameProfile(new GameProfile(uuid, name));
-            }
         }
     }
 
@@ -214,23 +182,12 @@ public class HSEntitySoul extends HSEntityEssence implements IEntityAdditionalSp
     public void writeSpawnData(ByteBuf data)
     {
         data.writeInt(this.getSoulType());
-        if (this.getOriginalEntity() instanceof EntityPlayer)
-        {
-            ByteBufUtils.writeUTF8String(data, ((EntityPlayer) this.getOriginalEntity()).getGameProfile().getId().toString());
-            ByteBufUtils.writeUTF8String(data, ((EntityPlayer) this.getOriginalEntity()).getGameProfile().getName());
-        }
     }
 
     @Override
     public void readSpawnData(ByteBuf data)
     {
         this.setSoulType(data.readInt());
-        if (this.getPlayerGameProfile() != null)
-        {
-            UUID uuid = UUID.fromString(ByteBufUtils.readUTF8String(data));
-            String name = ByteBufUtils.readUTF8String(data);
-            this.setPlayerGameProfile(new GameProfile(uuid, name));
-        }
     }
 
     private ItemStack getRandomDamagedLivingmetalEquipment(EntityPlayer player)
