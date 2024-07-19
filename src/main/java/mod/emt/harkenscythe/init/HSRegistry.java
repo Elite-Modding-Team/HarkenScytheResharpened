@@ -32,6 +32,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -153,6 +154,15 @@ public class HSRegistry
             HSPotions.PURIFYING,
             HSPotions.WATER
         );
+    }
+
+    @SubscribeEvent
+    public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event)
+    {
+        for (HSSoundEvents soundEvents : HSSoundEvents.values())
+        {
+            event.getRegistry().register(soundEvents.getSoundEvent());
+        }
     }
 
     @SideOnly(Side.CLIENT)

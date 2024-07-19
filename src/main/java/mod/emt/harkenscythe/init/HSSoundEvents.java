@@ -1,15 +1,9 @@
 package mod.emt.harkenscythe.init;
 
-import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public enum HSSoundEvents
 {
     BLOCK_BLOOD_ALTAR_ENCHANT("block.soul_altar.enchant"),
@@ -30,16 +24,6 @@ public enum HSSoundEvents
     ESSENCE_BLOOD_SPAWN("essence.blood.spawn"),
     ESSENCE_SOUL_SPAWN("essence.soul.spawn"),
     ESSENCE_SOUL_SUMMON("essence.soul.summon");
-
-    @SubscribeEvent
-    public static void onRegisterSoundEventsEvent(@Nonnull final RegistryEvent.Register<SoundEvent> event)
-    {
-        final IForgeRegistry<SoundEvent> registry = event.getRegistry();
-        for (HSSoundEvents soundEvents : HSSoundEvents.values())
-        {
-            registry.register(soundEvents.soundEvent);
-        }
-    }
 
     private final SoundEvent soundEvent;
 
