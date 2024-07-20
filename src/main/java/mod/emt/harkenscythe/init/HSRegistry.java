@@ -12,6 +12,7 @@ import mod.emt.harkenscythe.client.renderer.HSRendererEntityHemoglobin;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySoul;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralHuman;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralMiner;
+import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralPotion;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
@@ -25,8 +26,6 @@ import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
 import mod.emt.harkenscythe.tileentity.HSTileEntityLivingmetalCore;
 import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -210,8 +209,7 @@ public class HSRegistry
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new HSRendererEntitySoul.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralHuman.class, new HSRendererEntitySpectralHuman.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralMiner.class, new HSRendererEntitySpectralMiner.Factory());
-        // TODO: Render respective potions instead of bottle
-        RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralPotion.class, manager -> new RenderSnowball<>(manager, HSItems.spectral_glass_bottle, Minecraft.getMinecraft().getRenderItem()));
+        RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralPotion.class, new HSRendererEntitySpectralPotion.Factory());
     }
 
     @SideOnly(Side.CLIENT)
