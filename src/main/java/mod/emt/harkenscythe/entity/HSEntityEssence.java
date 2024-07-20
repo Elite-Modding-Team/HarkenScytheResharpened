@@ -22,9 +22,9 @@ public abstract class HSEntityEssence extends EntityLivingBase
     private static final int DESPAWN_TIME = 6000;
     private int innerRotation;
 
-    protected HSEntityEssence(World worldIn)
+    protected HSEntityEssence(World world)
     {
-        super(worldIn);
+        super(world);
         this.innerRotation = this.rand.nextInt(100000);
     }
 
@@ -106,13 +106,13 @@ public abstract class HSEntityEssence extends EntityLivingBase
     }
 
     @Override
-    public ItemStack getItemStackFromSlot(EntityEquipmentSlot slotIn)
+    public ItemStack getItemStackFromSlot(EntityEquipmentSlot slot)
     {
         return ItemStack.EMPTY;
     }
 
     @Override
-    public void setItemStackToSlot(EntityEquipmentSlot slotIn, ItemStack stack) {}
+    public void setItemStackToSlot(EntityEquipmentSlot slot, ItemStack stack) {}
 
     @Override
     protected void collideWithNearbyEntities() {}

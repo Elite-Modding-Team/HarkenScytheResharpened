@@ -19,9 +19,9 @@ public class HSRendererEntityBlood extends Render<HSEntityBlood>
     private static final ResourceLocation BLOOD_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/blood_common.png");
     private final ModelBase modelEssence = new HSModelEntityEssence();
 
-    public HSRendererEntityBlood(RenderManager renderManagerIn)
+    public HSRendererEntityBlood(RenderManager renderManager)
     {
-        super(renderManagerIn);
+        super(renderManager);
         this.shadowSize = 0.0F;
     }
 

@@ -123,10 +123,10 @@ public class HSEntitySpectralMiner extends EntityMob
 
     private void applyBlindnessEffect()
     {
-        List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(16.0D));
+        List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(24.0D));
         for (EntityPlayer player : players)
         {
-            player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100));
+            player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 200));
             this.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_WITHER_AMBIENT, SoundCategory.HOSTILE, 0.2F, 0.1F);
         }
     }

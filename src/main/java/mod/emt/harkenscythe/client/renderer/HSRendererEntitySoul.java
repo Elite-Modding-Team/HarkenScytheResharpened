@@ -23,9 +23,9 @@ public class HSRendererEntitySoul extends Render<HSEntitySoul>
     private static final ResourceLocation SOUL_SPECTRAL_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/soul_spectral.png");
     private final ModelBase modelEssence = new HSModelEntityEssence();
 
-    public HSRendererEntitySoul(RenderManager renderManagerIn)
+    public HSRendererEntitySoul(RenderManager renderManager)
     {
-        super(renderManagerIn);
+        super(renderManager);
         this.shadowSize = 0.0F;
     }
 

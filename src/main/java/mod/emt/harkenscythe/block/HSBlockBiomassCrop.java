@@ -19,6 +19,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
+@SuppressWarnings("deprecation")
 public class HSBlockBiomassCrop extends BlockBush
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);

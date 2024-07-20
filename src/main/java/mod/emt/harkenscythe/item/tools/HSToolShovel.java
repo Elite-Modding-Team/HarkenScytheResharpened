@@ -4,6 +4,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings("deprecation")
 public class HSToolShovel extends ItemSpade implements IHSTool
 {
     private final EnumRarity rarity;

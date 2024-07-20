@@ -15,6 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class HSBlockLivingmetalCore extends Block
 {
     public static final PropertyInteger STATE = PropertyInteger.create("state", 0, 2);

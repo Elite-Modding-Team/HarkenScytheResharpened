@@ -12,6 +12,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class HSItemFood extends ItemFood
 {
     private final EnumRarity rarity;

@@ -4,6 +4,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings("deprecation")
 public class HSToolAxe extends ItemAxe implements IHSTool
 {
     private final EnumRarity rarity;

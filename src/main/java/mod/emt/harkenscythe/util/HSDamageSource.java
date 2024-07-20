@@ -18,8 +18,8 @@ public class HSDamageSource extends EntityDamageSource
     }
 
     @Override
-    public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn)
+    public ITextComponent getDeathMessage(EntityLivingBase entityLivingBase)
     {
-        return new TextComponentTranslation("message.harkenscythe." + damageType, entityLivingBaseIn.getDisplayName());
+        return new TextComponentTranslation("message.harkenscythe." + damageType, entityLivingBase.getDisplayName());
     }
 }

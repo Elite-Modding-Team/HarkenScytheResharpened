@@ -27,6 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class HSToolScythe extends ItemSword implements IHSTool
 {
     private final float attackSpeed;

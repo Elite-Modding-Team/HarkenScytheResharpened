@@ -56,7 +56,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSRegistry
 {
-    private static int id = 1;
+    private static int entityID = 1;
 
     @Nonnull
     public static <T extends IForgeRegistryEntry> T setup(@Nonnull final T entry, @Nonnull final String name)
@@ -78,19 +78,21 @@ public class HSRegistry
 
     public static void registerEntity(String name, Class<? extends Entity> clazz, int eggColor1, int eggColor2)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, entityID++, HarkenScythe.instance, 64,
             1, true, eggColor1, eggColor2);
     }
 
     public static void registerEntity(String name, Class<? extends Entity> clazz)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, id++, HarkenScythe.instance, 64,
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, entityID++, HarkenScythe.instance, 64,
             1, true);
     }
 
     @SubscribeEvent
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)
     {
+        HarkenScythe.LOGGER.info("Registering enchantments...");
+
         event.getRegistry().registerAll(
             HSEnchantments.BLOODLETTING,
             HSEnchantments.EXUDE,
@@ -102,6 +104,8 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event)
     {
+        HarkenScythe.LOGGER.info("Registering entities...");
+
         registerEntity("harbinger", HSEntityHarbinger.class, 2829099, 14079702);
 
         registerEntity("blood", HSEntityBlood.class);
@@ -119,7 +123,7 @@ public class HSRegistry
 
     public static void registerEntitySpawns()
     {
-        for (Biome biome : ForgeRegistries.BIOMES.getValues())
+        for (Biome biome : ForgeRegistries.BIOMES.getValuesCollection())
         {
             EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
         }
@@ -130,6 +134,8 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> event)
     {
+        HarkenScythe.LOGGER.info("Registering potions...");
+
         event.getRegistry().registerAll(
             HSPotions.AFFLICTION,
             HSPotions.FLAME,
@@ -140,6 +146,8 @@ public class HSRegistry
 
     public static void registerRecipes()
     {
+        HarkenScythe.LOGGER.info("Registering altar recipes...");
+
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_hood, HSItems.bloodweave_hood, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_robe, HSItems.bloodweave_robe, 10);
@@ -171,6 +179,8 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event)
     {
+        HarkenScythe.LOGGER.info("Registering sound events...");
+
         for (HSSoundEvents soundEvents : HSSoundEvents.values())
         {
             event.getRegistry().register(soundEvents.getSoundEvent());
@@ -179,6 +189,8 @@ public class HSRegistry
 
     public static void registerTileEntities()
     {
+        HarkenScythe.LOGGER.info("Registering tile entities...");
+
         GameRegistry.registerTileEntity(HSTileEntityBloodAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar"));
         GameRegistry.registerTileEntity(HSTileEntityCrucible.class, new ResourceLocation(HarkenScythe.MOD_ID, "crucible"));
         GameRegistry.registerTileEntity(HSTileEntityLivingmetalCore.class, new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_core"));
@@ -189,6 +201,8 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEntityRenderers(ModelRegistryEvent event)
     {
+        HarkenScythe.LOGGER.info("Registering entity renderers...");
+
         RenderingRegistry.registerEntityRenderingHandler(HSEntityBlood.class, new HSRendererEntityBlood.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityEctoglobin.class, new HSRendererEntityEctoglobin.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new HSRendererEntityHarbinger.Factory());
@@ -204,6 +218,8 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerTESRs(RegistryEvent<Block> event)
     {
+        HarkenScythe.LOGGER.info("Registering tile entity special renderers...");
+
         ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntityBloodAltar.class, new HSRendererBlockBloodAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntitySoulAltar.class, new HSRendererBlockSoulAltar());
     }

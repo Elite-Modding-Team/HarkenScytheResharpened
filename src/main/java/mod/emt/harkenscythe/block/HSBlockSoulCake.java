@@ -69,7 +69,7 @@ public class HSBlockSoulCake extends BlockCake
     }
 
     @Override
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
+    public ItemStack getItem(World world, BlockPos pos, IBlockState state)
     {
         return new ItemStack(ForgeRegistries.ITEMS.getValue(SOUL_CAKE));
     }

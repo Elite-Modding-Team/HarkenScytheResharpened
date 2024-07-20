@@ -20,7 +20,7 @@ public class HSItemEssenceKeeperBlood extends HSItemEssenceKeeper
         addPropertyOverride(new ResourceLocation(HarkenScythe.MOD_ID, "level"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entity)
             {
                 return 1.0F - ((float) getDamage(stack) / getMaxDamage(stack));
             }

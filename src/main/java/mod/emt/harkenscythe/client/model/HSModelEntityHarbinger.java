@@ -7,10 +7,10 @@ public class HSModelEntityHarbinger extends ModelZombie
 {
     public HSModelEntityHarbinger()
     {
-        this(0.0F, false);
+        this(0.0F);
     }
 
-    public HSModelEntityHarbinger(float modelSize, boolean unused)
+    public HSModelEntityHarbinger(float modelSize)
     {
         textureWidth = 64;
         textureHeight = 32;

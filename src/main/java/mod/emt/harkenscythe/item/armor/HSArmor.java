@@ -9,6 +9,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
+@SuppressWarnings("deprecation")
 public class HSArmor extends ItemArmor
 {
     private final EnumRarity rarity;

@@ -5,6 +5,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBlockSpecial;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings("deprecation")
 public class HSItemBlockSpecial extends ItemBlockSpecial
 {
     private final EnumRarity rarity;

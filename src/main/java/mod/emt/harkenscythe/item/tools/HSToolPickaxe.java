@@ -4,6 +4,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings("deprecation")
 public class HSToolPickaxe extends ItemPickaxe implements IHSTool
 {
     private final EnumRarity rarity;

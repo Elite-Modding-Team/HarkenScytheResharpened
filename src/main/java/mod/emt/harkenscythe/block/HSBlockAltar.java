@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 
 public abstract class HSBlockAltar extends BlockEnchantmentTable
 {
-    public HSBlockAltar()
+    protected HSBlockAltar()
     {
         super();
     }

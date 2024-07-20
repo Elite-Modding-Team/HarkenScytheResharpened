@@ -31,16 +31,16 @@ public class HSBlockCloth extends Block implements IShearable
     }
 
     @Override
-    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
     {
-        if (!worldIn.isRemote && stack.getItem() instanceof ItemShears)
+        if (!world.isRemote && stack.getItem() instanceof ItemShears)
         {
             player.addStat(StatList.getBlockStats(this));
-            spawnAsEntity(worldIn, pos, new ItemStack(Item.getItemFromBlock(this), 1));
+            spawnAsEntity(world, pos, new ItemStack(Item.getItemFromBlock(this), 1));
         }
         else
         {
-            super.harvestBlock(worldIn, player, pos, state, te, stack);
+            super.harvestBlock(world, player, pos, state, te, stack);
         }
     }
 

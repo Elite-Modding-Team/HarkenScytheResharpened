@@ -4,6 +4,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings("deprecation")
 public class HSItem extends Item
 {
     private final EnumRarity rarity;

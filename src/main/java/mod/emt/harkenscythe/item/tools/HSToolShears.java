@@ -8,6 +8,7 @@ import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
+@SuppressWarnings("deprecation")
 public class HSToolShears extends ItemShears implements IHSTool
 {
     private final EnumRarity rarity;

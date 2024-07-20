@@ -43,7 +43,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class HSEventLivingDeath
 {
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onScytheReap(LivingDeathEvent event)
+    public static void onLivingDeath(LivingDeathEvent event)
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
@@ -51,6 +51,7 @@ public class HSEventLivingDeath
         Entity trueSource = damageSource.getTrueSource();
         if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
         {
+            if (entity instanceof HSEntitySpectralMiner) return;
             spawnSoul(world, entity);
             if (isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
@@ -117,8 +118,9 @@ public class HSEventLivingDeath
 
     private static boolean isRegularReap(EntityPlayer player, DamageSource damageSource, ItemStack stack)
     {
-        if (player.getHeldItemMainhand().getItem() instanceof HSToolScythe && damageSource.getDamageType().equals("hs_reap"))
+        if (stack.getItem() instanceof HSToolScythe && damageSource.getDamageType().equals("hs_reap"))
         {
+            if (stack.getItem() == HSItems.reaper_scythe || stack.getItem() == HSItems.lady_harken_scythe) return true;
             int damage = stack.getMaxDamage() - stack.getItemDamage();
             double chance = Math.min(0.8D, Math.max(0.4D, (double) damage / 500));
             return player.getRNG().nextDouble() < chance;

@@ -27,7 +27,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class HSEventLivingHurt
 {
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onGlaiveReap(LivingHurtEvent event)
+    public static void onLivingHurt(LivingHurtEvent event)
     {
         EntityLivingBase entity = event.getEntityLiving();
         World world = entity.getEntityWorld();

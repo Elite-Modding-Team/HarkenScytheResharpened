@@ -16,9 +16,9 @@ import net.minecraft.world.World;
 
 public class HSEntityBlood extends HSEntityEssence
 {
-    public HSEntityBlood(World worldIn)
+    public HSEntityBlood(World world)
     {
-        super(worldIn);
+        super(world);
         this.setSize(0.8F, 0.8F);
     }
 

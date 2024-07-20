@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class HSConfig
 {
     @Config.Comment("General Settings")
-    public static GeneralSettings generalSettings = new GeneralSettings();
+    public static final GeneralSettings GENERAL_SETTINGS = new GeneralSettings();
 
     public static class GeneralSettings
     {

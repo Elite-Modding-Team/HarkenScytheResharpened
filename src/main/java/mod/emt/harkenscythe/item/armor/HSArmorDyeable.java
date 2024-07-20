@@ -13,9 +13,9 @@ public class HSArmorDyeable extends HSArmor
     private static final String[] SOULWEAVE_ARMOR_TEXTURES = new String[] {"harkenscythe:textures/models/armor/soulweave_1.png", "harkenscythe:textures/models/armor/soulweave_2.png", "harkenscythe:textures/models/armor/soulweave_1_overlay.png", "harkenscythe:textures/models/armor/soulweave_2_overlay.png"};
     private final int defaultColor;
 
-    public HSArmorDyeable(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, EnumRarity rarity, int defaultColor)
+    public HSArmorDyeable(ArmorMaterial material, int renderIndex, EntityEquipmentSlot equipmentSlot, EnumRarity rarity, int defaultColor)
     {
-        super(materialIn, renderIndexIn, equipmentSlotIn, rarity);
+        super(material, renderIndex, equipmentSlot, rarity);
         this.defaultColor = defaultColor;
     }
 

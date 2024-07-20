@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
+// As soul entities are solely created on the server-sided world via LivingDeathEvent, their soul types need to be synced to the client for rendering
 public class HSSoulTypePacket implements IMessage
 {
     private int entityId;
