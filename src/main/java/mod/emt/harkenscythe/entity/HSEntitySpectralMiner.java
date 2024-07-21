@@ -123,7 +123,7 @@ public class HSEntitySpectralMiner extends EntityMob
     {
         super.setEquipmentBasedOnDifficulty(difficulty);
         this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HSItems.spectral_pickaxe));
-        this.setDropChance(EntityEquipmentSlot.MAINHAND, 0.0F);
+        this.setDropChance(EntityEquipmentSlot.MAINHAND, Float.MIN_VALUE);
     }
 
     @Nullable
