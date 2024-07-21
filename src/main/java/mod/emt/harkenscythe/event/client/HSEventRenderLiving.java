@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.event;
+package mod.emt.harkenscythe.event.client;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
