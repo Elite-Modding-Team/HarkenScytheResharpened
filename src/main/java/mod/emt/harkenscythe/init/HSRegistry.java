@@ -1,6 +1,9 @@
 package mod.emt.harkenscythe.init;
 
+import java.util.List;
+import java.util.Set;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 import javax.annotation.Nonnull;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.renderer.HSRendererBlockBloodAltar;
@@ -13,6 +16,7 @@ import mod.emt.harkenscythe.client.renderer.HSRendererEntitySoul;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralHuman;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralMiner;
 import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralPotion;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
@@ -39,6 +43,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -46,7 +51,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -122,11 +126,21 @@ public class HSRegistry
 
     public static void registerEntitySpawns()
     {
-        for (Biome biome : ForgeRegistries.BIOMES.getValuesCollection())
+        List<Biome> regularSpawning = Lists.newArrayList();
+        for (Biome biome : Biome.REGISTRY)
         {
-            EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+            Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(biome);
+            if (!types.contains(BiomeDictionary.Type.MUSHROOM) && !types.contains(BiomeDictionary.Type.WATER) && !types.contains(BiomeDictionary.Type.NETHER) && !types.contains(BiomeDictionary.Type.END))
+            {
+                regularSpawning.add(biome);
+                if (HSConfig.GENERAL_SETTINGS.debug) HarkenScythe.LOGGER.debug("Biome " + biome.getBiomeName() + " is valid for regular spawning");
+            }
         }
 
+        EntityRegistry.addSpawn(HSEntityHarbinger.class, 5, 1, 1, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
+        EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 2, 1, 1, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
+
+        EntitySpawnPlacementRegistry.setPlacementType(HSEntityHarbinger.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralMiner.class, EntityLiving.SpawnPlacementType.ON_GROUND);
     }
 

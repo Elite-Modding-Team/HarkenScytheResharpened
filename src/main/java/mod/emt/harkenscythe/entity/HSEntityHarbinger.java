@@ -3,6 +3,8 @@ package mod.emt.harkenscythe.entity;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import net.minecraft.entity.Entity;
@@ -136,6 +138,7 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
+        if (HSConfig.GENERAL_SETTINGS.debug) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         this.setEnchantmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);

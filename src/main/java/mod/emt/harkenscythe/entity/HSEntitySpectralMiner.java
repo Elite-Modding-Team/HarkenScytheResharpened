@@ -3,6 +3,8 @@ package mod.emt.harkenscythe.entity;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -50,6 +52,13 @@ public class HSEntitySpectralMiner extends EntityMob
     protected SoundEvent getDeathSound()
     {
         return HSSoundEvents.ENTITY_SPECTRAL_MINER_DEATH.getSoundEvent();
+    }
+
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        BlockPos spawnPos = new BlockPos(this);
+        return super.getCanSpawnHere() && spawnPos.getY() < 30 && this.world.canSeeSky(spawnPos);
     }
 
     @Override
@@ -121,6 +130,7 @@ public class HSEntitySpectralMiner extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
+        if (HSConfig.GENERAL_SETTINGS.debug) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);
     }
