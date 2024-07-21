@@ -93,13 +93,6 @@ public class HSEntitySpectralMiner extends EntityMob
         }
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound()
-    {
-        return SoundEvents.AMBIENT_CAVE;
-    }
-
     @Override
     public int getMaxSpawnedInChunk()
     {
@@ -127,7 +120,14 @@ public class HSEntitySpectralMiner extends EntityMob
         for (EntityPlayer player : players)
         {
             player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 200));
-            this.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_WITHER_AMBIENT, SoundCategory.HOSTILE, 0.2F, 0.1F);
+            if (this.world.rand.nextInt(2) == 0)
+            {
+                this.world.playSound(null, player.getPosition(), SoundEvents.AMBIENT_CAVE, SoundCategory.HOSTILE, 0.8F, 1.0F);
+            }
+            else
+            {
+                this.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_WITHER_AMBIENT, SoundCategory.HOSTILE, 0.2F, 0.1F);
+            }
         }
     }
 }

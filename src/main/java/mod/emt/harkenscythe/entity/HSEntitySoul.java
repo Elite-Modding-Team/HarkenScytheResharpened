@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.entity;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.annotation.Nullable;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.item.armor.HSArmor;
@@ -23,12 +24,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class HSEntitySoul extends HSEntityEssence
 {
     public static final DataParameter<Integer> SOUL_TYPE = EntityDataManager.createKey(HSEntitySoul.class, DataSerializers.VARINT);
     private EntityLivingBase originalEntity;
+    private int livingSoundTime;
 
     public HSEntitySoul(World world)
     {
@@ -59,23 +62,23 @@ public class HSEntitySoul extends HSEntityEssence
     {
         int soulType;
 
-        if (entity instanceof HSEntitySpectralMiner)
+        if (entity instanceof HSEntitySpectralMiner) // Spectral Miner
         {
             soulType = 4; // Spectral
         }
-        else if (!entity.isNonBoss())
+        else if (!entity.isNonBoss()) // Boss
         {
             soulType = 3; // Wrathful
         }
-        else if (!world.isDaytime() && world.getCurrentMoonPhaseFactor() == 1.0F)
+        else if (!world.isDaytime() && world.getCurrentMoonPhaseFactor() == 0.0F) // During new moons
         {
             soulType = 2; // Culled
         }
-        else if (entity instanceof EntityPlayer)
+        else if (entity instanceof EntityPlayer) // Player
         {
             soulType = 1; // Grieving
         }
-        else
+        else // Anything else
         {
             soulType = 0; // Common
         }
@@ -92,15 +95,25 @@ public class HSEntitySoul extends HSEntityEssence
     {
         switch (this.getDataManager().get(SOUL_TYPE))
         {
-            case 1:
+            case 1: // Grieving
                 return 2;
-            case 2:
+            case 2: // Culled
                 return 5;
-            case 3:
-            case 4:
-                return 40;
-            default:
+            case 3: // Wrathful
+            case 4: // Spectral
+                return 20;
+            default: // Common
                 return 1;
+        }
+    }
+
+    @Override
+    public void onEntityUpdate()
+    {
+        super.onEntityUpdate();
+        if (isEntityAlive() && this.rand.nextInt(1000) < this.livingSoundTime++)
+        {
+            playLivingSound();
         }
     }
 
@@ -113,6 +126,15 @@ public class HSEntitySoul extends HSEntityEssence
             return true;
         }
         return super.attackEntityFrom(source, amount);
+    }
+
+    public void playLivingSound()
+    {
+        SoundEvent soundEvent = getAmbientSound();
+        if (soundEvent != null)
+        {
+            playSound(soundEvent, getSoundVolume(), getSoundPitch());
+        }
     }
 
     @Override
@@ -154,6 +176,12 @@ public class HSEntitySoul extends HSEntityEssence
             this.setDead();
         }
         return super.processInitialInteract(player, hand);
+    }
+
+    @Nullable
+    protected SoundEvent getAmbientSound()
+    {
+        return getOriginalEntity() instanceof HSEntitySpectralMiner ? SoundEvents.AMBIENT_CAVE : null;
     }
 
     @Override
