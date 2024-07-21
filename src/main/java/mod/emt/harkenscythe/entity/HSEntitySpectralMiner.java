@@ -1,7 +1,10 @@
 package mod.emt.harkenscythe.entity;
 
 import java.util.List;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.entity.IEntityLivingData;
@@ -15,13 +18,13 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -93,6 +96,13 @@ public class HSEntitySpectralMiner extends EntityMob
         }
     }
 
+    @Nonnull
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return HSLootTables.SPECTRAL_MINER;
+    }
+
     @Override
     public int getMaxSpawnedInChunk()
     {
@@ -103,7 +113,8 @@ public class HSEntitySpectralMiner extends EntityMob
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
     {
         super.setEquipmentBasedOnDifficulty(difficulty);
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_PICKAXE));
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HSItems.spectral_pickaxe));
+        this.setDropChance(EntityEquipmentSlot.MAINHAND, 0.0F);
     }
 
     @Nullable

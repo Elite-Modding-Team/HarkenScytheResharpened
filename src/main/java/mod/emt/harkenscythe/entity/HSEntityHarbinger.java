@@ -128,9 +128,8 @@ public class HSEntityHarbinger extends EntityMob
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
     {
         super.setEquipmentBasedOnDifficulty(difficulty);
-
         this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HSItems.reaper_scythe));
-        this.setDropChance(EntityEquipmentSlot.MAINHAND, -100.0F);
+        this.setDropChance(EntityEquipmentSlot.MAINHAND, 0.0F);
     }
 
     @Nullable
