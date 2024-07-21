@@ -20,19 +20,13 @@ public class HSEventRenderLiving
         {
             GlStateManager.enableBlend();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-            GlStateManager.color(0.5F, 0.5F, 1.0F, 0.5F);
+            GlStateManager.color(0.6F, 0.6F, 1.0F, 0.6F);
         }
-        else if (event.getEntity() instanceof HSEntitySpectralHuman)
+        else if (event.getEntity() instanceof HSEntitySpectralHuman || event.getEntity() instanceof HSEntitySpectralMiner)
         {
             GlStateManager.enableBlend();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-            GlStateManager.color(0.5F, 0.5F, 0.5F, 0.5F);
-        }
-        else if (event.getEntity() instanceof HSEntitySpectralMiner)
-        {
-            GlStateManager.enableBlend();
-            GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-            GlStateManager.color(0.6F, 0.6F, 0.6F, 0.8F);
+            GlStateManager.color(0.8F, 0.8F, 1.0F, 0.8F);
         }
     }
 
