@@ -45,7 +45,7 @@ public class HSEntitySpectralMiner extends EntityMob
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource)
     {
-        return HSSoundEvents.ENTITY_SPECTRAL_MINER_HIT.getSoundEvent();
+        return HSSoundEvents.ENTITY_SPECTRAL_MINER_HURT.getSoundEvent();
     }
 
     @Override

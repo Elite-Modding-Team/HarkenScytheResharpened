@@ -115,11 +115,11 @@
       "harkenscythe:spectral_human_hurt"
     ]
   },
-  "entity.spectral_miner.hit": {
+  "entity.spectral_miner.hurt": {
     "sounds": [
-      "harkenscythe:spectral_miner_hit1",
-      "harkenscythe:spectral_miner_hit2",
-      "harkenscythe:spectral_miner_hit3"
+      "harkenscythe:spectral_miner_hurt1",
+      "harkenscythe:spectral_miner_hurt2",
+      "harkenscythe:spectral_miner_hurt3"
     ]
   },
   "entity.spectral_miner.death": {
