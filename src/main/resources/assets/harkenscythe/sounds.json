@@ -139,5 +139,26 @@
     "sounds": [
       "harkenscythe:spectral_miner_run"
     ]
+  },
+  "entity.harbinger.hurt": {
+    "sounds": [
+      "harkenscythe:harbinger_hurt1",
+      "harkenscythe:harbinger_hurt2",
+      "harkenscythe:harbinger_hurt3",
+      "harkenscythe:harbinger_hurt4"
+    ]
+  },
+  "entity.harbinger.death": {
+    "sounds": [
+      "harkenscythe:harbinger_death"
+    ]
+  },
+  "entity.harbinger.idle": {
+    "sounds": [
+      "harkenscythe:harbinger_idle1",
+      "harkenscythe:harbinger_idle2",
+      "harkenscythe:harbinger_idle3",
+      "harkenscythe:harbinger_idle4"
+    ]
   }
 }

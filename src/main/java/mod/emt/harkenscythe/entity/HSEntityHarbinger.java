@@ -7,6 +7,7 @@ import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -21,6 +22,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,13 +32,18 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class HSEntityHarbinger extends EntityMob
 {
+    private int summonCooldown;
+    private int ticksInSun;
+
     public HSEntityHarbinger(World world)
     {
         super(world);
@@ -47,29 +54,57 @@ public class HSEntityHarbinger extends EntityMob
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
+        if (this.world.isRemote) return;
+        // Check if there is no attack target and reap mobs when no player is nearby
         if (this.getAttackTarget() == null && !reapPlayer())
         {
             reapForFun();
         }
-        else if (this.getHealth() > this.getMaxHealth() * 0.75)
+        // Randomly summon vexes
+        else if (this.world.rand.nextInt(100) == 0)
+        {
+            summonVexes();
+        }
+        // Engage Rush Phase when health is between 75-100%
+        else if (this.getHealth() >= this.getMaxHealth() * 0.75)
         {
             onRushPhase();
         }
-        else if (this.getHealth() > this.getMaxHealth() * 0.5)
+        // Engage Dodge Phase when health is between 50-75%
+        else if (this.getHealth() >= this.getMaxHealth() * 0.5)
         {
             onDodgePhase();
         }
-        else if (this.getHealth() > this.getMaxHealth() * 0.25)
+        // Engage Soul Phase when health is between 25-50%
+        else if (this.getHealth() >= this.getMaxHealth() * 0.25)
         {
             onSoulPhase();
         }
+        // Engage Sneak Phase when health is between 0-25%
         else
         {
             onSneakPhase();
         }
+        // Reset attack target if the target is spectral
         if (this.getAttackTarget() != null && this.getAttackTarget().getEntityData().getBoolean("IsSpectral"))
         {
             this.setAttackTarget(null);
+        }
+        // Decrement summon cooldown
+        if (this.summonCooldown > 0)
+        {
+            this.summonCooldown--;
+        }
+        // Reset attack target and increment sun exposure ticks if it is daytime and the Harbinger is in the open
+        if (this.world.isDaytime() && this.world.canSeeSky(this.getPosition()))
+        {
+            this.setAttackTarget(null);
+            this.ticksInSun++;
+        }
+        // If sun exposure exceeds 1200 ticks (1 minute), create smoke particles and despawn
+        if (this.ticksInSun > 1200)
+        {
+            this.attackEntityFrom(DamageSource.ON_FIRE, 1000.0F);
         }
     }
 
@@ -77,14 +112,14 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource)
     {
-        return SoundEvents.ENTITY_WITHER_HURT;
+        return HSSoundEvents.ENTITY_HARBINGER_HURT.getSoundEvent();
     }
 
     @Nonnull
     @Override
     protected SoundEvent getDeathSound()
     {
-        return SoundEvents.ENTITY_WITHER_SPAWN;
+        return HSSoundEvents.ENTITY_HARBINGER_DEATH.getSoundEvent();
     }
 
     @Override
@@ -116,7 +151,7 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     protected SoundEvent getAmbientSound()
     {
-        return SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED;
+        return this.world.isDaytime() ? SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE : HSSoundEvents.ENTITY_HARBINGER_IDLE.getSoundEvent();
     }
 
     @Nonnull
@@ -144,20 +179,32 @@ public class HSEntityHarbinger extends EntityMob
         return super.onInitialSpawn(difficulty, livingdata);
     }
 
+    /**
+     * Attempts to reap a player by setting the attack target to the nearest player within 20 blocks.
+     *
+     * @return true if the attack target was set to a valid player, false otherwise.
+     */
     private boolean reapPlayer()
     {
+        if (this.world.isDaytime()) return false;
         EntityPlayer nearestPlayer = this.world.getClosestPlayerToEntity(this, 20.0D);
         if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable()) nearestPlayer = null;
         this.setAttackTarget(nearestPlayer);
         return this.getAttackTarget() instanceof EntityPlayer;
     }
 
+    /**
+     * Attempts to reap a nearby whitelisted entity by setting it as an attack target.
+     *
+     * @return true if the attack target was set to a valid entity, false otherwise.
+     */
     private boolean reapForFun()
     {
+        if (this.world.isDaytime()) return false;
         List<Entity> nearbyEntities = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20.0D));
         for (Entity entity : nearbyEntities)
         {
-            if (entity instanceof EntityLivingBase && isWhitelistedMob(entity))
+            if (entity instanceof EntityLivingBase && isWhitelistedEntity(entity))
             {
                 this.setAttackTarget((EntityLivingBase) entity);
                 break;
@@ -166,13 +213,23 @@ public class HSEntityHarbinger extends EntityMob
         return this.getAttackTarget() != null;
     }
 
-    private boolean isWhitelistedMob(Entity entity)
+    /**
+     * Checks if the provided entity is a whitelisted entity.
+     *
+     * @param entity the entity to check
+     * @return true if the entity is not blacklisted, false otherwise.
+     */
+    private boolean isWhitelistedEntity(Entity entity)
     {
-        // TODO: Replace with config-defined whitelist
+        // TODO: Limit with config-defined blacklist
         return entity instanceof EntityVillager || entity instanceof EntityAnimal;
     }
 
-    // Phase 1: Rush towards player and attack logic
+    /**
+     * Phase 1: Rush towards player and attack logic.
+     * It checks if the Harbinger has an attack target and if it is within a certain distance.
+     * If the conditions are met, it makes the Harbinger move towards the target at a speed of 1.2.
+     */
     private void onRushPhase()
     {
         if (this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) > 1.0)
@@ -181,22 +238,31 @@ public class HSEntityHarbinger extends EntityMob
         }
     }
 
-    // Phase 2: Teleport frequently to dodge attacks
+    /**
+     * Phase 2: Teleport frequently to dodge attacks.
+     * The logic is run every 20 ticks (every second).
+     * If the conditions are met, it teleports the entity to a random position within a certain range.
+     */
     private void onDodgePhase()
     {
-        if (!this.world.isRemote && this.ticksExisted % 20 == 19) // Roughly every second
+        if (!this.world.isRemote && this.ticksExisted % 20 == 19)
         {
             double x = this.posX + (this.rand.nextDouble() - 0.5) * 8.0;
             double y = this.posY + (this.rand.nextInt(8) - 4);
             double z = this.posZ + (this.rand.nextDouble() - 0.5) * 8.0;
             this.attemptTeleport(x, y, z);
+            this.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
         }
     }
 
-    // Phase 3: Drop and revive souls
+    /**
+     * Phase 3: Drop and revive souls.
+     * The logic is run every 200 ticks (every 10 seconds).
+     * If the conditions are met, it creates and spawns 4 soul entities at random positions around the Harbinger.
+     */
     private void onSoulPhase()
     {
-        if (this.ticksExisted % 200 == 199) // Roughly every 10 seconds
+        if (this.ticksExisted % 200 == 199)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -211,7 +277,11 @@ public class HSEntityHarbinger extends EntityMob
         }
     }
 
-    // Phase 4: Gain invisibility and continue Phase 2 attack pattern
+    /**
+     * Phase 4: Gain invisibility and continue Phase 2 attack pattern.
+     * If the Harbinger does not have the invisibility potion effect, it adds it.
+     * Then it proceeds to the dodge phase behavior.
+     */
     private void onSneakPhase()
     {
         if (this.getActivePotionEffect(MobEffects.INVISIBILITY) == null)
@@ -219,5 +289,33 @@ public class HSEntityHarbinger extends EntityMob
             this.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 100, 1, false, false));
         }
         onDodgePhase();
+    }
+
+    /**
+     * Summons a random number of Vexes around the Harbinger.
+     * The amount of Vexes summoned is between 1 and 2.
+     * They are given a random position within a 5x5x5 cube centered on the Harbinger, a limited life between 30-120 seconds and an Iron Scythe as their held item.
+     * The summon cooldown is set to 2400 ticks (120 seconds) after summoning.
+     */
+    private void summonVexes()
+    {
+        if (!this.world.isRemote && this.summonCooldown <= 0)
+        {
+            this.swingArm(EnumHand.MAIN_HAND);
+            this.swingArm(EnumHand.OFF_HAND);
+            int amount = 1 + this.world.rand.nextInt(2);
+            for (int i = 0; i < amount; i++)
+            {
+                BlockPos blockPos = (new BlockPos(this)).add(-2 + this.rand.nextInt(5), 1, -2 + this.rand.nextInt(5));
+                EntityVex entityVex = new EntityVex(this.world);
+                entityVex.moveToBlockPosAndAngles(blockPos, 0.0F, 0.0F);
+                entityVex.onInitialSpawn(this.world.getDifficultyForLocation(blockPos), null);
+                entityVex.setBoundOrigin(blockPos);
+                entityVex.setLimitedLife(20 * (30 + this.rand.nextInt(90)));
+                entityVex.setHeldItem(EnumHand.MAIN_HAND, new ItemStack(HSItems.iron_scythe));
+                this.world.spawnEntity(entityVex);
+            }
+        }
+        this.summonCooldown = 2400;
     }
 }

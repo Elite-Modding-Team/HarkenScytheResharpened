@@ -64,7 +64,7 @@ public class HSEventLivingDeath
         }
         else if (trueSource instanceof HSEntityHarbinger)
         {
-            spawnSpectralEntity(world, entity, entity.getPosition(), true);
+            spawnSpectralEntity(world, entity, entity.getPosition(), false);
         }
         else if (entity.getEntityData().getBoolean("IsSpectral"))
         {

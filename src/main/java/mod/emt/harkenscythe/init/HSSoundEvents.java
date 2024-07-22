@@ -28,7 +28,10 @@ public enum HSSoundEvents
     ENTITY_SPECTRAL_MINER_HURT("entity.spectral_miner.hurt"),
     ENTITY_SPECTRAL_MINER_DEATH("entity.spectral_miner.death"),
     ENTITY_SPECTRAL_MINER_STEP("entity.spectral_miner.step"),
-    ENTITY_SPECTRAL_MINER_RUN("entity.spectral_miner.run");
+    ENTITY_SPECTRAL_MINER_RUN("entity.spectral_miner.run"),
+    ENTITY_HARBINGER_HURT("entity.harbinger.hurt"),
+    ENTITY_HARBINGER_DEATH("entity.harbinger.death"),
+    ENTITY_HARBINGER_IDLE("entity.harbinger.idle");
 
     private final SoundEvent soundEvent;
 
