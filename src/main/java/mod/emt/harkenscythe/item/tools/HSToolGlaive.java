@@ -104,7 +104,7 @@ public class HSToolGlaive extends ItemSword implements IHSTool
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F)
             {
                 // Damage x 2 (Mojang is very strange with damage values...)
-                entityInAABB.attackEntityFrom(new HSDamageSource("hs_reap", entityLiving), damage * 2);
+                entityInAABB.attackEntityFrom(new HSDamageSource("hs_reap", entityLiving).setDamageBypassesArmor(), damage * 2);
             }
         }
 
