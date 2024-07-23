@@ -130,7 +130,7 @@ public class HSEntitySpectralMiner extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
-        if (HSConfig.GENERAL_SETTINGS.debug) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
+        if (HSConfig.GENERAL_SETTINGS.debugMode) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);
     }

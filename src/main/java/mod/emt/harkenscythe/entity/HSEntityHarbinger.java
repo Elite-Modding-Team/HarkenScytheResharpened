@@ -8,6 +8,7 @@ import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -173,7 +174,7 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
-        if (HSConfig.GENERAL_SETTINGS.debug) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
+        if (HSConfig.GENERAL_SETTINGS.debugMode) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         this.setEnchantmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);
@@ -221,8 +222,7 @@ public class HSEntityHarbinger extends EntityMob
      */
     private boolean isWhitelistedEntity(Entity entity)
     {
-        // TODO: Limit with config-defined blacklist
-        return entity instanceof EntityVillager || entity instanceof EntityAnimal;
+        return !HSHarbingerReapingBlacklist.isBlacklisted(entity) && (entity instanceof EntityVillager || entity instanceof EntityAnimal);
     }
 
     /**
