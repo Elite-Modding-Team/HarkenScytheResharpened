@@ -105,8 +105,7 @@ dependencies {
         implementation 'zone.rong:mixinbooter:9.1'
     }
 
-    // Example of deobfuscating a dependency
-    // implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
+    implementation rfg.deobf('curse.maven:had-enough-items-557549:5471944')
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:

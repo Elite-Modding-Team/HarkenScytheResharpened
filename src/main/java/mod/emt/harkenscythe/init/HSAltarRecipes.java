@@ -1,24 +1,21 @@
 package mod.emt.harkenscythe.init;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import mod.emt.harkenscythe.recipe.BloodAltarRecipe;
+import mod.emt.harkenscythe.recipe.SoulAltarRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class HSAltarRecipes
 {
-    private static final Map<Item, Item> BLOOD_INPUT_OUTPUT_MAP = new Object2ObjectOpenHashMap<>();
-    private static final Map<Item, Integer> BLOOD_INPUT_BLOODCOUNT_MAP = new Object2IntOpenHashMap<>();
-    private static final Map<Item, Item> SOUL_INPUT_OUTPUT_MAP = new Object2ObjectOpenHashMap<>();
-    private static final Map<Item, Integer> SOUL_INPUT_SOULCOUNT_MAP = new Object2IntOpenHashMap<>();
+    private static final List<BloodAltarRecipe> BLOOD_ALTAR_RECIPES = new ArrayList<>();
+    private static final List<SoulAltarRecipe> SOUL_ALTAR_RECIPES = new ArrayList<>();
 
     public static void addBloodRecipe(Item input, Item output, int requiredBlood)
     {
-        BLOOD_INPUT_OUTPUT_MAP.put(input, output);
-        BLOOD_INPUT_BLOODCOUNT_MAP.put(input, requiredBlood);
+        BLOOD_ALTAR_RECIPES.add(new BloodAltarRecipe(new ItemStack(input), new ItemStack(output), requiredBlood));
     }
 
     public static void addBloodRecipe(String oreDictName, Item output, int requiredBlood)
@@ -29,23 +26,43 @@ public class HSAltarRecipes
 
     public static boolean isValidInputBlood(ItemStack input)
     {
-        return BLOOD_INPUT_OUTPUT_MAP.containsKey(input.getItem()) && BLOOD_INPUT_BLOODCOUNT_MAP.containsKey(input.getItem());
+        for (BloodAltarRecipe recipe : BLOOD_ALTAR_RECIPES)
+        {
+            if (recipe.getInput().isItemEqual(input))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static ItemStack getOutputBlood(Item input)
     {
-        return new ItemStack(BLOOD_INPUT_OUTPUT_MAP.get(input));
+        for (BloodAltarRecipe recipe : BLOOD_ALTAR_RECIPES)
+        {
+            if (recipe.getInput().getItem() == input)
+            {
+                return recipe.getOutput();
+            }
+        }
+        return ItemStack.EMPTY;
     }
 
     public static int getRequiredBlood(ItemStack input)
     {
-        return BLOOD_INPUT_BLOODCOUNT_MAP.get(input.getItem());
+        for (BloodAltarRecipe recipe : BLOOD_ALTAR_RECIPES)
+        {
+            if (recipe.getInput().isItemEqual(input))
+            {
+                return recipe.getRequiredBlood();
+            }
+        }
+        return 0;
     }
 
     public static void addSoulRecipe(Item input, Item output, int requiredSouls)
     {
-        SOUL_INPUT_OUTPUT_MAP.put(input, output);
-        SOUL_INPUT_SOULCOUNT_MAP.put(input, requiredSouls);
+        SOUL_ALTAR_RECIPES.add(new SoulAltarRecipe(new ItemStack(input), new ItemStack(output), requiredSouls));
     }
 
     public static void addSoulRecipe(String oreDictName, Item output, int requiredSouls)
@@ -56,16 +73,47 @@ public class HSAltarRecipes
 
     public static boolean isValidInputSoul(ItemStack input)
     {
-        return SOUL_INPUT_OUTPUT_MAP.containsKey(input.getItem()) && SOUL_INPUT_SOULCOUNT_MAP.containsKey(input.getItem());
+        for (SoulAltarRecipe recipe : SOUL_ALTAR_RECIPES)
+        {
+            if (recipe.getInput().isItemEqual(input))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static ItemStack getOutputSoul(Item input)
     {
-        return new ItemStack(SOUL_INPUT_OUTPUT_MAP.get(input));
+        for (SoulAltarRecipe recipe : SOUL_ALTAR_RECIPES)
+        {
+            if (recipe.getInput().getItem() == input)
+            {
+                return recipe.getOutput();
+            }
+        }
+        return ItemStack.EMPTY;
     }
 
     public static int getRequiredSouls(ItemStack input)
     {
-        return SOUL_INPUT_SOULCOUNT_MAP.get(input.getItem());
+        for (SoulAltarRecipe recipe : SOUL_ALTAR_RECIPES)
+        {
+            if (recipe.getInput().isItemEqual(input))
+            {
+                return recipe.getRequiredSouls();
+            }
+        }
+        return 0;
+    }
+
+    public static List<BloodAltarRecipe> getBloodAltarRecipes()
+    {
+        return BLOOD_ALTAR_RECIPES;
+    }
+
+    public static List<SoulAltarRecipe> getSoulAltarRecipes()
+    {
+        return SOUL_ALTAR_RECIPES;
     }
 }
