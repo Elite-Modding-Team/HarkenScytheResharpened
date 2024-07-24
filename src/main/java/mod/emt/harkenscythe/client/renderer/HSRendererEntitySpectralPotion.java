@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.client.renderer;
 
-import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.entity.Render;
@@ -11,6 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
+import mod.emt.harkenscythe.init.HSItems;
 
 @SideOnly(Side.CLIENT)
 public class HSRendererEntitySpectralPotion extends RenderSnowball<HSEntitySpectralPotion>

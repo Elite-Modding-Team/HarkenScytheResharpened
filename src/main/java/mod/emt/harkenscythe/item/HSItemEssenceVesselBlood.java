@@ -1,7 +1,8 @@
 package mod.emt.harkenscythe.item;
 
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.item.ItemStack;
+
+import mod.emt.harkenscythe.init.HSItems;
 
 public class HSItemEssenceVesselBlood extends HSItemEssenceKeeperBlood
 {

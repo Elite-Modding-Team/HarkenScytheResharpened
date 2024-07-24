@@ -2,13 +2,15 @@ package mod.emt.harkenscythe.util;
 
 import java.util.ArrayList;
 import java.util.List;
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.config.HSConfig;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
 
 public class HSHarbingerReapingBlacklist
 {

@@ -1,7 +1,8 @@
 package mod.emt.harkenscythe.init;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.util.ResourceLocation;
+
+import mod.emt.harkenscythe.HarkenScythe;
 
 public class HSLootTables
 {

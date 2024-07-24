@@ -1,13 +1,14 @@
 package mod.emt.harkenscythe.event.client;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.color.HSArmorDyeableColorHandler;
-import mod.emt.harkenscythe.client.color.HSItemSpectralPotionColorHandler;
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.color.HSArmorDyeableColorHandler;
+import mod.emt.harkenscythe.client.color.HSItemSpectralPotionColorHandler;
+import mod.emt.harkenscythe.init.HSItems;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)
 public class HSEventColorHandler

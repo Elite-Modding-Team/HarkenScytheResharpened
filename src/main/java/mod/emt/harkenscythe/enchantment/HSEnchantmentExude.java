@@ -1,9 +1,10 @@
 package mod.emt.harkenscythe.enchantment;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
+
+import mod.emt.harkenscythe.HarkenScythe;
 
 public class HSEnchantmentExude extends Enchantment
 {

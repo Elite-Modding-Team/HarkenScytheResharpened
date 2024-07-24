@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.client.renderer;
 
-import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBook;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,6 +13,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 
 @SideOnly(Side.CLIENT)
 public abstract class HSRendererBlockAltar extends TileEntitySpecialRenderer<HSTileEntityAltar>

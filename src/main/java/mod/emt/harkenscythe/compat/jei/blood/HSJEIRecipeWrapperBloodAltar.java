@@ -2,17 +2,19 @@ package mod.emt.harkenscythe.compat.jei.blood;
 
 import java.util.ArrayList;
 import java.util.List;
-import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.IRecipeWrapper;
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.recipe.BloodAltarRecipe;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
+import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IRecipeWrapper;
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.recipe.BloodAltarRecipe;
 
 public class HSJEIRecipeWrapperBloodAltar implements IRecipeWrapper
 {

@@ -1,10 +1,11 @@
 package mod.emt.harkenscythe.tileentity;
 
-import mod.emt.harkenscythe.block.HSBlockCrucible;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.block.HSBlockCrucible;
 
 public class HSTileEntityCrucible extends HSTileEntity
 {

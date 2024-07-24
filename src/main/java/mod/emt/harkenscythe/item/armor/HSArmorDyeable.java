@@ -1,11 +1,12 @@
 package mod.emt.harkenscythe.item.armor;
 
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
+import mod.emt.harkenscythe.init.HSItems;
 
 public class HSArmorDyeable extends HSArmor
 {

@@ -2,10 +2,6 @@ package mod.emt.harkenscythe.item.tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import mod.emt.harkenscythe.block.HSBlockBiomassCrop;
-import mod.emt.harkenscythe.init.HSBlocks;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.util.HSDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,6 +22,11 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.block.HSBlockBiomassCrop;
+import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.util.HSDamageSource;
 
 @SuppressWarnings("deprecation")
 public class HSToolScythe extends ItemSword implements IHSTool

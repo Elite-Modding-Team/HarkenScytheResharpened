@@ -2,11 +2,13 @@ package mod.emt.harkenscythe.init;
 
 import java.util.ArrayList;
 import java.util.List;
-import mod.emt.harkenscythe.recipe.BloodAltarRecipe;
-import mod.emt.harkenscythe.recipe.SoulAltarRecipe;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import mod.emt.harkenscythe.recipe.BloodAltarRecipe;
+import mod.emt.harkenscythe.recipe.SoulAltarRecipe;
 
 public class HSAltarRecipes
 {

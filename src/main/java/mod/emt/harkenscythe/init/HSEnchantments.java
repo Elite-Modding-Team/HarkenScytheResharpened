@@ -1,11 +1,12 @@
 package mod.emt.harkenscythe.init;
 
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.enchantment.HSEnchantmentBloodletting;
 import mod.emt.harkenscythe.enchantment.HSEnchantmentExude;
 import mod.emt.harkenscythe.enchantment.HSEnchantmentNourishment;
 import mod.emt.harkenscythe.enchantment.HSEnchantmentSoulsteal;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSEnchantments

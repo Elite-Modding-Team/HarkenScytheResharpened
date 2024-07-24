@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.client.renderer;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.model.HSModelEntityEssence;
-import mod.emt.harkenscythe.entity.HSEntityBlood;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -12,6 +9,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.model.HSModelEntityEssence;
+import mod.emt.harkenscythe.entity.HSEntityBlood;
 
 @SideOnly(Side.CLIENT)
 public class HSRendererEntityBlood extends Render<HSEntityBlood>

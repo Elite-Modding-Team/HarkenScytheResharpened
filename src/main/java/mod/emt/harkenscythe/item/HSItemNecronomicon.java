@@ -1,11 +1,7 @@
 package mod.emt.harkenscythe.item;
 
 import java.util.List;
-import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
-import mod.emt.harkenscythe.entity.HSEntitySoul;
-import mod.emt.harkenscythe.event.HSEventLivingDeath;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSSoundEvents;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,6 +16,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
+import mod.emt.harkenscythe.entity.HSEntitySoul;
+import mod.emt.harkenscythe.event.HSEventLivingDeath;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSItemNecronomicon extends HSItem
 {

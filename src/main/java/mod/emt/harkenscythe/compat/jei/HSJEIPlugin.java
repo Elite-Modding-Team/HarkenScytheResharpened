@@ -1,6 +1,7 @@
 package mod.emt.harkenscythe.compat.jei;
 
 import java.util.List;
+
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;

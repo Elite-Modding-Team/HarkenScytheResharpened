@@ -1,13 +1,14 @@
 package mod.emt.harkenscythe.block;
 
-import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
+import mod.emt.harkenscythe.init.HSItems;
 
 public class HSBlockBloodCrucible extends HSBlockCrucible
 {

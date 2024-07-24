@@ -1,11 +1,12 @@
 package mod.emt.harkenscythe.init;
 
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.potion.HSPotionAffliction;
 import mod.emt.harkenscythe.potion.HSPotionFlame;
 import mod.emt.harkenscythe.potion.HSPotionPurifying;
 import mod.emt.harkenscythe.potion.HSPotionWater;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSPotions

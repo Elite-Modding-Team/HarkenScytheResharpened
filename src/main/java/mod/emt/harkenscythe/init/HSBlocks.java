@@ -1,19 +1,7 @@
 package mod.emt.harkenscythe.init;
 
 import javax.annotation.Nonnull;
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.block.HSBlockBiomassCrop;
-import mod.emt.harkenscythe.block.HSBlockBloodAltar;
-import mod.emt.harkenscythe.block.HSBlockBloodCrucible;
-import mod.emt.harkenscythe.block.HSBlockCloth;
-import mod.emt.harkenscythe.block.HSBlockCreep;
-import mod.emt.harkenscythe.block.HSBlockLivingmetalCore;
-import mod.emt.harkenscythe.block.HSBlockMaterial;
-import mod.emt.harkenscythe.block.HSBlockSoulAltar;
-import mod.emt.harkenscythe.block.HSBlockSoulCake;
-import mod.emt.harkenscythe.block.HSBlockSoulCrucible;
-import mod.emt.harkenscythe.block.HSBlockSpectralGlass;
-import mod.emt.harkenscythe.block.HSBlockSpectralGlassPane;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -22,6 +10,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.block.*;
 
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)

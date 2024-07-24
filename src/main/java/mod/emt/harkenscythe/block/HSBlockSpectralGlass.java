@@ -3,8 +3,7 @@ package mod.emt.harkenscythe.block;
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.init.HSBlocks;
-import mod.emt.harkenscythe.init.HSItems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -22,6 +21,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSItems;
 
 @SuppressWarnings("deprecation")
 public class HSBlockSpectralGlass extends Block

@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.event.client;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.item.HSItemEssenceKeeperBlood;
-import mod.emt.harkenscythe.item.HSItemEssenceKeeperSoul;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +9,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.item.HSItemEssenceKeeperBlood;
+import mod.emt.harkenscythe.item.HSItemEssenceKeeperSoul;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)
 public class HSEventItemTooltip

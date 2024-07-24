@@ -1,11 +1,12 @@
 package mod.emt.harkenscythe.event;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventLivingDrops

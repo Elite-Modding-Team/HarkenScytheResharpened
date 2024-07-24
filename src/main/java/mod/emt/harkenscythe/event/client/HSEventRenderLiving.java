@@ -1,13 +1,14 @@
 package mod.emt.harkenscythe.event.client;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
-import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
+import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)
 public class HSEventRenderLiving

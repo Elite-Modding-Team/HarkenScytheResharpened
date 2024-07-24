@@ -1,11 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import io.netty.buffer.ByteBuf;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.item.HSItemSpectralPotion;
-import mod.emt.harkenscythe.potion.HSPotionFlame;
-import mod.emt.harkenscythe.potion.HSPotionWater;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,6 +13,13 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
+
+import io.netty.buffer.ByteBuf;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.HSItemSpectralPotion;
+import mod.emt.harkenscythe.potion.HSPotionFlame;
+import mod.emt.harkenscythe.potion.HSPotionWater;
 
 public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAdditionalSpawnData
 {

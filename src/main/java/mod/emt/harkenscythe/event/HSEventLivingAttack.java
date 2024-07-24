@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.event;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.item.HSItemDimensionalMirror;
-import mod.emt.harkenscythe.item.HSItemNecronomicon;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,6 +7,10 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.item.HSItemDimensionalMirror;
+import mod.emt.harkenscythe.item.HSItemNecronomicon;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventLivingAttack

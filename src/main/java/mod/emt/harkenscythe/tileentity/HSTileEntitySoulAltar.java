@@ -1,11 +1,12 @@
 package mod.emt.harkenscythe.tileentity;
 
-import mod.emt.harkenscythe.init.HSAltarRecipes;
-import mod.emt.harkenscythe.init.HSBlocks;
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ITickable;
+
+import mod.emt.harkenscythe.init.HSAltarRecipes;
+import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSItems;
 
 public class HSTileEntitySoulAltar extends HSTileEntityAltar implements ITickable
 {

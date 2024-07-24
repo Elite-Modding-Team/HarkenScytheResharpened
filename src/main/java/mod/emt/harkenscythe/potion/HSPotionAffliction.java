@@ -1,10 +1,11 @@
 package mod.emt.harkenscythe.potion;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+
+import mod.emt.harkenscythe.HarkenScythe;
 
 public class HSPotionAffliction extends Potion
 {

@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.event;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.world.storage.loot.LootEntryItem;
 import net.minecraft.world.storage.loot.LootPool;
 import net.minecraft.world.storage.loot.LootTableList;
@@ -10,6 +8,9 @@ import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSItems;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventLootTableLoad

@@ -1,6 +1,10 @@
 package mod.emt.harkenscythe.compat.jei.blood;
 
 import javax.annotation.Nullable;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
@@ -8,8 +12,6 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSBlocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
 public class HSJEIRecipeCategoryBloodAltar implements IRecipeCategory<HSJEIRecipeWrapperBloodAltar>
 {

@@ -2,9 +2,7 @@ package mod.emt.harkenscythe.entity;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.item.armor.HSArmor;
-import mod.emt.harkenscythe.item.tools.IHSTool;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -13,6 +11,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.item.armor.HSArmor;
+import mod.emt.harkenscythe.item.tools.IHSTool;
 
 public class HSEntityBlood extends HSEntityEssence
 {

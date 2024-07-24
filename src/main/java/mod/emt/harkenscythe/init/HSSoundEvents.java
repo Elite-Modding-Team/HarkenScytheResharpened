@@ -1,8 +1,9 @@
 package mod.emt.harkenscythe.init;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
 
 public enum HSSoundEvents
 {

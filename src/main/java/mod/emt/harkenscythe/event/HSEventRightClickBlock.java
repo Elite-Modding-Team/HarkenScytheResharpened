@@ -1,9 +1,5 @@
 package mod.emt.harkenscythe.event;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.init.HSBlocks;
-import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.item.HSItemCreepball;
 import net.minecraft.block.BlockSoulSand;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +10,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.HSItemCreepball;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventRightClickBlock

@@ -2,9 +2,7 @@ package mod.emt.harkenscythe.block;
 
 import java.util.Random;
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.init.HSBlocks;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSSoundTypes;
+
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -28,6 +26,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundTypes;
 
 @SuppressWarnings("deprecation")
 public class HSBlockCreep extends Block

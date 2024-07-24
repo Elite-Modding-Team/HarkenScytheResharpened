@@ -1,10 +1,11 @@
 package mod.emt.harkenscythe.util;
 
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.init.HSItems;
 
 public class HSCreativeTab extends CreativeTabs
 {

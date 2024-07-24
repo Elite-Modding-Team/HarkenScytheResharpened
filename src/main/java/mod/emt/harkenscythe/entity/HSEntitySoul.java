@@ -3,12 +3,7 @@ package mod.emt.harkenscythe.entity;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.event.HSEventLivingDeath;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.item.armor.HSArmor;
-import mod.emt.harkenscythe.item.tools.IHSTool;
-import mod.emt.harkenscythe.network.HSNetworkHandler;
-import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,12 +15,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.event.HSEventLivingDeath;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.item.armor.HSArmor;
+import mod.emt.harkenscythe.item.tools.IHSTool;
+import mod.emt.harkenscythe.network.HSNetworkHandler;
+import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
 
 public class HSEntitySoul extends HSEntityEssence
 {

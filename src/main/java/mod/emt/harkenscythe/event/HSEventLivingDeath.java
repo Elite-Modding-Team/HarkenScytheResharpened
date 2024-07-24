@@ -2,18 +2,7 @@ package mod.emt.harkenscythe.event;
 
 import java.util.Iterator;
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
-import mod.emt.harkenscythe.entity.HSEntityGlobin;
-import mod.emt.harkenscythe.entity.HSEntityHarbinger;
-import mod.emt.harkenscythe.entity.HSEntitySoul;
-import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
-import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
-import mod.emt.harkenscythe.entity.ai.HSAIPassiveMobAttack;
-import mod.emt.harkenscythe.init.HSEnchantments;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.item.tools.HSToolScythe;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -38,6 +27,14 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entity.*;
+import mod.emt.harkenscythe.entity.ai.HSAIPassiveMobAttack;
+import mod.emt.harkenscythe.init.HSEnchantments;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.tools.HSToolScythe;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventLivingDeath

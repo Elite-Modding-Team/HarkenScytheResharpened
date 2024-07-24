@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.client.renderer;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderBiped;
@@ -10,6 +8,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 
 @SideOnly(Side.CLIENT)
 public class HSRendererEntitySpectralMiner extends RenderBiped<HSEntitySpectralMiner>

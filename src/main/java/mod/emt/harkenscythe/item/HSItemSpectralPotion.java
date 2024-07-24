@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.item;
 
-import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
-import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -15,6 +13,9 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSItemSpectralPotion extends HSItem
 {

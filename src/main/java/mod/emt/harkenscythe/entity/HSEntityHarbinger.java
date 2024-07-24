@@ -3,25 +3,12 @@ package mod.emt.harkenscythe.entity;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.config.HSConfig;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSLootTables;
-import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -39,6 +26,13 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSLootTables;
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
 
 public class HSEntityHarbinger extends EntityMob
 {

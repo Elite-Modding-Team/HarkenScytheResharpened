@@ -1,12 +1,13 @@
 package mod.emt.harkenscythe.config;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
 
 @Config(modid = HarkenScythe.MOD_ID, name = "HarkenScythe")
 public class HSConfig

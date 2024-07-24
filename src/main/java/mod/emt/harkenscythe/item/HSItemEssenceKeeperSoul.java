@@ -1,8 +1,7 @@
 package mod.emt.harkenscythe.item;
 
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.init.HSItems;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
@@ -10,6 +9,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSItems;
 
 public class HSItemEssenceKeeperSoul extends HSItemEssenceKeeper
 {

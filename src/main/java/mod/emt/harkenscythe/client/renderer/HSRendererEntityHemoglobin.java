@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.client.renderer;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.model.layer.HSLayerEntityHemoglobinGel;
-import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
 import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -12,6 +9,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.model.layer.HSLayerEntityHemoglobinGel;
+import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
 
 @SideOnly(Side.CLIENT)
 public class HSRendererEntityHemoglobin extends RenderLiving<HSEntityHemoglobin>

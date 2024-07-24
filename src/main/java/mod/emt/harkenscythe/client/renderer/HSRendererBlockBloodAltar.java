@@ -1,10 +1,11 @@
 package mod.emt.harkenscythe.client.renderer;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 
 @SideOnly(Side.CLIENT)
 public class HSRendererBlockBloodAltar extends HSRendererBlockAltar

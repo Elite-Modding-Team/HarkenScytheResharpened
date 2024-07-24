@@ -2,33 +2,10 @@ package mod.emt.harkenscythe.init;
 
 import java.util.List;
 import java.util.Set;
+import javax.annotation.Nonnull;
+
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
-import javax.annotation.Nonnull;
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.renderer.HSRendererBlockBloodAltar;
-import mod.emt.harkenscythe.client.renderer.HSRendererBlockSoulAltar;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntityBlood;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntityEctoglobin;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntityHarbinger;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntityHemoglobin;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntitySoul;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralHuman;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralMiner;
-import mod.emt.harkenscythe.client.renderer.HSRendererEntitySpectralPotion;
-import mod.emt.harkenscythe.config.HSConfig;
-import mod.emt.harkenscythe.entity.HSEntityBlood;
-import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
-import mod.emt.harkenscythe.entity.HSEntityHarbinger;
-import mod.emt.harkenscythe.entity.HSEntityHemoglobin;
-import mod.emt.harkenscythe.entity.HSEntitySoul;
-import mod.emt.harkenscythe.entity.HSEntitySpectralHuman;
-import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
-import mod.emt.harkenscythe.entity.HSEntitySpectralPotion;
-import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
-import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
-import mod.emt.harkenscythe.tileentity.HSTileEntityLivingmetalCore;
-import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -55,6 +32,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.renderer.*;
+import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.entity.*;
+import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
+import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
+import mod.emt.harkenscythe.tileentity.HSTileEntityLivingmetalCore;
+import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSRegistry

@@ -1,11 +1,5 @@
 package mod.emt.harkenscythe.event;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.entity.HSEntityBlood;
-import mod.emt.harkenscythe.init.HSEnchantments;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.item.tools.HSToolGlaive;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -22,6 +16,13 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entity.HSEntityBlood;
+import mod.emt.harkenscythe.init.HSEnchantments;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.tools.HSToolGlaive;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventLivingHurt

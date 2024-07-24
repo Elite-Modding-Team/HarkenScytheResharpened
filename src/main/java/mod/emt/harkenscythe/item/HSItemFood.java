@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.item;
 
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
@@ -11,6 +10,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSItems;
 
 @SuppressWarnings("deprecation")
 public class HSItemFood extends ItemFood

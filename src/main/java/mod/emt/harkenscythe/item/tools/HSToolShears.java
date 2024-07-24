@@ -1,12 +1,13 @@
 package mod.emt.harkenscythe.item.tools;
 
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+
+import mod.emt.harkenscythe.init.HSItems;
 
 @SuppressWarnings("deprecation")
 public class HSToolShears extends ItemShears implements IHSTool

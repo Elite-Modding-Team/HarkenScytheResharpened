@@ -1,13 +1,14 @@
 package mod.emt.harkenscythe.client.model.layer;
 
-import mod.emt.harkenscythe.client.renderer.HSRendererEntityEctoglobin;
-import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.client.renderer.HSRendererEntityEctoglobin;
+import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 
 @SideOnly(Side.CLIENT)
 public class HSLayerEntityEctoglobinGel implements LayerRenderer<HSEntityEctoglobin>

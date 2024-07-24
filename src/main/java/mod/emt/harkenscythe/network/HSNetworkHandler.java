@@ -1,10 +1,11 @@
 package mod.emt.harkenscythe.network;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
 
 public class HSNetworkHandler
 {

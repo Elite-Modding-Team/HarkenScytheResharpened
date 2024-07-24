@@ -1,8 +1,7 @@
 package mod.emt.harkenscythe.block;
 
 import javax.annotation.Nullable;
-import mod.emt.harkenscythe.init.HSSoundTypes;
-import mod.emt.harkenscythe.tileentity.HSTileEntityLivingmetalCore;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
@@ -14,6 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSSoundTypes;
+import mod.emt.harkenscythe.tileentity.HSTileEntityLivingmetalCore;
 
 @SuppressWarnings("deprecation")
 public class HSBlockLivingmetalCore extends Block

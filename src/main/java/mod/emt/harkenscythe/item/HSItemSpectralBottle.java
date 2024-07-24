@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.item;
 
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +15,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSItems;
 
 public class HSItemSpectralBottle extends HSItem
 {

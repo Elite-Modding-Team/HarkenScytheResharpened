@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.event.client;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.item.HSItemDimensionalMirror;
-import mod.emt.harkenscythe.item.HSItemNecronomicon;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -22,6 +19,10 @@ import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.item.HSItemDimensionalMirror;
+import mod.emt.harkenscythe.item.HSItemNecronomicon;
 
 // Courtesy of Fuzs
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)

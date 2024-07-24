@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.block;
 
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 import net.minecraft.block.BlockEnchantmentTable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -10,13 +8,12 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 
 public abstract class HSBlockAltar extends BlockEnchantmentTable
 {

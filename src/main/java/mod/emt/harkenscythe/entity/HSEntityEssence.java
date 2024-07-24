@@ -2,9 +2,8 @@ package mod.emt.harkenscythe.entity;
 
 import java.util.Collections;
 import java.util.List;
+
 import com.google.common.collect.Lists;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -16,6 +15,9 @@ import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public abstract class HSEntityEssence extends EntityLivingBase
 {
