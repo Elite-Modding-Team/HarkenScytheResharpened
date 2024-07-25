@@ -158,6 +158,12 @@ public class HSItems
     @GameRegistry.ObjectHolder("harken_athame")
     public static HSToolSword harken_athame;
 
+    @GameRegistry.ObjectHolder("dimensional_mirror")
+    public static HSItemDimensionalMirror dimensional_mirror;
+
+    @GameRegistry.ObjectHolder("spectral_pickaxe")
+    public static HSToolPickaxe spectral_pickaxe;
+
     @GameRegistry.ObjectHolder("spectral_glass_bottle")
     public static HSItemSpectralBottle spectral_glass_bottle;
     @GameRegistry.ObjectHolder("spectral_potion_affliction")
@@ -185,12 +191,6 @@ public class HSItems
     public static HSArmorDyeable soulweave_pants;
     @GameRegistry.ObjectHolder("soulweave_shoes")
     public static HSArmorDyeable soulweave_shoes;
-
-    @GameRegistry.ObjectHolder("dimensional_mirror")
-    public static HSItemDimensionalMirror dimensional_mirror;
-
-    @GameRegistry.ObjectHolder("spectral_pickaxe")
-    public static HSToolPickaxe spectral_pickaxe;
 
     public static ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("biomass", "biomass", 14, new int[] {1, 4, 5, 2}, 17, SoundEvents.BLOCK_CHORUS_FLOWER_GROW, 0.5F).setRepairItem(new ItemStack(biomass));
     public static ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(livingmetal_ingot));
@@ -266,6 +266,8 @@ public class HSItems
                 HSRegistry.setup(new HSItemFood(3, 0.2F, false, 16, true, EnumRarity.UNCOMMON), "soul_cookie").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolSword(ToolMaterial.IRON, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.COMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSToolPickaxe(TOOL_SPECTRAL, EnumRarity.EPIC), "spectral_pickaxe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralBottle(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.AFFLICTION), "spectral_potion_affliction").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.FLAME), "spectral_potion_flame").setCreativeTab(HarkenScythe.TAB),
@@ -278,9 +280,7 @@ public class HSItems
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 3847130), "soulweave_hood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 3847130), "soulweave_robe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 3847130), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.COMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSToolPickaxe(TOOL_SPECTRAL, EnumRarity.EPIC), "spectral_pickaxe").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
             );
 
         // ITEM BLOCKS
