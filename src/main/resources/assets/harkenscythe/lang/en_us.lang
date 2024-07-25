@@ -151,5 +151,6 @@ tooltip.harkenscythe.soul_cake=Gives Regeneration (0:06) when a slice is eaten a
 tooltip.harkenscythe.soul_cookie=Gives Regeneration (0:04) when eaten
 
 # CONFIG
-cfg.harkenscythe.general=General Settings
-cfg.harkenscythe.entity=Entity Settings
+cfg.harkenscythe.general=General
+cfg.harkenscythe.entities=Entities
+cfg.harkenscythe.items=Items

@@ -13,18 +13,31 @@ import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
 public class HSConfig
 {
     @Config.LangKey("cfg.harkenscythe.general")
-    @Config.Name("General Settings")
-    public static final GeneralSettings GENERAL_SETTINGS = new GeneralSettings();
+    @Config.Name("General")
+    public static final GeneralSettings GENERAL = new GeneralSettings();
 
-    @Config.LangKey("cfg.harkenscythe.entity")
-    @Config.Name("Entity Settings")
-    public static final EntitySettings ENTITY_SETTINGS = new EntitySettings();
+    @Config.LangKey("cfg.harkenscythe.blocks")
+    @Config.Name("Blocks")
+    public static final BlockSettings BLOCKS = new BlockSettings();
+
+    @Config.LangKey("cfg.harkenscythe.entities")
+    @Config.Name("Entities")
+    public static final EntitySettings ENTITIES = new EntitySettings();
+
+    @Config.LangKey("cfg.harkenscythe.items")
+    @Config.Name("Items")
+    public static final ItemSettings ITEMS = new ItemSettings();
 
     public static class GeneralSettings
     {
         @Config.Name("Debug Mode")
         @Config.Comment("Prints debug values to console")
         public boolean debugMode = false;
+    }
+
+    public static class BlockSettings
+    {
+
     }
 
     public static class EntitySettings
@@ -36,6 +49,11 @@ public class HSConfig
                 "Example: minecraft:cow"
             })
         public String[] harbingerReapingBlacklist = new String[] {};
+    }
+
+    public static class ItemSettings
+    {
+
     }
 
     @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)

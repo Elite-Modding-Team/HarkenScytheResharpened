@@ -168,7 +168,7 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
-        if (HSConfig.GENERAL_SETTINGS.debugMode) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
+        if (HSConfig.GENERAL.debugMode) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         this.setEnchantmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);

@@ -119,7 +119,7 @@ public class HSRegistry
             if (!types.contains(BiomeDictionary.Type.MUSHROOM) && !types.contains(BiomeDictionary.Type.WATER) && !types.contains(BiomeDictionary.Type.NETHER) && !types.contains(BiomeDictionary.Type.END))
             {
                 regularSpawning.add(biome);
-                if (HSConfig.GENERAL_SETTINGS.debugMode) HarkenScythe.LOGGER.debug("Biome " + biome.getBiomeName() + " is valid for regular spawning");
+                if (HSConfig.GENERAL.debugMode) HarkenScythe.LOGGER.debug("Biome " + biome.getBiomeName() + " is valid for regular spawning");
             }
         }
 

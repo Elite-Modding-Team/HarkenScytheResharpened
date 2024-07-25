@@ -21,7 +21,7 @@ public class HSHarbingerReapingBlacklist
         BLACKLISTED_ENTITY_ENTRIES.clear();
         try
         {
-            for (String entry : HSConfig.ENTITY_SETTINGS.harbingerReapingBlacklist)
+            for (String entry : HSConfig.ENTITIES.harbingerReapingBlacklist)
             {
                 ResourceLocation resLoc = new ResourceLocation(entry);
                 if (ForgeRegistries.ENTITIES.containsKey(resLoc)) BLACKLISTED_ENTITY_ENTRIES.add(ForgeRegistries.ENTITIES.getValue(resLoc));
