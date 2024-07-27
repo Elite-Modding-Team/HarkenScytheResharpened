@@ -2,13 +2,13 @@ package mod.emt.harkenscythe.recipe;
 
 import net.minecraft.item.ItemStack;
 
-public class SoulAltarRecipe
+public class HSRecipeSoulAltar
 {
     private final ItemStack input;
     private final ItemStack output;
     private final int requiredSouls;
 
-    public SoulAltarRecipe(ItemStack input, ItemStack output, int requiredSouls)
+    public HSRecipeSoulAltar(ItemStack input, ItemStack output, int requiredSouls)
     {
         this.input = input;
         this.output = output;

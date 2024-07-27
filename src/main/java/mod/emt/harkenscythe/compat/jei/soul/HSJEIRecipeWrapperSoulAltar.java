@@ -14,14 +14,14 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.recipe.SoulAltarRecipe;
+import mod.emt.harkenscythe.recipe.HSRecipeSoulAltar;
 
 public class HSJEIRecipeWrapperSoulAltar implements IRecipeWrapper
 {
     private static final ResourceLocation REPAIR_ICON = new ResourceLocation(HarkenScythe.MOD_ID, "textures/gui/repair.png");
-    private final SoulAltarRecipe recipe;
+    private final HSRecipeSoulAltar recipe;
 
-    public HSJEIRecipeWrapperSoulAltar(SoulAltarRecipe recipe)
+    public HSJEIRecipeWrapperSoulAltar(HSRecipeSoulAltar recipe)
     {
         this.recipe = recipe;
     }

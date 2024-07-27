@@ -32,7 +32,7 @@ import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
+import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 public class HSEntityHarbinger extends EntityMob
 {
@@ -121,11 +121,11 @@ public class HSEntityHarbinger extends EntityMob
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(HSConfig.ENTITIES.harbingerArmorValue);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(HSConfig.ENTITIES.harbingerAttackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(HSConfig.ENTITIES.harbingerFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(HSConfig.ENTITIES.harbingerMaxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.harbingerMovementSpeed);
     }
 
     @Override
@@ -182,7 +182,7 @@ public class HSEntityHarbinger extends EntityMob
     private boolean reapPlayer()
     {
         if (this.world.isDaytime()) return false;
-        EntityPlayer nearestPlayer = this.world.getClosestPlayerToEntity(this, 20.0D);
+        EntityPlayer nearestPlayer = this.world.getClosestPlayerToEntity(this, HSConfig.ENTITIES.harbingerSearchDistance);
         if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable()) nearestPlayer = null;
         this.setAttackTarget(nearestPlayer);
         return this.getAttackTarget() instanceof EntityPlayer;
@@ -196,7 +196,7 @@ public class HSEntityHarbinger extends EntityMob
     private boolean reapForFun()
     {
         if (this.world.isDaytime()) return false;
-        List<Entity> nearbyEntities = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20.0D));
+        List<Entity> nearbyEntities = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(HSConfig.ENTITIES.harbingerSearchDistance));
         for (Entity entity : nearbyEntities)
         {
             if (entity instanceof EntityLivingBase && isWhitelistedEntity(entity))
@@ -216,7 +216,7 @@ public class HSEntityHarbinger extends EntityMob
      */
     private boolean isWhitelistedEntity(Entity entity)
     {
-        return !HSHarbingerReapingBlacklist.isBlacklisted(entity) && (entity instanceof EntityVillager || entity instanceof EntityAnimal);
+        return !HSEntityBlacklists.isBlacklistedForReaping(entity) && (entity instanceof EntityVillager || entity instanceof EntityAnimal);
     }
 
     /**

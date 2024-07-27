@@ -155,3 +155,4 @@ tooltip.harkenscythe.soul_cookie=Gives Regeneration (0:04) when eaten
 cfg.harkenscythe.general=General
 cfg.harkenscythe.entities=Entities
 cfg.harkenscythe.items=Items
+cfg.harkenscythe.recipes=Recipes

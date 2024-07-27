@@ -19,6 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSItemDimensionalMirror extends HSItem
@@ -30,7 +31,7 @@ public class HSItemDimensionalMirror extends HSItem
     {
         super(rarity);
         this.status = 0.0F;
-        setMaxDamage(20);
+        setMaxDamage(HSConfig.ITEMS.dimensionalMirrorDurability);
         setMaxStackSize(1);
         addPropertyOverride(new ResourceLocation(HarkenScythe.MOD_ID + ":dimensional_mirror_status"), new IItemPropertyGetter()
         {
@@ -50,7 +51,7 @@ public class HSItemDimensionalMirror extends HSItem
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
-        if (stack.getItemDamage() <= 15)
+        if (stack.getItemDamage() <= stack.getMaxDamage() - (stack.getMaxDamage() / HSConfig.ITEMS.dimensionalMirrorUses))
         {
             if (this.bedPosition != null)
             {
@@ -70,15 +71,14 @@ public class HSItemDimensionalMirror extends HSItem
             EntityPlayerMP player = (EntityPlayerMP) entity;
             if (this.bedPosition != null)
             {
-                // TODO: Make dimension configurable
-                if (player.dimension != 0)
+                if (player.dimension != HSConfig.ITEMS.dimensionalMirrorHomeDimension)
                 {
-                    player.changeDimension(0);
+                    player.changeDimension(HSConfig.ITEMS.dimensionalMirrorHomeDimension);
                 }
                 player.setPositionAndUpdate(this.bedPosition.getX(), this.bedPosition.getY(), this.bedPosition.getZ());
                 if (!player.capabilities.isCreativeMode)
                 {
-                    stack.setItemDamage(stack.getItemDamage() + 5);
+                    stack.setItemDamage(stack.getItemDamage() + (stack.getMaxDamage() / HSConfig.ITEMS.dimensionalMirrorUses));
                 }
                 world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_TELEPORT.getSoundEvent(), SoundCategory.PLAYERS, 0.75F, 1.0F);
             }
@@ -99,8 +99,8 @@ public class HSItemDimensionalMirror extends HSItem
         if (isSelected && entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entity;
-            if (!world.isRemote) this.bedPosition = player.getBedLocation(0);
-            if (stack.getItemDamage() > 15 || this.bedPosition == null)
+            if (!world.isRemote) this.bedPosition = player.getBedLocation(HSConfig.ITEMS.dimensionalMirrorHomeDimension);
+            if (stack.getItemDamage() > stack.getMaxDamage() - (stack.getMaxDamage() / HSConfig.ITEMS.dimensionalMirrorUses) || this.bedPosition == null)
             {
                 this.status = 0.0F;
             }

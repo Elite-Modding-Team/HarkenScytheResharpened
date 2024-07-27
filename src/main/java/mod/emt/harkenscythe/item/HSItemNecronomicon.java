@@ -18,6 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
@@ -65,7 +66,7 @@ public class HSItemNecronomicon extends HSItem
                 ItemStack bloodContainer = getBloodContainer(player);
                 if (bloodContainer != ItemStack.EMPTY)
                 {
-                    bloodContainer.setItemDamage(bloodContainer.getItemDamage() + 5);
+                    bloodContainer.setItemDamage(bloodContainer.getItemDamage() + HSConfig.ITEMS.necronomiconSummonBloodCost);
                 }
             }
             player.getCooldownTracker().setCooldown(stack.getItem(), 100);
@@ -131,7 +132,7 @@ public class HSItemNecronomicon extends HSItem
         for (int i = 0; i < player.inventory.getSizeInventory(); i++)
         {
             ItemStack stack = player.inventory.getStackInSlot(i);
-            if ((stack.getItem() == HSItems.essence_keeper_blood || stack.getItem() == HSItems.essence_vessel_blood) && stack.getItemDamage() <= stack.getMaxDamage() - 10)
+            if ((stack.getItem() == HSItems.essence_keeper_blood || stack.getItem() == HSItems.essence_vessel_blood) && stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.necronomiconSummonBloodCost)
             {
                 return stack;
             }

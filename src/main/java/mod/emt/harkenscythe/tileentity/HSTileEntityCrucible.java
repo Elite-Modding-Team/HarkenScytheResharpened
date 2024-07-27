@@ -6,10 +6,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.block.HSBlockCrucible;
+import mod.emt.harkenscythe.config.HSConfig;
 
 public class HSTileEntityCrucible extends HSTileEntity
 {
-    public static final int MAX_ESSENCE_COUNT = 100;
+    public static final int MAX_ESSENCE_COUNT = HSConfig.BLOCKS.crucibleMaxAmount;
     private int essenceCount = 0;
 
     public int getEssenceCount()

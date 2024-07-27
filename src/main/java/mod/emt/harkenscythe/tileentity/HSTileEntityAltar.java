@@ -15,9 +15,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.config.HSConfig;
+
 public abstract class HSTileEntityAltar extends HSTileEntity implements ITickable
 {
-    private static final int RADIUS = 4;
+    private static final int RADIUS = HSConfig.BLOCKS.crucibleDetectionRange;
     public int tickCount;
     public float pageFlip;
     public float pageFlipPrev;

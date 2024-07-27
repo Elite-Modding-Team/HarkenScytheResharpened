@@ -11,6 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 
 public class HSItemEssenceKeeperSoul extends HSItemEssenceKeeper
@@ -18,7 +19,7 @@ public class HSItemEssenceKeeperSoul extends HSItemEssenceKeeper
     public HSItemEssenceKeeperSoul()
     {
         super();
-        setMaxDamage(20);
+        setMaxDamage(HSConfig.ITEMS.soulKeeperEssenceCapacity);
         addPropertyOverride(new ResourceLocation(HarkenScythe.MOD_ID, "level"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)

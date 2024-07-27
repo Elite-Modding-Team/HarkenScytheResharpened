@@ -6,6 +6,8 @@ import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 
+import mod.emt.harkenscythe.config.HSConfig;
+
 public class HSAIPassiveMobAttack extends EntityAIAttackMelee
 {
     public HSAIPassiveMobAttack(EntityCreature entity, double moveSpeed, boolean longMemory)
@@ -21,7 +23,7 @@ public class HSAIPassiveMobAttack extends EntityAIAttackMelee
         {
             this.attackTick = 20;
             this.attacker.swingArm(EnumHand.MAIN_HAND);
-            entity.attackEntityFrom(DamageSource.causeMobDamage(this.attacker), 2.0F);
+            entity.attackEntityFrom(DamageSource.causeMobDamage(this.attacker), (float) HSConfig.ENTITIES.spectralEntityAttackDamage);
         }
     }
 }

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.util.HSCreativeTab;
-import mod.emt.harkenscythe.util.HSHarbingerReapingBlacklist;
+import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 import static mod.emt.harkenscythe.HarkenScythe.*;
 
@@ -46,7 +46,7 @@ public class HarkenScythe
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        HSHarbingerReapingBlacklist.initBlacklistedEntityEntries();
+        HSEntityBlacklists.initBlacklistedEntityEntries();
         LOGGER.info(NAME + " post-initialized");
     }
 }

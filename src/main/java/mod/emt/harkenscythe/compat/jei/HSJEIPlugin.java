@@ -10,8 +10,8 @@ import mod.emt.harkenscythe.compat.jei.blood.HSJEIRecipeWrapperBloodAltar;
 import mod.emt.harkenscythe.compat.jei.soul.HSJEIRecipeCategorySoulAltar;
 import mod.emt.harkenscythe.compat.jei.soul.HSJEIRecipeWrapperSoulAltar;
 import mod.emt.harkenscythe.init.HSAltarRecipes;
-import mod.emt.harkenscythe.recipe.BloodAltarRecipe;
-import mod.emt.harkenscythe.recipe.SoulAltarRecipe;
+import mod.emt.harkenscythe.recipe.HSRecipeBloodAltar;
+import mod.emt.harkenscythe.recipe.HSRecipeSoulAltar;
 
 @JEIPlugin
 public class HSJEIPlugin implements IModPlugin
@@ -21,18 +21,18 @@ public class HSJEIPlugin implements IModPlugin
     {
         // Register Blood Altar category
         registry.addRecipeCategories(new HSJEIRecipeCategoryBloodAltar(registry.getJeiHelpers().getGuiHelper()));
-        registry.handleRecipes(BloodAltarRecipe.class, HSJEIRecipeWrapperBloodAltar::new, HSJEIRecipeCategoryBloodAltar.UID);
+        registry.handleRecipes(HSRecipeBloodAltar.class, HSJEIRecipeWrapperBloodAltar::new, HSJEIRecipeCategoryBloodAltar.UID);
 
         // Register Soul Altar category
         registry.addRecipeCategories(new HSJEIRecipeCategorySoulAltar(registry.getJeiHelpers().getGuiHelper()));
-        registry.handleRecipes(SoulAltarRecipe.class, HSJEIRecipeWrapperSoulAltar::new, HSJEIRecipeCategorySoulAltar.UID);
+        registry.handleRecipes(HSRecipeSoulAltar.class, HSJEIRecipeWrapperSoulAltar::new, HSJEIRecipeCategorySoulAltar.UID);
 
         // Add Blood Altar recipes
-        List<BloodAltarRecipe> bloodAltarRecipes = HSAltarRecipes.getBloodAltarRecipes();
+        List<HSRecipeBloodAltar> bloodAltarRecipes = HSAltarRecipes.getBloodAltarRecipes();
         registry.addRecipes(bloodAltarRecipes, HSJEIRecipeCategoryBloodAltar.UID);
 
         // Add Soul Altar recipes
-        List<SoulAltarRecipe> soulAltarRecipes = HSAltarRecipes.getSoulAltarRecipes();
+        List<HSRecipeSoulAltar> soulAltarRecipes = HSAltarRecipes.getSoulAltarRecipes();
         registry.addRecipes(soulAltarRecipes, HSJEIRecipeCategorySoulAltar.UID);
     }
 }

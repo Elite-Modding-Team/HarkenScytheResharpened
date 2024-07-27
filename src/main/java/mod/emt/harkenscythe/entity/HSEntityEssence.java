@@ -16,12 +16,12 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public abstract class HSEntityEssence extends EntityLivingBase
 {
-    private static final int DESPAWN_TIME = 6000;
     private int innerRotation;
 
     protected HSEntityEssence(World world)
@@ -62,7 +62,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
                 }
             }
         }
-        if (this.ticksExisted >= DESPAWN_TIME)
+        if (this.ticksExisted >= HSConfig.ENTITIES.essenceDespawnTime)
         {
             this.world.playSound(null, this.getPosition(), SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
             this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);

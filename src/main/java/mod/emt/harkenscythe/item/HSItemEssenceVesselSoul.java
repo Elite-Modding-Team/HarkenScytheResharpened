@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.item;
 
 import net.minecraft.item.ItemStack;
 
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 
 public class HSItemEssenceVesselSoul extends HSItemEssenceKeeperSoul
@@ -9,7 +10,7 @@ public class HSItemEssenceVesselSoul extends HSItemEssenceKeeperSoul
     public HSItemEssenceVesselSoul()
     {
         super();
-        setMaxDamage(40);
+        setMaxDamage(HSConfig.ITEMS.soulVesselEssenceCapacity);
     }
 
     @Override

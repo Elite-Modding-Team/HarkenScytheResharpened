@@ -35,6 +35,7 @@ import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.tools.HSToolScythe;
+import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventLivingDeath
@@ -133,8 +134,7 @@ public class HSEventLivingDeath
 
     private static boolean isWhitelistedMob(Entity entity)
     {
-        // TODO: Replace with config-defined whitelist
-        return !(entity instanceof EntityPlayer) && !(entity instanceof EntityGhast) && !(entity instanceof EntitySlime);
+        return !HSEntityBlacklists.isBlacklistedForSummoning(entity) && !(entity instanceof EntityPlayer) && !(entity instanceof EntityGhast) && !(entity instanceof EntitySlime);
     }
 
     private static boolean isWearingFullSoulweaveSet(EntityPlayer player)
