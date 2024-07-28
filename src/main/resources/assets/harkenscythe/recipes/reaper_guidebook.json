@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "essenceHarken"
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:reaper_guidebook"
+  }
+}

@@ -15,6 +15,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -31,6 +32,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import mod.emt.harkenscythe.HarkenScythe;
@@ -145,8 +147,9 @@ public class HSRegistry
 
     public static void registerRecipes()
     {
-        HarkenScythe.LOGGER.info("Registering altar recipes...");
+        HarkenScythe.LOGGER.info("Registering altar recipes and ore dictionary entries...");
 
+        // Blood Altar
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_hood, HSItems.bloodweave_hood, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_robe, HSItems.bloodweave_robe, 10);
@@ -156,6 +159,7 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
         HSAltarRecipes.addBloodRecipes(HSConfig.RECIPES.customBloodAltarRecipes);
 
+        // Soul Altar
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_hood, HSItems.soulweave_hood, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_robe, HSItems.soulweave_robe, 10);
@@ -175,6 +179,10 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
         HSAltarRecipes.addSoulRecipes(HSConfig.RECIPES.customSoulAltarRecipes);
+        
+        // Ore Dictionary
+        OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.blood_essence));
+        OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.soul_essence));
     }
 
     @SubscribeEvent
