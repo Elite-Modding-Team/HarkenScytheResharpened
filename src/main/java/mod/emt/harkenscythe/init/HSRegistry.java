@@ -105,8 +105,9 @@ public class HSRegistry
         registerEntity("ectoglobin", HSEntityEctoglobin.class, 2304558, 14870762);
         registerEntity("hemoglobin", HSEntityHemoglobin.class, 3084561, 15455958);
 
-        registerEntity("spectral_human", HSEntitySpectralHuman.class);
-        registerEntity("spectral_miner", HSEntitySpectralMiner.class);
+        registerEntity("spectral_human", HSEntitySpectralHuman.class, 5334917, 12698049);
+        registerEntity("spectral_miner", HSEntitySpectralMiner.class, 3638918, 15132390);
+        
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
 
         registerEntitySpawns();
