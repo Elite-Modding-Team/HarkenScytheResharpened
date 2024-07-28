@@ -107,7 +107,7 @@ public class HSRegistry
 
         registerEntity("spectral_human", HSEntitySpectralHuman.class, 5334917, 12698049);
         registerEntity("spectral_miner", HSEntitySpectralMiner.class, 3638918, 15132390);
-        
+
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
 
         registerEntitySpawns();
@@ -180,7 +180,7 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
         HSAltarRecipes.addSoulRecipes(HSConfig.RECIPES.customSoulAltarRecipes);
-        
+
         // Ore Dictionary
         OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.blood_essence));
         OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.soul_essence));

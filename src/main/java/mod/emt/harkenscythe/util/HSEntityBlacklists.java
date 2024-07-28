@@ -14,8 +14,8 @@ import mod.emt.harkenscythe.config.HSConfig;
 
 public class HSEntityBlacklists
 {
-    public static final List<EntityEntry> HARBINGER_REAPING_BLACKLIST = new ArrayList<>();
-    public static final List<EntityEntry> SPECTRAL_ENTITY_BLACKLIST = new ArrayList<>();
+    private static final List<EntityEntry> HARBINGER_REAPING_BLACKLIST = new ArrayList<>();
+    private static final List<EntityEntry> SPECTRAL_ENTITY_BLACKLIST = new ArrayList<>();
 
     public static void initBlacklistedEntityEntries()
     {

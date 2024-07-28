@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.util.HSDimensionBlacklist;
 import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 @Config(modid = HarkenScythe.MOD_ID, name = "HarkenScythe")
@@ -141,6 +142,14 @@ public class HSConfig
         @Config.Comment("The amount of essence blood vessels can hold")
         public int bloodVesselEssenceCapacity = 80;
 
+        @Config.Name("Dimensional Mirror Dimension Blacklist")
+        @Config.Comment
+            ({
+                "The numeric dimension ID dimensional mirrors are not allowed to be used in",
+                "Example: 1 = The End"
+            })
+        public int[] dimensionalMirrorDimensionBlacklist = new int[] {};
+
         @Config.Name("Dimensional Mirror Durability")
         @Config.Comment("The amount of durability dimensional mirrors have")
         public int dimensionalMirrorDurability = 20;
@@ -198,6 +207,7 @@ public class HSConfig
             if (event.getModID().equals(HarkenScythe.MOD_ID))
             {
                 ConfigManager.sync(HarkenScythe.MOD_ID, Config.Type.INSTANCE);
+                HSDimensionBlacklist.initBlacklistedDimensions();
                 HSEntityBlacklists.initBlacklistedEntityEntries();
             }
         }
