@@ -42,13 +42,13 @@ minecraft {
     // MCP Mappings
     mcpMappingChannel = 'stable'
     mcpMappingVersion = '39'
-    
+
     // Set username here, the UUID will be looked up automatically
     username = 'Developer'
-    
+
     // Add any additional tweaker classes here
     // extraTweakClasses.add('org.spongepowered.asm.launch.MixinTweaker')
-    
+
     // Add various JVM arguments here for runtime
     def args = ["-ea:${project.group}"]
     if (project.use_coremod.toBoolean()) {
@@ -63,7 +63,7 @@ minecraft {
 
     // Include and use dependencies' Access Transformer files
     useDependencyAccessTransformers = true
-    
+
     // Add any properties you want to swap out for a dynamic value at build time here
     // Any properties here will be added to a class at build time, the name can be configured below
     // Example:
@@ -105,22 +105,26 @@ dependencies {
         implementation 'zone.rong:mixinbooter:9.1'
     }
 
+    // Had Enough Items
     implementation rfg.deobf('curse.maven:had-enough-items-557549:5471944')
+
+    // Thaumcraft
+    implementation rfg.deobf('curse.maven:baubles-227083:2518667')
+    implementation rfg.deobf('curse.maven:thaumcraft-223628:2629023')
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:
         String mixin = modUtils.enableMixins('zone.rong:mixinbooter:9.1', "mixins.${project.mod_id}.refmap.json")
-        api (mixin) {
+        api(mixin) {
             transitive = false
         }
         annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
         annotationProcessor 'com.google.guava:guava:24.1.1-jre'
         annotationProcessor 'com.google.code.gson:gson:2.8.6'
-        annotationProcessor (mixin) {
+        annotationProcessor(mixin) {
             transitive = false
         }
     }
-
 }
 
 // Adds Access Transformer files to tasks
@@ -137,16 +141,14 @@ processResources {
     // This will ensure that this task is redone when the versions change
     inputs.property 'version', project.version
     inputs.property 'mcversion', project.minecraft.version
-    
+
     // Replace various properties in mcmod.info and pack.mcmeta if applicable
     filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
         // Replace version and mcversion
-        fcd.expand (
-                'version': project.version,
-                'mcversion': project.minecraft.version
-        )
+        fcd.expand('version': project.version,
+                'mcversion': project.minecraft.version)
     }
-    
+
     if (project.use_access_transformer.toBoolean()) {
         rename '(.+_at.cfg)', 'META-INF/$1' // Make sure Access Transformer files are in META-INF folder
     }
@@ -168,7 +170,7 @@ jar {
         attributes(attribute_map)
     }
     // Add all embedded dependencies into the jar
-    from(provider{ configurations.embed.collect {it.isDirectory() ? it : zipTree(it)} })
+    from(provider { configurations.embed.collect { it.isDirectory() ? it : zipTree(it) } })
 }
 
 idea {
@@ -194,9 +196,7 @@ idea {
             compiler.javac {
                 afterEvaluate {
                     javacAdditionalOptions = "-encoding utf8"
-                    moduleJavacAdditionalOptions = [
-                            (project.name + ".main"): tasks.compileJava.options.compilerArgs.collect { '"' + it + '"' }.join(' ')
-                    ]
+                    moduleJavacAdditionalOptions = [(project.name + ".main"): tasks.compileJava.options.compilerArgs.collect { '"' + it + '"' }.join(' ')]
                 }
             }
         }
