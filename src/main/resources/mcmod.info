@@ -6,6 +6,7 @@
     "version": "${version}",
     "mcversion": "${mcversion}",
     "logoFile": "assets/harkenscythe/textures/logo.png",
-    "authorList": ["ACGaming", "IcarussOne"]
+    "authorList": ["ACGaming", "IcarussOne"],
+    "credits": "\n \u00A7eMain Developers:\n [*] ACGaming - Lead Developer\n [*] IcarussOne - Developer & Sound/Texture Artist\n \u00A76Special Thanks:\n [*] Jade_Knightblazer - Originally creating this amazing mod alongside Asgard Shield and making nostalgic memories for many Hexxit players\n [*] xJon - Giving general feedback on improving the mod, as well as creating and maintaining Hexxit II\n \u00A7dTranslators:\n [*] None yet! :)"
   }
 ]
