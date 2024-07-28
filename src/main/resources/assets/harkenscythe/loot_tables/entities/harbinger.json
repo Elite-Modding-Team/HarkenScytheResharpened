@@ -46,21 +46,6 @@
         },
         {
           "type": "item",
-          "name": "minecraft:player_head",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_name",
-              "name": {
-                "text": "Notch",
-                "color": "gold",
-                "bold": true
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
           "name": "harkenscythe:ancient_necronomicon_page",
           "weight": 2,
           "functions": [
