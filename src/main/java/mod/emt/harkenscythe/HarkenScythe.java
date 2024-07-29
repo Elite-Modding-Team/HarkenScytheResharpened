@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import mod.emt.harkenscythe.compat.CompatHandler;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.util.HSCreativeTab;
@@ -20,6 +21,7 @@ import static mod.emt.harkenscythe.HarkenScythe.*;
 public class HarkenScythe
 {
     public static final String MOD_ID = Tags.MOD_ID;
+    public static final String MOD_PREFIX = MOD_ID + ":";
     public static final String NAME = "Harken Scythe";
     public static final String VERSION = Tags.VERSION;
     public static final String ACCEPTED_VERSIONS = "[1.12.2]";
@@ -41,6 +43,7 @@ public class HarkenScythe
     {
         HSRegistry.registerTileEntities();
         HSRegistry.registerRecipes();
+        CompatHandler.init();
         LOGGER.info(NAME + " initialized");
     }
 
