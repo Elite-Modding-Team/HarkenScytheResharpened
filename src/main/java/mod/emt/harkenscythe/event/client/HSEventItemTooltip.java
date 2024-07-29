@@ -19,11 +19,16 @@ public class HSEventItemTooltip
 {
     private static final ResourceLocation BLOOD_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar");
     private static final ResourceLocation SOUL_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar");
+    
+    private static final ResourceLocation ANCIENT_NECRONOMICON = new ResourceLocation(HarkenScythe.MOD_ID, "ancient_necronomicon");
+    private static final ResourceLocation ANCIENT_NECRONOMICON_PAGE = new ResourceLocation(HarkenScythe.MOD_ID, "ancient_necronomicon_page");
     private static final ResourceLocation BIOMASS_SEED = new ResourceLocation(HarkenScythe.MOD_ID, "biomass_seed");
     private static final ResourceLocation BLUNT_HARKEN_BLADE = new ResourceLocation(HarkenScythe.MOD_ID, "blunt_harken_blade");
+    private static final ResourceLocation CARNAGE_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "carnage_book");
     private static final ResourceLocation HARKEN_ATHAME = new ResourceLocation(HarkenScythe.MOD_ID, "harken_athame");
     private static final ResourceLocation LIVINGMETAL_SHEARS = new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_shears");
     private static final ResourceLocation REAPER_SCYTHE = new ResourceLocation(HarkenScythe.MOD_ID, "reaper_scythe");
+    private static final ResourceLocation SHADOW_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "shadow_book");
     private static final ResourceLocation SOUL_CAKE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cake");
     private static final ResourceLocation SOUL_COOKIE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cookie");
 
@@ -44,9 +49,18 @@ public class HSEventItemTooltip
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.altar"));
         }
-        else if (ForgeRegistries.ITEMS.getKey(item).equals(HARKEN_ATHAME))
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(ANCIENT_NECRONOMICON))
         {
-            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.athame"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.ancient_necronomicon.5"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.ancient_necronomicon.4"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.ancient_necronomicon.3"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.ancient_necronomicon.2"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.ancient_necronomicon.1"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(ANCIENT_NECRONOMICON_PAGE))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.ancient_necronomicon_page.2"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.ancient_necronomicon_page.1"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(BIOMASS_SEED))
         {
@@ -55,6 +69,16 @@ public class HSEventItemTooltip
         else if (ForgeRegistries.ITEMS.getKey(item).equals(BLUNT_HARKEN_BLADE))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.blunt_blade"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(CARNAGE_BOOK))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.carnage_book.2"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.carnage_book.1"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(HARKEN_ATHAME))
+        {
+            event.getToolTip().add(1, "");
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.athame"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(LIVINGMETAL_SHEARS))
         {
@@ -67,6 +91,11 @@ public class HSEventItemTooltip
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.reaper_scythe.3"));
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.reaper_scythe.2"));
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.reaper_scythe.1"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(SHADOW_BOOK))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.shadow_book.2"));
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.shadow_book.1"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(SOUL_CAKE))
         {

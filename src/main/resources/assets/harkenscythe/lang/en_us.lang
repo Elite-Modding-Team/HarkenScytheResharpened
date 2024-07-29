@@ -137,20 +137,31 @@ effect.harkenscythe.water=Spectral Water
 message.harkenscythe.hs_reap=%s was reaped
 
 # TOOLTIPS
-tooltip.harkenscythe.altar=Requires a Harken Athame for rituals
-tooltip.harkenscythe.athame=Right-click on an Altar of Blood or Altar of Souls to infuse an item with its power
-tooltip.harkenscythe.biomass_seed=This needs to be germinated on an Altar of Blood first
+tooltip.harkenscythe.altar=Requires an athame for rituals.
+tooltip.harkenscythe.ancient_necronomicon.1=The Book of the Dead: Bound in human
+tooltip.harkenscythe.ancient_necronomicon.2=flesh and inked in blood, this ancient
+tooltip.harkenscythe.ancient_necronomicon.3=book contains incoherent ramblings about
+tooltip.harkenscythe.ancient_necronomicon.4=prophesies, necromancy, funerary incantations,
+tooltip.harkenscythe.ancient_necronomicon.5=and demon resurrection passages.
+tooltip.harkenscythe.ancient_necronomicon_page.1=A missing page of the Ancient Necronomicon,
+tooltip.harkenscythe.ancient_necronomicon_page.2=written in an ancient ominous text.
+tooltip.harkenscythe.athame=Right-click on an Altar of Blood or Altar of Souls to infuse an item with its power.
+tooltip.harkenscythe.biomass_seed=This needs to be germinated on an Altar of Blood first.
 tooltip.harkenscythe.blunt_blade=It could develop magical abilities if it comes into contact with blood or souls...
+tooltip.harkenscythe.carnage_book.1=A book containing religious inscriptions
+tooltip.harkenscythe.carnage_book.2=and instructions for channeling blood essence.
 tooltip.harkenscythe.collected_blood=Collected Blood
 tooltip.harkenscythe.collected_souls=Collected Souls
 tooltip.harkenscythe.reaper_scythe.1=There is a Reaper, whose name is Death,
 tooltip.harkenscythe.reaper_scythe.2=And, with his sickle keen,
 tooltip.harkenscythe.reaper_scythe.3=He reaps the bearded grain at a breath,
 tooltip.harkenscythe.reaper_scythe.4=And the flowers that grow between.
+tooltip.harkenscythe.shadow_book.1=A book containing religious inscriptions
+tooltip.harkenscythe.shadow_book.2=and instructions for channeling soul essence.
 tooltip.harkenscythe.repair=Repair Recipe
-tooltip.harkenscythe.shears=Effective on any types of cloth, leaves, and web
-tooltip.harkenscythe.soul_cake=Gives Regeneration (0:06) when a slice is eaten and will drop itself when no slice is eaten
-tooltip.harkenscythe.soul_cookie=Gives Regeneration (0:04) when eaten
+tooltip.harkenscythe.shears=Effective on any types of cloth, leaves, and web.
+tooltip.harkenscythe.soul_cake=Gives Regeneration (0:06) when a slice is eaten and will drop itself when no slice is eaten.
+tooltip.harkenscythe.soul_cookie=Gives Regeneration (0:04) when eaten.
 
 # CONFIG
 cfg.harkenscythe.general=General
