@@ -4,6 +4,7 @@ import net.minecraft.block.BlockEnchantmentTable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +13,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 
@@ -125,6 +127,12 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
         for (int i = 0; i < requiredEssence; i++)
         {
             player.world.spawnParticle(EnumParticleTypes.SPELL_WITCH, altarX + world.rand.nextFloat(), altarY + 1.0D + world.rand.nextFloat(), altarZ + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
+        }
+
+        if (player instanceof EntityPlayerMP)
+        {
+            if (this instanceof HSBlockBloodAltar) HSAdvancements.USE_BLOOD_ALTAR.trigger((EntityPlayerMP) player);
+            else HSAdvancements.USE_SOUL_ALTAR.trigger((EntityPlayerMP) player);
         }
 
         altar.setEssenceCount(altar.scanCrucibleEssenceCounts());

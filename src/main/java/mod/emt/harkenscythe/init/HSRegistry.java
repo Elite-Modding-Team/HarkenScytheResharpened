@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -36,6 +37,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.advancement.HSAdvancementTrigger;
 import mod.emt.harkenscythe.client.renderer.*;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.*;
@@ -77,6 +79,14 @@ public class HSRegistry
     {
         EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, entityID++, HarkenScythe.instance, 64,
             1, true);
+    }
+
+    public static void registerAdvancements()
+    {
+        for (HSAdvancementTrigger trigger : HSAdvancements.TRIGGER_ARRAY)
+        {
+            CriteriaTriggers.register(trigger);
+        }
     }
 
     @SubscribeEvent

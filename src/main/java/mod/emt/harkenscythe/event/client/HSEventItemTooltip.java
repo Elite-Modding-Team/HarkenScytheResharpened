@@ -19,7 +19,7 @@ public class HSEventItemTooltip
 {
     private static final ResourceLocation BLOOD_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar");
     private static final ResourceLocation SOUL_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar");
-    
+
     private static final ResourceLocation ANCIENT_NECRONOMICON = new ResourceLocation(HarkenScythe.MOD_ID, "ancient_necronomicon");
     private static final ResourceLocation ANCIENT_NECRONOMICON_PAGE = new ResourceLocation(HarkenScythe.MOD_ID, "ancient_necronomicon_page");
     private static final ResourceLocation BIOMASS_SEED = new ResourceLocation(HarkenScythe.MOD_ID, "biomass_seed");

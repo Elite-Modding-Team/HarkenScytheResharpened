@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import mod.emt.harkenscythe.compat.CompatHandler;
+import mod.emt.harkenscythe.compat.HSCompatHandler;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.util.HSCreativeTab;
@@ -41,9 +41,10 @@ public class HarkenScythe
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        HSRegistry.registerAdvancements();
         HSRegistry.registerTileEntities();
         HSRegistry.registerRecipes();
-        CompatHandler.init();
+        HSCompatHandler.init();
         LOGGER.info(NAME + " initialized");
     }
 
