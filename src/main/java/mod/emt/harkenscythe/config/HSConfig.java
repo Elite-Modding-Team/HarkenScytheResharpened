@@ -170,6 +170,10 @@ public class HSConfig
         @Config.Comment("The amount of blood essence the Necronomicon requires to summon spectrals")
         public int necronomiconSummonBloodCost = 10;
 
+        @Config.Name("Reaper's Guidebook Provision")
+        @Config.Comment("Provides the player with the Reaper's Guidebook on first spawn")
+        public boolean reaperGuidebookProvision = true;
+
         @Config.Name("Soul Keeper Essence Capacity")
         @Config.Comment("The amount of essence soul keepers can hold")
         public int soulKeeperEssenceCapacity = 20;

@@ -108,6 +108,9 @@ dependencies {
     // Had Enough Items
     implementation rfg.deobf('curse.maven:had-enough-items-557549:5471944')
 
+    // Patchouli
+    implementation rfg.deobf('curse.maven:patchouli-rofl-edition-905159:5201041')
+
     // Thaumcraft
     implementation rfg.deobf('curse.maven:baubles-227083:2518667')
     implementation rfg.deobf('curse.maven:thaumcraft-223628:2629023')

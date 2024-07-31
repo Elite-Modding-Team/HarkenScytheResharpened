@@ -89,8 +89,6 @@ public class HSItems
     @GameRegistry.ObjectHolder("soul_essence")
     public static HSItem soul_essence;
 
-    @GameRegistry.ObjectHolder("reaper_guidebook")
-    public static HSItem reaper_guidebook;
     @GameRegistry.ObjectHolder("ancient_necronomicon")
     public static HSItemNecronomicon ancient_necronomicon;
     @GameRegistry.ObjectHolder("ancient_necronomicon_page")
@@ -236,7 +234,6 @@ public class HSItems
                 HSRegistry.setup(new HSToolGlaive(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blood_essence").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "soul_essence").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemNecronomicon(), "ancient_necronomicon").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "ancient_necronomicon_page").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "carnage_book").setCreativeTab(HarkenScythe.TAB),

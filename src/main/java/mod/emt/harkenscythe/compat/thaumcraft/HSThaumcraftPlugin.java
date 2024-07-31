@@ -14,9 +14,8 @@ import thaumcraft.api.aspects.AspectRegistryEvent;
 
 // TODO: Entities are not registering aspects for some reason...
 @SuppressWarnings("deprecation")
-public class ThaumcraftIntegration
+public class HSThaumcraftPlugin
 {
-
     @SubscribeEvent
     public static void registerAspects(AspectRegistryEvent event)
     {
@@ -55,7 +54,6 @@ public class ThaumcraftIntegration
         proxy.registerObjectTag(new ItemStack(HSItems.harken_athame), new AspectList().add(Aspect.METAL, 12).add(Aspect.AVERSION, 3).add(Aspect.SOUL, 3));
         proxy.registerObjectTag(new ItemStack(HSItems.lady_harken_scythe), new AspectList().add(Aspect.AURA, 32).add(Aspect.ORDER, 32).add(Aspect.PROTECT, 32));
         proxy.registerObjectTag(new ItemStack(HSItems.livingmetal_ingot), new AspectList().add(Aspect.METAL, 10).add(Aspect.SOUL, 10));
-        proxy.registerObjectTag(new ItemStack(HSItems.reaper_guidebook), new AspectList().add(Aspect.MIND, 10).add(Aspect.AVERSION, 3).add(Aspect.SOUL, 3));
         proxy.registerObjectTag(new ItemStack(HSItems.reaper_scythe), new AspectList().add(Aspect.DEATH, 32).add(Aspect.ENTROPY, 32).add(Aspect.SOUL, 32));
         proxy.registerObjectTag(new ItemStack(HSItems.shadow_book), new AspectList().add(Aspect.MAGIC, 10).add(Aspect.MIND, 10).add(Aspect.SOUL, 10));
         proxy.registerObjectTag(new ItemStack(HSItems.soul_cake), new AspectList().add(Aspect.BEAST, 30).add(Aspect.PROTECT, 8).add(Aspect.CRAFT, 3));
