@@ -1,0 +1,19 @@
+{
+  "name": "Blood Essence",
+  "icon": "harkenscythe:textures/items/essence_blood.png",
+  "category": "getting_started",
+  "advancement": "harkenscythe:reapers_first_tool",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "text": "To reap blood essence from an entity, you need to use the glaive's special ability by $(4)right-clicking$() and letting go, whilst targeting a creature. If the creature is hurt during this process, it may drop its blood, depending on the tool material quality of the glaive."
+    },
+    {
+      "type": "entity",
+      "name": "Blood Essence",
+      "text": "The blood essence of a reaped creature",
+      "entity": "harkenscythe:blood"
+    }
+  ]
+}

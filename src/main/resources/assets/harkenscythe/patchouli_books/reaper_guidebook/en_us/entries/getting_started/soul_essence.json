@@ -1,0 +1,19 @@
+{
+  "name": "Soul Essence",
+  "icon": "harkenscythe:textures/items/essence_soul.png",
+  "category": "getting_started",
+  "advancement": "harkenscythe:reapers_first_tool",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "To reap soul essence from an entity, you need to use the scythe's special ability by $(4)right-clicking$() and letting go, whilst targeting a creature. If the creature is killed during this process, it may drop its soul, depending on the tool material quality of the scythe."
+    },
+    {
+      "type": "entity",
+      "name": "Soul Essence",
+      "text": "The soul essence of a reaped creature",
+      "entity": "harkenscythe:soul"
+    }
+  ]
+}

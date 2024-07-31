@@ -1,0 +1,16 @@
+{
+  "name": "Reaper's First Glaive",
+  "icon": "harkenscythe:textures/items/glaive_iron.png",
+  "category": "getting_started",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "To get started with reaping blood essences, you first need to construct a glaive."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:iron_glaive"
+    }
+  ]
+}
