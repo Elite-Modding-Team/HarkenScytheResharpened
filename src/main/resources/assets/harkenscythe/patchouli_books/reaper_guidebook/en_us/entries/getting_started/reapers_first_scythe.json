@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "To get started with reaping soul essences, you first need to construct a scythe."
+      "text": "To get started with reaping soul essences, you first need to construct a scythe.$(br2)Scythes can be made with any vanilla material like iron, as well as certain materials from other mods if supported."
     },
     {
       "type": "crafting",
