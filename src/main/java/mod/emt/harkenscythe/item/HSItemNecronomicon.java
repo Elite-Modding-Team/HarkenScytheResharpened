@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -21,6 +22,7 @@ import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
+import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
@@ -67,6 +69,10 @@ public class HSItemNecronomicon extends HSItem
                 if (bloodContainer != ItemStack.EMPTY)
                 {
                     bloodContainer.setItemDamage(bloodContainer.getItemDamage() + HSConfig.ITEMS.necronomiconSummonBloodCost);
+                }
+                if (entity instanceof EntityPlayerMP)
+                {
+                    HSAdvancements.USE_NECRONOMICON.trigger((EntityPlayerMP) entity);
                 }
             }
             player.getCooldownTracker().setCooldown(stack.getItem(), 100);

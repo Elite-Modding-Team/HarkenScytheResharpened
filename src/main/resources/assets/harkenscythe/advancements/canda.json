@@ -1,0 +1,22 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.canda.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.canda.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:ancient_necronomicon"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "harkenscythe:reapers_first_tool",
+  "criteria": {
+    "use_necronomicon": {
+      "trigger": "harkenscythe:use_necronomicon"
+    }
+  }
+}

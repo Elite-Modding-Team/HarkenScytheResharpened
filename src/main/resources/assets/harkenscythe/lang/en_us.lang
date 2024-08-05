@@ -16,6 +16,8 @@ advancement.harkenscythe.bloody_foundations.name=Bloody Foundations
 advancement.harkenscythe.bloody_foundations.desc=Craft a blood altar and utilize it.
 advancement.harkenscythe.souls_guidance.name=Soul's Guidance
 advancement.harkenscythe.souls_guidance.desc=Craft a soul altar and utilize it.
+advancement.harkenscythe.canda.name=Canda!
+advancement.harkenscythe.canda.desc=Resurrect a departed soul from the dead
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Altar of Blood
