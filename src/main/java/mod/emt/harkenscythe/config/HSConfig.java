@@ -146,9 +146,10 @@ public class HSConfig
         @Config.Comment
             ({
                 "The numeric dimension ID dimensional mirrors are not allowed to be used in",
-                "Example: 1 = The End"
+                "Example: 1 = The End",
+                "Defaults: 426 = Dungeon of Arcana, 427 = Vethea, 801 = Ancient Cavern, 812 = Immortallis"
             })
-        public int[] dimensionalMirrorDimensionBlacklist = new int[] {};
+        public int[] dimensionalMirrorDimensionBlacklist = new int[] {426, 427, 801, 812};
 
         @Config.Name("Dimensional Mirror Durability")
         @Config.Comment("The amount of durability dimensional mirrors have")
