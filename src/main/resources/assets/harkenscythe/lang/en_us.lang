@@ -135,6 +135,9 @@ effect.harkenscythe.purifying=Spectral Purifying
 effect.harkenscythe.water=Spectral Water
 
 # MESSAGES
+message.harkenscythe.dimensional_mirror.blacklist=A magical force prevents the mirror from working in this dimension!
+message.harkenscythe.dimensional_mirror.no_souls=The mirror needs souls to work!
+message.harkenscythe.dimensional_mirror.no_spawn=No spawn point is set for the mirror to work!
 message.harkenscythe.hs_reap=%s was reaped
 
 # TOOLTIPS
