@@ -1,0 +1,12 @@
+{
+  "name": "Let the Ritual Begin",
+  "icon": "harkenscythe:textures/items/harken_athame.png",
+  "category": "altar_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "YOUR TEXT HERE"
+    }
+  ]
+}

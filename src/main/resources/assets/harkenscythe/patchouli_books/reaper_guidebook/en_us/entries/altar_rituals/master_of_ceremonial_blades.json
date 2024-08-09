@@ -1,0 +1,16 @@
+{
+  "name": "Master of Ceremonial Blades",
+  "icon": "harkenscythe:textures/items/blunt_harken_blade.png",
+  "category": "altar_rituals",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "YOUR TEXT HERE"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blunt_harken_blade"
+    }
+  ]
+}
