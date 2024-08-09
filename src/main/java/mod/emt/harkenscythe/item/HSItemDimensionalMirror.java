@@ -61,6 +61,8 @@ public class HSItemDimensionalMirror extends HSItem
             }
             else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
         }
+        else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
+        
         return new ActionResult<>(EnumActionResult.PASS, stack);
     }
 
