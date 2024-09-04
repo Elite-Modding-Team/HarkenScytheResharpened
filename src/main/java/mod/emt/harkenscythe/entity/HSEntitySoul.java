@@ -17,6 +17,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
@@ -83,7 +84,7 @@ public class HSEntitySoul extends HSEntityEssence
 
         this.dataManager.set(SOUL_TYPE, soulType);
 
-        if (!this.world.isRemote)
+        if (FMLLaunchHandler.side().isClient() && !this.world.isRemote)
         {
             HSNetworkHandler.instance.sendToAllTracking(new HSSoulTypePacket(this.getEntityId(), soulType), this);
         }

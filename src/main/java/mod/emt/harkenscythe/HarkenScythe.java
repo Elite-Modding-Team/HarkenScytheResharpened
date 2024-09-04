@@ -4,11 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 import mod.emt.harkenscythe.compat.HSCompatHandler;
 import mod.emt.harkenscythe.init.HSRegistry;
@@ -33,17 +31,10 @@ public class HarkenScythe
     @Mod.Instance
     public static HarkenScythe instance;
 
-    public static boolean isServer() {
-        return FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER;
-    }
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        if (!isServer()) {
-            HSNetworkHandler.registerPackets();
-        }
-
+        HSNetworkHandler.registerPackets();
         LOGGER.info(NAME + " pre-initialized");
     }
 
