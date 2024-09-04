@@ -63,17 +63,20 @@ public class HSItemDimensionalMirror extends HSItem
             else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
         }
         else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
-        
+
         if (HSDimensionBlacklist.isBlacklisted(player.dimension))
         {
-        	player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.dimensional_mirror.blacklist"), true);
-        } else if (stack.getItemDamage() > stack.getMaxDamage() - (stack.getMaxDamage() / HSConfig.ITEMS.dimensionalMirrorUses))
-        {
-        	player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.dimensional_mirror.no_souls"), true);
-        } else if (this.bedPosition == null) {
-        	player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.dimensional_mirror.no_spawn"), true);
+            player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.dimensional_mirror.blacklist"), true);
         }
-        
+        else if (stack.getItemDamage() > stack.getMaxDamage() - (stack.getMaxDamage() / HSConfig.ITEMS.dimensionalMirrorUses))
+        {
+            player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.dimensional_mirror.no_souls"), true);
+        }
+        else if (this.bedPosition == null)
+        {
+            player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.dimensional_mirror.no_spawn"), true);
+        }
+
         return new ActionResult<>(EnumActionResult.PASS, stack);
     }
 
