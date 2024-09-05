@@ -1,11 +1,22 @@
 package mod.emt.harkenscythe.item.armor;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
+
+import javax.annotation.Nullable;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSItems;
@@ -58,6 +69,29 @@ public class HSArmor extends ItemArmor
         else
         {
             super.setDamage(stack, damage);
+        }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flag)
+    {
+        if ((this == HSItems.bloodweave_hood) || (this == HSItems.bloodweave_robe) || (this == HSItems.bloodweave_pants) || (this == HSItems.bloodweave_shoes))
+        {
+            tooltip.add(new TextComponentTranslation("setbonus.harkenscythe").setStyle(new Style().setColor(TextFormatting.GRAY)).getFormattedText());
+            tooltip.add(" " + new TextComponentTranslation("setbonus.harkenscythe.bloodweave").setStyle(new Style().setColor(TextFormatting.BLUE)).getFormattedText());
+            tooltip.add("");
+            tooltip.add(new TextComponentTranslation("tooltip.harkenscythe.no_break_blood").setStyle(new Style().setColor(TextFormatting.GRAY)).getFormattedText());
+            tooltip.add("");
+        }
+        
+        if ((this == HSItems.soulweave_hood) || (this == HSItems.soulweave_robe) || (this == HSItems.soulweave_pants) || (this == HSItems.soulweave_shoes))
+        {
+            tooltip.add(new TextComponentTranslation("setbonus.harkenscythe").setStyle(new Style().setColor(TextFormatting.GRAY)).getFormattedText());
+            tooltip.add(" " + new TextComponentTranslation("setbonus.harkenscythe.soulweave").setStyle(new Style().setColor(TextFormatting.BLUE)).getFormattedText());
+            tooltip.add("");
+            tooltip.add(new TextComponentTranslation("tooltip.harkenscythe.no_break_soul").setStyle(new Style().setColor(TextFormatting.GRAY)).getFormattedText());
+            tooltip.add("");
         }
     }
 }

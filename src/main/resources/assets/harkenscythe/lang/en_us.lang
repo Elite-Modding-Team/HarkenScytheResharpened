@@ -140,6 +140,11 @@ message.harkenscythe.dimensional_mirror.no_souls=The mirror needs to be recharge
 message.harkenscythe.dimensional_mirror.no_spawn=No spawn point is set for the mirror to work!
 message.harkenscythe.hs_reap=%s was reaped
 
+# SET BONUSES
+setbonus.harkenscythe=Set Bonus:
+setbonus.harkenscythe.bloodweave=25%% chance for additional reaped blood essence
+setbonus.harkenscythe.soulweave=25%% chance for additional reaped soul essence
+
 # TOOLTIPS
 tooltip.harkenscythe.altar=Requires an athame for rituals.
 tooltip.harkenscythe.ancient_necronomicon.1=The Book of the Dead: Bound in human
@@ -165,8 +170,8 @@ tooltip.harkenscythe.essence_container=Used to harness blood essence or soul ess
 tooltip.harkenscythe.germinated_biomass_seed=This should be planted in tilled creep blocks.
 tooltip.harkenscythe.livingmetal_ability=Restores durability while soul essence is collected.
 tooltip.harkenscythe.livingmetal_ingot=It hums oddly.
-tooltip.harkenscythe.no_break_blood=Never breaks but requires soul essence to repair at an Altar of Blood.
-tooltip.harkenscythe.no_break_soul=Never breaks but requires blood essence to repair at an Altar of Soul.
+tooltip.harkenscythe.no_break_blood=Never breaks but must be repaired at an Altar of Blood with blood essence.
+tooltip.harkenscythe.no_break_soul=Never breaks but must be repaired at an Altar of Souls with soul essence.
 tooltip.harkenscythe.reaper_scythe.1=There is a Reaper, whose name is Death,
 tooltip.harkenscythe.reaper_scythe.2=And, with his sickle keen,
 tooltip.harkenscythe.reaper_scythe.3=He reaps the bearded grain at a breath,
