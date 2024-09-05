@@ -26,6 +26,8 @@ public class HSBlockLivingmetalCore extends Block
     {
         super(Material.IRON);
         setDefaultState(blockState.getBaseState().withProperty(STATE, 0));
+        setHardness(5.0F);
+        setResistance(2000.0F);
         setSoundType(HSSoundTypes.LIVINGMETAL);
     }
 

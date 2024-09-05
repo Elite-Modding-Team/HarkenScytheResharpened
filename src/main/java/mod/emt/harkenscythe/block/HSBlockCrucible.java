@@ -46,6 +46,8 @@ public abstract class HSBlockCrucible extends Block
     {
         super(Material.IRON, color);
         setDefaultState(blockState.getBaseState().withProperty(LEVEL, 0));
+        setHardness(5.0F);
+        setResistance(2000.0F);
     }
 
     public void setLevel(World world, BlockPos pos, IBlockState state, int level)

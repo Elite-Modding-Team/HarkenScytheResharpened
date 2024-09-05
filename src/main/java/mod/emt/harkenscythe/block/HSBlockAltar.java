@@ -22,6 +22,8 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
     protected HSBlockAltar()
     {
         super();
+        setHardness(5.0F);
+        setResistance(2000.0F);
     }
 
     @Override
