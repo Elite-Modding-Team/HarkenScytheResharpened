@@ -41,6 +41,7 @@ public class HSEventItemTooltip
     private static final ResourceLocation SPECTRAL_POTION_AFFLICTION = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_affliction");
     private static final ResourceLocation SPECTRAL_POTION_FLAME = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_flame");
     private static final ResourceLocation SPECTRAL_POTION_PURIFYING = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_purifying");
+    private static final ResourceLocation UNPOWERED_TOTEM_OF_UNDYING = new ResourceLocation(HarkenScythe.MOD_ID, "unpowered_totem_of_undying");
 
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent event)
@@ -156,6 +157,10 @@ public class HSEventItemTooltip
         else if (ForgeRegistries.ITEMS.getKey(item).equals(SPECTRAL_POTION_PURIFYING))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.spectral_potion_purifying"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(UNPOWERED_TOTEM_OF_UNDYING))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.totem_undying_unpowered"));
         }
     }
 }

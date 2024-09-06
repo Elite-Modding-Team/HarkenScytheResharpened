@@ -109,6 +109,7 @@ item.harkenscythe.spectral_potion_purifying.name=Spectral Potion of Purifying
 item.harkenscythe.spectral_potion_water.name=Spectral Potion of Water
 item.harkenscythe.stone_glaive.name=Stone Glaive
 item.harkenscythe.stone_scythe.name=Stone Scythe
+item.harkenscythe.unpowered_totem_of_undying.name=Unpowered Totem of Undying
 item.harkenscythe.wooden_glaive.name=Wooden Glaive
 item.harkenscythe.wooden_scythe.name=Wooden Scythe
 
@@ -186,6 +187,7 @@ tooltip.harkenscythe.soul_essence=Soul in physical form.
 tooltip.harkenscythe.spectral_potion_affliction=Can be thrown to spawn a lingering cloud that inflicts a random negative effect.
 tooltip.harkenscythe.spectral_potion_flame=Can be thrown to start fires.
 tooltip.harkenscythe.spectral_potion_purifying=Can be thrown to spawn a lingering cloud that dispels all negative effects.
+tooltip.harkenscythe.totem_undying_unpowered=This needs to be empowered on an Altar of Souls first before it can function.
 
 # CONFIG
 cfg.harkenscythe.general=General

@@ -184,6 +184,7 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_pane_inverted), Item.getItemFromBlock(HSBlocks.spectral_glass_pane), 1);
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 5);
+        HSAltarRecipes.addSoulRecipe(HSItems.unpowered_totem_of_undying, Items.TOTEM_OF_UNDYING, 100);
         //HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.AWKWARD).getItem(), Items.EXPERIENCE_BOTTLE, 40); // TODO: Something better for this?
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 10);
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
