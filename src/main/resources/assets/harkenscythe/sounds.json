@@ -170,5 +170,18 @@
       "harkenscythe:harbinger_idle3",
       "harkenscythe:harbinger_idle4"
     ]
+  },
+  "guide.flip": {
+    "sounds": [
+      "harkenscythe:guide/flip1",
+      "harkenscythe:guide/flip2",
+      "harkenscythe:guide/flip3",
+      "harkenscythe:guide/flip4"
+    ]
+  },
+  "guide.open": {
+    "sounds": [
+      "harkenscythe:guide/open"
+    ]
   }
 }

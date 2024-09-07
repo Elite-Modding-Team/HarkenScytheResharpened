@@ -34,7 +34,9 @@ public enum HSSoundEvents
     ENTITY_SPECTRAL_MINER_RUN("entity.spectral_miner.run"),
     ENTITY_HARBINGER_HURT("entity.harbinger.hurt"),
     ENTITY_HARBINGER_DEATH("entity.harbinger.death"),
-    ENTITY_HARBINGER_IDLE("entity.harbinger.idle");
+    ENTITY_HARBINGER_IDLE("entity.harbinger.idle"),
+    GUIDE_FLIP("guide.flip"),
+    GUIDE_OPEN("guide.open");
 
     private final SoundEvent soundEvent;
 
