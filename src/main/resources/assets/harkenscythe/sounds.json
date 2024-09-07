@@ -27,7 +27,12 @@
   },
   "block.blood_altar.enchant": {
     "sounds": [
-      "harkenscythe:enchant_soul"
+      "harkenscythe:enchant_blood"
+    ]
+  },
+  "block.blood_altar.enchant_fail": {
+    "sounds": [
+      "harkenscythe:enchant_blood_fail"
     ]
   },
   "block.livingmetal.break": {
@@ -50,7 +55,12 @@
   },
   "block.soul_altar.enchant": {
     "sounds": [
-      "harkenscythe:enchant_blood"
+      "harkenscythe:enchant_soul"
+    ]
+  },
+  "block.soul_altar.enchant_fail": {
+    "sounds": [
+      "harkenscythe:enchant_soul_fail"
     ]
   },
   "item.athame.create": {

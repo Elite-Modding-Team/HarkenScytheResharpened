@@ -90,7 +90,7 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 if (!itemStack.isEmpty())
                 {
                     player.addItemStackToInventory(itemStack);
-                    player.world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    player.world.playSound(altarX, altarY, altarZ, getSoundEventFail(), SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altar.setInputStack(ItemStack.EMPTY);
                     return true;
                 }
@@ -104,6 +104,8 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
     protected abstract ItemStack getOutput(Item inputItem);
 
     protected abstract SoundEvent getSoundEvent();
+
+    protected abstract SoundEvent getSoundEventFail();
 
     protected void handleRecipe(World world, HSTileEntityAltar altar, ItemStack altarStack, EntityPlayer player, int altarX, int altarY, int altarZ)
     {

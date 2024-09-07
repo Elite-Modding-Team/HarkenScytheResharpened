@@ -35,4 +35,10 @@ public class HSBlockBloodAltar extends HSBlockAltar
     {
         return HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT.getSoundEvent();
     }
+
+    @Override
+    protected SoundEvent getSoundEventFail()
+    {
+        return HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT_FAIL.getSoundEvent();
+    }
 }
