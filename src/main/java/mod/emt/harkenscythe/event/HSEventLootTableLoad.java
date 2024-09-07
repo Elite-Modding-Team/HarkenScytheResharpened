@@ -28,7 +28,7 @@ public class HSEventLootTableLoad
                 main.addEntry(new LootEntryItem(HSItems.unpowered_totem_of_undying, 1, 0, new LootFunction[0], new LootCondition[0], "loottable:unpowered_totem_of_undying"));
             }
         }
-        
+
         if (event.getName().equals(LootTableList.CHESTS_NETHER_BRIDGE) || event.getName().equals(LootTableList.CHESTS_END_CITY_TREASURE))
         {
             final LootPool main = event.getTable().getPool("main");

@@ -157,7 +157,7 @@ public class HSItems
     public static HSItem blunt_harken_blade;
     @GameRegistry.ObjectHolder("harken_athame")
     public static HSToolSword harken_athame;
-    
+
     @GameRegistry.ObjectHolder("unpowered_totem_of_undying")
     public static HSItem unpowered_totem_of_undying;
 
