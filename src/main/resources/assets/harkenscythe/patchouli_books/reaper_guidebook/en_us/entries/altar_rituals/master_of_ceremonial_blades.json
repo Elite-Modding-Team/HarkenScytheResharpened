@@ -2,11 +2,12 @@
   "name": "Ceremonial Blade Master",
   "icon": "harkenscythe:textures/items/blunt_harken_blade.png",
   "category": "altar_rituals",
+  "advancement": "harkenscythe:your_time_is_up",
   "sortnum": 1,
   "pages": [
     {
       "type": "text",
-      "text": "YOUR TEXT HERE"
+      "text": "To obtain a proper tool for magical infusions, you also need to construct a Blunt Harken Blade.$(br2)When a thrown Blunt Harken Blade comes into contact with any essence, it gains its full powers and your shiny new Harken Athame can then be used for altar rituals."
     },
     {
       "type": "crafting",

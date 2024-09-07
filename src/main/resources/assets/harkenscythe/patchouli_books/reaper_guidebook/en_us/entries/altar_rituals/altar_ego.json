@@ -2,6 +2,7 @@
   "name": "Altar Ego",
   "icon": "harkenscythe:textures/items/shadow_book.png",
   "category": "altar_rituals",
+  "advancement": "harkenscythe:your_time_is_up",
   "sortnum": 0,
   "pages": [
     {

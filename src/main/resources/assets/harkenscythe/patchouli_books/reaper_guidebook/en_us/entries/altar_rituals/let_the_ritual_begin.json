@@ -2,11 +2,16 @@
   "name": "Let the Ritual Begin",
   "icon": "harkenscythe:textures/items/harken_athame.png",
   "category": "altar_rituals",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "sortnum": 2,
   "pages": [
     {
       "type": "text",
-      "text": "YOUR TEXT HERE"
+      "text": "If an altar and crucibles of the same type are placed next to each other (default is a radius of 4 blocks) and the crucibles are filled with essence, enchanting rituals can take place."
+    },
+    {
+      "type": "text",
+      "text": "Each enchantable item possesses an essence cost for a successful magical transformation. If enough essence is available for this process, $(4)right-click$() on the altar with a Harken Athame to perform the ritual.$(br2)See JEI/HEI for altar recipes and essence costs."
     }
   ]
 }
