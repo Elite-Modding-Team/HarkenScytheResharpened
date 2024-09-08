@@ -12,27 +12,31 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.block.HSBlockSoulCake;
+import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
 import mod.emt.harkenscythe.item.*;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.item.tools.*;
 
-@SuppressWarnings({"deprecation", "unused"})
+@SuppressWarnings({"deprecation"})
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSItems
@@ -89,8 +93,6 @@ public class HSItems
     @GameRegistry.ObjectHolder("soul_essence")
     public static HSItem soul_essence;
 
-    @GameRegistry.ObjectHolder("reaper_guidebook")
-    public static HSItem reaper_guidebook;
     @GameRegistry.ObjectHolder("ancient_necronomicon")
     public static HSItemNecronomicon ancient_necronomicon;
     @GameRegistry.ObjectHolder("ancient_necronomicon_page")
@@ -196,6 +198,9 @@ public class HSItems
     public static HSArmorDyeable soulweave_pants;
     @GameRegistry.ObjectHolder("soulweave_shoes")
     public static HSArmorDyeable soulweave_shoes;
+    
+    @GameRegistry.ObjectHolder("reaper_guidebook")
+    public static HSItem reaper_guidebook;
 
     public static ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("biomass", "biomass", 14, new int[] {1, 4, 5, 2}, 17, SoundEvents.BLOCK_CHORUS_FLOWER_GROW, 0.5F).setRepairItem(new ItemStack(biomass));
     public static ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(livingmetal_ingot));
@@ -239,7 +244,6 @@ public class HSItems
                 HSRegistry.setup(new HSToolGlaive(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blood_essence").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "soul_essence").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemNecronomicon(), "ancient_necronomicon").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "ancient_necronomicon_page").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "carnage_book").setCreativeTab(HarkenScythe.TAB),
@@ -289,12 +293,28 @@ public class HSItems
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 3847130), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
             );
+        
+        // Third Party Mod Integration
+        if (Loader.isModLoaded("patchouli"))
+        {
+            registry.register(HSRegistry.setup(new HSItemGuidebook(), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB));
+        }
 
         // ITEM BLOCKS
         ForgeRegistries.BLOCKS.getValues().stream()
             .filter(block -> block.getRegistryName().getNamespace().equals(HarkenScythe.MOD_ID))
             .filter(block -> !(block instanceof HSBlockSoulCake))
             .forEach(block -> registry.register(HSRegistry.setup(new ItemBlock(block), block.getRegistryName())));
+    }
+    
+    @SubscribeEvent
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+        final IForgeRegistry<IRecipe> registry = event.getRegistry();
+
+        // Third Party Mod Integration
+        if (Loader.isModLoaded("patchouli")) {
+            registry.register(new ShapelessOreRecipe(null, reaper_guidebook, Items.BOOK, "essenceHarken").setRegistryName(HarkenScythe.MOD_ID, "reaper_guidebook"));
+        }
     }
 
     @SideOnly(Side.CLIENT)

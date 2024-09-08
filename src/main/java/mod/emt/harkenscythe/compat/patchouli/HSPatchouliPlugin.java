@@ -6,8 +6,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSItems;
 import vazkii.patchouli.api.PatchouliAPI;
 
+@SuppressWarnings("unused")
 public class HSPatchouliPlugin
 {
     private static PatchouliAPI.IPatchouliAPI api = null;
@@ -15,7 +17,7 @@ public class HSPatchouliPlugin
     public static void giveBookToPlayer(EntityPlayer player)
     {
         ItemStack bookStack = getAPI().getBookStack(new ResourceLocation(HarkenScythe.MOD_ID, "reaper_guidebook").toString());
-        ItemHandlerHelper.giveItemToPlayer(player, bookStack);
+        ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(HSItems.reaper_guidebook));
     }
 
     private static PatchouliAPI.IPatchouliAPI getAPI()

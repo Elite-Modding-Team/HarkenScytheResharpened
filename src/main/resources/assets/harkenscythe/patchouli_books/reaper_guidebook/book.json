@@ -9,8 +9,11 @@
   "advancements_tab": "harkenscythe:root",
   "book_texture": "patchouli:textures/gui/book_gray.png",
   "creative_tab": "harkenscythe.tab",
+  "custom_book_item": "harkenscythe:reaper_guidebook",
+  "dont_generate_book": true,
   "index_icon": "harkenscythe:textures/items/ancient_necronomicon_active.png",
   "model": "harkenscythe:reaper_guidebook",
+  "pause_game": true,
   "open_sound": "harkenscythe:guide.open",
   "flip_sound": "harkenscythe:guide.flip"
 }
