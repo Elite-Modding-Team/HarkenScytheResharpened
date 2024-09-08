@@ -2,7 +2,7 @@
   "name": "Reaper's First Glaive",
   "icon": "harkenscythe:textures/items/glaive_iron.png",
   "category": "getting_started",
-  "sortnum": 1,
+  "sortnum": 2,
   "pages": [
     {
       "type": "text",

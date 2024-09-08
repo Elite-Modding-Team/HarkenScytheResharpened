@@ -1,0 +1,16 @@
+{
+  "name": "Welcome New Reaper!",
+  "icon": "harkenscythe:textures/items/reaper_guidebook.png",
+  "category": "getting_started",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Within this guidebook, you'll learn how to play the Harken Scythe mod. The guidebook should hopefully be as straightforward and as least confusing as possible within its tutorials.$(br)Should you somehow lose this guidebook, you can obtain another using the recipe in the next page like so."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:reaper_guidebook"
+    }
+  ]
+}
