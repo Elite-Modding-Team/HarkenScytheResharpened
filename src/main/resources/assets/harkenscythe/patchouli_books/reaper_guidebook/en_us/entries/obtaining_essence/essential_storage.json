@@ -7,7 +7,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "To store larger amounts of essence, you need to construct a crucible of the respective type.$(br2)Crucibles can be $(4)right-clicked$() with filled essence keepers or essence vessels, akin to cauldrons.$(br)It is also possible to drain essence from the crucible by $(4)sneaking() and $(4)right-clicking$()."
+      "text": "To store larger amounts of essence, you need to construct a crucible of the respective type.$(br2)Crucibles can be $(4)right-clicked$() with filled essence keepers or essence vessels, akin to cauldrons.$(br)It is also possible to drain essence from the crucible by $(4)sneaking$() and $(4)right-clicking$()."
     },
     {
       "type": "crafting",

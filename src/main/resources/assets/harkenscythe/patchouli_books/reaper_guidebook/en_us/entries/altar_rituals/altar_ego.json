@@ -13,6 +13,11 @@
       "type": "crafting",
       "recipe": "harkenscythe:blood_altar",
       "recipe2": "harkenscythe:soul_altar"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:carnage_book",
+      "recipe2": "harkenscythe:shadow_book"
     }
   ]
 }
