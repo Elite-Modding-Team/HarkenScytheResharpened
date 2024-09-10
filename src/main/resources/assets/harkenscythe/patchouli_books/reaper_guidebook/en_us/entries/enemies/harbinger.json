@@ -20,7 +20,9 @@
     },
     {
       "type": "entity",
-      "entity": "harkenscythe:harbinger"
+      "entity": "harkenscythe:harbinger{HandItems:[{Count:1,id:\"harkenscythe:reaper_scythe\"},{}]}",
+      "scale": 0.9,
+      "offset": 0.9
     }
   ]
 }
