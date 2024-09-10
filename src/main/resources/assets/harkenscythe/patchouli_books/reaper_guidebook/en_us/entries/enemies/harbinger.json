@@ -1,0 +1,26 @@
+{
+  "name": "Harbinger",
+  "icon": "harkenscythe:reaper_scythe",
+  "category": "enemies",
+  "pages": [
+    {
+      "type": "boss_info",
+      "title": "Harbinger",
+      "piece": "king",
+      "hand": "harkenscythe:reaper_scythe",
+      "resistance": "   10",
+      "knockback": "   0",
+      "health": "  200",
+      "damage": "   6",
+      "speed": "  0.3",
+      "drop1": "minecraft:bone",
+      "drop2": "minecraft:ender_pearl",
+      "drop3": "minecraft:totem_of_undying",
+      "drop4": "harkenscythe:essence_keeper_soul"
+    },
+    {
+      "type": "entity",
+      "entity": "harkenscythe:harbinger"
+    }
+  ]
+}

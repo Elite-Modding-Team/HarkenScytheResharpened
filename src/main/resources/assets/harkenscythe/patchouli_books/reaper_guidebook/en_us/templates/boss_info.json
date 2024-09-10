@@ -11,8 +11,6 @@
       "x": -1,
       "y": -1
     },
-	
-	
     {
       "type": "item",
       "item": "#potion",
@@ -20,7 +18,6 @@
       "x": 0,
       "y": 16
     },
-	
     {
       "type": "item",
       "item": "#helmet",
@@ -35,14 +32,14 @@
       "x": 50,
       "y": 32
     },
-	{
+    {
       "type": "item",
       "item": "#leggings",
       "framed": "false",
       "x": 50,
       "y": 48
     },
-	{
+    {
       "type": "item",
       "item": "#boots",
       "framed": "false",
@@ -63,9 +60,6 @@
       "x": 34,
       "y": 32
     },
-	
-	
-
     {
       "type": "item",
       "item": "#drop1",
@@ -164,11 +158,9 @@
       "x": 98,
       "y": 124
     },
-	
-	
     {
       "type": "image",
-      "image": "patchouli:boss_template/#piece#.png",
+      "image": "harkenscythe:boss_template/#piece#.png",
       "x": 96,
       "y": 16,
       "height": 16,
@@ -176,11 +168,9 @@
       "texture_width": 16,
       "texture_height": 16
     },
-	
-	
     {
       "type": "image",
-      "image": "patchouli:boss_template/armor_border.png",
+      "image": "harkenscythe:boss_template/armor_border.png",
       "x": 50,
       "y": 16,
       "height": 16,
@@ -190,7 +180,7 @@
     },
     {
       "type": "image",
-      "image": "patchouli:boss_template/armor_border.png",
+      "image": "harkenscythe:boss_template/armor_border.png",
       "x": 50,
       "y": 32,
       "height": 16,
@@ -200,7 +190,7 @@
     },
     {
       "type": "image",
-      "image": "patchouli:boss_template/armor_border.png",
+      "image": "harkenscythe:boss_template/armor_border.png",
       "x": 50,
       "y": 48,
       "height": 16,
@@ -208,9 +198,9 @@
       "texture_width": 16,
       "texture_height": 16
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/armor_border.png",
+      "image": "harkenscythe:boss_template/armor_border.png",
       "x": 50,
       "y": 64,
       "height": 16,
@@ -220,7 +210,7 @@
     },
     {
       "type": "image",
-      "image": "patchouli:boss_template/armor_border.png",
+      "image": "harkenscythe:boss_template/armor_border.png",
       "x": 66,
       "y": 32,
       "height": 16,
@@ -230,7 +220,7 @@
     },
     {
       "type": "image",
-      "image": "patchouli:boss_template/armor_border.png",
+      "image": "harkenscythe:boss_template/armor_border.png",
       "x": 34,
       "y": 32,
       "height": 16,
@@ -238,10 +228,9 @@
       "texture_width": 16,
       "texture_height": 16
     },
-	
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/resistance.png",
+      "image": "harkenscythe:boss_template/resistance.png",
       "x": -4,
       "y": 80,
       "height": 24,
@@ -249,9 +238,9 @@
       "texture_width": 24,
       "texture_height": 24
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/knockback_resistance.png",
+      "image": "harkenscythe:boss_template/knockback_resistance.png",
       "x": 20,
       "y": 80,
       "height": 24,
@@ -259,9 +248,9 @@
       "texture_width": 24,
       "texture_height": 24
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/max_hp.png",
+      "image": "harkenscythe:boss_template/max_hp.png",
       "x": 44,
       "y": 80,
       "height": 24,
@@ -269,9 +258,9 @@
       "texture_width": 24,
       "texture_height": 24
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/damage.png",
+      "image": "harkenscythe:boss_template/damage.png",
       "x": 68,
       "y": 80,
       "height": 24,
@@ -279,9 +268,9 @@
       "texture_width": 24,
       "texture_height": 24
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/movement_speed.png",
+      "image": "harkenscythe:boss_template/movement_speed.png",
       "x": 92,
       "y": 80,
       "height": 24,
@@ -289,11 +278,9 @@
       "texture_width": 24,
       "texture_height": 24
     },
-	
-
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/drop_border_1.png",
+      "image": "harkenscythe:boss_template/drop_border_1.png",
       "x": 0,
       "y": 106,
       "height": 16,
@@ -301,9 +288,9 @@
       "texture_width": 16,
       "texture_height": 16
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/drop_border_2.png",
+      "image": "harkenscythe:boss_template/drop_border_2.png",
       "x": 0,
       "y": 122,
       "height": 16,
@@ -311,9 +298,9 @@
       "texture_width": 16,
       "texture_height": 16
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/drop_border_3.png",
+      "image": "harkenscythe:boss_template/drop_border_3.png",
       "x": 100,
       "y": 110,
       "height": 16,
@@ -321,9 +308,9 @@
       "texture_width": 16,
       "texture_height": 16
     },
-	{
+    {
       "type": "image",
-      "image": "patchouli:boss_template/drop_border_4.png",
+      "image": "harkenscythe:boss_template/drop_border_4.png",
       "x": 100,
       "y": 122,
       "height": 16,
@@ -331,9 +318,6 @@
       "texture_width": 16,
       "texture_height": 16
     },
-	
-    
-
     {
       "type": "text",
       "text": "$(c)$(l)#resistance#",
@@ -363,6 +347,6 @@
       "text": "$(c)$(l)#speed#",
       "x": 90,
       "y": 87
-    },
+    }
   ]
 }
