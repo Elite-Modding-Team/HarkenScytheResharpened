@@ -2,6 +2,7 @@
   "name": "Spectral Miner",
   "icon": "harkenscythe:spectral_pickaxe",
   "category": "enemies",
+  "advancement": "harkenscythe:was_it_even_real",
   "pages": [
     {
       "type": "entity",

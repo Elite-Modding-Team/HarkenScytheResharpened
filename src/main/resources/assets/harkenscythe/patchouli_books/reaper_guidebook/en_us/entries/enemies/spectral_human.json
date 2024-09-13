@@ -2,7 +2,7 @@
   "name": "Spectral Human",
   "icon": "minecraft:iron_pickaxe",
   "category": "enemies",
-  "advancement": "harkenscythe:not_worth_a_million_carbs",
+  "advancement": "harkenscythe:steve",
   "pages": [
     {
       "type": "entity",
