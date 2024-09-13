@@ -5,6 +5,16 @@
   "advancement": "harkenscythe:not_worth_a_million_carbs",
   "pages": [
     {
+      "type": "boss_info",
+      "title": "Hemoglobin",
+      "resistance": "   0",
+      "knockback": "   0",
+      "health": "  N/A",
+      "damage": "   N/A",
+      "speed": "  N/A",
+      "drop1": "harkenscythe:blood_essence"
+    },
+    {
       "type": "entity",
       "entity": "harkenscythe:hemoglobin"
     }

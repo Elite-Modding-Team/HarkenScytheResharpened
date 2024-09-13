@@ -5,6 +5,15 @@
   "advancement": "harkenscythe:steve",
   "pages": [
     {
+      "type": "boss_info",
+      "title": "Spectral Human",
+      "resistance": "   0",
+      "knockback": "   0",
+      "health": "  20",
+      "damage": "   3",
+      "speed": "  0.23"
+    },
+    {
       "type": "entity",
       "entity": "harkenscythe:spectral_human"
     }
