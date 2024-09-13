@@ -10,6 +10,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -25,6 +26,7 @@ import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -36,6 +38,16 @@ public class HSEntitySpectralMiner extends EntityMob
         super(world);
         this.setSize(0.6F, 1.95F);
         this.enablePersistence();
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_SPECTRAL_MINER.trigger((EntityPlayerMP) source.getTrueSource());
+        }
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.discarded_matter.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.discarded_matter.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:soul_essence"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "encounter_ectogoblin": {
+      "trigger": "harkenscythe:encounter_ectogoblin"
+    }
+  }
+}

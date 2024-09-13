@@ -1,0 +1,12 @@
+{
+  "name": "Hemoglobin",
+  "icon": "harkenscythe:blood_essence",
+  "category": "enemies",
+  "advancement": "harkenscythe:not_worth_a_million_carbs",
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "harkenscythe:hemoglobin"
+    }
+  ]
+}

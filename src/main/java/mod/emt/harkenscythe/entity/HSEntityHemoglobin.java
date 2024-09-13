@@ -1,11 +1,15 @@
 package mod.emt.harkenscythe.entity;
 
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSAdvancements;
 
 public class HSEntityHemoglobin extends HSEntityGlobin
 {
@@ -24,6 +28,16 @@ public class HSEntityHemoglobin extends HSEntityGlobin
     public void setSkin(int skinType)
     {
         this.dataManager.set(SKIN_TYPE, skinType);
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_HEMOGLOBIN.trigger((EntityPlayerMP) source.getTrueSource());
+        }
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override

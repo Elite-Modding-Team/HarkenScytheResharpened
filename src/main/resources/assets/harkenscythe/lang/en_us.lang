@@ -18,6 +18,16 @@ advancement.harkenscythe.souls_guidance.name=Soul's Guidance
 advancement.harkenscythe.souls_guidance.desc=Craft a soul altar and utilize it.
 advancement.harkenscythe.canda.name=Canda!
 advancement.harkenscythe.canda.desc=Resurrect a departed soul from the dead.
+advancement.harkenscythe.discarded_matter.name=Discarded Matter
+advancement.harkenscythe.discarded_matter.desc=Encounter an Ectogoblin.
+advancement.harkenscythe.not_worth_a_million_carbs.name=Not Worth a Million Carbs
+advancement.harkenscythe.not_worth_a_million_carbs.desc=Encounter a Hemoglobin.
+advancement.harkenscythe.steve.name=Steve?
+advancement.harkenscythe.steve.desc=Encounter a Spectral Human.
+advancement.harkenscythe.vengeful_revenant.name=Vengeful Revenant
+advancement.harkenscythe.vengeful_revenant.desc=Encounter a Harbinger.
+advancement.harkenscythe.was_it_even_real.name=Was it Even Real?
+advancement.harkenscythe.was_it_even_real.desc=Encounter a Spectral Miner.
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Altar of Blood

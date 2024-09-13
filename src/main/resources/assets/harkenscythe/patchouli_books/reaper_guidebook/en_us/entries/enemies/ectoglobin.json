@@ -1,0 +1,12 @@
+{
+  "name": "Ectoglobin",
+  "icon": "harkenscythe:soul_essence",
+  "category": "enemies",
+  "advancement": "harkenscythe:discarded_matter",
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "harkenscythe:ectoglobin"
+    }
+  ]
+}

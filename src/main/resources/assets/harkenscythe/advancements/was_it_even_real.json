@@ -1,0 +1,23 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.was_it_even_real.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.was_it_even_real.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:spectral_pickaxe"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "encounter_spectral_miner": {
+      "trigger": "harkenscythe:encounter_spectral_miner"
+    }
+  }
+}

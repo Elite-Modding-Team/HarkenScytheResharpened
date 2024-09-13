@@ -1,0 +1,11 @@
+{
+  "name": "Spectral Miner",
+  "icon": "harkenscythe:spectral_pickaxe",
+  "category": "enemies",
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "harkenscythe:spectral_miner"
+    }
+  ]
+}

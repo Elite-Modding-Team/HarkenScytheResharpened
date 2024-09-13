@@ -4,11 +4,13 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSEntitySpectralHuman extends EntityMob
@@ -17,6 +19,16 @@ public class HSEntitySpectralHuman extends EntityMob
     {
         super(world);
         this.setSize(0.6F, 1.95F);
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_SPECTRAL_HUMAN.trigger((EntityPlayerMP) source.getTrueSource());
+        }
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override

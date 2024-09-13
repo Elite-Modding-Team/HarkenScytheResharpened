@@ -1,0 +1,23 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.not_worth_a_million_carbs.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.not_worth_a_million_carbs.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:blood_essence"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "encounter_hemogoblin": {
+      "trigger": "harkenscythe:encounter_hemogoblin"
+    }
+  }
+}

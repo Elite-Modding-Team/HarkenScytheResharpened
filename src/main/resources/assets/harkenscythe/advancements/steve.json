@@ -1,0 +1,23 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.steve.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.steve.desc"
+    },
+    "icon": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "encounter_spectral_human": {
+      "trigger": "harkenscythe:encounter_spectral_human"
+    }
+  }
+}

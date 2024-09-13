@@ -1,0 +1,23 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.vengeful_revenant.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.vengeful_revenant.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:reaper_scythe"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "encounter_harbinger": {
+      "trigger": "harkenscythe:encounter_harbinger"
+    }
+  }
+}
