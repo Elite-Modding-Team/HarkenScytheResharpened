@@ -2,8 +2,6 @@ package mod.emt.harkenscythe.compat.patchouli.item;
 
 import javax.annotation.Nonnull;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.item.HSItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
@@ -13,20 +11,23 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.item.HSItem;
 import vazkii.patchouli.api.PatchouliAPI;
 
 public class HSItemGuidebook extends HSItem
 {
     private static final ResourceLocation book = new ResourceLocation(HarkenScythe.MOD_ID, "reaper_guidebook");
 
-    public HSItemGuidebook()
-    {
-        super(EnumRarity.COMMON);
-    }
-
     public static boolean isOpen()
     {
         return book.equals(PatchouliAPI.instance.getOpenBookGui());
+    }
+
+    public HSItemGuidebook()
+    {
+        super(EnumRarity.COMMON);
     }
 
     @Nonnull

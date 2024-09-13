@@ -198,7 +198,7 @@ public class HSItems
     public static HSArmorDyeable soulweave_pants;
     @GameRegistry.ObjectHolder("soulweave_shoes")
     public static HSArmorDyeable soulweave_shoes;
-    
+
     @GameRegistry.ObjectHolder("reaper_guidebook")
     public static HSItem reaper_guidebook;
 
@@ -293,7 +293,7 @@ public class HSItems
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 3847130), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
             );
-        
+
         // Third Party Mod Integration
         if (Loader.isModLoaded("patchouli"))
         {
@@ -306,13 +306,15 @@ public class HSItems
             .filter(block -> !(block instanceof HSBlockSoulCake))
             .forEach(block -> registry.register(HSRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
-    
+
     @SubscribeEvent
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
+    {
         final IForgeRegistry<IRecipe> registry = event.getRegistry();
 
         // Third Party Mod Integration
-        if (Loader.isModLoaded("patchouli")) {
+        if (Loader.isModLoaded("patchouli"))
+        {
             registry.register(new ShapelessOreRecipe(null, reaper_guidebook, Items.BOOK, "essenceHarken").setRegistryName(HarkenScythe.MOD_ID, "reaper_guidebook"));
         }
     }
