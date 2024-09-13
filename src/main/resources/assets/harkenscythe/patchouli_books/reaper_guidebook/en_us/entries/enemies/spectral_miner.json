@@ -14,7 +14,8 @@
       "health": "  150",
       "damage": "   4",
       "speed": "  0.15",
-      "drop1": "harkenscythe:spectral_pickaxe"
+      "drop1": "harkenscythe:soul_essence",
+      "drop2": "harkenscythe:spectral_pickaxe"
     },
     {
       "type": "entity",
