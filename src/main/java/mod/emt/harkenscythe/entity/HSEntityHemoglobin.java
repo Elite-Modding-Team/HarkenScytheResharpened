@@ -31,13 +31,12 @@ public class HSEntityHemoglobin extends HSEntityGlobin
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
+    public void onDeath(DamageSource cause)
     {
-        if (source.getTrueSource() instanceof EntityPlayerMP)
+        if (cause.getTrueSource() instanceof EntityPlayerMP)
         {
-            HSAdvancements.ENCOUNTER_HEMOGLOBIN.trigger((EntityPlayerMP) source.getTrueSource());
+            HSAdvancements.ENCOUNTER_HEMOGLOBIN.trigger((EntityPlayerMP) cause.getTrueSource());
         }
-        return super.attackEntityFrom(source, amount);
     }
 
     @Override

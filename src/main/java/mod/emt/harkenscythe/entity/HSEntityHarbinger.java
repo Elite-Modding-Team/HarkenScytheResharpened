@@ -105,16 +105,6 @@ public class HSEntityHarbinger extends EntityMob
         }
     }
 
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
-    {
-        if (source.getTrueSource() instanceof EntityPlayerMP)
-        {
-            HSAdvancements.ENCOUNTER_HARBINGER.trigger((EntityPlayerMP) source.getTrueSource());
-        }
-        return super.attackEntityFrom(source, amount);
-    }
-
     @Nonnull
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource)
@@ -138,6 +128,15 @@ public class HSEntityHarbinger extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(HSConfig.ENTITIES.harbingerFollowRange);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(HSConfig.ENTITIES.harbingerMaxHealth);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.harbingerMovementSpeed);
+    }
+
+    @Override
+    public void onDeath(DamageSource cause)
+    {
+        if (cause.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_HARBINGER.trigger((EntityPlayerMP) cause.getTrueSource());
+        }
     }
 
     @Override

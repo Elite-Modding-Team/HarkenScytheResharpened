@@ -41,13 +41,12 @@ public class HSEntitySpectralMiner extends EntityMob
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
+    public void onDeath(DamageSource cause)
     {
-        if (source.getTrueSource() instanceof EntityPlayerMP)
+        if (cause.getTrueSource() instanceof EntityPlayerMP)
         {
-            HSAdvancements.ENCOUNTER_SPECTRAL_MINER.trigger((EntityPlayerMP) source.getTrueSource());
+            HSAdvancements.ENCOUNTER_SPECTRAL_MINER.trigger((EntityPlayerMP) cause.getTrueSource());
         }
-        return super.attackEntityFrom(source, amount);
     }
 
     @Override
