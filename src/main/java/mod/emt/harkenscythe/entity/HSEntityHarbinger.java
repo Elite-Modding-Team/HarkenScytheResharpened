@@ -251,7 +251,7 @@ public class HSEntityHarbinger extends EntityMob
      */
     private void onDodgePhase()
     {
-        if (!this.world.isRemote && this.ticksExisted % 20 == 19)
+        if (!this.world.isRemote && this.ticksExisted % 20 == 0)
         {
             double x = this.posX + (this.rand.nextDouble() - 0.5) * 8.0;
             double y = this.posY + (this.rand.nextInt(8) - 4);
@@ -268,7 +268,7 @@ public class HSEntityHarbinger extends EntityMob
      */
     private void onSoulPhase()
     {
-        if (this.ticksExisted % 200 == 199)
+        if (this.ticksExisted % 200 == 0)
         {
             for (int i = 0; i < 4; i++)
             {

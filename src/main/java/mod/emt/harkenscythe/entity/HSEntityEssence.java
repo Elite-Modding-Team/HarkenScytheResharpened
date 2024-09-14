@@ -39,7 +39,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
     public void onEntityUpdate()
     {
         super.onEntityUpdate();
-        if (this.ticksExisted % 20 == 19)
+        if (this.ticksExisted % 20 == 0)
         {
             List<EntityItem> list = this.world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox());
             if (!list.isEmpty())

@@ -106,7 +106,7 @@ public class HSEntitySpectralMiner extends EntityMob
     public void onEntityUpdate()
     {
         super.onEntityUpdate();
-        if (!this.world.isRemote && this.ticksExisted % 200 == 199 && this.rand.nextDouble() < 0.25D)
+        if (!this.world.isRemote && this.ticksExisted % 200 == 0 && this.rand.nextDouble() < 0.25D)
         {
             applyBlindnessEffect();
             this.world.playSound(null, this.getPosition(), HSSoundEvents.ENTITY_SPECTRAL_MINER_RUN.getSoundEvent(), SoundCategory.HOSTILE, 1.0F, 1.0F);
