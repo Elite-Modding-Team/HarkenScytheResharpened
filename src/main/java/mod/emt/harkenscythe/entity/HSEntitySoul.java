@@ -30,7 +30,6 @@ public class HSEntitySoul extends HSEntityEssence
 {
     public static final DataParameter<Integer> SOUL_TYPE = EntityDataManager.createKey(HSEntitySoul.class, DataSerializers.VARINT);
     private EntityLivingBase originalEntity;
-    private int livingSoundTime;
 
     public HSEntitySoul(World world)
     {
@@ -110,7 +109,7 @@ public class HSEntitySoul extends HSEntityEssence
     public void onEntityUpdate()
     {
         super.onEntityUpdate();
-        if (isEntityAlive() && this.rand.nextInt(1000) < this.livingSoundTime++)
+        if (isEntityAlive() && this.ticksExisted % 100 == 0 && this.rand.nextInt(2) == 0)
         {
             playLivingSound();
         }
