@@ -32,8 +32,17 @@ public class HSArmor extends ItemArmor
     }
 
     @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (stack.getItemDamage() > 0 && this.getArmorMaterial() == HSItems.ARMOR_BIOMASS && entity.ticksExisted % 1200 == 0)
+        {
+            stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
+        }
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flag)
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag)
     {
         if ((this == HSItems.bloodweave_hood) || (this == HSItems.bloodweave_robe) || (this == HSItems.bloodweave_pants) || (this == HSItems.bloodweave_shoes))
         {

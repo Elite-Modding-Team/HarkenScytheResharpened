@@ -217,6 +217,14 @@ public class HSEntitySoul extends HSEntityEssence
         }
     }
 
+    private void repairEquipment(ItemStack stack)
+    {
+        if (!stack.isEmpty())
+        {
+            stack.setItemDamage(stack.getItemDamage() - this.getSoulQuantity());
+        }
+    }
+
     private ItemStack getRandomDamagedLivingmetalEquipment(EntityPlayer player)
     {
         List<ItemStack> equipmentList = this.getDamagedEntityEquipment(player);

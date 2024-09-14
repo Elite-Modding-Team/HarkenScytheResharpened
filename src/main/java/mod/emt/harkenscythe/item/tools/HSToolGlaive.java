@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.item.tools;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -24,6 +25,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSDamageSource;
 
@@ -49,6 +51,15 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         player.playSound(SoundEvents.ENTITY_PLAYER_BREATH, 0.8F, 0.9F);
         player.setActiveHand(hand);
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        if (stack.getItemDamage() > 0 && this.getToolMaterial() == HSItems.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
+        {
+            stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
+        }
     }
 
     @Override

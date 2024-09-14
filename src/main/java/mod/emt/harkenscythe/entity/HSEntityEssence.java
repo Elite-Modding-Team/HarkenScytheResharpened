@@ -151,14 +151,6 @@ public abstract class HSEntityEssence extends EntityLivingBase
         return list;
     }
 
-    public void repairEquipment(ItemStack stack)
-    {
-        if (!stack.isEmpty())
-        {
-            stack.setItemDamage(stack.getItemDamage() - 2); // TODO: Respect essence quality once implemented
-        }
-    }
-
     @Override
     protected boolean canTriggerWalking()
     {
