@@ -34,7 +34,7 @@ public class HSArmor extends ItemArmor
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if (stack.getItemDamage() > 0 && this.getArmorMaterial() == HSItems.ARMOR_BIOMASS && entity.ticksExisted % 1200 == 0)
+        if (stack.isItemDamaged() && this.getArmorMaterial() == HSItems.ARMOR_BIOMASS && entity.ticksExisted % 1200 == 0)
         {
             stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
         }

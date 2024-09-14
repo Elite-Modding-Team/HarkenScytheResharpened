@@ -3,7 +3,6 @@ package mod.emt.harkenscythe.entity;
 import java.util.Collections;
 import java.util.List;
 
-import com.google.common.collect.Lists;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -135,20 +134,6 @@ public abstract class HSEntityEssence extends EntityLivingBase
     public EnumHandSide getPrimaryHand()
     {
         return EnumHandSide.RIGHT;
-    }
-
-    public List<ItemStack> getDamagedEntityEquipment(EntityLivingBase entity)
-    {
-        List<ItemStack> list = Lists.newArrayList();
-        for (EntityEquipmentSlot equipmentSlot : EntityEquipmentSlot.values())
-        {
-            ItemStack stack = entity.getItemStackFromSlot(equipmentSlot);
-            if (!stack.isEmpty() && stack.isItemDamaged())
-            {
-                list.add(stack);
-            }
-        }
-        return list;
     }
 
     @Override

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 
+import com.google.common.collect.Lists;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -225,9 +226,23 @@ public class HSEntitySoul extends HSEntityEssence
         }
     }
 
+    private List<ItemStack> getDamagedPlayerEquipment(EntityPlayer player)
+    {
+        List<ItemStack> list = Lists.newArrayList();
+        for (int i = 0; i < player.inventory.getSizeInventory(); i++)
+        {
+            ItemStack stack = player.inventory.getStackInSlot(i);
+            if (!stack.isEmpty() && stack.isItemDamaged())
+            {
+                list.add(stack);
+            }
+        }
+        return list;
+    }
+
     private ItemStack getRandomDamagedLivingmetalEquipment(EntityPlayer player)
     {
-        List<ItemStack> equipmentList = this.getDamagedEntityEquipment(player);
+        List<ItemStack> equipmentList = this.getDamagedPlayerEquipment(player);
         equipmentList = equipmentList.stream().filter(stack -> isLivingmetalItem(stack.getItem())).collect(Collectors.toList());
         return equipmentList.isEmpty() ? ItemStack.EMPTY : equipmentList.get(player.getRNG().nextInt(equipmentList.size()));
     }

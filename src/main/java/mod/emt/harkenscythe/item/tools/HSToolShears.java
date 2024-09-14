@@ -28,7 +28,7 @@ public class HSToolShears extends ItemShears implements IHSTool
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if (stack.getItemDamage() > 0 && this.getToolMaterial() == HSItems.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
+        if (stack.isItemDamaged() && this.getToolMaterial() == HSItems.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
         {
             stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
         }
