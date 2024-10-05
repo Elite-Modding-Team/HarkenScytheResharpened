@@ -140,7 +140,7 @@ public class HSAltarRecipes
     {
         for (HSRecipeSoulAltar recipe : SOUL_ALTAR_RECIPES)
         {
-            if (recipe.getInput().isItemEqual(input))
+            if (recipe.getInput().getItem() == input.getItem())
             {
                 return true;
             }
@@ -164,7 +164,7 @@ public class HSAltarRecipes
     {
         for (HSRecipeSoulAltar recipe : SOUL_ALTAR_RECIPES)
         {
-            if (recipe.getInput().isItemEqual(input))
+            if (recipe.getInput().getItem() == input.getItem())
             {
                 return recipe.getRequiredSouls();
             }
