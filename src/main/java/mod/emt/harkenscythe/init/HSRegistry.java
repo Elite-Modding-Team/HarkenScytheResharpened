@@ -30,6 +30,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -71,14 +72,12 @@ public class HSRegistry
 
     public static void registerEntity(String name, Class<? extends Entity> clazz, int eggColor1, int eggColor2)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, entityID++, HarkenScythe.instance, 64,
-            1, true, eggColor1, eggColor2);
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, entityID++, HarkenScythe.instance, 64, 1, true, eggColor1, eggColor2);
     }
 
     public static void registerEntity(String name, Class<? extends Entity> clazz)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, entityID++, HarkenScythe.instance, 64,
-            1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(HarkenScythe.MOD_ID, name), clazz, HarkenScythe.MOD_ID + "." + name, entityID++, HarkenScythe.instance, 64, 1, true);
     }
 
     public static void registerAdvancements()
@@ -185,12 +184,19 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 5);
         HSAltarRecipes.addSoulRecipe(HSItems.unpowered_totem_of_undying, Items.TOTEM_OF_UNDYING, 100);
-        //HSAltarRecipes.addSoulRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.AWKWARD).getItem(), Items.EXPERIENCE_BOTTLE, 40); // TODO: Something better for this?
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 10);
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
         HSAltarRecipes.addSoulRecipes(HSConfig.RECIPES.customSoulAltarRecipes);
+
+        for (Item item : ForgeRegistries.ITEMS)
+        {
+            if (item.equals(Items.POTIONITEM))
+            {
+                HSAltarRecipes.addSoulRecipe(item, Items.EXPERIENCE_BOTTLE, 10);
+            }
+        }
 
         // Ore Dictionary
         OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.blood_essence));
