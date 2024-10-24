@@ -1,0 +1,16 @@
+{
+  "name": "Hall of Mirrors",
+  "icon": "harkenscythe:textures/items/dimensional_mirror_lit.png",
+  "category": "a_harken_magicians_journey",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Dimensional Mirror's spectral glass reminds you of home and can magically send you there by holding $(4)right click$(). Whether you are in trouble or simply lost, this is a handy tool in many cases."
+    },
+    {
+      "type": "text",
+      "text": "It has 4 available charges by default and can be charged in the altar, similar to any other ritual."
+    }
+  ]
+}

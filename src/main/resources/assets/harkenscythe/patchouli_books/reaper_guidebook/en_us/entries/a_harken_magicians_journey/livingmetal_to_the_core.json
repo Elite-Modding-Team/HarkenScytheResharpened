@@ -1,0 +1,16 @@
+{
+  "name": "Livingmetal to the Core",
+  "icon": "harkenscythe:textures/items/livingmetal_ingot.png",
+  "category": "a_harken_magicians_journey",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Livingmetal Core provides regeneration to nearby players as long as it is activated with redstone, a lever, or any other mechanism."
+    },
+    {
+      "type": "text",
+      "text": "It is an absolute must for your base, especially without access to a beacon!"
+    }
+  ]
+}

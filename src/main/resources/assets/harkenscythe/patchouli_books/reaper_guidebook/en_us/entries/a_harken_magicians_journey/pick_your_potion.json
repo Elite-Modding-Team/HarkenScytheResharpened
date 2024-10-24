@@ -1,0 +1,24 @@
+{
+  "name": "Pick Your Potion",
+  "icon": "harkenscythe:textures/items/spectral_bottle.png",
+  "category": "a_harken_magicians_journey",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Spectral Potion of Flame can be created by collecting fire by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Affliction."
+    },
+    {
+      "type": "text",
+      "text": "The Spectral Potion of Affliction can be thrown to spawn a lingering cloud that inflicts a random negative effect"
+    },
+    {
+      "type": "text",
+      "text": "The Spectral Potion of Water can be created by collecting up water by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Purifying."
+    },
+    {
+      "type": "text",
+      "text": "The Spectral Potion of Purifying can be thrown to spawn a lingering cloud that dispels all negative effects."
+    }
+  ]
+}
