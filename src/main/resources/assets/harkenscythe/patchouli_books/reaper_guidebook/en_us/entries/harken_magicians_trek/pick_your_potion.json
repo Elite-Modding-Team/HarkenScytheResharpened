@@ -6,19 +6,33 @@
   "pages": [
     {
       "type": "text",
-      "text": "The Spectral Potion of Flame can be created by collecting fire by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Affliction."
+      "text": "A new type of potion bottle can be created using Spectral Glass. This is useful for a variety of new potions that are listed on the next few pages."
     },
     {
-      "type": "text",
-      "text": "The Spectral Potion of Affliction can be thrown to spawn a lingering cloud that inflicts a random negative effect."
+      "type": "crafting",
+      "recipe": "harkenscythe:spectral_glass_bottle",
+      "title": " ",
+      "text": "Spectral Glass Bottles can not be inverted unlike actual Spectral Glass."
     },
     {
-      "type": "text",
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_water",
       "text": "The Spectral Potion of Water can be created by collecting up water by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Purifying."
     },
     {
-      "type": "text",
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_flame",
+      "text": "The Spectral Potion of Flame can be created by collecting fire by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Affliction."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_purifying",
       "text": "The Spectral Potion of Purifying can be thrown to spawn a lingering cloud that dispels all negative effects."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_affliction",
+      "text": "The Spectral Potion of Affliction can be thrown to spawn a lingering cloud that inflicts a random negative effect."
     }
   ]
 }
