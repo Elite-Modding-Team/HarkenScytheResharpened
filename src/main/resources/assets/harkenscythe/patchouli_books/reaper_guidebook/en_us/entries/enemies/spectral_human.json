@@ -17,6 +17,8 @@
     },
     {
       "type": "entity",
+      "name": " ",
+      "text": "Bound to the mortal plane...",
       "entity": "harkenscythe:spectral_human"
     }
   ]

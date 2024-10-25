@@ -10,7 +10,8 @@
     },
     {
       "type": "crafting",
-      "recipe": "harkenscythe:iron_glaive"
+      "recipe": "harkenscythe:iron_glaive",
+      "title": " "
     }
   ]
 }

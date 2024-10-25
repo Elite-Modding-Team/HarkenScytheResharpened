@@ -17,6 +17,8 @@
     },
     {
       "type": "entity",
+      "name": " ",
+      "text": "Leftover remains of blood essence.",
       "entity": "harkenscythe:hemoglobin"
     }
   ]

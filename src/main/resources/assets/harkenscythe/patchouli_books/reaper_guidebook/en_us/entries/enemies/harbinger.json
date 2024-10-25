@@ -21,6 +21,8 @@
     },
     {
       "type": "entity",
+      "name": " ",
+      "text": "Face the wrath of the Wither!",
       "entity": "harkenscythe:harbinger{HandItems:[{Count:1,id:\"harkenscythe:reaper_scythe\"},{}]}",
       "scale": 0.9,
       "offset": 0.9

@@ -11,7 +11,8 @@
     },
     {
       "type": "crafting",
-      "recipe": "harkenscythe:blunt_harken_blade"
+      "recipe": "harkenscythe:blunt_harken_blade",
+      "title": " "
     }
   ]
 }

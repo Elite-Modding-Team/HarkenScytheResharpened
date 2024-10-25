@@ -17,6 +17,8 @@
     },
     {
       "type": "entity",
+      "name": " ",
+      "text": "Leftover remains of soul essence.",
       "entity": "harkenscythe:ectoglobin"
     }
   ]

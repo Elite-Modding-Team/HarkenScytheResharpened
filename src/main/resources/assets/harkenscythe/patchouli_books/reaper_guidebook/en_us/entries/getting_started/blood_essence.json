@@ -11,8 +11,8 @@
     },
     {
       "type": "entity",
-      "name": "Blood Essence",
-      "text": "The blood essence of a reaped creature",
+      "name": " ",
+      "text": "The blood essence of a reaped creature.",
       "entity": "harkenscythe:blood"
     }
   ]

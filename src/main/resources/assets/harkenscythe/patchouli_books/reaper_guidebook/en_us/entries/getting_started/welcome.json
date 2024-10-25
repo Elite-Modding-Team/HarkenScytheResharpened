@@ -10,7 +10,8 @@
     },
     {
       "type": "crafting",
-      "recipe": "harkenscythe:reaper_guidebook"
+      "recipe": "harkenscythe:reaper_guidebook",
+      "title": " "
     }
   ]
 }

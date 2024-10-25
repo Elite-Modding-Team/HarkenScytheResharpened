@@ -11,8 +11,8 @@
     },
     {
       "type": "entity",
-      "name": "Soul Essence",
-      "text": "The soul essence of a reaped creature",
+      "name": " ",
+      "text": "The soul essence of a reaped creature.",
       "entity": "harkenscythe:soul"
     }
   ]
