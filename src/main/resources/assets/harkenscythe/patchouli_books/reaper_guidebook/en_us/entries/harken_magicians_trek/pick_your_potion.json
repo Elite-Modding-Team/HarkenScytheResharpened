@@ -1,7 +1,7 @@
 {
   "name": "Pick Your Potion",
   "icon": "harkenscythe:textures/items/spectral_bottle.png",
-  "category": "a_harken_magicians_journey",
+  "category": "harken_magicians_trek",
   "advancement": "harkenscythe:souls_guidance",
   "pages": [
     {

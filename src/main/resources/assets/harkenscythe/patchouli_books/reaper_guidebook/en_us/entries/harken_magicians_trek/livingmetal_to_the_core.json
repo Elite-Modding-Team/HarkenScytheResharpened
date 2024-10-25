@@ -1,7 +1,7 @@
 {
   "name": "Livingmetal to the Core",
   "icon": "harkenscythe:textures/items/livingmetal_ingot.png",
-  "category": "a_harken_magicians_journey",
+  "category": "harken_magicians_trek",
   "advancement": "harkenscythe:souls_guidance",
   "pages": [
     {
