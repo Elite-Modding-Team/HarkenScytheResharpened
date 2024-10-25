@@ -6,32 +6,36 @@
   "pages": [
     {
       "type": "text",
-      "text": "A new type of potion bottle can be created using Spectral Glass. This is useful for a variety of new potions that are listed on the next few pages."
+      "text": "A new type of potion bottle can be created using spectral glass. This is useful for a variety of new potions that are listed on the next few pages."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:spectral_glass_bottle",
       "title": " ",
-      "text": "Spectral Glass Bottles can not be inverted unlike actual Spectral Glass."
+      "text": "The Spectral Glass Bottle cannot be inverted unlike actual spectral glass."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_water",
+      "title": "Water",
       "text": "The Spectral Potion of Water can be created by collecting up water by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Purifying."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_flame",
+      "title": "Flame",
       "text": "The Spectral Potion of Flame can be created by collecting fire by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Affliction."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_purifying",
+      "title": "Purifying",
       "text": "The Spectral Potion of Purifying can be thrown to spawn a lingering cloud that dispels all negative effects."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_affliction",
+      "title": "Affliction",
       "text": "The Spectral Potion of Affliction can be thrown to spawn a lingering cloud that inflicts a random negative effect."
     }
   ]

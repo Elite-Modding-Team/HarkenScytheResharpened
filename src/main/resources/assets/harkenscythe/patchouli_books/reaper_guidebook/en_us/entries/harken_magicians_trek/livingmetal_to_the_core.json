@@ -9,7 +9,9 @@
       "text": "The Livingmetal Core provides regeneration to nearby players as long as it is activated with redstone, a lever, or any other mechanism."
     },
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_core",
+      "title": " ",
       "text": "It is an absolute must for your base, especially without access to a beacon!"
     }
   ]

@@ -9,7 +9,9 @@
       "text": "The Dimensional Mirror's spectral glass reminds you of home and can magically send you there by holding $(4)right-click$(). Whether you are in trouble or simply lost, this is a handy tool in many cases."
     },
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "harkenscythe:dimensional_mirror",
+      "title": " ",
       "text": "It has 4 available charges by default and can be charged in the altar, similar to any other ritual."
     }
   ]
