@@ -1,0 +1,18 @@
+{
+  "name": "Zeremonienklingen-Meister",
+  "icon": "harkenscythe:textures/items/blunt_harken_blade.png",
+  "category": "altar_rituals",
+  "advancement": "harkenscythe:your_time_is_up",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um ein geeignetes Werkzeug für magische Infusionen zu erhalten, musst du außerdem eine stumpfe Harkenklinge herstellen.$(br2)Wenn eine stumpfe Harkenklinge geworfen wird und mit einer Essenz in Kontakt kommt, erhält sie ihre volle Kraft und dein glänzender neuer Harken-Zeremoniendolch kann nun für Altarrituale verwendet werden."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blunt_harken_blade",
+      "title": " "
+    }
+  ]
+}

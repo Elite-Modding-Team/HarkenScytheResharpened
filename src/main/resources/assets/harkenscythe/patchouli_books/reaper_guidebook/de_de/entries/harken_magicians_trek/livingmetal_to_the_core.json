@@ -1,0 +1,18 @@
+{
+  "name": "Kern des Lebendmetalls",
+  "icon": "harkenscythe:textures/items/livingmetal_ingot.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Der Lebendmetallkern ermöglicht Regeneration für Spieler in der Nähe, solange er mit Redstone, einem Hebel oder einem anderen Mechanismus aktiviert wird."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_core",
+      "title": " ",
+      "text": "Es ist ein absolutes Muss für deine Basis, insbesondere ohne Zugriff auf ein Leuchtfeuer!"
+    }
+  ]
+}

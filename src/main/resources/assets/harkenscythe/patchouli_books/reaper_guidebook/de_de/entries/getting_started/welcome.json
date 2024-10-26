@@ -1,0 +1,17 @@
+{
+  "name": "Willkommen, neuer Reaper!",
+  "icon": "harkenscythe:textures/items/reaper_guidebook.png",
+  "category": "getting_started",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "In diesem Handbuch erfährst du, wie du die Harken Scythe-Modifikation spielst. Die Anleitungen des Handbuchs sollten möglichst unkompliziert und möglichst wenig verwirrend sein.$(br)Solltest du dieses Handbuch verlieren, kannst du mithilfe des Rezepts auf der nächsten Seite ein neues erhalten."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:reaper_guidebook",
+      "title": " "
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Blutessenz",
+  "icon": "harkenscythe:textures/items/essence_blood.png",
+  "category": "getting_started",
+  "advancement": "harkenscythe:reapers_first_tool",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um Blutessenz von einer Kreatur zu reapen, musst du die Spezialfähigkeit der Glefe nutzen, indem du mit der $(4)rechten Maustaste$() klickst und loslässt, während du auf eine Kreatur zielst. Wenn die Kreatur während dieses Vorgangs verletzt wird, kann sie je nach Materialqualität der Glefe Blut verlieren."
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "Die Blutessenz einer gereapten Kreatur.",
+      "entity": "harkenscythe:blood"
+    }
+  ]
+}

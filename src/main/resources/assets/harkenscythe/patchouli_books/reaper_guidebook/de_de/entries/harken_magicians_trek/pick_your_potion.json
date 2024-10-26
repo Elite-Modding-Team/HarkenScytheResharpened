@@ -1,0 +1,42 @@
+{
+  "name": "Wähle deinen Trank",
+  "icon": "harkenscythe:textures/items/spectral_bottle.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Aus Spektralglas kann eine neue Art von Zaubertrankflasche hergestellt werden. Diese ist für eine Vielzahl neuer Tränke nützlich, die auf den nächsten Seiten aufgeführt sind."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:spectral_glass_bottle",
+      "title": " ",
+      "text": "Die Spektrale Glasflasche kann im Gegensatz zu echtem Spektralglas nicht umgekehrt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_water",
+      "title": "Wasser",
+      "text": "Der Spektrale Trank des Wassers kann durch Aufsammeln von Wasser durch $(4)Rechtsklick$() hergestellt und mit Seelen in einen Spektralen Trank der Reinigung verwandelt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_flame",
+      "title": "Flamme",
+      "text": "Der Spektrale Trank der Flamme kann durch Aufsammeln von Feuer durch $(4)Rechtsklick$() hergestellt und mit Seelen in einen Spektralen Trank des Leidens verwandelt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_purifying",
+      "title": "Reinigung",
+      "text": "Der Spektrale Trank der Reinigung kann geworfen werden, um eine Verweiltrank-Wolke zu erzeugen, die alle negativen Effekte vertreibt."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_potion_affliction",
+      "title": "Leiden",
+      "text": "Der Spektrale Trank des Leidens kann geworfen werden, um eine Verweiltrank-Wolke zu erzeugen, die einen zufälligen negativen Effekt verursacht."
+    }
+  ]
+}

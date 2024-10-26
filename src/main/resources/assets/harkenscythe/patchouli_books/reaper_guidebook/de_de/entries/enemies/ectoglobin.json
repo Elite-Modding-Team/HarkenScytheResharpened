@@ -1,0 +1,25 @@
+{
+  "name": "Ektoglobin",
+  "icon": "harkenscythe:soul_essence",
+  "category": "enemies",
+  "advancement": "harkenscythe:discarded_matter",
+  "pages": [
+    {
+      "type": "boss_info",
+      "title": "Ektoglobin",
+      "piece": "none",
+      "resistance": "   0",
+      "knockback": "   0",
+      "health": "  N/A",
+      "damage": "  N/A",
+      "speed": "  N/A",
+      "drop1": "harkenscythe:soul_essence"
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "Überreste von Seelenessenz.",
+      "entity": "harkenscythe:ectoglobin"
+    }
+  ]
+}

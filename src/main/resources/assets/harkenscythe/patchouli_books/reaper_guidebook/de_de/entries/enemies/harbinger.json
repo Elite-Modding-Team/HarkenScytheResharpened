@@ -1,0 +1,31 @@
+{
+  "name": "Harbinger",
+  "icon": "harkenscythe:reaper_scythe",
+  "category": "enemies",
+  "advancement": "harkenscythe:vengeful_revenant",
+  "pages": [
+    {
+      "type": "boss_info",
+      "title": "Harbinger",
+      "piece": "queen",
+      "hand": "harkenscythe:reaper_scythe",
+      "resistance": "   10",
+      "knockback": "   0",
+      "health": "  200",
+      "damage": "   6",
+      "speed": "  0.3",
+      "drop1": "minecraft:bone",
+      "drop2": "minecraft:ender_pearl",
+      "drop3": "minecraft:totem_of_undying",
+      "drop4": "harkenscythe:essence_keeper_soul"
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "Stelle dich dem Zorn des Withers!",
+      "entity": "harkenscythe:harbinger{HandItems:[{Count:1,id:\"harkenscythe:reaper_scythe\"},{}]}",
+      "scale": 0.9,
+      "offset": 0.9
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Behalte den Behälter",
+  "icon": "harkenscythe:textures/items/essence_vessel.png",
+  "category": "obtaining_essence",
+  "advancement": "harkenscythe:reapers_first_tool",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um deine frisch gereapte Essenz unterwegs aufzubewahren, musst du einen Essenzbehälter herstellen.$(br)Er kann zu einem Essenzgefäß aufgerüstet werden, wenn mehr Kapazität gewünscht wird.$(br2)Erfahrene Reaper halten mehrere für beide Essenzarten vor!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:essence_keeper",
+      "recipe2": "harkenscythe:essence_vessel"
+    }
+  ]
+}

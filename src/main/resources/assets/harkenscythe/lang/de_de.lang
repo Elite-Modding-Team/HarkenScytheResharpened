@@ -1,0 +1,226 @@
+# CREATIVE TAB
+itemGroup.harkenscythe.tab=Harken Scythe
+
+# ADVANCEMENTS
+advancement.harkenscythe.root.name=Harken Scythe
+advancement.harkenscythe.root.desc=Man erntet, was man sät – Spiele Harken Scythe zum ersten Mal in einer Welt!
+advancement.harkenscythe.reapers_first_tool.name=Das erste Werkzeug des Reapers
+advancement.harkenscythe.reapers_first_tool.desc=Erhalte entweder eine Sense oder eine Glefe.
+advancement.harkenscythe.keeper_of_the_reaper.name=Behälter des Reapers
+advancement.harkenscythe.keeper_of_the_reaper.desc=Erhalte einen Essenzbehälter.
+advancement.harkenscythe.not_a_wizard_this_time.name=Diesmal kein Zauberer
+advancement.harkenscythe.not_a_wizard_this_time.desc=Wirf eine stumpfe Harkenklinge auf Blutessenz oder Seelenessenz und erhalte einen Harken-Zeremoniendolch.
+advancement.harkenscythe.your_time_is_up.name=Deine Zeit ist abgelaufen
+advancement.harkenscythe.your_time_is_up.desc=Erhalte erfolgreich Blutessenz oder Seelenessenz durch Reapen und fülle sie in einen Essenzbehälter.
+advancement.harkenscythe.bloody_foundations.name=Blutige Fundamente
+advancement.harkenscythe.bloody_foundations.desc=Baue einen Blutaltar und verwende ihn.
+advancement.harkenscythe.souls_guidance.name=Leitung der Seele
+advancement.harkenscythe.souls_guidance.desc=Baue einen Seelenaltar und nutze ihn.
+advancement.harkenscythe.canda.name=Canda!
+advancement.harkenscythe.canda.desc=Erwecke eine verstorbene Seele von den Toten.
+advancement.harkenscythe.discarded_matter.name=Abgeworfene Materie
+advancement.harkenscythe.discarded_matter.desc=Begegne einem Ektogoblin.
+advancement.harkenscythe.not_worth_a_million_carbs.name=Nicht eine Million Kohlenhydrate wert
+advancement.harkenscythe.not_worth_a_million_carbs.desc=Begegne einem Hämoglobin.
+advancement.harkenscythe.steve.name=Steve?
+advancement.harkenscythe.steve.desc=Begegne einem geisterhaften Menschen.
+advancement.harkenscythe.vengeful_revenant.name=Rachsüchtiger Wiedergänger
+advancement.harkenscythe.vengeful_revenant.desc=Begegne einem Harbinger.
+advancement.harkenscythe.was_it_even_real.name=War es überhaupt echt?
+advancement.harkenscythe.was_it_even_real.desc=Begegne einem geisterhaften Bergarbeiter.
+
+# BLOCKS
+tile.harkenscythe.blood_altar.name=Blutaltar
+tile.harkenscythe.blood_crucible.name=Bluttiegel
+tile.harkenscythe.biomass_block.name=Biomasseblock
+tile.harkenscythe.biomass_crop.name=Biomassepflanze
+tile.harkenscythe.bloodweave_cloth.name=Blutgewebter Stoff
+tile.harkenscythe.creep_block.name=Kriechblock
+tile.harkenscythe.creep_block_tilled.name=Bearbeiteter Kriechblock
+tile.harkenscythe.creep_block_tilled_bloodied.name=Blutbearbeiteter Kriechblock
+tile.harkenscythe.livingmetal_block.name=Lebendmetallblock
+tile.harkenscythe.livingmetal_core.name=Lebendmetallkern
+tile.harkenscythe.soul_altar.name=Seelenaltar
+tile.harkenscythe.soul_cake.name=Seelenkuchen
+tile.harkenscythe.soul_crucible.name=Seelentiegel
+tile.harkenscythe.soulweave_cloth.name=Seelengewebter Stoff
+tile.harkenscythe.spectral_glass.name=Lunares Spektralglas
+tile.harkenscythe.spectral_glass_inverted.name=Solares Spektralglas
+tile.harkenscythe.spectral_glass_pane.name=Lunare Spektralglasscheibe
+tile.harkenscythe.spectral_glass_pane_inverted.name=Solare Spektralglasscheibe
+
+# ITEMS
+item.harkenscythe.ancient_necronomicon.name=Antikes Nekronomikon
+item.harkenscythe.ancient_necronomicon_page.name=Seite des Antiken Nekronomikons
+item.harkenscythe.biomass.name=Biomasse
+item.harkenscythe.biomass_axe.name=Biomasseaxt
+item.harkenscythe.biomass_boots.name=Biomassestiefel
+item.harkenscythe.biomass_chestplate.name=Biomassebrustpanzer
+item.harkenscythe.biomass_glaive.name=Biomasseglefe
+item.harkenscythe.biomass_helmet.name=Biomassemaske
+item.harkenscythe.biomass_hoe.name=Biomassehacke
+item.harkenscythe.biomass_leggings.name=Biomassebeinschutz
+item.harkenscythe.biomass_pickaxe.name=Biomassespitzhacke
+item.harkenscythe.biomass_scythe.name=Biomassesense
+item.harkenscythe.biomass_seed.name=Biomassesamen
+item.harkenscythe.biomass_shovel.name=Biomasseschaufel
+item.harkenscythe.biomass_sword.name=Biomasseschwert
+item.harkenscythe.blood_essence.name=Blutige Essenz
+item.harkenscythe.bloodweave_hood.name=Blutgewebte Kappe
+item.harkenscythe.bloodweave_pants.name=Blutgewebte Hose
+item.harkenscythe.bloodweave_robe.name=Blutgewebte Jacke
+item.harkenscythe.bloodweave_shoes.name=Blutgewebte Stiefel
+item.harkenscythe.blunt_harken_blade.name=Stumpfe Harkenklinge
+item.harkenscythe.carnage_book.name=Buch des Gemetzels
+item.harkenscythe.creepball.name=Kriechball
+item.harkenscythe.diamond_glaive.name=Diamantglefe
+item.harkenscythe.diamond_scythe.name=Diamantsense
+item.harkenscythe.dimensional_mirror.name=Dimensionaler Spiegel
+item.harkenscythe.essence_keeper.name=Essenzbehälter
+item.harkenscythe.essence_keeper_blood.name=Blutbehälter
+item.harkenscythe.essence_keeper_soul.name=Seelenbehälter
+item.harkenscythe.essence_vessel.name=Essenzgefäß
+item.harkenscythe.essence_vessel_blood.name=Blutgefäß
+item.harkenscythe.essence_vessel_soul.name=Seelengefäß
+item.harkenscythe.germinated_biomass_seed.name=Gekeimter Biomassesamen
+item.harkenscythe.golden_glaive.name=Goldene Glefe
+item.harkenscythe.golden_scythe.name=Goldene Sense
+item.harkenscythe.harken_athame.name=Harken-Zeremoniendolch
+item.harkenscythe.iron_glaive.name=Eisenglefe
+item.harkenscythe.iron_scythe.name=Eisensense
+item.harkenscythe.lady_harken_scythe.name=Lady Harken-Sense
+item.harkenscythe.livingmetal_axe.name=Lebendmetallaxt
+item.harkenscythe.livingmetal_boots.name=Lebendmetallstiefel
+item.harkenscythe.livingmetal_chestplate.name=Lebendmetallbrustpanzer
+item.harkenscythe.livingmetal_glaive.name=Lebendmetallglefe
+item.harkenscythe.livingmetal_helmet.name=Lebendmetallhelm
+item.harkenscythe.livingmetal_hoe.name=Lebendmetallhacke
+item.harkenscythe.livingmetal_ingot.name=Lebendmetallbarren
+item.harkenscythe.livingmetal_leggings.name=Lebendmetallbeinschutz
+item.harkenscythe.livingmetal_pickaxe.name=Lebendmetallspitzhacke
+item.harkenscythe.livingmetal_scythe.name=Lebendmetallsense
+item.harkenscythe.livingmetal_shears.name=Lebendmetallschere
+item.harkenscythe.livingmetal_shovel.name=Lebendmetallschaufel
+item.harkenscythe.livingmetal_sword.name=Lebendmetallschwert
+item.harkenscythe.reaper_guidebook.name=Reaper-Handbuch
+item.harkenscythe.reaper_scythe.name=Reaper-Sense
+item.harkenscythe.shadow_book.name=Buch der Schatten
+item.harkenscythe.soul_cake.name=Seelenkuchen
+item.harkenscythe.soul_cookie.name=Seelenkeks
+item.harkenscythe.soul_essence.name=Geisterhafte Essenz
+item.harkenscythe.soulweave_hood.name=Seelengewebte Kappe
+item.harkenscythe.soulweave_pants.name=Seelengewebte Hose
+item.harkenscythe.soulweave_robe.name=Seelengewebte Jacke
+item.harkenscythe.soulweave_shoes.name=Seelengewebte Stiefel
+item.harkenscythe.spectral_glass_bottle.name=Spektrale Glasflasche
+item.harkenscythe.spectral_pickaxe.name=Spektrale Spitzhacke
+item.harkenscythe.spectral_potion_affliction.name=Spektraler Trank des Leidens
+item.harkenscythe.spectral_potion_flame.name=Spektraler Trank der Flamme
+item.harkenscythe.spectral_potion_purifying.name=Spektraler Trank der Reinigung
+item.harkenscythe.spectral_potion_water.name=Spektraler Trank des Wassers
+item.harkenscythe.stone_glaive.name=Steinglefe
+item.harkenscythe.stone_scythe.name=Steinsense
+item.harkenscythe.unpowered_totem_of_undying.name=Kraftloses Totem der Unsterblichkeit
+item.harkenscythe.wooden_glaive.name=Holzglefe
+item.harkenscythe.wooden_scythe.name=Holzsense
+
+# ENTITIES
+entity.harkenscythe.blood.name=Blutessenz
+entity.harkenscythe.ectoglobin.name=Ektoglobin
+entity.harkenscythe.harbinger.name=Harbinger
+entity.harkenscythe.hemoglobin.name=Hämoglobin
+entity.harkenscythe.soul.name=Seelenessenz
+entity.harkenscythe.spectral_human.name=Spektraler Mensch
+entity.harkenscythe.spectral_miner.name=Spektraler Bergarbeiter
+entity.harkenscythe.spectral_potion.name=Spektraler Trank
+
+# ENCHANTMENTS
+enchantment.harkenscythe.bloodletting=Aderlass
+enchantment.harkenscythe.exude=Verströmung
+enchantment.harkenscythe.nourishment=Ernährung
+enchantment.harkenscythe.soulsteal=Seelenraub
+
+# POTIONS
+effect.harkenscythe.affliction=Spektrales Leiden
+effect.harkenscythe.flame=Spektrale Flamme
+effect.harkenscythe.purifying=Spektrale Reinigung
+effect.harkenscythe.water=Spektrales Wasser
+
+# MESSAGES
+message.harkenscythe.dimensional_mirror.blacklist=Eine magische Kraft verhindert, dass der Spiegel in dieser Dimension funktioniert!
+message.harkenscythe.dimensional_mirror.no_souls=Der Spiegel muss mit Seelen aufgeladen werden, damit er funktioniert!
+message.harkenscythe.dimensional_mirror.no_spawn=Es ist kein Spawnpunkt festgelegt, damit der Spiegel funktioniert!
+message.harkenscythe.hs_reap=%s wurde gereapt
+
+# SET BONUSES
+setbonus.harkenscythe=Set-Bonus:
+setbonus.harkenscythe.bloodweave=25%% Chance auf zusätzlich gereapte Blutessenz
+setbonus.harkenscythe.soulweave=25%% Chance auf zusätzlich gereapte Seelenessenz
+
+# TOOLTIPS
+tooltip.harkenscythe.altar=Erfordert einen Zeremoniendolch für Rituale.
+tooltip.harkenscythe.ancient_necronomicon.1=Das Buch der Toten: In menschliches Fleisch gebunden
+tooltip.harkenscythe.ancient_necronomicon.2=und mit Blut beschmiert, enthält dieses uralte Buch
+tooltip.harkenscythe.ancient_necronomicon.3=zusammenhangloses Geschwafel über Prophezeiungen,
+tooltip.harkenscythe.ancient_necronomicon.4=Nekromantie, Begräbnisbeschwörungen,
+tooltip.harkenscythe.ancient_necronomicon.5=und Passagen zur Dämonenauferstehung.
+tooltip.harkenscythe.ancient_necronomicon_page.1=Eine fehlende Seite des uralten Nekronomikon,
+tooltip.harkenscythe.ancient_necronomicon_page.2=geschrieben in einer uralten, ominösen Sprache.
+tooltip.harkenscythe.athame=Rechtsklick auf einen Blutaltar oder Seelenaltar, um einem Gegenstand seine Kraft zu verleihen.
+tooltip.harkenscythe.biomass=Ist es lebendig...?
+tooltip.harkenscythe.biomass_equipment=Zerbricht nie und repariert sich endlos selbst. Die Kolonie gedeiht...
+tooltip.harkenscythe.biomass_seed=Muss zuerst auf einem Blutaltar zum Keimen gebracht werden.
+tooltip.harkenscythe.blood_essence=Blut in physischer Form.
+tooltip.harkenscythe.blunt_blade=Es könnte magische Fähigkeiten entwickeln, wenn es mit Blutessenz oder Seelenessenz in Kontakt kommt...
+tooltip.harkenscythe.carnage_book.1=Ein Buch mit religiösen Inschriften und
+tooltip.harkenscythe.carnage_book.2=Anleitungen zum Kanalisieren von Blutessenz.
+tooltip.harkenscythe.collected_blood=Gesammelte Blutessenz
+tooltip.harkenscythe.collected_souls=Gesammelte Seelenessenz
+tooltip.harkenscythe.creepball=Pflanze auf Seelensand, um die Kolonie zu verbreiten...
+tooltip.harkenscythe.dimensional_mirror=Auf Kosten von Seelenessenz bringt er dich von jedem erlaubten Ort direkt zu deinem Spawnpunkt zurück.
+tooltip.harkenscythe.essence_container=Wird verwendet, um Blutessenz oder Seelenessenz zu nutzen.
+tooltip.harkenscythe.germinated_biomass_seed=Sollte in bearbeitete Kriechblöcke gepflanzt werden.
+tooltip.harkenscythe.livingmetal_ability=Stellt die Haltbarkeit wieder her, während Seelenessenz gesammelt wird.
+tooltip.harkenscythe.livingmetal_ingot=Es summt seltsam.
+tooltip.harkenscythe.no_break_blood=Zerbricht nie, muss aber an einem Blutaltar mit Blutessenz repariert werden.
+tooltip.harkenscythe.no_break_soul=Zerbricht nie, muss aber an einem Seelenaltar mit Seelenessenz repariert werden.
+tooltip.harkenscythe.reaper_scythe.1=Es gibt einen Reaper, Tod heißt er,
+tooltip.harkenscythe.reaper_scythe.2=Mit scharfem, blankem Stahl,
+tooltip.harkenscythe.reaper_scythe.3=Mäht er das reife Korn umher,
+tooltip.harkenscythe.reaper_scythe.4=Und die Blumen ohne Wahl.
+tooltip.harkenscythe.repair=Reparaturrezept
+tooltip.harkenscythe.shadow_book.1=Ein Buch mit religiösen Inschriften und
+tooltip.harkenscythe.shadow_book.2=Anleitungen zum Kanalisieren von Seelenessenz.
+tooltip.harkenscythe.shears=Wirksam auf alle Arten von Stoff, Blättern und Spinnweben.
+tooltip.harkenscythe.soul_cake=Verleiht Regeneration (0:06), wenn ein Stück gegessen wird und wird gedroppt, wenn noch kein Stück gegessen wurde.
+tooltip.harkenscythe.soul_cookie=Verleiht Regeneration (0:04), wenn gegessen.
+tooltip.harkenscythe.soul_essence=Seele in physischer Form.
+tooltip.harkenscythe.spectral_potion_affliction=Kann geworfen werden, um eine Verweiltrank-Wolke zu erzeugen, die einen zufälligen negativen Effekt verursacht.
+tooltip.harkenscythe.spectral_potion_flame=Kann geworfen werden, um Feuer zu entfachen.
+tooltip.harkenscythe.spectral_potion_purifying=Kann geworfen werden, um eine Verweiltrank-Wolke zu erzeugen, die alle negativen Effekte vertreibt.
+tooltip.harkenscythe.spectral_potion_water=Kann geworfen werden, um Feuer zu löschen.
+tooltip.harkenscythe.totem_undying_unpowered=Muss zuerst auf einem Seelenaltar aktiviert werden, bevor es funktionieren kann.
+
+# CONFIG
+cfg.harkenscythe.general=General
+cfg.harkenscythe.entities=Entities
+cfg.harkenscythe.items=Items
+cfg.harkenscythe.recipes=Recipes
+
+# PATCHOULI
+patchouli.harkenscythe.landing_text=Eine Anleitung für Harken Scythe, eine Magie-Modifikation über die Kunst, Blut und Seelen zu reapen und zu kanalisieren.
+patchouli.harkenscythe.name=Reaper-Handbuch
+patchouli.harkenscythe.subtitle=Harbinger-Edition
+
+# TINKERS CONSTRUCT
+material.biomass.name=Biomasse
+material.livingmetal.name=Lebendmetall
+
+modifier.blood_conjuration.name=Blutbeschwörung
+modifier.blood_conjuration.desc=§oBlutiger Mord!§r\nEs besteht eine 5%ige Chance, dass Blutessenz entsteht, wenn ein Ziel getroffen wird.
+modifier.blood_intervention.name=Bluteingriff
+modifier.blood_intervention.desc=§oSchütze die Kolonie!§r\nBlutessenz in der Nähe wird dein Werkzeug langsam wiederherstellen und dir dauerhaft den Stärkeeffekt verleihen.
+modifier.soul_conjuration.name=Seelenbeschwörung
+modifier.soul_conjuration.desc=§oDie Zeit ist um!§r\nEs besteht eine 15%ige Chance, dass Seelenessenz entsteht, wenn ein Ziel getötet wird.
+modifier.soul_intervention.name=Seeleneingriff
+modifier.soul_intervention.desc=§oDeine Seele ist an mich gebunden!§r\nSeelenessenz in der Nähe wird dein Werkzeug langsam wiederherstellen und dir dauerhaft den Resistenz-Effekt verleihen.

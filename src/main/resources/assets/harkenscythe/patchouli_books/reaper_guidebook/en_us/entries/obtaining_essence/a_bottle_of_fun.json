@@ -7,14 +7,11 @@
   "pages": [
     {
       "type": "text",
-      "text": "To bottle reaped essence, you need to target and $(4)right-click$() them with either essence keepers or essence vessels.$(br2)Essence possess different levels of quality which determine their bottled amount:$(br)Common: 1$(br)Grieving: 2$(br)Culled: 5$(br)Wrathful/Spectral: 20"
+      "text": "To bottle reaped essence, you need to target and $(4)right-click$() them with either essence keepers or essence vessels."
     },
     {
-      "type": "relations",
-      "entries": [
-        "blood_essence",
-        "soul_essence"
-      ]
+      "type": "text",
+      "text": "Essences possess different levels of quality which determine their bottled amount:$(br)Common: 1$(br)Grieving: 2$(br)Culled: 5$(br)Wrathful/Spectral: 20"
     }
   ]
 }

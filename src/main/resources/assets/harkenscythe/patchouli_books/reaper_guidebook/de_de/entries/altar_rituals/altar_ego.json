@@ -1,0 +1,23 @@
+{
+  "name": "Altar Ego",
+  "icon": "harkenscythe:textures/items/shadow_book.png",
+  "category": "altar_rituals",
+  "advancement": "harkenscythe:your_time_is_up",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um mit der Durchführung von Ritualen beginnen zu können, musst du zunächst einen Altar des entsprechenden Typs errichten, um Gegenstände für die magische Infusion vorzubereiten."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blood_altar",
+      "recipe2": "harkenscythe:soul_altar"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:carnage_book",
+      "recipe2": "harkenscythe:shadow_book"
+    }
+  ]
+}

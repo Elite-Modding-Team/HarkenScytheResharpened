@@ -1,0 +1,17 @@
+{
+  "name": "Lass das Ritual beginnen",
+  "icon": "harkenscythe:textures/items/harken_athame.png",
+  "category": "altar_rituals",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Werden ein Altar und Tiegel des gleichen Typs nebeneinander platziert (Standard ist ein Radius von 4 Blöcken) und die Tiegel mit Essenz gefüllt, können Zauberrituale stattfinden."
+    },
+    {
+      "type": "text",
+      "text": "Jeder verzauberbare Gegenstand hat einen Essenzwert für eine erfolgreiche magische Transformation. Wenn für diesen Vorgang genügend Essenz verfügbar ist, führe das Ritual mit einem $(4)Rechtsklick$() auf dem Altar mit einem Harken-Zeremoniendolch durch.$(br2)Du kannst optional auch JEI/HEI verwenden, um Altarrezepte und Essenzkosten anzuzeigen."
+    }
+  ]
+}

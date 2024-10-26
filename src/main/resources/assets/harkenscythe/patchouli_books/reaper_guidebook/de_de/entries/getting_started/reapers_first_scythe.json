@@ -1,0 +1,17 @@
+{
+  "name": "Reapers erste Sense",
+  "icon": "harkenscythe:textures/items/scythe_iron.png",
+  "category": "getting_started",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um mit der Gewinnung von Seelenessenz beginnen zu können, musst du zunächst eine Sense herstellen.$(br2)Sensen können aus jedem beliebigen Material aus dem Originalspiel, beispielsweise Eisen, sowie aus bestimmten Materialien aus anderen Mods, sofern diese unterstützt werden, hergestellt werden."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:iron_scythe",
+      "title": " "
+    }
+  ]
+}

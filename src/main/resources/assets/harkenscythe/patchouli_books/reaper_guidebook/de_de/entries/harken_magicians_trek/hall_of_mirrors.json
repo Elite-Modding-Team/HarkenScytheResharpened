@@ -1,0 +1,18 @@
+{
+  "name": "Spiegelsaal",
+  "icon": "harkenscythe:textures/items/dimensional_mirror_lit.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Das Spektralglas des Dimensionsspiegels erinnert dich an zu Hause und kann dich auf magische Weise dorthin schicken, indem du $(4)Rechtsklick$() gedrückt hältst. Egal, ob du in Schwierigkeiten steckst oder dich einfach verlaufen hast, es ist ein praktisches Werkzeug in vielen Fällen."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:dimensional_mirror",
+      "title": " ",
+      "text": "Es verfügt standardmäßig über 4 Ladungen und kann wie bei jedem anderen Ritual im Altar aufgeladen werden."
+    }
+  ]
+}

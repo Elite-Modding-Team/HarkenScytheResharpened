@@ -1,0 +1,17 @@
+{
+  "name": "Eine Flasche Spaß",
+  "icon": "harkenscythe:textures/items/essence_vessel_soul_100.png",
+  "category": "obtaining_essence",
+  "advancement": "harkenscythe:keeper_of_the_reaper",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um geerntete Essenzen in Flaschen abzufüllen, musst du sie mit Essenzbehältern oder Essenzgefäßen anvisieren und mit der $(4)rechten Maustaste$() darauf klicken."
+    },
+    {
+      "type": "text",
+      "text": "Essenzen besitzen unterschiedliche Qualitätsstufen, die ihre abgefüllte Menge bestimmen:$(br)Gewöhnlich: 1$(br)Trauernd: 2$(br)Ausgemerzt: 5$(br)Zornig/Spektral: 20"
+    }
+  ]
+}

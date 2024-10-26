@@ -13,4 +13,4 @@
 
 **Translators:**
 
-- None yet! :)
+- German ~ ACGaming

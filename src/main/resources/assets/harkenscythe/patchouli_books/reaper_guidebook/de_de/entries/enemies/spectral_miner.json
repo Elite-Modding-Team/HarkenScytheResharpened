@@ -1,0 +1,26 @@
+{
+  "name": "Spektraler Bergarbeiter",
+  "icon": "harkenscythe:spectral_pickaxe",
+  "category": "enemies",
+  "advancement": "harkenscythe:was_it_even_real",
+  "pages": [
+    {
+      "type": "boss_info",
+      "title": "Spektraler Bergarbeiter",
+      "piece": "queen",
+      "hand": "harkenscythe:spectral_pickaxe",
+      "resistance": "   10",
+      "knockback": "   0",
+      "health": "  150",
+      "damage": "   4",
+      "speed": "  0.15",
+      "drop1": "harkenscythe:spectral_pickaxe"
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "Kann eine Illusion sein, muss aber nicht.",
+      "entity": "harkenscythe:spectral_miner"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Spektraler Mensch",
+  "icon": "minecraft:iron_pickaxe",
+  "category": "enemies",
+  "advancement": "harkenscythe:steve",
+  "pages": [
+    {
+      "type": "boss_info",
+      "title": "Spektraler Mensch",
+      "piece": "none",
+      "resistance": "   0",
+      "knockback": "   0",
+      "health": "   20",
+      "damage": "   3",
+      "speed": "  0.23",
+      "drop1": "harkenscythe:soul_essence"
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "An die Ebene der Sterblichen gebunden...",
+      "entity": "harkenscythe:spectral_human"
+    }
+  ]
+}

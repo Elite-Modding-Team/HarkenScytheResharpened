@@ -1,0 +1,18 @@
+{
+  "name": "Essenzielle Aufbewahrung",
+  "icon": "harkenscythe:textures/blocks/soul_crucible_side.png",
+  "category": "obtaining_essence",
+  "advancement": "harkenscythe:your_time_is_up",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um größere Mengen an Essenz aufzubewahren, musst du einen Tiegel des entsprechenden Typs errichten.$(br2)Tiegel können mit gefüllten Essenzbehältern oder Essenzgefäßen, ähnlich zu Kesseln, mit der $(4)rechten Maustaste$() aufgefüllt werden.$(br)Es ist auch möglich, Essenz aus dem Tiegel zu entleeren, indem du $(4)schleichst$() und mit der $(4)rechten Maustaste$() klickst."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blood_crucible",
+      "recipe2": "harkenscythe:soul_crucible"
+    }
+  ]
+}
