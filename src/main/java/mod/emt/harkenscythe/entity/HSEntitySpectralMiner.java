@@ -117,7 +117,7 @@ public class HSEntitySpectralMiner extends EntityMob
     @Override
     protected ResourceLocation getLootTable()
     {
-        return HSLootTables.SPECTRAL_MINER;
+        return this.getHeldItemMainhand().getItem() == HSItems.spectral_pickaxe ? HSLootTables.SPECTRAL_MINER : super.getLootTable();
     }
 
     @Override
