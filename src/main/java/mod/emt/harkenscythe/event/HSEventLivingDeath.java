@@ -100,7 +100,7 @@ public class HSEventLivingDeath
         world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
-    private static void spawnSoul(World world, EntityLivingBase entity)
+    public static void spawnSoul(World world, EntityLivingBase entity)
     {
         if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin) return;
         HSEntitySoul soul = new HSEntitySoul(world, entity);

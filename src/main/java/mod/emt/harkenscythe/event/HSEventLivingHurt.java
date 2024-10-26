@@ -64,7 +64,7 @@ public class HSEventLivingHurt
         }
     }
 
-    private static void spawnBlood(World world, EntityLivingBase entity)
+    public static void spawnBlood(World world, EntityLivingBase entity)
     {
         HSEntityBlood blood = new HSEntityBlood(world);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
