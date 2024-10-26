@@ -35,6 +35,7 @@ public class HarkenScythe
     public void preInit(FMLPreInitializationEvent event)
     {
         HSNetworkHandler.registerPackets();
+        HSCompatHandler.preInit();
         LOGGER.info(NAME + " pre-initialized");
     }
 
