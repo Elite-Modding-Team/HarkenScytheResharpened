@@ -210,3 +210,16 @@ cfg.harkenscythe.recipes=Recipes
 patchouli.harkenscythe.landing_text=A guide for Harken Scythe, a magic mod about the art of reaping and channeling blood and souls.
 patchouli.harkenscythe.name=Reaper's Guidebook
 patchouli.harkenscythe.subtitle=Harbinger's Edition
+
+# TINKERS CONSTRUCT
+material.biomass.name=Biomass
+material.livingmetal.name=Livingmetal
+
+modifier.blood_conjuration.name=Blood Conjuration
+modifier.blood_conjuration.desc=§oBloody murder!§r\nThere is a 5% chance for blood essence to spawn when a target is hit.
+modifier.blood_intervention.name=Blood Intervention
+modifier.blood_intervention.desc=§oProtect the colony!§r\nNearby blood essence will slowly restore your tool and will constantly provide you the Strength effect.
+modifier.soul_conjuration.name=Soul Conjuration
+modifier.soul_conjuration.desc=§oTime's up!§r\nThere is a 15% chance for soul essence to spawn when a target is killed.
+modifier.soul_intervention.name=Soul Intervention
+modifier.soul_intervention.desc=§oYour soul is bound to me!§r\nNearby soul essence will slowly restore your tool and will constantly provide you the Resistance effect.
