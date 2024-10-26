@@ -27,10 +27,8 @@ public class HSParticleHandler
         particle.setRBGColorF((color.getRed() / 255.0F) * randBrightness, (color.getGreen() / 255.0F) * randBrightness, (color.getBlue() / 255.0F) * randBrightness);
     }
 
-    public static void spawnBeamParticles(EnumParticleTypes type, World world, double sourceX, double sourceY, double sourceZ, Color color, double targetX, double targetY, double targetZ)
+    public static void spawnBeamParticles(EnumParticleTypes type, int particleAmount, World world, double sourceX, double sourceY, double sourceZ, Color color, double targetX, double targetY, double targetZ)
     {
-        int particleAmount = 40;
-
         for (int i = 0; i < particleAmount; i++)
         {
             double beam = i / (particleAmount - 1.0D);
