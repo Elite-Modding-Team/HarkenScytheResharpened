@@ -199,8 +199,14 @@ public class HSRegistry
         }
 
         // Ore Dictionary
+        OreDictionary.registerOre("blockBiomass", new ItemStack(HSBlocks.biomass_block));
+        OreDictionary.registerOre("blockLivingmetal", new ItemStack(HSBlocks.livingmetal_block));
+
         OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.blood_essence));
         OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.soul_essence));
+
+        OreDictionary.registerOre("ingotBiomass", new ItemStack(HSItems.biomass));
+        OreDictionary.registerOre("ingotLivingmetal", new ItemStack(HSItems.livingmetal_ingot));
     }
 
     @SubscribeEvent
