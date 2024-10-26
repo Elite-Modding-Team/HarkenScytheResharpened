@@ -110,7 +110,7 @@ public class HSEntitySoul extends HSEntityEssence
     public void onEntityUpdate()
     {
         super.onEntityUpdate();
-        if (isEntityAlive() && this.ticksExisted % 100 == 0 && this.rand.nextInt(2) == 0)
+        if (isEntityAlive() && this.ticksExisted % 200 == 0 && this.rand.nextBoolean())
         {
             playLivingSound();
         }
