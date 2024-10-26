@@ -8,8 +8,8 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 public class TraitSoulConjuration extends AbstractTrait
 {
-    // Chance is 15%
-    private static double CHANCE = 0.15D;
+    // Chance is 20%
+    private static double CHANCE = 0.2D;
 
     public TraitSoulConjuration()
     {

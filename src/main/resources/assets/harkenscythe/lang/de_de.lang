@@ -217,10 +217,10 @@ material.biomass.name=Biomasse
 material.livingmetal.name=Lebendmetall
 
 modifier.blood_conjuration.name=Blutbeschwörung
-modifier.blood_conjuration.desc=§oBlutiger Mord!§r\nEs besteht eine 5%ige Chance, dass Blutessenz entsteht, wenn ein Ziel getroffen wird.
+modifier.blood_conjuration.desc=§oBlutiger Mord!§r\nEs besteht eine 10%ige Chance, dass Blutessenz entsteht, wenn ein Ziel getroffen wird.
 modifier.blood_intervention.name=Bluteingriff
 modifier.blood_intervention.desc=§oSchütze die Kolonie!§r\nBlutessenz in der Nähe wird dein Werkzeug langsam wiederherstellen und dir dauerhaft den Stärkeeffekt verleihen.
 modifier.soul_conjuration.name=Seelenbeschwörung
-modifier.soul_conjuration.desc=§oDie Zeit ist um!§r\nEs besteht eine 15%ige Chance, dass Seelenessenz entsteht, wenn ein Ziel getötet wird.
+modifier.soul_conjuration.desc=§oDie Zeit ist um!§r\nEs besteht eine 20%ige Chance, dass Seelenessenz entsteht, wenn ein Ziel getötet wird.
 modifier.soul_intervention.name=Seeleneingriff
 modifier.soul_intervention.desc=§oDeine Seele ist an mich gebunden!§r\nSeelenessenz in der Nähe wird dein Werkzeug langsam wiederherstellen und dir dauerhaft den Resistenz-Effekt verleihen.

@@ -42,8 +42,8 @@ public class TraitBloodIntervention extends AbstractTrait
                 {
                     if (ToolHelper.getCurrentDurability(tool) < ToolHelper.getMaxDurability(tool))
                     {
-                        // 2% of total durability
-                        int calc = ToolHelper.getMaxDurability(tool) * 2 / 100;
+                        // 1% of total durability
+                        int calc = ToolHelper.getMaxDurability(tool) * 1 / 100;
 
                         tool.damageItem(-calc, entity instanceof EntityLivingBase ? (EntityLivingBase) entity : null);
                     }
