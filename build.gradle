@@ -114,6 +114,10 @@ dependencies {
     // Thaumcraft
     implementation rfg.deobf('curse.maven:baubles-227083:2518667')
     implementation rfg.deobf('curse.maven:thaumcraft-223628:2629023')
+    
+    // Tinkers' Construct
+    implementation rfg.deobf('curse.maven:mantle-74924:2713386')
+    implementation rfg.deobf('curse.maven:tinkers-construct-74072:2902483')
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:
