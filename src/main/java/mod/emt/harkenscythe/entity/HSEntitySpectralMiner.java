@@ -43,6 +43,7 @@ public class HSEntitySpectralMiner extends EntityMob
     @Override
     public void onDeath(DamageSource cause)
     {
+        super.onDeath(cause);
         if (cause.getTrueSource() instanceof EntityPlayerMP)
         {
             HSAdvancements.ENCOUNTER_SPECTRAL_MINER.trigger((EntityPlayerMP) cause.getTrueSource());

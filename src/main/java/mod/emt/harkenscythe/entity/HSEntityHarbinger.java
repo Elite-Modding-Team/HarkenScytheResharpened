@@ -133,6 +133,7 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public void onDeath(DamageSource cause)
     {
+        super.onDeath(cause);
         if (cause.getTrueSource() instanceof EntityPlayerMP)
         {
             HSAdvancements.ENCOUNTER_HARBINGER.trigger((EntityPlayerMP) cause.getTrueSource());

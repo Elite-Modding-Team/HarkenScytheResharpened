@@ -24,6 +24,7 @@ public class HSEntitySpectralHuman extends EntityMob
     @Override
     public void onDeath(DamageSource cause)
     {
+        super.onDeath(cause);
         if (cause.getTrueSource() instanceof EntityPlayerMP)
         {
             HSAdvancements.ENCOUNTER_SPECTRAL_HUMAN.trigger((EntityPlayerMP) cause.getTrueSource());

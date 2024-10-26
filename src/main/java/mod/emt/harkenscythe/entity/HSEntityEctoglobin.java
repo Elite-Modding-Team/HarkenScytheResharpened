@@ -33,6 +33,7 @@ public class HSEntityEctoglobin extends HSEntityGlobin
     @Override
     public void onDeath(DamageSource cause)
     {
+        super.onDeath(cause);
         if (cause.getTrueSource() instanceof EntityPlayerMP)
         {
             HSAdvancements.ENCOUNTER_ECTOGLOBIN.trigger((EntityPlayerMP) cause.getTrueSource());
