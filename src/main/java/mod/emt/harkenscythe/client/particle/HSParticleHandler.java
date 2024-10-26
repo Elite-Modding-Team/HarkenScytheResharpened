@@ -1,15 +1,15 @@
 package mod.emt.harkenscythe.client.particle;
 
-import java.awt.Color;
+import java.awt.*;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@EventBusSubscriber(Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class HSParticleHandler
 {
     public static void spawnColoredParticle(EnumParticleTypes type, double x, double y, double z, Color color, double velX, double velY, double velZ)
