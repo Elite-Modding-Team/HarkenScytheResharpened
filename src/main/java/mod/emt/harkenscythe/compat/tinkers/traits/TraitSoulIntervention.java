@@ -62,10 +62,10 @@ public class TraitSoulIntervention extends AbstractTrait
 
                     if (world.isRemote)
                     {
-                        HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 25, world, entity1.posX, entity1.posY + entity1.getEyeHeight(), entity1.posZ, Color.getColor("Soul Blue", 4560335), entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
+                        HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity1.posX, entity1.posY + entity1.getEyeHeight(), entity1.posZ, Color.getColor("Soul Blue", 4560335), entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
                     }
 
-                    entity.playSound(HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), 0.4F, 2.0F / (world.rand.nextFloat() * 0.4F + 1.2F));
+                    entity.playSound(HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), 0.2F, 2.0F / (world.rand.nextFloat() * 0.4F + 1.2F));
                 }
             }
         }

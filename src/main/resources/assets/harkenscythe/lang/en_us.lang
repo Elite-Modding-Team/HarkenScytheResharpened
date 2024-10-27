@@ -226,3 +226,9 @@ modifier.soul_conjuration.name=Soul Conjuration
 modifier.soul_conjuration.desc=§oTime's up!§r\nThere is a 20% chance for soul essence to spawn when a target is killed.
 modifier.soul_intervention.name=Soul Intervention
 modifier.soul_intervention.desc=§oYour soul is bound to me!§r\nNearby soul essence will slowly restore your tool and will constantly provide you the Resistance effect.
+
+# CONSTRUCT'S ARMORY
+modifier.blood_intervention_armor.name=Blood Intervention
+modifier.blood_intervention_armor.desc=§oProtect the colony!§r\nNearby blood essence will slowly restore your armor and will constantly provide you the Strength effect.
+modifier.soul_intervention_armor.name=Soul Intervention
+modifier.soul_intervention_armor.desc=§oYour soul is bound to me!§r\nNearby soul essence will slowly restore your armor and will constantly provide you the Resistance effect.
