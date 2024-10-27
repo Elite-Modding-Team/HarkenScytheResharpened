@@ -1,16 +1,14 @@
 package mod.emt.harkenscythe.compat.tinkers.traits;
 
-import mod.emt.harkenscythe.event.HSEventLivingHurt;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.event.HSEventLivingHurt;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 public class TraitBloodConjuration extends AbstractTrait
 {
-    // Chance is 10%
-    private static double CHANCE = 0.1D;
-
     public TraitBloodConjuration()
     {
         super("blood_conjuration", 0x87201B);
@@ -21,7 +19,8 @@ public class TraitBloodConjuration extends AbstractTrait
     {
         World world = target.getEntityWorld();
 
-        if (wasHit && !target.isDead && random.nextDouble() <= CHANCE)
+        // Chance is 10%
+        if (wasHit && !target.isDead && random.nextDouble() <= 0.1D)
         {
             HSEventLivingHurt.spawnBlood(world, target);
         }

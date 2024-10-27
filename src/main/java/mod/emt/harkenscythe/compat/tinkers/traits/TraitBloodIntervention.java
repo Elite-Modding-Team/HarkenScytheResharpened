@@ -1,11 +1,8 @@
 package mod.emt.harkenscythe.compat.tinkers.traits;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.List;
 
-import mod.emt.harkenscythe.client.particle.HSParticleHandler;
-import mod.emt.harkenscythe.entity.HSEntityBlood;
-import mod.emt.harkenscythe.init.HSSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +13,10 @@ import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.client.particle.HSParticleHandler;
+import mod.emt.harkenscythe.entity.HSEntityBlood;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
@@ -43,9 +44,12 @@ public class TraitBloodIntervention extends AbstractTrait
                     if (ToolHelper.getCurrentDurability(tool) < ToolHelper.getMaxDurability(tool))
                     {
                         // 1% of total durability
-                        int calc = ToolHelper.getMaxDurability(tool) * 1 / 100;
+                        int calc = ToolHelper.getMaxDurability(tool) / 100;
 
-                        tool.damageItem(-calc, entity instanceof EntityLivingBase ? (EntityLivingBase) entity : null);
+                        if (entity instanceof EntityLivingBase)
+                        {
+                            tool.damageItem(-calc, (EntityLivingBase) entity);
+                        }
                     }
 
                     if (entity instanceof EntityPlayer)
@@ -58,8 +62,7 @@ public class TraitBloodIntervention extends AbstractTrait
 
                     if (world.isRemote)
                     {
-                        HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 25, world, entity1.posX, entity1.posY + entity1.getEyeHeight(), entity1.posZ,
-                                Color.getColor("Blood Red", 12124160), entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
+                        HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 25, world, entity1.posX, entity1.posY + entity1.getEyeHeight(), entity1.posZ, Color.getColor("Blood Red", 12124160), entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
                     }
 
                     entity.playSound(HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), 0.4F, 2.0F / (world.rand.nextFloat() * 0.4F + 1.2F));

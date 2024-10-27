@@ -20,7 +20,8 @@ public class HSCompatHandler
         }
     }
 
-    public static void init() {
+    public static void init()
+    {
         if (Loader.isModLoaded("tconstruct"))
         {
             TinkersConstruct.init();
@@ -32,7 +33,10 @@ public class HSCompatHandler
             }
         }
 
-        if (Loader.isModLoaded("thaumcraft")) MinecraftForge.EVENT_BUS.register(HSThaumcraftPlugin.class);
+        if (Loader.isModLoaded("thaumcraft"))
+        {
+            MinecraftForge.EVENT_BUS.register(HSThaumcraftPlugin.class);
+        }
     }
 
     public static void postInit()

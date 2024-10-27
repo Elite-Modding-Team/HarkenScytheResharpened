@@ -1,20 +1,15 @@
 package mod.emt.harkenscythe.compat.tinkers;
 
+import net.minecraft.item.ItemStack;
+
 import mod.emt.harkenscythe.compat.tinkers.traits.TraitBloodConjuration;
 import mod.emt.harkenscythe.compat.tinkers.traits.TraitBloodIntervention;
 import mod.emt.harkenscythe.compat.tinkers.traits.TraitSoulConjuration;
 import mod.emt.harkenscythe.compat.tinkers.traits.TraitSoulIntervention;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
-import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.materials.BowMaterialStats;
-import slimeknights.tconstruct.library.materials.BowStringMaterialStats;
-import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
-import slimeknights.tconstruct.library.materials.HandleMaterialStats;
-import slimeknights.tconstruct.library.materials.HeadMaterialStats;
-import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.materials.MaterialTypes;
+import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
@@ -35,31 +30,31 @@ public class TinkersConstruct
     public static void preInit()
     {
         TinkerRegistry.addMaterialStats(BIOMASS,
-                new HeadMaterialStats(500, 7.5F, 5.5F, HarvestLevels.OBSIDIAN),
-                new HandleMaterialStats(1.3F, 50),
-                new ExtraMaterialStats(100),
-                new BowMaterialStats(0.675F, 1.6F, 7.5F));
+            new HeadMaterialStats(500, 7.5F, 5.5F, HarvestLevels.OBSIDIAN),
+            new HandleMaterialStats(1.3F, 50),
+            new ExtraMaterialStats(100),
+            new BowMaterialStats(0.675F, 1.6F, 7.5F));
         BIOMASS.addTrait(BLOOD_CONJURATION, MaterialTypes.HEAD);
         BIOMASS.addTrait(BLOOD_INTERVENTION, MaterialTypes.HEAD);
         BIOMASS.addTrait(BLOOD_INTERVENTION);
         TinkerRegistry.integrate(BIOMASS).preInit();
 
         TinkerRegistry.addMaterialStats(LIVINGMETAL,
-                new HeadMaterialStats(500, 7.5F, 5.5F, HarvestLevels.OBSIDIAN),
-                new HandleMaterialStats(1.3F, 50),
-                new ExtraMaterialStats(100),
-                new BowMaterialStats(0.675F, 1.6F, 7.5F));
+            new HeadMaterialStats(500, 7.5F, 5.5F, HarvestLevels.OBSIDIAN),
+            new HandleMaterialStats(1.3F, 50),
+            new ExtraMaterialStats(100),
+            new BowMaterialStats(0.675F, 1.6F, 7.5F));
         LIVINGMETAL.addTrait(SOUL_CONJURATION, MaterialTypes.HEAD);
         LIVINGMETAL.addTrait(SOUL_INTERVENTION, MaterialTypes.HEAD);
         LIVINGMETAL.addTrait(SOUL_INTERVENTION);
         TinkerRegistry.integrate(LIVINGMETAL).preInit();
 
         TinkerRegistry.addMaterialStats(BLOODWEAVE_CLOTH,
-                new BowStringMaterialStats(2.0F));
+            new BowStringMaterialStats(2.0F));
         TinkerRegistry.integrate(BLOODWEAVE_CLOTH).preInit();
 
         TinkerRegistry.addMaterialStats(SOULWEAVE_CLOTH,
-                new BowStringMaterialStats(2.0F));
+            new BowStringMaterialStats(2.0F));
         TinkerRegistry.integrate(SOULWEAVE_CLOTH).preInit();
     }
 

@@ -16,17 +16,17 @@ public class ConstructsArmory
     public static void preInit()
     {
         TinkerRegistry.addMaterialStats(TinkersConstruct.BIOMASS,
-                new CoreMaterialStats(20, 8.0F),
-                new PlatesMaterialStats(1.0F, 3, 0.0F),
-                new TrimMaterialStats(15));
+            new CoreMaterialStats(20, 8.0F),
+            new PlatesMaterialStats(1.0F, 3, 0.0F),
+            new TrimMaterialStats(15));
         TinkersConstruct.BIOMASS.addTrait(TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.CORE);
         TinkersConstruct.BIOMASS.addTrait(TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.PLATES);
         TinkersConstruct.BIOMASS.addTrait(TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.TRIM);
 
         TinkerRegistry.addMaterialStats(TinkersConstruct.LIVINGMETAL,
-                new CoreMaterialStats(20, 8.0F),
-                new PlatesMaterialStats(1.0F, 3, 0.0F),
-                new TrimMaterialStats(15));
+            new CoreMaterialStats(20, 8.0F),
+            new PlatesMaterialStats(1.0F, 3, 0.0F),
+            new TrimMaterialStats(15));
         TinkersConstruct.LIVINGMETAL.addTrait(TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.CORE);
         TinkersConstruct.LIVINGMETAL.addTrait(TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.PLATES);
         TinkersConstruct.LIVINGMETAL.addTrait(TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.TRIM);

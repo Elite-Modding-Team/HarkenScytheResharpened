@@ -17,7 +17,7 @@ import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 import static mod.emt.harkenscythe.HarkenScythe.*;
 
-@Mod(modid = MOD_ID, name = NAME, version = VERSION, acceptedMinecraftVersions = ACCEPTED_VERSIONS)
+@Mod(modid = MOD_ID, name = NAME, version = VERSION, acceptedMinecraftVersions = ACCEPTED_VERSIONS, dependencies = DEPENDENCIES)
 public class HarkenScythe
 {
     public static final String MOD_ID = Tags.MOD_ID;
@@ -25,6 +25,7 @@ public class HarkenScythe
     public static final String NAME = "Harken Scythe";
     public static final String VERSION = Tags.VERSION;
     public static final String ACCEPTED_VERSIONS = "[1.12.2]";
+    public static final String DEPENDENCIES = "after:thaumcraft;after:tconstruct;after:conarm";
     public static final Logger LOGGER = LogManager.getLogger(NAME);
     public static final CreativeTabs TAB = new HSCreativeTab(CreativeTabs.CREATIVE_TAB_ARRAY.length, MOD_ID + ".tab");
 
