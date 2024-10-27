@@ -1,0 +1,10 @@
+{
+  "type": "tri_color",
+  "parameters": {
+    "bright": "9F1B26",
+    "mid": "84161F",
+    "dark": "73131B",
+    "midthreshold": 190,
+    "darkthreshold": 100
+  }
+}

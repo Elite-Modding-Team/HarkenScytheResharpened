@@ -214,7 +214,9 @@ patchouli.harkenscythe.subtitle=Harbinger's Edition
 
 # TINKERS CONSTRUCT
 material.biomass.name=Biomass
+material.bloodweave_cloth.name=Bloodweave Cloth
 material.livingmetal.name=Livingmetal
+material.soulweave_cloth.name=Soulweave Cloth
 
 modifier.blood_conjuration.name=Blood Conjuration
 modifier.blood_conjuration.desc=§oBloody murder!§r\nThere is a 10% chance for blood essence to spawn when a target is hit.

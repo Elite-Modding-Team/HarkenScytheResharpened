@@ -7,11 +7,14 @@ import mod.emt.harkenscythe.compat.tinkers.traits.TraitBloodConjuration;
 import mod.emt.harkenscythe.compat.tinkers.traits.TraitBloodIntervention;
 import mod.emt.harkenscythe.compat.tinkers.traits.TraitSoulConjuration;
 import mod.emt.harkenscythe.compat.tinkers.traits.TraitSoulIntervention;
+import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
+import slimeknights.tconstruct.library.materials.BowStringMaterialStats;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
@@ -26,7 +29,9 @@ public class TinkersConstruct
     public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
 
     public static final Material BIOMASS = new Material("biomass", 0x87201B);
+    public static final Material BLOODWEAVE_CLOTH = new Material("bloodweave_cloth", 0x79141D);
     public static final Material LIVINGMETAL = new Material("livingmetal", 0x006B9F);
+    public static final Material SOULWEAVE_CLOTH = new Material("soulweave_cloth", 0x1E8CA7);
 
     public static final AbstractTrait BLOOD_CONJURATION = new TraitBloodConjuration();
     public static final AbstractTrait BLOOD_INTERVENTION = new TraitBloodIntervention();
@@ -56,6 +61,16 @@ public class TinkersConstruct
         LIVINGMETAL.addTrait(SOUL_INTERVENTION, MaterialTypes.HEAD);
         LIVINGMETAL.addTrait(SOUL_INTERVENTION);
         TinkerRegistry.integrate(new MaterialIntegration(LIVINGMETAL, null, "livingmetal")).preInit();
+
+        TinkerMaterials.materials.add(BLOODWEAVE_CLOTH);
+        TinkerRegistry.addMaterialStats(BLOODWEAVE_CLOTH,
+                new BowStringMaterialStats(2.0F));
+        TinkerRegistry.integrate(new MaterialIntegration(BLOODWEAVE_CLOTH, null, "bloodweave_cloth")).preInit();
+
+        TinkerMaterials.materials.add(SOULWEAVE_CLOTH);
+        TinkerRegistry.addMaterialStats(SOULWEAVE_CLOTH,
+                new BowStringMaterialStats(2.0F));
+        TinkerRegistry.integrate(new MaterialIntegration(SOULWEAVE_CLOTH, null, "soulweave_cloth")).preInit();
     }
 
     public static void registerToolRecipes()
@@ -67,5 +82,13 @@ public class TinkersConstruct
         LIVINGMETAL.addCommonItems("Livingmetal");
         LIVINGMETAL.setRepresentativeItem(HSItems.livingmetal_ingot);
         LIVINGMETAL.setCraftable(true).setCastable(false);
+
+        BLOODWEAVE_CLOTH.addItem(new ItemStack(HSBlocks.bloodweave_cloth), 1, Material.VALUE_Ingot);
+        BLOODWEAVE_CLOTH.setRepresentativeItem(HSBlocks.bloodweave_cloth);
+        BLOODWEAVE_CLOTH.setCraftable(true).setCastable(false);
+
+        SOULWEAVE_CLOTH.addItem(new ItemStack(HSBlocks.soulweave_cloth), 1, Material.VALUE_Ingot);
+        SOULWEAVE_CLOTH.setRepresentativeItem(HSBlocks.soulweave_cloth);
+        SOULWEAVE_CLOTH.setCraftable(true).setCastable(false);
     }
 }
