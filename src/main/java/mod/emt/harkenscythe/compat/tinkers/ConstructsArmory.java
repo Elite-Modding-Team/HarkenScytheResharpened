@@ -1,9 +1,6 @@
 package mod.emt.harkenscythe.compat.tinkers;
 
-import c4.conarm.lib.materials.ArmorMaterialType;
-import c4.conarm.lib.materials.CoreMaterialStats;
-import c4.conarm.lib.materials.PlatesMaterialStats;
-import c4.conarm.lib.materials.TrimMaterialStats;
+import c4.conarm.lib.materials.*;
 import slimeknights.tconstruct.library.TinkerRegistry;
 
 public class ConstructsArmory
@@ -19,16 +16,16 @@ public class ConstructsArmory
             new CoreMaterialStats(20, 8.0F),
             new PlatesMaterialStats(1.0F, 3, 0.0F),
             new TrimMaterialStats(15));
-        TinkersConstruct.BIOMASS.addTrait(TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.CORE);
-        TinkersConstruct.BIOMASS.addTrait(TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.PLATES);
-        TinkersConstruct.BIOMASS.addTrait(TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.TRIM);
+        ArmorMaterials.addArmorTrait(TinkersConstruct.BIOMASS, TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.CORE);
+        ArmorMaterials.addArmorTrait(TinkersConstruct.BIOMASS, TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.PLATES);
+        ArmorMaterials.addArmorTrait(TinkersConstruct.BIOMASS, TinkersConstruct.BLOOD_INTERVENTION, ArmorMaterialType.TRIM);
 
         TinkerRegistry.addMaterialStats(TinkersConstruct.LIVINGMETAL,
             new CoreMaterialStats(20, 8.0F),
             new PlatesMaterialStats(1.0F, 3, 0.0F),
             new TrimMaterialStats(15));
-        TinkersConstruct.LIVINGMETAL.addTrait(TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.CORE);
-        TinkersConstruct.LIVINGMETAL.addTrait(TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.PLATES);
-        TinkersConstruct.LIVINGMETAL.addTrait(TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.TRIM);
+        ArmorMaterials.addArmorTrait(TinkersConstruct.LIVINGMETAL, TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.CORE);
+        ArmorMaterials.addArmorTrait(TinkersConstruct.LIVINGMETAL, TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.PLATES);
+        ArmorMaterials.addArmorTrait(TinkersConstruct.LIVINGMETAL, TinkersConstruct.SOUL_INTERVENTION, ArmorMaterialType.TRIM);
     }
 }

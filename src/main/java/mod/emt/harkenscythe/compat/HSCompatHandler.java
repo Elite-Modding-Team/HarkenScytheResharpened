@@ -17,6 +17,12 @@ public class HSCompatHandler
         if (Loader.isModLoaded("tconstruct"))
         {
             TinkersConstruct.preInit();
+
+            // Only load Construct's Armory if Tinkers' Construct is also loaded
+            if (Loader.isModLoaded("conarm"))
+            {
+                ConstructsArmory.preInit();
+            }
         }
     }
 
@@ -25,12 +31,6 @@ public class HSCompatHandler
         if (Loader.isModLoaded("tconstruct"))
         {
             TinkersConstruct.init();
-
-            // Only load Construct's Armory if Tinkers' Construct is also loaded
-            if (Loader.isModLoaded("conarm"))
-            {
-                ConstructsArmory.preInit();
-            }
         }
 
         if (Loader.isModLoaded("thaumcraft"))
