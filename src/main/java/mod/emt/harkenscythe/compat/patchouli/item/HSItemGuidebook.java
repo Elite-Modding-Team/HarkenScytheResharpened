@@ -10,9 +10,11 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.HSItem;
 import vazkii.patchouli.api.PatchouliAPI;
 
@@ -39,6 +41,7 @@ public class HSItemGuidebook extends HSItem
         if (player instanceof EntityPlayerMP)
         {
             PatchouliAPI.instance.openBookGUI((EntityPlayerMP) player, book);
+            world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.GUIDE_OPEN.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, (float) (0.7F + Math.random() * 0.4F));
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
