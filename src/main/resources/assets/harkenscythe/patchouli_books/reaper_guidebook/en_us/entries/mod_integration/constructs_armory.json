@@ -1,0 +1,12 @@
+{
+  "name": "Construct's Armory",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "category": "mod_integration",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "While Construct's Armory is detected (requires Tinkers' Construct!), new armor materials and traits will be added. Currently supported materials are Biomass and Livingmetal.$(br2)More information regarding armor material attributes and traits can be found in $(5)Materials and You - Armory Addendum$()."
+    }
+  ]
+}

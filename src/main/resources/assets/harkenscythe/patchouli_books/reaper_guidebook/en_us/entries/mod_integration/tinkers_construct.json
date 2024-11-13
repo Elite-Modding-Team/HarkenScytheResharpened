@@ -1,0 +1,12 @@
+{
+  "name": "Tinkers' Construct",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "category": "mod_integration",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "While Tinkers' Construct is detected, new materials and traits will be added. Currently supported materials are Biomass and Livingmetal.$(br2)More information regarding material attributes and traits can be found in $(5)Materials and You$()."
+    }
+  ]
+}

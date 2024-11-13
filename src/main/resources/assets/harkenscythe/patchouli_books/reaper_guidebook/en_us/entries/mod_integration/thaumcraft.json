@@ -1,0 +1,12 @@
+{
+  "name": "Thaumcraft",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "category": "mod_integration",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "While Thaumcraft is detected, various items added by Harken Scythe will have aspects integrated into them."
+    }
+  ]
+}

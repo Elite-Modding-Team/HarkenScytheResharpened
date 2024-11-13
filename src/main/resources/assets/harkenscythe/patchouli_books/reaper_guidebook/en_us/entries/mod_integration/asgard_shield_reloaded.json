@@ -1,0 +1,16 @@
+{
+  "name": "Asgard Shield: Reloaded",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "category": "mod_integration",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "text": "While Asgard Shield: Reloaded (Harken Scythe's sister mod) is detected, new giant swords and shields made from Biomass and Livingmetal will be added.$(br2)They are made in the same way as other materials, the shields can also be upgraded to their gilded variants."
+    },
+    {
+      "type": "text",
+      "text": "The items will show more information regarding abilities and weaknesses when you hover your mouse over them on your inventory and hold the $(4)shift$() key."
+    }
+  ]
+}

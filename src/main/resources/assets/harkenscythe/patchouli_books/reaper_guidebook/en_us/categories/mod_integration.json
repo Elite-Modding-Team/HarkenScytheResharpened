@@ -1,0 +1,6 @@
+{
+  "name": "Mod Integration",
+  "description": "Special integration with other third party mods.",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "sortnum": 5
+}
