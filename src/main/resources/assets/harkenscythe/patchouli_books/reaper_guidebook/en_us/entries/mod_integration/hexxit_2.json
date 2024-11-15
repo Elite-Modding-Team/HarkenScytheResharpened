@@ -1,0 +1,20 @@
+{
+  "name": "Hexxit II",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "category": "mod_integration",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "link",
+      "text": "The official sequel to where it all began! Hexxit II aims to provide exploration, dungeons, and loot. It also features mods returning from its predecessor like this one.$(br2)If you enjoyed the original Hexxit, check it out!",
+      "url": "https://www.technicpack.net/modpack/hexxit-ii.896745",
+      "link_text": "> Technic"
+    },
+    {
+      "type": "image",
+      "images": [
+        "harkenscythe:textures/gui/guidebook/hexxit_cards.png"
+      ]
+    }
+  ]
+}
