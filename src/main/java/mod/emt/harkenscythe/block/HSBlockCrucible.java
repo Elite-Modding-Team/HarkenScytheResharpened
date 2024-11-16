@@ -36,11 +36,12 @@ public abstract class HSBlockCrucible extends Block
 {
     public static final int MAX_LEVEL = 11;
     public static final PropertyInteger LEVEL = PropertyInteger.create("level", 0, MAX_LEVEL);
-    protected static final AxisAlignedBB AABB_LEGS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.3125D, 1.0D);
-    protected static final AxisAlignedBB AABB_WALL_NORTH = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.125D);
-    protected static final AxisAlignedBB AABB_WALL_SOUTH = new AxisAlignedBB(0.0D, 0.0D, 0.875D, 1.0D, 1.0D, 1.0D);
-    protected static final AxisAlignedBB AABB_WALL_EAST = new AxisAlignedBB(0.875D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
-    protected static final AxisAlignedBB AABB_WALL_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.125D, 1.0D, 1.0D);
+    protected static final AxisAlignedBB AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.9375D);
+    protected static final AxisAlignedBB AABB_LEGS = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.3125D, 0.9375D);
+    protected static final AxisAlignedBB AABB_WALL_NORTH = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.125D);
+    protected static final AxisAlignedBB AABB_WALL_SOUTH = new AxisAlignedBB(0.0625D, 0.0D, 0.875D, 0.9375D, 1.0D, 0.9375D);
+    protected static final AxisAlignedBB AABB_WALL_EAST = new AxisAlignedBB(0.875D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.9375D);
+    protected static final AxisAlignedBB AABB_WALL_WEST = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.125D, 1.0D, 0.9375D);
 
     protected HSBlockCrucible(MapColor color)
     {
@@ -83,7 +84,7 @@ public abstract class HSBlockCrucible extends Block
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-        return FULL_BLOCK_AABB;
+        return AABB;
     }
 
     @Override
