@@ -67,7 +67,7 @@ public class HSConfig
 
         @Config.Name("Harbinger Attack Damage")
         @Config.Comment("The amount of damage dealt by the Harbinger")
-        public double harbingerAttackDamage = 6.0D;
+        public double harbingerAttackDamage = 10.0D;
 
         @Config.Name("Harbinger Follow Range")
         @Config.Comment("The amount of blocks the Harbinger follows entities")
@@ -96,7 +96,7 @@ public class HSConfig
 
         @Config.Name("Spectral Entity Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral entities, summoned by the Harbinger")
-        public double spectralEntityAttackDamage = 2.0D;
+        public double spectralEntityAttackDamage = 6.0D;
 
         @Config.Name("Spectral Entity Blacklist")
         @Config.Comment
@@ -109,11 +109,11 @@ public class HSConfig
 
         @Config.Name("Spectral Human Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral humans")
-        public double spectralHumanAttackDamage = 3.0D;
+        public double spectralHumanAttackDamage = 6.0D;
 
         @Config.Name("Spectral Human Max Health")
         @Config.Comment("The amount of maximum health spectral humans have")
-        public double spectralHumanMaxHealth = 20.0D;
+        public double spectralHumanMaxHealth = 40.0D;
 
         @Config.Name("Spectral Human Movement Speed")
         @Config.Comment("The amount of movement speed spectral humans have")
@@ -121,11 +121,11 @@ public class HSConfig
 
         @Config.Name("Spectral Miner Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral miners")
-        public double spectralMinerAttackDamage = 4.0D;
+        public double spectralMinerAttackDamage = 9.0D;
 
         @Config.Name("Spectral Miner Max Health")
         @Config.Comment("The amount of maximum health spectral miners have")
-        public double spectralMinerMaxHealth = 40.0D;
+        public double spectralMinerMaxHealth = 150.0D;
 
         @Config.Name("Spectral Miner Movement Speed")
         @Config.Comment("The amount of movement speed spectral miners have")
