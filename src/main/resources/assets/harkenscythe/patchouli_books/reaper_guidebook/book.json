@@ -1,10 +1,10 @@
 {
   "name": "patchouli.harkenscythe.name",
-"header_color": "62A5E0",
+  "header_color": "62A5E0",
   "nameplate_color": "62A5E0",
   "landing_text": "patchouli.harkenscythe.landing_text",
   "progress_bar_color": "CF313E",
-"text_color": "AFC8DD",
+  "text_color": "AFC8DD",
   "subtitle": "patchouli.harkenscythe.subtitle",
   "version": 0,
   "advancement_namespaces": ["harkenscythe"],
