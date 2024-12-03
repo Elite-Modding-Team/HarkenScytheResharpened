@@ -211,6 +211,7 @@ public class HSItems
     public static ToolMaterial TOOL_LIVINGMETAL = EnumHelper.addToolMaterial("hs_tool_livingmetal", 3, 481, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(livingmetal_ingot));
     public static ToolMaterial TOOL_REAPER = EnumHelper.addToolMaterial("hs_tool_reaper", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(Items.BONE));
     public static ToolMaterial TOOL_SPECTRAL = EnumHelper.addToolMaterial("hs_tool_spectral", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(soul_essence));
+    public static ToolMaterial TOOL_LADY_HARKEN = EnumHelper.addToolMaterial("hs_tool_lady_harken", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(soul_essence));
 
     @SubscribeEvent
     public static void onRegisterItemsEvent(@Nonnull final RegistryEvent.Register<Item> event)
@@ -234,7 +235,7 @@ public class HSItems
                 HSRegistry.setup(new HSToolScythe(TOOL_BIOMASS, 1.45F, EnumRarity.UNCOMMON), "biomass_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(TOOL_REAPER, 1.5F, EnumRarity.EPIC), "reaper_scythe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSToolScythe(TOOL_REAPER, 1.5F, EnumRarity.EPIC), "lady_harken_scythe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSToolScythe(TOOL_LADY_HARKEN, 1.5F, EnumRarity.EPIC), "lady_harken_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolGlaive(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolGlaive(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolGlaive(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_glaive").setCreativeTab(HarkenScythe.TAB),

@@ -1,0 +1,38 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.wild_armed.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.wild_armed.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:lady_harken_scythe"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "obtain_lady_harken_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:lady_harken_scythe"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_lady_harken_scythe"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

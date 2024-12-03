@@ -28,6 +28,8 @@ advancement.harkenscythe.vengeful_revenant.name=Vengeful Revenant
 advancement.harkenscythe.vengeful_revenant.desc=Encounter a Harbinger.
 advancement.harkenscythe.was_it_even_real.name=Was it Even Real?
 advancement.harkenscythe.was_it_even_real.desc=Encounter a Spectral Miner.
+advancement.harkenscythe.wild_armed.name=Wild Armed
+advancement.harkenscythe.wild_armed.desc=Obtain the secret scythe.
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Altar of Blood
