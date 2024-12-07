@@ -28,6 +28,8 @@ advancement.harkenscythe.vengeful_revenant.name=Rachsüchtiger Wiedergänger
 advancement.harkenscythe.vengeful_revenant.desc=Begegne einem Harbinger.
 advancement.harkenscythe.was_it_even_real.name=War es überhaupt echt?
 advancement.harkenscythe.was_it_even_real.desc=Begegne einem geisterhaften Bergarbeiter.
+advancement.harkenscythe.wild_armed.name=Wild bewaffnet
+advancement.harkenscythe.wild_armed.desc=Erhalte die geheime Sense.
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Blutaltar
@@ -214,7 +216,9 @@ patchouli.harkenscythe.subtitle=Harbinger-Edition
 
 # TINKERS CONSTRUCT
 material.biomass.name=Biomasse
+material.bloodweave_cloth.name=Blutgewebter Stoff
 material.livingmetal.name=Lebendmetall
+material.soulweave_cloth.name=Seelengewebter Stoff
 
 modifier.blood_conjuration.name=Blutbeschwörung
 modifier.blood_conjuration.desc=§oBlutiger Mord!§r\nEs besteht eine 10%ige Chance, dass Blutessenz entsteht, wenn ein Ziel getroffen wird.
@@ -224,3 +228,9 @@ modifier.soul_conjuration.name=Seelenbeschwörung
 modifier.soul_conjuration.desc=§oDie Zeit ist um!§r\nEs besteht eine 20%ige Chance, dass Seelenessenz entsteht, wenn ein Ziel getötet wird.
 modifier.soul_intervention.name=Seeleneingriff
 modifier.soul_intervention.desc=§oDeine Seele ist an mich gebunden!§r\nSeelenessenz in der Nähe wird dein Werkzeug langsam wiederherstellen und dir dauerhaft den Resistenz-Effekt verleihen.
+
+# CONSTRUCT'S ARMORY
+modifier.blood_intervention_armor.name=Bluteingriff
+modifier.blood_intervention_armor.desc=§oSchütze die Kolonie!§r\nBlutessenz in der Nähe wird deine Rüstung langsam wiederherstellen und dir dauerhaft den Stärkeeffekt verleihen.
+modifier.soul_intervention_armor.name=Seeleneingriff
+modifier.soul_intervention_armor.desc=§oDeine Seele ist an mich gebunden!§r\nSeelenessenz in der Nähe wird deine Rüstung langsam wiederherstellen und dir dauerhaft den Resistenz-Effekt verleihen.
