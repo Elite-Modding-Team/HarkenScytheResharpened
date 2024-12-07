@@ -3,8 +3,6 @@ package mod.emt.harkenscythe.compat.tinkers.traits.armor;
 import java.awt.*;
 import java.util.List;
 
-import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,6 +15,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
+import c4.conarm.common.armor.utils.ArmorHelper;
+import c4.conarm.lib.traits.AbstractArmorTrait;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -47,7 +47,8 @@ public class TraitBloodInterventionArmor extends AbstractArmorTrait
                         // 1% of total durability
                         int calc = ToolHelper.getMaxDurability(armor) / 100;
 
-                        if (player instanceof EntityLivingBase) {
+                        if (player instanceof EntityLivingBase)
+                        {
                             ArmorHelper.healArmor(armor, calc, player, EntityLiving.getSlotForItemStack(armor).getIndex());
                         }
                     }

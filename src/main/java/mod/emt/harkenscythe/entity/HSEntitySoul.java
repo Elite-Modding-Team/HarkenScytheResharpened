@@ -82,7 +82,7 @@ public class HSEntitySoul extends HSEntityEssence
             soulType = 0; // Common
         }
 
-        this.dataManager.set(SOUL_TYPE, soulType);
+        this.getDataManager().set(SOUL_TYPE, soulType);
 
         if (FMLLaunchHandler.side().isClient() && !this.world.isRemote)
         {
@@ -187,7 +187,7 @@ public class HSEntitySoul extends HSEntityEssence
     protected void entityInit()
     {
         super.entityInit();
-        this.dataManager.register(SOUL_TYPE, 0);
+        this.getDataManager().register(SOUL_TYPE, 0);
     }
 
     @Override
@@ -209,7 +209,7 @@ public class HSEntitySoul extends HSEntityEssence
     public void readEntityFromNBT(NBTTagCompound compound)
     {
         super.readEntityFromNBT(compound);
-        this.dataManager.set(SOUL_TYPE, compound.getInteger("SoulType"));
+        this.getDataManager().set(SOUL_TYPE, compound.getInteger("SoulType"));
         if (compound.hasKey("OriginalEntity"))
         {
             NBTTagCompound originalEntityNBT = compound.getCompoundTag("OriginalEntity");
