@@ -19,6 +19,7 @@ import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 public class HSRendererEntityHarbinger extends RenderBiped<HSEntityHarbinger>
 {
     public static final ResourceLocation HARBINGER_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/harbinger.png");
+    public static final ResourceLocation HARBINGER_RARE_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/harbinger_rare.png");
 
     public HSRendererEntityHarbinger(RenderManager renderManager)
     {
@@ -29,7 +30,7 @@ public class HSRendererEntityHarbinger extends RenderBiped<HSEntityHarbinger>
     @Override
     protected ResourceLocation getEntityTexture(HSEntityHarbinger entity)
     {
-        return HARBINGER_TEXTURES;
+        return entity.getDataManager().get(HSEntityHarbinger.RARE) ? HARBINGER_RARE_TEXTURES : HARBINGER_TEXTURES;
     }
 
     @Override

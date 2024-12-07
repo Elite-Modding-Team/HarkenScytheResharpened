@@ -24,7 +24,6 @@ public class HSEventLootTableLoad
             if (main != null)
             {
                 main.addEntry(new LootEntryItem(HSItems.ancient_necronomicon_page, 10, 0, new LootFunction[0], new LootCondition[0], "loottable:ancient_necronomicon_page"));
-                main.addEntry(new LootEntryItem(HSItems.lady_harken_scythe, 1, 0, new LootFunction[0], new LootCondition[0], "loottable:lady_harken_scythe"));
                 main.addEntry(new LootEntryItem(HSItems.unpowered_totem_of_undying, 1, 0, new LootFunction[0], new LootCondition[0], "loottable:unpowered_totem_of_undying"));
             }
         }

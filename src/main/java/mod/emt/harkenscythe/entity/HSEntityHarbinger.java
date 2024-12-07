@@ -19,6 +19,10 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
@@ -38,6 +42,7 @@ import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 public class HSEntityHarbinger extends EntityMob
 {
+    public static final DataParameter<Boolean> RARE = EntityDataManager.createKey(HSEntityHarbinger.class, DataSerializers.BOOLEAN);
     private int summonCooldown;
     private int ticksInSun;
 
@@ -45,6 +50,7 @@ public class HSEntityHarbinger extends EntityMob
     {
         super(world);
         this.setSize(0.8F, 1.8F);
+        this.getDataManager().set(RARE, this.world.rand.nextDouble() < 0.05D);
     }
 
     @Override
@@ -154,6 +160,13 @@ public class HSEntityHarbinger extends EntityMob
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
+    @Override
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.getDataManager().register(RARE, false);
+    }
+
     @Nonnull
     @Override
     protected SoundEvent getAmbientSound()
@@ -161,18 +174,32 @@ public class HSEntityHarbinger extends EntityMob
         return this.world.isDaytime() ? SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE : HSSoundEvents.ENTITY_HARBINGER_IDLE.getSoundEvent();
     }
 
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
+        super.writeEntityToNBT(compound);
+        compound.setBoolean("Rare", this.getDataManager().get(RARE));
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
+        super.readEntityFromNBT(compound);
+        this.getDataManager().set(RARE, compound.getBoolean("Rare"));
+    }
+
     @Nonnull
     @Override
     protected ResourceLocation getLootTable()
     {
-        return HSLootTables.HARBINGER;
+        return this.getDataManager().get(HSEntityHarbinger.RARE) ? HSLootTables.HARBINGER_RARE : HSLootTables.HARBINGER;
     }
 
     @Override
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
     {
         super.setEquipmentBasedOnDifficulty(difficulty);
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HSItems.reaper_scythe));
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(this.getDataManager().get(HSEntityHarbinger.RARE) ? HSItems.lady_harken_scythe : HSItems.reaper_scythe));
         this.setDropChance(EntityEquipmentSlot.MAINHAND, -100.0F);
     }
 
