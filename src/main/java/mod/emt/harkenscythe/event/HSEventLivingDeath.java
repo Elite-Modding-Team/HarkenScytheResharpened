@@ -17,7 +17,6 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
@@ -139,11 +138,19 @@ public class HSEventLivingDeath
 
     private static boolean isWearingFullSoulweaveSet(EntityPlayer player)
     {
-        Item boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem();
-        Item leggings = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem();
-        Item chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
-        Item helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
-        return boots == HSItems.soulweave_shoes && leggings == HSItems.soulweave_pants && chestplate == HSItems.soulweave_robe && helmet == HSItems.soulweave_hood;
+        ItemStack boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        double bootsDurabilityRatio = (double) (boots.getMaxDamage() - boots.getItemDamage()) / boots.getMaxDamage();
+        ItemStack leggings = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+        double leggingsDurabilityRatio = (double) (leggings.getMaxDamage() - leggings.getItemDamage()) / leggings.getMaxDamage();
+        ItemStack chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+        double chestplateDurabilityRatio = (double) (chestplate.getMaxDamage() - chestplate.getItemDamage()) / chestplate.getMaxDamage();
+        ItemStack helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+        double helmetDurabilityRatio = (double) (helmet.getMaxDamage() - helmet.getItemDamage()) / helmet.getMaxDamage();
+
+        boolean hasFullSoulweaveSet = boots.getItem() == HSItems.soulweave_shoes && leggings.getItem() == HSItems.soulweave_pants && chestplate.getItem() == HSItems.soulweave_robe && helmet.getItem() == HSItems.soulweave_hood;
+        boolean meetsDurabilityRequirement = bootsDurabilityRatio >= 0.25D && leggingsDurabilityRatio >= 0.25D && chestplateDurabilityRatio >= 0.25D && helmetDurabilityRatio >= 0.25D;
+
+        return hasFullSoulweaveSet && meetsDurabilityRequirement;
     }
 
     private static void modifyAI(EntityCreature entity)
