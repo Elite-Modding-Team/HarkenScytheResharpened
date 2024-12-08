@@ -24,6 +24,7 @@ public enum HSSoundEvents
     ITEM_NECRONOMICON_ACTIVE("item.necronomicon.activate"),
     ITEM_POTION_BREAK("item.potion.break"),
     ITEM_POTION_THROW("item.potion.throw"),
+    ITEM_SCYTHE_ACTIVATE("item.scythe.activate"),
     ESSENCE_BLOOD_SPAWN("essence.blood.spawn"),
     ESSENCE_SOUL_SPAWN("essence.soul.spawn"),
     ESSENCE_SOUL_SUMMON("essence.soul.summon"),

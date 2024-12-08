@@ -74,7 +74,6 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         return 72000;
     }
 
-    // TODO: The glaive does not use an AoE attack, it will only be able to attack one entity at a time but does armor piercing damage
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft)
     {
@@ -124,7 +123,8 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
             player.swingArm(EnumHand.MAIN_HAND);
-            player.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+            player.spawnSweepParticles();
+            player.playSound(HSSoundEvents.ITEM_SCYTHE_ACTIVATE.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             stack.damageItem(2, player);
             player.addStat(StatList.getObjectUseStats(this));
         }

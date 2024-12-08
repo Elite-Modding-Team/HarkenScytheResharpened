@@ -105,6 +105,11 @@
       "harkenscythe:potion_throw"
     ]
   },
+  "item.scythe.activate": {
+    "sounds": [
+      "harkenscythe:scythe_activate"
+    ]
+  },
   "essence.blood.spawn": {
     "sounds": [
       "harkenscythe:essence_blood_spawn"
