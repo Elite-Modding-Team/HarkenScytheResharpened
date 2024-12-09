@@ -64,99 +64,43 @@
       "type": "item",
       "item": "#drop1",
       "framed": "false",
-      "x": 2,
-      "y": 108
+      "x": 10,
+      "y": 114
     },
     {
       "type": "item",
       "item": "#drop2",
       "framed": "false",
-      "x": 18,
-      "y": 108
+      "x": 26,
+      "y": 114
     },
     {
       "type": "item",
       "item": "#drop3",
       "framed": "false",
-      "x": 34,
-      "y": 108
+      "x": 42,
+      "y": 114
     },
     {
       "type": "item",
       "item": "#drop4",
       "framed": "false",
-      "x": 50,
-      "y": 108
+      "x": 58,
+      "y": 114
     },
     {
       "type": "item",
       "item": "#drop5",
       "framed": "false",
-      "x": 66,
-      "y": 108
+      "x": 74,
+      "y": 114
     },
     {
       "type": "item",
       "item": "#drop6",
       "framed": "false",
-      "x": 82,
-      "y": 108
-    },
-    {
-      "type": "item",
-      "item": "#drop7",
-      "framed": "false",
-      "x": 98,
-      "y": 108
-    },
-    {
-      "type": "item",
-      "item": "#drop8",
-      "framed": "false",
-      "x": 2,
-      "y": 124
-    },
-    {
-      "type": "item",
-      "item": "#drop9",
-      "framed": "false",
-      "x": 18,
-      "y": 124
-    },
-    {
-      "type": "item",
-      "item": "#drop10",
-      "framed": "false",
-      "x": 34,
-      "y": 124
-    },
-    {
-      "type": "item",
-      "item": "#drop11",
-      "framed": "false",
-      "x": 50,
-      "y": 124
-    },
-    {
-      "type": "item",
-      "item": "#drop12",
-      "framed": "false",
-      "x": 66,
-      "y": 124
-    },
-    {
-      "type": "item",
-      "item": "#drop13",
-      "framed": "false",
-      "x": 82,
-      "y": 124
-    },
-    {
-      "type": "item",
-      "item": "#drop14",
-      "framed": "false",
-      "x": 98,
-      "y": 124
+      "x": 90,
+      "y": 114
     },
     {
       "type": "image",
