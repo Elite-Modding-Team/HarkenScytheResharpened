@@ -1,5 +1,7 @@
 package mod.emt.harkenscythe.entity;
 
+import javax.annotation.Nonnull;
+
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
@@ -8,11 +10,13 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSLootTables;
 
 public class HSEntityEctoglobin extends HSEntityGlobin
 {
@@ -68,6 +72,13 @@ public class HSEntityEctoglobin extends HSEntityGlobin
     protected HSEntityEctoglobin createInstance()
     {
         return new HSEntityEctoglobin(this.world);
+    }
+
+    @Nonnull
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return HSLootTables.ECTOGLOBIN;
     }
 
     @Override

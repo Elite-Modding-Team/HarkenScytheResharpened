@@ -6,6 +6,8 @@ import mod.emt.harkenscythe.HarkenScythe;
 
 public class HSLootTables
 {
+    public static final ResourceLocation ECTOGLOBIN = new ResourceLocation(HarkenScythe.MOD_ID, "entities/ectoglobin");
+    public static final ResourceLocation HEMOGLOBIN = new ResourceLocation(HarkenScythe.MOD_ID, "entities/hemoglobin");
     public static final ResourceLocation HARBINGER = new ResourceLocation(HarkenScythe.MOD_ID, "entities/harbinger");
     public static final ResourceLocation HARBINGER_RARE = new ResourceLocation(HarkenScythe.MOD_ID, "entities/harbinger_rare");
     public static final ResourceLocation SPECTRAL_HUMAN = new ResourceLocation(HarkenScythe.MOD_ID, "entities/spectral_human");
