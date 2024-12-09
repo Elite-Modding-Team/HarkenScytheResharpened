@@ -49,4 +49,10 @@ public class HSBlockSoulCrucible extends HSBlockCrucible
     {
         return HSItems.essence_vessel_soul;
     }
+
+    @Override
+    protected Item getEssenceItem()
+    {
+        return HSItems.soul_essence;
+    }
 }

@@ -49,4 +49,10 @@ public class HSBlockBloodCrucible extends HSBlockCrucible
     {
         return HSItems.essence_vessel_blood;
     }
+
+    @Override
+    protected Item getEssenceItem()
+    {
+        return HSItems.blood_essence;
+    }
 }
