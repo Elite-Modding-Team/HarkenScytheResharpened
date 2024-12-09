@@ -113,6 +113,34 @@ public class HSEntitySpectralMiner extends EntityMob
         }
     }
 
+    /**
+     * Called when the entity is attacked.
+     */
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source == DamageSource.CACTUS) return false;
+        return super.attackEntityFrom(source, amount);
+    }
+
+    // Immune to all effects like the Ender Dragon and the Wither
+    @Override
+    public boolean isPotionApplicable(PotionEffect effect)
+    {
+        return false;
+    }
+
+    @Override
+    protected SoundEvent getFallSound(int heightIn)
+    {
+        return null;
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
+    }
+
     @Nonnull
     @Override
     protected ResourceLocation getLootTable()

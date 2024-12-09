@@ -1,9 +1,11 @@
 package mod.emt.harkenscythe.entity;
 
+import java.awt.Color;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -26,6 +28,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -33,6 +36,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
@@ -49,7 +53,7 @@ public class HSEntityHarbinger extends EntityMob
     public HSEntityHarbinger(World world)
     {
         super(world);
-        this.setSize(0.8F, 1.8F);
+        this.setSize(0.8F, 2.1F);
         this.getDataManager().set(RARE, this.world.rand.nextDouble() < 0.05D);
     }
 
@@ -107,7 +111,57 @@ public class HSEntityHarbinger extends EntityMob
         // If sun exposure exceeds 1200 ticks (1 minute), create smoke particles and despawn
         if (this.ticksInSun > 1200)
         {
-            this.attackEntityFrom(DamageSource.ON_FIRE, 1000.0F);
+            // TODO: Better looking smoke particles
+            this.spawnExplosionParticle();
+            this.setDead();
+        }
+    }
+
+    /**
+     * Called when the entity is attacked.
+     */
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source == DamageSource.CACTUS) return false;
+        return super.attackEntityFrom(source, amount);
+    }
+
+    // Immune to all effects like the Ender Dragon and the Wither
+    @Override
+    public boolean isPotionApplicable(PotionEffect effect)
+    {
+        return false;
+    }
+
+    @Override
+    protected SoundEvent getFallSound(int heightIn)
+    {
+        return null;
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
+    }
+
+    @Override
+    public void onUpdate()
+    {
+        super.onUpdate();
+
+        if (this.world.isRemote)
+        {
+            if (this.rand.nextInt(100) == 0 && !this.isSilent())
+            {
+                this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), this.getSoundCategory(), 0.5F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
+            }
+
+            for (int i = 0; i < 2; ++i)
+            {
+                HSParticleHandler.spawnDarkColoredParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width,
+                        this.getDataManager().get(HSEntityHarbinger.RARE) ? Color.getColor("Harken Red", 7614014) : Color.getColor("Harbinger Black", 1907997), 0.0D, 0.0D, 0.0D);
+            }
         }
     }
 
@@ -123,6 +177,12 @@ public class HSEntityHarbinger extends EntityMob
     protected SoundEvent getDeathSound()
     {
         return HSSoundEvents.ENTITY_HARBINGER_DEATH.getSoundEvent();
+    }
+
+    @Nonnull
+    @Override
+    protected void playStepSound(BlockPos pos, Block blockIn)
+    {
     }
 
     @Override
@@ -207,7 +267,8 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
-        if (HSConfig.GENERAL.debugMode) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
+        if (HSConfig.GENERAL.debugMode)
+            HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         this.setEnchantmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);
@@ -222,7 +283,8 @@ public class HSEntityHarbinger extends EntityMob
     {
         if (this.world.isDaytime()) return false;
         EntityPlayer nearestPlayer = this.world.getClosestPlayerToEntity(this, HSConfig.ENTITIES.harbingerSearchDistance);
-        if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable()) nearestPlayer = null;
+        if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable())
+            nearestPlayer = null;
         this.setAttackTarget(nearestPlayer);
         return this.getAttackTarget() instanceof EntityPlayer;
     }
