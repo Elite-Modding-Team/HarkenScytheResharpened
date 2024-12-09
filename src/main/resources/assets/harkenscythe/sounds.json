@@ -188,5 +188,10 @@
     "sounds": [
       "harkenscythe:guide/open"
     ]
+  },
+  "guide.close": {
+    "sounds": [
+      "harkenscythe:guide/close"
+    ]
   }
 }

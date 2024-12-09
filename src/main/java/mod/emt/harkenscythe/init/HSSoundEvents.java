@@ -37,7 +37,8 @@ public enum HSSoundEvents
     ENTITY_HARBINGER_DEATH("entity.harbinger.death"),
     ENTITY_HARBINGER_IDLE("entity.harbinger.idle"),
     GUIDE_FLIP("guide.flip"),
-    GUIDE_OPEN("guide.open");
+    GUIDE_OPEN("guide.open"),
+    GUIDE_CLOSE("guide.close");
 
     private final SoundEvent soundEvent;
 

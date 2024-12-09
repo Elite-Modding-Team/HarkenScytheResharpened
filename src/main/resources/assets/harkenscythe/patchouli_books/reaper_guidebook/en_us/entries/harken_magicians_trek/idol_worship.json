@@ -1,0 +1,18 @@
+{
+  "name": "Idol Worship",
+  "icon": "harkenscythe:textures/items/totem_undying_unpowered.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "How the fabled illager's totem was made is a mystery to many magic users until now...$(br2)You can recreate a Totem of Undying yourself by constructing the base totem (or find one hidden in ruined structures) and powering it at an Altar of Souls."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:unpowered_totem_of_undying",
+      "title": " ",
+      "text": "In case you forgot how it works, the totem will provide you with an extra life should you die, as long as you are holding it in one of your hands."
+    }
+  ]
+}

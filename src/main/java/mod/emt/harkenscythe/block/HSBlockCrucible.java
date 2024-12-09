@@ -28,6 +28,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
 
@@ -213,7 +214,7 @@ public abstract class HSBlockCrucible extends Block
             {
                 heldStack.shrink(1);
             }
-            world.playSound(null, pos, SoundEvents.ENTITY_ILLAGER_CAST_SPELL, SoundCategory.BLOCKS, 0.2F, 0.5F);
+            world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.4F, 2.0F / (world.rand.nextFloat() * 0.4F + 1.2F));
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + 1);
             player.addStat(StatList.getObjectUseStats(heldItem));
         }
@@ -246,7 +247,7 @@ public abstract class HSBlockCrucible extends Block
             float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
             if (heldItem == keeperType) pitch += 0.5F;
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, pitch);
-            world.playSound(null, pos, SoundEvents.ENTITY_ILLAGER_CAST_SPELL, SoundCategory.BLOCKS, 0.2F, 0.5F);
+            world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, pitch);
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + 1);
             player.addStat(StatList.getObjectUseStats(heldItem));
         }
@@ -284,7 +285,7 @@ public abstract class HSBlockCrucible extends Block
             float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
             if (heldItem == keeperType) pitch += 0.5F;
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.BLOCKS, 1.0F, pitch);
-            world.playSound(null, pos, SoundEvents.ENTITY_ILLAGER_CAST_SPELL, SoundCategory.BLOCKS, 0.2F, 0.5F);
+            world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, pitch);
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount - 1);
             player.addStat(StatList.getObjectUseStats(heldItem));
         }

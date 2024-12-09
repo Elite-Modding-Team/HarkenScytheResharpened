@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 
 public abstract class HSBlockAltar extends BlockEnchantmentTable
@@ -73,13 +74,13 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 if (altarStack.isEmpty())
                 {
                     altar.setInputStack(heldStack.splitStack(1));
-                    player.world.playSound(altarX, altarY, altarZ, SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
                 else if (altarStack.getMaxStackSize() > altarStack.getCount() && ItemStack.areItemsEqual(altarStack, heldStack) && ItemStack.areItemStackTagsEqual(altarStack, heldStack))
                 {
                     heldStack.shrink(1);
-                    player.world.playSound(altarX, altarY, altarZ, SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altarStack.grow(1);
                     return true;
                 }
