@@ -91,45 +91,59 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
     @Override
     protected void onImpact(RayTraceResult result)
     {
-        if (!this.world.isRemote)
+        if (!this.world.isRemote && getPotionEffect() != null && getPotionEffect().getPotion() != null)
         {
             if (getPotionEffect().getPotion() instanceof HSPotionFlame)
             {
-                this.world.playEvent(2002, new BlockPos(this), getPotionEffect().getPotion().getLiquidColor());
-                for (int x = -1; x <= 1; x++)
+                if (result.typeOfHit == RayTraceResult.Type.BLOCK)
                 {
-                    for (int y = 0; y <= 2; y++)
+                    this.world.playEvent(2002, new BlockPos(this), getPotionEffect().getPotion().getLiquidColor());
+                    for (int x = -1; x <= 1; x++)
                     {
-                        for (int z = -1; z <= 1; z++)
+                        for (int y = 0; y <= 2; y++)
                         {
-                            BlockPos pos = this.getPosition().add(x, y, z);
-                            if (world.isAirBlock(pos))
+                            for (int z = -1; z <= 1; z++)
                             {
-                                world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+                                BlockPos pos = this.getPosition().add(x, y, z);
+                                if (world.isAirBlock(pos))
+                                {
+                                    world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+                                }
                             }
                         }
                     }
+                }
+                if (result.typeOfHit == RayTraceResult.Type.ENTITY && result.entityHit != null)
+                {
+                    result.entityHit.setFire(5);
                 }
             }
             else if (getPotionEffect().getPotion() instanceof HSPotionWater)
             {
-                this.world.playEvent(2002, new BlockPos(this), getPotionEffect().getPotion().getLiquidColor());
-                for (int x = -1; x <= 1; x++)
+                if (result.typeOfHit == RayTraceResult.Type.BLOCK)
                 {
-                    for (int y = 0; y <= 2; y++)
+                    this.world.playEvent(2002, new BlockPos(this), getPotionEffect().getPotion().getLiquidColor());
+                    for (int x = -1; x <= 1; x++)
                     {
-                        for (int z = -1; z <= 1; z++)
+                        for (int y = 0; y <= 2; y++)
                         {
-                            BlockPos pos = this.getPosition().add(x, y, z);
-                            if (world.getBlockState(pos).getBlock() == Blocks.FIRE)
+                            for (int z = -1; z <= 1; z++)
                             {
-                                world.setBlockToAir(pos);
+                                BlockPos pos = this.getPosition().add(x, y, z);
+                                if (world.getBlockState(pos).getBlock() == Blocks.FIRE)
+                                {
+                                    world.setBlockToAir(pos);
+                                }
                             }
                         }
                     }
                 }
+                if (result.typeOfHit == RayTraceResult.Type.ENTITY && result.entityHit != null)
+                {
+                    this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.0D)).forEach(Entity::extinguish);
+                }
             }
-            else if (getPotionEffect() != null)
+            else
             {
                 this.world.playEvent(2002, new BlockPos(this), getPotionEffect().getPotion().getLiquidColor());
                 EntityAreaEffectCloud effectCloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
