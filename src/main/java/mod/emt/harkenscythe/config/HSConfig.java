@@ -67,7 +67,7 @@ public class HSConfig
 
         @Config.Name("Harbinger Attack Damage")
         @Config.Comment("The amount of damage dealt by the Harbinger")
-        public double harbingerAttackDamage = 10.0D;
+        public double harbingerAttackDamage = 4.0D;
 
         @Config.Name("Harbinger Follow Range")
         @Config.Comment("The amount of blocks the Harbinger follows entities")
@@ -109,7 +109,7 @@ public class HSConfig
 
         @Config.Name("Spectral Human Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral humans")
-        public double spectralHumanAttackDamage = 6.0D;
+        public double spectralHumanAttackDamage = 4.0D;
 
         @Config.Name("Spectral Human Max Health")
         @Config.Comment("The amount of maximum health spectral humans have")
@@ -121,7 +121,7 @@ public class HSConfig
 
         @Config.Name("Spectral Miner Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral miners")
-        public double spectralMinerAttackDamage = 9.0D;
+        public double spectralMinerAttackDamage = 5.0D;
 
         @Config.Name("Spectral Miner Max Health")
         @Config.Comment("The amount of maximum health spectral miners have")
