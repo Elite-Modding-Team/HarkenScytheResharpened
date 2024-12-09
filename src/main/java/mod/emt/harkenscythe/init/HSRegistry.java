@@ -136,6 +136,7 @@ public class HSRegistry
         }
 
         EntityRegistry.addSpawn(HSEntityHarbinger.class, 5, 1, 1, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
+        EntityRegistry.addSpawn(HSEntitySpectralHuman.class, 5, 1, 2, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
         EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 2, 1, 1, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
 
         EntitySpawnPlacementRegistry.setPlacementType(HSEntityHarbinger.class, EntityLiving.SpawnPlacementType.ON_GROUND);

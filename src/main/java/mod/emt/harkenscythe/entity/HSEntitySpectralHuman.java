@@ -6,11 +6,16 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import javax.annotation.Nonnull;
 
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSAdvancements;
+import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSEntitySpectralHuman extends EntityMob
@@ -41,6 +46,20 @@ public class HSEntitySpectralHuman extends EntityMob
     protected SoundEvent getDeathSound()
     {
         return HSSoundEvents.ENTITY_SPECTRAL_HUMAN_HURT.getSoundEvent();
+    }
+
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        BlockPos spawnPos = new BlockPos(this);
+        return super.getCanSpawnHere() && spawnPos.getY() < 50 && this.world.canSeeSky(spawnPos);
+    }
+
+    @Nonnull
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return HSLootTables.SPECTRAL_HUMAN;
     }
 
     @Override
