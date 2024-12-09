@@ -40,14 +40,14 @@ public class HSEntitySpectralMiner extends EntityMob
         this.enablePersistence();
     }
 
+    /**
+     * Called when the entity is attacked.
+     */
     @Override
-    public void onDeath(DamageSource cause)
+    public boolean attackEntityFrom(DamageSource source, float amount)
     {
-        super.onDeath(cause);
-        if (cause.getTrueSource() instanceof EntityPlayerMP)
-        {
-            HSAdvancements.ENCOUNTER_SPECTRAL_MINER.trigger((EntityPlayerMP) cause.getTrueSource());
-        }
+        if (source == DamageSource.CACTUS) return false;
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override
@@ -60,6 +60,12 @@ public class HSEntitySpectralMiner extends EntityMob
     protected SoundEvent getDeathSound()
     {
         return HSSoundEvents.ENTITY_SPECTRAL_MINER_DEATH.getSoundEvent();
+    }
+
+    @Override
+    protected SoundEvent getFallSound(int heightIn)
+    {
+        return null;
     }
 
     @Override
@@ -76,6 +82,28 @@ public class HSEntitySpectralMiner extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(HSConfig.ENTITIES.spectralMinerAttackDamage);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(HSConfig.ENTITIES.spectralMinerMaxHealth);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.spectralMinerMovementSpeed);
+    }
+
+    // Immune to all effects like the Ender Dragon and the Wither
+    @Override
+    public boolean isPotionApplicable(PotionEffect effect)
+    {
+        return false;
+    }
+
+    @Override
+    public void onDeath(DamageSource cause)
+    {
+        super.onDeath(cause);
+        if (cause.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_SPECTRAL_MINER.trigger((EntityPlayerMP) cause.getTrueSource());
+        }
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
     }
 
     @Override
@@ -113,34 +141,6 @@ public class HSEntitySpectralMiner extends EntityMob
         }
     }
 
-    /**
-     * Called when the entity is attacked.
-     */
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
-    {
-        if (source == DamageSource.CACTUS) return false;
-        return super.attackEntityFrom(source, amount);
-    }
-
-    // Immune to all effects like the Ender Dragon and the Wither
-    @Override
-    public boolean isPotionApplicable(PotionEffect effect)
-    {
-        return false;
-    }
-
-    @Override
-    protected SoundEvent getFallSound(int heightIn)
-    {
-        return null;
-    }
-
-    @Override
-    public void fall(float distance, float damageMultiplier)
-    {
-    }
-
     @Nonnull
     @Override
     protected ResourceLocation getLootTable()
@@ -166,7 +166,7 @@ public class HSEntitySpectralMiner extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
-        if (HSConfig.GENERAL.debugMode) HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
+        if (HSConfig.GENERAL.debugMode) HarkenScythe.LOGGER.debug("{} spawned at {}", this.getDisplayName(), this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);
     }

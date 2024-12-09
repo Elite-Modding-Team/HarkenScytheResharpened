@@ -1,6 +1,6 @@
 package mod.emt.harkenscythe.entity;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -12,7 +12,9 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityVex;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,11 +28,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
@@ -38,6 +36,7 @@ import net.minecraft.world.World;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
@@ -82,10 +81,10 @@ public class HSEntityHarbinger extends EntityMob
         {
             onDodgePhase();
         }
-        // Engage Soul Phase when health is between 25-50%
+        // Engage Minion Phase when health is between 25-50%
         else if (this.getHealth() >= this.getMaxHealth() * 0.25)
         {
-            onSoulPhase();
+            onMinionPhase();
         }
         // Engage Sneak Phase when health is between 0-25%
         else
@@ -117,34 +116,6 @@ public class HSEntityHarbinger extends EntityMob
         }
     }
 
-    /**
-     * Called when the entity is attacked.
-     */
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
-    {
-        if (source == DamageSource.CACTUS) return false;
-        return super.attackEntityFrom(source, amount);
-    }
-
-    // Immune to all effects like the Ender Dragon and the Wither
-    @Override
-    public boolean isPotionApplicable(PotionEffect effect)
-    {
-        return false;
-    }
-
-    @Override
-    protected SoundEvent getFallSound(int heightIn)
-    {
-        return null;
-    }
-
-    @Override
-    public void fall(float distance, float damageMultiplier)
-    {
-    }
-
     @Override
     public void onUpdate()
     {
@@ -157,12 +128,21 @@ public class HSEntityHarbinger extends EntityMob
                 this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), this.getSoundCategory(), 0.5F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
             }
 
-            for (int i = 0; i < 2; ++i)
+            for (int i = 0; i < 2; i++)
             {
-                HSParticleHandler.spawnDarkColoredParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width,
-                        this.getDataManager().get(HSEntityHarbinger.RARE) ? Color.getColor("Harken Red", 7614014) : Color.getColor("Harbinger Black", 1907997), 0.0D, 0.0D, 0.0D);
+                HSParticleHandler.spawnDarkColoredParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.getDataManager().get(HSEntityHarbinger.RARE) ? Color.getColor("Harken Red", 7614014) : Color.getColor("Harbinger Black", 1907997), 0.0D, 0.0D, 0.0D);
             }
         }
+    }
+
+    /**
+     * Called when the entity is attacked.
+     */
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source == DamageSource.CACTUS) return false;
+        return super.attackEntityFrom(source, amount);
     }
 
     @Nonnull
@@ -179,10 +159,10 @@ public class HSEntityHarbinger extends EntityMob
         return HSSoundEvents.ENTITY_HARBINGER_DEATH.getSoundEvent();
     }
 
-    @Nonnull
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn)
+    protected SoundEvent getFallSound(int heightIn)
     {
+        return null;
     }
 
     @Override
@@ -196,6 +176,13 @@ public class HSEntityHarbinger extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.harbingerMovementSpeed);
     }
 
+    // Immune to all effects like the Ender Dragon and the Wither
+    @Override
+    public boolean isPotionApplicable(PotionEffect effect)
+    {
+        return false;
+    }
+
     @Override
     public void onDeath(DamageSource cause)
     {
@@ -204,6 +191,22 @@ public class HSEntityHarbinger extends EntityMob
         {
             HSAdvancements.ENCOUNTER_HARBINGER.trigger((EntityPlayerMP) cause.getTrueSource());
         }
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, Block blockIn)
+    {
+    }
+
+    @Override
+    public boolean isNonBoss()
+    {
+        return false;
     }
 
     @Override
@@ -267,8 +270,7 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
-        if (HSConfig.GENERAL.debugMode)
-            HarkenScythe.LOGGER.debug(this.getDisplayName() + " spawned at " + this.getPosition());
+        if (HSConfig.GENERAL.debugMode) HarkenScythe.LOGGER.debug("{} spawned at {}", this.getDisplayName(), this.getPosition());
         this.setEquipmentBasedOnDifficulty(difficulty);
         this.setEnchantmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);
@@ -283,8 +285,7 @@ public class HSEntityHarbinger extends EntityMob
     {
         if (this.world.isDaytime()) return false;
         EntityPlayer nearestPlayer = this.world.getClosestPlayerToEntity(this, HSConfig.ENTITIES.harbingerSearchDistance);
-        if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable())
-            nearestPlayer = null;
+        if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable()) nearestPlayer = null;
         this.setAttackTarget(nearestPlayer);
         return this.getAttackTarget() instanceof EntityPlayer;
     }
@@ -351,22 +352,22 @@ public class HSEntityHarbinger extends EntityMob
     }
 
     /**
-     * Phase 3: Drop and revive souls.
+     * Phase 3: Spawn spectral minions.
      * The logic is run every 200 ticks (every 10 seconds).
-     * If the conditions are met, it creates and spawns 4 soul entities at random positions around the Harbinger.
+     * If the conditions are met, it creates and spawns 4 spectral minions at random positions around the Harbinger.
      */
-    private void onSoulPhase()
+    private void onMinionPhase()
     {
         if (this.ticksExisted % 200 == 0)
         {
+            this.swingArm(EnumHand.MAIN_HAND);
+            this.swingArm(EnumHand.OFF_HAND);
             for (int i = 0; i < 4; i++)
             {
-                EntityLivingBase soul = new HSEntitySoul(this.world);
                 double angle = Math.toRadians(i * 90);
                 double x = this.posX + 2.0 * Math.cos(angle);
                 double z = this.posZ + 2.0 * Math.sin(angle);
-                soul.setPosition(x, this.posY, z);
-                if (!this.world.isRemote) this.world.spawnEntity(soul);
+                if (!this.world.isRemote) HSEventLivingDeath.spawnSpectralEntity(this.world, this.rand.nextBoolean() ? new EntitySkeleton(this.world) : new EntityZombie(this.world), new BlockPos(x, this.posY, z), false);
             }
             this.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
         }
