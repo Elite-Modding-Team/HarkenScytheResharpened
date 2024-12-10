@@ -35,6 +35,7 @@ import mod.emt.harkenscythe.item.*;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.item.tools.*;
+import mod.emt.harkenscythe.item.tools.HSToolAthame;
 
 @SuppressWarnings({"deprecation"})
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
@@ -160,7 +161,7 @@ public class HSItems
     @GameRegistry.ObjectHolder("blunt_harken_blade")
     public static HSItem blunt_harken_blade;
     @GameRegistry.ObjectHolder("harken_athame")
-    public static HSToolSword harken_athame;
+    public static HSToolAthame harken_athame;
 
     @GameRegistry.ObjectHolder("unpowered_totem_of_undying")
     public static HSItem unpowered_totem_of_undying;
