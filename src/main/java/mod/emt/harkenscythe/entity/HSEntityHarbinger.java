@@ -176,11 +176,11 @@ public class HSEntityHarbinger extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.harbingerMovementSpeed);
     }
 
-    // Immune to all effects like the Ender Dragon and the Wither
+    // Immune to all effects except Invisibility similar to the Ender Dragon and the Wither
     @Override
     public boolean isPotionApplicable(PotionEffect effect)
     {
-        return false;
+        return effect.getPotion() == MobEffects.INVISIBILITY;
     }
 
     @Override

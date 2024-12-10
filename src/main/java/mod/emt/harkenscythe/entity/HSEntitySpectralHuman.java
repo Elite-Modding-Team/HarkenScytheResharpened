@@ -52,7 +52,7 @@ public class HSEntitySpectralHuman extends EntityMob
     public boolean getCanSpawnHere()
     {
         BlockPos spawnPos = new BlockPos(this);
-        return super.getCanSpawnHere() && spawnPos.getY() < 50 && this.world.canSeeSky(spawnPos);
+        return super.getCanSpawnHere() && spawnPos.getY() < 50 && !this.world.canSeeSky(spawnPos);
     }
 
     @Override
