@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.enchantment;
 
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -8,17 +7,14 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
-public class HSEnchantmentBloodletting extends Enchantment
+public class HSEnchantmentBloodletting extends HSEnchantment
 {
     public HSEnchantmentBloodletting(String name)
     {
-        super(Rarity.UNCOMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND});
-        this.setName(HarkenScythe.MOD_ID + "." + name);
-        this.setRegistryName(HarkenScythe.MOD_ID, name);
+        super(name, Rarity.UNCOMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND}, Faction.BLOOD);
     }
 
     @Override
