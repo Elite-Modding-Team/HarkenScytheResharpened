@@ -94,6 +94,7 @@ public class HSRegistry
         HarkenScythe.LOGGER.info("Registering enchantments...");
 
         event.getRegistry().registerAll(
+            HSEnchantments.BLIGHT,
             HSEnchantments.BLOODLETTING,
             HSEnchantments.EXUDE,
             HSEnchantments.NOURISHMENT,

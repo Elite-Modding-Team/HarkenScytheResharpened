@@ -137,6 +137,7 @@ entity.harkenscythe.spectral_miner.name=Spektraler Bergarbeiter
 entity.harkenscythe.spectral_potion.name=Spektraler Trank
 
 # ENCHANTMENTS
+enchantment.harkenscythe.blight=Fäule
 enchantment.harkenscythe.bloodletting=Aderlass
 enchantment.harkenscythe.exude=Verströmung
 enchantment.harkenscythe.nourishment=Ernährung

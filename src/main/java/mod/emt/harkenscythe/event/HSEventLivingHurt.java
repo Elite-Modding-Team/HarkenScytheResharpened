@@ -5,10 +5,12 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
@@ -60,6 +62,24 @@ public class HSEventLivingHurt
                 player.extinguish();
                 player.heal(event.getAmount());
                 event.setAmount(0);
+            }
+        }
+        // Blight enchantment
+        if (event.getSource().getImmediateSource() instanceof EntityArrow)
+        {
+            EntityArrow arrow = (EntityArrow) event.getSource().getImmediateSource();
+            if (arrow.shootingEntity instanceof EntityLivingBase)
+            {
+                EntityLivingBase shooter = (EntityLivingBase) arrow.shootingEntity;
+                ItemStack bow = shooter.getHeldItemMainhand();
+                int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.BLIGHT, bow);
+                if (!bow.isEmpty() && level > 0)
+                {
+                    int duration = level * 100;
+                    entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, duration));
+                    entity.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, duration));
+                    entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, duration));
+                }
             }
         }
     }

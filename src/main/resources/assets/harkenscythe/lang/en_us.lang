@@ -137,6 +137,7 @@ entity.harkenscythe.spectral_miner.name=Spectral Miner
 entity.harkenscythe.spectral_potion.name=Spectral Potion
 
 # ENCHANTMENTS
+enchantment.harkenscythe.blight=Blight
 enchantment.harkenscythe.bloodletting=Bloodletting
 enchantment.harkenscythe.exude=Exude
 enchantment.harkenscythe.nourishment=Nourishment
