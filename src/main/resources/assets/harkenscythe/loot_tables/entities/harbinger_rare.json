@@ -31,10 +31,17 @@
           "weight": 2,
           "functions": [
             {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            },
+            {
               "function": "looting_enchant",
               "count": {
                 "min": 0,
-                "max": 1
+                "max": 2
               }
             }
           ]
@@ -73,29 +80,31 @@
       ]
     },
     {
-      "conditions": [
-        {
-          "condition": "killed_by_player"
-        },
-        {
-          "condition": "random_chance_with_looting",
-          "chance": 0.2,
-          "looting_multiplier": 0.04
-        }
-      ],
-      "name": "rare",
+      "name": "souls",
       "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:ender_eye",
+          "name": "harkenscythe:soul_essence",
           "weight": 1,
+          "conditions": [
+            {
+              "condition": "killed_by_player"
+            }
+          ],
           "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 6,
+                "max": 12
+              }
+            },
             {
               "function": "looting_enchant",
               "count": {
                 "min": 0,
-                "max": 1
+                "max": 4
               }
             }
           ]
