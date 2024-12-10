@@ -207,6 +207,7 @@ public class HSItems
     public static ArmorMaterial ARMOR_BLOODWEAVE = EnumHelper.addArmorMaterial("hs_armor_bloodweave", "bloodweave", 15, new int[] {1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.bloodweave_cloth)));
     public static ArmorMaterial ARMOR_SOULWEAVE = EnumHelper.addArmorMaterial("hs_armor_soulweave", "soulweave", 15, new int[] {1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.soulweave_cloth)));
 
+    public static ToolMaterial TOOL_ATHAME_BASIC = EnumHelper.addToolMaterial("hs_tool_athame_basic", 2, 250, 6.0F, -1.5F, 14).setRepairItem(new ItemStack(Items.IRON_INGOT));
     public static ToolMaterial TOOL_BIOMASS = EnumHelper.addToolMaterial("hs_tool_biomass", 3, 151, 6.5F, 1.5F, 17).setRepairItem(new ItemStack(biomass));
     public static ToolMaterial TOOL_LIVINGMETAL = EnumHelper.addToolMaterial("hs_tool_livingmetal", 3, 481, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(livingmetal_ingot));
     public static ToolMaterial TOOL_REAPER = EnumHelper.addToolMaterial("hs_tool_reaper", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(Items.BONE));
@@ -276,7 +277,7 @@ public class HSItems
                 HSRegistry.setup(new HSItemBlockSpecial(HSBlocks.soul_cake, EnumRarity.UNCOMMON), "soul_cake").setMaxStackSize(1).setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemFood(3, 0.2F, false, 16, true, EnumRarity.UNCOMMON), "soul_cookie").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSToolSword(ToolMaterial.IRON, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSToolAthame(TOOL_ATHAME_BASIC, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "unpowered_totem_of_undying").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.COMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolSpectralPickaxe(), "spectral_pickaxe").setCreativeTab(HarkenScythe.TAB),
