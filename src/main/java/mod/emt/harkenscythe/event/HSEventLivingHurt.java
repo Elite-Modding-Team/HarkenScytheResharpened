@@ -23,6 +23,7 @@ import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.tools.HSToolGlaive;
 
@@ -80,6 +81,19 @@ public class HSEventLivingHurt
                     entity.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, duration));
                     entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, duration));
                 }
+            }
+        }
+        // Hemorrhage enchantment
+        if (trueSource instanceof EntityLivingBase)
+        {
+            EntityLivingBase attacker = (EntityLivingBase) trueSource;
+            ItemStack weapon = attacker.getHeldItemMainhand();
+
+            if (!weapon.isEmpty() && EnchantmentHelper.getEnchantmentLevel(HSEnchantments.HEMORRHAGE, weapon) > 0)
+            {
+                int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.HEMORRHAGE, weapon);
+                int duration = level * 100;
+                entity.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration));
             }
         }
     }

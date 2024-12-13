@@ -140,11 +140,13 @@ entity.harkenscythe.spectral_potion.name=Spectral Potion
 enchantment.harkenscythe.blight=Blight
 enchantment.harkenscythe.bloodletting=Bloodletting
 enchantment.harkenscythe.exude=Exude
+enchantment.harkenscythe.hemorrhage=Hemorrhage
 enchantment.harkenscythe.nourishment=Nourishment
 enchantment.harkenscythe.soulsteal=Soulsteal
 
 # POTIONS
 effect.harkenscythe.affliction=Spectral Affliction
+effect.harkenscythe.bleeding=Bleeding
 effect.harkenscythe.flame=Spectral Flame
 effect.harkenscythe.purifying=Spectral Purifying
 effect.harkenscythe.water=Spectral Water

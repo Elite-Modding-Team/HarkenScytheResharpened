@@ -97,6 +97,7 @@ public class HSRegistry
             HSEnchantments.BLIGHT,
             HSEnchantments.BLOODLETTING,
             HSEnchantments.EXUDE,
+            HSEnchantments.HEMORRHAGE,
             HSEnchantments.NOURISHMENT,
             HSEnchantments.SOULSTEAL
         );
