@@ -110,6 +110,11 @@
       "harkenscythe:scythe_activate"
     ]
   },
+  "essence.blood.despawn": {
+    "sounds": [
+      "harkenscythe:essence_blood_despawn"
+    ]
+  },
   "essence.blood.spawn": {
     "sounds": [
       "harkenscythe:essence_blood_spawn"
@@ -118,6 +123,11 @@
   "essence.soul.spawn": {
     "sounds": [
       "harkenscythe:essence_soul_spawn"
+    ]
+  },
+  "essence.soul.despawn": {
+    "sounds": [
+      "harkenscythe:essence_soul_despawn"
     ]
   },
   "essence.soul.summon": {

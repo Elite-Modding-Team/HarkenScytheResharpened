@@ -10,6 +10,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSEntityBlood extends HSEntityEssence
 {
@@ -34,7 +35,7 @@ public class HSEntityBlood extends HSEntityEssence
             if (newStack.getItem() == HSItems.essence_keeper_blood) pitch += 0.5F;
             this.world.playSound(null, player.getPosition(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, pitch);
             this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
-            this.setDead();
+            this.setHealth(0);
         }
         else if (item == HSItems.essence_keeper_blood || item == HSItems.essence_vessel_blood)
         {
@@ -53,8 +54,15 @@ public class HSEntityBlood extends HSEntityEssence
             if (stack.getItem() == HSItems.essence_keeper_blood) pitch += 0.5F;
             this.world.playSound(null, player.getPosition(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, pitch);
             this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
-            this.setDead();
+            this.setHealth(0);
         }
         return super.processInitialInteract(player, hand);
+    }
+
+    @Override
+    protected void onDeathUpdate()
+    {
+        super.onDeathUpdate();
+        if (this.deathTime == 1) this.world.playSound(null, this.getPosition(), HSSoundEvents.ESSENCE_BLOOD_DESPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 }

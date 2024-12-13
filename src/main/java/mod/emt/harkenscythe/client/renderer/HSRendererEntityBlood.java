@@ -32,6 +32,13 @@ public class HSRendererEntityBlood extends Render<HSEntityBlood>
         float f = (float) entity.getInnerRotation() + partialTicks;
         GlStateManager.pushMatrix();
         GlStateManager.translate((float) x, (float) y, (float) z);
+        if (entity.deathTime > 0)
+        {
+            float scale = 1.0F - (entity.deathTime / 20.0F);
+            GlStateManager.scale(scale, scale, scale);
+            float rotate = entity.deathTime * 20.0F;
+            GlStateManager.rotate(rotate, 0.0F, 1.0F, 0.0F);
+        }
         this.bindTexture(BLOOD_TEXTURES);
         float f1 = MathHelper.sin(f * 0.2F) / 2.0F + 0.5F;
         f1 = f1 * f1 + f1;

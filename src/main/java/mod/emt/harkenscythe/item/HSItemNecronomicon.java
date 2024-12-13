@@ -64,7 +64,7 @@ public class HSItemNecronomicon extends HSItem
             for (HSEntitySoul entitySoul : souls)
             {
                 HSEventLivingDeath.spawnSpectralEntity(world, entitySoul.getOriginalEntity(), entitySoul.getPosition(), false);
-                entitySoul.setDead();
+                entitySoul.setHealth(0);
                 ItemStack bloodContainer = getBloodContainer(player);
                 if (bloodContainer != ItemStack.EMPTY)
                 {

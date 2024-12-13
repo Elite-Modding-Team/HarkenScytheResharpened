@@ -50,7 +50,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
                         this.world.playSound(null, this.getPosition(), HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
                         this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
                         entityItem.setDead();
-                        this.setDead();
+                        this.setHealth(0);
                         if (!this.world.isRemote)
                         {
                             ItemStack athame = new ItemStack(HSItems.harken_athame);
@@ -89,7 +89,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
                     }
                 }
             }
-            this.setDead();
+            this.setHealth(0);
         }
         ++this.innerRotation;
     }
