@@ -11,12 +11,14 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSEntityHemoglobin extends HSEntityGlobin
 {
@@ -72,6 +74,30 @@ public class HSEntityHemoglobin extends HSEntityGlobin
     protected HSEntityHemoglobin createInstance()
     {
         return new HSEntityHemoglobin(this.world);
+    }
+    
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
+    {
+        return this.isSmallSlime() ? HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent() : HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent();
+    }
+
+    @Override
+    protected SoundEvent getDeathSound()
+    {
+        return this.isSmallSlime() ? HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent() : HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent();
+    }
+
+    @Override
+    protected SoundEvent getSquishSound()
+    {
+        return this.isSmallSlime() ? HSSoundEvents.BLOCK_BIOMASS_HARVEST.getSoundEvent() : HSSoundEvents.BLOCK_BIOMASS_HARVEST.getSoundEvent();
+    }
+    
+    @Override
+    protected SoundEvent getJumpSound()
+    {
+        return this.isSmallSlime() ? HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent() : HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent();
     }
 
     @Nonnull
