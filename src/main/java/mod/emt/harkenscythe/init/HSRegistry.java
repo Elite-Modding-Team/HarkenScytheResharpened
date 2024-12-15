@@ -141,11 +141,13 @@ public class HSRegistry
     {
         List<Biome> biomes = new ArrayList<>();
 
-        for (Biome biome : Biome.REGISTRY) {
+        for (Biome biome : Biome.REGISTRY)
+        {
             List<Biome.SpawnListEntry> spawnList = biome.getSpawnableList(EnumCreatureType.MONSTER);
 
             for (Biome.SpawnListEntry list : spawnList)
-                if (list.entityClass == spawn) {
+                if (list.entityClass == spawn)
+                {
                     biomes.add(biome);
                     break;
                 }
