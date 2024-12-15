@@ -1,5 +1,6 @@
 package mod.emt.harkenscythe.init;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -126,23 +128,30 @@ public class HSRegistry
 
     public static void registerEntitySpawns()
     {
-        List<Biome> regularSpawning = Lists.newArrayList();
-        for (Biome biome : Biome.REGISTRY)
-        {
-            Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(biome);
-            if (!types.contains(BiomeDictionary.Type.MUSHROOM) && !types.contains(BiomeDictionary.Type.WATER) && !types.contains(BiomeDictionary.Type.NETHER) && !types.contains(BiomeDictionary.Type.END))
-            {
-                regularSpawning.add(biome);
-                if (HSConfig.GENERAL.debugMode) HarkenScythe.LOGGER.debug("Biome " + biome.getBiomeName() + " is valid for regular spawning");
-            }
-        }
-
-        EntityRegistry.addSpawn(HSEntityHarbinger.class, 5, 1, 1, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
-        EntityRegistry.addSpawn(HSEntitySpectralHuman.class, 5, 1, 2, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
-        EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 2, 1, 1, EnumCreatureType.MONSTER, regularSpawning.toArray(new Biome[0]));
+        EntityRegistry.addSpawn(HSEntityHarbinger.class, 5, 1, 1, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
+        EntityRegistry.addSpawn(HSEntitySpectralHuman.class, 5, 1, 2, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
+        EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 2, 1, 1, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
 
         EntitySpawnPlacementRegistry.setPlacementType(HSEntityHarbinger.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralMiner.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+    }
+    
+    // Gets biomes from selected entity.
+    public static Biome[] getEntityBiomes(Class<? extends Entity> spawn)
+    {
+        List<Biome> biomes = new ArrayList<>();
+
+        for (Biome biome : Biome.REGISTRY) {
+            List<Biome.SpawnListEntry> spawnList = biome.getSpawnableList(EnumCreatureType.MONSTER);
+
+            for (Biome.SpawnListEntry list : spawnList)
+                if (list.entityClass == spawn) {
+                    biomes.add(biome);
+                    break;
+                }
+        }
+
+        return biomes.toArray(new Biome[0]);
     }
 
     @SubscribeEvent
