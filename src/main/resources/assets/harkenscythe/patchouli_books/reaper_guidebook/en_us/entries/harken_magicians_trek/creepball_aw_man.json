@@ -1,0 +1,18 @@
+{
+  "name": "Creepball? Aw man!",
+  "icon": "harkenscythe:textures/items/creepball.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Creepballs are catalysts made from decayed organic materials to grow a rare microbiological colony that resides in soul sand."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:creepball",
+      "title": " ",
+      "text": "Plant on soul sand to spread the colony..."
+    }
+  ]
+}
