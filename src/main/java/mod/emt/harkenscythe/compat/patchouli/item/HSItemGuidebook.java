@@ -26,6 +26,7 @@ public class HSItemGuidebook extends HSItem
     public HSItemGuidebook()
     {
         super(EnumRarity.COMMON);
+        setMaxStackSize(1);
     }
 
     @Nonnull
@@ -37,7 +38,7 @@ public class HSItemGuidebook extends HSItem
         if (player instanceof EntityPlayerMP)
         {
             PatchouliAPI.instance.openBookGUI((EntityPlayerMP) player, book);
-            world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.GUIDE_OPEN.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, (float) (0.7F + Math.random() * 0.4F));
+            world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.GUIDE_OPEN.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 0.7F + player.getRNG().nextFloat() * 0.4F);
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
