@@ -13,6 +13,18 @@
       "recipe": "harkenscythe:creepball",
       "title": " ",
       "text": "Plant on soul sand to spread the colony..."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:creep_block",
+      "title": "Bio for the Masses",
+      "text": "Creep blocks provide very fertile land when tilled with a glaive. These can cultivate biomass by fermenting nether warts and germinating them on an Altar of Blood."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_seed",
+      "title": " ",
+      "text": "Biomass seeds need to be germinated on an Altar of Blood first and then be planted in tilled creep blocks."
     }
   ]
 }

@@ -13,6 +13,18 @@
       "recipe": "harkenscythe:creepball",
       "title": " ",
       "text": "Pflanze auf Seelensand, um die Kolonie zu verbreiten..."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:creep_block",
+      "title": "Bio für die Massen",
+      "text": "Kriechblöcke bieten sehr fruchtbares Land, wenn sie mit einer Glefe bearbeitet werden. Diese können Biomasse kultivieren, indem Netherwarzen fermentiert und auf einem Blutaltar zum Keimen gebracht werden."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_seed",
+      "title": " ",
+      "text": "Biomassesamen müssen zuerst auf einem Blutaltar zum Keimen gebracht und anschließend in bearbeitete Kriechblöcke gepflanzt werden."
     }
   ]
 }
