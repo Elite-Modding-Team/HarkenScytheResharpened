@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)
@@ -23,10 +24,13 @@ public class HSEventGuiOpen
         {
             wasGuidebookOpen = true;
         }
-        else if (wasGuidebookOpen)
+        else if (wasGuidebookOpen && Minecraft.getMinecraft().player != null)
         {
             EntityPlayerSP player = Minecraft.getMinecraft().player;
-            player.playSound(HSSoundEvents.GUIDE_CLOSE.getSoundEvent(), 1.0F, 0.7F + player.getRNG().nextFloat() * 0.4F);
+            if (player.getHeldItemMainhand().getItem() instanceof HSItemGuidebook || player.getHeldItemOffhand().getItem() instanceof HSItemGuidebook)
+            {
+                player.playSound(HSSoundEvents.GUIDE_CLOSE.getSoundEvent(), 1.0F, 0.7F + player.getRNG().nextFloat() * 0.4F);
+            }
             wasGuidebookOpen = false;
         }
     }
