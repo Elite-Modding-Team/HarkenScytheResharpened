@@ -1,0 +1,18 @@
+{
+  "name": "Götzenanbetung",
+  "icon": "harkenscythe:textures/items/totem_undying_unpowered.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Wie das sagenumwobene Totem der Illager hergestellt wird, war bislang für viele Magieanwender ein Rätsel...$(br2)Du kannst ein Totem der Unsterblichkeit selbst erschaffen, indem du das Basistotem baust (oder eines in Ruinen findest) und es an einem Seelenaltar mit Energie versiehst."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:unpowered_totem_of_undying",
+      "title": " ",
+      "text": "Falls du vergessen hast, wie es funktioniert: Das Totem gewährt dir im Falle deines Todes ein zusätzliches Leben, solange du es in einer deiner Hände hältst."
+    }
+  ]
+}
