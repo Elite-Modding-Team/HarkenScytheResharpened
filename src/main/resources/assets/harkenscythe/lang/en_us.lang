@@ -201,6 +201,7 @@ tooltip.harkenscythe.totem_undying_unpowered=This needs to be empowered on an Al
 
 # CONFIG
 cfg.harkenscythe.general=General
+cfg.harkenscythe.blocks=Blocks
 cfg.harkenscythe.entities=Entities
 cfg.harkenscythe.items=Items
 cfg.harkenscythe.recipes=Recipes
