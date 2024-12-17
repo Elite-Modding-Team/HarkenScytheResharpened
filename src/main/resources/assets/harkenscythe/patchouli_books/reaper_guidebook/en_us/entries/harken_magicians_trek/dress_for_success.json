@@ -11,6 +11,7 @@
     {
       "type": "entity",
       "name": " ",
+      "text": "This special armor never breaks and can be repaired on an Altar of Souls.",
       "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:soulweave_shoes\",Count:1},{id:\"harkenscythe:soulweave_pants\",Count:1},{id:\"harkenscythe:soulweave_robe\",Count:1},{id:\"harkenscythe:soulweave_hood\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
     },
     {
@@ -30,6 +31,7 @@
     {
       "type": "entity",
       "name": " ",
+      "text": "This special armor never breaks and can be repaired on an Altar of Blood.",
       "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:bloodweave_shoes\",Count:1},{id:\"harkenscythe:bloodweave_pants\",Count:1},{id:\"harkenscythe:bloodweave_robe\",Count:1},{id:\"harkenscythe:bloodweave_hood\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
     },
     {
