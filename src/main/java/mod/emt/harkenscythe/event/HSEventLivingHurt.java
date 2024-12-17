@@ -7,8 +7,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.MobEffects;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -22,9 +20,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.init.HSEnchantments;
-import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tools.HSToolGlaive;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
@@ -40,7 +38,7 @@ public class HSEventLivingHurt
         if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
         {
             spawnBlood(world, entity);
-            if (isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
+            if (HSArmor.isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
                 spawnBlood(world, entity);
             }
@@ -126,14 +124,5 @@ public class HSEventLivingHurt
     {
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
         return (level > 0 && player.getRNG().nextFloat() < 0.05F * level);
-    }
-
-    private static boolean isWearingFullBloodweaveSet(EntityPlayer player)
-    {
-        Item boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem();
-        Item leggings = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem();
-        Item chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
-        Item helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
-        return boots == HSItems.bloodweave_shoes && leggings == HSItems.bloodweave_pants && chestplate == HSItems.bloodweave_robe && helmet == HSItems.bloodweave_hood;
     }
 }

@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
@@ -101,5 +102,39 @@ public class HSArmor extends ItemArmor
         {
             super.setDamage(stack, damage);
         }
+    }
+
+    public static boolean isWearingFullBloodweaveSet(EntityPlayer player)
+    {
+        ItemStack shoes = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        ItemStack pants = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+        ItemStack robe = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+        ItemStack hood = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+
+        boolean hasFullBloodweaveSet = shoes.getItem() == HSItems.bloodweave_shoes && pants.getItem() == HSItems.bloodweave_pants && robe.getItem() == HSItems.bloodweave_robe && hood.getItem() == HSItems.bloodweave_hood;
+
+        return hasFullBloodweaveSet && meetsDurabilityRequirement(shoes, pants, robe, hood);
+    }
+
+    public static boolean isWearingFullSoulweaveSet(EntityPlayer player)
+    {
+        ItemStack shoes = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        ItemStack pants = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+        ItemStack robe = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+        ItemStack hood = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+
+        boolean hasFullSoulweaveSet = shoes.getItem() == HSItems.soulweave_shoes && pants.getItem() == HSItems.soulweave_pants && robe.getItem() == HSItems.soulweave_robe && hood.getItem() == HSItems.soulweave_hood;
+
+        return hasFullSoulweaveSet && meetsDurabilityRequirement(shoes, pants, robe, hood);
+    }
+
+    private static boolean meetsDurabilityRequirement(ItemStack shoes, ItemStack pants, ItemStack robe, ItemStack hood)
+    {
+        double bootsDurabilityRatio = (double) (shoes.getMaxDamage() - shoes.getItemDamage()) / shoes.getMaxDamage();
+        double leggingsDurabilityRatio = (double) (pants.getMaxDamage() - pants.getItemDamage()) / pants.getMaxDamage();
+        double chestplateDurabilityRatio = (double) (robe.getMaxDamage() - robe.getItemDamage()) / robe.getMaxDamage();
+        double helmetDurabilityRatio = (double) (hood.getMaxDamage() - hood.getItemDamage()) / hood.getMaxDamage();
+
+        return bootsDurabilityRatio >= 0.25D && leggingsDurabilityRatio >= 0.25D && chestplateDurabilityRatio >= 0.25D && helmetDurabilityRatio >= 0.25D;
     }
 }

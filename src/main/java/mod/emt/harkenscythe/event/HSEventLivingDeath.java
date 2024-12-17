@@ -16,7 +16,6 @@ import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
@@ -33,6 +32,7 @@ import mod.emt.harkenscythe.entity.ai.HSAIPassiveMobAttack;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tools.HSToolScythe;
 import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
@@ -50,7 +50,7 @@ public class HSEventLivingDeath
         {
             if (entity instanceof HSEntitySpectralMiner) return;
             spawnSoul(world, entity);
-            if (isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
+            if (HSArmor.isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
                 spawnSoul(world, entity);
             }
@@ -134,23 +134,6 @@ public class HSEventLivingDeath
     private static boolean isWhitelistedMob(Entity entity)
     {
         return !HSEntityBlacklists.isBlacklistedForSummoning(entity) && !(entity instanceof EntityPlayer) && !(entity instanceof EntityGhast) && !(entity instanceof EntitySlime);
-    }
-
-    private static boolean isWearingFullSoulweaveSet(EntityPlayer player)
-    {
-        ItemStack boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-        double bootsDurabilityRatio = (double) (boots.getMaxDamage() - boots.getItemDamage()) / boots.getMaxDamage();
-        ItemStack leggings = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-        double leggingsDurabilityRatio = (double) (leggings.getMaxDamage() - leggings.getItemDamage()) / leggings.getMaxDamage();
-        ItemStack chestplate = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-        double chestplateDurabilityRatio = (double) (chestplate.getMaxDamage() - chestplate.getItemDamage()) / chestplate.getMaxDamage();
-        ItemStack helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-        double helmetDurabilityRatio = (double) (helmet.getMaxDamage() - helmet.getItemDamage()) / helmet.getMaxDamage();
-
-        boolean hasFullSoulweaveSet = boots.getItem() == HSItems.soulweave_shoes && leggings.getItem() == HSItems.soulweave_pants && chestplate.getItem() == HSItems.soulweave_robe && helmet.getItem() == HSItems.soulweave_hood;
-        boolean meetsDurabilityRequirement = bootsDurabilityRatio >= 0.25D && leggingsDurabilityRatio >= 0.25D && chestplateDurabilityRatio >= 0.25D && helmetDurabilityRatio >= 0.25D;
-
-        return hasFullSoulweaveSet && meetsDurabilityRequirement;
     }
 
     private static void modifyAI(EntityCreature entity)
