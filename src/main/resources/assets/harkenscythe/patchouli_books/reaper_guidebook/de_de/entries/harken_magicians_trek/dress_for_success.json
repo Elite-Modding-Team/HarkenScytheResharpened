@@ -1,0 +1,46 @@
+{
+  "name": "Einkleiden zum Erfolg",
+  "icon": "harkenscythe:textures/items/soulweave_robe.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Aufstrebende Seelenreaper tragen ein komplettes Rüstungsset, um Vorteile bei ihren Forschungen zu erlangen.$(br2)Wenn ein komplettes Rüstungsset aus seelengewebtem Stoff mit mindestens 25% Haltbarkeit getragen wird, erscheint eine zusätzliche Seelenessenz mit einer Wahrscheinlichkeit von 25% bei erfolgreichen Reaps."
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:soulweave_shoes\",Count:1},{id:\"harkenscythe:soulweave_pants\",Count:1},{id:\"harkenscythe:soulweave_robe\",Count:1},{id:\"harkenscythe:soulweave_hood\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:soulweave_hood_light_blue",
+      "recipe2": "harkenscythe:soulweave_robe_light_blue"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:soulweave_pants_light_blue",
+      "recipe2": "harkenscythe:soulweave_shoes_light_blue"
+    },
+    {
+      "type": "text",
+      "text": "Aufstrebende Blutreaper tragen ein komplettes Rüstungsset, um Vorteile bei ihren Forschungen zu erlangen.$(br2)Wenn ein komplettes Rüstungsset aus blutgewebtem Stoff mit mindestens 25% Haltbarkeit getragen wird, erscheint eine zusätzliche Blutessenz mit einer Wahrscheinlichkeit von 25% bei erfolgreichen Reaps."
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:bloodweave_shoes\",Count:1},{id:\"harkenscythe:bloodweave_pants\",Count:1},{id:\"harkenscythe:bloodweave_robe\",Count:1},{id:\"harkenscythe:bloodweave_hood\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:bloodweave_hood_red",
+      "recipe2": "harkenscythe:bloodweave_robe_red"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:bloodweave_pants_red",
+      "recipe2": "harkenscythe:bloodweave_shoes_red"
+    }
+  ]
+}

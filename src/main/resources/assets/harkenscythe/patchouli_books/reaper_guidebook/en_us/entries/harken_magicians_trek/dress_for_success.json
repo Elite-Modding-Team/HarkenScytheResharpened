@@ -1,0 +1,46 @@
+{
+  "name": "Dress for Success",
+  "icon": "harkenscythe:textures/items/soulweave_robe.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Aspiring soul reapers wear a full armor set to gain advantages in their research.$(br2)When wearing a full armor set of soulweave cloth with at least 25% durability, an additional soul essence appears with a 25% chance on successful reaps."
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:soulweave_shoes\",Count:1},{id:\"harkenscythe:soulweave_pants\",Count:1},{id:\"harkenscythe:soulweave_robe\",Count:1},{id:\"harkenscythe:soulweave_hood\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:soulweave_hood_light_blue",
+      "recipe2": "harkenscythe:soulweave_robe_light_blue"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:soulweave_pants_light_blue",
+      "recipe2": "harkenscythe:soulweave_shoes_light_blue"
+    },
+    {
+      "type": "text",
+      "text": "Aspiring blood reapers wear a full armor set to gain advantages in their research.$(br2)When wearing a full armor set of bloodweave cloth with at least 25% durability, an additional blood essence appears with a 25% chance on successful reaps."
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:bloodweave_shoes\",Count:1},{id:\"harkenscythe:bloodweave_pants\",Count:1},{id:\"harkenscythe:bloodweave_robe\",Count:1},{id:\"harkenscythe:bloodweave_hood\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:bloodweave_hood_red",
+      "recipe2": "harkenscythe:bloodweave_robe_red"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:bloodweave_pants_red",
+      "recipe2": "harkenscythe:bloodweave_shoes_red"
+    }
+  ]
+}
