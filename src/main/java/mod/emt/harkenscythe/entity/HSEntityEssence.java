@@ -61,7 +61,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
                 }
             }
         }
-        if (this.ticksExisted >= HSConfig.ENTITIES.essenceDespawnTime)
+        if (this.ticksExisted == HSConfig.ENTITIES.essenceDespawnTime)
         {
             this.world.playSound(null, this.getPosition(), SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
             this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
