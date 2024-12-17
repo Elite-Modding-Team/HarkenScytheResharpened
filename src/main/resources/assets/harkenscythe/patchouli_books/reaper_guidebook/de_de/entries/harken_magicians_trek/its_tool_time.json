@@ -1,0 +1,45 @@
+{
+  "name": "Es ist Werkzeugzeit!",
+  "icon": "harkenscythe:textures/items/pickaxe_livingmetal.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Erfahrene Seelenreaper stellen nützliche Werkzeuge aus zusammengesetztem Lebendmetall her.$(br2)Beim Sammeln von Seelen wird ein zufälliges Ausrüstungsstück aus Lebendmetall entsprechend den Seelenqualitätspunkten aufgefüllt und repariert."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_sword",
+      "recipe2": "harkenscythe:livingmetal_shovel"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_pickaxe",
+      "recipe2": "harkenscythe:livingmetal_axe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_hoe",
+      "recipe2": "harkenscythe:livingmetal_shears"
+    },
+    {
+      "type": "text",
+      "text": "Erfahrene Blutreaper stellen nützliche Werkzeuge aus zusammengesetzter Biomasse her.$(br2)Da Biomasse ein ständig wachsendes und selbstheilendes Material ist, versucht sie, jede Minute Werkzeugschaden langsam zu reparieren."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_sword",
+      "recipe2": "harkenscythe:biomass_shovel"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_pickaxe",
+      "recipe2": "harkenscythe:biomass_axe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_hoe"
+    }
+  ]
+}

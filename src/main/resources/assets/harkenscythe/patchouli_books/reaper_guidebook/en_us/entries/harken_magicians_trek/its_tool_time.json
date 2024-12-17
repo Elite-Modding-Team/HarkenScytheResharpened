@@ -1,0 +1,45 @@
+{
+  "name": "It's Tool Time!",
+  "icon": "harkenscythe:textures/items/pickaxe_livingmetal.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Seasoned soul reapers construct useful tools out of composed livingmetal.$(br2)When collecting souls, a random piece of livingmetal equipment is getting infused and repaired according to the soul quality points."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_sword",
+      "recipe2": "harkenscythe:livingmetal_shovel"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_pickaxe",
+      "recipe2": "harkenscythe:livingmetal_axe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_hoe",
+      "recipe2": "harkenscythe:livingmetal_shears"
+    },
+    {
+      "type": "text",
+      "text": "Seasoned blood reapers construct useful tools out of composed biomass.$(br2)As biomass is a constantly growing and self-healing material, it tries to slowly repair the tool's damage every minute."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_sword",
+      "recipe2": "harkenscythe:biomass_shovel"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_pickaxe",
+      "recipe2": "harkenscythe:biomass_axe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_hoe"
+    }
+  ]
+}
