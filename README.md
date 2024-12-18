@@ -1,5 +1,7 @@
 ### A remake of Harken Scythe exclusively for 1.12.2 𓌳
 
+![Harken Scythe](./src/main/resources/assets/harkenscythe/textures/logo.png)
+
 **Main Developers:**
 
 * Lead Developer ~ ACGaming
