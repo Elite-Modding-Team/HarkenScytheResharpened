@@ -97,7 +97,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount)
     {
-        return false;
+        return source == DamageSource.OUT_OF_WORLD && super.attackEntityFrom(source, amount);
     }
 
     @Override
