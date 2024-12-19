@@ -22,7 +22,7 @@ public class HarkenScythe
 {
     public static final String MOD_ID = Tags.MOD_ID;
     public static final String MOD_PREFIX = MOD_ID + ":";
-    public static final String NAME = "Harken Scythe";
+    public static final String NAME = "Harken Scythe Resharpened";
     public static final String VERSION = Tags.VERSION;
     public static final String ACCEPTED_VERSIONS = "[1.12.2]";
     public static final String DEPENDENCIES = "after:thaumcraft;after:tconstruct;after:conarm";
