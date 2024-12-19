@@ -1,10 +1,11 @@
-# Harken Scythe Resharpened
+# Harken Scythe: Resharpened
 
 #### Reap -What- You -Sow- 𓌳 A remake of Harken Scythe exclusively for Minecraft 1.12.2
+#### For **Asgard Shield**, Harken Scythe's sister mod, [go here](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded)!
 
 ![Harken Scythe Banner](./docs/banner.png)
 
-**Harken Scythe Resharpened** is a magic mod about the art of reaping and channeling blood and souls, introducing unique mechanics and utilities that revolve around the collection and manipulation of essence. It offers players the ability to craft powerful weapons, armors, tools and gadgets while exploring new gameplay features like essence farming and resurrection.
+**Harken Scythe: Resharpened** is a magic mod about the art of reaping and channeling blood and souls, introducing unique mechanics and utilities that revolve around the collection and manipulation of essence. It offers players the ability to craft powerful weapons, armors, tools and gadgets while exploring new gameplay features like essence farming and resurrection.
 
 ![Harken Scythe Altar of Souls](./docs/altar.png)
 
