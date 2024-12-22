@@ -63,6 +63,13 @@
 - Each enchantable item possesses an essence cost for a successful magical transformation. If enough essence is available for this process, _right-click_ on the altar with a Harken Athame to perform the ritual.
 - You can optionally also use [**JEI**](https://www.curseforge.com/minecraft/mc-mods/jei)/[**HEI**](https://www.curseforge.com/minecraft/mc-mods/had-enough-items) to see altar recipes and essence costs.
 
+### Mod Integration
+
+- Aspect support is available for various items with Thaumcraft installed.
+- With Tinkers' Construct installed, there are new tool materials to tinker with!
+- With Construct's Armory installed, there are new armor materials to tinker with!
+- Giant swords and shields are added for Livingmetal and Biomass when Asgard Shield: Reloaded is installed.
+
 ### In-game Guidebook
 
 For more details, check out the detailed in-game guide provided by [**Patchouli**](https://www.curseforge.com/minecraft/mc-mods/patchouli-rofl-edition) and affiliated advancements!
