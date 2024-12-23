@@ -11,7 +11,7 @@
     },
     {
       "type": "text",
-      "text": "Each enchantable item possesses an essence cost for a successful magical transformation. If enough essence is available for this process, $(4)right-click$() on the altar with a Harken Athame to perform the ritual.$(br2)You can optionally also use JEI/HEI to see altar recipes and essence costs."
+      "text": "Each transformable item possesses an essence cost for a successful magical transformation. If enough essence is available for this process, $(4)right-click$() on the altar with a Harken Athame to perform the ritual.$(br2)You can optionally also use JEI/HEI to see altar recipes and essence costs."
     }
   ]
 }
