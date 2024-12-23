@@ -3,14 +3,19 @@ package mod.emt.harkenscythe.item;
 import javax.annotation.Nullable;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.compat.bloodmagic.HSBloodMagicPlugin;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 
@@ -28,6 +33,12 @@ public class HSItemEssenceKeeperBlood extends HSItemEssenceKeeper
                 return 1.0F - ((float) getDamage(stack) / getMaxDamage(stack));
             }
         });
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        return Loader.isModLoaded("bloodmagic") ? HSBloodMagicPlugin.onBloodContainerRightClick(world, player, hand) : super.onItemRightClick(world, player, hand);
     }
 
     @SideOnly(Side.CLIENT)

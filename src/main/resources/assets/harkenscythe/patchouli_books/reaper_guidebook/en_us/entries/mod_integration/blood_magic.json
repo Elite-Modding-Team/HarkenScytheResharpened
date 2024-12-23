@@ -1,0 +1,12 @@
+{
+  "name": "Blood Magic",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "category": "mod_integration",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "text": "While Blood Magic is detected, blood containers like keepers and vessels can be used similarly to the sacrificial dagger to fill a blood altar with LP."
+    }
+  ]
+}

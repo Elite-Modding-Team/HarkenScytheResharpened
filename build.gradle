@@ -114,11 +114,15 @@ dependencies {
     // Thaumcraft
     implementation rfg.deobf('curse.maven:baubles-227083:2518667')
     implementation rfg.deobf('curse.maven:thaumcraft-223628:2629023')
-    
+
     // Tinkers' Construct + Construct's Armory
     implementation rfg.deobf('curse.maven:mantle-74924:2713386')
     implementation rfg.deobf('curse.maven:tinkers-construct-74072:2902483')
     implementation rfg.deobf('curse.maven:constructs-armory-287683:3174535')
+
+    // Blood Magic
+    implementation rfg.deobf('curse.maven:guide-api-228832:2645992')
+    implementation rfg.deobf('curse.maven:blood-magic-224791:2822288')
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:
