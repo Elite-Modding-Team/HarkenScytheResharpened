@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSAdvancements;
@@ -68,6 +69,10 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                     handleRecipe(world, altar, altarStack, player, altarX, altarY, altarZ);
                     return true;
                 }
+                else
+                {
+                    player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.altar.invalid_recipe"), true);
+                }
             }
             else if (!heldStack.isEmpty())
             {
@@ -90,9 +95,9 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 ItemStack itemStack = altar.getInputStack();
                 if (!itemStack.isEmpty())
                 {
+                    altar.setInputStack(ItemStack.EMPTY);
                     player.addItemStackToInventory(itemStack);
                     player.world.playSound(altarX, altarY, altarZ, getSoundEventFail(), SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
-                    altar.setInputStack(ItemStack.EMPTY);
                     return true;
                 }
             }

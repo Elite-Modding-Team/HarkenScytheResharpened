@@ -152,6 +152,7 @@ effect.harkenscythe.purifying=Spektrale Reinigung
 effect.harkenscythe.water=Spektrales Wasser
 
 # MESSAGES
+message.harkenscythe.altar.invalid_recipe=Dies ist kein gültiges Rezept für ein Altarritual!
 message.harkenscythe.dimensional_mirror.blacklist=Eine magische Kraft verhindert, dass der Spiegel in dieser Dimension funktioniert!
 message.harkenscythe.dimensional_mirror.no_souls=Der Spiegel muss mit Seelen aufgeladen werden, damit er funktioniert!
 message.harkenscythe.dimensional_mirror.no_spawn=Es ist kein Spawnpunkt festgelegt, damit der Spiegel funktioniert!
