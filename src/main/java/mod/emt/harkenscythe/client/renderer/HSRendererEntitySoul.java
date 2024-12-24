@@ -38,10 +38,17 @@ public class HSRendererEntitySoul extends Render<HSEntitySoul>
         GlStateManager.translate((float) x, (float) y, (float) z);
         if (entity.deathTime > 0)
         {
-            float scale = 1.0F - (entity.deathTime / 20.0F);
+            float partialDeathTime = entity.deathTime + partialTicks;
+            float scale = 1.0F - (partialDeathTime / 20.0F);
             GlStateManager.scale(scale, scale, scale);
-            float rotate = entity.deathTime * 20.0F;
-            GlStateManager.rotate(rotate, 0.0F, 1.0F, 0.0F);
+            float spinSpeed = partialDeathTime * 10.0F;
+            GlStateManager.rotate(spinSpeed, 0.0F, 1.0F, 0.0F);
+        }
+        else if (entity.ticksExisted < 10)
+        {
+            float partialTicksExisted = entity.ticksExisted + partialTicks;
+            float scale = partialTicksExisted / 10.0F;
+            GlStateManager.scale(scale, scale, scale);
         }
         this.bindTexture(this.getEntityTexture(entity));
         float f1 = MathHelper.sin(f * 0.2F) / 2.0F + 0.5F;
