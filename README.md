@@ -2,15 +2,15 @@
 
 ### Reap -What- You -Sow- 𓌳 A remake of [**Harken Scythe**](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1286397-harken-scythe-reap-what-you-sow-biomass-blocks-and), exclusively for Minecraft 1.12.2
 
-#### Also check out [**Asgard Shield Reloaded**](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded), Harken Scythe's sister mod!
+#### Also check out [**Asgard Shield: Reloaded**](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded), Harken Scythe's sister mod!
 
-![Harken Scythe Banner](./docs/banner.png)
+![Harken Scythe Banner](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/banner.png)
 
 **Harken Scythe: Resharpened** is a magic mod about the art of reaping and channeling blood and souls, introducing unique mechanics and utilities that revolve around the collection and manipulation of essence. It offers players the ability to craft powerful weapons, armors, tools and gadgets while exploring new gameplay features like essence farming and resurrection.
 
 #### _IMPORTANT: This mod is going to stay on 1.12.2, there are no plans for porting from our side!_
 
-![Harken Scythe Altar of Souls](./docs/altar.png)
+![Harken Scythe Altar of Souls](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/altar.png)
 
 ### Gameplay Mechanics
 
@@ -18,8 +18,8 @@
 - **Immersive Crafting:** Perform rituals and craft unique items with the **Altar of Souls** and **Altar of Blood** entirely in-game without the usage of GUIs.
 - **Resurrection:** Perform rituals with the **Ancient Necronomicon** to resurrect souls back to the land of the living.
 
-![Harken Scythe Soul Essence](./docs/soul_essence.png)
-![Harken Scythe Blood Essence](./docs/blood_essence.png)
+![Harken Scythe Soul Essence](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/soul_essence.png)
+![Harken Scythe Blood Essence](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/blood_essence.png)
 
 ### Key Features
 
@@ -37,7 +37,7 @@
 
 #### Soul Path
 
-![Harken Scythe Scythes](./docs/scythes.png)
+![Harken Scythe Scythes](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/scythes.png)
 
 - To get started with reaping soul essence, you first need to construct a Scythe.
 - Scythes can be made with any vanilla material like iron, as well as certain materials from other mods if supported.
@@ -51,7 +51,7 @@
 
 #### Blood Path
 
-![Harken Scythe Glaives](./docs/glaives.png)
+![Harken Scythe Glaives](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/glaives.png)
 
 - To get started with reaping blood essence, you first need to construct a Glaive.
 - Glaives can be made with any vanilla material like iron, as well as certain materials from other mods if supported.
@@ -65,16 +65,17 @@
 
 ### Mod Integration
 
-- Aspect support is available for various items with Thaumcraft installed.
-- With Tinkers' Construct installed, there are new tool materials to tinker with!
-- With Construct's Armory installed, there are new armor materials to tinker with!
-- Giant swords and shields are added for Livingmetal and Biomass when Asgard Shield: Reloaded is installed.
+- With [**Thaumcraft**](https://www.curseforge.com/minecraft/mc-mods/thaumcraft) installed, aspect support is available for various items.
+- With [**Tinkers' Construct**](https://www.curseforge.com/minecraft/mc-mods/tinkers-construct) installed, there are new tool materials to tinker with.
+- With [**Construct's Armory**](https://www.curseforge.com/minecraft/mc-mods/constructs-armory) installed, there are new armor materials to tinker with.
+- With [**Asgard Shield: Reloaded**](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded) installed, giant swords and shields are added for Livingmetal and Biomass.
+- With [**Blood Magic**](https://www.curseforge.com/minecraft/mc-mods/blood-magic) installed, blood containers like keepers and vessels can be used similarly to the sacrificial dagger to fill a blood altar with LP.
 
 ### In-game Guidebook
 
 For more details, check out the detailed in-game guide provided by [**Patchouli**](https://www.curseforge.com/minecraft/mc-mods/patchouli-rofl-edition) and affiliated advancements!
 
-![Harken Scythe Guidebook](./docs/guidebook.png)
+![Harken Scythe Guidebook](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/guidebook.png)
 
 ### Main Developers
 
