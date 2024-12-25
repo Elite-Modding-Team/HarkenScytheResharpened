@@ -2,11 +2,9 @@ package mod.emt.harkenscythe.init;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -24,7 +22,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -135,7 +132,7 @@ public class HSRegistry
         EntitySpawnPlacementRegistry.setPlacementType(HSEntityHarbinger.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralMiner.class, EntityLiving.SpawnPlacementType.ON_GROUND);
     }
-    
+
     // Gets biomes from selected entity.
     public static Biome[] getEntityBiomes(Class<? extends Entity> spawn)
     {
@@ -181,7 +178,8 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_shoes, HSItems.bloodweave_shoes, 10);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
-        HSAltarRecipes.addBloodRecipes(HSConfig.RECIPES.customBloodAltarRecipes);
+        HSAltarRecipes.addBloodRecipesConfig(HSConfig.RECIPES.customBloodAltarRecipes);
+        HSAltarRecipes.removeBloodRecipes();
 
         // Soul Altar
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
@@ -202,7 +200,8 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
-        HSAltarRecipes.addSoulRecipes(HSConfig.RECIPES.customSoulAltarRecipes);
+        HSAltarRecipes.addSoulRecipesConfig(HSConfig.RECIPES.customSoulAltarRecipes);
+        HSAltarRecipes.removeSoulRecipes();
 
         for (Item item : ForgeRegistries.ITEMS)
         {

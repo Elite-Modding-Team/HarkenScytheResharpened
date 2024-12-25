@@ -12,7 +12,7 @@
 
 ![Harken Scythe Altar of Souls](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/altar.png)
 
-### Gameplay Mechanics
+### ⚙️ Gameplay Mechanics
 
 - **Soul and Blood Collection:** Use **Scythes** or **Glaives** with their reaping mechanics to extract souls or blood from mobs and store them in **Essence Keepers** or **Essence Vessels** for consumption or crafting.
 - **Immersive Crafting:** Perform rituals and craft unique items with the **Altar of Souls** and **Altar of Blood** entirely in-game without the usage of GUIs.
@@ -21,7 +21,7 @@
 ![Harken Scythe Soul Essence](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/soul_essence.png)
 ![Harken Scythe Blood Essence](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/blood_essence.png)
 
-### Key Features
+### 🔑 Key Features
 
 - **Scythes, Glaives & Reaping Mechanics:** Craft seven types of Scythes and Glaives to reap souls and blood essence from mobs to create neat magical gadgets.
 - **Essence Farming System:** Utilize the **Altars** along with **Crucibles** to enhance items with collected essence.
@@ -33,9 +33,9 @@
 - **Spectral Potions:** Brew new throwable **Spectral Potions** for combat and survival.
 - **Spectral Renovations:** Use **Spectral Glass** to add a ghostly touch to your builds.
 
-### Getting Started
+### 🏁 Getting Started
 
-#### Soul Path
+#### 👻 Soul Path
 
 ![Harken Scythe Scythes](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/scythes.png)
 
@@ -49,7 +49,7 @@
 - Each enchantable item possesses an essence cost for a successful magical transformation. If enough essence is available for this process, _right-click_ on the altar with a Harken Athame to perform the ritual.
 - You can optionally also use [**JEI**](https://www.curseforge.com/minecraft/mc-mods/jei)/[**HEI**](https://www.curseforge.com/minecraft/mc-mods/had-enough-items) to see altar recipes and essence costs.
 
-#### Blood Path
+#### 🩸 Blood Path
 
 ![Harken Scythe Glaives](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/glaives.png)
 
@@ -63,33 +63,34 @@
 - Each enchantable item possesses an essence cost for a successful magical transformation. If enough essence is available for this process, _right-click_ on the altar with a Harken Athame to perform the ritual.
 - You can optionally also use [**JEI**](https://www.curseforge.com/minecraft/mc-mods/jei)/[**HEI**](https://www.curseforge.com/minecraft/mc-mods/had-enough-items) to see altar recipes and essence costs.
 
-### Mod Integration
+### 🔁 Mod Integration
 
 - With [**Thaumcraft**](https://www.curseforge.com/minecraft/mc-mods/thaumcraft) installed, aspect support is available for various items.
 - With [**Tinkers' Construct**](https://www.curseforge.com/minecraft/mc-mods/tinkers-construct) installed, there are new tool materials to tinker with.
 - With [**Construct's Armory**](https://www.curseforge.com/minecraft/mc-mods/constructs-armory) installed, there are new armor materials to tinker with.
 - With [**Asgard Shield: Reloaded**](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded) installed, giant swords and shields are added for Livingmetal and Biomass.
 - With [**Blood Magic**](https://www.curseforge.com/minecraft/mc-mods/blood-magic) installed, blood containers like keepers and vessels can be used similarly to the sacrificial dagger to fill a blood altar with LP.
+- With [**CraftTweaker**](https://www.curseforge.com/minecraft/mc-mods/crafttweaker) installed, altar ritual recipes can be added and removed. See [this example script](https://github.com/Elite-Modding-Team/HarkenScytheResharpened/blob/main/docs/crafttweaker/example.zs).
 
-### In-game Guidebook
+### 📖 In-game Guidebook
 
 For more details, check out the detailed in-game guide provided by [**Patchouli**](https://www.curseforge.com/minecraft/mc-mods/patchouli-rofl-edition) and affiliated advancements!
 
 ![Harken Scythe Guidebook](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/guidebook.png)
 
-### Main Developers
+### 👨‍💻 Main Developers
 
 - Lead Developer ~ ACGaming
 - Developer & Sound/Texture Artist ~ IcarussOne
 
-### Special Thanks
+### 🙏 Special Thanks
 
 - Originally creating this amazing mod alongside Asgard Shield and making nostalgic memories for many Hexxit players ~ Jade_Knightblazer
 - Interface and item textures for the guidebook ~ Kimiko0402
 - Giving general feedback on improving the mod, as well as creating and maintaining [**Hexxit II**](https://www.technicpack.net/modpack/hexxit-ii.896745) ~ xJon
 - Creating the [**Hexxit edition of Red's Pack**](https://www.planetminecraft.com/texture-pack/reds-pack-hexxit-edition/), textures from the pack were used for one of the Ectoglobin and Hemoglobin variants ~ DeadDirtyRed
 
-### Translators
+### 🌐 Translators
 
 - German ~ ACGaming
 

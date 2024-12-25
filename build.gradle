@@ -124,6 +124,9 @@ dependencies {
     implementation rfg.deobf('curse.maven:guide-api-228832:2645992')
     implementation rfg.deobf('curse.maven:blood-magic-224791:2822288')
 
+    // CraftTweaker
+    implementation 'curse.maven:crafttweaker-239197:5486112'
+
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:
         String mixin = modUtils.enableMixins('zone.rong:mixinbooter:9.1', "mixins.${project.mod_id}.refmap.json")
