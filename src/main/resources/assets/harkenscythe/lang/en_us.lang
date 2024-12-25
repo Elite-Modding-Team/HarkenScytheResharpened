@@ -138,11 +138,17 @@ entity.harkenscythe.spectral_potion.name=Spectral Potion
 
 # ENCHANTMENTS
 enchantment.harkenscythe.blight=Blight
+enchantment.harkenscythe.blight.desc=Afflicts the target with Wither, Levitation and Weakness effects for at least 5 seconds
 enchantment.harkenscythe.bloodletting=Bloodletting
+enchantment.harkenscythe.bloodletting.desc=Increases the chance for an additional blood essence drop on reaps by at least 5%
 enchantment.harkenscythe.exude=Exude
+enchantment.harkenscythe.exude.desc=Heals the target from Poison and Wither effects, heals and extinguishes them if burning
 enchantment.harkenscythe.hemorrhage=Hemorrhage
+enchantment.harkenscythe.hemorrhage.desc=Afflicts the target with the Bleeding effect, dealing periodic damage for at least 5 seconds
 enchantment.harkenscythe.nourishment=Nourishment
+enchantment.harkenscythe.nourishment.desc=Replenishes the hunger bar by each damage dealt
 enchantment.harkenscythe.soulsteal=Soulsteal
+enchantment.harkenscythe.soulsteal.desc=Increases the chance for an additional soul essence drop on reaps by at least 5%
 
 # POTIONS
 effect.harkenscythe.affliction=Spectral Affliction

@@ -138,11 +138,17 @@ entity.harkenscythe.spectral_potion.name=Spektraler Trank
 
 # ENCHANTMENTS
 enchantment.harkenscythe.blight=Fäule
+enchantment.harkenscythe.blight.desc=Belegt das Ziel mindestens 5 Sekunden lang mit den Effekten Verdorrung, Schwebekraft und Schwäche
 enchantment.harkenscythe.bloodletting=Aderlass
+enchantment.harkenscythe.bloodletting.desc=Erhöht die Chance auf einen zusätzlichen Blutessenz-Drop beim Reapen um mindestens 5%
 enchantment.harkenscythe.exude=Verströmung
+enchantment.harkenscythe.exude.desc=Heilt das Ziel von Gift und Verdorrung, heilt und löscht es, falls es brennt
 enchantment.harkenscythe.hemorrhage=Blutung
+enchantment.harkenscythe.hemorrhage.desc=Belegt das Ziel mit dem Effekt Bluten, der mindestens 5 Sekunden lang periodischen Schaden verursacht
 enchantment.harkenscythe.nourishment=Ernährung
+enchantment.harkenscythe.nourishment.desc=Füllt den Hungerbalken mit jedem zugefügten Schaden wieder auf
 enchantment.harkenscythe.soulsteal=Seelenraub
+enchantment.harkenscythe.soulsteal.desc=Erhöht die Chance auf einen zusätzlichen Seelenessenz-Drop beim Reapen um mindestens 5%
 
 # POTIONS
 effect.harkenscythe.affliction=Spektrales Leiden
