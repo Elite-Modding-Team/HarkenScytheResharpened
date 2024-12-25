@@ -102,7 +102,7 @@ dependencies {
     }
     if (project.use_mixins.toBoolean()) {
         implementation 'com.cleanroommc:configanytime:3.0'
-        implementation 'zone.rong:mixinbooter:9.1'
+        implementation 'zone.rong:mixinbooter:10.2'
     }
 
     // Had Enough Items
@@ -127,9 +127,12 @@ dependencies {
     // CraftTweaker
     implementation 'curse.maven:crafttweaker-239197:5486112'
 
+    // GroovyScript
+    implementation 'curse.maven:groovyscript-687577:5789691'
+
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:
-        String mixin = modUtils.enableMixins('zone.rong:mixinbooter:9.1', "mixins.${project.mod_id}.refmap.json")
+        String mixin = modUtils.enableMixins('zone.rong:mixinbooter:10.2', "mixins.${project.mod_id}.refmap.json")
         api(mixin) {
             transitive = false
         }
