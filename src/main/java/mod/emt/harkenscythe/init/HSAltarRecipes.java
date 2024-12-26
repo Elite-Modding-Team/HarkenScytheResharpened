@@ -251,8 +251,18 @@ public class HSAltarRecipes
         return BLOOD_ALTAR_RECIPES;
     }
 
+    public static List<HSRecipeBloodAltar> getBloodAltarRecipeRemovals()
+    {
+        return BLOOD_ALTAR_RECIPE_REMOVALS;
+    }
+
     public static List<HSRecipeSoulAltar> getSoulAltarRecipes()
     {
         return SOUL_ALTAR_RECIPES;
+    }
+
+    public static List<HSRecipeSoulAltar> getSoulAltarRecipeRemovals()
+    {
+        return SOUL_ALTAR_RECIPE_REMOVALS;
     }
 }

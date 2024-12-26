@@ -71,6 +71,7 @@
 - With [**Asgard Shield: Reloaded**](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded) installed, giant swords and shields are added for Livingmetal and Biomass.
 - With [**Blood Magic**](https://www.curseforge.com/minecraft/mc-mods/blood-magic) installed, blood containers like keepers and vessels can be used similarly to the sacrificial dagger to fill a blood altar with LP.
 - With [**CraftTweaker**](https://www.curseforge.com/minecraft/mc-mods/crafttweaker) installed, altar ritual recipes can be added and removed. See [this example script](https://github.com/Elite-Modding-Team/HarkenScytheResharpened/blob/main/docs/crafttweaker/example.zs).
+- With [**GroovyScript**](https://www.curseforge.com/minecraft/mc-mods/groovyscript) installed, altar ritual recipes can be added and removed. See [this example script](https://github.com/Elite-Modding-Team/HarkenScytheResharpened/blob/main/docs/groovyscript/example.groovy).
 
 ### 📖 In-game Guidebook
 
