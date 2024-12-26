@@ -52,4 +52,10 @@ public class HSItemEssenceKeeperSoul extends HSItemEssenceKeeper
     {
         return true;
     }
+
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        return 1872873;
+    }
 }

@@ -63,4 +63,10 @@ public class HSItemEssenceKeeperBlood extends HSItemEssenceKeeper
     {
         return true;
     }
+
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        return 9443858;
+    }
 }
