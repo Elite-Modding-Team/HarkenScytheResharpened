@@ -1,22 +1,9 @@
-// --------------
-// --- IMPORT ---
-// --------------
-import mods.harkenscythe.Altar;
+mods.harkenscythe.bloodAltar.add(<minecraft:cobblestone>, <minecraft:gravel>, 42);
 
-// -----------
-// --- ADD ---
-// -----------
-// Altar.addBloodAltarRecipe(<input>, <output>, <requiredBlood>);
-// Altar.addSoulAltarRecipe(<input>, <output>, <requiredSouls>);
-// --------------
-Altar.addBloodAltarRecipe(<minecraft:cobblestone>, <minecraft:gravel>, 42);
-Altar.addSoulAltarRecipe(<minecraft:gravel>, <minecraft:sand>, 69);
+mods.harkenscythe.bloodAltar.removeByInput(<minecraft:glass_bottle>);
+mods.harkenscythe.bloodAltar.removeByOutput(<harkenscythe:bloodweave_cloth>);
 
-// --------------
-// --- REMOVE ---
-// --------------
-// Altar.removeBloodAltarRecipe(<input>, <output>, <requiredBlood>);
-// Altar.removeSoulAltarRecipe(<input>, <output>, <requiredSouls>);
-// --------------
-Altar.removeBloodAltarRecipe(<minecraft:glass_bottle>, <minecraft:dragon_breath>, 40);
-Altar.removeSoulAltarRecipe(<minecraft:cake>, <harkenscythe:soul_cake>, 10);
+mods.harkenscythe.soulAltar.add(<minecraft:gravel>, <minecraft:sand>, 69);
+
+mods.harkenscythe.soulAltar.removeByInput(<minecraft:cookie>);
+mods.harkenscythe.soulAltar.removeByOutput(<harkenscythe:soul_cake>);

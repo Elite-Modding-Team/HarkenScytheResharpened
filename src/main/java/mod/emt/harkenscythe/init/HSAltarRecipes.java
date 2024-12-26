@@ -66,20 +66,14 @@ public class HSAltarRecipes
         }
     }
 
-    public static void removeBloodRecipe(Item input, Item output, int requiredBlood)
+    public static void removeBloodRecipeByOutput(ItemStack output)
     {
-        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(new ItemStack(input), new ItemStack(output), requiredBlood));
+        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(ItemStack.EMPTY, output, 0));
     }
 
-    public static void removeBloodRecipe(ItemStack input, ItemStack output, int requiredBlood)
+    public static void removeBloodRecipeByInput(ItemStack input)
     {
-        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(input, output, requiredBlood));
-    }
-
-    public static void removeBloodRecipe(String oreDictName, Item output, int requiredBlood)
-    {
-        List<ItemStack> ores = OreDictionary.getOres(oreDictName);
-        for (ItemStack ore : ores) removeBloodRecipe(ore.getItem(), output, requiredBlood);
+        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(input, ItemStack.EMPTY, 0));
     }
 
     public static void removeBloodRecipes()
@@ -88,7 +82,7 @@ public class HSAltarRecipes
         {
             for (HSRecipeBloodAltar recipe : BLOOD_ALTAR_RECIPES)
             {
-                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() && recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem() && recipe.getRequiredBlood() == recipeRemoval.getRequiredBlood())
+                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() || recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem())
                 {
                     BLOOD_ALTAR_RECIPES.remove(recipe);
                     return;
@@ -179,20 +173,14 @@ public class HSAltarRecipes
         }
     }
 
-    public static void removeSoulRecipe(Item input, Item output, int requiredSouls)
+    public static void removeSoulRecipeByOutput(ItemStack output)
     {
-        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(new ItemStack(input), new ItemStack(output), requiredSouls));
+        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(ItemStack.EMPTY, output, 0));
     }
 
-    public static void removeSoulRecipe(ItemStack input, ItemStack output, int requiredSouls)
+    public static void removeSoulRecipeByInput(ItemStack input)
     {
-        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(input, output, requiredSouls));
-    }
-
-    public static void removeSoulRecipe(String oreDictName, Item output, int requiredSouls)
-    {
-        List<ItemStack> ores = OreDictionary.getOres(oreDictName);
-        for (ItemStack ore : ores) removeSoulRecipe(ore.getItem(), output, requiredSouls);
+        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(input, ItemStack.EMPTY, 0));
     }
 
     public static void removeSoulRecipes()
@@ -201,7 +189,7 @@ public class HSAltarRecipes
         {
             for (HSRecipeSoulAltar recipe : SOUL_ALTAR_RECIPES)
             {
-                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() && recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem() && recipe.getRequiredSouls() == recipeRemoval.getRequiredSouls())
+                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() || recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem())
                 {
                     SOUL_ALTAR_RECIPES.remove(recipe);
                     return;
