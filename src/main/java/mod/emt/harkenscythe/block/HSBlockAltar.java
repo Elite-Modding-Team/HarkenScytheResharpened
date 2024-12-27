@@ -53,7 +53,7 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         TileEntity te = world.getTileEntity(pos);
-        if (te instanceof HSTileEntityAltar)
+        if (te instanceof HSTileEntityAltar && hand == EnumHand.MAIN_HAND)
         {
             HSTileEntityAltar altar = (HSTileEntityAltar) te;
             int altarX = altar.getPos().getX();
@@ -64,9 +64,14 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
 
             if (heldStack.getItem() == HSItems.harken_athame)
             {
-                if (!altarStack.isEmpty() && altar.getValidRecipe())
+                if (player.getCooldownTracker().hasCooldown(heldStack.getItem()))
+                {
+                    return false;
+                }
+                else if (!altarStack.isEmpty() && altar.getValidRecipe())
                 {
                     handleRecipe(world, altar, altarStack, player, altarX, altarY, altarZ);
+                    player.getCooldownTracker().setCooldown(heldStack.getItem(), 20);
                     return true;
                 }
                 else
@@ -79,13 +84,13 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 if (altarStack.isEmpty())
                 {
                     altar.setInputStack(heldStack.splitStack(1));
-                    player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
                 else if (altarStack.getMaxStackSize() > altarStack.getCount() && ItemStack.areItemsEqual(altarStack, heldStack) && ItemStack.areItemStackTagsEqual(altarStack, heldStack))
                 {
                     heldStack.shrink(1);
-                    player.world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altarStack.grow(1);
                     return true;
                 }
@@ -97,7 +102,7 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 {
                     altar.setInputStack(ItemStack.EMPTY);
                     player.addItemStackToInventory(itemStack);
-                    player.world.playSound(altarX, altarY, altarZ, getSoundEventFail(), SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(altarX, altarY, altarZ, getSoundEventFail(), SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
             }
@@ -124,19 +129,19 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
         }
         else
         {
-            if (!player.world.isRemote)
+            if (!world.isRemote)
             {
-                player.world.spawnEntity(new EntityItem(player.world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, getOutput(altarStack.getItem())));
+                world.spawnEntity(new EntityItem(world, altarX + 0.5D, altarY + 1.5D, altarZ + 0.5D, getOutput(altarStack.getItem())));
             }
             altar.getInputStack().shrink(1);
         }
 
-        player.world.playSound(altarX, altarY, altarZ, getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
-        player.world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+        world.playSound(altarX, altarY, altarZ, getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+        world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
 
         for (int i = 0; i < requiredEssence; i++)
         {
-            player.world.spawnParticle(EnumParticleTypes.SPELL_WITCH, altarX + world.rand.nextFloat(), altarY + 1.0D + world.rand.nextFloat(), altarZ + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
+            world.spawnParticle(EnumParticleTypes.SPELL_WITCH, altarX + world.rand.nextFloat(), altarY + 1.0D + world.rand.nextFloat(), altarZ + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
         }
 
         if (player instanceof EntityPlayerMP)
