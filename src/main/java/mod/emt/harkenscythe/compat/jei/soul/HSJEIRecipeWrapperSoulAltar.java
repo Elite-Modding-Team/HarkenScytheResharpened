@@ -78,12 +78,12 @@ public class HSJEIRecipeWrapperSoulAltar implements IRecipeWrapper
 
     private boolean isRepairRecipe()
     {
-        return recipe.getInput().getItem() == recipe.getOutput().getItem();
+        return recipe.getInput().isItemEqualIgnoreDurability(recipe.getOutput());
     }
 
     private ItemStack getInputStack()
     {
-        ItemStack inputStack = recipe.getInput().copy();
+        ItemStack inputStack = recipe.getInput();
         if (isRepairRecipe())
         {
             inputStack.setItemDamage(recipe.getRequiredSouls());

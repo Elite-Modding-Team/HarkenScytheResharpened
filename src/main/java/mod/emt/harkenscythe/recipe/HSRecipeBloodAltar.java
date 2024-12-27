@@ -17,12 +17,12 @@ public class HSRecipeBloodAltar
 
     public ItemStack getInput()
     {
-        return input;
+        return input.copy();
     }
 
     public ItemStack getOutput()
     {
-        return output;
+        return output.copy();
     }
 
     public int getRequiredBlood()
