@@ -186,6 +186,25 @@
       "harkenscythe:harbinger_idle4"
     ]
   },
+  "entity.exospider.hurt": {
+    "sounds": [
+      "harkenscythe:exospider_hurt1",
+      "harkenscythe:exospider_hurt2"
+    ]
+  },
+  "entity.exospider.death": {
+    "sounds": [
+      "harkenscythe:exospider_death1",
+      "harkenscythe:exospider_death2"
+    ]
+  },
+  "entity.exospider.step": {
+    "sounds": [
+      "harkenscythe:exospider_step1",
+      "harkenscythe:exospider_step2",
+      "harkenscythe:exospider_step3"
+    ]
+  },
   "guide.flip": {
     "sounds": [
       "harkenscythe:guide/flip1",

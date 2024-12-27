@@ -13,20 +13,24 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class HSRendererEntityTitanbearer extends RenderLiving<HSEntityTitanbearer> {
+public class HSRendererEntityTitanbearer extends RenderLiving<HSEntityTitanbearer>
+{
     public static final ResourceLocation TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/titanbearer.png");
 
-    public HSRendererEntityTitanbearer(RenderManager renderManagerIn) {
+    public HSRendererEntityTitanbearer(RenderManager renderManagerIn)
+    {
         super(renderManagerIn, new HSModelEntityTitanbearer(), 0.5F);
     }
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(HSEntityTitanbearer entity) {
+    protected ResourceLocation getEntityTexture(HSEntityTitanbearer entity)
+    {
         return TEXTURES;
     }
 
-    protected void preRenderCallback(HSEntityTitanbearer entitylivingbaseIn, float partialTickTime) {
+    protected void preRenderCallback(HSEntityTitanbearer entitylivingbaseIn, float partialTickTime)
+    {
         GlStateManager.scale(4.5F, 4.5F, 4.5F);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
     }
