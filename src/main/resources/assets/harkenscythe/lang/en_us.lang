@@ -132,10 +132,14 @@ entity.harkenscythe.ectoglobin.name=Ectoglobin
 entity.harkenscythe.exospider.name=Exoskeletal Spider
 entity.harkenscythe.harbinger.name=Harbinger
 entity.harkenscythe.hemoglobin.name=Hemoglobin
+entity.harkenscythe.hothead.name=Hothead
+entity.harkenscythe.skeleton_shaman.name=Skeleton Shaman
 entity.harkenscythe.soul.name=Soul Essence
+entity.harkenscythe.soulbearer.name=Soulbearer
 entity.harkenscythe.spectral_human.name=Spectral Human
 entity.harkenscythe.spectral_miner.name=Spectral Miner
 entity.harkenscythe.spectral_potion.name=Spectral Potion
+entity.harkenscythe.titanbearer.name=Titanbearer
 
 # ENCHANTMENTS
 enchantment.harkenscythe.blight=Blight
