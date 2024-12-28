@@ -5,8 +5,10 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelSpider;
 
 // TODO: Clean up?
-public class HSModelEntityExospider extends ModelSpider {
-    public HSModelEntityExospider() {
+public class HSModelEntityExospider extends ModelSpider
+{
+    public HSModelEntityExospider()
+    {
         spiderHead = new ModelRenderer(this);
         spiderHead.setRotationPoint(0.0F, 15.0F, -3.0F);
         spiderHead.cubeList.add(new ModelBox(spiderHead, 32, 4, -4.0F, -4.0F, -8.01F, 8, 6, 8, 0.0F, false));

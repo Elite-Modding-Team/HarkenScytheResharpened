@@ -14,9 +14,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class HSEntityTitanbearer extends EntityMob implements IMob
+public class HSEntitySoulbearer extends EntityMob implements IMob
 {
-    public HSEntityTitanbearer(World world) {
+    public HSEntitySoulbearer(World world) {
         super(world);
         this.setSize(3.75F, 4.0F);
         this.isImmuneToFire = true;
@@ -26,7 +26,7 @@ public class HSEntityTitanbearer extends EntityMob implements IMob
     protected void initEntityAI()
     {
         //this.tasks.addTask(5, new EntityTitanbearer.AIRandomFly(this));
-        this.tasks.addTask(7, new HSEntityTitanbearer.AILookAround(this));
+        this.tasks.addTask(7, new HSEntitySoulbearer.AILookAround(this));
         this.targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, true));
     }
@@ -47,9 +47,9 @@ public class HSEntityTitanbearer extends EntityMob implements IMob
 
     static class AILookAround extends EntityAIBase
     {
-        private final HSEntityTitanbearer parentEntity;
+        private final HSEntitySoulbearer parentEntity;
 
-        public AILookAround(HSEntityTitanbearer bearer)
+        public AILookAround(HSEntitySoulbearer bearer)
         {
             this.parentEntity = bearer;
             this.setMutexBits(2);

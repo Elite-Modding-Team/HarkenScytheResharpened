@@ -7,7 +7,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
 // Courtesy of Foreck
-public class HSModelEntityTitanbearer extends ModelBase {
+public class HSModelEntityBearer extends ModelBase
+{
     private final ModelRenderer head;
     private final ModelRenderer inner_darkness;
     private final ModelRenderer cube_r1;
@@ -21,7 +22,8 @@ public class HSModelEntityTitanbearer extends ModelBase {
     private final ModelRenderer left_r3;
     private final ModelRenderer jaw;
 
-    public HSModelEntityTitanbearer() {
+    public HSModelEntityBearer()
+    {
         textureWidth = 64;
         textureHeight = 64;
 
@@ -101,7 +103,8 @@ public class HSModelEntityTitanbearer extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    {
         this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
         GlStateManager.pushMatrix();
         GlStateManager.translate(0.0F, 0.0F, 0.0F);
@@ -110,7 +113,8 @@ public class HSModelEntityTitanbearer extends ModelBase {
         GlStateManager.popMatrix();
     }
 
-    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
