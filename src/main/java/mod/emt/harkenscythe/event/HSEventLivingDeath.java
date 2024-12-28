@@ -75,7 +75,10 @@ public class HSEventLivingDeath
         if (entity != null && isWhitelistedMob(entity))
         {
             entity.getEntityData().setBoolean("IsSpectral", true);
-            entity.setCustomNameTag("Spectral " + entity.getName());
+            if (!entity.getName().startsWith("Spectral"))
+            {
+                entity.setCustomNameTag(entity.hasCustomName() ? "Spectral " + entity.getCustomNameTag() : "Spectral " + entity.getName());
+            }
             entity.setHealth(entity.getMaxHealth());
             entity.deathTime = 0;
             entity.isDead = false;
