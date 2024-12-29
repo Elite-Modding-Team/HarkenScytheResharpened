@@ -171,6 +171,9 @@ public class HSItems
 
     @GameRegistry.ObjectHolder("spectral_pickaxe")
     public static HSToolPickaxe spectral_pickaxe;
+    
+    @GameRegistry.ObjectHolder("vampire_knife")
+    public static HSToolVampireKnife vampire_knife;
 
     @GameRegistry.ObjectHolder("spectral_glass_bottle")
     public static HSItemSpectralBottle spectral_glass_bottle;
@@ -282,6 +285,7 @@ public class HSItems
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "unpowered_totem_of_undying").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.COMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolSpectralPickaxe(), "spectral_pickaxe").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSToolVampireKnife(2.0F, EnumRarity.COMMON), "vampire_knife").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralBottle(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.AFFLICTION), "spectral_potion_affliction").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.FLAME), "spectral_potion_flame").setCreativeTab(HarkenScythe.TAB),

@@ -119,6 +119,7 @@ public class HSRegistry
         registerEntity("spectral_miner", HSEntitySpectralMiner.class, 3638918, 15132390);
 
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
+        registerEntity("vampire_knife", HSEntityVampireKnife.class);
 
         registerEntitySpawns();
     }
@@ -262,6 +263,7 @@ public class HSRegistry
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralHuman.class, new HSRendererEntitySpectralHuman.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralMiner.class, new HSRendererEntitySpectralMiner.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySpectralPotion.class, new HSRendererEntitySpectralPotion.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityVampireKnife.class, new HSRendererEntityVampireKnife.Factory());
     }
 
     @SideOnly(Side.CLIENT)

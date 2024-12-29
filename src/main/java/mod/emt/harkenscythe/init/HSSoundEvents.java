@@ -25,6 +25,7 @@ public enum HSSoundEvents
     ITEM_POTION_BREAK("item.potion.break"),
     ITEM_POTION_THROW("item.potion.throw"),
     ITEM_SCYTHE_ACTIVATE("item.scythe.activate"),
+    ITEM_VAMPIRE_KNIFE_THROW("item.vampire_knife.throw"),
     ESSENCE_BLOOD_DESPAWN("essence.blood.despawn"),
     ESSENCE_BLOOD_SPAWN("essence.blood.spawn"),
     ESSENCE_SOUL_DESPAWN("essence.soul.despawn"),

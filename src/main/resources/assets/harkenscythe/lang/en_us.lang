@@ -123,6 +123,7 @@ item.harkenscythe.spectral_potion_water.name=Spectral Potion of Water
 item.harkenscythe.stone_glaive.name=Stone Glaive
 item.harkenscythe.stone_scythe.name=Stone Scythe
 item.harkenscythe.unpowered_totem_of_undying.name=Unpowered Totem of Undying
+item.harkenscythe.vampire_knife.name=Vampire Knife
 item.harkenscythe.wooden_glaive.name=Wooden Glaive
 item.harkenscythe.wooden_scythe.name=Wooden Scythe
 
@@ -140,6 +141,7 @@ entity.harkenscythe.spectral_human.name=Spectral Human
 entity.harkenscythe.spectral_miner.name=Spectral Miner
 entity.harkenscythe.spectral_potion.name=Spectral Potion
 entity.harkenscythe.titanbearer.name=Titanbearer
+entity.harkenscythe.vampire_knife.name=Vampire Knife
 
 # ENCHANTMENTS
 enchantment.harkenscythe.blight=Blight

@@ -110,6 +110,11 @@
       "harkenscythe:scythe_activate"
     ]
   },
+  "item.vampire_knife.throw": {
+    "sounds": [
+      "harkenscythe:vampire_knife_throw"
+    ]
+  },
   "essence.blood.despawn": {
     "sounds": [
       "harkenscythe:essence_blood_despawn"
