@@ -48,7 +48,7 @@ public class HSCraftTweakerBloodAltarRecipes
         @Override
         public void apply()
         {
-            HSAltarRecipes.addBloodRecipe(CraftTweakerMC.getItemStack(input), CraftTweakerMC.getItemStack(output), requiredBlood);
+            HSAltarRecipes.addBloodRecipeLate(CraftTweakerMC.getItemStack(input), CraftTweakerMC.getItemStack(output), requiredBlood);
         }
 
         @Override
@@ -70,7 +70,7 @@ public class HSCraftTweakerBloodAltarRecipes
         @Override
         public void apply()
         {
-            HSAltarRecipes.removeBloodRecipeByOutput(CraftTweakerMC.getItemStack(output));
+            HSAltarRecipes.removeBloodRecipeByOutputLate(CraftTweakerMC.getItemStack(output));
         }
 
         @Override
@@ -92,7 +92,7 @@ public class HSCraftTweakerBloodAltarRecipes
         @Override
         public void apply()
         {
-            HSAltarRecipes.removeBloodRecipeByInput(CraftTweakerMC.getItemStack(input));
+            HSAltarRecipes.removeBloodRecipeByInputLate(CraftTweakerMC.getItemStack(input));
         }
 
         @Override

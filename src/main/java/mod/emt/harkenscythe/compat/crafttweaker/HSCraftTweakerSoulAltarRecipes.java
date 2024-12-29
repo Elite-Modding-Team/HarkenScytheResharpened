@@ -48,7 +48,7 @@ public class HSCraftTweakerSoulAltarRecipes
         @Override
         public void apply()
         {
-            HSAltarRecipes.addSoulRecipe(CraftTweakerMC.getItemStack(input), CraftTweakerMC.getItemStack(output), requiredSouls);
+            HSAltarRecipes.addSoulRecipeLate(CraftTweakerMC.getItemStack(input), CraftTweakerMC.getItemStack(output), requiredSouls);
         }
 
         @Override
@@ -70,7 +70,7 @@ public class HSCraftTweakerSoulAltarRecipes
         @Override
         public void apply()
         {
-            HSAltarRecipes.removeSoulRecipeByOutput(CraftTweakerMC.getItemStack(output));
+            HSAltarRecipes.removeSoulRecipeByOutputLate(CraftTweakerMC.getItemStack(output));
         }
 
         @Override
@@ -92,7 +92,7 @@ public class HSCraftTweakerSoulAltarRecipes
         @Override
         public void apply()
         {
-            HSAltarRecipes.removeSoulRecipeByInput(CraftTweakerMC.getItemStack(input));
+            HSAltarRecipes.removeSoulRecipeByInputLate(CraftTweakerMC.getItemStack(input));
         }
 
         @Override

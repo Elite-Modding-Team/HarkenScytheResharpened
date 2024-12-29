@@ -16,8 +16,11 @@ import mod.emt.harkenscythe.recipe.HSRecipeSoulAltar;
 public class HSAltarRecipes
 {
     private static final List<HSRecipeBloodAltar> BLOOD_ALTAR_RECIPES = new ArrayList<>();
+    private static final List<HSRecipeBloodAltar> BLOOD_ALTAR_RECIPE_ADDITIONS = new ArrayList<>();
     private static final List<HSRecipeBloodAltar> BLOOD_ALTAR_RECIPE_REMOVALS = new ArrayList<>();
+
     private static final List<HSRecipeSoulAltar> SOUL_ALTAR_RECIPES = new ArrayList<>();
+    private static final List<HSRecipeSoulAltar> SOUL_ALTAR_RECIPE_ADDITIONS = new ArrayList<>();
     private static final List<HSRecipeSoulAltar> SOUL_ALTAR_RECIPE_REMOVALS = new ArrayList<>();
 
     public static void addBloodRecipe(Item input, Item output, int requiredBlood)
@@ -63,31 +66,6 @@ public class HSAltarRecipes
                 continue;
             }
             HSAltarRecipes.addBloodRecipe(input, output, cost);
-        }
-    }
-
-    public static void removeBloodRecipeByOutput(ItemStack output)
-    {
-        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(ItemStack.EMPTY, output, 0));
-    }
-
-    public static void removeBloodRecipeByInput(ItemStack input)
-    {
-        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(input, ItemStack.EMPTY, 0));
-    }
-
-    public static void removeBloodRecipes()
-    {
-        for (HSRecipeBloodAltar recipeRemoval : BLOOD_ALTAR_RECIPE_REMOVALS)
-        {
-            for (HSRecipeBloodAltar recipe : BLOOD_ALTAR_RECIPES)
-            {
-                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() || recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem())
-                {
-                    BLOOD_ALTAR_RECIPES.remove(recipe);
-                    return;
-                }
-            }
         }
     }
 
@@ -173,31 +151,6 @@ public class HSAltarRecipes
         }
     }
 
-    public static void removeSoulRecipeByOutput(ItemStack output)
-    {
-        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(ItemStack.EMPTY, output, 0));
-    }
-
-    public static void removeSoulRecipeByInput(ItemStack input)
-    {
-        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(input, ItemStack.EMPTY, 0));
-    }
-
-    public static void removeSoulRecipes()
-    {
-        for (HSRecipeSoulAltar recipeRemoval : SOUL_ALTAR_RECIPE_REMOVALS)
-        {
-            for (HSRecipeSoulAltar recipe : SOUL_ALTAR_RECIPES)
-            {
-                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() || recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem())
-                {
-                    SOUL_ALTAR_RECIPES.remove(recipe);
-                    return;
-                }
-            }
-        }
-    }
-
     public static boolean isValidInputSoul(ItemStack input)
     {
         for (HSRecipeSoulAltar recipe : SOUL_ALTAR_RECIPES)
@@ -239,18 +192,82 @@ public class HSAltarRecipes
         return BLOOD_ALTAR_RECIPES;
     }
 
-    public static List<HSRecipeBloodAltar> getBloodAltarRecipeRemovals()
-    {
-        return BLOOD_ALTAR_RECIPE_REMOVALS;
-    }
-
     public static List<HSRecipeSoulAltar> getSoulAltarRecipes()
     {
         return SOUL_ALTAR_RECIPES;
     }
 
-    public static List<HSRecipeSoulAltar> getSoulAltarRecipeRemovals()
+    // ------------
+    // CRAFTTWEAKER
+    // ------------
+
+    public static void addBloodRecipeLate(ItemStack input, ItemStack output, int requiredBlood)
     {
-        return SOUL_ALTAR_RECIPE_REMOVALS;
+        BLOOD_ALTAR_RECIPE_ADDITIONS.add(new HSRecipeBloodAltar(input, output, requiredBlood));
+    }
+
+    public static void addBloodRecipesLate()
+    {
+        BLOOD_ALTAR_RECIPES.addAll(BLOOD_ALTAR_RECIPE_ADDITIONS);
+    }
+
+    public static void removeBloodRecipeByOutputLate(ItemStack output)
+    {
+        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(ItemStack.EMPTY, output, 0));
+    }
+
+    public static void removeBloodRecipeByInputLate(ItemStack input)
+    {
+        BLOOD_ALTAR_RECIPE_REMOVALS.add(new HSRecipeBloodAltar(input, ItemStack.EMPTY, 0));
+    }
+
+    public static void removeBloodRecipesLate()
+    {
+        for (HSRecipeBloodAltar recipeRemoval : BLOOD_ALTAR_RECIPE_REMOVALS)
+        {
+            for (HSRecipeBloodAltar recipe : BLOOD_ALTAR_RECIPES)
+            {
+                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() || recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem())
+                {
+                    BLOOD_ALTAR_RECIPES.remove(recipe);
+                    return;
+                }
+            }
+        }
+    }
+
+    public static void addSoulRecipeLate(ItemStack input, ItemStack output, int requiredSouls)
+    {
+        SOUL_ALTAR_RECIPE_ADDITIONS.add(new HSRecipeSoulAltar(input, output, requiredSouls));
+    }
+
+    public static void addSoulRecipesLate()
+    {
+        SOUL_ALTAR_RECIPES.addAll(SOUL_ALTAR_RECIPE_ADDITIONS);
+    }
+
+    public static void removeSoulRecipeByOutputLate(ItemStack output)
+    {
+        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(ItemStack.EMPTY, output, 0));
+    }
+
+    public static void removeSoulRecipeByInputLate(ItemStack input)
+    {
+        SOUL_ALTAR_RECIPE_REMOVALS.add(new HSRecipeSoulAltar(input, ItemStack.EMPTY, 0));
+    }
+
+    public static void removeSoulRecipesLate()
+    {
+        for (HSRecipeSoulAltar recipeRemoval : SOUL_ALTAR_RECIPE_REMOVALS)
+        {
+            for (HSRecipeSoulAltar recipe : SOUL_ALTAR_RECIPES)
+            {
+                if (recipe.getInput().getItem() == recipeRemoval.getInput().getItem() || recipe.getOutput().getItem() == recipeRemoval.getOutput().getItem())
+                {
+                    SOUL_ALTAR_RECIPES.remove(recipe);
+                    return;
+                }
+            }
+        }
     }
 }

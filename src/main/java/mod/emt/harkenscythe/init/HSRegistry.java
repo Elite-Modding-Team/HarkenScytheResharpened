@@ -180,7 +180,6 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(new ItemStack(Items.GOLDEN_APPLE, 1), new ItemStack(Items.GOLDEN_APPLE, 1, 1), 200); // Notch Apple
         HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
         HSAltarRecipes.addBloodRecipesConfig(HSConfig.RECIPES.customBloodAltarRecipes);
-        HSAltarRecipes.removeBloodRecipes();
 
         // Soul Altar
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
@@ -202,7 +201,6 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
         HSAltarRecipes.addSoulRecipesConfig(HSConfig.RECIPES.customSoulAltarRecipes);
-        HSAltarRecipes.removeSoulRecipes();
 
         for (Item item : ForgeRegistries.ITEMS)
         {
@@ -221,6 +219,12 @@ public class HSRegistry
 
         OreDictionary.registerOre("ingotBiomass", new ItemStack(HSItems.biomass));
         OreDictionary.registerOre("ingotLivingmetal", new ItemStack(HSItems.livingmetal_ingot));
+
+        // CraftTweaker
+        HSAltarRecipes.removeBloodRecipesLate();
+        HSAltarRecipes.removeSoulRecipesLate();
+        HSAltarRecipes.addBloodRecipesLate();
+        HSAltarRecipes.addSoulRecipesLate();
     }
 
     @SubscribeEvent
