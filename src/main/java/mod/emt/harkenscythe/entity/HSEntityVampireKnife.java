@@ -5,6 +5,7 @@ import com.google.common.base.Predicates;
 import io.netty.buffer.ByteBuf;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.util.HSDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +18,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketChangeGameState;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.*;
@@ -349,7 +349,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             EntityLivingBase entityLiving = (EntityLivingBase) entity;
 
             float motionDamage = (float) ((Math.abs(motionY) * 2) + damage);
-            entityLiving.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), motionDamage);
+            entityLiving.attackEntityFrom(new HSDamageSource("hs_lifesteal", this.getThrower()), motionDamage);
 
             // Heals by 7.5% (configurable) of damage dealt to the target with indicating leeching particles
             if (((EntityPlayer) shootingEntity).shouldHeal() && shootingEntity instanceof EntityPlayer)
