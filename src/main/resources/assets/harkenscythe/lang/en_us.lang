@@ -123,6 +123,7 @@ item.harkenscythe.spectral_potion_water.name=Spectral Potion of Water
 item.harkenscythe.stone_glaive.name=Stone Glaive
 item.harkenscythe.stone_scythe.name=Stone Scythe
 item.harkenscythe.unpowered_totem_of_undying.name=Unpowered Totem of Undying
+item.harkenscythe.damaged_vampire_knife.name=Damaged Vampire Knife
 item.harkenscythe.vampire_knife.name=Vampire Knife
 item.harkenscythe.vampire_knife_projectile.name=Vampire Knife Projectile
 item.harkenscythe.wooden_glaive.name=Wooden Glaive
@@ -191,6 +192,7 @@ tooltip.harkenscythe.carnage_book=A book containing religious inscriptions and i
 tooltip.harkenscythe.collected_blood=Collected Blood Essence
 tooltip.harkenscythe.collected_souls=Collected Soul Essence
 tooltip.harkenscythe.creepball=Plant on soul sand to spread the colony...
+tooltip.harkenscythe.damaged_relic=This worn out relic is very powerful in origin. You'll need to repair it first before it can be utilized.
 tooltip.harkenscythe.dimensional_mirror=At the cost of soul essence, this will bring you straight back to your saved spawn point from any accepted location.
 tooltip.harkenscythe.essence_container=Used to harness blood essence or soul essence.
 tooltip.harkenscythe.germinated_biomass_seed=This should be planted in tilled creep blocks.
@@ -213,6 +215,7 @@ tooltip.harkenscythe.spectral_potion_flame=Can be thrown to start fires.
 tooltip.harkenscythe.spectral_potion_purifying=Can be thrown to spawn a lingering cloud that dispels all negative effects.
 tooltip.harkenscythe.spectral_potion_water=Can be thrown to extinguish fires.
 tooltip.harkenscythe.totem_undying_unpowered=This needs to be empowered on an Altar of Souls first before it can function.
+tooltip.harkenscythe.vampire_knife=Hold down right-click to rapidly throw several lifestealing daggers. Costs blood essence.
 
 # CONFIG
 cfg.harkenscythe.general=General

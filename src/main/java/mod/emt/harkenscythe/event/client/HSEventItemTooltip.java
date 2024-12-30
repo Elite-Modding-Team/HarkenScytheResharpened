@@ -28,6 +28,7 @@ public class HSEventItemTooltip
     private static final ResourceLocation BLUNT_HARKEN_BLADE = new ResourceLocation(HarkenScythe.MOD_ID, "blunt_harken_blade");
     private static final ResourceLocation CARNAGE_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "carnage_book");
     private static final ResourceLocation CREEPBALL = new ResourceLocation(HarkenScythe.MOD_ID, "creepball");
+    private static final ResourceLocation DAMAGED_VAMPIRE_KNIFE = new ResourceLocation(HarkenScythe.MOD_ID, "damaged_vampire_knife");
     private static final ResourceLocation DIMENSIONAL_MIRROR = new ResourceLocation(HarkenScythe.MOD_ID, "dimensional_mirror");
     private static final ResourceLocation GERMINATED_BIOMASS_SEED = new ResourceLocation(HarkenScythe.MOD_ID, "germinated_biomass_seed");
     private static final ResourceLocation HARKEN_ATHAME = new ResourceLocation(HarkenScythe.MOD_ID, "harken_athame");
@@ -43,6 +44,7 @@ public class HSEventItemTooltip
     private static final ResourceLocation SPECTRAL_POTION_PURIFYING = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_purifying");
     private static final ResourceLocation SPECTRAL_POTION_WATER = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_water");
     private static final ResourceLocation UNPOWERED_TOTEM_OF_UNDYING = new ResourceLocation(HarkenScythe.MOD_ID, "unpowered_totem_of_undying");
+    private static final ResourceLocation VAMPIRE_KNIFE = new ResourceLocation(HarkenScythe.MOD_ID, "vampire_knife");
 
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent event)
@@ -92,6 +94,10 @@ public class HSEventItemTooltip
         else if (ForgeRegistries.ITEMS.getKey(item).equals(CREEPBALL))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.creepball"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(DAMAGED_VAMPIRE_KNIFE))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.damaged_relic"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(DIMENSIONAL_MIRROR))
         {
@@ -159,6 +165,10 @@ public class HSEventItemTooltip
         else if (ForgeRegistries.ITEMS.getKey(item).equals(UNPOWERED_TOTEM_OF_UNDYING))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.totem_undying_unpowered"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(VAMPIRE_KNIFE))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.vampire_knife"));
         }
     }
 }

@@ -172,6 +172,8 @@ public class HSItems
     @GameRegistry.ObjectHolder("spectral_pickaxe")
     public static HSToolPickaxe spectral_pickaxe;
     
+    @GameRegistry.ObjectHolder("damaged_vampire_knife")
+    public static HSItem damaged_vampire_knife;
     @GameRegistry.ObjectHolder("vampire_knife")
     public static HSToolVampireKnife vampire_knife;
     @GameRegistry.ObjectHolder("vampire_knife_projectile")
@@ -219,6 +221,9 @@ public class HSItems
     public static ToolMaterial TOOL_REAPER = EnumHelper.addToolMaterial("hs_tool_reaper", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(Items.BONE));
     public static ToolMaterial TOOL_SPECTRAL = EnumHelper.addToolMaterial("hs_tool_spectral", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(soul_essence));
     public static ToolMaterial TOOL_LADY_HARKEN = EnumHelper.addToolMaterial("hs_tool_lady_harken", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(soul_essence));
+    
+    // Non-Repairable
+    public static ToolMaterial TOOL_VAMPIRE_KNIFE = EnumHelper.addToolMaterial("hs_tool_vampire_knife", 4, 2000, 9.0F, 0.0F, 25);
 
     @SubscribeEvent
     public static void onRegisterItemsEvent(@Nonnull final RegistryEvent.Register<Item> event)
@@ -287,7 +292,8 @@ public class HSItems
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "unpowered_totem_of_undying").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.COMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolSpectralPickaxe(), "spectral_pickaxe").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSToolVampireKnife(2.0F, EnumRarity.COMMON), "vampire_knife").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.EPIC), "damaged_vampire_knife").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSToolVampireKnife(TOOL_VAMPIRE_KNIFE, 2.0F), "vampire_knife").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "vampire_knife_projectile"), // Fake item for projectile, ignore
                 HSRegistry.setup(new HSItemSpectralBottle(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.AFFLICTION), "spectral_potion_affliction").setCreativeTab(HarkenScythe.TAB),

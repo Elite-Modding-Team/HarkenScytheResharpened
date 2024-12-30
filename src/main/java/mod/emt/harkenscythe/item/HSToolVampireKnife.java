@@ -3,8 +3,10 @@ package mod.emt.harkenscythe.item.tools;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,8 +18,11 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IRarity;
 import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
+import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 // TODO: Remove durability and make it utilize blood essence instead.
@@ -25,13 +30,11 @@ import mod.emt.harkenscythe.init.HSSoundEvents;
 public class HSToolVampireKnife extends HSToolSword implements IHSTool
 {
     private final float attackSpeed;
-    private final EnumRarity rarity;
 
-    public HSToolVampireKnife(float attackSpeed, EnumRarity rarity)
+    public HSToolVampireKnife(ToolMaterial material, float attackSpeed)
     {
-        super(ToolMaterial.IRON, rarity); // TODO: Unique material
+        super(material, EnumRarity.COMMON); // TODO: Unique material
         this.attackSpeed = attackSpeed;
-        this.rarity = rarity;
     }
 
     @Override
@@ -58,11 +61,29 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
 
         return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
     }
+    
+    @Override
+    public IRarity getForgeRarity(ItemStack stack)
+    {
+        return HSRegistry.RARITY_BLOODY;
+    }
+    
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
+    {
+        return true;
+    }
 
     @Override
-    public EnumRarity getRarity(ItemStack stack)
+    public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving)
     {
-        return rarity;
+        return true;
+    }
+
+    @Override
+    public boolean isDamageable()
+    {
+        return false;
     }
 
     @Override

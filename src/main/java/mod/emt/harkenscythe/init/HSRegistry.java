@@ -20,8 +20,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.IRarity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -50,6 +52,21 @@ import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
 public class HSRegistry
 {
     private static int entityID = 1;
+    
+    public static final IRarity RARITY_BLOODY = new IRarity()
+    {	
+        @Override
+        public String getName()
+        {
+            return "Bloody";
+        }
+
+        @Override
+        public TextFormatting getColor()
+        {
+            return TextFormatting.RED;
+        }
+    };
 
     @Nonnull
     public static <T extends IForgeRegistryEntry> T setup(@Nonnull final T entry, @Nonnull final String name)
