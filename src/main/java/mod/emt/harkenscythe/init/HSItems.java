@@ -174,6 +174,8 @@ public class HSItems
     
     @GameRegistry.ObjectHolder("vampire_knife")
     public static HSToolVampireKnife vampire_knife;
+    @GameRegistry.ObjectHolder("vampire_knife_projectile")
+    public static HSItem vampire_knife_projectile;
 
     @GameRegistry.ObjectHolder("spectral_glass_bottle")
     public static HSItemSpectralBottle spectral_glass_bottle;
@@ -286,6 +288,7 @@ public class HSItems
                 HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.COMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolSpectralPickaxe(), "spectral_pickaxe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolVampireKnife(2.0F, EnumRarity.COMMON), "vampire_knife").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "vampire_knife_projectile"), // Fake item for projectile, ignore
                 HSRegistry.setup(new HSItemSpectralBottle(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.AFFLICTION), "spectral_potion_affliction").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.FLAME), "spectral_potion_flame").setCreativeTab(HarkenScythe.TAB),

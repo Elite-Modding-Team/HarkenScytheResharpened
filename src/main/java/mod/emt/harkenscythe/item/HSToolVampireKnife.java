@@ -2,6 +2,8 @@ package mod.emt.harkenscythe.item.tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -18,7 +20,7 @@ import net.minecraft.world.World;
 import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
-// TODO: Remove durability and make it utilize blood essence instead. The projectiles need a different texture. Disable enchanting for now.
+// TODO: Remove durability and make it utilize blood essence instead.
 @SuppressWarnings("deprecation")
 public class HSToolVampireKnife extends HSToolSword implements IHSTool
 {
@@ -75,5 +77,21 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
         }
 
         return multimap;
+    }
+
+    // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
+    public int getItemEnchantability(ItemStack stack)
+    {
+        return 0;
+    }
+
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
+    {
+        return false;
+    }
+
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book)
+    {
+        return false;
     }
 }

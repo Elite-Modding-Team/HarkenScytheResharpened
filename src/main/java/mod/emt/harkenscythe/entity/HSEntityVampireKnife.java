@@ -144,7 +144,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         if (soundTimer >= 3)
         {
             if (!isInsideOfMaterial(Material.WATER)) {
-                playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.4F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
+                playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.2F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
             }
             
             soundTimer = 0;
@@ -325,16 +325,27 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         if (entity != null && entity == this.shootingEntity) return;
         applyEntityHitEffects(entity);
         this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
+
+        // Ignore invincibility frames
+        if (entity instanceof EntityLivingBase)
+        {
+            EntityLivingBase base = (EntityLivingBase) entity;
+            base.hurtResistantTime = 0;
+            base.hurtTime = 0;
+        }
+        
         setDead();
     }
 
-    public void applyEntityHitEffects(Entity entity) {
+    public void applyEntityHitEffects(Entity entity)
+    {
         if (isBurning() && !(entity instanceof EntityEnderman))
         {
             entity.setFire(5);
         }
 
-        if (entity instanceof EntityLivingBase) {
+        if (entity instanceof EntityLivingBase)
+        {
             EntityLivingBase entityLiving = (EntityLivingBase) entity;
 
             float motionDamage = (float) ((Math.abs(motionY) * 2) + damage);

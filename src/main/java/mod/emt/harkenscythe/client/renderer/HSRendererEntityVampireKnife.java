@@ -16,7 +16,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-// TODO: Projectiles need to use the unique texture
 public class HSRendererEntityVampireKnife extends Render<HSEntityVampireKnife>
 {
     public HSRendererEntityVampireKnife(RenderManager renderManager)
@@ -67,7 +66,7 @@ public class HSRendererEntityVampireKnife extends Render<HSEntityVampireKnife>
 
     public ItemStack getStackToRender(HSEntityVampireKnife entity)
     {
-        return new ItemStack(HSItems.vampire_knife);
+        return new ItemStack(HSItems.vampire_knife_projectile);
     }
 
     @Override
