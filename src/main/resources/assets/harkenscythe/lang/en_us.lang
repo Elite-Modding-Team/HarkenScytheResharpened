@@ -30,6 +30,10 @@ advancement.harkenscythe.was_it_even_real.name=Was it Even Real?
 advancement.harkenscythe.was_it_even_real.desc=Encounter a Spectral Miner.
 advancement.harkenscythe.wild_armed.name=Wild Armed
 advancement.harkenscythe.wild_armed.desc=Obtain the secret scythe.
+advancement.harkenscythe.crimson_key.name=Crimson Key
+advancement.harkenscythe.crimson_key.desc=Obtain the extremely rare Damaged Vampire Knife in the Nether!
+advancement.harkenscythe.better_than_scourge.name=Better than Scourge
+advancement.harkenscythe.better_than_scourge.desc=Fully obtain the powerful lifestealing Vampire Knife by repairing the damaged counterpart!
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Altar of Blood

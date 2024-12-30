@@ -1,0 +1,38 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.better_than_scourge.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.better_than_scourge.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:vampire_knife"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:crimson_key",
+  "criteria": {
+    "obtain_vampire_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:vampire_knife"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_vampire_knife"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

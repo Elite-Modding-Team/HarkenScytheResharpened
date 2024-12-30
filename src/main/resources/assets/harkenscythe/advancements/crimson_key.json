@@ -1,0 +1,38 @@
+{
+  "display": {
+    "title": {
+      "translate": "advancement.harkenscythe.crimson_key.name"
+    },
+    "description": {
+      "translate": "advancement.harkenscythe.crimson_key.desc"
+    },
+    "icon": {
+      "item": "harkenscythe:damaged_vampire_knife"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "harkenscythe:root",
+  "criteria": {
+    "obtain_damaged_vampire_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:damaged_vampire_knife"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_damaged_vampire_knife"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}
