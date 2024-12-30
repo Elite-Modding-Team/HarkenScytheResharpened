@@ -1,0 +1,26 @@
+{
+  "name": "Better than Scourge",
+  "icon": "harkenscythe:textures/items/vampire_knife.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:bloody_foundations",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Tales from various reapers tell of a powerful weapon that has the ability to throw magical knives that drain the blood of afflicted targets and restore life back to the wielder.$(br2)Originally locked under $(4)the lands of flesh and blood$(), it was unfortunately considered too powerful that it was cast out by the rulers."
+    },
+    {
+      "type": "text",
+      "text": "Rumors state that the weapon at a broken state is now carried by any of the monsters encountered in the Nether.$(br2)The weapon will only drop to players, meaning that mob farms and other lazy methods won't work.$(br2)Innocent creatures and weaker monsters that are at or below 16 health will not be carrying it either."
+    },
+    {
+      "type": "text",
+      "text": "With the knife at hand, you can hold down $(4)right-click$() to constantly throw over five knives at your targets. You will also be healed by a small percent of the damage dealt while not at full health.$(br2)Be sure to use it sparingly! The knife will want a taste of a single blood essence for each use in return.$(br2)The knife will never break. You can recharge it on an Altar of Blood, similar to any other ritual."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:unpowered_totem_of_undying",
+      "title": " ",
+      "text": "You'll need to repair the broken knife after obtaining it, a mixture of biomass and livingmetal will do.$(br2)Nerfed in its original homeworld. Back for vengeance in a new one."
+    }
+  ]
+}

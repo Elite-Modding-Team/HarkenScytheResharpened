@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "While Tinkers' Construct is detected, new materials and traits will be added. Currently supported materials are Biomass and Livingmetal.$(br2)More information regarding material attributes and traits can be found in $(5)Materials and You$()."
+      "text": "While Tinkers' Construct is detected, new materials and traits will be added. Currently supported materials are biomass and livingmetal.$(br2)More information regarding material attributes and traits can be found in $(5)Materials and You$()."
     }
   ]
 }

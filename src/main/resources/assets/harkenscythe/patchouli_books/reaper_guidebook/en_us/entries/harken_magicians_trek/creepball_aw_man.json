@@ -2,7 +2,7 @@
   "name": "Creepball? Aw man!",
   "icon": "harkenscythe:textures/items/creepball.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:souls_guidance",
+  "advancement": "harkenscythe:bloody_foundations",
   "pages": [
     {
       "type": "text",
