@@ -56,7 +56,7 @@ public class HSBlockCreep extends Block
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
     {
-        if (!world.isRemote && world.provider.getDimension() == -1)
+        if (!world.isRemote && world.provider.isNether())
         {
             if (!world.isAreaLoaded(pos, 3)) return;
             if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2)
