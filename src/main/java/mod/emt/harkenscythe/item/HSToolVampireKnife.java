@@ -85,6 +85,12 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     {
         return false;
     }
+    
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        return 9443858;
+    }
 
     @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)

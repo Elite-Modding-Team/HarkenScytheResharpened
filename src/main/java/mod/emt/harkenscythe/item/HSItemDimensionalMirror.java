@@ -186,4 +186,10 @@ public class HSItemDimensionalMirror extends HSItem
     {
         return false;
     }
+    
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        return 1872873;
+    }
 }

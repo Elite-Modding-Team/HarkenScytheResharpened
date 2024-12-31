@@ -11,6 +11,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
@@ -68,6 +69,22 @@ public class HSArmor extends ItemArmor
     public EnumRarity getRarity(ItemStack stack)
     {
         return rarity;
+    }
+
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        if ((this == HSItems.bloodweave_hood) || (this == HSItems.bloodweave_robe) || (this == HSItems.bloodweave_pants) || (this == HSItems.bloodweave_shoes))
+        {
+            return 9443858;
+        }
+
+        if ((this == HSItems.soulweave_hood) || (this == HSItems.soulweave_robe) || (this == HSItems.soulweave_pants) || (this == HSItems.soulweave_shoes))
+        {
+            return 1872873;
+        }
+
+        return MathHelper.hsvToRGB(Math.max(0.0F, (float) (1.0F - getDurabilityForDisplay(stack))) / 3.0F, 1.0F, 1.0F);
     }
 
     @Override
