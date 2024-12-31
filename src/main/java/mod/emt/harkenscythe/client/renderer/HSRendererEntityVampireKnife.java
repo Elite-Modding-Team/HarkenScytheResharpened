@@ -48,7 +48,7 @@ public class HSRendererEntityVampireKnife extends Render<HSEntityVampireKnife>
         if (renderOutlines)
         {
             GlStateManager.enableColorMaterial();
-            GlStateManager.enableOutlineMode(8214271);
+            GlStateManager.enableOutlineMode(15539236);
         }
 
         itemRender.renderItem(getStackToRender(entity), TransformType.NONE);

@@ -49,6 +49,7 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
                 ItemStack stack = player.getHeldItem(hand);
                 sword.shoot(player, player.rotationPitch, player.rotationYaw + (i * 15.0F), 0.0F, 1.5F, 3.0F);
                 sword.setKnockbackStrength(EnchantmentHelper.getEnchantmentLevel(Enchantments.KNOCKBACK, stack));
+                sword.setGlowing(true);
                 world.spawnEntity(sword);
             }
 
