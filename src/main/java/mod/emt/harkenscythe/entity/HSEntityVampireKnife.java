@@ -466,7 +466,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
 
     public int getMaxLifetime()
     {
-        return 2000;
+        return 1200;
     }
 
     public int getMaxArrowShake()
