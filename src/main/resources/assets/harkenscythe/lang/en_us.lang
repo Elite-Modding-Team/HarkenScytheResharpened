@@ -220,7 +220,7 @@ tooltip.harkenscythe.spectral_potion_flame=Can be thrown to start fires.
 tooltip.harkenscythe.spectral_potion_purifying=Can be thrown to spawn a lingering cloud that dispels all negative effects.
 tooltip.harkenscythe.spectral_potion_water=Can be thrown to extinguish fires.
 tooltip.harkenscythe.totem_undying_unpowered=This needs to be empowered on an Altar of Souls first before it can function.
-tooltip.harkenscythe.vampire_knife=Hold down right-click to rapidly throw several lifestealing daggers. Costs blood essence.
+tooltip.harkenscythe.vampire_knife=Hold down right-click to rapidly throw several lifestealing knives. Costs blood essence.
 
 # CONFIG
 cfg.harkenscythe.general=General
