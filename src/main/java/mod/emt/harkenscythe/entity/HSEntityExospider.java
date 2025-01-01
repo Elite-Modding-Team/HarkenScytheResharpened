@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import mod.emt.harkenscythe.init.HSSoundEvents;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -14,14 +12,21 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-// TODO: Disable fall damage
+import mod.emt.harkenscythe.init.HSSoundEvents;
+
 public class HSEntityExospider extends EntitySpider
 {
     public HSEntityExospider(World world)
     {
         super(world);
     }
-    
+
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
+        // No fall damage
+    }
+
     @Override
     protected void applyEntityAttributes()
     {
@@ -29,21 +34,14 @@ public class HSEntityExospider extends EntitySpider
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.35D);
     }
-    
-    @Nullable
-    @Override
-    protected ResourceLocation getLootTable()
-    {
-        return null; 
-    }
-    
+
     @Nonnull
     @Override
     protected SoundEvent getAmbientSound()
     {
         return null;
     }
-    
+
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource)
     {
@@ -60,5 +58,12 @@ public class HSEntityExospider extends EntitySpider
     protected void playStepSound(BlockPos pos, Block block)
     {
         this.playSound(HSSoundEvents.ENTITY_EXOSPIDER_STEP.getSoundEvent(), 0.15F, 1.0F);
+    }
+
+    @Nullable
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return null;
     }
 }
