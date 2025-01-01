@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "text": "Rumors state that the weapon at a broken state is now carried by any of the monsters encountered in the Nether.$(br2)The weapon will only drop to players, meaning that mob farms and other lazy methods won't work.$(br2)Innocent creatures and weaker monsters that are at or below 16 health will not be carrying it either."
+      "text": "Rumors state that the weapon at a broken state is now carried by any of the monsters encountered in the Nether.$(br2)The weapon will only drop to players, meaning that mob farms and other lazy methods won't work.$(br2)Innocent creatures and weaker monsters that have less than 16 health will not be carrying it either."
     },
     {
       "type": "text",
