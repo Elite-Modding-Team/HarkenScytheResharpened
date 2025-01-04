@@ -52,9 +52,9 @@ import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
 public class HSRegistry
 {
     private static int entityID = 1;
-    
+
     public static final IRarity RARITY_BLOODY = new IRarity()
-    {	
+    {
         @Override
         public String getName()
         {
@@ -143,12 +143,21 @@ public class HSRegistry
 
     public static void registerEntitySpawns()
     {
-        EntityRegistry.addSpawn(HSEntityHarbinger.class, 5, 1, 1, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
-        EntityRegistry.addSpawn(HSEntitySpectralHuman.class, 5, 1, 2, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
-        EntityRegistry.addSpawn(HSEntitySpectralMiner.class, 2, 1, 1, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
-
-        EntitySpawnPlacementRegistry.setPlacementType(HSEntityHarbinger.class, EntityLiving.SpawnPlacementType.ON_GROUND);
-        EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralMiner.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        if (HSConfig.ENTITIES.harbingerSpawnProbability > 0)
+        {
+            EntityRegistry.addSpawn(HSEntityHarbinger.class, HSConfig.ENTITIES.harbingerSpawnProbability, 1, 1, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
+            EntitySpawnPlacementRegistry.setPlacementType(HSEntityHarbinger.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
+        if (HSConfig.ENTITIES.spectralHumanSpawnProbability > 0)
+        {
+            EntityRegistry.addSpawn(HSEntitySpectralHuman.class, HSConfig.ENTITIES.spectralHumanSpawnProbability, 1, 2, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
+            EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralHuman.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
+        if (HSConfig.ENTITIES.spectralMinerSpawnProbability > 0)
+        {
+            EntityRegistry.addSpawn(HSEntitySpectralMiner.class, HSConfig.ENTITIES.spectralMinerSpawnProbability, 1, 1, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
+            EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralMiner.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
     }
 
     // Gets biomes from selected entity.

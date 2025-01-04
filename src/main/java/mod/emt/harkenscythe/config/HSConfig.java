@@ -94,6 +94,14 @@ public class HSConfig
         @Config.Comment("The distance in blocks the Harbinger will search for entities to reap")
         public double harbingerSearchDistance = 20.0D;
 
+        @Config.Name("Harbinger Spawn Probability")
+        @Config.Comment
+            ({
+                "The weighted probability for the Harbinger to spawn",
+                "Set to 0 to disable"
+            })
+        public int harbingerSpawnProbability = 5;
+
         @Config.Name("Spectral Entity Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral entities, summoned by the Harbinger")
         public double spectralEntityAttackDamage = 6.0D;
@@ -119,6 +127,14 @@ public class HSConfig
         @Config.Comment("The amount of movement speed spectral humans have")
         public double spectralHumanMovementSpeed = 0.23D;
 
+        @Config.Name("Spectral Human Spawn Probability")
+        @Config.Comment
+            ({
+                "The weighted probability for spectral humans to spawn",
+                "Set to 0 to disable"
+            })
+        public int spectralHumanSpawnProbability = 5;
+
         @Config.Name("Spectral Miner Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral miners")
         public double spectralMinerAttackDamage = 5.0D;
@@ -130,6 +146,14 @@ public class HSConfig
         @Config.Name("Spectral Miner Movement Speed")
         @Config.Comment("The amount of movement speed spectral miners have")
         public double spectralMinerMovementSpeed = 0.15D;
+
+        @Config.Name("Spectral Miner Spawn Probability")
+        @Config.Comment
+            ({
+                "The weighted probability for spectral miners to spawn",
+                "Set to 0 to disable"
+            })
+        public int spectralMinerSpawnProbability = 2;
     }
 
     public static class ItemSettings
