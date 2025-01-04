@@ -186,7 +186,25 @@ public class HSRegistry
 
     public static void registerRecipes()
     {
-        HarkenScythe.LOGGER.info("Registering altar recipes and ore dictionary entries...");
+        HarkenScythe.LOGGER.info("Registering ore dictionary entries and altar ritual recipes...");
+
+        // Ore Dictionary
+        for (Item item : ForgeRegistries.ITEMS)
+        {
+            if (item.equals(Items.POTIONITEM))
+            {
+                OreDictionary.registerOre("potion", item);
+            }
+        }
+
+        OreDictionary.registerOre("blockBiomass", HSBlocks.biomass_block);
+        OreDictionary.registerOre("blockLivingmetal", HSBlocks.livingmetal_block);
+
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence);
+
+        OreDictionary.registerOre("ingotBiomass", HSItems.biomass);
+        OreDictionary.registerOre("ingotLivingmetal", HSItems.livingmetal_ingot);
 
         // Blood Altar
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
@@ -218,25 +236,8 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
+        HSAltarRecipes.addSoulRecipe("potion", Items.EXPERIENCE_BOTTLE, 10);
         HSAltarRecipes.addSoulRecipesConfig(HSConfig.RECIPES.customSoulAltarRecipes);
-
-        for (Item item : ForgeRegistries.ITEMS)
-        {
-            if (item.equals(Items.POTIONITEM))
-            {
-                HSAltarRecipes.addSoulRecipe(item, Items.EXPERIENCE_BOTTLE, 10);
-            }
-        }
-
-        // Ore Dictionary
-        OreDictionary.registerOre("blockBiomass", new ItemStack(HSBlocks.biomass_block));
-        OreDictionary.registerOre("blockLivingmetal", new ItemStack(HSBlocks.livingmetal_block));
-
-        OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.blood_essence));
-        OreDictionary.registerOre("essenceHarken", new ItemStack(HSItems.soul_essence));
-
-        OreDictionary.registerOre("ingotBiomass", new ItemStack(HSItems.biomass));
-        OreDictionary.registerOre("ingotLivingmetal", new ItemStack(HSItems.livingmetal_ingot));
 
         // CraftTweaker
         HSAltarRecipes.removeBloodRecipesLate();
