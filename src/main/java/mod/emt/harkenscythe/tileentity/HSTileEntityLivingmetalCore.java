@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.block.HSBlockLivingmetalCore;
+import mod.emt.harkenscythe.config.HSConfig;
 
 public class HSTileEntityLivingmetalCore extends HSTileEntity implements ITickable
 {
@@ -79,7 +80,7 @@ public class HSTileEntityLivingmetalCore extends HSTileEntity implements ITickab
                 {
                     if (isAlly(entity))
                     {
-                        entity.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100, 0));
+                        entity.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100, HSConfig.BLOCKS.livingmetalCoreRegenLevel - 1));
                         this.hasAllies = true;
                     }
                 }

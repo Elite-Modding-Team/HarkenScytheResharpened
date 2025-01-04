@@ -53,6 +53,11 @@ public class HSConfig
         @Config.Name("Crucible Max Amount")
         @Config.Comment("The maximum amount of essence to be stored in crucibles")
         public int crucibleMaxAmount = 100;
+
+        @Config.Name("Livingmetal Core Regeneration Level")
+        @Config.Comment("The level of the regeneration effect provided by active livingmetal cores")
+        @Config.RangeInt(min = 1)
+        public int livingmetalCoreRegenLevel = 1;
     }
 
     public static class EntitySettings
