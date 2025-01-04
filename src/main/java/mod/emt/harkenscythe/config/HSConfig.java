@@ -61,6 +61,10 @@ public class HSConfig
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
         public int essenceDespawnTime = 6000;
 
+        @Config.Name("Essence Mob Spawning")
+        @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
+        public boolean essenceMobSpawning = true;
+
         @Config.Name("Harbinger Armor Value")
         @Config.Comment("The amount of armor protection the Harbinger has")
         public double harbingerArmorValue = 10.0D;
