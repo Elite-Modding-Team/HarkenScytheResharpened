@@ -318,7 +318,7 @@ public class HSEntityHarbinger extends EntityMob
      */
     private boolean isWhitelistedEntity(Entity entity)
     {
-        return !HSEntityBlacklists.isBlacklistedForReaping(entity) && (entity instanceof EntityVillager || entity instanceof EntityAnimal);
+        return !HSEntityBlacklists.isBlacklistedForHarbingerReaping(entity) && (entity instanceof EntityVillager || entity instanceof EntityAnimal);
     }
 
     /**

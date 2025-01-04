@@ -104,7 +104,7 @@ public class HSEventLivingDeath
 
     public static void spawnSoul(World world, EntityLivingBase entity)
     {
-        if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin) return;
+        if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForSoulReaping(entity)) return;
         HSEntitySoul soul = new HSEntitySoul(world, entity);
         soul.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(soul);

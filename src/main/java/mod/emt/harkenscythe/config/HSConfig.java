@@ -57,6 +57,15 @@ public class HSConfig
 
     public static class EntitySettings
     {
+        @Config.Name("Blood Reaping Blacklist")
+        @Config.Comment
+            ({
+                "Entities excluded from dropping blood essence",
+                "Syntax:  modid:entity",
+                "Example: minecraft:cow"
+            })
+        public String[] bloodReapingBlacklist = new String[] {};
+
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
         public int essenceDespawnTime = 6000;
@@ -105,6 +114,15 @@ public class HSConfig
                 "Set to 0 to disable"
             })
         public int harbingerSpawnProbability = 5;
+
+        @Config.Name("Soul Reaping Blacklist")
+        @Config.Comment
+            ({
+                "Entities excluded from dropping soul essence",
+                "Syntax:  modid:entity",
+                "Example: minecraft:cow"
+            })
+        public String[] soulReapingBlacklist = new String[] {};
 
         @Config.Name("Spectral Entity Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral entities, summoned by the Harbinger")

@@ -19,11 +19,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
+import mod.emt.harkenscythe.entity.HSEntityGlobin;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tools.HSToolGlaive;
+import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventLivingHurt
@@ -98,6 +100,7 @@ public class HSEventLivingHurt
 
     public static void spawnBlood(World world, EntityLivingBase entity)
     {
+        if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForBloodReaping(entity)) return;
         HSEntityBlood blood = new HSEntityBlood(world);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
         world.spawnEntity(blood);
