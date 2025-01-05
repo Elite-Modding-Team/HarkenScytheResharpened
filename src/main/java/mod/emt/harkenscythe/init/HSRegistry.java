@@ -187,6 +187,7 @@ public class HSRegistry
 
         event.getRegistry().registerAll(
             HSPotions.AFFLICTION,
+            HSPotions.BLEEDING,
             HSPotions.FLAME,
             HSPotions.PURIFYING,
             HSPotions.WATER
