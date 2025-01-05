@@ -35,8 +35,6 @@ import mod.emt.harkenscythe.item.*;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.item.tools.*;
-import mod.emt.harkenscythe.item.tools.HSToolAthame;
-import mod.emt.harkenscythe.item.tools.HSToolVampireKnife;
 
 @SuppressWarnings({"deprecation"})
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)

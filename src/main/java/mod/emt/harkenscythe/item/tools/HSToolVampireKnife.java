@@ -2,7 +2,6 @@ package mod.emt.harkenscythe.item.tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -21,19 +20,19 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
+
 import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 // TODO: Remove durability and make it utilize blood essence instead.
-@SuppressWarnings("deprecation")
 public class HSToolVampireKnife extends HSToolSword implements IHSTool
 {
     private final float attackSpeed;
 
     public HSToolVampireKnife(ToolMaterial material, float attackSpeed)
     {
-        super(material, EnumRarity.COMMON); // TODO: Unique material
+        super(material, EnumRarity.COMMON);
         this.attackSpeed = attackSpeed;
     }
 
@@ -55,20 +54,49 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
 
             player.getCooldownTracker().setCooldown(this, 5);
             world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 0.6F + world.rand.nextFloat());
-        } else
+        }
+        else
         {
             player.swingArm(hand);
         }
 
         return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
     }
-    
+
+    @Override
+    public boolean isDamageable()
+    {
+        return false;
+    }
+
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book)
+    {
+        return false;
+    }
+
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        return 9443858;
+    }
+
+    // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
+    public int getItemEnchantability(ItemStack stack)
+    {
+        return 0;
+    }
+
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
+    {
+        return false;
+    }
+
     @Override
     public IRarity getForgeRarity(ItemStack stack)
     {
         return HSRegistry.RARITY_BLOODY;
     }
-    
+
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
@@ -79,18 +107,6 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving)
     {
         return true;
-    }
-
-    @Override
-    public boolean isDamageable()
-    {
-        return false;
-    }
-    
-    @Override
-    public int getRGBDurabilityForDisplay(ItemStack stack)
-    {
-        return 9443858;
     }
 
     @Override
@@ -105,21 +121,5 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
         }
 
         return multimap;
-    }
-
-    // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
-    public int getItemEnchantability(ItemStack stack)
-    {
-        return 0;
-    }
-
-    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
-    {
-        return false;
-    }
-
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book)
-    {
-        return false;
     }
 }

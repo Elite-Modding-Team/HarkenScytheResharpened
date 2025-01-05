@@ -8,7 +8,9 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class HSToolAthame extends ItemSword implements IHSTool {
+@SuppressWarnings("deprecation")
+public class HSToolAthame extends ItemSword implements IHSTool
+{
     private final EnumRarity rarity;
     private final ToolMaterial material;
 
