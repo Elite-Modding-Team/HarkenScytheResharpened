@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.item.tools;
+package mod.emt.harkenscythe.item.tool;
 
 import net.minecraft.item.Item;
 

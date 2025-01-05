@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.item.tools;
+package mod.emt.harkenscythe.item.tool;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

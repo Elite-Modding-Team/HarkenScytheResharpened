@@ -24,7 +24,7 @@ import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmor;
-import mod.emt.harkenscythe.item.tools.IHSTool;
+import mod.emt.harkenscythe.item.tool.IHSTool;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
 

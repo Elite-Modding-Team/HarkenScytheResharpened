@@ -1,7 +1,8 @@
-package mod.emt.harkenscythe.item.tools;
+package mod.emt.harkenscythe.item.tool;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,25 +19,25 @@ import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.block.HSBlockBiomassCrop;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSDamageSource;
 
 @SuppressWarnings("deprecation")
-public class HSToolGlaive extends ItemSword implements IHSTool
+public class HSToolScythe extends ItemSword implements IHSTool
 {
     private final float attackSpeed;
     private final EnumRarity rarity;
     private final ToolMaterial material;
 
-    public HSToolGlaive(ToolMaterial material, float attackSpeed, EnumRarity rarity)
+    public HSToolScythe(ToolMaterial material, float attackSpeed, EnumRarity rarity)
     {
         super(material);
         this.attackSpeed = attackSpeed;
@@ -79,21 +80,20 @@ public class HSToolGlaive extends ItemSword implements IHSTool
     {
         if (!world.isRemote && entityLiving instanceof EntityPlayer)
         {
-            EntityPlayer player = (EntityPlayer) entityLiving;
-            RayTraceResult rayTraceResult = rayTrace(world, player, false);
+            RayTraceResult rayTraceResult = rayTrace(world, (EntityPlayer) entityLiving, false);
             if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
             {
-                BlockPos creepPos = rayTraceResult.getBlockPos();
-                IBlockState creepState = world.getBlockState(creepPos);
-                if (creepState.getBlock() == HSBlocks.creep_block)
+                BlockPos cropPos = rayTraceResult.getBlockPos().up();
+                IBlockState cropState = world.getBlockState(cropPos);
+                if (cropState.getBlock() == HSBlocks.biomass_crop && cropState.getValue(HSBlockBiomassCrop.AGE) >= 3)
                 {
-                    world.setBlockState(creepPos, HSBlocks.creep_block_tilled.getDefaultState());
-                    if (!player.capabilities.isCreativeMode)
+                    world.destroyBlock(cropPos, true);
+                    int damage = stack.getMaxDamage() - stack.getItemDamage();
+                    double chance = (double) damage / 1000;
+                    if (world.rand.nextDouble() < chance)
                     {
-                        stack.damageItem(1, player);
+                        Block.spawnAsEntity(world, cropPos, new ItemStack(HSItems.biomass));
                     }
-                    world.playSound(null, creepPos, HSSoundEvents.ITEM_GLAIVE_TILL.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-                    player.addStat(StatList.getObjectUseStats(stack.getItem()));
                 }
             }
         }
@@ -134,6 +134,12 @@ public class HSToolGlaive extends ItemSword implements IHSTool
     public EnumRarity getRarity(ItemStack stack)
     {
         return rarity;
+    }
+
+    @Override
+    public boolean canDisableShield(ItemStack stack, ItemStack shield, EntityLivingBase entity, EntityLivingBase attacker)
+    {
+        return stack.getItem() == HSItems.reaper_scythe || stack.getItem() == HSItems.lady_harken_scythe;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.item.tools;
+package mod.emt.harkenscythe.item.tool;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -60,7 +60,7 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
             player.swingArm(hand);
         }
 
-        return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
+        return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
     }
 
     @Override

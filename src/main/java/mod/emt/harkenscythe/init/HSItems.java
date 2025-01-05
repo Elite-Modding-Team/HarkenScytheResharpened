@@ -34,7 +34,7 @@ import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
 import mod.emt.harkenscythe.item.*;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
-import mod.emt.harkenscythe.item.tools.*;
+import mod.emt.harkenscythe.item.tool.*;
 
 @SuppressWarnings({"deprecation"})
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)

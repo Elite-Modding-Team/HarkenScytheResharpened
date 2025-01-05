@@ -1,22 +1,22 @@
-package mod.emt.harkenscythe.item.tools;
+package mod.emt.harkenscythe.item.tool;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSItems;
 
 @SuppressWarnings("deprecation")
-public class HSToolAxe extends ItemAxe implements IHSTool
+public class HSToolPickaxe extends ItemPickaxe implements IHSTool
 {
     private final EnumRarity rarity;
     private final ToolMaterial material;
 
-    public HSToolAxe(ToolMaterial material, float damage, float speed, EnumRarity rarity)
+    public HSToolPickaxe(ToolMaterial material, EnumRarity rarity)
     {
-        super(material, damage, speed);
+        super(material);
         this.rarity = rarity;
         this.material = material;
     }

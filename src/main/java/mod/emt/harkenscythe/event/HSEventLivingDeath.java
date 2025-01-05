@@ -33,7 +33,7 @@ import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmor;
-import mod.emt.harkenscythe.item.tools.HSToolScythe;
+import mod.emt.harkenscythe.item.tool.HSToolScythe;
 import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
