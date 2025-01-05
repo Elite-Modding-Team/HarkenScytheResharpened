@@ -51,22 +51,21 @@ import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSRegistry
 {
-    private static int entityID = 1;
-
     public static final IRarity RARITY_BLOODY = new IRarity()
     {
-        @Override
-        public String getName()
-        {
-            return "Bloody";
-        }
-
         @Override
         public TextFormatting getColor()
         {
             return TextFormatting.RED;
         }
+
+        @Override
+        public String getName()
+        {
+            return "Bloody";
+        }
     };
+    private static int entityID = 1;
 
     @Nonnull
     public static <T extends IForgeRegistryEntry> T setup(@Nonnull final T entry, @Nonnull final String name)
@@ -196,7 +195,7 @@ public class HSRegistry
 
     public static void registerRecipes()
     {
-        HarkenScythe.LOGGER.info("Registering ore dictionary entries and altar ritual recipes...");
+        HarkenScythe.LOGGER.info("Registering ore dictionary entries...");
 
         // Ore Dictionary
         for (Item item : ForgeRegistries.ITEMS)
@@ -215,6 +214,8 @@ public class HSRegistry
 
         OreDictionary.registerOre("ingotBiomass", HSItems.biomass);
         OreDictionary.registerOre("ingotLivingmetal", HSItems.livingmetal_ingot);
+
+        HarkenScythe.LOGGER.info("Registering altar ritual recipes...");
 
         // Blood Altar
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
@@ -248,12 +249,6 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
         HSAltarRecipes.addSoulRecipe("potion", Items.EXPERIENCE_BOTTLE, 10);
         HSAltarRecipes.addSoulRecipesConfig(HSConfig.RECIPES.customSoulAltarRecipes);
-
-        // CraftTweaker
-        HSAltarRecipes.removeBloodRecipesLate();
-        HSAltarRecipes.removeSoulRecipesLate();
-        HSAltarRecipes.addBloodRecipesLate();
-        HSAltarRecipes.addSoulRecipesLate();
     }
 
     @SubscribeEvent

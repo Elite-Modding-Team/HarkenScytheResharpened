@@ -241,7 +241,8 @@ public class HSConfig
         @Config.Comment
             ({
                 "Defines custom recipes for blood altars by input, output and essence cost",
-                "Syntax: modid:input;modid:output;cost"
+                "Syntax: modid:input;modid:output;cost",
+                "For removal and advanced addition of recipes, please refer to the CraftTweaker and GroovyScript mod integrations"
             })
         public String[] customBloodAltarRecipes = new String[] {};
 
@@ -249,7 +250,8 @@ public class HSConfig
         @Config.Comment
             ({
                 "Defines custom recipes for soul altars by input, output and essence cost",
-                "Syntax: modid:input;modid:output;cost"
+                "Syntax: modid:input;modid:output;cost",
+                "For removal and advanced addition of recipes, please refer to the CraftTweaker and GroovyScript mod integrations"
             })
         public String[] customSoulAltarRecipes = new String[] {};
     }

@@ -1,11 +1,16 @@
 package mod.emt.harkenscythe.compat.crafttweaker;
 
-import crafttweaker.CraftTweakerAPI;
-import crafttweaker.IAction;
+import java.util.Collections;
+import java.util.List;
+
+import com.blamejared.mtlib.helpers.InputHelper;
+import com.blamejared.mtlib.helpers.LogHelper;
+import com.blamejared.mtlib.utils.BaseListAddition;
+import com.blamejared.mtlib.utils.BaseListRemoval;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IItemStack;
-import crafttweaker.api.minecraft.CraftTweakerMC;
 import mod.emt.harkenscythe.init.HSAltarRecipes;
+import mod.emt.harkenscythe.recipe.HSRecipeBloodAltar;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -17,88 +22,92 @@ public class HSCraftTweakerBloodAltarRecipes
     @ZenMethod
     public static void add(IItemStack input, IItemStack output, int requiredBlood)
     {
-        CraftTweakerAPI.apply(new AddAction(input, output, requiredBlood));
+        HSCraftTweakerPlugin.LATE_ADDITIONS.add(new Add(Collections.singletonList(new HSRecipeBloodAltar(InputHelper.toStack(input), InputHelper.toStack(output), requiredBlood))));
     }
 
     @ZenMethod
     public static void removeByOutput(IItemStack output)
     {
-        CraftTweakerAPI.apply(new RemoveByOutputAction(output));
+        HSCraftTweakerPlugin.LATE_REMOVALS.add(new RemoveByOutput(output));
     }
 
     @ZenMethod
     public static void removeByInput(IItemStack output)
     {
-        CraftTweakerAPI.apply(new RemoveByInputAction(output));
+        HSCraftTweakerPlugin.LATE_REMOVALS.add(new RemoveByInput(output));
     }
 
-    private static class AddAction implements IAction
+    private static class Add extends BaseListAddition<HSRecipeBloodAltar>
     {
-        private final IItemStack input;
-        private final IItemStack output;
-        private final int requiredBlood;
-
-        public AddAction(IItemStack input, IItemStack output, int requiredBlood)
+        protected Add(List<HSRecipeBloodAltar> recipes)
         {
-            this.input = input;
-            this.output = output;
-            this.requiredBlood = requiredBlood;
+            super("bloodAltar", HSAltarRecipes.getBloodAltarRecipes(), recipes);
         }
 
         @Override
-        public void apply()
+        public String getRecipeInfo(HSRecipeBloodAltar recipe)
         {
-            HSAltarRecipes.addBloodRecipeLate(CraftTweakerMC.getItemStack(input), CraftTweakerMC.getItemStack(output), requiredBlood);
-        }
-
-        @Override
-        public String describe()
-        {
-            return String.format("Adding Blood Altar recipe: %s -> %s with %d blood", input.toString(), output.toString(), requiredBlood);
+            return LogHelper.getStackDescription(recipe.getOutput());
         }
     }
 
-    private static class RemoveByOutputAction implements IAction
+    private static class RemoveByOutput extends BaseListRemoval<HSRecipeBloodAltar>
     {
         private final IItemStack output;
 
-        public RemoveByOutputAction(IItemStack output)
+        protected RemoveByOutput(IItemStack output)
         {
+            super("bloodAltar", HSAltarRecipes.getBloodAltarRecipes());
             this.output = output;
         }
 
         @Override
         public void apply()
         {
-            HSAltarRecipes.removeBloodRecipeByOutputLate(CraftTweakerMC.getItemStack(output));
+            for (HSRecipeBloodAltar recipe : HSAltarRecipes.getBloodAltarRecipes())
+            {
+                if (output.matches(InputHelper.toIItemStack(recipe.getOutput())))
+                {
+                    recipes.add(recipe);
+                }
+            }
+            super.apply();
         }
 
         @Override
-        public String describe()
+        public String getRecipeInfo(HSRecipeBloodAltar recipe)
         {
-            return String.format("Removing all Blood Altar recipes with output %s", output.toString());
+            return LogHelper.getStackDescription(recipe.getOutput());
         }
     }
 
-    private static class RemoveByInputAction implements IAction
+    private static class RemoveByInput extends BaseListRemoval<HSRecipeBloodAltar>
     {
         private final IItemStack input;
 
-        public RemoveByInputAction(IItemStack input)
+        protected RemoveByInput(IItemStack input)
         {
+            super("bloodAltar", HSAltarRecipes.getBloodAltarRecipes());
             this.input = input;
         }
 
         @Override
         public void apply()
         {
-            HSAltarRecipes.removeBloodRecipeByInputLate(CraftTweakerMC.getItemStack(input));
+            for (HSRecipeBloodAltar recipe : HSAltarRecipes.getBloodAltarRecipes())
+            {
+                if (input.matches(InputHelper.toIItemStack(recipe.getInput())))
+                {
+                    recipes.add(recipe);
+                }
+            }
+            super.apply();
         }
 
         @Override
-        public String describe()
+        public String getRecipeInfo(HSRecipeBloodAltar recipe)
         {
-            return String.format("Removing all Blood Altar recipes with input %s", input.toString());
+            return LogHelper.getStackDescription(recipe.getInput());
         }
     }
 }

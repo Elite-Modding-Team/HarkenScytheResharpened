@@ -3,12 +3,14 @@ package mod.emt.harkenscythe;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import mod.emt.harkenscythe.compat.HSCompatHandler;
+import mod.emt.harkenscythe.compat.crafttweaker.HSCraftTweakerPlugin;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.util.HSCreativeTab;
@@ -55,6 +57,10 @@ public class HarkenScythe
     {
         HSDimensionBlacklist.initBlacklistedDimensions();
         HSEntityBlacklists.initBlacklistedEntityEntries();
+        if (Loader.isModLoaded("crafttweaker"))
+        {
+            HSCraftTweakerPlugin.applyActions();
+        }
         LOGGER.info(NAME + " post-initialized");
     }
 }

@@ -83,6 +83,7 @@ dependencies {
     implementation rfg.deobf('curse.maven:blood-magic-224791:2822288')
 
     // CraftTweaker
+    implementation 'curse.maven:mtlib-253211:3308160'
     implementation 'curse.maven:crafttweaker-239197:5486112'
 
     // GroovyScript

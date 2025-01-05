@@ -36,6 +36,7 @@ import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.item.tools.*;
 import mod.emt.harkenscythe.item.tools.HSToolAthame;
+import mod.emt.harkenscythe.item.tools.HSToolVampireKnife;
 
 @SuppressWarnings({"deprecation"})
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
@@ -171,7 +172,7 @@ public class HSItems
 
     @GameRegistry.ObjectHolder("spectral_pickaxe")
     public static HSToolPickaxe spectral_pickaxe;
-    
+
     @GameRegistry.ObjectHolder("damaged_vampire_knife")
     public static HSItem damaged_vampire_knife;
     @GameRegistry.ObjectHolder("vampire_knife")
@@ -221,7 +222,7 @@ public class HSItems
     public static ToolMaterial TOOL_REAPER = EnumHelper.addToolMaterial("hs_tool_reaper", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(Items.BONE));
     public static ToolMaterial TOOL_SPECTRAL = EnumHelper.addToolMaterial("hs_tool_spectral", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(soul_essence));
     public static ToolMaterial TOOL_LADY_HARKEN = EnumHelper.addToolMaterial("hs_tool_lady_harken", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(soul_essence));
-    
+
     // Non-Repairable
     public static ToolMaterial TOOL_VAMPIRE_KNIFE = EnumHelper.addToolMaterial("hs_tool_vampire_knife", 4, 2000, 9.0F, 0.0F, 25);
 
