@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -22,10 +23,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 
 import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
+import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.HSItemEssenceKeeperBlood;
 
-// TODO: Remove durability and make it utilize blood essence instead.
 public class HSToolVampireKnife extends HSToolSword implements IHSTool
 {
     private final float attackSpeed;
@@ -39,6 +41,10 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
+        if (!player.capabilities.isCreativeMode && !drainBloodContainer(player))
+        {
+            return new ActionResult<>(EnumActionResult.FAIL, player.getHeldItem(hand));
+        }
         if (!world.isRemote)
         {
             // Throw five knives at once!
@@ -69,6 +75,7 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
         return false;
     }
 
+    @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book)
     {
         return false;
@@ -81,11 +88,13 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     }
 
     // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
+    @Override
     public int getItemEnchantability(ItemStack stack)
     {
         return 0;
     }
 
+    @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
     {
         return false;
@@ -121,5 +130,35 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
         }
 
         return multimap;
+    }
+
+    private boolean drainBloodContainer(EntityPlayer player)
+    {
+        for (int i = 0; i < player.inventory.getSizeInventory(); i++)
+        {
+            ItemStack stack = player.inventory.getStackInSlot(i);
+            if (!stack.isEmpty() && stack.getItem() instanceof HSItemEssenceKeeperBlood)
+            {
+                Item item = stack.getItem();
+                if (stack.getItemDamage() + 1 < stack.getMaxDamage())
+                {
+                    stack.setItemDamage(stack.getItemDamage() + 1);
+                }
+                else
+                {
+                    stack.shrink(1);
+                    if (item == HSItems.essence_keeper_blood)
+                    {
+                        player.inventory.addItemStackToInventory(new ItemStack(HSItems.essence_keeper));
+                    }
+                    else if (item == HSItems.essence_vessel_blood)
+                    {
+                        player.inventory.addItemStackToInventory(new ItemStack(HSItems.essence_vessel));
+                    }
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }
