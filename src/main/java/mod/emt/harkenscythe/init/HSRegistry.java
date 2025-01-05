@@ -225,6 +225,10 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_shoes, HSItems.bloodweave_shoes, 10);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe(new ItemStack(Items.GOLDEN_APPLE, 1), new ItemStack(Items.GOLDEN_APPLE, 1, 1), 200); // Notch Apple
+        HSAltarRecipes.addBloodRecipe(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, 1);
+        HSAltarRecipes.addBloodRecipe(Items.POISONOUS_POTATO, Items.POTATO, 1);
+        HSAltarRecipes.addBloodRecipe(Items.CHORUS_FRUIT_POPPED, Items.CHORUS_FRUIT, 1);
+        HSAltarRecipes.addBloodRecipe(Items.ROTTEN_FLESH, Items.LEATHER, 2);
         HSAltarRecipes.addBloodRecipe("wool", Item.getItemFromBlock(HSBlocks.bloodweave_cloth), 10);
         HSAltarRecipes.addBloodRecipesConfig(HSConfig.RECIPES.customBloodAltarRecipes);
 
