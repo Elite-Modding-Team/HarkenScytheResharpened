@@ -22,6 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSRegistry;
@@ -58,7 +59,7 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
                 world.spawnEntity(sword);
             }
 
-            player.getCooldownTracker().setCooldown(this, 5);
+            player.getCooldownTracker().setCooldown(this, HSConfig.ITEMS.vampireKnifeCooldown);
             world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 0.6F + world.rand.nextFloat());
         }
         else
@@ -134,15 +135,16 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
 
     private boolean drainBloodContainer(EntityPlayer player)
     {
+        if (HSConfig.ITEMS.vampireKnifeBloodCost <= 0) return true;
         for (int i = 0; i < player.inventory.getSizeInventory(); i++)
         {
             ItemStack stack = player.inventory.getStackInSlot(i);
             if (!stack.isEmpty() && stack.getItem() instanceof HSItemEssenceKeeperBlood)
             {
                 Item item = stack.getItem();
-                if (stack.getItemDamage() + 1 < stack.getMaxDamage())
+                if (stack.getItemDamage() + HSConfig.ITEMS.vampireKnifeBloodCost < stack.getMaxDamage())
                 {
-                    stack.setItemDamage(stack.getItemDamage() + 1);
+                    stack.setItemDamage(stack.getItemDamage() + HSConfig.ITEMS.vampireKnifeBloodCost);
                 }
                 else
                 {

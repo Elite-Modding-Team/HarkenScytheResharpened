@@ -1,11 +1,11 @@
 package mod.emt.harkenscythe.entity;
 
+import java.awt.*;
+import java.util.List;
+import javax.annotation.Nullable;
+
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-import io.netty.buffer.ByteBuf;
-import mod.emt.harkenscythe.client.particle.HSParticleHandler;
-import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.util.HSDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -25,11 +25,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
-import javax.annotation.Nullable;
-import java.awt.*;
-import java.util.List;
+import io.netty.buffer.ByteBuf;
+import mod.emt.harkenscythe.client.particle.HSParticleHandler;
+import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.util.HSDamageSource;
 
-// TODO: Clean up
 public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntity, IEntityAdditionalSpawnData
 {
     @SuppressWarnings("unchecked")
@@ -57,7 +58,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         arrowShake = 0;
         ticksInAir = 0;
         pickupStatus = PickupStatus.DISALLOWED;
-        damage = 7.0F;
+        damage = (float) HSConfig.ITEMS.vampireKnifeProjectileDamage;
         knockBack = 1;
         setSize(0.5F, 0.5F);
     }
@@ -134,7 +135,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             return;
         }
 
-        if (world.isRemote && !this.inGround)
+        if (world.isRemote)
         {
             HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
         }
@@ -143,14 +144,27 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         if (rotationPitch <= -360) rotationPitch += 360;
         if (soundTimer >= 3)
         {
-            if (!isInsideOfMaterial(Material.WATER)) {
+            if (!isInsideOfMaterial(Material.WATER))
+            {
                 playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.2F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
             }
-            
+
             soundTimer = 0;
         }
 
         ++soundTimer;
+    }
+
+    @Override
+    protected ItemStack getArrowStack()
+    {
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public void setKnockbackStrength(int i)
+    {
+        knockBack = i;
     }
 
     // Fixes buggy projectile behavior on the client
@@ -187,7 +201,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             prevRotationPitch = n2;
         }
 
-        if (40 >= 0 && this.ticksExisted > 30)
+        if (this.ticksExisted > 30)
         {
             this.setDead();
         }
@@ -215,7 +229,8 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             extinguish();
         }
 
-        if (inGround) {
+        if (inGround)
+        {
             if (!iblockstate.equals(inBlockState) && !world.collidesWithAnyBlock(getEntityBoundingBox().grow(0.05D)))
             {
                 inGround = false;
@@ -224,11 +239,13 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
                 motionZ *= rand.nextFloat() * 0.2F;
                 ticksInGround = 0;
                 ticksInAir = 0;
-            } else if (!world.isRemote)
+            }
+            else if (!world.isRemote)
             {
                 ++ticksInGround;
                 int t = getMaxLifetime();
-                if (t != 0 && ticksInGround >= t) {
+                if (t != 0 && ticksInGround >= t)
+                {
                     this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
                     setDead();
                 }
@@ -263,7 +280,8 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             if (raytraceresult.entityHit != null)
             {
                 onEntityHit(raytraceresult.entityHit);
-            } else
+            }
+            else
             {
                 onGroundHit(raytraceresult);
             }
@@ -271,11 +289,12 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
 
         if (getIsCritical())
         {
-            for (int i1 = 0; i1 < 2; ++i1) {
+            for (int i1 = 0; i1 < 2; ++i1)
+            {
                 world.spawnParticle(EnumParticleTypes.CRIT, posX + motionX * i1 / 4.0D, posY + motionY * i1 / 4.0D, posZ + motionZ * i1 / 4.0D, -motionX, -motionY + 0.2D, -motionZ);
             }
         }
-        
+
         posX += motionX;
         posY += motionY;
         posZ += motionZ;
@@ -290,20 +309,20 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             rotationPitch = n4;
             prevRotationPitch = n4;
         }
-        
+
         float res = getAirResistance();
         float grav = getGravity();
 
         if (isInWater())
         {
             beenInGround = true;
-            
+
             for (int i2 = 0; i2 < 4; ++i2)
             {
                 float f3 = 0.25f;
                 world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, posX - motionX * f3, posY - motionY * f3, posZ - motionZ * f3, motionX, motionY, motionZ);
             }
-            
+
             res *= 0.6f;
         }
 
@@ -327,13 +346,13 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
 
         // Ignore invincibility frames
-        if (entity instanceof EntityLivingBase)
+        if (entity instanceof EntityLivingBase && HSConfig.ITEMS.vampireKnifeProjectileIgnoreIFrames)
         {
             EntityLivingBase base = (EntityLivingBase) entity;
             base.hurtResistantTime = 0;
             base.hurtTime = 0;
         }
-        
+
         setDead();
     }
 
@@ -354,7 +373,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             // Heals by 7.5% (configurable) of damage dealt to the target with indicating leeching particles
             if (((EntityPlayer) shootingEntity).shouldHeal() && shootingEntity instanceof EntityPlayer)
             {
-                ((EntityPlayer) shootingEntity).heal(this.damage * 0.075F);
+                ((EntityPlayer) shootingEntity).heal(this.damage * (float) HSConfig.ITEMS.vampireKnifeProjectileHealing);
                 shootingEntity.playSound(HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), 0.2F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
 
                 if (world.isRemote)
@@ -366,7 +385,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             if (knockBack > 0)
             {
                 float f = MathHelper.sqrt(motionX * motionX + motionZ * motionZ);
-                
+
                 if (f > 0.0F)
                 {
                     entity.addVelocity(motionX * knockBack * 0.6D / f, 0.1D, motionZ * knockBack * 0.6D / f);
@@ -431,34 +450,6 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         setDead();
     }
 
-    @Nullable
-    protected Entity findEntity(Vec3d vec3d, Vec3d vec3d1) {
-        Entity entity = null;
-        List<Entity> list = world.getEntitiesInAABBexcluding(this, getEntityBoundingBox().expand(motionX, motionY, motionZ).grow(1.0D), WEAPON_TARGETS);
-        double d = 0.0D;
-
-        for (Entity entity2 : list)
-        {
-            if (entity2 != shootingEntity || ticksInAir >= 5)
-            {
-                AxisAlignedBB axisalignedbb = entity2.getEntityBoundingBox().grow(0.3D);
-                RayTraceResult raytraceresult = axisalignedbb.calculateIntercept(vec3d, vec3d1);
-
-                if (raytraceresult != null)
-                {
-                    double d2 = vec3d.squareDistanceTo(raytraceresult.hitVec);
-
-                    if (d2 < d || d == 0.0D)
-                    {
-                        entity = entity2;
-                        d = d2;
-                    }
-                }
-            }
-        }
-        return entity;
-    }
-
     public boolean aimRotation()
     {
         return beenInGround;
@@ -484,15 +475,32 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         return 0.98F;
     }
 
-    @Override
-    protected ItemStack getArrowStack()
+    @Nullable
+    protected Entity findEntity(Vec3d vec3d, Vec3d vec3d1)
     {
-        return ItemStack.EMPTY;
-    }
+        Entity entity = null;
+        List<Entity> list = world.getEntitiesInAABBexcluding(this, getEntityBoundingBox().expand(motionX, motionY, motionZ).grow(1.0D), WEAPON_TARGETS);
+        double d = 0.0D;
 
-    @Override
-    public void setKnockbackStrength(int i)
-    {
-        knockBack = i;
+        for (Entity entity2 : list)
+        {
+            if (entity2 != shootingEntity || ticksInAir >= 5)
+            {
+                AxisAlignedBB axisalignedbb = entity2.getEntityBoundingBox().grow(0.3D);
+                RayTraceResult raytraceresult = axisalignedbb.calculateIntercept(vec3d, vec3d1);
+
+                if (raytraceresult != null)
+                {
+                    double d2 = vec3d.squareDistanceTo(raytraceresult.hitVec);
+
+                    if (d2 < d || d == 0.0D)
+                    {
+                        entity = entity2;
+                        d = d2;
+                    }
+                }
+            }
+        }
+        return entity;
     }
 }

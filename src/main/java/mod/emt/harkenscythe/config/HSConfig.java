@@ -233,6 +233,34 @@ public class HSConfig
         @Config.Name("Soul Vessel Essence Capacity")
         @Config.Comment("The amount of essence soul vessels can hold")
         public int soulVesselEssenceCapacity = 40;
+
+        @Config.Name("Vampire Knife Blood Cost")
+        @Config.Comment
+            ({
+                "The amount of blood essence firing vampire knife projectiles consumes",
+                "Set to 0 to disable essence consumption"
+            })
+        public int vampireKnifeBloodCost = 1;
+
+        @Config.Name("Vampire Knife Cooldown")
+        @Config.Comment("The cooldown of firing vampire knife projectiles in ticks")
+        public int vampireKnifeCooldown = 5;
+
+        @Config.Name("Vampire Knife Drop Chance")
+        @Config.Comment("The chance for vampire knives to drop under the right circumstances in percent")
+        public double vampireKnifeDropChance = 0.0005D;
+
+        @Config.Name("Vampire Knife Projectile Damage")
+        @Config.Comment("The amount of damage vampire knife projectiles deal")
+        public double vampireKnifeProjectileDamage = 7.0D;
+
+        @Config.Name("Vampire Knife Projectile Healing")
+        @Config.Comment("The amount of health vampire knife projectiles heal in percent")
+        public double vampireKnifeProjectileHealing = 0.075D;
+
+        @Config.Name("Vampire Knife Projectile Ignore I-Frames")
+        @Config.Comment("Lets targets of vampire knife projectiles receive damage continuously without brief invulnerability phases")
+        public boolean vampireKnifeProjectileIgnoreIFrames = true;
     }
 
     public static class RecipeSettings
