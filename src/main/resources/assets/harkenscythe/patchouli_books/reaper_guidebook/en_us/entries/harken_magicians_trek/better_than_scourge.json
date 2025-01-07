@@ -18,7 +18,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "harkenscythe:unpowered_totem_of_undying",
+      "recipe": "harkenscythe:vampire_knife",
       "title": " ",
       "text": "You'll need to repair the broken knife after obtaining it, a mixture of biomass and livingmetal will do.$(br2)Nerfed in its original homeworld. Back for vengeance in a new one."
     }
