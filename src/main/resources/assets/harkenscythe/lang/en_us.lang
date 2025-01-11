@@ -177,6 +177,7 @@ message.harkenscythe.dimensional_mirror.no_souls=The mirror needs to be recharge
 message.harkenscythe.dimensional_mirror.no_spawn=No spawn point is set for the mirror to work!
 message.harkenscythe.hs_lifesteal=%s was voluntold to donate blood
 message.harkenscythe.hs_reap=%s was reaped
+message.harkenscythe.vampire_knife.no_blood=The vampire knife needs to be recharged with blood to work!
 
 # SET BONUSES
 setbonus.harkenscythe=Set Bonus:

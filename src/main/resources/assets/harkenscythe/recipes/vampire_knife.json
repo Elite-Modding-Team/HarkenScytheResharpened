@@ -19,6 +19,7 @@
     }
   },
   "result": {
-    "item": "harkenscythe:vampire_knife"
+    "item": "harkenscythe:vampire_knife",
+    "data": 2000
   }
 }

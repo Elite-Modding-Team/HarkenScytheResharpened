@@ -30,6 +30,10 @@ advancement.harkenscythe.was_it_even_real.name=War es überhaupt echt?
 advancement.harkenscythe.was_it_even_real.desc=Begegne einem geisterhaften Bergarbeiter.
 advancement.harkenscythe.wild_armed.name=Wild bewaffnet
 advancement.harkenscythe.wild_armed.desc=Erhalte die geheime Sense.
+advancement.harkenscythe.crimson_key.name=Karmesinschlüssel
+advancement.harkenscythe.crimson_key.desc=Erhalte das extrem seltene beschädigte Vampirmesser im Nether!
+advancement.harkenscythe.better_than_scourge.name=Besser als Scourge
+advancement.harkenscythe.better_than_scourge.desc=Erhalte das mächtige lebensabsorbierende Vampirmesser, indem du das beschädigte Gegenstück reparierst!
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Blutaltar
@@ -123,18 +127,27 @@ item.harkenscythe.spectral_potion_water.name=Spektraler Trank des Wassers
 item.harkenscythe.stone_glaive.name=Steinglefe
 item.harkenscythe.stone_scythe.name=Steinsense
 item.harkenscythe.unpowered_totem_of_undying.name=Kraftloses Totem der Unsterblichkeit
+item.harkenscythe.damaged_vampire_knife.name=Beschädigtes Vampirmesser
+item.harkenscythe.vampire_knife.name=Vampirmesser
+item.harkenscythe.vampire_knife_projectile.name=Vampirmesser-Projektil
 item.harkenscythe.wooden_glaive.name=Holzglefe
 item.harkenscythe.wooden_scythe.name=Holzsense
 
 # ENTITIES
 entity.harkenscythe.blood.name=Blutessenz
 entity.harkenscythe.ectoglobin.name=Ektoglobin
+entity.harkenscythe.exospider.name=Exoskelettspinne
 entity.harkenscythe.harbinger.name=Harbinger
 entity.harkenscythe.hemoglobin.name=Hämoglobin
+entity.harkenscythe.hothead.name=Hitzkopf
+entity.harkenscythe.skeleton_shaman.name=Skelettschamane
 entity.harkenscythe.soul.name=Seelenessenz
+entity.harkenscythe.soulbearer.name=Seelenträger
 entity.harkenscythe.spectral_human.name=Spektraler Mensch
 entity.harkenscythe.spectral_miner.name=Spektraler Bergarbeiter
 entity.harkenscythe.spectral_potion.name=Spektraler Trank
+entity.harkenscythe.titanbearer.name=Titanträger
+entity.harkenscythe.vampire_knife.name=Vampirmesser
 
 # ENCHANTMENTS
 enchantment.harkenscythe.blight=Fäule
@@ -162,7 +175,9 @@ message.harkenscythe.altar.invalid_recipe=Dies ist kein gültiges Rezept für ei
 message.harkenscythe.dimensional_mirror.blacklist=Eine magische Kraft verhindert, dass der Spiegel in dieser Dimension funktioniert!
 message.harkenscythe.dimensional_mirror.no_souls=Der Spiegel muss mit Seelen aufgeladen werden, damit er funktioniert!
 message.harkenscythe.dimensional_mirror.no_spawn=Es ist kein Spawnpunkt festgelegt, damit der Spiegel funktioniert!
+message.harkenscythe.hs_lifesteal=%s wurde zum freiwilligen Blutspenden gebracht
 message.harkenscythe.hs_reap=%s wurde gereapt
+message.harkenscythe.vampire_knife.no_blood=Das Vampirmesser muss mit Blut aufgeladen werden, damit es funktioniert!
 
 # SET BONUSES
 setbonus.harkenscythe=Set-Bonus:
@@ -183,6 +198,7 @@ tooltip.harkenscythe.carnage_book=Ein Buch mit religiösen Inschriften und Anlei
 tooltip.harkenscythe.collected_blood=Gesammelte Blutessenz
 tooltip.harkenscythe.collected_souls=Gesammelte Seelenessenz
 tooltip.harkenscythe.creepball=Pflanze auf Seelensand, um die Kolonie zu verbreiten...
+tooltip.harkenscythe.damaged_relic=Dieses abgenutzte Relikt war ursprünglich sehr mächtig. Du musst es erst reparieren, bevor du es benutzen kannst.
 tooltip.harkenscythe.dimensional_mirror=Auf Kosten von Seelenessenz bringt er dich von jedem erlaubten Ort direkt zu deinem Spawnpunkt zurück.
 tooltip.harkenscythe.essence_container=Wird verwendet, um Blutessenz oder Seelenessenz zu nutzen.
 tooltip.harkenscythe.germinated_biomass_seed=Sollte in bearbeitete Kriechblöcke gepflanzt werden.
@@ -205,6 +221,7 @@ tooltip.harkenscythe.spectral_potion_flame=Kann geworfen werden, um Feuer zu ent
 tooltip.harkenscythe.spectral_potion_purifying=Kann geworfen werden, um eine Verweiltrank-Wolke zu erzeugen, die alle negativen Effekte vertreibt.
 tooltip.harkenscythe.spectral_potion_water=Kann geworfen werden, um Feuer zu löschen.
 tooltip.harkenscythe.totem_undying_unpowered=Muss zuerst auf einem Seelenaltar aktiviert werden, bevor es funktionieren kann.
+tooltip.harkenscythe.vampire_knife=Halte die rechte Maustaste gedrückt, um schnell mehrere lebensabsorbierende Messer zu werfen. Kostet Blutessenz.
 
 # CONFIG
 cfg.harkenscythe.general=General

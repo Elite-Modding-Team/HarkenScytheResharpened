@@ -31,6 +31,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.block.HSBlockSoulCake;
 import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.item.*;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
@@ -222,7 +223,7 @@ public class HSItems
     public static ToolMaterial TOOL_LADY_HARKEN = EnumHelper.addToolMaterial("hs_tool_lady_harken", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(soul_essence));
 
     // Non-Repairable
-    public static ToolMaterial TOOL_VAMPIRE_KNIFE = EnumHelper.addToolMaterial("hs_tool_vampire_knife", 4, 2000, 9.0F, 0.0F, 25);
+    public static ToolMaterial TOOL_VAMPIRE_KNIFE = EnumHelper.addToolMaterial("hs_tool_vampire_knife", 4, HSConfig.ITEMS.vampireKnifeMaxCharges, 9.0F, 0.0F, 25);
 
     @SubscribeEvent
     public static void onRegisterItemsEvent(@Nonnull final RegistryEvent.Register<Item> event)

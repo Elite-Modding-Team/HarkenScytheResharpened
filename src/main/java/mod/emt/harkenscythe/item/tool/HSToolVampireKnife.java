@@ -12,22 +12,20 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
-import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.item.HSItemEssenceKeeperBlood;
 
 public class HSToolVampireKnife extends HSToolSword implements IHSTool
 {
@@ -37,14 +35,24 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     {
         super(material, EnumRarity.COMMON);
         this.attackSpeed = attackSpeed;
+        this.setMaxDamage(HSConfig.ITEMS.vampireKnifeMaxCharges);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
-        if (!player.capabilities.isCreativeMode && !drainBloodContainer(player))
+        ItemStack stack = player.getHeldItem(hand);
+        if (!player.capabilities.isCreativeMode)
         {
-            return new ActionResult<>(EnumActionResult.FAIL, player.getHeldItem(hand));
+            if (stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.vampireKnifeBloodCost)
+            {
+                stack.setItemDamage(stack.getItemDamage() + HSConfig.ITEMS.vampireKnifeBloodCost);
+            }
+            else
+            {
+                player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.vampire_knife.no_blood"), true);
+                return new ActionResult<>(EnumActionResult.FAIL, player.getHeldItem(hand));
+            }
         }
         if (!world.isRemote)
         {
@@ -52,7 +60,6 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
             for (int i = -2; i < 3; i++)
             {
                 HSEntityVampireKnife sword = new HSEntityVampireKnife(world, player);
-                ItemStack stack = player.getHeldItem(hand);
                 sword.shoot(player, player.rotationPitch, player.rotationYaw + (i * 15.0F), 0.0F, 1.5F, 3.0F);
                 sword.setKnockbackStrength(EnchantmentHelper.getEnchantmentLevel(Enchantments.KNOCKBACK, stack));
                 sword.setGlowing(true);
@@ -74,6 +81,12 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     public boolean isDamageable()
     {
         return false;
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack)
+    {
+        return true;
     }
 
     @Override
@@ -131,36 +144,5 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
         }
 
         return multimap;
-    }
-
-    private boolean drainBloodContainer(EntityPlayer player)
-    {
-        if (HSConfig.ITEMS.vampireKnifeBloodCost <= 0) return true;
-        for (int i = 0; i < player.inventory.getSizeInventory(); i++)
-        {
-            ItemStack stack = player.inventory.getStackInSlot(i);
-            if (!stack.isEmpty() && stack.getItem() instanceof HSItemEssenceKeeperBlood)
-            {
-                Item item = stack.getItem();
-                if (stack.getItemDamage() + HSConfig.ITEMS.vampireKnifeBloodCost < stack.getMaxDamage())
-                {
-                    stack.setItemDamage(stack.getItemDamage() + HSConfig.ITEMS.vampireKnifeBloodCost);
-                }
-                else
-                {
-                    stack.shrink(1);
-                    if (item == HSItems.essence_keeper_blood)
-                    {
-                        player.inventory.addItemStackToInventory(new ItemStack(HSItems.essence_keeper));
-                    }
-                    else if (item == HSItems.essence_vessel_blood)
-                    {
-                        player.inventory.addItemStackToInventory(new ItemStack(HSItems.essence_vessel));
-                    }
-                }
-                return true;
-            }
-        }
-        return false;
     }
 }

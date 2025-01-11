@@ -203,7 +203,11 @@ public class HSConfig
         public int[] dimensionalMirrorDimensionBlacklist = new int[] {426, 427, 801, 812};
 
         @Config.Name("Dimensional Mirror Durability")
-        @Config.Comment("The amount of durability dimensional mirrors have")
+        @Config.Comment
+            ({
+                "The amount of durability dimensional mirrors have",
+                "When changing this, you may want to modify the recipe data value accordingly"
+            })
         public int dimensionalMirrorDurability = 20;
 
         @Config.Name("Dimensional Mirror Home Dimension")
@@ -249,6 +253,14 @@ public class HSConfig
         @Config.Name("Vampire Knife Drop Chance")
         @Config.Comment("The chance for vampire knives to drop under the right circumstances in percent")
         public double vampireKnifeDropChance = 0.0005D;
+
+        @Config.Name("Vampire Knife Max Charges")
+        @Config.Comment
+            ({
+                "The maximum amount of blood charges vampire knifes can take",
+                "When changing this, you may want to modify the recipe data value accordingly"
+            })
+        public int vampireKnifeMaxCharges = 2000;
 
         @Config.Name("Vampire Knife Projectile Damage")
         @Config.Comment("The amount of damage vampire knife projectiles deal")

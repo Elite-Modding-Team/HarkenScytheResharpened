@@ -223,6 +223,7 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_robe, HSItems.bloodweave_robe, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_pants, HSItems.bloodweave_pants, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_shoes, HSItems.bloodweave_shoes, 10);
+        HSAltarRecipes.addBloodRecipe(HSItems.vampire_knife, HSItems.vampire_knife, 5);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe(new ItemStack(Items.GOLDEN_APPLE, 1), new ItemStack(Items.GOLDEN_APPLE, 1, 1), 200); // Notch Apple
         HSAltarRecipes.addBloodRecipe(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, 1);
