@@ -68,7 +68,7 @@ public class HSAltarRecipes
     {
         for (HSRecipeBloodAltar recipe : BLOOD_ALTAR_RECIPES)
         {
-            if (recipe.getInput().isItemEqual(input))
+            if (recipe.getInput().getItem() == input.getItem())
             {
                 return true;
             }
@@ -92,7 +92,7 @@ public class HSAltarRecipes
     {
         for (HSRecipeBloodAltar recipe : BLOOD_ALTAR_RECIPES)
         {
-            if (recipe.getInput().isItemEqual(input))
+            if (recipe.getInput().getItem() == input.getItem())
             {
                 return recipe.getRequiredBlood();
             }
