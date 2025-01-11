@@ -14,6 +14,8 @@ import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
@@ -140,6 +142,19 @@ public abstract class HSEntityEssence extends EntityLivingBase
     protected boolean canTriggerWalking()
     {
         return false;
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public int getBrightnessForRender()
+    {
+        return 15728880;
+    }
+
+    @Override
+    public float getBrightness()
+    {
+        return 1.0F;
     }
 
     @Override
