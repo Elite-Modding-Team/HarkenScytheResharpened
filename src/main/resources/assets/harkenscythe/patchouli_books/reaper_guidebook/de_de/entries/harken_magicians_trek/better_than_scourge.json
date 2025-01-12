@@ -1,0 +1,26 @@
+{
+  "name": "Besser als Scourge",
+  "icon": "harkenscythe:textures/items/vampire_knife.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:bloody_foundations",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Die Erzählungen verschiedener Reaper berichten von einer mächtigen Waffe, die die Fähigkeit besitzt, magische Messer zu werfen, die das Blut von befallenen Gegnern abziehen und dem Träger das Leben zurückgeben.$(br)Ursprünglich unter $(4)den Gebieten aus Fleisch und Blut$() eingesperrt, wurde sie leider als zu mächtig angesehen, so dass sie von den Herrschern verbannt wurde."
+    },
+    {
+      "type": "text",
+      "text": "Gerüchten zufolge wird die Waffe in einem kaputten Zustand nun von jedem Monster getragen, das im Nether anzutreffen ist.$(br2)Die Waffe wird nur für Spieler fallen gelassen, was bedeutet, dass Mob-Farmen und andere faule Methoden nicht funktionieren werden.$(br2)Unschuldige Kreaturen und schwächere Monster, die weniger als 16 Lebenspunkte haben, werden sie ebenfalls nicht tragen."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:vampire_knife",
+      "title": " ",
+      "text": "Du musst das zerbrochene Messer reparieren, nachdem du es erhalten hast, eine Mischung aus Biomasse und Lebendmetall reicht aus.$(br)In seiner ursprünglichen Heimatwelt wurde es vernichtet. Zurück für Rache in einer neuen Welt."
+    },
+    {
+      "type": "text",
+      "text": "Wenn du das Messer in der Hand hast, kannst du $(4)Rechtsklick$() gedrückt halten, um ständig über fünf Messer auf deine Ziele zu werfen. Außerdem wirst du um einen kleinen Prozentsatz des zugefügten Schadens geheilt, solange du nicht bei voller Gesundheit bist.$(br)Gehe sparsam damit um! Das Messer will für jeden Einsatz eine Blutessenz.$(br)Das Messer wird niemals zerbrechen. Du kannst es auf einem Altar des Blutes wieder aufladen."
+    }
+  ]
+}
