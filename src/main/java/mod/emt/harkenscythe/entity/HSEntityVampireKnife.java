@@ -135,10 +135,10 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             return;
         }
 
-        if (world.isRemote)
+        /*if (world.isRemote)
         {
             HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
-        }
+        }*/
 
         rotationPitch -= 70.0F;
         if (rotationPitch <= -360) rotationPitch += 360;
@@ -146,7 +146,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         {
             if (!isInsideOfMaterial(Material.WATER))
             {
-                playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.2F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
+                playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.1F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
             }
 
             soundTimer = 0;
@@ -201,7 +201,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             prevRotationPitch = n2;
         }
 
-        if (this.ticksExisted > 30)
+        if (this.ticksExisted > 40)
         {
             this.setDead();
         }
@@ -246,6 +246,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
                 int t = getMaxLifetime();
                 if (t != 0 && ticksInGround >= t)
                 {
+                    // TODO: Make impact particles look more like an impact
                     this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
                     setDead();
                 }
@@ -343,6 +344,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
     {
         if (entity != null && entity == this.shootingEntity) return;
         applyEntityHitEffects(entity);
+        // TODO: Make impact particles look more like an impact
         this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
 
         // Ignore invincibility frames
@@ -501,6 +503,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
                 }
             }
         }
+        
         return entity;
     }
 }

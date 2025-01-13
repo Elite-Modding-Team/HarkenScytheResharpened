@@ -67,7 +67,7 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
             }
 
             player.getCooldownTracker().setCooldown(this, HSConfig.ITEMS.vampireKnifeCooldown);
-            world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 0.6F + world.rand.nextFloat());
+            world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), SoundCategory.PLAYERS, 0.7F, 0.6F + world.rand.nextFloat());
         }
         else
         {

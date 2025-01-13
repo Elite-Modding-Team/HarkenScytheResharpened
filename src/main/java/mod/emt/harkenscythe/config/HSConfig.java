@@ -264,7 +264,7 @@ public class HSConfig
 
         @Config.Name("Vampire Knife Projectile Damage")
         @Config.Comment("The amount of damage vampire knife projectiles deal")
-        public double vampireKnifeProjectileDamage = 7.0D;
+        public double vampireKnifeProjectileDamage = 10.0D;
 
         @Config.Name("Vampire Knife Projectile Healing")
         @Config.Comment("The amount of health vampire knife projectiles heal in percent")
