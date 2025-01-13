@@ -2,8 +2,6 @@ package mod.emt.harkenscythe.client.renderer;
 
 import javax.annotation.Nonnull;
 
-import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
-import mod.emt.harkenscythe.init.HSItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
@@ -16,31 +14,36 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
+import mod.emt.harkenscythe.entity.HSEntityVampireKnife;
+import mod.emt.harkenscythe.init.HSItems;
+
 public class HSRendererEntityVampireKnife extends Render<HSEntityVampireKnife>
 {
+    private static final ItemStack PROJECTILE = new ItemStack(HSItems.vampire_knife_projectile);
+
     public HSRendererEntityVampireKnife(RenderManager renderManager)
     {
         super(renderManager);
     }
 
     @Override
-    public void doRender(@Nonnull HSEntityVampireKnife entity, double d, double d1, double d2, float f, float f1)
+    public void doRender(@Nonnull HSEntityVampireKnife entity, double x, double y, double z, float yaw, float partialTicks)
     {
         RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
         GlStateManager.pushMatrix();
         bindEntityTexture(entity);
-        GlStateManager.translate(d, d1, d2);
+        GlStateManager.translate(x, y, z);
         GlStateManager.enableRescaleNormal();
         GlStateManager.scale(0.85f, 0.85f, 0.85f);
-        GlStateManager.rotate(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * f1 - 90.0f, 0.0f, 1.0f, 0.0f);
-        GlStateManager.rotate(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * f1 - 45.0f, 0.0f, 0.0f, 1.0f);
-        this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-        float f15 = entity.arrowShake - f1;
+        GlStateManager.rotate(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * partialTicks - 90.0f, 0.0f, 1.0f, 0.0f);
+        GlStateManager.rotate(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * partialTicks - 45.0f, 0.0f, 0.0f, 1.0f);
+        bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+        float f1 = entity.arrowShake - partialTicks;
 
-        if (f15 > 0.0f)
+        if (f1 > 0.0f)
         {
-            float f16 = -MathHelper.sin(f15 * 3.0f) * f15;
-            GlStateManager.rotate(f16, 0.0f, 0.0f, 1.0f);
+            float f2 = -MathHelper.sin(f1 * 3.0f) * f1;
+            GlStateManager.rotate(f2, 0.0f, 0.0f, 1.0f);
         }
 
         GlStateManager.translate(-0.15f, -0.15f, 0.0f);
@@ -51,7 +54,7 @@ public class HSRendererEntityVampireKnife extends Render<HSEntityVampireKnife>
             GlStateManager.enableOutlineMode(15539236);
         }
 
-        itemRender.renderItem(getStackToRender(entity), TransformType.NONE);
+        itemRender.renderItem(PROJECTILE, TransformType.NONE);
 
         if (renderOutlines)
         {
@@ -61,12 +64,7 @@ public class HSRendererEntityVampireKnife extends Render<HSEntityVampireKnife>
 
         GlStateManager.disableRescaleNormal();
         GlStateManager.popMatrix();
-        super.doRender(entity, d, d1, d2, f, f1);
-    }
-
-    public ItemStack getStackToRender(HSEntityVampireKnife entity)
-    {
-        return new ItemStack(HSItems.vampire_knife_projectile);
+        super.doRender(entity, x, y, z, yaw, partialTicks);
     }
 
     @Override
