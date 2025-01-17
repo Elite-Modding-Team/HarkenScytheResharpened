@@ -92,11 +92,11 @@ public class HSGroovyScriptBloodAltarRecipes extends VirtualizedRegistry<HSRecip
         return new RecipeBuilder();
     }
 
-    @Property(property = "input", valid = @Comp("1"))
-    @Property(property = "output", valid = @Comp("1"))
+    @Property(property = "input", comp = @Comp(eq = 1))
+    @Property(property = "output", comp = @Comp(eq = 1))
     public static class RecipeBuilder extends AbstractRecipeBuilder<HSRecipeBloodAltar>
     {
-        @Property(valid = @Comp(type = Comp.Type.GTE, value = "1"))
+        @Property(comp = @Comp(gte = 1))
         private int requiredBlood;
 
         @RecipeBuilderMethodDescription
