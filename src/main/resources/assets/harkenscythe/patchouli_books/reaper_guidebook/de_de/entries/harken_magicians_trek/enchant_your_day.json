@@ -1,0 +1,42 @@
+{
+  "name": "Verzaubere deinen Tag",
+  "icon": "minecraft:textures/items/book_enchanted.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Du kannst deine Waffen und Rüstung an einem normalen Verzauberungstisch mit den folgenden mächtigen alten Verzauberungen verzaubern:"
+    },
+    {
+      "type": "text",
+      "title": "Fäule",
+      "text": "Belegt das Ziel mindestens 5 Sekunden lang mit den Effekten Verdorrung, Schwebekraft und Schwäche.$(br)Anwendbar auf Bögen."
+    },
+    {
+      "type": "text",
+      "title": "Aderlass",
+      "text": "Erhöht die Chance auf einen zusätzlichen Blutessenz-Drop beim Reapen um mindestens 5%.$(br)Anwendbar auf Schwerter."
+    },
+    {
+      "type": "text",
+      "title": "Verströmung",
+      "text": "Heilt das Ziel von Gift und Verdorrung, heilt und löscht es, falls es brennt.$(br)Anwendbar auf Rüstung."
+    },
+    {
+      "type": "text",
+      "title": "Blutung",
+      "text": "Belegt das Ziel mit dem Effekt Bluten, der mindestens 5 Sekunden lang periodischen Schaden verursacht.$(br)Anwendbar auf Schwerter."
+    },
+    {
+      "type": "text",
+      "title": "Ernährung",
+      "text": "Füllt den Hungerbalken mit jedem zugefügten Schaden wieder auf.$(br)Anwendbar auf Rüstung."
+    },
+    {
+      "type": "text",
+      "title": "Seelenraub",
+      "text": "Erhöht die Chance auf einen zusätzlichen Seelenessenz-Drop beim Reapen um mindestens 5%.$(br)Anwendbar auf Schwerter."
+    }
+  ]
+}

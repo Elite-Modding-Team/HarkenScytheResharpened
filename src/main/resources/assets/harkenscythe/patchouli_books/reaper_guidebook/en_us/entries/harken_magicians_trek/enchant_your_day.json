@@ -1,0 +1,42 @@
+{
+  "name": "Enchant Your Day",
+  "icon": "minecraft:textures/items/book_enchanted.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "You can enchant your weaponry and armory at a regular enchanting table with the following powerful ancient enchantments:"
+    },
+    {
+      "type": "text",
+      "title": "Blight",
+      "text": "Afflicts the target with Wither, Levitation and Weakness effects for at least 5 seconds.$(br)Applicable to bows."
+    },
+    {
+      "type": "text",
+      "title": "Bloodletting",
+      "text": "Increases the chance for an additional blood essence drop on reaps by at least 5%.$(br)Applicable to swords."
+    },
+    {
+      "type": "text",
+      "title": "Exude",
+      "text": "Heals the target from Poison and Wither effects, heals and extinguishes them if burning.$(br)Applicable to armor."
+    },
+    {
+      "type": "text",
+      "title": "Hemorrhage",
+      "text": "Afflicts the target with the Bleeding effect, dealing periodic damage for at least 5 seconds.$(br)Applicable to swords."
+    },
+    {
+      "type": "text",
+      "title": "Nourishment",
+      "text": "Replenishes the hunger bar by each damage dealt.$(br)Applicable to armor."
+    },
+    {
+      "type": "text",
+      "title": "Soulsteal",
+      "text": "Increases the chance for an additional soul essence drop on reaps by at least 5%.$(br)Applicable to swords."
+    }
+  ]
+}
