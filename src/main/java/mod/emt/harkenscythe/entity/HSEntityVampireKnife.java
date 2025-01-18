@@ -246,8 +246,11 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
                 int t = getMaxLifetime();
                 if (t != 0 && ticksInGround >= t)
                 {
-                    // TODO: Make impact particles look more like an impact
-                    this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
+                    for (double offset = -0.5; offset <= 0.5; offset += 0.1)
+                    {
+                        this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, 0.0D, 0.0D, 0.0D);
+                        this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, 0.0D, 0.0D, 0.0D);
+                    }
                     setDead();
                 }
             }
@@ -344,8 +347,12 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
     {
         if (entity != null && entity == this.shootingEntity) return;
         applyEntityHitEffects(entity);
-        // TODO: Make impact particles look more like an impact
-        this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
+
+        for (double offset = -0.5; offset <= 0.5; offset += 0.1)
+        {
+            this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, 0.0D, 0.0D, 0.0D);
+            this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, 0.0D, 0.0D, 0.0D);
+        }
 
         // Ignore invincibility frames
         if (entity instanceof EntityLivingBase && HSConfig.ITEMS.vampireKnifeProjectileIgnoreIFrames)
@@ -503,7 +510,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
                 }
             }
         }
-        
+
         return entity;
     }
 }
