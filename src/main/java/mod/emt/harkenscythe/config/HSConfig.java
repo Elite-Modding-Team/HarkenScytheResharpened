@@ -87,6 +87,10 @@ public class HSConfig
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
 
+        @Config.Name("Globin Crucible Spawning")
+        @Config.Comment("Spawns globins when filled crucibles are broken")
+        public boolean globinCrucibleSpawning = true;
+
         @Config.Name("Harbinger Armor Value")
         @Config.Comment("The amount of armor protection the Harbinger has")
         public double harbingerArmorValue = 10.0D;

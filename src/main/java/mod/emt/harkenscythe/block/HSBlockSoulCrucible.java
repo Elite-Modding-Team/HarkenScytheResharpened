@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.init.HSItems;
 
@@ -20,7 +21,7 @@ public class HSBlockSoulCrucible extends HSBlockCrucible
     @Override
     public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player)
     {
-        if (!world.isRemote && state.getValue(LEVEL) > 0)
+        if (HSConfig.ENTITIES.globinCrucibleSpawning && !world.isRemote && state.getValue(LEVEL) > 0)
         {
             HSEntityEctoglobin ectoglobin = new HSEntityEctoglobin(world);
             int size = 2;
