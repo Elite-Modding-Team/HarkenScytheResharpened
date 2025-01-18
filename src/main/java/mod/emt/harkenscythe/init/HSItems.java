@@ -296,10 +296,6 @@ public class HSItems
                 HSRegistry.setup(new HSToolVampireKnife(TOOL_VAMPIRE_KNIFE, 2.0F), "vampire_knife").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "vampire_knife_projectile"), // Fake item for projectile, ignore
                 HSRegistry.setup(new HSItemSpectralBottle(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.AFFLICTION), "spectral_potion_affliction").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.FLAME), "spectral_potion_flame").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.PURIFYING), "spectral_potion_purifying").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.WATER), "spectral_potion_water").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 11546150), "bloodweave_hood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 11546150), "bloodweave_robe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 11546150), "bloodweave_pants").setCreativeTab(HarkenScythe.TAB),
@@ -310,7 +306,19 @@ public class HSItems
                 HSRegistry.setup(new HSArmorDyeable(ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
             );
 
-        // Third Party Mod Integration
+        // POTIONS
+        if (!HSConfig.GENERAL.disablePotions)
+        {
+            registry.registerAll
+                (
+                    HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.AFFLICTION), "spectral_potion_affliction").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.FLAME), "spectral_potion_flame").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.PURIFYING), "spectral_potion_purifying").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.WATER), "spectral_potion_water").setCreativeTab(HarkenScythe.TAB)
+                );
+        }
+
+        // THIRD PARTY MOD INTEGRATION
         if (Loader.isModLoaded("patchouli"))
         {
             registry.register(HSRegistry.setup(new HSItemGuidebook(), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB));

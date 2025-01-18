@@ -38,6 +38,14 @@ public class HSConfig
         @Config.Name("Debug Mode")
         @Config.Comment("Prints debug values to console")
         public boolean debugMode = false;
+
+        @Config.Name("Disable Enchantments")
+        @Config.Comment("Disables all enchantments")
+        public boolean disableEnchantments = false;
+
+        @Config.Name("Disable Potions")
+        @Config.Comment("Disables all potions")
+        public boolean disablePotions = false;
     }
 
     public static class BlockSettings

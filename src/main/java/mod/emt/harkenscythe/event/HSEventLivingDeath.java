@@ -27,6 +27,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.*;
 import mod.emt.harkenscythe.entity.ai.HSAIPassiveMobAttack;
 import mod.emt.harkenscythe.init.HSEnchantments;
@@ -130,6 +131,7 @@ public class HSEventLivingDeath
 
     private static boolean isEnchantmentReap(Enchantment enchantment, EntityPlayer player)
     {
+        if (HSConfig.GENERAL.disableEnchantments) return false;
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
         return (level > 0 && player.getRNG().nextFloat() < 0.15F * level);
     }

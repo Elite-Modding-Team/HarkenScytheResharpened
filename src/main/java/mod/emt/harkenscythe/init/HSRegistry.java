@@ -106,6 +106,8 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)
     {
+        if (HSConfig.GENERAL.disableEnchantments) return;
+
         HarkenScythe.LOGGER.info("Registering enchantments...");
 
         event.getRegistry().registerAll(
@@ -182,11 +184,14 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> event)
     {
+        if (!HSConfig.GENERAL.disableEnchantments) event.getRegistry().register(HSPotions.BLEEDING);
+
+        if (HSConfig.GENERAL.disablePotions) return;
+
         HarkenScythe.LOGGER.info("Registering potions...");
 
         event.getRegistry().registerAll(
             HSPotions.AFFLICTION,
-            HSPotions.BLEEDING,
             HSPotions.FLAME,
             HSPotions.PURIFYING,
             HSPotions.WATER

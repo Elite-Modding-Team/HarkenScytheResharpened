@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.entity.HSEntityGlobin;
 import mod.emt.harkenscythe.init.HSEnchantments;
@@ -45,55 +46,58 @@ public class HSEventLivingHurt
                 spawnBlood(world, entity);
             }
         }
-        if (entity instanceof EntityPlayer)
+        if (!HSConfig.GENERAL.disableEnchantments)
         {
-            // Nourishment enchantment
-            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-            if (player.getFoodStats().getFoodLevel() > 0 && isEnchantmentReap(HSEnchantments.NOURISHMENT, player))
+            if (entity instanceof EntityPlayer)
             {
-                int damage = Math.min(player.getFoodStats().getFoodLevel(), Math.round(event.getAmount()));
-                player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - damage);
-                event.setAmount(0);
-            }
-            // Exude enchantment
-            if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && isEnchantmentReap(HSEnchantments.EXUDE, player))
-            {
-                player.removePotionEffect(MobEffects.POISON);
-                player.removePotionEffect(MobEffects.WITHER);
-                player.extinguish();
-                player.heal(event.getAmount());
-                event.setAmount(0);
-            }
-        }
-        // Blight enchantment
-        if (event.getSource().getImmediateSource() instanceof EntityArrow)
-        {
-            EntityArrow arrow = (EntityArrow) event.getSource().getImmediateSource();
-            if (arrow.shootingEntity instanceof EntityLivingBase)
-            {
-                EntityLivingBase shooter = (EntityLivingBase) arrow.shootingEntity;
-                ItemStack bow = shooter.getHeldItemMainhand();
-                int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.BLIGHT, bow);
-                if (!bow.isEmpty() && level > 0)
+                // Nourishment enchantment
+                EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+                if (player.getFoodStats().getFoodLevel() > 0 && isEnchantmentReap(HSEnchantments.NOURISHMENT, player))
                 {
-                    int duration = level * 100;
-                    entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, duration));
-                    entity.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, duration));
-                    entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, duration));
+                    int damage = Math.min(player.getFoodStats().getFoodLevel(), Math.round(event.getAmount()));
+                    player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - damage);
+                    event.setAmount(0);
+                }
+                // Exude enchantment
+                if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && isEnchantmentReap(HSEnchantments.EXUDE, player))
+                {
+                    player.removePotionEffect(MobEffects.POISON);
+                    player.removePotionEffect(MobEffects.WITHER);
+                    player.extinguish();
+                    player.heal(event.getAmount());
+                    event.setAmount(0);
                 }
             }
-        }
-        // Hemorrhage enchantment
-        if (trueSource instanceof EntityLivingBase)
-        {
-            EntityLivingBase attacker = (EntityLivingBase) trueSource;
-            ItemStack weapon = attacker.getHeldItemMainhand();
-
-            if (!weapon.isEmpty() && EnchantmentHelper.getEnchantmentLevel(HSEnchantments.HEMORRHAGE, weapon) > 0)
+            // Blight enchantment
+            if (event.getSource().getImmediateSource() instanceof EntityArrow)
             {
-                int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.HEMORRHAGE, weapon);
-                int duration = level * 100;
-                entity.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration));
+                EntityArrow arrow = (EntityArrow) event.getSource().getImmediateSource();
+                if (arrow.shootingEntity instanceof EntityLivingBase)
+                {
+                    EntityLivingBase shooter = (EntityLivingBase) arrow.shootingEntity;
+                    ItemStack bow = shooter.getHeldItemMainhand();
+                    int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.BLIGHT, bow);
+                    if (!bow.isEmpty() && level > 0)
+                    {
+                        int duration = level * 100;
+                        entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, duration));
+                        entity.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, duration));
+                        entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, duration));
+                    }
+                }
+            }
+            // Hemorrhage enchantment
+            if (trueSource instanceof EntityLivingBase)
+            {
+                EntityLivingBase attacker = (EntityLivingBase) trueSource;
+                ItemStack weapon = attacker.getHeldItemMainhand();
+
+                if (!weapon.isEmpty() && EnchantmentHelper.getEnchantmentLevel(HSEnchantments.HEMORRHAGE, weapon) > 0)
+                {
+                    int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.HEMORRHAGE, weapon);
+                    int duration = level * 100;
+                    entity.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration));
+                }
             }
         }
     }
