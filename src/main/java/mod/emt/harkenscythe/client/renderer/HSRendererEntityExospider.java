@@ -2,14 +2,15 @@ package mod.emt.harkenscythe.client.renderer;
 
 import javax.annotation.Nullable;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.model.HSModelEntityExospider;
-import mod.emt.harkenscythe.entity.HSEntityExospider;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.model.HSModelEntityExospider;
+import mod.emt.harkenscythe.entity.HSEntityExospider;
 
 @SideOnly(Side.CLIENT)
 public class HSRendererEntityExospider<T extends HSEntityExospider> extends RenderLiving<T>

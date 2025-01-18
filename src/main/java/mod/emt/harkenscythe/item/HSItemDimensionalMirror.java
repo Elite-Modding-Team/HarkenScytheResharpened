@@ -182,14 +182,14 @@ public class HSItemDimensionalMirror extends HSItem
     }
 
     @Override
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
-    {
-        return false;
-    }
-    
-    @Override
     public int getRGBDurabilityForDisplay(ItemStack stack)
     {
         return 1872873;
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
+    {
+        return false;
     }
 }

@@ -27,6 +27,6 @@ public abstract class HSEntityGlobin extends EntitySlime
     @Override
     protected Item getDropItem()
     {
-        return this.getSlimeSize() == 1 ? null : null;
+        return null;
     }
 }

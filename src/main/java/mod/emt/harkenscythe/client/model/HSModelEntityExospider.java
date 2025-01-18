@@ -4,7 +4,6 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelSpider;
 
-// TODO: Clean up?
 public class HSModelEntityExospider extends ModelSpider
 {
     public HSModelEntityExospider()

@@ -75,29 +75,23 @@ public class HSEntityEctoglobin extends HSEntityGlobin
     {
         return new HSEntityEctoglobin(this.world);
     }
-    
+
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return this.isSmallSlime() ? HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent() : HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
+        return HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
     }
 
     @Override
     protected SoundEvent getDeathSound()
     {
-        return this.isSmallSlime() ? HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent() : HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
+        return HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
     }
 
     @Override
     protected SoundEvent getSquishSound()
     {
-        return this.isSmallSlime() ? HSSoundEvents.BLOCK_BIOMASS_HARVEST.getSoundEvent() : HSSoundEvents.BLOCK_BIOMASS_HARVEST.getSoundEvent();
-    }
-    
-    @Override
-    protected SoundEvent getJumpSound()
-    {
-        return this.isSmallSlime() ? HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent() : HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
+        return HSSoundEvents.BLOCK_BIOMASS_HARVEST.getSoundEvent();
     }
 
     @Nonnull
@@ -105,6 +99,12 @@ public class HSEntityEctoglobin extends HSEntityGlobin
     protected ResourceLocation getLootTable()
     {
         return HSLootTables.ECTOGLOBIN;
+    }
+
+    @Override
+    protected SoundEvent getJumpSound()
+    {
+        return HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
     }
 
     @Override

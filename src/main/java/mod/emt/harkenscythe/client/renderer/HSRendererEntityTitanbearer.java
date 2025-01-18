@@ -2,15 +2,16 @@ package mod.emt.harkenscythe.client.renderer;
 
 import javax.annotation.Nullable;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.model.HSModelEntityBearer;
-import mod.emt.harkenscythe.entity.HSEntityTitanbearer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.model.HSModelEntityBearer;
+import mod.emt.harkenscythe.entity.HSEntityTitanbearer;
 
 @SideOnly(Side.CLIENT)
 public class HSRendererEntityTitanbearer extends RenderLiving<HSEntityTitanbearer>

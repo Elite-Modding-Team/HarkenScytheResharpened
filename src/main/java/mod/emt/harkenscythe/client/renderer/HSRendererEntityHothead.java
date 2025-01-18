@@ -2,9 +2,6 @@ package mod.emt.harkenscythe.client.renderer;
 
 import javax.annotation.Nullable;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.client.model.HSModelEntityHothead;
-import mod.emt.harkenscythe.entity.HSEntityHothead;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -12,11 +9,15 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.model.HSModelEntityHothead;
+import mod.emt.harkenscythe.entity.HSEntityHothead;
+
 @SideOnly(Side.CLIENT)
 public class HSRendererEntityHothead extends RenderLiving<HSEntityHothead>
 {
     public static final ResourceLocation TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/hothead.png");
-	
+
     public HSRendererEntityHothead(RenderManager renderManagerIn)
     {
         super(renderManagerIn, new HSModelEntityHothead(), 0.5F);

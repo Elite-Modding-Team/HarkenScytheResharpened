@@ -111,7 +111,8 @@ public class HSModelEntitySkeletonShaman extends ModelSkeleton
             this.bipedLeftArm.render(scale);
             this.bipedRightLeg.render(scale);
             this.bipedLeftLeg.render(scale);
-        } else
+        }
+        else
         {
             if (entityIn.isSneaking())
             {

@@ -29,15 +29,23 @@ public class HSEntitySkeletonShaman extends AbstractSkeleton
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(3.0D);
     }
 
+    @Nonnull
+    @Override
+    protected SoundEvent getStepSound()
+    {
+        return SoundEvents.ENTITY_STRAY_STEP;
+    }
+
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
 
-        if (this.world.isRemote) {
+        if (this.world.isRemote)
+        {
             for (int i = 0; i < 2; ++i)
             {
                 this.world.spawnParticle(EnumParticleTypes.PORTAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height - 0.25D,
-                        this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(), (this.rand.nextDouble() - 0.5D) * 2.0D);
+                    this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(), (this.rand.nextDouble() - 0.5D) * 2.0D);
             }
         }
     }
@@ -48,18 +56,18 @@ public class HSEntitySkeletonShaman extends AbstractSkeleton
         return 1.55F;
     }
 
-    @Nullable
-    @Override
-    protected ResourceLocation getLootTable()
-    {
-        return null;
-    }
-
     @Nonnull
     @Override
     protected SoundEvent getAmbientSound()
     {
         return SoundEvents.ENTITY_STRAY_AMBIENT;
+    }
+
+    @Nullable
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return null;
     }
 
     @Nonnull
@@ -74,12 +82,5 @@ public class HSEntitySkeletonShaman extends AbstractSkeleton
     protected SoundEvent getDeathSound()
     {
         return SoundEvents.ENTITY_STRAY_DEATH;
-    }
-
-    @Nonnull
-    @Override
-    protected SoundEvent getStepSound()
-    {
-        return SoundEvents.ENTITY_STRAY_STEP;
     }
 }

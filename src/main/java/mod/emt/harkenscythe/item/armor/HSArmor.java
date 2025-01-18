@@ -25,6 +25,40 @@ import mod.emt.harkenscythe.init.HSItems;
 @SuppressWarnings("deprecation")
 public class HSArmor extends ItemArmor
 {
+    public static boolean isWearingFullBloodweaveSet(EntityPlayer player)
+    {
+        ItemStack shoes = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        ItemStack pants = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+        ItemStack robe = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+        ItemStack hood = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+
+        boolean hasFullBloodweaveSet = shoes.getItem() == HSItems.bloodweave_shoes && pants.getItem() == HSItems.bloodweave_pants && robe.getItem() == HSItems.bloodweave_robe && hood.getItem() == HSItems.bloodweave_hood;
+
+        return hasFullBloodweaveSet && meetsDurabilityRequirement(shoes, pants, robe, hood);
+    }
+
+    public static boolean isWearingFullSoulweaveSet(EntityPlayer player)
+    {
+        ItemStack shoes = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        ItemStack pants = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+        ItemStack robe = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+        ItemStack hood = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+
+        boolean hasFullSoulweaveSet = shoes.getItem() == HSItems.soulweave_shoes && pants.getItem() == HSItems.soulweave_pants && robe.getItem() == HSItems.soulweave_robe && hood.getItem() == HSItems.soulweave_hood;
+
+        return hasFullSoulweaveSet && meetsDurabilityRequirement(shoes, pants, robe, hood);
+    }
+
+    private static boolean meetsDurabilityRequirement(ItemStack shoes, ItemStack pants, ItemStack robe, ItemStack hood)
+    {
+        double bootsDurabilityRatio = (double) (shoes.getMaxDamage() - shoes.getItemDamage()) / shoes.getMaxDamage();
+        double leggingsDurabilityRatio = (double) (pants.getMaxDamage() - pants.getItemDamage()) / pants.getMaxDamage();
+        double chestplateDurabilityRatio = (double) (robe.getMaxDamage() - robe.getItemDamage()) / robe.getMaxDamage();
+        double helmetDurabilityRatio = (double) (hood.getMaxDamage() - hood.getItemDamage()) / hood.getMaxDamage();
+
+        return bootsDurabilityRatio >= 0.25D && leggingsDurabilityRatio >= 0.25D && chestplateDurabilityRatio >= 0.25D && helmetDurabilityRatio >= 0.25D;
+    }
+
     private final EnumRarity rarity;
 
     public HSArmor(ArmorMaterial material, int renderIndex, EntityEquipmentSlot equipmentSlot, EnumRarity rarity)
@@ -72,22 +106,6 @@ public class HSArmor extends ItemArmor
     }
 
     @Override
-    public int getRGBDurabilityForDisplay(ItemStack stack)
-    {
-        if ((this == HSItems.bloodweave_hood) || (this == HSItems.bloodweave_robe) || (this == HSItems.bloodweave_pants) || (this == HSItems.bloodweave_shoes))
-        {
-            return 9443858;
-        }
-
-        if ((this == HSItems.soulweave_hood) || (this == HSItems.soulweave_robe) || (this == HSItems.soulweave_pants) || (this == HSItems.soulweave_shoes))
-        {
-            return 1872873;
-        }
-
-        return MathHelper.hsvToRGB(Math.max(0.0F, (float) (1.0F - getDurabilityForDisplay(stack))) / 3.0F, 1.0F, 1.0F);
-    }
-
-    @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
     {
         if (stack.getItem() == HSItems.livingmetal_leggings)
@@ -109,6 +127,22 @@ public class HSArmor extends ItemArmor
     }
 
     @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        if ((this == HSItems.bloodweave_hood) || (this == HSItems.bloodweave_robe) || (this == HSItems.bloodweave_pants) || (this == HSItems.bloodweave_shoes))
+        {
+            return 9443858;
+        }
+
+        if ((this == HSItems.soulweave_hood) || (this == HSItems.soulweave_robe) || (this == HSItems.soulweave_pants) || (this == HSItems.soulweave_shoes))
+        {
+            return 1872873;
+        }
+
+        return MathHelper.hsvToRGB(Math.max(0.0F, (float) (1.0F - getDurabilityForDisplay(stack))) / 3.0F, 1.0F, 1.0F);
+    }
+
+    @Override
     public void setDamage(ItemStack stack, int damage)
     {
         if (this.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE || this.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE)
@@ -119,39 +153,5 @@ public class HSArmor extends ItemArmor
         {
             super.setDamage(stack, damage);
         }
-    }
-
-    public static boolean isWearingFullBloodweaveSet(EntityPlayer player)
-    {
-        ItemStack shoes = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-        ItemStack pants = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-        ItemStack robe = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-        ItemStack hood = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-
-        boolean hasFullBloodweaveSet = shoes.getItem() == HSItems.bloodweave_shoes && pants.getItem() == HSItems.bloodweave_pants && robe.getItem() == HSItems.bloodweave_robe && hood.getItem() == HSItems.bloodweave_hood;
-
-        return hasFullBloodweaveSet && meetsDurabilityRequirement(shoes, pants, robe, hood);
-    }
-
-    public static boolean isWearingFullSoulweaveSet(EntityPlayer player)
-    {
-        ItemStack shoes = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-        ItemStack pants = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-        ItemStack robe = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-        ItemStack hood = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-
-        boolean hasFullSoulweaveSet = shoes.getItem() == HSItems.soulweave_shoes && pants.getItem() == HSItems.soulweave_pants && robe.getItem() == HSItems.soulweave_robe && hood.getItem() == HSItems.soulweave_hood;
-
-        return hasFullSoulweaveSet && meetsDurabilityRequirement(shoes, pants, robe, hood);
-    }
-
-    private static boolean meetsDurabilityRequirement(ItemStack shoes, ItemStack pants, ItemStack robe, ItemStack hood)
-    {
-        double bootsDurabilityRatio = (double) (shoes.getMaxDamage() - shoes.getItemDamage()) / shoes.getMaxDamage();
-        double leggingsDurabilityRatio = (double) (pants.getMaxDamage() - pants.getItemDamage()) / pants.getMaxDamage();
-        double chestplateDurabilityRatio = (double) (robe.getMaxDamage() - robe.getItemDamage()) / robe.getMaxDamage();
-        double helmetDurabilityRatio = (double) (hood.getMaxDamage() - hood.getItemDamage()) / hood.getMaxDamage();
-
-        return bootsDurabilityRatio >= 0.25D && leggingsDurabilityRatio >= 0.25D && chestplateDurabilityRatio >= 0.25D && helmetDurabilityRatio >= 0.25D;
     }
 }

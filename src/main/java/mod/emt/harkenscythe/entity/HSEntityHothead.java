@@ -16,10 +16,16 @@ import net.minecraft.world.World;
 
 public class HSEntityHothead extends EntityMob implements IMob
 {
-    public HSEntityHothead(World world) {
+    public HSEntityHothead(World world)
+    {
         super(world);
         this.setSize(3.75F, 4.0F);
         this.isImmuneToFire = true;
+    }
+
+    public boolean isAttacking()
+    {
+        return false;
     }
 
     // TODO: Flying melee attack?
@@ -31,18 +37,18 @@ public class HSEntityHothead extends EntityMob implements IMob
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, true));
     }
 
-    @Override
-    protected void applyEntityAttributes()
-    {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(3.0D);
-    }
-
     @Nullable
     @Override
     protected ResourceLocation getLootTable()
     {
         return null;
+    }
+
+    @Override
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(3.0D);
     }
 
     static class AILookAround extends EntityAIBase
@@ -66,7 +72,8 @@ public class HSEntityHothead extends EntityMob implements IMob
             {
                 this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX, this.parentEntity.motionZ)) * (180F / (float) Math.PI);
                 this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
-            } else
+            }
+            else
             {
                 EntityLivingBase entitylivingbase = this.parentEntity.getAttackTarget();
 
@@ -79,10 +86,5 @@ public class HSEntityHothead extends EntityMob implements IMob
                 }
             }
         }
-    }
-
-    public boolean isAttacking()
-    {
-        return false;
     }
 }
