@@ -1,6 +1,6 @@
 package mod.emt.harkenscythe.entity;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.Iterator;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -19,21 +19,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.ai.HSAIFollowHerd;
-import mod.emt.harkenscythe.init.HSAdvancements;
-import mod.emt.harkenscythe.init.HSBlocks;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSLootTables;
-import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.init.*;
 
 public class HSEntityExospider extends EntitySpider
 {
@@ -57,12 +50,6 @@ public class HSEntityExospider extends EntitySpider
     }
 
     @Override
-    public void fall(float distance, float damageMultiplier)
-    {
-        // No fall damage
-    }
-
-    @Override
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
@@ -72,44 +59,6 @@ public class HSEntityExospider extends EntitySpider
             this.playSound(HSSoundEvents.BLOCK_BIOMASS_HARVEST.getSoundEvent(), 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             this.dropItem(HSItems.biomass, this.world.rand.nextInt(2) + 1);
             this.timeUntilNextBiomass = this.rand.nextInt(6000) + 6000;
-        }
-    }
-
-    // Remove the default smoke puff death animation. Add special death animation
-    @Override
-    protected void onDeathUpdate()
-    {
-        if (!this.world.isRemote && (this.isPlayer() || this.recentlyHit > 0 && this.canDropLoot() && this.world.getGameRules().getBoolean("doMobLoot")))
-        {
-            int i = this.getExperiencePoints(this.attackingPlayer);
-            i = ForgeEventFactory.getExperienceDrop(this, this.attackingPlayer, i);
-
-            while (i > 0)
-            {
-                int j = EntityXPOrb.getXPSplit(i);
-                i -= j;
-                this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, j));
-            }
-        }
-
-        this.setDead();
-
-        for (int k = 0; k < 40; ++k)
-        {
-            double d2 = this.rand.nextGaussian() * 0.02D;
-            double d0 = this.rand.nextGaussian() * 0.02D;
-            double d1 = this.rand.nextGaussian() * 0.02D;
-            this.world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, this.posX + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, this.posY + (double)(this.rand.nextFloat() * this.height), this.posZ + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width,
-            		d2, d0, d1, this.getVariant() == 1 ? Block.getIdFromBlock(HSBlocks.biomass_block) : Block.getIdFromBlock(Blocks.SOUL_SAND));
-        }
-
-        for (int k = 0; k < 20; ++k)
-        {
-            double d2 = this.rand.nextGaussian() * 0.02D;
-            double d0 = this.rand.nextGaussian() * 0.02D;
-            double d1 = this.rand.nextGaussian() * 0.02D;
-            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, this.posY + (double)(this.rand.nextFloat() * this.height), this.posZ + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width,
-            		this.getVariant() == 1 ? Color.getColor("Blood Red", 12124160) : Color.getColor("Soul Blue", 4560335), d2, d0, d1);
         }
     }
 
@@ -142,6 +91,60 @@ public class HSEntityExospider extends EntitySpider
         return super.processInteract(player, hand);
     }
 
+    // Remove the default smoke puff death animation. Add special death animation
+    @Override
+    protected void onDeathUpdate()
+    {
+        if (!this.world.isRemote && (this.isPlayer() || this.recentlyHit > 0 && this.canDropLoot() && this.world.getGameRules().getBoolean("doMobLoot")))
+        {
+            int i = this.getExperiencePoints(this.attackingPlayer);
+            i = ForgeEventFactory.getExperienceDrop(this, this.attackingPlayer, i);
+
+            while (i > 0)
+            {
+                int j = EntityXPOrb.getXPSplit(i);
+                i -= j;
+                this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, j));
+            }
+        }
+
+        this.setDead();
+
+        for (int k = 0; k < 40; ++k)
+        {
+            double d2 = this.rand.nextGaussian() * 0.02D;
+            double d0 = this.rand.nextGaussian() * 0.02D;
+            double d1 = this.rand.nextGaussian() * 0.02D;
+            this.world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width,
+                d2, d0, d1, this.getVariant() == 1 ? Block.getIdFromBlock(HSBlocks.biomass_block) : Block.getIdFromBlock(Blocks.SOUL_SAND));
+        }
+
+        for (int k = 0; k < 20; ++k)
+        {
+            double d2 = this.rand.nextGaussian() * 0.02D;
+            double d0 = this.rand.nextGaussian() * 0.02D;
+            double d1 = this.rand.nextGaussian() * 0.02D;
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width,
+                this.getVariant() == 1 ? Color.getColor("Blood Red", 12124160) : Color.getColor("Soul Blue", 4560335), d2, d0, d1);
+        }
+    }
+
+    @Override
+    public void onDeath(DamageSource cause)
+    {
+        super.onDeath(cause);
+        if (cause.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_EXOSPIDER.trigger((EntityPlayerMP) cause.getTrueSource());
+        }
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
+        // No fall damage
+    }
+
     @Override
     protected void initEntityAI()
     {
@@ -164,16 +167,6 @@ public class HSEntityExospider extends EntitySpider
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.35D);
-    }
-    
-    @Override
-    public void onDeath(DamageSource cause)
-    {
-        super.onDeath(cause);
-        if (cause.getTrueSource() instanceof EntityPlayerMP)
-        {
-            HSAdvancements.ENCOUNTER_EXOSPIDER.trigger((EntityPlayerMP) cause.getTrueSource());
-        }
     }
 
     @Nonnull
