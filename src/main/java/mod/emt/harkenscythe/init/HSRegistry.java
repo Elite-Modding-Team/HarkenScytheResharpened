@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -139,6 +140,8 @@ public class HSRegistry
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
         registerEntity("vampire_knife", HSEntityVampireKnife.class);
 
+        registerEntity("exospider", HSEntityExospider.class, 3285790, 1318440);
+
         registerEntitySpawns();
     }
 
@@ -158,6 +161,11 @@ public class HSRegistry
         {
             EntityRegistry.addSpawn(HSEntitySpectralMiner.class, HSConfig.ENTITIES.spectralMinerSpawnProbability, 1, 1, EnumCreatureType.MONSTER, getEntityBiomes(EntityZombie.class));
             EntitySpawnPlacementRegistry.setPlacementType(HSEntitySpectralMiner.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
+        if (HSConfig.ENTITIES.exospiderSpawnProbability > 0)
+        {
+            EntityRegistry.addSpawn(HSEntityExospider.class, HSConfig.ENTITIES.exospiderSpawnProbability, 1, 3, EnumCreatureType.MONSTER, getEntityBiomes(EntityPigZombie.class));
+            EntitySpawnPlacementRegistry.setPlacementType(HSEntityExospider.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         }
     }
 
@@ -290,6 +298,7 @@ public class HSRegistry
 
         RenderingRegistry.registerEntityRenderingHandler(HSEntityBlood.class, new HSRendererEntityBlood.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityEctoglobin.class, new HSRendererEntityEctoglobin.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(HSEntityExospider.class, new HSRendererEntityExospider.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHarbinger.class, new HSRendererEntityHarbinger.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntityHemoglobin.class, new HSRendererEntityHemoglobin.Factory());
         RenderingRegistry.registerEntityRenderingHandler(HSEntitySoul.class, new HSRendererEntitySoul.Factory());

@@ -41,7 +41,7 @@ public enum HSSoundEvents
     ENTITY_HARBINGER_IDLE("entity.harbinger.idle"),
     ENTITY_EXOSPIDER_HURT("entity.exospider.hurt"),
     ENTITY_EXOSPIDER_DEATH("entity.exospider.death"),
-    ENTITY_EXOSPIDER_STEP("entity.exospider.idle"),
+    ENTITY_EXOSPIDER_STEP("entity.exospider.step"),
     GUIDE_FLIP("guide.flip"),
     GUIDE_OPEN("guide.open"),
     GUIDE_CLOSE("guide.close");

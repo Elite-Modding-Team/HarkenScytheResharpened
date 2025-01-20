@@ -87,6 +87,15 @@ public class HSConfig
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
 
+        @Config.RequiresMcRestart
+        @Config.Name("Exospider Spawn Probability")
+        @Config.Comment
+            ({
+                "The weighted probability for exoskeletal spiders to spawn",
+                "Set to 0 to disable"
+            })
+        public int exospiderSpawnProbability = 10;
+
         @Config.Name("Globin Crucible Spawning")
         @Config.Comment("Spawns globins when filled crucibles are broken")
         public boolean globinCrucibleSpawning = true;
@@ -124,6 +133,7 @@ public class HSConfig
         @Config.Comment("The distance in blocks the Harbinger will search for entities to reap")
         public double harbingerSearchDistance = 20.0D;
 
+        @Config.RequiresMcRestart
         @Config.Name("Harbinger Spawn Probability")
         @Config.Comment
             ({
@@ -166,6 +176,7 @@ public class HSConfig
         @Config.Comment("The amount of movement speed spectral humans have")
         public double spectralHumanMovementSpeed = 0.23D;
 
+        @Config.RequiresMcRestart
         @Config.Name("Spectral Human Spawn Probability")
         @Config.Comment
             ({
@@ -186,6 +197,7 @@ public class HSConfig
         @Config.Comment("The amount of movement speed spectral miners have")
         public double spectralMinerMovementSpeed = 0.15D;
 
+        @Config.RequiresMcRestart
         @Config.Name("Spectral Miner Spawn Probability")
         @Config.Comment
             ({
