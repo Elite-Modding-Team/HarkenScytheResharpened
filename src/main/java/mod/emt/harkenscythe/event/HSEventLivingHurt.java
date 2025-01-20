@@ -107,7 +107,7 @@ public class HSEventLivingHurt
         if (entity.getEntityData().getBoolean("IsSpectral") || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForBloodReaping(entity)) return;
         HSEntityBlood blood = new HSEntityBlood(world);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
-        world.spawnEntity(blood);
+        if (!world.isRemote) world.spawnEntity(blood);
         world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
