@@ -21,6 +21,14 @@
       "name": " ",
       "text": "A shell of its former self.",
       "entity": "harkenscythe:exospider"
+    },
+    {
+      "type": "text",
+      "text": "You might find these living exoskeletons of former spiders, it was theorized that they are an extinct species of spiders that originated from the Overworld before being influenced by Necromancy.$(br2)Their life source originates from the essence hovering on top of them, they would make a decent source of pure essence for this reason."
+    },
+    {
+      "type": "text",
+      "text": "You could $(4)right-click$() on them with some biomass to pacify and infect them with a thriving colony.$(br2)Every once in awhile these infected exoskeletons will shed some excess biomass from themselves."
     }
   ]
 }
