@@ -13,6 +13,7 @@ import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -28,6 +29,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.ai.HSAIFollowHerd;
+import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
@@ -160,6 +162,16 @@ public class HSEntityExospider extends EntitySpider
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.35D);
+    }
+    
+    @Override
+    public void onDeath(DamageSource cause)
+    {
+        super.onDeath(cause);
+        if (cause.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_EXOSPIDER.trigger((EntityPlayerMP) cause.getTrueSource());
+        }
     }
 
     @Nonnull

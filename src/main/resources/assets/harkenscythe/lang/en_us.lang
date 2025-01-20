@@ -34,6 +34,8 @@ advancement.harkenscythe.crimson_key.name=Crimson Key
 advancement.harkenscythe.crimson_key.desc=Obtain the extremely rare Damaged Vampire Knife in the Nether!
 advancement.harkenscythe.better_than_scourge.name=Better than Scourge
 advancement.harkenscythe.better_than_scourge.desc=Fully obtain the powerful lifestealing Vampire Knife by repairing the damaged counterpart!
+advancement.harkenscythe.shell_of_a_spider.name=Shell of a Spider
+advancement.harkenscythe.shell_of_a_spider.desc=Encounter an Exospider.
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Altar of Blood
