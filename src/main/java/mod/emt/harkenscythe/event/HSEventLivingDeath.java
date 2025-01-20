@@ -56,6 +56,22 @@ public class HSEventLivingDeath
                 spawnSoul(world, entity);
             }
         }
+        // Exospiders will have a 1/4th chance to spawn its soul regardless of conditions
+        else if (entity instanceof HSEntityExospider)
+        {
+        	// If biomass variant, give us blood essence instead
+            if (world.rand.nextDouble() < 0.25D)
+            	{
+            		if (((HSEntityExospider) entity).getVariant() == 1)
+            		{
+            			HSEventLivingHurt.spawnBlood(world, entity);
+            		}
+            		else
+            		{
+            			spawnSoul(world, entity);
+            		}
+            	}
+        }
         else if (entity instanceof HSEntitySpectralMiner)
         {
             spawnSoul(world, entity);

@@ -140,7 +140,7 @@ public class HSRegistry
         registerEntity("spectral_potion", HSEntitySpectralPotion.class);
         registerEntity("vampire_knife", HSEntityVampireKnife.class);
 
-        registerEntity("exospider", HSEntityExospider.class, 3285790, 1318440);
+        registerEntity("exospider", HSEntityExospider.class, 3285790, 1641735);
 
         registerEntitySpawns();
     }

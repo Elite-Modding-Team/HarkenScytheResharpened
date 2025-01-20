@@ -1,5 +1,6 @@
 package mod.emt.harkenscythe.entity;
 
+import java.awt.Color;
 import java.util.Iterator;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,21 +10,25 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAITasks;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
+import net.minecraftforge.event.ForgeEventFactory;
+import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.ai.HSAIFollowHerd;
+import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -68,6 +73,44 @@ public class HSEntityExospider extends EntitySpider
         }
     }
 
+    // Remove the default smoke puff death animation. Add special death animation
+    @Override
+    protected void onDeathUpdate()
+    {
+        if (!this.world.isRemote && (this.isPlayer() || this.recentlyHit > 0 && this.canDropLoot() && this.world.getGameRules().getBoolean("doMobLoot")))
+        {
+            int i = this.getExperiencePoints(this.attackingPlayer);
+            i = ForgeEventFactory.getExperienceDrop(this, this.attackingPlayer, i);
+
+            while (i > 0)
+            {
+                int j = EntityXPOrb.getXPSplit(i);
+                i -= j;
+                this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, j));
+            }
+        }
+
+        this.setDead();
+
+        for (int k = 0; k < 40; ++k)
+        {
+            double d2 = this.rand.nextGaussian() * 0.02D;
+            double d0 = this.rand.nextGaussian() * 0.02D;
+            double d1 = this.rand.nextGaussian() * 0.02D;
+            this.world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, this.posX + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, this.posY + (double)(this.rand.nextFloat() * this.height), this.posZ + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width,
+            		d2, d0, d1, this.getVariant() == 1 ? Block.getIdFromBlock(HSBlocks.biomass_block) : Block.getIdFromBlock(Blocks.SOUL_SAND));
+        }
+
+        for (int k = 0; k < 20; ++k)
+        {
+            double d2 = this.rand.nextGaussian() * 0.02D;
+            double d0 = this.rand.nextGaussian() * 0.02D;
+            double d1 = this.rand.nextGaussian() * 0.02D;
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, this.posY + (double)(this.rand.nextFloat() * this.height), this.posZ + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width,
+            		this.getVariant() == 1 ? Color.getColor("Blood Red", 12124160) : Color.getColor("Soul Blue", 4560335), d2, d0, d1);
+        }
+    }
+
     @Override
     public void writeEntityToNBT(NBTTagCompound nbt)
     {
@@ -92,7 +135,7 @@ public class HSEntityExospider extends EntitySpider
             this.setVariant(1);
             this.setPassive();
             this.spawnExplosionParticle();
-            this.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 0.8F, 0.4F);
+            this.playSound(HSSoundEvents.ITEM_CREEP_BALL_USE.getSoundEvent(), 1.0F, 0.4F / (world.rand.nextFloat() * 0.4F + 1.2F));
         }
         return super.processInteract(player, hand);
     }
