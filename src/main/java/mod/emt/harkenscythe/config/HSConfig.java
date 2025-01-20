@@ -91,7 +91,7 @@ public class HSConfig
         @Config.Name("Exospider Spawn Probability")
         @Config.Comment
             ({
-                "The weighted probability for exoskeletal spiders to spawn",
+                "The weighted probability for exospiders to spawn",
                 "Set to 0 to disable"
             })
         public int exospiderSpawnProbability = 10;
