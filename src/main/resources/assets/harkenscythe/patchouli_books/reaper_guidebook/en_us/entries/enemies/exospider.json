@@ -1,0 +1,26 @@
+{
+  "name": "Exospider",
+  "icon": "minecraft:dye:15",
+  "category": "enemies",
+  "advancement": "harkenscythe:shell_of_a_spider",
+  "pages": [
+    {
+      "type": "boss_info",
+      "title": "Exospider",
+      "piece": "none",
+      "resistance": "   6",
+      "knockback": "   0",
+      "health": "   40",
+      "damage": "   4",
+      "speed": "  0.35",
+      "drop1": "minecraft:dye:15",
+      "drop2": "harkenscythe:soul_essence"
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "A shell of its former self.",
+      "entity": "harkenscythe:exospider"
+    }
+  ]
+}
