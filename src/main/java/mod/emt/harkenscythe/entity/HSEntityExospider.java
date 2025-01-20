@@ -25,6 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public class HSEntityExospider extends EntitySpider
@@ -147,7 +148,7 @@ public class HSEntityExospider extends EntitySpider
     @Override
     protected ResourceLocation getLootTable()
     {
-        return null;
+        return this.getVariant() == 1 ? HSLootTables.EXOSPIDER_BIOMASS : HSLootTables.EXOSPIDER;
     }
 
     private void setPassive()
