@@ -20,7 +20,8 @@
       "type": "entity",
       "name": " ",
       "text": "A shell of its former self.",
-      "entity": "harkenscythe:exospider"
+      "entity": "harkenscythe:exospider",
+      "scale": 0.8
     },
     {
       "type": "text",
