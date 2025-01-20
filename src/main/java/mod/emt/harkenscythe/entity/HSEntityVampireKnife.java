@@ -378,6 +378,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
 
             float motionDamage = (float) ((Math.abs(motionY) * 2) + damage);
             entityLiving.attackEntityFrom(new HSDamageSource("hs_lifesteal", this.getThrower()), motionDamage);
+            playSound(HSSoundEvents.BLOCK_LIVINGMETAL_STEP.getSoundEvent(), 0.4F, 2.0F / (this.world.rand.nextFloat() * 0.4F + 0.8F));
 
             // Heals by 7.5% (configurable) of damage dealt to the target with indicating leeching particles
             if (((EntityPlayer) shootingEntity).shouldHeal() && shootingEntity instanceof EntityPlayer)
@@ -455,6 +456,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             inBlockState.getBlock().onEntityCollision(world, blockpos, inBlockState, this);
         }
 
+        playSound(HSSoundEvents.BLOCK_LIVINGMETAL_STEP.getSoundEvent(), 0.4F, 3.0F / (this.world.rand.nextFloat() * 0.4F + 0.8F));
         HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, Color.getColor("Blood Red", 12124160), 1.0D, 0.0D, 0.0D);
         setDead();
     }
