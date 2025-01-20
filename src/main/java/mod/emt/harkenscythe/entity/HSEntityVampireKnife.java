@@ -248,8 +248,8 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
                 {
                     for (double offset = -0.5; offset <= 0.5; offset += 0.1)
                     {
-                        this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, 0.0D, 0.0D, 0.0D);
-                        this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, 0.0D, 0.0D, 0.0D);
+                        HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
+                        HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
                     }
                     setDead();
                 }
@@ -350,8 +350,8 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
 
         for (double offset = -0.5; offset <= 0.5; offset += 0.1)
         {
-            this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, 0.0D, 0.0D, 0.0D);
-            this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, 0.0D, 0.0D, 0.0D);
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
         }
 
         // Ignore invincibility frames
@@ -455,7 +455,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             inBlockState.getBlock().onEntityCollision(world, blockpos, inBlockState, this);
         }
 
-        this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
+        HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, Color.getColor("Blood Red", 12124160), 1.0D, 0.0D, 0.0D);
         setDead();
     }
 
