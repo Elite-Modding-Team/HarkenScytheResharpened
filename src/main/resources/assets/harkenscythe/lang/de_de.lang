@@ -34,6 +34,8 @@ advancement.harkenscythe.crimson_key.name=Karmesinschlüssel
 advancement.harkenscythe.crimson_key.desc=Erhalte das extrem seltene beschädigte Vampirmesser im Nether!
 advancement.harkenscythe.better_than_scourge.name=Besser als Scourge
 advancement.harkenscythe.better_than_scourge.desc=Erhalte das mächtige lebensabsorbierende Vampirmesser, indem du das beschädigte Gegenstück reparierst!
+advancement.harkenscythe.shell_of_a_spider.name=Schale einer Spinne
+advancement.harkenscythe.shell_of_a_spider.desc=Begegne einer Exospinne.
 
 # BLOCKS
 tile.harkenscythe.blood_altar.name=Blutaltar

@@ -22,7 +22,7 @@
     {
       "type": "entity",
       "name": " ",
-      "text": "Stelle dich dem Zorn des Withers!",
+      "text": "Bis der Tod uns scheidet.",
       "entity": "harkenscythe:harbinger{HandItems:[{Count:1,id:\"harkenscythe:reaper_scythe\"},{}]}",
       "scale": 0.9,
       "offset": 0.9

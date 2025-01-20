@@ -1,0 +1,34 @@
+{
+  "name": "Exospinne",
+  "icon": "minecraft:dye:15",
+  "category": "enemies",
+  "advancement": "harkenscythe:shell_of_a_spider",
+  "pages": [
+    {
+      "type": "boss_info",
+      "title": "Exospinne",
+      "piece": "none",
+      "resistance": "   6",
+      "knockback": "   0",
+      "health": "   32",
+      "damage": "   4",
+      "speed": "  0.35",
+      "drop1": "minecraft:dye:15",
+      "drop2": "harkenscythe:soul_essence"
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "Ein Schatten seiner selbst.",
+      "entity": "harkenscythe:exospider"
+    },
+    {
+      "type": "text",
+      "text": "Du könntest diese lebenden Exoskelette ehemaliger Spinnen finden. Es wird vermutet, dass es sich um eine ausgestorbene Spinnenart handelt, die aus der Überwelt stammt, bevor sie von der Nekromantie beeinflusst wurde.$(br2)Ihre Lebensquelle stammt von der Essenz, die über ihnen schwebt, daher wären sie eine gute Quelle für reine Essenz."
+    },
+    {
+      "type": "text",
+      "text": "Du könntest mit der $(4)rechten Maustaste$() und etwas Biomasse auf sie klicken, um sie zu besänftigen und mit einer gedeihenden Kolonie zu infizieren.$(br2)Von Zeit zu Zeit werden diese infizierten Exoskelette etwas überschüssige Biomasse von sich abwerfen."
+    }
+  ]
+}
