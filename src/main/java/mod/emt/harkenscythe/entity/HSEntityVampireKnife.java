@@ -24,7 +24,6 @@ import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.common.registry.IThrowableEntity;
-import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import io.netty.buffer.ByteBuf;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
@@ -242,13 +241,10 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
                 int t = getMaxLifetime();
                 if (t != 0 && ticksInGround >= t)
                 {
-                    if (FMLLaunchHandler.side().isClient())
+                    for (double offset = -0.5; offset <= 0.5; offset += 0.1)
                     {
-                        for (double offset = -0.5; offset <= 0.5; offset += 0.1)
-                        {
-                            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
-                            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
-                        }
+                        HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
+                        HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
                     }
                     setDead();
                 }
@@ -347,13 +343,10 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         if (entity != null && entity == this.shootingEntity) return;
         applyEntityHitEffects(entity);
 
-        if (FMLLaunchHandler.side().isClient())
+        for (double offset = -0.5; offset <= 0.5; offset += 0.1)
         {
-            for (double offset = -0.5; offset <= 0.5; offset += 0.1)
-            {
-                HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
-                HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
-            }
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY + offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + offset, this.posY - offset, this.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
         }
 
         // Ignore invincibility frames
@@ -459,11 +452,8 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         }
 
         playSound(HSSoundEvents.BLOCK_LIVINGMETAL_STEP.getSoundEvent(), 0.4F, 3.0F / (this.world.rand.nextFloat() * 0.4F + 0.8F));
+        HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, Color.getColor("Blood Red", 12124160), 1.0D, 0.0D, 0.0D);
         setDead();
-        if (FMLLaunchHandler.side().isClient())
-        {
-            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, Color.getColor("Blood Red", 12124160), 1.0D, 0.0D, 0.0D);
-        }
     }
 
     public boolean aimRotation()
