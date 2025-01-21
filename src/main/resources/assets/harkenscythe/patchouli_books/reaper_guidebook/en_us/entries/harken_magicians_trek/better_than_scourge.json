@@ -1,6 +1,6 @@
 {
   "name": "Better than Scourge",
-  "icon": "harkenscythe:textures/items/vampire_knife.png",
+  "icon": "harkenscythe:textures/gui/guidebook/icons/better_than_scourge.png",
   "category": "harken_magicians_trek",
   "advancement": "harkenscythe:bloody_foundations",
   "pages": [
