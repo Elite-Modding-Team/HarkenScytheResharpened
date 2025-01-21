@@ -36,6 +36,7 @@ public class HSEntityExospider extends EntitySpider
     public HSEntityExospider(World world)
     {
         super(world);
+        this.isImmuneToFire = true;
         this.timeUntilNextBiomass = this.rand.nextInt(6000) + 6000;
     }
 
