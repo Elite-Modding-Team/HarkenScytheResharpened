@@ -33,6 +33,7 @@ public class HSBlockBiomassCrop extends BlockBush
         setDefaultState(blockState.getBaseState().withProperty(AGE, 0));
         setSoundType(HSSoundTypes.BIOMASS_PLANT);
         setTickRandomly(true);
+        setCreativeTab(null);
     }
 
     @Override
