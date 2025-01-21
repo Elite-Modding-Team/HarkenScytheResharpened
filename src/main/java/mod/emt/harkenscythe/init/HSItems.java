@@ -12,7 +12,6 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -25,7 +24,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import mod.emt.harkenscythe.HarkenScythe;
@@ -231,6 +230,8 @@ public class HSItems
     @SubscribeEvent
     public static void onRegisterItemsEvent(@Nonnull final RegistryEvent.Register<Item> event)
     {
+        HarkenScythe.LOGGER.info("Registering items...");
+
         final IForgeRegistry<Item> registry = event.getRegistry();
 
         // ITEMS
@@ -336,22 +337,12 @@ public class HSItems
             .forEach(block -> registry.register(HSRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
 
-    @SubscribeEvent
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
-    {
-        final IForgeRegistry<IRecipe> registry = event.getRegistry();
-
-        // Third Party Mod Integration
-        if (Loader.isModLoaded("patchouli"))
-        {
-            registry.register(new ShapelessOreRecipe(null, reaper_guidebook, Items.BOOK, "essenceHarken").setRegistryName(HarkenScythe.MOD_ID, "reaper_guidebook"));
-        }
-    }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRegisterModelsEvent(@Nonnull final ModelRegistryEvent event)
     {
+        HarkenScythe.LOGGER.info("Registering item models...");
+
         // ITEM MODELS
         for (final Item item : ForgeRegistries.ITEMS.getValues())
         {

@@ -47,7 +47,6 @@ public class HarkenScythe
     {
         HSRegistry.registerAdvancements();
         HSRegistry.registerTileEntities();
-        HSRegistry.registerRecipes();
         HSCompatHandler.init();
         LOGGER.info(NAME + " initialized");
     }

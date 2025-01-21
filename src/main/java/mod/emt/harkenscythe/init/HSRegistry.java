@@ -18,6 +18,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -37,6 +38,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import mod.emt.harkenscythe.HarkenScythe;
@@ -105,7 +107,7 @@ public class HSRegistry
     }
 
     @SubscribeEvent
-    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)
+    public static void registerEnchantments(@Nonnull final RegistryEvent.Register<Enchantment> event)
     {
         if (HSConfig.GENERAL.disableEnchantments) return;
 
@@ -122,7 +124,7 @@ public class HSRegistry
     }
 
     @SubscribeEvent
-    public static void registerEntities(RegistryEvent.Register<EntityEntry> event)
+    public static void registerEntities(@Nonnull final RegistryEvent.Register<EntityEntry> event)
     {
         HarkenScythe.LOGGER.info("Registering entities...");
 
@@ -190,7 +192,7 @@ public class HSRegistry
     }
 
     @SubscribeEvent
-    public static void registerPotions(RegistryEvent.Register<Potion> event)
+    public static void registerPotions(@Nonnull final RegistryEvent.Register<Potion> event)
     {
         if (!HSConfig.GENERAL.disableEnchantments) event.getRegistry().register(HSPotions.BLEEDING);
 
@@ -206,7 +208,8 @@ public class HSRegistry
         );
     }
 
-    public static void registerRecipes()
+    @SubscribeEvent
+    public static void registerRecipes(@Nonnull final RegistryEvent.Register<IRecipe> event)
     {
         HarkenScythe.LOGGER.info("Registering ore dictionary entries...");
 
@@ -228,7 +231,9 @@ public class HSRegistry
         OreDictionary.registerOre("ingotBiomass", HSItems.biomass);
         OreDictionary.registerOre("ingotLivingmetal", HSItems.livingmetal_ingot);
 
-        HarkenScythe.LOGGER.info("Registering altar ritual recipes...");
+        HarkenScythe.LOGGER.info("Registering recipes...");
+
+        final IForgeRegistry<IRecipe> registry = event.getRegistry();
 
         // Blood Altar
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
@@ -270,13 +275,15 @@ public class HSRegistry
     }
 
     @SubscribeEvent
-    public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event)
+    public static void registerSoundEvents(@Nonnull final RegistryEvent.Register<SoundEvent> event)
     {
         HarkenScythe.LOGGER.info("Registering sound events...");
 
+        final IForgeRegistry<SoundEvent> registry = event.getRegistry();
+
         for (HSSoundEvents soundEvents : HSSoundEvents.values())
         {
-            event.getRegistry().register(soundEvents.getSoundEvent());
+            registry.register(soundEvents.getSoundEvent());
         }
     }
 
@@ -292,7 +299,7 @@ public class HSRegistry
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public static void registerEntityRenderers(ModelRegistryEvent event)
+    public static void registerEntityRenderers(@Nonnull final ModelRegistryEvent event)
     {
         HarkenScythe.LOGGER.info("Registering entity renderers...");
 
@@ -310,7 +317,7 @@ public class HSRegistry
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public static void registerTESRs(RegistryEvent<Block> event)
+    public static void registerTESRs(@Nonnull final RegistryEvent<Block> event)
     {
         HarkenScythe.LOGGER.info("Registering tile entity special renderers...");
 

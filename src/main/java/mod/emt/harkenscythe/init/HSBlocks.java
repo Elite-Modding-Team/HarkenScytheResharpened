@@ -65,6 +65,8 @@ public class HSBlocks
     @SubscribeEvent
     public static void onRegisterBlocksEvent(@Nonnull final RegistryEvent.Register<Block> event)
     {
+        HarkenScythe.LOGGER.info("Registering blocks...");
+
         final IForgeRegistry<Block> registry = event.getRegistry();
 
         // BLOCKS
