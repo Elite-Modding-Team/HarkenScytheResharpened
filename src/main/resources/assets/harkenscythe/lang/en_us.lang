@@ -58,6 +58,7 @@ tile.harkenscythe.spectral_glass_pane.name=Lunar Spectral Glass Pane
 tile.harkenscythe.spectral_glass_pane_inverted.name=Solar Spectral Glass Pane
 
 # ITEMS
+item.harkenscythe.abyssal_fragment.name=Abyssal Fragment
 item.harkenscythe.ancient_necronomicon.name=Ancient Necronomicon
 item.harkenscythe.ancient_necronomicon_page.name=Ancient Necronomicon Page
 item.harkenscythe.biomass.name=Biomass
@@ -188,6 +189,7 @@ setbonus.harkenscythe.soulweave=25%% chance for additional reaped soul essence
 
 # TOOLTIPS
 tooltip.harkenscythe.altar=Requires an athame for rituals.
+tooltip.harkenscythe.abyssal_fragment=It's gazing back...
 tooltip.harkenscythe.ancient_necronomicon=The Book of the Dead: Bound in human flesh and inked in blood, this ancient book contains incoherent ramblings about prophesies, necromancy, funerary incantations, and demon resurrection passages.
 tooltip.harkenscythe.ancient_necronomicon_page=A missing page of the Ancient Necronomicon, written in an ancient ominous text.
 tooltip.harkenscythe.athame=Right-click on an Altar of Blood or Altar of Souls to infuse an item with its power. Does not break or lose durability.

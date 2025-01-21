@@ -20,6 +20,7 @@ public class HSEventItemTooltip
     private static final ResourceLocation BLOOD_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar");
     private static final ResourceLocation SOUL_ALTAR = new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar");
 
+    private static final ResourceLocation ABYSSAL_FRAGMENT = new ResourceLocation(HarkenScythe.MOD_ID, "abyssal_fragment");
     private static final ResourceLocation ANCIENT_NECRONOMICON = new ResourceLocation(HarkenScythe.MOD_ID, "ancient_necronomicon");
     private static final ResourceLocation ANCIENT_NECRONOMICON_PAGE = new ResourceLocation(HarkenScythe.MOD_ID, "ancient_necronomicon_page");
     private static final ResourceLocation BIOMASS = new ResourceLocation(HarkenScythe.MOD_ID, "biomass");
@@ -62,6 +63,10 @@ public class HSEventItemTooltip
         else if (ForgeRegistries.ITEMS.getKey(item).equals(BLOOD_ALTAR) || ForgeRegistries.ITEMS.getKey(item).equals(SOUL_ALTAR))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.altar"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(ABYSSAL_FRAGMENT))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.abyssal_fragment"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(ANCIENT_NECRONOMICON))
         {

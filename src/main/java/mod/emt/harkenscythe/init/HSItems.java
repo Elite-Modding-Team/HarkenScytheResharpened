@@ -94,6 +94,8 @@ public class HSItems
     public static HSItem blood_essence;
     @GameRegistry.ObjectHolder("soul_essence")
     public static HSItem soul_essence;
+    @GameRegistry.ObjectHolder("abyssal_fragment")
+    public static HSItem abyssal_fragment;
 
     @GameRegistry.ObjectHolder("ancient_necronomicon")
     public static HSItemNecronomicon ancient_necronomicon;
@@ -258,6 +260,7 @@ public class HSItems
                 HSRegistry.setup(new HSToolGlaive(TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blood_essence").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "soul_essence").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.RARE), "abyssal_fragment").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemNecronomicon(), "ancient_necronomicon").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "ancient_necronomicon_page").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "carnage_book").setCreativeTab(HarkenScythe.TAB),

@@ -80,7 +80,7 @@
       ]
     },
     {
-      "name": "souls",
+      "name": "essence",
       "rolls": 1,
       "entries": [
         {
@@ -108,6 +108,27 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.4,
+          "looting_multiplier": 0.04
+        }
+      ],
+      "name": "fragment",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "harkenscythe:abyssal_fragment",
+          "weight": 1
         }
       ]
     },
