@@ -86,7 +86,7 @@ public class HSBlocks
                 HSRegistry.setup(new HSBlockBloodAltar(), "blood_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockSoulAltar(), "soul_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockSoulCake(), "soul_cake"),
-                HSRegistry.setup(new HSBlockBiomassCrop(), "biomass_crop"),
+                HSRegistry.setup(new HSBlockBiomassCrop(), "biomass_crop").setCreativeTab(null),
                 HSRegistry.setup(new HSBlockLivingmetalCore(), "livingmetal_core").setCreativeTab(HarkenScythe.TAB)
             );
     }

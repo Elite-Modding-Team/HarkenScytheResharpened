@@ -29,6 +29,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.block.HSBlockBiomassCrop;
 import mod.emt.harkenscythe.block.HSBlockSoulCake;
 import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
 import mod.emt.harkenscythe.config.HSConfig;
@@ -328,6 +329,7 @@ public class HSItems
         ForgeRegistries.BLOCKS.getValues().stream()
             .filter(block -> block.getRegistryName().getNamespace().equals(HarkenScythe.MOD_ID))
             .filter(block -> !(block instanceof HSBlockSoulCake))
+            .filter(block -> !(block instanceof HSBlockBiomassCrop))
             .forEach(block -> registry.register(HSRegistry.setup(new ItemBlock(block), block.getRegistryName())));
     }
 
