@@ -10,6 +10,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSMaterials;
 
 @SuppressWarnings("deprecation")
 public class HSToolShears extends ItemShears implements IHSTool
@@ -28,7 +29,7 @@ public class HSToolShears extends ItemShears implements IHSTool
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if (stack.isItemDamaged() && this.getToolMaterial() == HSItems.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
+        if (stack.isItemDamaged() && this.getToolMaterial() == HSMaterials.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
         {
             stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
         }
@@ -65,6 +66,6 @@ public class HSToolShears extends ItemShears implements IHSTool
     @Override
     public ToolMaterial getToolMaterial()
     {
-        return this.repairMaterial == Ingredient.fromStacks(new ItemStack(HSItems.livingmetal_ingot)) ? HSItems.TOOL_LIVINGMETAL : null;
+        return this.repairMaterial == Ingredient.fromStacks(new ItemStack(HSItems.livingmetal_ingot)) ? HSMaterials.TOOL_LIVINGMETAL : null;
     }
 }

@@ -14,53 +14,37 @@ import net.minecraftforge.registries.IForgeRegistry;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.block.*;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"DataFlowIssue", "unused"})
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSBlocks
 {
-    @GameRegistry.ObjectHolder("biomass_block")
-    public static HSBlockMaterial biomass_block;
-    @GameRegistry.ObjectHolder("biomass_crop")
-    public static HSBlockBiomassCrop biomass_crop;
+    public static final HSBlockMaterial biomass_block = null;
+    public static final HSBlockMaterial livingmetal_block = null;
 
-    @GameRegistry.ObjectHolder("livingmetal_block")
-    public static HSBlockMaterial livingmetal_block;
-    @GameRegistry.ObjectHolder("livingmetal_core")
-    public static HSBlockLivingmetalCore livingmetal_core;
+    public static final HSBlockSpectralGlass spectral_glass = null;
+    public static final HSBlockSpectralGlass spectral_glass_inverted = null;
+    public static final HSBlockSpectralGlassPane spectral_glass_pane = null;
+    public static final HSBlockSpectralGlassPane spectral_glass_pane_inverted = null;
 
-    @GameRegistry.ObjectHolder("spectral_glass")
-    public static HSBlockSpectralGlass spectral_glass;
-    @GameRegistry.ObjectHolder("spectral_glass_inverted")
-    public static HSBlockSpectralGlass spectral_glass_inverted;
-    @GameRegistry.ObjectHolder("spectral_glass_pane")
-    public static HSBlockSpectralGlassPane spectral_glass_pane;
-    @GameRegistry.ObjectHolder("spectral_glass_pane_inverted")
-    public static HSBlockSpectralGlassPane spectral_glass_pane_inverted;
+    public static final HSBlockCreep creep_block = null;
+    public static final HSBlockCreep creep_block_tilled = null;
+    public static final HSBlockCreep creep_block_tilled_bloodied = null;
 
-    @GameRegistry.ObjectHolder("creep_block")
-    public static HSBlockCreep creep_block;
-    @GameRegistry.ObjectHolder("creep_block_tilled")
-    public static HSBlockCreep creep_block_tilled;
-    @GameRegistry.ObjectHolder("creep_block_tilled_bloodied")
-    public static HSBlockCreep creep_block_tilled_bloodied;
+    public static final HSBlockCloth bloodweave_cloth = null;
+    public static final HSBlockCloth soulweave_cloth = null;
 
-    @GameRegistry.ObjectHolder("bloodweave_cloth")
-    public static HSBlockCloth bloodweave_cloth;
-    @GameRegistry.ObjectHolder("soulweave_cloth")
-    public static HSBlockCloth soulweave_cloth;
+    public static final HSBlockBloodCrucible blood_crucible = null;
+    public static final HSBlockSoulCrucible soul_crucible = null;
 
-    @GameRegistry.ObjectHolder("blood_altar")
-    public static HSBlockBloodAltar blood_altar;
-    @GameRegistry.ObjectHolder("soul_altar")
-    public static HSBlockSoulAltar soul_altar;
-    @GameRegistry.ObjectHolder("blood_crucible")
-    public static HSBlockBloodCrucible blood_crucible;
-    @GameRegistry.ObjectHolder("soul_crucible")
-    public static HSBlockSoulCrucible soul_crucible;
+    public static final HSBlockBloodAltar blood_altar = null;
+    public static final HSBlockSoulAltar soul_altar = null;
 
-    @GameRegistry.ObjectHolder("soul_cake")
-    public static HSBlockSoulCake soul_cake;
+    public static final HSBlockSoulCake soul_cake = null;
+
+    public static final HSBlockBiomassCrop biomass_crop = null;
+
+    public static final HSBlockLivingmetalCore livingmetal_core = null;
 
     @SubscribeEvent
     public static void onRegisterBlocksEvent(@Nonnull final RegistryEvent.Register<Block> event)

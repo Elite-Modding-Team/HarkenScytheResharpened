@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 
-import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSMaterials;
 
 public class HSToolSpectralPickaxe extends HSToolPickaxe implements IHSTool
 {
@@ -14,7 +14,7 @@ public class HSToolSpectralPickaxe extends HSToolPickaxe implements IHSTool
 
     public HSToolSpectralPickaxe()
     {
-        super(HSItems.TOOL_SPECTRAL, EnumRarity.EPIC);
+        super(HSMaterials.TOOL_SPECTRAL, EnumRarity.EPIC);
         this.reach = new AttributeModifier("14D707B8-D3E8-4BDa-8C54-F196F80B5C94", 3.0F, 0);
     }
 

@@ -28,6 +28,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
@@ -139,7 +140,7 @@ public abstract class HSBlockCrucible extends Block
             else if (essenceCount > 0 && heldItem instanceof HSArmorDyeable)
             {
                 HSArmorDyeable armor = (HSArmorDyeable) heldItem;
-                if (armor.hasColor(heldStack) && ((armor.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE && this instanceof HSBlockBloodCrucible) || (armor.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE && this instanceof HSBlockSoulCrucible)))
+                if (armor.hasColor(heldStack) && ((armor.getArmorMaterial() == HSMaterials.ARMOR_BLOODWEAVE && this instanceof HSBlockBloodCrucible) || (armor.getArmorMaterial() == HSMaterials.ARMOR_SOULWEAVE && this instanceof HSBlockSoulCrucible)))
                 {
                     armor.removeColor(heldStack);
                     ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount - 10);

@@ -6,7 +6,7 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSMaterials;
 
 @SuppressWarnings("deprecation")
 public class HSToolAxe extends ItemAxe implements IHSTool
@@ -24,7 +24,7 @@ public class HSToolAxe extends ItemAxe implements IHSTool
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if (stack.isItemDamaged() && this.getToolMaterial() == HSItems.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
+        if (stack.isItemDamaged() && this.getToolMaterial() == HSMaterials.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
         {
             stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
         }

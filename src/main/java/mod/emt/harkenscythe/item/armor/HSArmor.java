@@ -21,6 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSMaterials;
 
 @SuppressWarnings("deprecation")
 public class HSArmor extends ItemArmor
@@ -70,7 +71,7 @@ public class HSArmor extends ItemArmor
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if (stack.isItemDamaged() && this.getArmorMaterial() == HSItems.ARMOR_BIOMASS && entity.ticksExisted % 1200 == 0)
+        if (stack.isItemDamaged() && this.getArmorMaterial() == HSMaterials.ARMOR_BIOMASS && entity.ticksExisted % 1200 == 0)
         {
             stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
         }
@@ -145,7 +146,7 @@ public class HSArmor extends ItemArmor
     @Override
     public void setDamage(ItemStack stack, int damage)
     {
-        if (this.getArmorMaterial() == HSItems.ARMOR_BLOODWEAVE || this.getArmorMaterial() == HSItems.ARMOR_SOULWEAVE)
+        if (this.getArmorMaterial() == HSMaterials.ARMOR_BLOODWEAVE || this.getArmorMaterial() == HSMaterials.ARMOR_SOULWEAVE)
         {
             super.setDamage(stack, Math.min(stack.getMaxDamage() - 1, damage));
         }

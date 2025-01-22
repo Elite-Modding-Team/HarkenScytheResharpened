@@ -22,6 +22,7 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tool.IHSTool;
@@ -257,6 +258,6 @@ public class HSEntitySoul extends HSEntityEssence
 
     private boolean isLivingmetalItem(Item item)
     {
-        return (item instanceof HSArmor && ((HSArmor) item).getArmorMaterial() == HSItems.ARMOR_LIVINGMETAL) || (item instanceof IHSTool && ((IHSTool) item).getToolMaterial() == HSItems.TOOL_LIVINGMETAL);
+        return (item instanceof HSArmor && ((HSArmor) item).getArmorMaterial() == HSMaterials.ARMOR_LIVINGMETAL) || (item instanceof IHSTool && ((IHSTool) item).getToolMaterial() == HSMaterials.TOOL_LIVINGMETAL);
     }
 }
