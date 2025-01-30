@@ -101,7 +101,7 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 if (!itemStack.isEmpty())
                 {
                     altar.setInputStack(ItemStack.EMPTY);
-                    player.addItemStackToInventory(itemStack);
+                    if (!world.isRemote) player.addItemStackToInventory(itemStack);
                     world.playSound(altarX, altarY, altarZ, getSoundEventFail(), SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
