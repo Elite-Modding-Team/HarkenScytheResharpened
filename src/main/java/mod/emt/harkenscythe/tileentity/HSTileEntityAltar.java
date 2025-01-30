@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,11 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+import mod.emt.harkenscythe.client.sound.HSSoundAltar;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
@@ -79,6 +84,10 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
             {
                 SoundEvent sndEvt = this instanceof HSTileEntityBloodAltar ? HSSoundEvents.BLOCK_BLOOD_ALTAR_APPROACH.getSoundEvent() : HSSoundEvents.BLOCK_SOUL_ALTAR_APPROACH.getSoundEvent();
                 this.world.playSound(null, this.pos, sndEvt, SoundCategory.BLOCKS, 0.2F, 1.5F / (this.getWorld().rand.nextFloat() * 0.4F + 1.2F));
+                if (FMLLaunchHandler.side().isClient() && this.world.isRemote)
+                {
+                    playActiveSound();
+                }
             }
             this.bookSpread += 0.1F;
 
@@ -260,5 +269,11 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
             }
             cruciblePositions.remove(selectedPos);
         }
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void playActiveSound()
+    {
+        Minecraft.getMinecraft().getSoundHandler().playSound(new HSSoundAltar(this, 0.3F));
     }
 }

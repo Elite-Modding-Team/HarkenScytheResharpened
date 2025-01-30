@@ -7,6 +7,7 @@ import mod.emt.harkenscythe.HarkenScythe;
 
 public enum HSSoundEvents
 {
+    BLOCK_ALTAR_ACTIVE("block.altar.active"),
     BLOCK_BLOOD_ALTAR_ENCHANT("block.blood_altar.enchant"),
     BLOCK_BLOOD_ALTAR_ENCHANT_FAIL("block.blood_altar.enchant_fail"),
     BLOCK_BLOOD_ALTAR_APPROACH("block.blood_altar.approach"),

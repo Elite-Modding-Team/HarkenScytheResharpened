@@ -1,4 +1,9 @@
 {
+  "block.altar.active": {
+    "sounds": [
+      "harkenscythe:altar_active"
+    ]
+  },
   "block.biomass.break": {
     "sounds": [
       "harkenscythe:blocks/biomass/break1",
