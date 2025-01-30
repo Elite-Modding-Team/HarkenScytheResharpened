@@ -9,6 +9,7 @@ public enum HSSoundEvents
 {
     BLOCK_BLOOD_ALTAR_ENCHANT("block.blood_altar.enchant"),
     BLOCK_BLOOD_ALTAR_ENCHANT_FAIL("block.blood_altar.enchant_fail"),
+    BLOCK_BLOOD_ALTAR_APPROACH("block.blood_altar.approach"),
     BLOCK_BIOMASS_BREAK("block.biomass.break"),
     BLOCK_BIOMASS_HARVEST("block.biomass.harvest"),
     BLOCK_BIOMASS_STEP("block.biomass.step"),
@@ -16,6 +17,7 @@ public enum HSSoundEvents
     BLOCK_LIVINGMETAL_STEP("block.livingmetal.step"),
     BLOCK_SOUL_ALTAR_ENCHANT("block.soul_altar.enchant"),
     BLOCK_SOUL_ALTAR_ENCHANT_FAIL("block.soul_altar.enchant_fail"),
+    BLOCK_SOUL_ALTAR_APPROACH("block.soul_altar.approach"),
     ITEM_ATHAME_CREATE("item.athame.create"),
     ITEM_CREEP_BALL_USE("item.creep_ball.use"),
     ITEM_GLAIVE_TILL("item.glaive.till"),

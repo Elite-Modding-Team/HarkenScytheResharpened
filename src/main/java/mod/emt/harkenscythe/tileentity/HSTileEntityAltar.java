@@ -11,11 +11,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public abstract class HSTileEntityAltar extends HSTileEntity implements ITickable
 {
@@ -72,17 +75,16 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
             double d0 = entityplayer.posX - (double) ((float) this.pos.getX() + 0.5F);
             double d1 = entityplayer.posZ - (double) ((float) this.pos.getZ() + 0.5F);
             this.tRot = (float) MathHelper.atan2(d1, d0);
+            if (this.bookSpread == 0.0F)
+            {
+                SoundEvent sndEvt = this instanceof HSTileEntityBloodAltar ? HSSoundEvents.BLOCK_BLOOD_ALTAR_APPROACH.getSoundEvent() : HSSoundEvents.BLOCK_SOUL_ALTAR_APPROACH.getSoundEvent();
+                this.world.playSound(null, this.pos, sndEvt, SoundCategory.BLOCKS, 0.2F, 1.5F / (this.getWorld().rand.nextFloat() * 0.4F + 1.2F));
+            }
             this.bookSpread += 0.1F;
 
             if (this.bookSpread < 0.5F || world.rand.nextInt(40) == 0)
             {
-                float f1 = this.flipT;
-
-                do
-                {
-                    this.flipT += (world.rand.nextInt(4) - world.rand.nextInt(4));
-
-                } while (f1 == this.flipT);
+                this.flipT += (world.rand.nextInt(4) - world.rand.nextInt(4));
             }
         }
         else

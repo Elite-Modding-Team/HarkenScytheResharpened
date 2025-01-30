@@ -25,6 +25,11 @@
       "harkenscythe:blocks/biomass/step6"
     ]
   },
+  "block.blood_altar.approach": {
+    "sounds": [
+      "harkenscythe:approach_blood"
+    ]
+  },
   "block.blood_altar.enchant": {
     "sounds": [
       "harkenscythe:enchant_blood"
@@ -51,6 +56,11 @@
       "harkenscythe:blocks/livingmetal/step4",
       "harkenscythe:blocks/livingmetal/step5",
       "harkenscythe:blocks/livingmetal/step6"
+    ]
+  },
+  "block.soul_altar.approach": {
+    "sounds": [
+      "harkenscythe:approach_soul"
     ]
   },
   "block.soul_altar.enchant": {
