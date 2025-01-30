@@ -83,7 +83,7 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
             if (this.bookSpread == 0.0F)
             {
                 SoundEvent sndEvt = this instanceof HSTileEntityBloodAltar ? HSSoundEvents.BLOCK_BLOOD_ALTAR_APPROACH.getSoundEvent() : HSSoundEvents.BLOCK_SOUL_ALTAR_APPROACH.getSoundEvent();
-                this.world.playSound(null, this.pos, sndEvt, SoundCategory.BLOCKS, 0.2F, 1.5F / (this.getWorld().rand.nextFloat() * 0.4F + 1.2F));
+                this.world.playSound(null, this.pos, sndEvt, SoundCategory.BLOCKS, 0.3F, 1.5F / (this.getWorld().rand.nextFloat() * 0.4F + 1.2F));
                 if (FMLLaunchHandler.side().isClient() && this.world.isRemote)
                 {
                     playActiveSound();
