@@ -35,18 +35,6 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
     }
 
     @Override
-    public void breakBlock(World world, BlockPos pos, IBlockState state)
-    {
-        TileEntity te = world.getTileEntity(pos);
-        if (te instanceof HSTileEntityAltar)
-        {
-            HSTileEntityAltar altar = (HSTileEntityAltar) te;
-            altar.dropItem();
-        }
-        super.breakBlock(world, pos, state);
-    }
-
-    @Override
     public abstract TileEntity createNewTileEntity(World world, int meta);
 
     @Override

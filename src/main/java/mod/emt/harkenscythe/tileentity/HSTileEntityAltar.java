@@ -161,6 +161,13 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         return compound;
     }
 
+    @Override
+    public void invalidate()
+    {
+        super.invalidate();
+        dropItem();
+    }
+
     public void dropItem()
     {
         if (!world.isRemote && !getInputStack().isEmpty())
