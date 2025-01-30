@@ -31,7 +31,7 @@ public class HSSoundAltar extends PositionedSound implements ITickableSound
     @Override
     public void update()
     {
-        if (this.altar.bookSpread < 0.5F)
+        if (this.altar.isInvalid() || this.altar.bookSpread < 0.5F)
         {
             this.volume = this.volume - 0.05F;
         }
