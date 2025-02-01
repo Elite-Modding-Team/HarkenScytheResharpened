@@ -128,6 +128,8 @@ public class HSItems
     public static final HSArmorDyeable soulweave_pants = null;
     public static final HSArmorDyeable soulweave_shoes = null;
 
+    public static final HSItemDeadtimeWatch deadtime_watch = null;
+
     public static final HSItem reaper_guidebook = null;
 
     @SubscribeEvent
@@ -211,7 +213,8 @@ public class HSItems
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 3847130), "soulweave_hood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 3847130), "soulweave_robe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 3847130), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemDeadtimeWatch(), "deadtime_watch").setCreativeTab(HarkenScythe.TAB)
             );
 
         // POTIONS

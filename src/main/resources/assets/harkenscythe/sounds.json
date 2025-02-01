@@ -88,6 +88,11 @@
       "harkenscythe:creep_ball"
     ]
   },
+  "item.deadtime_watch.activate": {
+    "sounds": [
+      "harkenscythe:deadtime_watch_activate"
+    ]
+  },
   "item.glaive.till": {
     "sounds": [
       "harkenscythe:glaive_till1",

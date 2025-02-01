@@ -21,6 +21,7 @@ public enum HSSoundEvents
     BLOCK_SOUL_ALTAR_APPROACH("block.soul_altar.approach"),
     ITEM_ATHAME_CREATE("item.athame.create"),
     ITEM_CREEP_BALL_USE("item.creep_ball.use"),
+    ITEM_DEADTIME_WATCH_ACTIVATE("item.deadtime_watch.activate"),
     ITEM_GLAIVE_TILL("item.glaive.till"),
     ITEM_MIRROR_INACTIVE("item.mirror.inactive"),
     ITEM_MIRROR_TELEPORT("item.mirror.teleport"),

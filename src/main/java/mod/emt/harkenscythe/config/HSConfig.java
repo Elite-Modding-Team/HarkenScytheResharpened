@@ -217,6 +217,14 @@ public class HSConfig
         @Config.Comment("The amount of essence blood vessels can hold")
         public int bloodVesselEssenceCapacity = 80;
 
+        @Config.Name("Deadtime Watch Duration")
+        @Config.Comment("The time stop duration of deadtime watches in ticks")
+        public int deadtimeWatchDuration = 300;
+
+        @Config.Name("Deadtime Watch Radius")
+        @Config.Comment("The AoE radius of deadtime watches")
+        public double deadtimeWatchRadius = 16.0D;
+
         @Config.Name("Dimensional Mirror Dimension Blacklist")
         @Config.Comment
             ({

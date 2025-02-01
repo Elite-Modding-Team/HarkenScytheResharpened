@@ -58,6 +58,7 @@ tile.harkenscythe.spectral_glass_pane.name=Lunare Spektralglasscheibe
 tile.harkenscythe.spectral_glass_pane_inverted.name=Solare Spektralglasscheibe
 
 # ITEMS
+item.harkenscythe.abyssal_fragment.name=Abgrundfragment
 item.harkenscythe.ancient_necronomicon.name=Antikes Nekronomikon
 item.harkenscythe.ancient_necronomicon_page.name=Seite des Antiken Nekronomikons
 item.harkenscythe.biomass.name=Biomasse
@@ -81,6 +82,7 @@ item.harkenscythe.bloodweave_shoes.name=Blutgewebte Stiefel
 item.harkenscythe.blunt_harken_blade.name=Stumpfe Harkenklinge
 item.harkenscythe.carnage_book.name=Buch des Gemetzels
 item.harkenscythe.creepball.name=Kriechball
+item.harkenscythe.deadtime_watch.name=Todeszeituhr
 item.harkenscythe.diamond_glaive.name=Diamantglefe
 item.harkenscythe.diamond_scythe.name=Diamantsense
 item.harkenscythe.dimensional_mirror.name=Dimensionaler Spiegel
@@ -187,6 +189,7 @@ setbonus.harkenscythe.bloodweave=25%% Chance auf zusätzlich gereapte Blutessenz
 setbonus.harkenscythe.soulweave=25%% Chance auf zusätzlich gereapte Seelenessenz
 
 # TOOLTIPS
+tooltip.harkenscythe.abyssal_fragment=Es blickt zurück...
 tooltip.harkenscythe.altar=Erfordert einen Zeremoniendolch für Rituale.
 tooltip.harkenscythe.ancient_necronomicon=Das Buch der Toten: In menschliches Fleisch gebunden und mit Blut beschmiert, enthält dieses uralte Buch zusammenhangloses Geschwafel über Prophezeiungen, Nekromantie, Begräbnisbeschwörungen und Passagen zur Dämonenauferstehung.
 tooltip.harkenscythe.ancient_necronomicon_page=Eine fehlende Seite des uralten Nekronomikon, geschrieben in einer uralten, ominösen Sprache.
