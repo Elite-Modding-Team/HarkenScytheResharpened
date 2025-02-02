@@ -1,0 +1,18 @@
+{
+  "name": "Just in Time",
+  "icon": "harkenscythe:textures/items/deadtime_watch.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Deadtime Watch contains a skull, confined by materials imbued with blood and souls, animated by a secret ingredient only Harbingers possess. It is able to stop time and freeze all entities and objects for 15 seconds in a radius of 16 blocks around its user, activated by $(4)right-clicking$()."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:deadtime_watch",
+      "title": " ",
+      "text": "This unique watch stops time... for a time. Unlike death, time moves on. Those who stood still with time move on also... unless they're dead."
+    }
+  ]
+}

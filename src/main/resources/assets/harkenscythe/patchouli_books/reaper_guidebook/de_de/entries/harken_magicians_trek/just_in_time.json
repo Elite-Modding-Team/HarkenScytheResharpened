@@ -1,0 +1,18 @@
+{
+  "name": "Genau zur rechten Zeit",
+  "icon": "harkenscythe:textures/items/deadtime_watch.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Die Todeszeituhr enthält einen Schädel, der von blut- und seelengetränkten Materialien umschlossen ist und durch eine geheime Zutat belebt wird, die nur Harbinger besitzen. Sie kann die Zeit anhalten und alle Lebewesen und Objekte in einem Radius von 16 Blöcken um ihren Benutzer herum für 15 Sekunden einfrieren, aktiviert mittels $(4)Rechtsklick$()."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:deadtime_watch",
+      "title": " ",
+      "text": "Mit dieser Uhr kannst du die Zeit anhalten... vorübergehend. Dann geht die Zeit weiter und alle bewegen sich wieder... nur die Toten nicht."
+    }
+  ]
+}
