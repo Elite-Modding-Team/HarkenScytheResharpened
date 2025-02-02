@@ -1,13 +1,16 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "LBL",
+    "LFL",
     "BSB",
     "LBL"
   ],
   "key": {
     "L": {
       "item": "harkenscythe:livingmetal_ingot"
+    },
+    "F": {
+      "item": "harkenscythe:abyssal_fragment"
     },
     "B": {
       "item": "harkenscythe:biomass"
