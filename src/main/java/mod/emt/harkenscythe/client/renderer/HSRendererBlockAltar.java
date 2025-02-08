@@ -109,7 +109,7 @@ public abstract class HSRendererBlockAltar extends TileEntitySpecialRenderer<HST
             GlStateManager.popMatrix();
 
             RayTraceResult result = Minecraft.getMinecraft().objectMouseOver;
-            if (result.typeOfHit != RayTraceResult.Type.BLOCK) return;
+            if (result == null || result.typeOfHit != RayTraceResult.Type.BLOCK) return;
             BlockPos resultPos = new BlockPos(result.getBlockPos().getX(), result.getBlockPos().getY(), result.getBlockPos().getZ());
             if (!resultPos.equals(te.getPos())) return;
 
