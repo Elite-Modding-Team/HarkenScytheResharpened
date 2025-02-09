@@ -27,6 +27,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -133,7 +134,7 @@ public abstract class HSBlockCrucible extends Block
             ItemStack heldStack = player.getHeldItem(hand);
             Item heldItem = heldStack.getItem();
             int essenceCount = ((HSTileEntityCrucible) te).getEssenceCount();
-            if (essenceCount < HSTileEntityCrucible.MAX_ESSENCE_COUNT && heldItem == getEssenceItem())
+            if (essenceCount < HSConfig.BLOCKS.crucibleMaxAmount && heldItem == getEssenceItem())
             {
                 return fillCrucibleItem(world, pos, state, player, heldStack, heldItem, essenceCount);
             }
@@ -149,7 +150,7 @@ public abstract class HSBlockCrucible extends Block
                     return true;
                 }
             }
-            else if (essenceCount < HSTileEntityCrucible.MAX_ESSENCE_COUNT && !player.isSneaking() && (heldItem == getEssenceKeeper() || heldItem == getEssenceVessel()))
+            else if (essenceCount < HSConfig.BLOCKS.crucibleMaxAmount && !player.isSneaking() && (heldItem == getEssenceKeeper() || heldItem == getEssenceVessel()))
             {
                 return fillCrucibleContainer(world, pos, state, player, hand, heldStack, heldItem, essenceCount, getEssenceKeeper(), getEssenceVessel());
             }

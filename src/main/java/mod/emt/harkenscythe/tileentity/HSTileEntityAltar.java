@@ -27,7 +27,6 @@ import mod.emt.harkenscythe.init.HSSoundEvents;
 
 public abstract class HSTileEntityAltar extends HSTileEntity implements ITickable
 {
-    private static final int RADIUS = HSConfig.BLOCKS.crucibleDetectionRange;
     public int tickCount;
     public float pageFlip;
     public float pageFlipPrev;
@@ -196,22 +195,15 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         BlockPos pos = this.getPos();
         World world = this.getWorld();
 
-        for (int dx = -RADIUS; dx <= RADIUS; dx++)
+        for (BlockPos checkPos : HSTileEntityCrucible.CRUCIBLE_POSITIONS)
         {
-            for (int dy = -RADIUS; dy <= RADIUS; dy++)
+            if (Math.sqrt(pos.distanceSq(checkPos)) <= HSConfig.BLOCKS.crucibleDetectionRange && world.getBlockState(checkPos).getBlock() == getCrucibleType())
             {
-                for (int dz = -RADIUS; dz <= RADIUS; dz++)
+                TileEntity te = world.getTileEntity(checkPos);
+                if (te instanceof HSTileEntityCrucible)
                 {
-                    BlockPos checkPos = pos.add(dx, dy, dz);
-                    if (world.getBlockState(checkPos).getBlock() == getCrucibleType())
-                    {
-                        TileEntity te = world.getTileEntity(checkPos);
-                        if (te instanceof HSTileEntityCrucible)
-                        {
-                            int count = ((HSTileEntityCrucible) te).getEssenceCount();
-                            totalCount += count;
-                        }
-                    }
+                    int count = ((HSTileEntityCrucible) te).getEssenceCount();
+                    totalCount += count;
                 }
             }
         }
@@ -224,21 +216,14 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         BlockPos pos = this.getPos();
         List<BlockPos> cruciblePositions = new ArrayList<>();
 
-        for (int dx = -RADIUS; dx <= RADIUS; dx++)
+        for (BlockPos checkPos : HSTileEntityCrucible.CRUCIBLE_POSITIONS)
         {
-            for (int dy = -RADIUS; dy <= RADIUS; dy++)
+            if (Math.sqrt(pos.distanceSq(checkPos)) <= HSConfig.BLOCKS.crucibleDetectionRange && world.getBlockState(checkPos).getBlock() == getCrucibleType())
             {
-                for (int dz = -RADIUS; dz <= RADIUS; dz++)
+                TileEntity te = world.getTileEntity(checkPos);
+                if (te instanceof HSTileEntityCrucible)
                 {
-                    BlockPos checkPos = pos.add(dx, dy, dz);
-                    if (world.getBlockState(checkPos).getBlock() == getCrucibleType())
-                    {
-                        TileEntity te = world.getTileEntity(checkPos);
-                        if (te instanceof HSTileEntityCrucible)
-                        {
-                            cruciblePositions.add(checkPos);
-                        }
-                    }
+                    cruciblePositions.add(checkPos);
                 }
             }
         }
