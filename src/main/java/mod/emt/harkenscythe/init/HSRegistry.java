@@ -46,10 +46,7 @@ import mod.emt.harkenscythe.advancement.HSAdvancementTrigger;
 import mod.emt.harkenscythe.client.renderer.*;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.*;
-import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
-import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
-import mod.emt.harkenscythe.tileentity.HSTileEntityLivingmetalCore;
-import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAltar;
+import mod.emt.harkenscythe.tileentity.*;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSRegistry
@@ -233,8 +230,6 @@ public class HSRegistry
 
         HarkenScythe.LOGGER.info("Registering recipes...");
 
-        final IForgeRegistry<IRecipe> registry = event.getRegistry();
-
         // Blood Altar
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_hood, HSItems.bloodweave_hood, 10);
@@ -292,9 +287,11 @@ public class HSRegistry
         HarkenScythe.LOGGER.info("Registering tile entities...");
 
         GameRegistry.registerTileEntity(HSTileEntityBloodAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_altar"));
+        GameRegistry.registerTileEntity(HSTileEntityBloodAbsorber.class, new ResourceLocation(HarkenScythe.MOD_ID, "blood_absorber"));
         GameRegistry.registerTileEntity(HSTileEntityCrucible.class, new ResourceLocation(HarkenScythe.MOD_ID, "crucible"));
         GameRegistry.registerTileEntity(HSTileEntityLivingmetalCore.class, new ResourceLocation(HarkenScythe.MOD_ID, "livingmetal_core"));
         GameRegistry.registerTileEntity(HSTileEntitySoulAltar.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_altar"));
+        GameRegistry.registerTileEntity(HSTileEntitySoulAbsorber.class, new ResourceLocation(HarkenScythe.MOD_ID, "soul_absorber"));
     }
 
     @SideOnly(Side.CLIENT)
@@ -321,7 +318,9 @@ public class HSRegistry
     {
         HarkenScythe.LOGGER.info("Registering tile entity special renderers...");
 
+        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntityBloodAbsorber.class, new HSRendererBlockAbsorber());
         ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntityBloodAltar.class, new HSRendererBlockBloodAltar());
+        ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntitySoulAbsorber.class, new HSRendererBlockAbsorber());
         ClientRegistry.bindTileEntitySpecialRenderer(HSTileEntitySoulAltar.class, new HSRendererBlockSoulAltar());
     }
 }

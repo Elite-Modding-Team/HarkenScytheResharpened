@@ -38,6 +38,7 @@ advancement.harkenscythe.shell_of_a_spider.name=Schale einer Spinne
 advancement.harkenscythe.shell_of_a_spider.desc=Begegne einer Exospinne.
 
 # BLOCKS
+tile.harkenscythe.blood_absorber.name=Blutabsorber
 tile.harkenscythe.blood_altar.name=Blutaltar
 tile.harkenscythe.blood_crucible.name=Bluttiegel
 tile.harkenscythe.biomass_block.name=Biomasseblock
@@ -48,6 +49,7 @@ tile.harkenscythe.creep_block_tilled.name=Bearbeiteter Kriechblock
 tile.harkenscythe.creep_block_tilled_bloodied.name=Blutbearbeiteter Kriechblock
 tile.harkenscythe.livingmetal_block.name=Lebendmetallblock
 tile.harkenscythe.livingmetal_core.name=Lebendmetallkern
+tile.harkenscythe.soul_absorber.name=Seelenabsorber
 tile.harkenscythe.soul_altar.name=Seelenaltar
 tile.harkenscythe.soul_cake.name=Seelenkuchen
 tile.harkenscythe.soul_crucible.name=Seelentiegel

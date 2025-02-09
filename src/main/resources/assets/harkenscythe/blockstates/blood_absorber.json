@@ -1,0 +1,38 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "harkenscythe:altar",
+    "textures": {
+      "particle": "harkenscythe:blocks/blood_altar_bottom",
+      "bottom": "harkenscythe:blocks/blood_altar_bottom",
+      "top": "harkenscythe:blocks/blood_absorber_inactive",
+      "side": "harkenscythe:blocks/blood_altar_side"
+    }
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ],
+    "state=0": {
+      "model": "harkenscythe:altar",
+      "textures": {
+        "particle": "harkenscythe:blocks/blood_altar_bottom",
+        "bottom": "harkenscythe:blocks/blood_altar_bottom",
+        "top": "harkenscythe:blocks/blood_absorber_inactive",
+        "side": "harkenscythe:blocks/blood_altar_side"
+      }
+    },
+    "state=1": {
+      "model": "harkenscythe:altar",
+      "textures": {
+        "particle": "harkenscythe:blocks/blood_altar_bottom",
+        "bottom": "harkenscythe:blocks/blood_altar_bottom",
+        "top": "harkenscythe:blocks/blood_absorber_active",
+        "side": "harkenscythe:blocks/blood_altar_side"
+      }
+    }
+  }
+}

@@ -8,8 +8,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.block.HSBlockBloodCrucible;
 import mod.emt.harkenscythe.block.HSBlockCrucible;
@@ -24,50 +22,49 @@ public class HSTileEntityCrucible extends HSTileEntity
 
     public int getEssenceCount()
     {
-        return this.essenceCount;
+        return essenceCount;
+    }
+
+    public void setEssenceCount(int essenceCount)
+    {
+        this.essenceCount = essenceCount;
     }
 
     public void setEssenceCount(World world, BlockPos pos, IBlockState state, int essenceCount)
     {
         if (!world.isRemote)
         {
-            this.essenceCount = Math.min(essenceCount, HSConfig.BLOCKS.crucibleMaxAmount);
+            setEssenceCount(Math.min(essenceCount, HSConfig.BLOCKS.crucibleMaxAmount));
             int level = (int) Math.ceil((double) getEssenceCount() / HSConfig.BLOCKS.crucibleMaxAmount * HSBlockCrucible.MAX_LEVEL);
             ((HSBlockCrucible) state.getBlock()).setLevel(world, pos, state, level);
-            HSNetworkHandler.instance.sendToAll(new HSEssenceSyncPacket(this.essenceCount, pos));
+            HSNetworkHandler.instance.sendToAll(new HSEssenceSyncPacket(getEssenceCount(), pos));
         }
         for (int i = 0; i < 3; i++)
         {
             if (state.getBlock() instanceof HSBlockBloodCrucible)
             {
-                this.world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.9D, 0.2D, 0.2D);
+                world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.9D, 0.2D, 0.2D);
             }
             else
             {
-                this.world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.4D, 0.8D, 0.9D);
+                world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.4D, 0.8D, 0.9D);
             }
         }
         markDirty();
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void setEssenceCountClient(int essenceCount)
-    {
-        this.essenceCount = essenceCount;
     }
 
     @Override
     public void readFromNBT(NBTTagCompound compound)
     {
         super.readFromNBT(compound);
-        this.essenceCount = compound.getInteger("EssenceCount");
+        setEssenceCount(compound.getInteger("EssenceCount"));
     }
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound)
     {
         super.writeToNBT(compound);
-        compound.setInteger("EssenceCount", this.essenceCount);
+        compound.setInteger("EssenceCount", getEssenceCount());
         return compound;
     }
 

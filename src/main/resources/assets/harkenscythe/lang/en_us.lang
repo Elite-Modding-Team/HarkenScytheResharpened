@@ -38,6 +38,7 @@ advancement.harkenscythe.shell_of_a_spider.name=Shell of a Spider
 advancement.harkenscythe.shell_of_a_spider.desc=Encounter an Exospider.
 
 # BLOCKS
+tile.harkenscythe.blood_absorber.name=Blood Absorber
 tile.harkenscythe.blood_altar.name=Altar of Blood
 tile.harkenscythe.blood_crucible.name=Blood Crucible
 tile.harkenscythe.biomass_block.name=Biomass Block
@@ -48,6 +49,7 @@ tile.harkenscythe.creep_block_tilled.name=Tilled Creep Block
 tile.harkenscythe.creep_block_tilled_bloodied.name=Bloodied Tilled Creep Block
 tile.harkenscythe.livingmetal_block.name=Block of Livingmetal
 tile.harkenscythe.livingmetal_core.name=Livingmetal Core
+tile.harkenscythe.soul_absorber.name=Soul Absorber
 tile.harkenscythe.soul_altar.name=Altar of Souls
 tile.harkenscythe.soul_cake.name=Cake of Souls
 tile.harkenscythe.soul_crucible.name=Soul Crucible

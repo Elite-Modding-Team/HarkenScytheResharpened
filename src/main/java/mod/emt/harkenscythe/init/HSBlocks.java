@@ -38,7 +38,10 @@ public class HSBlocks
     public static final HSBlockSoulCrucible soul_crucible = null;
 
     public static final HSBlockBloodAltar blood_altar = null;
+    public static final HSBlockBloodAbsorber blood_absorber = null;
+
     public static final HSBlockSoulAltar soul_altar = null;
+    public static final HSBlockSoulAbsorber soul_absorber = null;
 
     public static final HSBlockSoulCake soul_cake = null;
 
@@ -68,7 +71,9 @@ public class HSBlocks
                 HSRegistry.setup(new HSBlockCloth(MapColor.RED), "bloodweave_cloth").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockCloth(MapColor.LIGHT_BLUE), "soulweave_cloth").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockBloodCrucible(), "blood_crucible").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBlockBloodAbsorber(), "blood_absorber").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockSoulCrucible(), "soul_crucible").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBlockSoulAbsorber(), "soul_absorber").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockBloodAltar(), "blood_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockSoulAltar(), "soul_altar").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBlockSoulCake(), "soul_cake"),

@@ -1,0 +1,106 @@
+package mod.emt.harkenscythe.block;
+
+import net.minecraft.block.BlockEnchantmentTable;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.HSItemEssenceKeeper;
+import mod.emt.harkenscythe.tileentity.HSTileEntityAbsorber;
+
+@SuppressWarnings("deprecation")
+public abstract class HSBlockAbsorber extends BlockEnchantmentTable
+{
+    public static final PropertyInteger STATE = PropertyInteger.create("state", 0, 1);
+
+    protected HSBlockAbsorber()
+    {
+        super();
+        setDefaultState(blockState.getBaseState().withProperty(STATE, 0));
+        setHardness(5.0F);
+        setResistance(2000.0F);
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return getDefaultState().withProperty(STATE, meta);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        return state.getValue(STATE);
+    }
+
+    @Override
+    public boolean hasComparatorInputOverride(IBlockState state)
+    {
+        return true;
+    }
+
+    @Override
+    public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos)
+    {
+        return blockState.getValue(STATE);
+    }
+
+    @Override
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, STATE);
+    }
+
+    @Override
+    public boolean hasTileEntity(IBlockState state)
+    {
+        return true;
+    }
+
+    @Override
+    public abstract TileEntity createNewTileEntity(World world, int meta);
+
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
+        TileEntity te = world.getTileEntity(pos);
+        if (te instanceof HSTileEntityAbsorber && hand == EnumHand.MAIN_HAND)
+        {
+            HSTileEntityAbsorber absorber = (HSTileEntityAbsorber) te;
+            int absorberX = absorber.getPos().getX();
+            int absorberY = absorber.getPos().getY();
+            int absorberZ = absorber.getPos().getZ();
+            ItemStack absorberStack = absorber.getInputStack();
+            ItemStack heldStack = player.getHeldItem(hand);
+
+            if (heldStack.getItem() instanceof HSItemEssenceKeeper && absorberStack.isEmpty())
+            {
+                absorber.setInputStack(heldStack.splitStack(1));
+                world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                return true;
+            }
+            else
+            {
+                ItemStack itemStack = absorber.getInputStack();
+                if (!itemStack.isEmpty())
+                {
+                    absorber.setInputStack(ItemStack.EMPTY);
+                    if (!world.isRemote) player.addItemStackToInventory(itemStack);
+                    world.playSound(absorberX, absorberY, absorberZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, 1.75F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}

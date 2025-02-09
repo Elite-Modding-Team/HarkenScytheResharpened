@@ -56,7 +56,7 @@ public class HSEssenceSyncPacket implements IMessage
                     if (tile instanceof HSTileEntityCrucible)
                     {
                         HSTileEntityCrucible crucible = ((HSTileEntityCrucible) tile);
-                        crucible.setEssenceCountClient(message.essenceCount);
+                        crucible.setEssenceCount(message.essenceCount);
                     }
                 }
             });
