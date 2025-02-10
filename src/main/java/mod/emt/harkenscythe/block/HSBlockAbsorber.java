@@ -1,15 +1,19 @@
 package mod.emt.harkenscythe.block;
 
 import net.minecraft.block.BlockEnchantmentTable;
+import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -21,12 +25,13 @@ import mod.emt.harkenscythe.tileentity.HSTileEntityAbsorber;
 @SuppressWarnings("deprecation")
 public abstract class HSBlockAbsorber extends BlockEnchantmentTable
 {
+    public static final PropertyDirection FACING = BlockHorizontal.FACING;
     public static final PropertyInteger STATE = PropertyInteger.create("state", 0, 1);
 
     protected HSBlockAbsorber()
     {
         super();
-        setDefaultState(blockState.getBaseState().withProperty(STATE, 0));
+        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(STATE, 0));
         setHardness(5.0F);
         setResistance(2000.0F);
     }
@@ -34,13 +39,29 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return getDefaultState().withProperty(STATE, meta);
+        return getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta & 3)).withProperty(STATE, meta >> 2);
     }
 
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return state.getValue(STATE);
+        int i = 0;
+        i = i | state.getValue(FACING).getHorizontalIndex();
+        i = i | state.getValue(STATE) << 2;
+        return i;
+    }
+
+    @Override
+    public IBlockState withRotation(IBlockState state, Rotation rot)
+    {
+        return state.getBlock() != this ? state : state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+    }
+
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        EnumFacing horizontalFacing = placer.getHorizontalFacing();
+        return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, horizontalFacing).withProperty(STATE, meta >> 2);
     }
 
     @Override
@@ -58,7 +79,7 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, STATE);
+        return new BlockStateContainer(this, FACING, STATE);
     }
 
     @Override
