@@ -11,12 +11,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.block.HSBlockAbsorber;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.HSItemEssenceVesselBlood;
 import mod.emt.harkenscythe.item.HSItemEssenceVesselSoul;
 
@@ -143,7 +145,7 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
 
         if (!cruciblePositions.isEmpty())
         {
-            BlockPos selectedPos = cruciblePositions.get(world.rand.nextInt(cruciblePositions.size()));
+            BlockPos selectedPos = cruciblePositions.get(0);
             IBlockState state = world.getBlockState(selectedPos);
             if (world.getBlockState(selectedPos).getBlock() == getCrucibleType())
             {
@@ -153,10 +155,9 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
                     int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
                     ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount + 1);
                     decreaseContainerEssenceCount();
-                    for (int i = 0; i < 3; i++)
-                    {
-                        world.spawnParticle(EnumParticleTypes.SPELL_WITCH, pos.getX() + world.rand.nextFloat(), pos.getY() + 0.5D + world.rand.nextFloat(), pos.getZ() + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
-                    }
+                    createWorkingParticles();
+                    createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 1.0D, te.getPos().getZ() + 0.5D);
+                    world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.2F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
                 }
             }
             cruciblePositions.remove(selectedPos);
@@ -169,6 +170,30 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
         if (getInputStack().getItemDamage() >= getInputStack().getMaxDamage())
         {
             setInputStack(new ItemStack(getInputStack().getItem() instanceof HSItemEssenceVesselBlood || getInputStack().getItem() instanceof HSItemEssenceVesselSoul ? HSItems.essence_vessel : HSItems.essence_keeper));
+        }
+    }
+
+    public void createWorkingParticles()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            world.spawnParticle(EnumParticleTypes.SPELL_WITCH, pos.getX() + world.rand.nextFloat(), pos.getY() + 0.5D + world.rand.nextFloat(), pos.getZ() + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
+        }
+    }
+
+    public void createTrailParticles(double srcX, double srcY, double srcZ, double destX, double destY, double destZ)
+    {
+        int particles = 60;
+        for (int i = 0; i < particles; i++)
+        {
+            double trailFactor = i / (particles - 1.0D);
+            double d = this instanceof HSTileEntityBloodAbsorber ? 0.9F : 0.4F;
+            double d1 = this instanceof HSTileEntityBloodAbsorber ? 0.2F : 0.8F;
+            double d2 = this instanceof HSTileEntityBloodAbsorber ? 0.2F : 0.9F;
+            double tx = srcX + (destX - srcX) * trailFactor;
+            double ty = srcY + (destY - srcY) * trailFactor;
+            double tz = srcZ + (destZ - srcZ) * trailFactor;
+            world.spawnParticle(EnumParticleTypes.REDSTONE, tx, ty, tz, d, d1, d2);
         }
     }
 }

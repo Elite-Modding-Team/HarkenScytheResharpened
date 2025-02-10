@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.tileentity;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
@@ -39,17 +40,7 @@ public class HSTileEntityCrucible extends HSTileEntity
             ((HSBlockCrucible) state.getBlock()).setLevel(world, pos, state, level);
             HSNetworkHandler.instance.sendToAll(new HSEssenceSyncPacket(getEssenceCount(), pos));
         }
-        for (int i = 0; i < 3; i++)
-        {
-            if (state.getBlock() instanceof HSBlockBloodCrucible)
-            {
-                world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.9D, 0.2D, 0.2D);
-            }
-            else
-            {
-                world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.4D, 0.8D, 0.9D);
-            }
-        }
+        createParticles(state.getBlock());
         markDirty();
     }
 
@@ -89,5 +80,20 @@ public class HSTileEntityCrucible extends HSTileEntity
     public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState)
     {
         return oldState.getBlock() != newState.getBlock();
+    }
+
+    public void createParticles(Block block)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (block instanceof HSBlockBloodCrucible)
+            {
+                world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.9D, 0.2D, 0.2D);
+            }
+            else
+            {
+                world.spawnParticle(EnumParticleTypes.SPELL_MOB, pos.getX() + 0.5D, pos.getY() + 0.01D * getEssenceCount(), pos.getZ() + 0.5D, 0.4D, 0.8D, 0.9D);
+            }
+        }
     }
 }
