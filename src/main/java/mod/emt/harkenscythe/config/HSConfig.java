@@ -86,6 +86,10 @@ public class HSConfig
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
         public int essenceDespawnTime = 6000;
+        
+        @Config.Name("Essence Health Limit")
+        @Config.Comment("Mobs with this much health or less will spawn no blood/soul essence")
+        public double essenceHealthLimit = 10.0D;
 
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
@@ -110,10 +114,6 @@ public class HSConfig
         @Config.Name("Soul Essence Grieving Value")
         @Config.Comment("How much souls grieving soul essence is worth")
         public int essenceSoulGrievingValue = 2;
-
-        @Config.Name("Soul Essence Health Limit")
-        @Config.Comment("Mobs with this much health or less will spawn no soul essence")
-        public double essenceSoulHealthLimit = 10.0D;
 
         @Config.Name("Soul Essence Wrathful Health")
         @Config.Comment("Bosses with this much health or more will spawn wrathful soul essence, otherwise culled soul essence is spawned instead")
