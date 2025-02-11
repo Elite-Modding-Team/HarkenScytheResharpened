@@ -78,14 +78,30 @@ public class HSConfig
                 "Example: minecraft:cow"
             })
         public String[] bloodReapingBlacklist = new String[] {};
-
+        
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
         public int essenceDespawnTime = 6000;
-
+        
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
+        
+        @Config.Name("Soul Essence Culled Health")
+        @Config.Comment("Mobs with this much health or more will spawn culled soul essence")
+        public double essenceSoulCulledHealth = 100.0D;
+        
+        @Config.Name("Soul Essence Grieving Health")
+        @Config.Comment("Mobs with this much health or more will spawn grieving soul essence")
+        public double essenceSoulGrievingHealth = 40.0D;
+        
+        @Config.Name("Soul Essence Health Limit")
+        @Config.Comment("Mobs with this much health or less will spawn no soul essence")
+        public double essenceSoulHealthLimit = 10.0D;
+        
+        @Config.Name("Soul Essence Wrathful Health")
+        @Config.Comment("Bosses with this much health or more will spawn wrathful soul essence, otherwise culled soul essence is spawned instead")
+        public double essenceSoulWrathfulHealth = 300.0D;
 
         @Config.RequiresMcRestart
         @Config.Name("Exospider Spawn Probability")
