@@ -97,9 +97,9 @@ public class HSItemDimensionalMirror extends HSItem
                 {
                     stack.setItemDamage(stack.getItemDamage() + (stack.getMaxDamage() / HSConfig.ITEMS.dimensionalMirrorUses));
                 }
+                player.getCooldownTracker().setCooldown(stack.getItem(), 100);
                 world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_TELEPORT.getSoundEvent(), SoundCategory.PLAYERS, 0.75F, 1.0F);
             }
-            player.getCooldownTracker().setCooldown(stack.getItem(), 100);
         }
         return stack;
     }
