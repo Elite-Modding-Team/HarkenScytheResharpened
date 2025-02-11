@@ -34,6 +34,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
@@ -159,32 +160,9 @@ public class HSEntityHarbinger extends EntityMob
 
             return false;
         }
-        
+
         if (source == DamageSource.CACTUS) return false;
         return super.attackEntityFrom(source, amount);
-    }
-    
-    protected boolean teleportRandomly()
-    {
-        double x = this.posX + (this.rand.nextDouble() - 0.5) * 8.0;
-        double y = this.posY + (this.rand.nextInt(8) - 4);
-        double z = this.posZ + (this.rand.nextDouble() - 0.5) * 8.0;
-        return this.teleportTo(x, y, z);
-    }
-    
-    private boolean teleportTo(double x, double y, double z)
-    {
-        EnderTeleportEvent event = new EnderTeleportEvent(this, x, y, z, 0);
-        if (MinecraftForge.EVENT_BUS.post(event)) return false;
-        boolean flag = this.attemptTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ());
-
-        if (flag)
-        {
-            this.world.playSound((EntityPlayer)null, this.prevPosX, this.prevPosY, this.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, this.getSoundCategory(), 1.0F, 1.0F);
-            this.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-        }
-
-        return flag;
     }
 
     @Nonnull
@@ -238,11 +216,21 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public void fall(float distance, float damageMultiplier)
     {
+        // No fall damage
+    }
+
+    protected boolean teleportRandomly()
+    {
+        double x = this.posX + (this.rand.nextDouble() - 0.5) * 8.0;
+        double y = this.posY + (this.rand.nextInt(8) - 4);
+        double z = this.posZ + (this.rand.nextDouble() - 0.5) * 8.0;
+        return this.teleportTo(x, y, z);
     }
 
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
+        // No step sounds
     }
 
     @Override
@@ -318,6 +306,21 @@ public class HSEntityHarbinger extends EntityMob
         return super.onInitialSpawn(difficulty, livingdata);
     }
 
+    private boolean teleportTo(double x, double y, double z)
+    {
+        EnderTeleportEvent event = new EnderTeleportEvent(this, x, y, z, 0);
+        if (MinecraftForge.EVENT_BUS.post(event)) return false;
+        boolean flag = this.attemptTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ());
+
+        if (flag)
+        {
+            this.world.playSound(null, this.prevPosX, this.prevPosY, this.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, this.getSoundCategory(), 1.0F, 1.0F);
+            this.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+        }
+
+        return flag;
+    }
+
     /**
      * Attempts to reap a player by setting the attack target to the nearest player within 20 blocks.
      *
@@ -334,12 +337,10 @@ public class HSEntityHarbinger extends EntityMob
 
     /**
      * Attempts to reap a nearby whitelisted entity by setting it as an attack target.
-     *
-     * @return true if the attack target was set to a valid entity, false otherwise.
      */
-    private boolean reapForFun()
+    private void reapForFun()
     {
-        if (this.world.isDaytime()) return false;
+        if (this.world.isDaytime()) return;
         List<Entity> nearbyEntities = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(HSConfig.ENTITIES.harbingerSearchDistance));
         for (Entity entity : nearbyEntities)
         {
@@ -349,7 +350,6 @@ public class HSEntityHarbinger extends EntityMob
                 break;
             }
         }
-        return this.getAttackTarget() != null;
     }
 
     /**
@@ -406,7 +406,7 @@ public class HSEntityHarbinger extends EntityMob
             this.swingArm(EnumHand.OFF_HAND);
             for (int i = 0; i < 4; i++)
             {
-                double angle = Math.toRadians(i * 90);
+                double angle = Math.toRadians(i * 90D);
                 double x = this.posX + 2.0 * Math.cos(angle);
                 double z = this.posZ + 2.0 * Math.sin(angle);
                 if (!this.world.isRemote) HSEventLivingDeath.spawnSpectralEntity(this.world, this.rand.nextBoolean() ? new EntitySkeleton(this.world) : new EntityZombie(this.world), new BlockPos(x, this.posY, z), false);
