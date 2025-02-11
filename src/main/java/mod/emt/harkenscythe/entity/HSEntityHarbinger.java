@@ -44,6 +44,7 @@ import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
+// TODO: Only attack players if they have certain Harken Scythe items like filled containers and essence items
 public class HSEntityHarbinger extends EntityMob
 {
     public static final DataParameter<Boolean> RARE = EntityDataManager.createKey(HSEntityHarbinger.class, DataSerializers.BOOLEAN);
@@ -217,11 +218,11 @@ public class HSEntityHarbinger extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.harbingerMovementSpeed);
     }
 
-    // Immune to all effects except Invisibility similar to the Ender Dragon and the Wither
+    // Immune to all negative effects
     @Override
     public boolean isPotionApplicable(PotionEffect effect)
     {
-        return effect.getPotion() == MobEffects.INVISIBILITY;
+        return !effect.getPotion().isBadEffect();
     }
 
     @Override

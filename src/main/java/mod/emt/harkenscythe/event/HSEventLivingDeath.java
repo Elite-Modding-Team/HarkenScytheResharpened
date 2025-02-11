@@ -17,7 +17,9 @@ import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -79,6 +81,7 @@ public class HSEventLivingDeath
         }
         else if (trueSource instanceof HSEntityHarbinger)
         {
+        	((EntityLivingBase) trueSource).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 0));
             spawnSpectralEntity(world, entity, entity.getPosition(), false);
         }
         else if (entity.getEntityData().getBoolean("IsSpectral"))
