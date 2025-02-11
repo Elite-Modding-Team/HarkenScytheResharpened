@@ -67,15 +67,15 @@ public class HSEntitySoul extends HSEntityEssence
         {
             soulType = 4; // Spectral
         }
-        else if (!entity.isNonBoss() && entity.getMaxHealth() >= HSConfig.ENTITIES.essenceSoulWrathfulHealth) // Boss with 300 max health or more
+        else if (!entity.isNonBoss() && entity.getMaxHealth() >= HSConfig.ENTITIES.essenceSoulWrathfulMaxHealth) // Boss with 300 max health or more
         {
             soulType = 3; // Wrathful
         }
-        else if (entity.getMaxHealth() >= HSConfig.ENTITIES.essenceSoulCulledHealth || !entity.isNonBoss()) // Mobs with 100 max health or more, bosses with less than 300 health
+        else if (entity.getMaxHealth() >= HSConfig.ENTITIES.essenceSoulCulledMaxHealth || !entity.isNonBoss()) // Mobs with 100 max health or more, bosses with less than 300 health
         {
             soulType = 2; // Culled
         }
-        else if ((!world.isDaytime() && world.getCurrentMoonPhaseFactor() == 0.0F) || entity instanceof EntityPlayer || entity.getMaxHealth() >= HSConfig.ENTITIES.essenceSoulGrievingHealth) // During new moons, players, mobs with 40 max health or more
+        else if ((!world.isDaytime() && world.getCurrentMoonPhaseFactor() == 0.0F) || entity instanceof EntityPlayer || entity.getMaxHealth() >= HSConfig.ENTITIES.essenceSoulGrievingMaxHealth) // During new moons, players, mobs with 40 max health or more
         {
             soulType = 1; // Grieving
         }

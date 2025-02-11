@@ -87,17 +87,17 @@ public class HSConfig
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
         public int essenceDespawnTime = 6000;
         
-        @Config.Name("Essence Health Limit")
-        @Config.Comment("Mobs with this much health or less will spawn no blood/soul essence")
-        public double essenceHealthLimit = 10.0D;
+        @Config.Name("Essence Max Health Limit")
+        @Config.Comment("Mobs with this much max health or less will spawn no blood/soul essence")
+        public double essenceMaxHealthLimit = 10.0D;
 
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
 
-        @Config.Name("Soul Essence Culled Health")
-        @Config.Comment("Mobs with this much health or more will spawn culled soul essence")
-        public double essenceSoulCulledHealth = 100.0D;
+        @Config.Name("Soul Essence Culled Max Health")
+        @Config.Comment("Mobs with this much max health or more will spawn culled soul essence")
+        public double essenceSoulCulledMaxHealth = 100.0D;
 
         @Config.Name("Soul Essence Common Value")
         @Config.Comment("How much souls common soul essence is worth")
@@ -107,17 +107,17 @@ public class HSConfig
         @Config.Comment("How much souls culled soul essence is worth")
         public int essenceSoulCulledValue = 5;
 
-        @Config.Name("Soul Essence Grieving Health")
-        @Config.Comment("Mobs with this much health or more will spawn grieving soul essence")
-        public double essenceSoulGrievingHealth = 40.0D;
+        @Config.Name("Soul Essence Grieving Max Health")
+        @Config.Comment("Mobs with this much max health or more will spawn grieving soul essence")
+        public double essenceSoulGrievingMaxHealth = 40.0D;
 
         @Config.Name("Soul Essence Grieving Value")
         @Config.Comment("How much souls grieving soul essence is worth")
         public int essenceSoulGrievingValue = 2;
 
-        @Config.Name("Soul Essence Wrathful Health")
-        @Config.Comment("Bosses with this much health or more will spawn wrathful soul essence, otherwise culled soul essence is spawned instead")
-        public double essenceSoulWrathfulHealth = 300.0D;
+        @Config.Name("Soul Essence Wrathful Max Health")
+        @Config.Comment("Bosses with this much max health or more will spawn wrathful soul essence, otherwise culled soul essence is spawned instead")
+        public double essenceSoulWrathfulMaxHealth = 300.0D;
 
         @Config.Name("Soul Essence Spectral Value")
         @Config.Comment("How much souls spectral soul essence is worth")
