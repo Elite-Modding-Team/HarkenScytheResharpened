@@ -20,7 +20,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
+import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entity.HSEntityGlobin;
+import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -38,6 +40,11 @@ public class HSEventLivingHurt
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
+        if (entity instanceof HSEntitySpectralMiner && world.rand.nextDouble() < 0.25D)
+        {
+        	// 25% chance to spawn medium Ectoglobins on hit
+        	spawnEctoglobin(world, entity);
+        }
         if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
         {
             spawnBlood(world, entity);
@@ -109,6 +116,14 @@ public class HSEventLivingHurt
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(blood);
         world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+    }
+    
+    public static void spawnEctoglobin(World world, EntityLivingBase entity)
+    {
+    	HSEntityEctoglobin globin = new HSEntityEctoglobin(world);
+    	globin.setSize(2, true);
+    	globin.setPosition(entity.posX, entity.posY, entity.posZ);
+    	if (!world.isRemote) world.spawnEntity(globin);
     }
 
     private static boolean isSuccessfulReap(EntityPlayer player, DamageSource damageSource)
