@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.event;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -22,6 +23,7 @@ import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.entity.HSEntityGlobin;
+import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 import mod.emt.harkenscythe.entity.HSEntitySpectralMiner;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSPotions;
@@ -40,6 +42,19 @@ public class HSEventLivingHurt
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
+        if (trueSource instanceof HSEntityHarbinger)
+        {
+        	if (entity instanceof EntityCreature)
+        	{
+        		// Harbinger damage is tripled against animals
+        		event.setAmount(event.getAmount() * 3.0F);
+        	}
+        	else if (!(entity instanceof EntityPlayer))
+        	{
+        		// Harbinger damage is doubled against non-players
+        		event.setAmount(event.getAmount() * 2.0F);
+        	}
+        }
         if (entity instanceof HSEntitySpectralMiner && world.rand.nextDouble() < 0.25D)
         {
         	// 25% chance to spawn medium Ectoglobins on hit
