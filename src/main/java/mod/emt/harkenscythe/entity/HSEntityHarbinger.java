@@ -32,7 +32,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
@@ -141,8 +142,44 @@ public class HSEntityHarbinger extends EntityMob
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount)
     {
+        if (source instanceof EntityDamageSourceIndirect)
+        {
+            for (int i = 0; i < 64; ++i)
+            {
+                if (this.teleportRandomly())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
         if (source == DamageSource.CACTUS) return false;
         return super.attackEntityFrom(source, amount);
+    }
+    
+    protected boolean teleportRandomly()
+    {
+        double x = this.posX + (this.rand.nextDouble() - 0.5) * 8.0;
+        double y = this.posY + (this.rand.nextInt(8) - 4);
+        double z = this.posZ + (this.rand.nextDouble() - 0.5) * 8.0;
+        return this.teleportTo(x, y, z);
+    }
+    
+    private boolean teleportTo(double x, double y, double z)
+    {
+        EnderTeleportEvent event = new EnderTeleportEvent(this, x, y, z, 0);
+        if (MinecraftForge.EVENT_BUS.post(event)) return false;
+        boolean flag = this.attemptTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ());
+
+        if (flag)
+        {
+            this.world.playSound((EntityPlayer)null, this.prevPosX, this.prevPosY, this.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, this.getSoundCategory(), 1.0F, 1.0F);
+            this.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+        }
+
+        return flag;
     }
 
     @Nonnull
