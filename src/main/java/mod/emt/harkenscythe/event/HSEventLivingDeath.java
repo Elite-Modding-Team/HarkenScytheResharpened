@@ -7,6 +7,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -99,6 +100,9 @@ public class HSEventLivingDeath
             entity.setHealth(entity.getMaxHealth());
             entity.deathTime = 0;
             entity.isDead = false;
+            if (entity instanceof EntityLiving) ((EntityLiving) entity).setAttackTarget(null);
+            entity.setRevengeTarget(null);
+            entity.setLastAttackedEntity(null);
         }
         // Spawn spectral human
         else if (entity instanceof EntityPlayer)

@@ -96,6 +96,8 @@ public class HSEntityHarbinger extends EntityMob
         if (this.getAttackTarget() != null && this.getAttackTarget().getEntityData().getBoolean("IsSpectral"))
         {
             this.setAttackTarget(null);
+            this.setRevengeTarget(null);
+            this.setLastAttackedEntity(null);
         }
         // Decrement summon cooldown
         if (this.summonCooldown > 0)
@@ -106,6 +108,8 @@ public class HSEntityHarbinger extends EntityMob
         if (this.world.isDaytime() && this.world.canSeeSky(this.getPosition()))
         {
             this.setAttackTarget(null);
+            this.setRevengeTarget(null);
+            this.setLastAttackedEntity(null);
             this.ticksInSun++;
         }
         // If sun exposure exceeds 1200 ticks (1 minute), create smoke particles and despawn
@@ -355,7 +359,7 @@ public class HSEntityHarbinger extends EntityMob
      */
     private boolean isWhitelistedEntity(Entity entity)
     {
-        return !HSEntityBlacklists.isBlacklistedForHarbingerReaping(entity) && (entity instanceof EntityVillager || entity instanceof EntityAnimal);
+        return !HSEntityBlacklists.isBlacklistedForHarbingerReaping(entity) && !entity.getEntityData().getBoolean("IsSpectral") && (entity instanceof EntityVillager || entity instanceof EntityAnimal);
     }
 
     /**
