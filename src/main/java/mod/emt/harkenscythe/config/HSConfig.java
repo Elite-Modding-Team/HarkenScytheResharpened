@@ -91,9 +91,21 @@ public class HSConfig
         @Config.Comment("Mobs with this much health or more will spawn culled soul essence")
         public double essenceSoulCulledHealth = 100.0D;
         
+        @Config.Name("Soul Essence Common Value")
+        @Config.Comment("How much souls common soul essence is worth")
+        public int essenceSoulCommonValue = 1;
+        
+        @Config.Name("Soul Essence Culled Value")
+        @Config.Comment("How much souls culled soul essence is worth")
+        public int essenceSoulCulledValue = 5;
+        
         @Config.Name("Soul Essence Grieving Health")
         @Config.Comment("Mobs with this much health or more will spawn grieving soul essence")
         public double essenceSoulGrievingHealth = 40.0D;
+        
+        @Config.Name("Soul Essence Grieving Value")
+        @Config.Comment("How much souls grieving soul essence is worth")
+        public int essenceSoulGrievingValue = 2;
         
         @Config.Name("Soul Essence Health Limit")
         @Config.Comment("Mobs with this much health or less will spawn no soul essence")
@@ -102,6 +114,14 @@ public class HSConfig
         @Config.Name("Soul Essence Wrathful Health")
         @Config.Comment("Bosses with this much health or more will spawn wrathful soul essence, otherwise culled soul essence is spawned instead")
         public double essenceSoulWrathfulHealth = 300.0D;
+        
+        @Config.Name("Soul Essence Spectral Value")
+        @Config.Comment("How much souls spectral soul essence is worth")
+        public int essenceSoulSpectralValue = 20;
+        
+        @Config.Name("Soul Essence Wrathful Value")
+        @Config.Comment("How much souls wrathful soul essence is worth")
+        public int essenceSoulWrathfulValue = 40;
 
         @Config.RequiresMcRestart
         @Config.Name("Exospider Spawn Probability")

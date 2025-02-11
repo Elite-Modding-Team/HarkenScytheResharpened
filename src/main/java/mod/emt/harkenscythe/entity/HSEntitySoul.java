@@ -97,15 +97,15 @@ public class HSEntitySoul extends HSEntityEssence
         switch (this.getDataManager().get(SOUL_TYPE))
         {
             case 1: // Grieving (2)
-                return 2;
+                return HSConfig.ENTITIES.essenceSoulGrievingValue;
             case 2: // Culled (5)
-                return 5;
+                return HSConfig.ENTITIES.essenceSoulCulledValue;
             case 3: // Wrathful (40)
-            	return 40;
+            	return HSConfig.ENTITIES.essenceSoulWrathfulValue;
             case 4: // Spectral (20)
-                return 20;
+                return HSConfig.ENTITIES.essenceSoulSpectralValue;
             default: // Common (1)
-                return 1;
+                return HSConfig.ENTITIES.essenceSoulCommonValue;
         }
     }
 
