@@ -21,6 +21,7 @@
     }
   },
   "result": {
-    "item": "harkenscythe:deadtime_watch"
+    "item": "harkenscythe:deadtime_watch",
+    "data": 40
   }
 }

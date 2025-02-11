@@ -178,6 +178,7 @@ effect.harkenscythe.water=Spectral Water
 
 # MESSAGES
 message.harkenscythe.altar.invalid_recipe=This is not a valid altar ritual recipe!
+message.harkenscythe.deadtime_watch.no_blood=The watch needs to be recharged with blood to work!
 message.harkenscythe.dimensional_mirror.blacklist=A magical force prevents the mirror from working in this dimension!
 message.harkenscythe.dimensional_mirror.no_souls=The mirror needs to be recharged with souls to work!
 message.harkenscythe.dimensional_mirror.no_spawn=No spawn point is set for the mirror to work!

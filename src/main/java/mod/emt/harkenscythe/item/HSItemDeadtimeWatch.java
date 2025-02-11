@@ -12,6 +12,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.config.HSConfig;
@@ -22,36 +23,55 @@ public class HSItemDeadtimeWatch extends HSItem
     private final ConcurrentLinkedQueue<Entity> entityQueue = new ConcurrentLinkedQueue<>();
     private int stopTime;
 
-    public HSItemDeadtimeWatch()
+    public HSItemDeadtimeWatch(EnumRarity rarity)
     {
-        super(EnumRarity.UNCOMMON);
+        super(rarity);
+        setMaxDamage(HSConfig.ITEMS.deadtimeWatchDurability);
+        setMaxStackSize(1);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
-        List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().grow(HSConfig.ITEMS.deadtimeWatchRadius));
-        for (Entity entity : list)
+        ItemStack stack = player.getHeldItem(hand);
+        if (stack.getItemDamage() > stack.getMaxDamage() - (stack.getMaxDamage() / HSConfig.ITEMS.deadtimeWatchUses))
         {
-            if (entity.isNonBoss())
-            {
-                if (entity instanceof EntityLiving)
-                {
-                    ((EntityLiving) entity).setNoAI(true);
-                }
-                else
-                {
-                    entity.updateBlocked = true;
-                }
-                this.entityQueue.add(entity);
-            }
+            player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.deadtime_watch.no_blood"), true);
         }
-        this.stopTime = HSConfig.ITEMS.deadtimeWatchDuration;
-        player.getCooldownTracker().setCooldown(this, this.stopTime * 4);
-        player.swingArm(hand);
-        world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_DEADTIME_WATCH_ACTIVATE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.0F);
-
+        else
+        {
+            List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().grow(HSConfig.ITEMS.deadtimeWatchRadius));
+            for (Entity entity : list)
+            {
+                if (entity.isNonBoss())
+                {
+                    if (entity instanceof EntityLiving)
+                    {
+                        ((EntityLiving) entity).setNoAI(true);
+                    }
+                    else
+                    {
+                        entity.updateBlocked = true;
+                    }
+                    this.entityQueue.add(entity);
+                }
+            }
+            this.stopTime = HSConfig.ITEMS.deadtimeWatchDuration;
+            if (!player.capabilities.isCreativeMode)
+            {
+                stack.setItemDamage(stack.getItemDamage() + (stack.getMaxDamage() / HSConfig.ITEMS.deadtimeWatchUses));
+            }
+            player.getCooldownTracker().setCooldown(this, this.stopTime * 2);
+            player.swingArm(hand);
+            world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_DEADTIME_WATCH_ACTIVATE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.0F);
+        }
         return super.onItemRightClick(world, player, hand);
+    }
+
+    @Override
+    public boolean isDamageable()
+    {
+        return false;
     }
 
     @Override
@@ -85,6 +105,24 @@ public class HSItemDeadtimeWatch extends HSItem
                 }
             }
         }
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack)
+    {
+        return true;
+    }
+
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        return 9443858;
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
+    {
+        return false;
     }
 
     private void spawnPauseParticles(World world, Entity queuedEntity, float progress)

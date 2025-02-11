@@ -42,11 +42,11 @@ public class HSConfig
         @Config.Name("Disable Enchantments")
         @Config.Comment("Disables all enchantments")
         public boolean disableEnchantments = false;
-        
+
         @Config.Name("Disable Potions")
         @Config.Comment("Disables all potions")
         public boolean disablePotions = false;
-        
+
         @Config.Name("New Moon Strength Effect")
         @Config.Comment("Mobs that spawn during the New Moon will gain the Strength effect")
         public boolean newMoonStrengthEffect = true;
@@ -82,47 +82,47 @@ public class HSConfig
                 "Example: minecraft:cow"
             })
         public String[] bloodReapingBlacklist = new String[] {};
-        
+
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
         public int essenceDespawnTime = 6000;
-        
+
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
-        
+
         @Config.Name("Soul Essence Culled Health")
         @Config.Comment("Mobs with this much health or more will spawn culled soul essence")
         public double essenceSoulCulledHealth = 100.0D;
-        
+
         @Config.Name("Soul Essence Common Value")
         @Config.Comment("How much souls common soul essence is worth")
         public int essenceSoulCommonValue = 1;
-        
+
         @Config.Name("Soul Essence Culled Value")
         @Config.Comment("How much souls culled soul essence is worth")
         public int essenceSoulCulledValue = 5;
-        
+
         @Config.Name("Soul Essence Grieving Health")
         @Config.Comment("Mobs with this much health or more will spawn grieving soul essence")
         public double essenceSoulGrievingHealth = 40.0D;
-        
+
         @Config.Name("Soul Essence Grieving Value")
         @Config.Comment("How much souls grieving soul essence is worth")
         public int essenceSoulGrievingValue = 2;
-        
+
         @Config.Name("Soul Essence Health Limit")
         @Config.Comment("Mobs with this much health or less will spawn no soul essence")
         public double essenceSoulHealthLimit = 10.0D;
-        
+
         @Config.Name("Soul Essence Wrathful Health")
         @Config.Comment("Bosses with this much health or more will spawn wrathful soul essence, otherwise culled soul essence is spawned instead")
         public double essenceSoulWrathfulHealth = 300.0D;
-        
+
         @Config.Name("Soul Essence Spectral Value")
         @Config.Comment("How much souls spectral soul essence is worth")
         public int essenceSoulSpectralValue = 20;
-        
+
         @Config.Name("Soul Essence Wrathful Value")
         @Config.Comment("How much souls wrathful soul essence is worth")
         public int essenceSoulWrathfulValue = 40;
@@ -257,6 +257,14 @@ public class HSConfig
         @Config.Comment("The amount of essence blood vessels can hold")
         public int bloodVesselEssenceCapacity = 80;
 
+        @Config.Name("Deadtime Watch Durability")
+        @Config.Comment
+            ({
+                "The amount of durability deadtime watches have",
+                "When changing this, you may want to modify the recipe data value accordingly"
+            })
+        public int deadtimeWatchDurability = 40;
+
         @Config.Name("Deadtime Watch Duration")
         @Config.Comment("The time stop duration of deadtime watches in ticks")
         public int deadtimeWatchDuration = 300;
@@ -264,6 +272,10 @@ public class HSConfig
         @Config.Name("Deadtime Watch Radius")
         @Config.Comment("The AoE radius of deadtime watches")
         public double deadtimeWatchRadius = 16.0D;
+
+        @Config.Name("Deadtime Watch Uses")
+        @Config.Comment("The amount of uses fully charged deadtime watches have")
+        public int deadtimeWatchUses = 8;
 
         @Config.Name("Dimensional Mirror Dimension Blacklist")
         @Config.Comment
