@@ -42,12 +42,12 @@ public class HSEventLivingHurt
         {
             if (entity instanceof EntityCreature)
             {
-                // Harbinger damage is tripled against animals
+                // +100% Harbinger damage against animals
                 event.setAmount(event.getAmount() * 2.0F);
             }
             else if (!(entity instanceof EntityPlayer))
             {
-                // Harbinger damage is doubled against non-players
+                // +50% Harbinger damage against non-players
                 event.setAmount(event.getAmount() * 1.5F);
             }
         }

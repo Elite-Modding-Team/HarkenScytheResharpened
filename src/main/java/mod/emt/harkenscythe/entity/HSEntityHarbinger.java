@@ -6,12 +6,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
@@ -31,6 +27,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
@@ -45,8 +42,7 @@ import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
-// TODO: Only attack players if they have certain Harken Scythe items like filled containers and essence items
-public class HSEntityHarbinger extends EntityMob
+public class HSEntityHarbinger extends EntityCreature
 {
     public static final DataParameter<Boolean> RARE = EntityDataManager.createKey(HSEntityHarbinger.class, DataSerializers.BOOLEAN);
     private int summonCooldown;
@@ -59,13 +55,189 @@ public class HSEntityHarbinger extends EntityMob
         this.getDataManager().set(RARE, this.world.rand.nextDouble() < 0.05D);
     }
 
+    // Immune to all negative effects
+    @Override
+    public boolean isPotionApplicable(PotionEffect effect)
+    {
+        return !effect.getPotion().isBadEffect();
+    }
+
+    /**
+     * Called when the entity is attacked.
+     */
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source instanceof EntityDamageSourceIndirect)
+        {
+            for (int i = 0; i < 64; ++i)
+            {
+                if (this.teleportRandomly())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        if (source == DamageSource.CACTUS) return false;
+        return super.attackEntityFrom(source, amount);
+    }
+
+    @Override
+    public void onDeath(DamageSource cause)
+    {
+        super.onDeath(cause);
+        if (cause.getTrueSource() instanceof EntityPlayerMP)
+        {
+            HSAdvancements.ENCOUNTER_HARBINGER.trigger((EntityPlayerMP) cause.getTrueSource());
+        }
+    }
+
+    @Nonnull
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSource)
+    {
+        return HSSoundEvents.ENTITY_HARBINGER_HURT.getSoundEvent();
+    }
+
+    @Nonnull
+    @Override
+    protected SoundEvent getDeathSound()
+    {
+        return HSSoundEvents.ENTITY_HARBINGER_DEATH.getSoundEvent();
+    }
+
+    @Override
+    protected SoundEvent getFallSound(int heightIn)
+    {
+        return null;
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
+        // No fall damage
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entityIn)
+    {
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float) ((int) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
+        if (flag)
+        {
+            this.applyEnchantments(this, entityIn);
+        }
+        return flag;
+    }
+
+    protected boolean teleportRandomly()
+    {
+        double x = this.posX + (this.rand.nextDouble() - 0.5) * 8.0;
+        double y = this.posY + (this.rand.nextInt(8) - 4);
+        double z = this.posZ + (this.rand.nextDouble() - 0.5) * 8.0;
+        return this.teleportTo(x, y, z);
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, Block blockIn)
+    {
+        // No step sounds
+    }
+
+    @Override
+    public boolean isNonBoss()
+    {
+        return false;
+    }
+
+    @Override
+    protected void initEntityAI()
+    {
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
+        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(6, new EntityAIMoveThroughVillage(this, 1.0D, false));
+        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 16.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.targetTasks.addTask(0, new EntityAINearestAttackableTarget<>(this, HSEntitySoul.class, false));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+    }
+
+    @Override
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(HSConfig.ENTITIES.harbingerArmorValue);
+        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(HSConfig.ENTITIES.harbingerAttackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(HSConfig.ENTITIES.harbingerFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(HSConfig.ENTITIES.harbingerMaxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.harbingerMovementSpeed);
+    }
+
+    @Override
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.getDataManager().register(RARE, false);
+    }
+
+    @Override
+    public void onUpdate()
+    {
+        super.onUpdate();
+
+        if (this.world.isRemote)
+        {
+            if (this.rand.nextInt(100) == 0 && !this.isSilent())
+            {
+                this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), this.getSoundCategory(), 0.5F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                HSParticleHandler.spawnDarkColoredParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.getDataManager().get(HSEntityHarbinger.RARE) ? Color.getColor("Harken Red", 7614014) : Color.getColor("Harbinger Black", 1907997), 0.0D, 0.0D, 0.0D);
+            }
+        }
+    }
+
+    @Nonnull
+    @Override
+    protected SoundEvent getAmbientSound()
+    {
+        return this.world.isDaytime() ? SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE : HSSoundEvents.ENTITY_HARBINGER_IDLE.getSoundEvent();
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
+        super.writeEntityToNBT(compound);
+        compound.setBoolean("Rare", this.getDataManager().get(RARE));
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
+        super.readEntityFromNBT(compound);
+        this.getDataManager().set(RARE, compound.getBoolean("Rare"));
+    }
+
+    @Nonnull
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return this.getDataManager().get(HSEntityHarbinger.RARE) ? HSLootTables.HARBINGER_RARE : HSLootTables.HARBINGER;
+    }
+
     @Override
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
         if (this.world.isRemote) return;
         // Check if there is no attack target and reap mobs when no player is nearby
-        if (this.getAttackTarget() == null && !reapPlayer())
+        if (this.getAttackTarget() == null /*&& !reapPlayer()*/)
         {
             reapForFun();
         }
@@ -115,177 +287,12 @@ public class HSEntityHarbinger extends EntityMob
             this.ticksInSun++;
         }
         // If sun exposure exceeds 1200 ticks (1 minute), create smoke particles and despawn
-        if (this.ticksInSun > 1200)
+        if (world.getDifficulty() == EnumDifficulty.PEACEFUL || this.ticksInSun > 1200)
         {
             // TODO: Better looking smoke particles
             this.spawnExplosionParticle();
             this.setDead();
         }
-    }
-
-    @Override
-    public void onUpdate()
-    {
-        super.onUpdate();
-
-        if (this.world.isRemote)
-        {
-            if (this.rand.nextInt(100) == 0 && !this.isSilent())
-            {
-                this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), this.getSoundCategory(), 0.5F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
-            }
-
-            for (int i = 0; i < 2; i++)
-            {
-                HSParticleHandler.spawnDarkColoredParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.getDataManager().get(HSEntityHarbinger.RARE) ? Color.getColor("Harken Red", 7614014) : Color.getColor("Harbinger Black", 1907997), 0.0D, 0.0D, 0.0D);
-            }
-        }
-    }
-
-    /**
-     * Called when the entity is attacked.
-     */
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
-    {
-        if (source instanceof EntityDamageSourceIndirect)
-        {
-            for (int i = 0; i < 64; ++i)
-            {
-                if (this.teleportRandomly())
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        if (source == DamageSource.CACTUS) return false;
-        return super.attackEntityFrom(source, amount);
-    }
-
-    @Nonnull
-    @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource)
-    {
-        return HSSoundEvents.ENTITY_HARBINGER_HURT.getSoundEvent();
-    }
-
-    @Nonnull
-    @Override
-    protected SoundEvent getDeathSound()
-    {
-        return HSSoundEvents.ENTITY_HARBINGER_DEATH.getSoundEvent();
-    }
-
-    @Override
-    protected SoundEvent getFallSound(int heightIn)
-    {
-        return null;
-    }
-
-    @Override
-    protected void applyEntityAttributes()
-    {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(HSConfig.ENTITIES.harbingerArmorValue);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(HSConfig.ENTITIES.harbingerAttackDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(HSConfig.ENTITIES.harbingerFollowRange);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(HSConfig.ENTITIES.harbingerMaxHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(HSConfig.ENTITIES.harbingerMovementSpeed);
-    }
-
-    // Immune to all negative effects
-    @Override
-    public boolean isPotionApplicable(PotionEffect effect)
-    {
-        return !effect.getPotion().isBadEffect();
-    }
-
-    @Override
-    public void onDeath(DamageSource cause)
-    {
-        super.onDeath(cause);
-        if (cause.getTrueSource() instanceof EntityPlayerMP)
-        {
-            HSAdvancements.ENCOUNTER_HARBINGER.trigger((EntityPlayerMP) cause.getTrueSource());
-        }
-    }
-
-    @Override
-    public void fall(float distance, float damageMultiplier)
-    {
-        // No fall damage
-    }
-
-    protected boolean teleportRandomly()
-    {
-        double x = this.posX + (this.rand.nextDouble() - 0.5) * 8.0;
-        double y = this.posY + (this.rand.nextInt(8) - 4);
-        double z = this.posZ + (this.rand.nextDouble() - 0.5) * 8.0;
-        return this.teleportTo(x, y, z);
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn)
-    {
-        // No step sounds
-    }
-
-    @Override
-    public boolean isNonBoss()
-    {
-        return false;
-    }
-
-    @Override
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(6, new EntityAIMoveThroughVillage(this, 1.0D, false));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 16.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.targetTasks.addTask(0, new EntityAINearestAttackableTarget<>(this, HSEntitySoul.class, false));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-    }
-
-    @Override
-    protected void entityInit()
-    {
-        super.entityInit();
-        this.getDataManager().register(RARE, false);
-    }
-
-    @Nonnull
-    @Override
-    protected SoundEvent getAmbientSound()
-    {
-        return this.world.isDaytime() ? SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE : HSSoundEvents.ENTITY_HARBINGER_IDLE.getSoundEvent();
-    }
-
-    @Override
-    public void writeEntityToNBT(NBTTagCompound compound)
-    {
-        super.writeEntityToNBT(compound);
-        compound.setBoolean("Rare", this.getDataManager().get(RARE));
-    }
-
-    @Override
-    public void readEntityFromNBT(NBTTagCompound compound)
-    {
-        super.readEntityFromNBT(compound);
-        this.getDataManager().set(RARE, compound.getBoolean("Rare"));
-    }
-
-    @Nonnull
-    @Override
-    protected ResourceLocation getLootTable()
-    {
-        return this.getDataManager().get(HSEntityHarbinger.RARE) ? HSLootTables.HARBINGER_RARE : HSLootTables.HARBINGER;
     }
 
     @Override
@@ -328,6 +335,7 @@ public class HSEntityHarbinger extends EntityMob
      */
     private boolean reapPlayer()
     {
+        // TODO: Only attack players if they have certain Harken Scythe items like filled containers and essence items
         if (this.world.isDaytime()) return false;
         EntityPlayer nearestPlayer = this.world.getClosestPlayerToEntity(this, HSConfig.ENTITIES.harbingerSearchDistance);
         if (nearestPlayer == null || nearestPlayer.isCreative() || nearestPlayer.getIsInvulnerable()) nearestPlayer = null;
