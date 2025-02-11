@@ -5,6 +5,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -47,6 +49,28 @@ public class HSEntitySpectralMiner extends EntityMob
     {
         if (source == DamageSource.CACTUS) return false;
         return super.attackEntityFrom(source, amount);
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity)
+    {
+        if (super.attackEntityAsMob(entity))
+        {
+            if (entity instanceof EntityLivingBase)
+            {
+                float local_difficulty = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
+                // 5 seconds * regional difficulty
+                int difficulty_calculation = (int) (100 * local_difficulty);
+
+                ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 30 * 20 + difficulty_calculation, 2));
+            }
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     @Override
@@ -176,6 +200,7 @@ public class HSEntitySpectralMiner extends EntityMob
         for (EntityPlayer player : players)
         {
             player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 200));
+            player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 200));
             if (this.world.rand.nextInt(2) == 0)
             {
                 this.world.playSound(null, player.getPosition(), SoundEvents.AMBIENT_CAVE, SoundCategory.HOSTILE, 0.8F, 1.0F);
