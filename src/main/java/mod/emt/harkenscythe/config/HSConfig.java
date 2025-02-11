@@ -42,10 +42,14 @@ public class HSConfig
         @Config.Name("Disable Enchantments")
         @Config.Comment("Disables all enchantments")
         public boolean disableEnchantments = false;
-
+        
         @Config.Name("Disable Potions")
         @Config.Comment("Disables all potions")
         public boolean disablePotions = false;
+        
+        @Config.Name("New Moon Strength Effect")
+        @Config.Comment("Mobs that spawn during the New Moon will gain the Strength effect")
+        public boolean newMoonStrengthEffect = true;
     }
 
     public static class BlockSettings
