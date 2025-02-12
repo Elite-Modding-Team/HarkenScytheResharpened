@@ -8,9 +8,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -48,24 +48,9 @@ public class HSBlockBiomassCrop extends BlockBush
     }
 
     @Override
-    public int quantityDropped(Random random)
-    {
-        return 0;
-    }
-
-    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Items.AIR;
-    }
-
-    @Override
-    public void dropBlockAsItemWithChance(World world, BlockPos pos, IBlockState state, float chance, int fortune)
-    {
-        if (!world.isRemote)
-        {
-            spawnAsEntity(world, pos, new ItemStack(state.getValue(AGE) >= 3 ? HSItems.biomass : HSItems.biomass_seed));
-        }
+        return state.getValue(AGE) >= 3 ? HSItems.biomass : HSItems.biomass_seed;
     }
 
     @Override
@@ -78,6 +63,30 @@ public class HSBlockBiomassCrop extends BlockBush
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, AGE);
+    }
+
+    @Override
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+    {
+        super.getDrops(drops, world, pos, state, 0);
+        int age = state.getValue(AGE);
+        Random rand = world instanceof World ? ((World) world).rand : new Random();
+        boolean bloodied = world.getBlockState(pos.down()).getBlock() == HSBlocks.creep_block_tilled_bloodied;
+        if (age >= 3)
+        {
+            int k = 3 + fortune;
+            for (int i = 0; i < k; ++i)
+            {
+                if (rand.nextInt(6) <= age)
+                {
+                    drops.add(new ItemStack(rand.nextInt(3) == 0 ? HSItems.germinated_biomass_seed : HSItems.biomass_seed, 1, 0));
+                    if (bloodied && rand.nextBoolean())
+                    {
+                        drops.add(new ItemStack(HSItems.biomass, 1, 0));
+                    }
+                }
+            }
+        }
     }
 
     @Override

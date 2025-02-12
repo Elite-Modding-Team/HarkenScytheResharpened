@@ -231,7 +231,7 @@ public class HSRegistry
         HarkenScythe.LOGGER.info("Registering recipes...");
 
         // Blood Altar
-        HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 20);
+        HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_hood, HSItems.bloodweave_hood, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_robe, HSItems.bloodweave_robe, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_pants, HSItems.bloodweave_pants, 10);
