@@ -142,9 +142,9 @@ public class HSBlockCreep extends Block
         world.setBlockState(pos, HSBlocks.creep_block_tilled_bloodied.getDefaultState());
         if (!player.capabilities.isCreativeMode)
         {
-            if (heldStack.getItemDamage() + 10 < heldStack.getMaxDamage())
+            if (heldStack.getItemDamage() + 5 < heldStack.getMaxDamage())
             {
-                heldStack.setItemDamage(heldStack.getItemDamage() + 10);
+                heldStack.setItemDamage(heldStack.getItemDamage() + 5);
             }
             else
             {
