@@ -89,7 +89,7 @@ public class HSConfig
         
         @Config.Name("Essence Max Health Limit")
         @Config.Comment("Mobs with this much max health or less will spawn no blood/soul essence")
-        public double essenceMaxHealthLimit = 10.0D;
+        public double essenceMaxHealthLimit = 7.0D;
 
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
