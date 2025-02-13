@@ -376,7 +376,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             playSound(HSSoundEvents.BLOCK_LIVINGMETAL_STEP.getSoundEvent(), 0.4F, 2.0F / (this.world.rand.nextFloat() * 0.4F + 0.8F));
 
             // Heals by 7.5% (configurable) of damage dealt to the target with indicating leeching particles
-            if (((EntityPlayer) shootingEntity).shouldHeal() && shootingEntity instanceof EntityPlayer)
+            if (shootingEntity instanceof EntityPlayer && ((EntityPlayer) shootingEntity).shouldHeal())
             {
                 ((EntityPlayer) shootingEntity).heal(this.damage * (float) HSConfig.ITEMS.vampireKnifeProjectileHealing);
                 shootingEntity.playSound(HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), 0.2F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
