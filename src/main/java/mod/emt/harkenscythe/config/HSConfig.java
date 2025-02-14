@@ -81,12 +81,24 @@ public class HSConfig
                 "Syntax:  modid:entity",
                 "Example: minecraft:cow"
             })
-        public String[] bloodReapingBlacklist = new String[] {};
+        public String[] bloodReapingBlacklist = new String[]
+            {
+                "minecraft:blaze",
+                "minecraft:magma_cube",
+                "minecraft:shulker",
+                "minecraft:skeleton",
+                "minecraft:skeleton_horse",
+                "minecraft:slime",
+                "minecraft:snowman",
+                "minecraft:vex",
+                "minecraft:villager_golem",
+                "minecraft:wither_skeleton"
+            };
 
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
         public int essenceDespawnTime = 6000;
-        
+
         @Config.Name("Essence Max Health Limit")
         @Config.Comment("Mobs with this much max health or less will spawn no blood/soul essence")
         public double essenceMaxHealthLimit = 7.0D;
@@ -94,6 +106,34 @@ public class HSConfig
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
+
+        @Config.Name("Blood Essence Common Value")
+        @Config.Comment("How much souls common soul essence is worth")
+        public int essenceBloodCommonValue = 1;
+
+        @Config.Name("Blood Essence Sickly Value")
+        @Config.Comment("How much souls common soul essence is worth")
+        public int essenceBloodSicklyValue = 2;
+
+        @Config.Name("Blood Essence Sickly Max Health")
+        @Config.Comment("Mobs with this much max health or more will spawn sickly blood essence")
+        public double essenceBloodSicklyMaxHealth = 40.0D;
+
+        @Config.Name("Blood Essence Intoxicated Value")
+        @Config.Comment("How much souls common soul essence is worth")
+        public int essenceBloodIntoxicatedValue = 5;
+
+        @Config.Name("Blood Essence Intoxicated Max Health")
+        @Config.Comment("Mobs with this much max health or more will spawn intoxicated blood essence")
+        public double essenceBloodIntoxicatedMaxHealth = 100.0D;
+
+        @Config.Name("Blood Essence Warped Value")
+        @Config.Comment("How much souls common soul essence is worth")
+        public int essenceBloodWarpedValue = 40;
+
+        @Config.Name("Blood Essence Warped Max Health")
+        @Config.Comment("Bosses with this much max health or more will spawn warped blood essence, otherwise intoxicated blood essence is spawned instead")
+        public double essenceBloodWarpedMaxHealth = 300.0D;
 
         @Config.Name("Soul Essence Culled Max Health")
         @Config.Comment("Mobs with this much max health or more will spawn culled soul essence")

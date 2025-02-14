@@ -29,7 +29,7 @@ public class HSEnchantmentBloodletting extends HSEnchantment
         World world = user.getEntityWorld();
         if (!world.isRemote && entity instanceof EntityLivingBase && user.getRNG().nextFloat() < 0.1F * level)
         {
-            HSEntityBlood blood = new HSEntityBlood(world);
+            HSEntityBlood blood = new HSEntityBlood(world, (EntityLivingBase) entity);
             blood.setPosition(entity.posX, entity.posY, entity.posZ);
             world.spawnEntity(blood);
             world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));

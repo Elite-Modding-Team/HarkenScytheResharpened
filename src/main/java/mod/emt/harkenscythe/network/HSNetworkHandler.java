@@ -7,7 +7,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.network.packet.HSEssenceSyncPacket;
-import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
+import mod.emt.harkenscythe.network.packet.HSEssenceTypePacket;
 
 public class HSNetworkHandler
 {
@@ -21,7 +21,7 @@ public class HSNetworkHandler
         // Client packets
         if (FMLLaunchHandler.side().isClient())
         {
-            instance.registerMessage(HSSoulTypePacket.Handler.class, HSSoulTypePacket.class, id++, Side.CLIENT);
+            instance.registerMessage(HSEssenceTypePacket.Handler.class, HSEssenceTypePacket.class, id++, Side.CLIENT);
             instance.registerMessage(HSEssenceSyncPacket.Handler.class, HSEssenceSyncPacket.class, id++, Side.CLIENT);
         }
         // Server packets

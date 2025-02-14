@@ -62,8 +62,17 @@ public class HSItems
     public static final HSToolGlaive biomass_glaive = null;
     public static final HSToolGlaive livingmetal_glaive = null;
 
-    public static final HSItem blood_essence = null;
-    public static final HSItem soul_essence = null;
+    public static final HSItemEssence blood_essence = null;
+    public static final HSItemEssence blood_essence_sickly = null;
+    public static final HSItemEssence blood_essence_intoxicated = null;
+    public static final HSItemEssence blood_essence_warped = null;
+
+    public static final HSItemEssence soul_essence = null;
+    public static final HSItemEssence soul_essence_grieving = null;
+    public static final HSItemEssence soul_essence_culled = null;
+    public static final HSItemEssence soul_essence_wrathful = null;
+    public static final HSItemEssence soul_essence_spectral = null;
+
     public static final HSItem abyssal_fragment = null;
 
     public static final HSItemNecronomicon ancient_necronomicon = null;
@@ -164,8 +173,15 @@ public class HSItems
                 HSRegistry.setup(new HSToolGlaive(ToolMaterial.DIAMOND, 1.4F, EnumRarity.COMMON), "diamond_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolGlaive(HSMaterials.TOOL_BIOMASS, 1.45F, EnumRarity.UNCOMMON), "biomass_glaive").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolGlaive(HSMaterials.TOOL_LIVINGMETAL, 1.45F, EnumRarity.UNCOMMON), "livingmetal_glaive").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blood_essence").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "soul_essence").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.COMMON, HSConfig.ENTITIES.essenceBloodCommonValue), "blood_essence").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.UNCOMMON, HSConfig.ENTITIES.essenceBloodSicklyValue), "blood_essence_sickly").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.RARE, HSConfig.ENTITIES.essenceBloodIntoxicatedValue), "blood_essence_intoxicated").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.EPIC, HSConfig.ENTITIES.essenceBloodWarpedValue), "blood_essence_warped").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.COMMON, HSConfig.ENTITIES.essenceSoulCommonValue), "soul_essence").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.UNCOMMON, HSConfig.ENTITIES.essenceSoulGrievingValue), "soul_essence_grieving").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.RARE, HSConfig.ENTITIES.essenceSoulCulledValue), "soul_essence_culled").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.EPIC, HSConfig.ENTITIES.essenceSoulWrathfulValue), "soul_essence_wrathful").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssence(EnumRarity.EPIC, HSConfig.ENTITIES.essenceSoulSpectralValue), "soul_essence_spectral").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.RARE), "abyssal_fragment").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemNecronomicon(), "ancient_necronomicon").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "ancient_necronomicon_page").setCreativeTab(HarkenScythe.TAB),

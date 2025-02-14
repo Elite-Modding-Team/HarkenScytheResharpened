@@ -21,6 +21,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
+
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSItems;
@@ -29,7 +30,7 @@ import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tool.IHSTool;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
-import mod.emt.harkenscythe.network.packet.HSSoulTypePacket;
+import mod.emt.harkenscythe.network.packet.HSEssenceTypePacket;
 
 public class HSEntitySoul extends HSEntityEssence
 {
@@ -90,7 +91,7 @@ public class HSEntitySoul extends HSEntityEssence
 
         if (FMLLaunchHandler.side().isClient() && !this.world.isRemote)
         {
-            HSNetworkHandler.instance.sendToAllTracking(new HSSoulTypePacket(this.getEntityId(), soulType), this);
+            HSNetworkHandler.instance.sendToAllTracking(new HSEssenceTypePacket(this.getEntityId(), soulType), this);
         }
     }
 
@@ -103,7 +104,7 @@ public class HSEntitySoul extends HSEntityEssence
             case 2: // Culled (5)
                 return HSConfig.ENTITIES.essenceSoulCulledValue;
             case 3: // Wrathful (40)
-            	return HSConfig.ENTITIES.essenceSoulWrathfulValue;
+                return HSConfig.ENTITIES.essenceSoulWrathfulValue;
             case 4: // Spectral (20)
                 return HSConfig.ENTITIES.essenceSoulSpectralValue;
             default: // Common (1)

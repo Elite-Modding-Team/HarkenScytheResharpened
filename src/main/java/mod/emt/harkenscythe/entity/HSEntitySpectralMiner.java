@@ -52,6 +52,24 @@ public class HSEntitySpectralMiner extends EntityMob
     }
 
     @Override
+    protected SoundEvent getHurtSound(DamageSource damageSource)
+    {
+        return HSSoundEvents.ENTITY_SPECTRAL_MINER_HURT.getSoundEvent();
+    }
+
+    @Override
+    protected SoundEvent getDeathSound()
+    {
+        return HSSoundEvents.ENTITY_SPECTRAL_MINER_DEATH.getSoundEvent();
+    }
+
+    @Override
+    protected SoundEvent getFallSound(int heightIn)
+    {
+        return null;
+    }
+
+    @Override
     public boolean attackEntityAsMob(Entity entity)
     {
         if (super.attackEntityAsMob(entity))
@@ -71,24 +89,6 @@ public class HSEntitySpectralMiner extends EntityMob
         {
             return false;
         }
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource)
-    {
-        return HSSoundEvents.ENTITY_SPECTRAL_MINER_HURT.getSoundEvent();
-    }
-
-    @Override
-    protected SoundEvent getDeathSound()
-    {
-        return HSSoundEvents.ENTITY_SPECTRAL_MINER_DEATH.getSoundEvent();
-    }
-
-    @Override
-    protected SoundEvent getFallSound(int heightIn)
-    {
-        return null;
     }
 
     @Override

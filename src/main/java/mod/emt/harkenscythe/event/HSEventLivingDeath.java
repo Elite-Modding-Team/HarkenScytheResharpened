@@ -81,7 +81,7 @@ public class HSEventLivingDeath
         }
         else if (trueSource instanceof HSEntityHarbinger)
         {
-        	((EntityLivingBase) trueSource).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 0));
+            ((EntityLivingBase) trueSource).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 0));
             spawnSpectralEntity(world, entity, entity.getPosition(), false);
         }
         else if (entity.getEntityData().getBoolean("IsSpectral"))

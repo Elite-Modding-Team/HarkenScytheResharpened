@@ -56,7 +56,7 @@ public class HSEventLivingHurt
             // 25% chance to spawn medium Ectoglobins on hit
             spawnEctoglobin(world, entity);
         }
-        if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
+        if (trueSource instanceof EntityPlayer && isSuccessfulReap(damageSource, entity, event.getAmount()))
         {
             spawnBlood(world, entity);
             if (HSArmor.isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
@@ -123,7 +123,7 @@ public class HSEventLivingHurt
     public static void spawnBlood(World world, EntityLivingBase entity)
     {
         if (entity.isChild() || entity.getEntityData().getBoolean("IsSpectral") || entity.getMaxHealth() <= HSConfig.ENTITIES.essenceMaxHealthLimit || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForBloodReaping(entity)) return;
-        HSEntityBlood blood = new HSEntityBlood(world);
+        HSEntityBlood blood = new HSEntityBlood(world, entity);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(blood);
         world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
@@ -137,9 +137,10 @@ public class HSEventLivingHurt
         if (!world.isRemote) world.spawnEntity(globin);
     }
 
-    private static boolean isSuccessfulReap(EntityPlayer player, DamageSource damageSource)
+    private static boolean isSuccessfulReap(DamageSource damageSource, EntityLivingBase target, float damage)
     {
-        return isRegularReap(player, damageSource, player.getHeldItemMainhand()) || isEnchantmentReap(HSEnchantments.BLOODLETTING, player);
+        EntityPlayer player = (EntityPlayer) damageSource.getTrueSource();
+        return damage >= target.getHealth() || isRegularReap(player, damageSource, player.getHeldItemMainhand()) || isEnchantmentReap(HSEnchantments.BLOODLETTING, player);
     }
 
     private static boolean isRegularReap(EntityPlayer player, DamageSource damageSource, ItemStack stack)

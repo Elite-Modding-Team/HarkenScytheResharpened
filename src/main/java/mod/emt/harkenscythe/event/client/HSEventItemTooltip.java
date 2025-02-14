@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.item.HSItemEssence;
 import mod.emt.harkenscythe.item.HSItemEssenceKeeperBlood;
 import mod.emt.harkenscythe.item.HSItemEssenceKeeperSoul;
 
@@ -84,7 +85,7 @@ public class HSEventItemTooltip
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.biomass_seed"));
         }
-        else if (ForgeRegistries.ITEMS.getKey(item).equals(BLOOD_ESSENCE))
+        else if (item instanceof HSItemEssence && ForgeRegistries.ITEMS.getKey(item).getPath().contains(BLOOD_ESSENCE.getPath()))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.blood_essence"));
         }
@@ -147,7 +148,7 @@ public class HSEventItemTooltip
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.soul_cookie"));
         }
-        else if (ForgeRegistries.ITEMS.getKey(item).equals(SOUL_ESSENCE))
+        else if (item instanceof HSItemEssence && ForgeRegistries.ITEMS.getKey(item).getPath().contains(SOUL_ESSENCE.getPath()))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.soul_essence"));
         }

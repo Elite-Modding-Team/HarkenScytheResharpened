@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.compat.thaumcraft;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
+
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
@@ -39,6 +40,9 @@ public class HSThaumcraftPlugin
         proxy.registerObjectTag(new ItemStack(HSItems.ancient_necronomicon_page), new AspectList().add(Aspect.ELDRITCH, 15).add(Aspect.DEATH, 15).add(Aspect.MAGIC, 15));
         proxy.registerObjectTag(new ItemStack(HSItems.biomass), new AspectList().add(Aspect.LIFE, 10).add(Aspect.FLUX, 10));
         proxy.registerObjectTag(new ItemStack(HSItems.blood_essence), new AspectList().add(Aspect.AVERSION, 1));
+        proxy.registerObjectTag(new ItemStack(HSItems.blood_essence_sickly), new AspectList().add(Aspect.AVERSION, 2));
+        proxy.registerObjectTag(new ItemStack(HSItems.blood_essence_intoxicated), new AspectList().add(Aspect.AVERSION, 5));
+        proxy.registerObjectTag(new ItemStack(HSItems.blood_essence_warped), new AspectList().add(Aspect.AVERSION, 40));
         proxy.registerObjectTag(new ItemStack(HSItems.bloodweave_hood, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.CRAFT, 30).add(Aspect.AVERSION, 30));
         proxy.registerObjectTag(new ItemStack(HSItems.bloodweave_robe, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.CRAFT, 50).add(Aspect.AVERSION, 50));
         proxy.registerObjectTag(new ItemStack(HSItems.bloodweave_pants, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.CRAFT, 40).add(Aspect.AVERSION, 40));
@@ -62,6 +66,10 @@ public class HSThaumcraftPlugin
         proxy.registerObjectTag(new ItemStack(HSItems.soul_cake), new AspectList().add(Aspect.BEAST, 30).add(Aspect.PROTECT, 8).add(Aspect.CRAFT, 3));
         proxy.registerObjectTag(new ItemStack(HSItems.soul_cookie), new AspectList().add(Aspect.SOUL, 1).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
         proxy.registerObjectTag(new ItemStack(HSItems.soul_essence), new AspectList().add(Aspect.SOUL, 1));
+        proxy.registerObjectTag(new ItemStack(HSItems.soul_essence_grieving), new AspectList().add(Aspect.SOUL, 2));
+        proxy.registerObjectTag(new ItemStack(HSItems.soul_essence_culled), new AspectList().add(Aspect.SOUL, 5));
+        proxy.registerObjectTag(new ItemStack(HSItems.soul_essence_wrathful), new AspectList().add(Aspect.SOUL, 40));
+        proxy.registerObjectTag(new ItemStack(HSItems.soul_essence_spectral), new AspectList().add(Aspect.SOUL, 20));
         proxy.registerObjectTag(new ItemStack(HSItems.soulweave_hood, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.CRAFT, 30).add(Aspect.SOUL, 30));
         proxy.registerObjectTag(new ItemStack(HSItems.soulweave_robe, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.CRAFT, 50).add(Aspect.SOUL, 50));
         proxy.registerObjectTag(new ItemStack(HSItems.soulweave_pants, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.CRAFT, 40).add(Aspect.SOUL, 40));

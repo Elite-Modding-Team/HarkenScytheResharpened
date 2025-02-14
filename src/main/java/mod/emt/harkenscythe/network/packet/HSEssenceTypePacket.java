@@ -8,42 +8,43 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import io.netty.buffer.ByteBuf;
+import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 
-// As soul entities are solely created on the server-sided world via LivingDeathEvent, their soul types need to be synced to the client for rendering
-public class HSSoulTypePacket implements IMessage
+// As essence entities are solely created on the server-sided world via LivingDeathEvent, their essence types need to be synced to the client for rendering
+public class HSEssenceTypePacket implements IMessage
 {
     private int entityId;
-    private int soulType;
+    private int essenceType;
 
-    public HSSoulTypePacket()
+    public HSEssenceTypePacket()
     {
     }
 
-    public HSSoulTypePacket(int entityId, int soulType)
+    public HSEssenceTypePacket(int entityId, int essenceType)
     {
         this.entityId = entityId;
-        this.soulType = soulType;
+        this.essenceType = essenceType;
     }
 
     @Override
     public void fromBytes(ByteBuf buf)
     {
         entityId = buf.readInt();
-        soulType = buf.readInt();
+        essenceType = buf.readInt();
     }
 
     @Override
     public void toBytes(ByteBuf buf)
     {
         buf.writeInt(entityId);
-        buf.writeInt(soulType);
+        buf.writeInt(essenceType);
     }
 
-    public static class Handler implements IMessageHandler<HSSoulTypePacket, IMessage>
+    public static class Handler implements IMessageHandler<HSEssenceTypePacket, IMessage>
     {
         @Override
-        public IMessage onMessage(HSSoulTypePacket message, MessageContext ctx)
+        public IMessage onMessage(HSEssenceTypePacket message, MessageContext ctx)
         {
             Minecraft.getMinecraft().addScheduledTask(() -> {
                 World world = Minecraft.getMinecraft().world;
@@ -53,7 +54,12 @@ public class HSSoulTypePacket implements IMessage
                     if (entity instanceof HSEntitySoul)
                     {
                         HSEntitySoul soulEntity = (HSEntitySoul) entity;
-                        soulEntity.getDataManager().set(HSEntitySoul.SOUL_TYPE, message.soulType);
+                        soulEntity.getDataManager().set(HSEntitySoul.SOUL_TYPE, message.essenceType);
+                    }
+                    else if (entity instanceof HSEntityBlood)
+                    {
+                        HSEntityBlood bloodEntity = (HSEntityBlood) entity;
+                        bloodEntity.getDataManager().set(HSEntityBlood.BLOOD_TYPE, message.essenceType);
                     }
                 }
             });

@@ -17,7 +17,10 @@ import mod.emt.harkenscythe.entity.HSEntityBlood;
 @SideOnly(Side.CLIENT)
 public class HSRendererEntityBlood extends Render<HSEntityBlood>
 {
-    private static final ResourceLocation BLOOD_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/blood_common.png");
+    private static final ResourceLocation BLOOD_COMMON_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/blood_common.png");
+    private static final ResourceLocation BLOOD_SICKLY_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/blood_sickly.png");
+    private static final ResourceLocation BLOOD_INTOXICATED_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/blood_intoxicated.png");
+    private static final ResourceLocation BLOOD_WARPED_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/blood_warped.png");
     private final ModelBase modelEssence = new HSModelEntityEssence();
 
     public HSRendererEntityBlood(RenderManager renderManager)
@@ -46,7 +49,7 @@ public class HSRendererEntityBlood extends Render<HSEntityBlood>
             float scale = partialTicksExisted / 10.0F;
             GlStateManager.scale(scale, scale, scale);
         }
-        this.bindTexture(BLOOD_TEXTURES);
+        this.bindTexture(this.getEntityTexture(entity));
         float f1 = MathHelper.sin(f * 0.2F) / 2.0F + 0.5F;
         f1 = f1 * f1 + f1;
         this.modelEssence.render(entity, 0.0F, f * 3.0F, f1 * 0.2F, 0.0F, 0.0F, 0.0625F);
@@ -57,7 +60,17 @@ public class HSRendererEntityBlood extends Render<HSEntityBlood>
     @Override
     protected ResourceLocation getEntityTexture(HSEntityBlood entity)
     {
-        return BLOOD_TEXTURES;
+        switch (entity.getDataManager().get(HSEntityBlood.BLOOD_TYPE))
+        {
+            case 1:
+                return BLOOD_SICKLY_TEXTURES;
+            case 2:
+                return BLOOD_INTOXICATED_TEXTURES;
+            case 3:
+                return BLOOD_WARPED_TEXTURES;
+            default:
+                return BLOOD_COMMON_TEXTURES;
+        }
     }
 
     public static class Factory implements IRenderFactory<HSEntityBlood>

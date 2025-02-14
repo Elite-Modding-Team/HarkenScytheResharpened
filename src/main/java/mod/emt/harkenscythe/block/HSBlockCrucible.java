@@ -31,6 +31,7 @@ import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.HSItemEssence;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
 
@@ -134,9 +135,10 @@ public abstract class HSBlockCrucible extends Block
             ItemStack heldStack = player.getHeldItem(hand);
             Item heldItem = heldStack.getItem();
             int essenceCount = ((HSTileEntityCrucible) te).getEssenceCount();
-            if (essenceCount < HSConfig.BLOCKS.crucibleMaxAmount && heldItem == getEssenceItem())
+            if (heldItem instanceof HSItemEssence && essenceCount + ((HSItemEssence) heldItem).getEssenceValue() <= HSConfig.BLOCKS.crucibleMaxAmount)
             {
-                return fillCrucibleItem(world, pos, state, player, heldStack, heldItem, essenceCount);
+                HSItemEssence itemEssence = (HSItemEssence) heldItem;
+                return fillCrucibleItem(world, pos, state, player, heldStack, itemEssence, essenceCount);
             }
             else if (essenceCount > 0 && heldItem instanceof HSArmorDyeable)
             {
@@ -204,7 +206,7 @@ public abstract class HSBlockCrucible extends Block
 
     protected abstract Item getEssenceItem();
 
-    protected boolean fillCrucibleItem(World world, BlockPos pos, IBlockState state, EntityPlayer player, ItemStack heldStack, Item heldItem, int essenceCount)
+    protected boolean fillCrucibleItem(World world, BlockPos pos, IBlockState state, EntityPlayer player, ItemStack heldStack, HSItemEssence heldItem, int essenceCount)
     {
         TileEntity te = world.getTileEntity(pos);
         if (te instanceof HSTileEntityCrucible)
@@ -214,7 +216,7 @@ public abstract class HSBlockCrucible extends Block
                 heldStack.shrink(1);
             }
             world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.4F, 2.0F / (world.rand.nextFloat() * 0.4F + 1.2F));
-            ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + 1);
+            ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + heldItem.getEssenceValue());
             player.addStat(StatList.getObjectUseStats(heldItem));
             return true;
         }
