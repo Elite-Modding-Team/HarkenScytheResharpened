@@ -99,7 +99,6 @@ public class HSToolScythe extends ItemSword implements IHSTool
             }
         }
 
-        float damage = this.getAttackDamage() + 4.0F; // Has to be done like this otherwise it'll calculate wrong
         float range = 3.0F;
         AxisAlignedBB bb = new AxisAlignedBB(entityLiving.posX - range, entityLiving.posY - range, entityLiving.posZ - range, entityLiving.posX + range, entityLiving.posY + range, entityLiving.posZ + range);
 
@@ -115,8 +114,7 @@ public class HSToolScythe extends ItemSword implements IHSTool
 
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F)
             {
-                // Damage x 2 (Mojang is very strange with damage values...)
-                entityInAABB.attackEntityFrom(new HSDamageSource("hs_reap", entityLiving).setDamageBypassesArmor(), damage * 2);
+                entityInAABB.attackEntityFrom(new HSDamageSource("hs_reap", entityLiving).setDamageBypassesArmor(), getDamage(entityInAABB));
             }
         }
 
@@ -161,5 +159,15 @@ public class HSToolScythe extends ItemSword implements IHSTool
     public ToolMaterial getToolMaterial()
     {
         return this.material;
+    }
+
+    private float getDamage(EntityLivingBase entity)
+    {
+        if (this == HSItems.reaper_scythe && itemRand.nextDouble() < (entity.isNonBoss() ? 0.1D : 0.05D))
+        {
+            return entity.getMaxHealth();
+        }
+        float damage = this.getAttackDamage() + 4.0F; // Has to be done like this otherwise it'll calculate wrong
+        return damage * 2; // Damage x 2 (Mojang is very strange with damage values...)
     }
 }
