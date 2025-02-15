@@ -13,7 +13,9 @@
       "type": "entity",
       "name": " ",
       "text": "The blood essence of a reaped creature.",
-      "entity": "harkenscythe:blood"
+      "entity": "harkenscythe:blood",
+      "scale": 8.0,
+      "offset": -0.45
     }
   ]
 }
