@@ -122,6 +122,7 @@ public class HSEntityBlood extends HSEntityEssence
                 if (stack.getItem() == HSItems.essence_keeper_blood) pitch += 0.5F;
                 this.world.playSound(null, player.getPosition(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, pitch);
                 this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
+                this.recentlyHit = 60;
                 this.setHealth(0);
             }
         }
@@ -140,6 +141,12 @@ public class HSEntityBlood extends HSEntityEssence
     {
         super.onDeathUpdate();
         if (this.deathTime == 1) this.world.playSound(null, this.getPosition(), HSSoundEvents.ESSENCE_BLOOD_DESPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+    }
+
+    @Override
+    protected int getExperiencePoints(EntityPlayer player)
+    {
+        return this.getBloodQuantity();
     }
 
     @Override
