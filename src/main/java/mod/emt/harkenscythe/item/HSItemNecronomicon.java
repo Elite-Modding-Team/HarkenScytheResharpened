@@ -3,7 +3,10 @@ package mod.emt.harkenscythe.item;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
@@ -20,6 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.entity.HSEntityGlobin;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSAdvancements;
@@ -63,7 +67,13 @@ public class HSItemNecronomicon extends HSItem
             List<HSEntitySoul> souls = world.getEntitiesWithinAABB(HSEntitySoul.class, player.getEntityBoundingBox().grow(3.0D));
             for (HSEntitySoul entitySoul : souls)
             {
-                HSEventLivingDeath.spawnSpectralEntity(world, entitySoul.getOriginalEntity(), entitySoul.getPosition(), false);
+                EntityLivingBase revivedEntity = HSEventLivingDeath.spawnSpectralEntity(world, entitySoul.getOriginalEntity(), entitySoul.getPosition(), false);
+                if (!(revivedEntity instanceof EntityPlayer) && !(revivedEntity instanceof HSEntityGlobin))
+                {
+                    revivedEntity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(new AttributeModifier("Minion Attack Damage Bonus", world.rand.nextDouble() * 3.0D + 1.0D, 2));
+                    revivedEntity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Minion Health Bonus", world.rand.nextDouble() * 3.0D + 1.0D, 2));
+                    if (player.getLastAttackedEntity() != null && revivedEntity instanceof EntityLiving) ((EntityLiving) revivedEntity).setAttackTarget(player.getLastAttackedEntity());
+                }
                 entitySoul.setHealth(0);
                 ItemStack bloodContainer = getBloodContainer(player);
                 if (bloodContainer != ItemStack.EMPTY)

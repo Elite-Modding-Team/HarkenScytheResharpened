@@ -90,7 +90,7 @@ public class HSEventLivingDeath
         }
     }
 
-    public static void spawnSpectralEntity(World world, @Nullable EntityLivingBase entity, BlockPos pos, boolean modifyAI)
+    public static EntityLivingBase spawnSpectralEntity(World world, @Nullable EntityLivingBase entity, BlockPos pos, boolean modifyAI)
     {
         // Reanimate original entity
         if (entity != null && isWhitelistedMob(entity))
@@ -124,6 +124,7 @@ public class HSEventLivingDeath
         }
         if (!world.isRemote) world.spawnEntity(entity);
         world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        return entity;
     }
 
     public static void spawnSoul(World world, EntityLivingBase entity)
