@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
@@ -67,11 +68,16 @@ public class HSItemNecronomicon extends HSItem
             List<HSEntitySoul> souls = world.getEntitiesWithinAABB(HSEntitySoul.class, player.getEntityBoundingBox().grow(3.0D));
             for (HSEntitySoul entitySoul : souls)
             {
-                EntityLivingBase revivedEntity = HSEventLivingDeath.spawnSpectralEntity(world, entitySoul.getOriginalEntity(), entitySoul.getPosition(), false);
+                EntityLivingBase revivedEntity = HSEventLivingDeath.spawnSpectralEntity(world, entitySoul.getOriginalEntity(), entitySoul.getPosition(), true);
                 if (!(revivedEntity instanceof EntityPlayer) && !(revivedEntity instanceof HSEntityGlobin))
                 {
+                    if (!(revivedEntity instanceof EntityMob))
+                    {
+                        revivedEntity.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(HSConfig.ENTITIES.spectralEntityAttackDamage);
+                    }
                     revivedEntity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(new AttributeModifier("Minion Attack Damage Bonus", world.rand.nextDouble() * 2.0D + 1.0D + entitySoul.getDataManager().get(HSEntitySoul.SOUL_TYPE), 2));
                     revivedEntity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Minion Health Bonus", world.rand.nextDouble() * 2.0D + 1.0D + entitySoul.getDataManager().get(HSEntitySoul.SOUL_TYPE), 2));
+                    // TODO: Replace with actual minion AI
                     if (player.getLastAttackedEntity() != null && revivedEntity instanceof EntityLiving) ((EntityLiving) revivedEntity).setAttackTarget(player.getLastAttackedEntity());
                 }
                 entitySoul.setHealth(0);
