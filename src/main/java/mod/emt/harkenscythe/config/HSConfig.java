@@ -303,7 +303,7 @@ public class HSConfig
 
         @Config.Name("Deadtime Watch Uses")
         @Config.Comment("The amount of uses fully charged deadtime watches have")
-        public int deadtimeWatchUses = 8;
+        public int deadtimeWatchUses = 20;
 
         @Config.Name("Dimensional Mirror Dimension Blacklist")
         @Config.Comment
