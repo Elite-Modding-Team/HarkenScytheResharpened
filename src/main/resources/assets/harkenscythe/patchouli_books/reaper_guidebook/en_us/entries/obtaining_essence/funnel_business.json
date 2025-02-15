@@ -1,0 +1,18 @@
+{
+  "name": "Funnel Business",
+  "icon": "minecraft:textures/items/hopper.png",
+  "category": "obtaining_essence",
+  "advancement": "harkenscythe:your_time_is_up",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "text": "To make depositing essence a lot more comfortable, you can construct an absorber of the respective type to drain essence containers automatically if the absorber and crucibles of the same type are placed next to each other (default is a radius of 4 blocks)."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blood_absorber",
+      "recipe2": "harkenscythe:soul_absorber"
+    }
+  ]
+}

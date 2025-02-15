@@ -1,0 +1,18 @@
+{
+  "name": "Eingetrichtert",
+  "icon": "minecraft:textures/items/hopper.png",
+  "category": "obtaining_essence",
+  "advancement": "harkenscythe:your_time_is_up",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Um das Einlagern von Essenzen bequemer zu gestalten, kannst du einen Absorber des entsprechenden Typs errichten, der Essenzbehälter automatisch entleert, wenn Absorber und Tiegel des gleichen Typs nebeneinander stehen (Standard ist ein Radius von 4 Blöcken)."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blood_absorber",
+      "recipe2": "harkenscythe:soul_absorber"
+    }
+  ]
+}
