@@ -28,6 +28,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
@@ -130,6 +131,12 @@ public class HSEntityHarbinger extends EntityCreature
             this.applyEnchantments(this, entityIn);
         }
         return flag;
+    }
+
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && super.getCanSpawnHere();
     }
 
     protected boolean teleportRandomly()
@@ -311,6 +318,30 @@ public class HSEntityHarbinger extends EntityCreature
         this.setEquipmentBasedOnDifficulty(difficulty);
         this.setEnchantmentBasedOnDifficulty(difficulty);
         return super.onInitialSpawn(difficulty, livingdata);
+    }
+
+    private boolean isValidLightLevel()
+    {
+        BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+
+        if (this.world.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32))
+        {
+            return false;
+        }
+        else
+        {
+            int i = this.world.getLightFromNeighbors(blockpos);
+
+            if (this.world.isThundering())
+            {
+                int j = this.world.getSkylightSubtracted();
+                this.world.setSkylightSubtracted(10);
+                i = this.world.getLightFromNeighbors(blockpos);
+                this.world.setSkylightSubtracted(j);
+            }
+
+            return i <= this.rand.nextInt(8);
+        }
     }
 
     private boolean teleportTo(double x, double y, double z)
