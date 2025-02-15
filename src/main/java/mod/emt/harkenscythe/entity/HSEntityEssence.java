@@ -72,6 +72,22 @@ public abstract class HSEntityEssence extends EntityLivingBase
                 if (this instanceof HSEntityBlood)
                 {
                     HSEntityHemoglobin hemoglobin = new HSEntityHemoglobin(this.world);
+                    int size;
+                    switch (this.getDataManager().get(HSEntityBlood.BLOOD_TYPE))
+                    {
+                        case 1: // Sickly (2)
+                            size = 2;
+                            break;
+                        case 2: // Intoxicated (5)
+                            size = 2;
+                            break;
+                        case 3: // Warped (40)
+                            size = 3;
+                            break;
+                        default: // Common (1)
+                            size = 1;
+                    }
+                    hemoglobin.setSize(size, true);
                     hemoglobin.setPosition(this.posX, this.posY, this.posZ);
                     this.world.spawnEntity(hemoglobin);
                 }
@@ -86,6 +102,22 @@ public abstract class HSEntityEssence extends EntityLivingBase
                     else
                     {
                         HSEntityEctoglobin ectoglobin = new HSEntityEctoglobin(this.world);
+                        int size;
+                        switch (this.getDataManager().get(HSEntitySoul.SOUL_TYPE))
+                        {
+                            case 1: // Grieving (2)
+                                size = 2;
+                                break;
+                            case 2: // Culled (5)
+                                size = 2;
+                                break;
+                            case 3: // Wrathful (40)
+                                size = 3;
+                                break;
+                            default: // Common (1)
+                                size = 1;
+                        }
+                        ectoglobin.setSize(size, true);
                         ectoglobin.setPosition(this.posX, this.posY, this.posZ);
                         this.world.spawnEntity(ectoglobin);
                     }
