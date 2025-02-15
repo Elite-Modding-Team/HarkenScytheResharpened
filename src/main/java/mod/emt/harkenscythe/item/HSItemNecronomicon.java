@@ -70,8 +70,8 @@ public class HSItemNecronomicon extends HSItem
                 EntityLivingBase revivedEntity = HSEventLivingDeath.spawnSpectralEntity(world, entitySoul.getOriginalEntity(), entitySoul.getPosition(), false);
                 if (!(revivedEntity instanceof EntityPlayer) && !(revivedEntity instanceof HSEntityGlobin))
                 {
-                    revivedEntity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(new AttributeModifier("Minion Attack Damage Bonus", world.rand.nextDouble() * 3.0D + 1.0D, 2));
-                    revivedEntity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Minion Health Bonus", world.rand.nextDouble() * 3.0D + 1.0D, 2));
+                    revivedEntity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(new AttributeModifier("Minion Attack Damage Bonus", world.rand.nextDouble() * 2.0D + 1.0D + entitySoul.getDataManager().get(HSEntitySoul.SOUL_TYPE), 2));
+                    revivedEntity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Minion Health Bonus", world.rand.nextDouble() * 2.0D + 1.0D + entitySoul.getDataManager().get(HSEntitySoul.SOUL_TYPE), 2));
                     if (player.getLastAttackedEntity() != null && revivedEntity instanceof EntityLiving) ((EntityLiving) revivedEntity).setAttackTarget(player.getLastAttackedEntity());
                 }
                 entitySoul.setHealth(0);
