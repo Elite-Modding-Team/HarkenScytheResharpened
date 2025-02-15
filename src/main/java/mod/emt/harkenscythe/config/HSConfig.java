@@ -81,19 +81,7 @@ public class HSConfig
                 "Syntax:  modid:entity",
                 "Example: minecraft:cow"
             })
-        public String[] bloodReapingBlacklist = new String[]
-            {
-                "minecraft:blaze",
-                "minecraft:magma_cube",
-                "minecraft:shulker",
-                "minecraft:skeleton",
-                "minecraft:skeleton_horse",
-                "minecraft:slime",
-                "minecraft:snowman",
-                "minecraft:vex",
-                "minecraft:villager_golem",
-                "minecraft:wither_skeleton"
-            };
+        public String[] bloodReapingBlacklist = new String[] {};
 
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
