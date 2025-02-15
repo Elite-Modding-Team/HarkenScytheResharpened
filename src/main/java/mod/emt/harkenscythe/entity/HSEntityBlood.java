@@ -53,7 +53,7 @@ public class HSEntityBlood extends HSEntityEssence
         {
             bloodType = 2; // Intoxicated
         }
-        else if (entity.getMaxHealth() >= HSConfig.ENTITIES.essenceBloodSicklyMaxHealth) // Mobs with 40 max health or more
+        else if ((!world.isDaytime() && world.getCurrentMoonPhaseFactor() == 0.0F) || entity instanceof EntityPlayer || entity.getMaxHealth() >= HSConfig.ENTITIES.essenceBloodSicklyMaxHealth) // During new moons, players, mobs with 40 max health or more
         {
             bloodType = 1; // Sickly
         }
