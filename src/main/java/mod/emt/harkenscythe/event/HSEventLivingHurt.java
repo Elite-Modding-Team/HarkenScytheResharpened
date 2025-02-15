@@ -140,15 +140,16 @@ public class HSEventLivingHurt
     private static boolean isSuccessfulReap(DamageSource damageSource, EntityLivingBase target, float damage)
     {
         EntityPlayer player = (EntityPlayer) damageSource.getTrueSource();
-        return damage >= target.getHealth() || isRegularReap(player, damageSource, player.getHeldItemMainhand()) || isEnchantmentReap(HSEnchantments.BLOODLETTING, player);
+        return isRegularReap(player, target, damage, damageSource, player.getHeldItemMainhand()) || isEnchantmentReap(HSEnchantments.BLOODLETTING, player);
     }
 
-    private static boolean isRegularReap(EntityPlayer player, DamageSource damageSource, ItemStack stack)
+    private static boolean isRegularReap(EntityPlayer player, EntityLivingBase target, float damage, DamageSource damageSource, ItemStack stack)
     {
         if (player.getHeldItemMainhand().getItem() instanceof HSToolGlaive && damageSource.getDamageType().equals("hs_reap"))
         {
-            int damage = stack.getMaxDamage() - stack.getItemDamage();
-            double chance = Math.min(0.6D, Math.max(0.2D, (double) damage / 500));
+            if (damage >= target.getHealth()) return true;
+            int toolDamage = stack.getMaxDamage() - stack.getItemDamage();
+            double chance = Math.min(0.6D, Math.max(0.2D, (double) toolDamage / 500));
             return player.getRNG().nextDouble() < chance;
         }
         return false;
