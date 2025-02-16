@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " S ",
+    "SES",
+    " V "
+  ],
+  "key": {
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "string"
+    },
+    "E": {
+      "type": "forge:ore_dict",
+      "ore": "enderpearl"
+    },
+    "V": {
+      "item": "harkenscythe:essence_vessel_blood"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:essence_trinket_blood",
+    "data": 400
+  }
+}

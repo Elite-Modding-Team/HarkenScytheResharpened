@@ -43,6 +43,10 @@ public class HSItems
     public static final HSItemEssenceVessel essence_vessel = null;
     public static final HSItemEssenceVesselBlood essence_vessel_blood = null;
     public static final HSItemEssenceVesselSoul essence_vessel_soul = null;
+    public static final HSItemEssenceTrinketBlood essence_trinket_blood = null;
+    public static final HSItemEssenceTrinketBloodEthereal essence_trinket_blood_ethereal = null;
+    public static final HSItemEssenceTrinketSoul essence_trinket_soul = null;
+    public static final HSItemEssenceTrinketSoulEthereal essence_trinket_soul_ethereal = null;
 
     public static final HSToolScythe wooden_scythe = null;
     public static final HSToolScythe stone_scythe = null;
@@ -157,6 +161,10 @@ public class HSItems
                 HSRegistry.setup(new HSItemEssenceVessel(), "essence_vessel").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemEssenceVesselBlood(), "essence_vessel_blood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemEssenceVesselSoul(), "essence_vessel_soul").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssenceTrinketBlood(), "essence_trinket_blood").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssenceTrinketBloodEthereal(), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssenceTrinketSoul(), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemEssenceTrinketSoulEthereal(), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),

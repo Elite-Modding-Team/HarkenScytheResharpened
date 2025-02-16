@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "harkenscythe:essence_trinket_blood",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:essence_trinket_blood_ethereal",
+    "data": 1600
+  }
+}

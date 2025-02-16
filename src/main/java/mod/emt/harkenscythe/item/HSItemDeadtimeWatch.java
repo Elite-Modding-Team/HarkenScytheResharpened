@@ -77,8 +77,6 @@ public class HSItemDeadtimeWatch extends HSItem
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        super.onUpdate(stack, world, entity, itemSlot, isSelected);
-
         if (this.stopTime > 0) this.stopTime--;
         if (!this.entityQueue.isEmpty())
         {

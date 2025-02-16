@@ -285,6 +285,14 @@ public class HSConfig
         @Config.Comment("The amount of essence blood vessels can hold")
         public int bloodVesselEssenceCapacity = 80;
 
+        @Config.Name("Blood Trinket Essence Capacity")
+        @Config.Comment("The amount of essence blood trinkets can hold")
+        public int bloodTrinketEssenceCapacity = 400;
+
+        @Config.Name("Ethereal Blood Trinket Essence Capacity")
+        @Config.Comment("The amount of essence ethereal blood trinkets can hold")
+        public int bloodTrinketEtherealEssenceCapacity = 1600;
+
         @Config.Name("Deadtime Watch Durability")
         @Config.Comment
             ({
@@ -349,6 +357,14 @@ public class HSConfig
         @Config.Name("Soul Vessel Essence Capacity")
         @Config.Comment("The amount of essence soul vessels can hold")
         public int soulVesselEssenceCapacity = 40;
+
+        @Config.Name("Soul Trinket Essence Capacity")
+        @Config.Comment("The amount of essence soul trinkets can hold")
+        public int soulTrinketEssenceCapacity = 200;
+
+        @Config.Name("Ethereal Soul Trinket Essence Capacity")
+        @Config.Comment("The amount of essence ethereal soul trinkets can hold")
+        public int soulTrinketEtherealEssenceCapacity = 800;
 
         @Config.Name("Vampire Knife Blood Cost")
         @Config.Comment

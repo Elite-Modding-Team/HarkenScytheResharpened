@@ -6,6 +6,7 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -19,6 +20,8 @@ import mod.emt.harkenscythe.block.HSBlockAbsorber;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.item.HSItemEssenceTrinketBlood;
+import mod.emt.harkenscythe.item.HSItemEssenceTrinketSoul;
 import mod.emt.harkenscythe.item.HSItemEssenceVesselBlood;
 import mod.emt.harkenscythe.item.HSItemEssenceVesselSoul;
 
@@ -167,9 +170,14 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
     public void decreaseContainerEssenceCount()
     {
         getInputStack().setItemDamage(getInputStack().getItemDamage() + 1);
+        Item item = getInputStack().getItem();
+        if (item instanceof HSItemEssenceTrinketBlood || item instanceof HSItemEssenceTrinketSoul)
+        {
+            return;
+        }
         if (getInputStack().getItemDamage() >= getInputStack().getMaxDamage())
         {
-            setInputStack(new ItemStack(getInputStack().getItem() instanceof HSItemEssenceVesselBlood || getInputStack().getItem() instanceof HSItemEssenceVesselSoul ? HSItems.essence_vessel : HSItems.essence_keeper));
+            setInputStack(new ItemStack(item instanceof HSItemEssenceVesselBlood || item instanceof HSItemEssenceVesselSoul ? HSItems.essence_vessel : HSItems.essence_keeper));
         }
     }
 

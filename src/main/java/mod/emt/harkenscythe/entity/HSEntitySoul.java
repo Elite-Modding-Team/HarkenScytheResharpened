@@ -189,6 +189,21 @@ public class HSEntitySoul extends HSEntityEssence
         return super.processInitialInteract(player, hand);
     }
 
+    public void repairEquipment(ItemStack stack)
+    {
+        if (!stack.isEmpty())
+        {
+            stack.setItemDamage(stack.getItemDamage() - this.getSoulQuantity());
+        }
+    }
+
+    public ItemStack getRandomDamagedLivingmetalEquipment(EntityPlayer player)
+    {
+        List<ItemStack> equipmentList = this.getDamagedPlayerEquipment(player);
+        equipmentList = equipmentList.stream().filter(stack -> isLivingmetalItem(stack.getItem())).collect(Collectors.toList());
+        return equipmentList.isEmpty() ? ItemStack.EMPTY : equipmentList.get(player.getRNG().nextInt(equipmentList.size()));
+    }
+
     @Nullable
     protected SoundEvent getAmbientSound()
     {
@@ -243,14 +258,6 @@ public class HSEntitySoul extends HSEntityEssence
         }
     }
 
-    private void repairEquipment(ItemStack stack)
-    {
-        if (!stack.isEmpty())
-        {
-            stack.setItemDamage(stack.getItemDamage() - this.getSoulQuantity());
-        }
-    }
-
     private List<ItemStack> getDamagedPlayerEquipment(EntityPlayer player)
     {
         List<ItemStack> list = Lists.newArrayList();
@@ -263,13 +270,6 @@ public class HSEntitySoul extends HSEntityEssence
             }
         }
         return list;
-    }
-
-    private ItemStack getRandomDamagedLivingmetalEquipment(EntityPlayer player)
-    {
-        List<ItemStack> equipmentList = this.getDamagedPlayerEquipment(player);
-        equipmentList = equipmentList.stream().filter(stack -> isLivingmetalItem(stack.getItem())).collect(Collectors.toList());
-        return equipmentList.isEmpty() ? ItemStack.EMPTY : equipmentList.get(player.getRNG().nextInt(equipmentList.size()));
     }
 
     private boolean isLivingmetalItem(Item item)
