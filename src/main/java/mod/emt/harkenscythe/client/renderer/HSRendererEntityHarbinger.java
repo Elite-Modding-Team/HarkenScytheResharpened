@@ -13,6 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.model.HSModelEntityHarbinger;
+import mod.emt.harkenscythe.client.model.layer.HSLayerGlowing;
 import mod.emt.harkenscythe.entity.HSEntityHarbinger;
 
 @SideOnly(Side.CLIENT)
@@ -20,10 +21,12 @@ public class HSRendererEntityHarbinger extends RenderBiped<HSEntityHarbinger>
 {
     public static final ResourceLocation HARBINGER_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/harbinger.png");
     public static final ResourceLocation HARBINGER_RARE_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/harbinger_rare.png");
+    public static final ResourceLocation HARBINGER_GLOW_TEXTURES = new ResourceLocation(HarkenScythe.MOD_ID, "textures/entities/harbinger_glow.png");
 
     public HSRendererEntityHarbinger(RenderManager renderManager)
     {
         super(renderManager, new HSModelEntityHarbinger(), 0.0F);
+        this.addLayer(new HSLayerGlowing<>(this, HARBINGER_GLOW_TEXTURES));
     }
 
     @Nullable
