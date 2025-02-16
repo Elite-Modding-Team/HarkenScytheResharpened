@@ -1,6 +1,8 @@
 package mod.emt.harkenscythe.item.armor;
 
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -111,5 +113,24 @@ public class HSArmorDyeable extends HSArmor
             }
             return slot == EntityEquipmentSlot.LEGS ? SOULWEAVE_ARMOR_TEXTURES[1] : SOULWEAVE_ARMOR_TEXTURES[0];
         }
+    }
+
+    @Override
+    public boolean isRepairable()
+    {
+        return false;
+    }
+
+    @Override
+    public float getXpRepairRatio(ItemStack stack)
+    {
+        return 0;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
+    {
+        if (enchantment == Enchantments.MENDING) return false;
+        return super.canApplyAtEnchantingTable(stack, enchantment);
     }
 }

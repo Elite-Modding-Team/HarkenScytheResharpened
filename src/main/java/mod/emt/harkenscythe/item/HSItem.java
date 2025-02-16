@@ -1,5 +1,7 @@
 package mod.emt.harkenscythe.item;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.init.Enchantments;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,5 +33,12 @@ public class HSItem extends Item
     public float getXpRepairRatio(ItemStack stack)
     {
         return 0;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
+    {
+        if (enchantment == Enchantments.MENDING) return false;
+        return super.canApplyAtEnchantingTable(stack, enchantment);
     }
 }
