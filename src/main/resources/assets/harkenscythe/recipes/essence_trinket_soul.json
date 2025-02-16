@@ -2,7 +2,7 @@
   "type": "forge:ore_shaped",
   "pattern": [
     " S ",
-    "SES",
+    "SFS",
     " V "
   ],
   "key": {
@@ -10,9 +10,8 @@
       "type": "forge:ore_dict",
       "ore": "string"
     },
-    "E": {
-      "type": "forge:ore_dict",
-      "ore": "enderpearl"
+    "F": {
+      "item": "harkenscythe:abyssal_fragment"
     },
     "V": {
       "item": "harkenscythe:essence_vessel_soul"
