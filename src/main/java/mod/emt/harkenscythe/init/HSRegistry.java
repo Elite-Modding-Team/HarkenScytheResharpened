@@ -223,7 +223,14 @@ public class HSRegistry
         OreDictionary.registerOre("blockLivingmetal", HSBlocks.livingmetal_block);
 
         OreDictionary.registerOre("essenceHarken", HSItems.blood_essence);
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_sickly);
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_intoxicated);
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_warped);
         OreDictionary.registerOre("essenceHarken", HSItems.soul_essence);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_grieving);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_culled);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_spectral);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_wrathful);
 
         OreDictionary.registerOre("ingotBiomass", HSItems.biomass);
         OreDictionary.registerOre("ingotLivingmetal", HSItems.livingmetal_ingot);

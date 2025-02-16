@@ -7,11 +7,61 @@
   "pages": [
     {
       "type": "text",
-      "text": "Um geerntete Essenzen in Flaschen abzufüllen, musst du sie mit Essenzbehältern oder Essenzgefäßen anvisieren und mit der $(4)rechten Maustaste$() darauf klicken."
+      "text": "Um gereapte Essenzen in Flaschen abzufüllen, musst du sie mit Essenzbehältern oder Essenzgefäßen anvisieren und mit der $(4)rechten Maustaste$() darauf klicken."
     },
     {
-      "type": "text",
-      "text": "Essenzen besitzen unterschiedliche Qualitätsstufen, die ihre abgefüllte Menge bestimmen:$(br)Gewöhnlich: 1$(br)Trauernd: 2$(br)Ausgemerzt: 5$(br)Zornig/Spektral: 20"
+      "type": "spotlight",
+      "item": "harkenscythe:blood_essence",
+      "title": "Gewöhnliche Blutessenz",
+      "text": "Gewöhnliche Blutessenz ist 1 Blut wert und hat eine leuchtend rote Farbe.$(br2)Sie spawnen, wenn einfache Mobs gereapt werden. In den dunkelsten Nächten verwandeln sich alle gewöhnlichen Blutessenzen in krankhafte Blutessenzen."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:blood_essence_sickly",
+      "title": "Krankhafte Blutessenz",
+      "text": "Krankhafte Blutessenz ist 2 Blut wert und hat eine dunkelorange Farbe.$(br2)Sie spawnen, wenn Mobs mit 40 oder mehr maximaler Gesundheit gereapt werden, sie können auch spawnen, wenn Spieler gereapt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:blood_essence_intoxicated",
+      "title": "Vergiftete Blutessenz",
+      "text": "Vergiftete Blutessenz ist 5 Blut wert und hat eine leuchtend grüne Farbe.$(br2)Sie spawnen, wenn Mobs mit 100 oder mehr maximaler Gesundheit gereapt werden, sie können auch spawnen, wenn Bosse mit weniger als 300 maximaler Gesundheit gereapt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:blood_essence_warped",
+      "title": "Verzerrte Blutessenz",
+      "text": "Verzerrte Blutessenz ist 40 Blut wert und hat eine leuchtend violette Farbe.$(br2)Sie spawnen, wenn Bosse mit 300 oder mehr maximalen Lebenspunkten gereapt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:soul_essence",
+      "title": "Gewöhnl. Seelenessenz",
+      "text": "Gewöhnliche Seelenessenz ist 1 Seele wert und hat eine hellblaue Farbe.$(br2)Sie spawnen, wenn einfache Mobs gereapt werden. In den dunkelsten Nächte verwandeln sich alle gewöhnlichen Seelenessenzen in trauernde Seelenessenzen."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:soul_essence_grieving",
+      "title": "Trauernde Seelenessenz",
+      "text": "Trauernde Seelenessenz ist 2 Seelen wert und hat eine dunkelblaue Farbe.$(br2)Sie spawnen, wenn Mobs mit 40 oder mehr maximaler Gesundheit gereapt werden, sie können auch spawnen, wenn Spieler gereapt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:soul_essence_culled",
+      "title": "Auserw. Seelenessenz",
+      "text": "Auserwählte Seelenessenz ist 5 Seelen wert und hat eine leuchtend grüne Farbe.$(br2)Sie spawnen, wenn Mobs mit 100 oder mehr maximaler Gesundheit gereapt werden, sie können auch spawnen, wenn Bosse mit weniger als 300 maximaler Gesundheit gereapt werden."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:soul_essence_spectral",
+      "title": "Spektrale Seelenessenz",
+      "text": "Spektrale Seelenessenz ist 20 Seelen wert und hat eine tiefschwarze Farbe.$(br2)Sie spawnen, wenn spezielle Mobs gereapt werden, und man trifft sie nicht oft an."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:soul_essence_wrathful",
+      "title": "Zornige Seelenessenz",
+      "text": "Zornige Seelenessenz ist 40 Seelen wert und hat eine albtraumhafte orange Farbe.$(br2)Sie spawnen, wenn Bosse mit 300 oder mehr maximaler Gesundheit gereapt werden."
     }
   ]
 }
