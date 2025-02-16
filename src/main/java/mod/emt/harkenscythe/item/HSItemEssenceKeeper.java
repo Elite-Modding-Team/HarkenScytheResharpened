@@ -1,16 +1,16 @@
 package mod.emt.harkenscythe.item;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class HSItemEssenceKeeper extends Item
+public class HSItemEssenceKeeper extends HSItem
 {
     public HSItemEssenceKeeper()
     {
-        super();
+        super(EnumRarity.COMMON);
         setMaxStackSize(1);
     }
 

@@ -20,4 +20,16 @@ public class HSItem extends Item
     {
         return rarity;
     }
+
+    @Override
+    public boolean isRepairable()
+    {
+        return false;
+    }
+
+    @Override
+    public float getXpRepairRatio(ItemStack stack)
+    {
+        return 0;
+    }
 }
