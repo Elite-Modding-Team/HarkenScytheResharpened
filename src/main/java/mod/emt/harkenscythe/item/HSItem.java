@@ -38,7 +38,7 @@ public class HSItem extends Item
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
     {
-        if (enchantment == Enchantments.MENDING) return false;
+        if (enchantment == Enchantments.MENDING || enchantment == Enchantments.UNBREAKING) return false;
         return super.canApplyAtEnchantingTable(stack, enchantment);
     }
 }
