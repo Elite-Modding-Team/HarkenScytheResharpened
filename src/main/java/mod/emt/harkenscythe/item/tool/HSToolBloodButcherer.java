@@ -45,6 +45,13 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     }
 
     @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
+    {
+        entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
+        return super.onEntitySwing(entityLiving, stack);
+    }
+
+    @Override
     public int getRGBDurabilityForDisplay(ItemStack stack)
     {
         return 9443858;
@@ -84,7 +91,6 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                     amplifier = Math.min(4, target.getActivePotionEffect(HSPotions.BLEEDING).getAmplifier() + 1);
                 }
                 target.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration, amplifier));
-                world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 0.6F + world.rand.nextFloat());
             }
         }
         return true;
