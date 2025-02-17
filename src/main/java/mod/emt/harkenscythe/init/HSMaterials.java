@@ -25,5 +25,6 @@ public class HSMaterials
     public static final Item.ToolMaterial TOOL_LADY_HARKEN = EnumHelper.addToolMaterial("hs_tool_lady_harken", 4, 2466, 9.0F, 6.0F, 25).setRepairItem(new ItemStack(HSItems.soul_essence));
 
     // Non-Repairable
+    public static final Item.ToolMaterial TOOL_BLOOD_BUTCHERER = EnumHelper.addToolMaterial("hs_tool_blood_butcherer", 4, HSConfig.ITEMS.bloodButchererMaxCharges, 9.0F, 5.0F, 25);
     public static final Item.ToolMaterial TOOL_VAMPIRE_KNIFE = EnumHelper.addToolMaterial("hs_tool_vampire_knife", 4, HSConfig.ITEMS.vampireKnifeMaxCharges, 9.0F, 0.0F, 25);
 }

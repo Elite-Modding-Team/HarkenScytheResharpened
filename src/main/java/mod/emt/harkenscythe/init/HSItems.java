@@ -130,6 +130,8 @@ public class HSItems
     public static final HSToolVampireKnife vampire_knife = null;
     public static final HSItem vampire_knife_projectile = null;
 
+    public static final HSToolBloodButcherer blood_butcherer = null;
+
     public static final HSItemSpectralBottle spectral_glass_bottle = null;
     public static final HSItemSpectralPotion spectral_potion_affliction = null;
     public static final HSItemSpectralPotion spectral_potion_flame = null;
@@ -238,7 +240,8 @@ public class HSItems
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 3847130), "soulweave_robe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 3847130), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemDeadtimeWatch(EnumRarity.UNCOMMON), "deadtime_watch").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSItemDeadtimeWatch(EnumRarity.UNCOMMON), "deadtime_watch").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSToolBloodButcherer(HSMaterials.TOOL_BLOOD_BUTCHERER), "blood_butcherer").setCreativeTab(HarkenScythe.TAB)
             );
 
         // POTIONS

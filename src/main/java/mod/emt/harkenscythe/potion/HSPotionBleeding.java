@@ -19,7 +19,7 @@ public class HSPotionBleeding extends Potion
     @Override
     public void performEffect(EntityLivingBase entity, int amplifier)
     {
-        entity.attackEntityFrom(DamageSource.MAGIC, 1.0F);
+        entity.attackEntityFrom(DamageSource.MAGIC, 1.0F + (amplifier * 0.5F));
     }
 
     @Override

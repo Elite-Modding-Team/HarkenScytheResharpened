@@ -83,6 +83,14 @@
       "harkenscythe:athame"
     ]
   },
+  "item.blood_butcherer.swing": {
+    "sounds": [
+      "harkenscythe:cleaver_swing1",
+      "harkenscythe:cleaver_swing2",
+      "harkenscythe:cleaver_swing3",
+      "harkenscythe:cleaver_swing4"
+    ]
+  },
   "item.creep_ball.use": {
     "sounds": [
       "harkenscythe:creep_ball"
