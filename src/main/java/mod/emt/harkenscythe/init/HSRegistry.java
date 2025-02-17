@@ -244,6 +244,8 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_pants, HSItems.bloodweave_pants, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_shoes, HSItems.bloodweave_shoes, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.deadtime_watch, HSItems.deadtime_watch, 5);
+        HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_blood, HSItems.essence_trinket_blood, 10);
+        HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_blood_ethereal, HSItems.essence_trinket_blood_ethereal, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.vampire_knife, HSItems.vampire_knife, 5);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe(new ItemStack(Items.GOLDEN_APPLE, 1), new ItemStack(Items.GOLDEN_APPLE, 1, 1), 200); // Notch Apple
@@ -256,6 +258,8 @@ public class HSRegistry
 
         // Soul Altar
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
+        HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_soul, HSItems.essence_trinket_soul, 10);
+        HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_soul_ethereal, HSItems.essence_trinket_soul_ethereal, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_hood, HSItems.soulweave_hood, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_robe, HSItems.soulweave_robe, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_pants, HSItems.soulweave_pants, 10);

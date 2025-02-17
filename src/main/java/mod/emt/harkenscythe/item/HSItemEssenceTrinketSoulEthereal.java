@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 import mod.emt.harkenscythe.config.HSConfig;
 
-public class HSItemEssenceTrinketSoulEthereal extends HSItemEssenceVesselSoul
+public class HSItemEssenceTrinketSoulEthereal extends HSItemEssenceTrinketSoul
 {
     public HSItemEssenceTrinketSoulEthereal()
     {

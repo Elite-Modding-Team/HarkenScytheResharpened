@@ -25,6 +25,10 @@ import net.minecraftforge.registries.IForgeRegistry;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.block.HSBlockBiomassCrop;
 import mod.emt.harkenscythe.block.HSBlockSoulCake;
+import mod.emt.harkenscythe.compat.baubles.HSBaublesItemEssenceTrinketBlood;
+import mod.emt.harkenscythe.compat.baubles.HSBaublesItemEssenceTrinketBloodEthereal;
+import mod.emt.harkenscythe.compat.baubles.HSBaublesItemEssenceTrinketSoul;
+import mod.emt.harkenscythe.compat.baubles.HSBaublesItemEssenceTrinketSoulEthereal;
 import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.item.*;
@@ -161,10 +165,6 @@ public class HSItems
                 HSRegistry.setup(new HSItemEssenceVessel(), "essence_vessel").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemEssenceVesselBlood(), "essence_vessel_blood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemEssenceVesselSoul(), "essence_vessel_soul").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemEssenceTrinketBlood(), "essence_trinket_blood").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemEssenceTrinketBloodEthereal(), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemEssenceTrinketSoul(), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemEssenceTrinketSoulEthereal(), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),
@@ -257,6 +257,26 @@ public class HSItems
         if (Loader.isModLoaded("patchouli"))
         {
             registry.register(HSRegistry.setup(new HSItemGuidebook(), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB));
+        }
+        if (Loader.isModLoaded("baubles"))
+        {
+            registry.registerAll
+                (
+                    HSRegistry.setup(new HSBaublesItemEssenceTrinketBlood(), "essence_trinket_blood").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSBaublesItemEssenceTrinketBloodEthereal(), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSBaublesItemEssenceTrinketSoul(), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSBaublesItemEssenceTrinketSoulEthereal(), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB)
+                );
+        }
+        else
+        {
+            registry.registerAll
+                (
+                    HSRegistry.setup(new HSItemEssenceTrinketBlood(), "essence_trinket_blood").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSItemEssenceTrinketBloodEthereal(), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSItemEssenceTrinketSoul(), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
+                    HSRegistry.setup(new HSItemEssenceTrinketSoulEthereal(), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB)
+                );
         }
 
         // ITEM BLOCKS

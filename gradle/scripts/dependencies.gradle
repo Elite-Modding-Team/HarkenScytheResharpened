@@ -88,4 +88,7 @@ dependencies {
 
     // GroovyScript
     implementation 'curse.maven:groovyscript-687577:5789691'
+
+    // Baubles
+    implementation rfg.deobf('curse.maven:baubles-227083:2518667')
 }
