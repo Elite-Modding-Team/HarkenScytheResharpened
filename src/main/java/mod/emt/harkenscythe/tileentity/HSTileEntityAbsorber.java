@@ -12,14 +12,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.block.HSBlockAbsorber;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.HSItemEssenceTrinketBlood;
 import mod.emt.harkenscythe.item.HSItemEssenceTrinketSoul;
 import mod.emt.harkenscythe.item.HSItemEssenceVesselBlood;
@@ -27,6 +28,7 @@ import mod.emt.harkenscythe.item.HSItemEssenceVesselSoul;
 
 public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITickable
 {
+    private final List<BlockPos> cruciblePositions = new ArrayList<>();
     protected ItemStack inputStack = ItemStack.EMPTY;
     protected int essenceCount;
     protected boolean active;
@@ -52,6 +54,11 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
         this.essenceCount = essenceCount;
     }
 
+    public boolean isActive()
+    {
+        return active;
+    }
+
     public abstract Block getCrucibleType();
 
     public abstract int scanContainerEssenceCounts(ItemStack container);
@@ -62,22 +69,33 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
         setEssenceCount(scanContainerEssenceCounts(getInputStack()));
         if (getEssenceCount() > 0)
         {
-            if (getWorld().getTotalWorldTime() % 5 == 0)
+            scanCruciblePositions();
+            if (!cruciblePositions.isEmpty())
             {
-                increaseCrucibleEssenceCount();
-            }
-            if (!active)
-            {
-                IBlockState state = world.getBlockState(pos);
-                world.setBlockState(pos, state.withProperty(HSBlockAbsorber.STATE, 1), 3);
-                active = true;
+                if (getWorld().getTotalWorldTime() % 5 == 0)
+                {
+                    increaseCrucibleEssenceCount();
+                }
+                if (!active)
+                {
+                    active = true;
+                    IBlockState state = world.getBlockState(pos);
+                    world.setBlockState(pos, state.withProperty(HSBlockAbsorber.STATE, 1), 3);
+
+                    playStartSound();
+                    if (FMLLaunchHandler.side().isClient() && this.world.isRemote)
+                    {
+                        playActiveSound();
+                    }
+                }
             }
         }
         else if (active)
         {
+            active = false;
             IBlockState state = world.getBlockState(pos);
             world.setBlockState(pos, state.withProperty(HSBlockAbsorber.STATE, 0), 3);
-            active = false;
+            playStopSound();
         }
     }
 
@@ -128,11 +146,12 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
         }
     }
 
-    public void increaseCrucibleEssenceCount()
+    public void scanCruciblePositions()
     {
         World world = this.getWorld();
         BlockPos pos = this.getPos();
-        List<BlockPos> cruciblePositions = new ArrayList<>();
+
+        cruciblePositions.clear();
 
         for (BlockPos checkPos : HSTileEntityCrucible.CRUCIBLE_POSITIONS)
         {
@@ -145,25 +164,26 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
                 }
             }
         }
+    }
+
+    public void increaseCrucibleEssenceCount()
+    {
+        World world = this.getWorld();
+        BlockPos pos = this.getPos();
 
         if (!cruciblePositions.isEmpty())
         {
             BlockPos selectedPos = cruciblePositions.get(0);
             IBlockState state = world.getBlockState(selectedPos);
-            if (world.getBlockState(selectedPos).getBlock() == getCrucibleType())
+            TileEntity te = world.getTileEntity(selectedPos);
+            if (te instanceof HSTileEntityCrucible)
             {
-                TileEntity te = world.getTileEntity(selectedPos);
-                if (te instanceof HSTileEntityCrucible)
-                {
-                    int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
-                    ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount + 1);
-                    decreaseContainerEssenceCount();
-                    createWorkingParticles();
-                    createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 1.0D, te.getPos().getZ() + 0.5D);
-                    world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.2F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-                }
+                int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
+                ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount + 1);
+                decreaseContainerEssenceCount();
+                createWorkingParticles();
+                createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 1.0D, te.getPos().getZ() + 0.5D);
             }
-            cruciblePositions.remove(selectedPos);
         }
     }
 
@@ -204,4 +224,11 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
             world.spawnParticle(EnumParticleTypes.REDSTONE, tx, ty, tz, d, d1, d2);
         }
     }
+
+    public abstract void playStartSound();
+
+    @SideOnly(Side.CLIENT)
+    public abstract void playActiveSound();
+
+    public abstract void playStopSound();
 }

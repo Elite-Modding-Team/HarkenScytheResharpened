@@ -72,14 +72,14 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 if (altarStack.isEmpty())
                 {
                     altar.setInputStack(heldStack.splitStack(1));
-                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 2.25F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
                 else if (altarStack.getMaxStackSize() > altarStack.getCount() && ItemStack.areItemsEqual(altarStack, heldStack) && ItemStack.areItemStackTagsEqual(altarStack, heldStack))
                 {
                     heldStack.shrink(1);
-                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     world.playSound(altarX, altarY, altarZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 2.25F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     altarStack.grow(1);
                     return true;
@@ -92,7 +92,7 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
                 {
                     altar.setInputStack(ItemStack.EMPTY);
                     if (!world.isRemote) player.addItemStackToInventory(itemStack);
-                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     world.playSound(altarX, altarY, altarZ, getSoundEventFail(), SoundCategory.BLOCKS, 1.0F, 2.25F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }

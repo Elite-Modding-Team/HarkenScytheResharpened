@@ -8,7 +8,6 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -107,7 +106,7 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
             if (heldStack.getItem() instanceof HSItemEssenceKeeper && absorberStack.isEmpty())
             {
                 absorber.setInputStack(heldStack.splitStack(1));
-                world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                 return true;
             }
             else
