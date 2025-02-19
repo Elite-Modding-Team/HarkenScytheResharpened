@@ -90,7 +90,7 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
                 }
             }
         }
-        else if (active)
+        if (active && (getEssenceCount() <= 0 || cruciblePositions.isEmpty()))
         {
             active = false;
             IBlockState state = world.getBlockState(pos);
@@ -170,20 +170,16 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
     {
         World world = this.getWorld();
         BlockPos pos = this.getPos();
-
-        if (!cruciblePositions.isEmpty())
+        BlockPos selectedPos = cruciblePositions.get(0);
+        IBlockState state = world.getBlockState(selectedPos);
+        TileEntity te = world.getTileEntity(selectedPos);
+        if (te instanceof HSTileEntityCrucible)
         {
-            BlockPos selectedPos = cruciblePositions.get(0);
-            IBlockState state = world.getBlockState(selectedPos);
-            TileEntity te = world.getTileEntity(selectedPos);
-            if (te instanceof HSTileEntityCrucible)
-            {
-                int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
-                ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount + 1);
-                decreaseContainerEssenceCount();
-                createWorkingParticles();
-                createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 1.0D, te.getPos().getZ() + 0.5D);
-            }
+            int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
+            ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount + 1);
+            decreaseContainerEssenceCount();
+            createWorkingParticles();
+            createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 1.0D, te.getPos().getZ() + 0.5D);
         }
     }
 
