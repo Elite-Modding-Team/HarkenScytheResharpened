@@ -373,13 +373,15 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
 
             float motionDamage = (float) ((Math.abs(motionY) * 2) + damage);
             entityLiving.attackEntityFrom(new HSDamageSource("hs_lifesteal", this.getThrower()), motionDamage);
-            playSound(HSSoundEvents.BLOCK_LIVINGMETAL_STEP.getSoundEvent(), 0.4F, 2.0F / (this.world.rand.nextFloat() * 0.4F + 0.8F));
+            playSound(HSSoundEvents.BLOCK_BLOOD_ABSORBER_STOP.getSoundEvent(), 0.4F, 2.0F / (this.world.rand.nextFloat() * 0.4F + 0.8F));
 
             // Heals by 7.5% (configurable) of damage dealt to the target with indicating leeching particles
             if (shootingEntity instanceof EntityPlayer && ((EntityPlayer) shootingEntity).shouldHeal())
             {
                 ((EntityPlayer) shootingEntity).heal(this.damage * (float) HSConfig.ITEMS.vampireKnifeProjectileHealing);
                 shootingEntity.playSound(HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), 0.2F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                shootingEntity.playSound(HSSoundEvents.BLOCK_BLOOD_ABSORBER_START.getSoundEvent(), 0.2F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+
 
                 if (world.isRemote)
                 {
