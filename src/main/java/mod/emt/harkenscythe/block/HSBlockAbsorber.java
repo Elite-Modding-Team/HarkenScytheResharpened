@@ -8,6 +8,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -17,6 +18,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.HSItemEssenceKeeper;
 import mod.emt.harkenscythe.tileentity.HSTileEntityAbsorber;
@@ -107,16 +109,22 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
             {
                 absorber.setInputStack(heldStack.splitStack(1));
                 world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                if (player instanceof EntityPlayerMP)
+                {
+                    HSAdvancements.USE_ABSORBER.trigger((EntityPlayerMP) player);
+                    if (this instanceof HSBlockBloodAbsorber) HSAdvancements.USE_BLOOD_ABSORBER.trigger((EntityPlayerMP) player);
+                    else HSAdvancements.USE_SOUL_ABSORBER.trigger((EntityPlayerMP) player);
+                }
                 return true;
             }
             else
             {
-                ItemStack itemStack = absorber.getInputStack();
-                if (!itemStack.isEmpty())
+                ItemStack inputStack = absorber.getInputStack();
+                if (!inputStack.isEmpty())
                 {
                     absorber.setInputStack(ItemStack.EMPTY);
-                    if (!world.isRemote) player.addItemStackToInventory(itemStack);
-                    world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    if (!world.isRemote) player.addItemStackToInventory(inputStack);
+                    world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
             }

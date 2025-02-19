@@ -2,7 +2,7 @@
   "name": "Just in Time",
   "icon": "harkenscythe:textures/items/deadtime_watch.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:souls_guidance",
+  "advancement": "harkenscythe:bloody_foundations",
   "pages": [
     {
       "type": "text",

@@ -7,8 +7,12 @@ import mod.emt.harkenscythe.advancement.HSAdvancementTrigger;
 
 public class HSAdvancements
 {
+    public static final HSAdvancementTrigger USE_ALTAR = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "use_altar"));
     public static final HSAdvancementTrigger USE_BLOOD_ALTAR = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "use_blood_altar"));
     public static final HSAdvancementTrigger USE_SOUL_ALTAR = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "use_soul_altar"));
+    public static final HSAdvancementTrigger USE_ABSORBER = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "use_absorber"));
+    public static final HSAdvancementTrigger USE_BLOOD_ABSORBER = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "use_blood_absorber"));
+    public static final HSAdvancementTrigger USE_SOUL_ABSORBER = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "use_soul_absorber"));
     public static final HSAdvancementTrigger USE_NECRONOMICON = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "use_necronomicon"));
     public static final HSAdvancementTrigger ENCOUNTER_ECTOGLOBIN = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "encounter_ectogoblin"));
     public static final HSAdvancementTrigger ENCOUNTER_EXOSPIDER = new HSAdvancementTrigger(new ResourceLocation(HarkenScythe.MOD_ID, "encounter_exospider"));
@@ -20,8 +24,12 @@ public class HSAdvancements
 
     protected static final HSAdvancementTrigger[] TRIGGER_ARRAY = new HSAdvancementTrigger[]
         {
+            USE_ALTAR,
             USE_BLOOD_ALTAR,
             USE_SOUL_ALTAR,
+            USE_ABSORBER,
+            USE_BLOOD_ABSORBER,
+            USE_SOUL_ABSORBER,
             USE_NECRONOMICON,
             ENCOUNTER_ECTOGLOBIN,
             ENCOUNTER_EXOSPIDER,

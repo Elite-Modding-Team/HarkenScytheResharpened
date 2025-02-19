@@ -1,0 +1,8 @@
+{
+  "parent": "harkenscythe:not_a_wizard_this_time",
+  "criteria": {
+    "use_altar": {
+      "trigger": "harkenscythe:use_altar"
+    }
+  }
+}

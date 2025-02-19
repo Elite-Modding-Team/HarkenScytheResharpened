@@ -137,6 +137,7 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
 
         if (player instanceof EntityPlayerMP)
         {
+            HSAdvancements.USE_ALTAR.trigger((EntityPlayerMP) player);
             if (this instanceof HSBlockBloodAltar) HSAdvancements.USE_BLOOD_ALTAR.trigger((EntityPlayerMP) player);
             else HSAdvancements.USE_SOUL_ALTAR.trigger((EntityPlayerMP) player);
         }

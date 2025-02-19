@@ -1,0 +1,8 @@
+{
+  "parent": "harkenscythe:keeper_of_the_reaper",
+  "criteria": {
+    "use_absorber": {
+      "trigger": "harkenscythe:use_absorber"
+    }
+  }
+}
