@@ -107,7 +107,7 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
             if (heldStack.getItem() instanceof HSItemEssenceKeeper && absorberStack.isEmpty())
             {
                 absorber.setInputStack(heldStack.splitStack(1));
-                world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.75F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                 return true;
             }
             else
@@ -117,7 +117,7 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
                 {
                     absorber.setInputStack(ItemStack.EMPTY);
                     if (!world.isRemote) player.addItemStackToInventory(itemStack);
-                    world.playSound(absorberX, absorberY, absorberZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, 1.75F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
             }

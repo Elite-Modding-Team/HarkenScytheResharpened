@@ -227,10 +227,12 @@ public class HSItems
                 HSRegistry.setup(new HSToolAthame(HSMaterials.TOOL_ATHAME_BASIC, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "unpowered_totem_of_undying").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.UNCOMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemDeadtimeWatch(EnumRarity.RARE), "deadtime_watch").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolSpectralPickaxe(), "spectral_pickaxe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.EPIC), "damaged_vampire_knife").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolVampireKnife(HSMaterials.TOOL_VAMPIRE_KNIFE, 2.0F), "vampire_knife").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "vampire_knife_projectile"), // Fake item for projectile, ignore
+                HSRegistry.setup(new HSToolBloodButcherer(HSMaterials.TOOL_BLOOD_BUTCHERER), "blood_butcherer").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemSpectralBottle(EnumRarity.UNCOMMON), "spectral_glass_bottle").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 11546150), "bloodweave_hood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_BLOODWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 11546150), "bloodweave_robe").setCreativeTab(HarkenScythe.TAB),
@@ -239,9 +241,7 @@ public class HSItems
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.HEAD, EnumRarity.UNCOMMON, 3847130), "soulweave_hood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.CHEST, EnumRarity.UNCOMMON, 3847130), "soulweave_robe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.LEGS, EnumRarity.UNCOMMON, 3847130), "soulweave_pants").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItemDeadtimeWatch(EnumRarity.UNCOMMON), "deadtime_watch").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSToolBloodButcherer(HSMaterials.TOOL_BLOOD_BUTCHERER), "blood_butcherer").setCreativeTab(HarkenScythe.TAB)
+                HSRegistry.setup(new HSArmorDyeable(HSMaterials.ARMOR_SOULWEAVE, 0, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON, 3847130), "soulweave_shoes").setCreativeTab(HarkenScythe.TAB)
             );
 
         // POTIONS

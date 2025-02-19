@@ -45,6 +45,35 @@
       "harkenscythe:enchant_blood_fail"
     ]
   },
+  "block.blood_absorber.loop": {
+    "sounds": [
+      "harkenscythe:absorber_blood_loop"
+    ]
+  },
+  "block.blood_absorber.start": {
+    "sounds": [
+      "harkenscythe:absorber_blood_start1",
+      "harkenscythe:absorber_blood_start2"
+    ]
+  },
+  "block.blood_absorber.stop": {
+    "sounds": [
+      "harkenscythe:absorber_blood_stop1",
+      "harkenscythe:absorber_blood_stop2"
+    ]
+  },
+  "block.bottle.place": {
+    "sounds": [
+      "harkenscythe:bottle_place1",
+      "harkenscythe:bottle_place2"
+    ]
+  },
+  "block.bottle.remove": {
+    "sounds": [
+      "harkenscythe:bottle_remove1",
+      "harkenscythe:bottle_remove2"
+    ]
+  },
   "block.livingmetal.break": {
     "sounds": [
       "harkenscythe:blocks/livingmetal/break1",
@@ -61,6 +90,23 @@
       "harkenscythe:blocks/livingmetal/step4",
       "harkenscythe:blocks/livingmetal/step5",
       "harkenscythe:blocks/livingmetal/step6"
+    ]
+  },
+  "block.soul_absorber.loop": {
+    "sounds": [
+      "harkenscythe:absorber_soul_loop"
+    ]
+  },
+  "block.soul_absorber.start": {
+    "sounds": [
+      "harkenscythe:absorber_soul_start1",
+      "harkenscythe:absorber_soul_start2"
+    ]
+  },
+  "block.soul_absorber.stop": {
+    "sounds": [
+      "harkenscythe:absorber_soul_stop1",
+      "harkenscythe:absorber_soul_stop2"
     ]
   },
   "block.soul_altar.approach": {
