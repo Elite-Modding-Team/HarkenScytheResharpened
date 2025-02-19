@@ -283,7 +283,7 @@ public class HSConfig
                 "The amount of blood essence blood butcherers consume each hit",
                 "Set to 0 to disable essence consumption"
             })
-        public int bloodButchererBloodCost = 2;
+        public int bloodButchererBloodCost = 1;
 
         @Config.Name("Blood Butcherer Max Charges")
         @Config.Comment
@@ -291,7 +291,7 @@ public class HSConfig
                 "The maximum amount of blood charges blood butcherers can take",
                 "When changing this, you may want to modify the recipe data value accordingly"
             })
-        public int bloodButchererMaxCharges = 1000;
+        public int bloodButchererMaxCharges = 2000;
 
         @Config.Name("Blood Keeper Essence Capacity")
         @Config.Comment("The amount of essence blood keepers can hold")

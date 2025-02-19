@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "BBB",
+    "BLB",
+    "BBB"
+  ],
+  "key": {
+    "L": {
+      "item": "harkenscythe:livingmetal_block"
+    },
+    "B": {
+      "item": "harkenscythe:biomass"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:blood_butcherer",
+    "data": 2000
+  }
+}

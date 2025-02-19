@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.item.tool;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -29,7 +30,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     {
         super(material, EnumRarity.COMMON);
         this.setMaxDamage(HSConfig.ITEMS.bloodButchererMaxCharges);
-        this.attackSpeed = 0.6F;
+        this.attackSpeed = 0.8F;
     }
 
     @Override
@@ -47,7 +48,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
     {
-        entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
+        if (stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost) entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
         return super.onEntitySwing(entityLiving, stack);
     }
 
@@ -55,6 +56,19 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     public int getRGBDurabilityForDisplay(ItemStack stack)
     {
         return 9443858;
+    }
+    
+    // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
+    @Override
+    public int getItemEnchantability(ItemStack stack)
+    {
+        return 0;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
+    {
+        return false;
     }
 
     @Override
