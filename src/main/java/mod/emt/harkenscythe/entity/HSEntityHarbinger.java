@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -43,7 +44,7 @@ import mod.emt.harkenscythe.init.HSLootTables;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSEntityBlacklists;
 
-public class HSEntityHarbinger extends EntityCreature
+public class HSEntityHarbinger extends EntityCreature implements IMob
 {
     public static final DataParameter<Boolean> RARE = EntityDataManager.createKey(HSEntityHarbinger.class, DataSerializers.BOOLEAN);
     private int summonCooldown;
