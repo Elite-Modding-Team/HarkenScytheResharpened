@@ -96,6 +96,7 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
             active = false;
             IBlockState state = world.getBlockState(pos);
             world.setBlockState(pos, state.withProperty(HSBlockAbsorber.STATE, 0), 3);
+            createStopParticles();
             playStopSound();
         }
     }
@@ -179,7 +180,7 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
             int currentCount = ((HSTileEntityCrucible) te).getEssenceCount();
             ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount + 1);
             decreaseContainerEssenceCount();
-            createWorkingParticles();
+            createActiveParticles();
             createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 0.8D, te.getPos().getZ() + 0.5D);
         }
     }
@@ -198,11 +199,19 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
         }
     }
 
-    public void createWorkingParticles()
+    public void createActiveParticles()
     {
         for (int i = 0; i < 3; i++)
         {
             world.spawnParticle(EnumParticleTypes.SPELL_WITCH, pos.getX() + world.rand.nextFloat(), pos.getY() + 0.5D + world.rand.nextFloat(), pos.getZ() + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
+        }
+    }
+
+    public void createStopParticles()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + world.rand.nextFloat(), pos.getY() + 0.75D + world.rand.nextFloat(), pos.getZ() + world.rand.nextFloat(), 0.0D, 0.5D, 0.0D);
         }
     }
 
