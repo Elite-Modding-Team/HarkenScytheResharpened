@@ -19,6 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.block.HSBlockAbsorber;
+import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.item.HSItemEssenceTrinketBlood;
@@ -179,7 +180,7 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
             ((HSTileEntityCrucible) te).setEssenceCount(world, selectedPos, state, currentCount + 1);
             decreaseContainerEssenceCount();
             createWorkingParticles();
-            createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 1.0D, te.getPos().getZ() + 0.5D);
+            createTrailParticles(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, te.getPos().getX() + 0.5D, te.getPos().getY() + 0.8D, te.getPos().getZ() + 0.5D);
         }
     }
 
@@ -207,17 +208,17 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
 
     public void createTrailParticles(double srcX, double srcY, double srcZ, double destX, double destY, double destZ)
     {
-        int particles = 60;
+        double horizontalDist = Math.sqrt(Math.pow(destX - srcX, 2) + Math.pow(destZ - srcZ, 2));
+        double hMax = horizontalDist * 0.2;
+        int particles = (int) (20 * horizontalDist);
         for (int i = 0; i < particles; i++)
         {
-            double trailFactor = i / (particles - 1.0D);
-            double d = this instanceof HSTileEntityBloodAbsorber ? 0.9F : 0.4F;
-            double d1 = this instanceof HSTileEntityBloodAbsorber ? 0.2F : 0.8F;
-            double d2 = this instanceof HSTileEntityBloodAbsorber ? 0.2F : 0.9F;
-            double tx = srcX + (destX - srcX) * trailFactor;
-            double ty = srcY + (destY - srcY) * trailFactor;
-            double tz = srcZ + (destZ - srcZ) * trailFactor;
-            world.spawnParticle(EnumParticleTypes.REDSTONE, tx, ty, tz, d, d1, d2);
+            float trailFactor = i / (particles - 1.0F);
+            float tx = (float) (srcX + (destX - srcX) * trailFactor);
+            double archFactor = 1 - Math.pow(2 * trailFactor - 1, 2);
+            float ty = (float) (srcY + (destY - srcY) * trailFactor + hMax * archFactor);
+            float tz = (float) (srcZ + (destZ - srcZ) * trailFactor);
+            HSParticleHandler.spawnGlowParticle(this, tx, ty, tz, 0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F, 100, 3.0F, 20);
         }
     }
 

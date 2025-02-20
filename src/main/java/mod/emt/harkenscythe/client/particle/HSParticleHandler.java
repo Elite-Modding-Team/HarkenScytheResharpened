@@ -8,6 +8,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
+import mod.emt.harkenscythe.tileentity.HSTileEntityAbsorber;
+
 public class HSParticleHandler
 {
     public static void spawnColoredParticle(EnumParticleTypes type, double x, double y, double z, Color color, double velX, double velY, double velZ)
@@ -43,5 +45,11 @@ public class HSParticleHandler
 
             spawnColoredParticle(type, x, y, z, color, velX, velY, velZ);
         }
+    }
+
+    public static void spawnGlowParticle(HSTileEntityAbsorber absorber, float x, float y, float z, float vx, float vy, float vz, float r, float g, float b, float a, float scale, int lifetime)
+    {
+        if (FMLLaunchHandler.side().isServer()) return;
+        Minecraft.getMinecraft().effectRenderer.addEffect(new HSParticleGlow(absorber, x, y, z, vx, vy, vz, r, g, b, a, scale, lifetime));
     }
 }
