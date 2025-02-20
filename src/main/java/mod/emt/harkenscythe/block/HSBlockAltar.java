@@ -1,7 +1,12 @@
 package mod.emt.harkenscythe.block;
 
 import net.minecraft.block.BlockEnchantmentTable;
+import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -21,11 +26,60 @@ import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
 
 public abstract class HSBlockAltar extends BlockEnchantmentTable
 {
+    public static final PropertyDirection FACING = BlockHorizontal.FACING;
+    public static final PropertyInteger STATE = PropertyInteger.create("state", 0, 1);
+
     protected HSBlockAltar()
     {
         super();
         setHardness(5.0F);
         setResistance(2000.0F);
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta & 3)).withProperty(STATE, meta >> 2);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        int i = 0;
+        i = i | state.getValue(FACING).getHorizontalIndex();
+        i = i | state.getValue(STATE) << 2;
+        return i;
+    }
+
+    @Override
+    public IBlockState withRotation(IBlockState state, Rotation rot)
+    {
+        return state.getBlock() != this ? state : state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+    }
+
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        EnumFacing horizontalFacing = placer.getHorizontalFacing();
+        return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, horizontalFacing).withProperty(STATE, meta >> 2);
+    }
+
+    @Override
+    public boolean hasComparatorInputOverride(IBlockState state)
+    {
+        return true;
+    }
+
+    @Override
+    public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos)
+    {
+        return blockState.getValue(STATE);
+    }
+
+    @Override
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, FACING, STATE);
     }
 
     @Override

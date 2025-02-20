@@ -15,6 +15,84 @@
     ],
     "inventory": [
       {}
-    ]
+    ],
+    "facing=north,state=0": {
+      "model": "harkenscythe:altar",
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    },
+    "facing=east,state=0": {
+      "model": "harkenscythe:altar",
+      "y": 90,
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    },
+    "facing=south,state=0": {
+      "model": "harkenscythe:altar",
+      "y": 180,
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    },
+    "facing=west,state=0": {
+      "model": "harkenscythe:altar",
+      "y": 270,
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    },
+    "facing=north,state=1": {
+      "model": "harkenscythe:altar",
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top_active",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    },
+    "facing=east,state=1": {
+      "model": "harkenscythe:altar",
+      "y": 90,
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top_active",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    },
+    "facing=south,state=1": {
+      "model": "harkenscythe:altar",
+      "y": 180,
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top_active",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    },
+    "facing=west,state=1": {
+      "model": "harkenscythe:altar",
+      "y": 270,
+      "textures": {
+        "particle": "harkenscythe:blocks/soul_altar_bottom",
+        "bottom": "harkenscythe:blocks/soul_altar_bottom",
+        "top": "harkenscythe:blocks/soul_altar_top_active",
+        "side": "harkenscythe:blocks/soul_altar_side"
+      }
+    }
   }
 }

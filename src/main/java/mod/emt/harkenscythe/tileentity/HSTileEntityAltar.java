@@ -21,6 +21,7 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import mod.emt.harkenscythe.block.HSBlockAltar;
 import mod.emt.harkenscythe.client.sound.HSSoundAltar;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -39,6 +40,7 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     public float tRot;
     protected ItemStack inputStack = ItemStack.EMPTY;
     protected int essenceCount;
+    protected boolean active;
 
     public ItemStack getInputStack()
     {
@@ -145,6 +147,18 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         {
             setEssenceCount(scanCrucibleEssenceCounts());
             getValidRecipe();
+            if (!active)
+            {
+                active = true;
+                IBlockState state = world.getBlockState(pos);
+                world.setBlockState(pos, state.withProperty(HSBlockAltar.STATE, 1), 3);
+            }
+        }
+        else if (active)
+        {
+            active = false;
+            IBlockState state = world.getBlockState(pos);
+            world.setBlockState(pos, state.withProperty(HSBlockAltar.STATE, 0), 3);
         }
     }
 
@@ -176,6 +190,12 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     {
         super.invalidate();
         dropItem();
+    }
+
+    @Override
+    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState)
+    {
+        return oldState.getBlock() != newState.getBlock();
     }
 
     public void dropItem()
