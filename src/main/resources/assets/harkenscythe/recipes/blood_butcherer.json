@@ -3,7 +3,7 @@
   "pattern": [
     "BBB",
     "BLB",
-    "BBB"
+    "BSB"
   ],
   "key": {
     "L": {
@@ -11,6 +11,9 @@
     },
     "B": {
       "item": "harkenscythe:biomass"
+    },
+    "S": {
+      "item": "harkenscythe:livingmetal_sword"
     }
   },
   "result": {
