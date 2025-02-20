@@ -57,7 +57,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     {
         return 9443858;
     }
-    
+
     // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
     @Override
     public int getItemEnchantability(ItemStack stack)
