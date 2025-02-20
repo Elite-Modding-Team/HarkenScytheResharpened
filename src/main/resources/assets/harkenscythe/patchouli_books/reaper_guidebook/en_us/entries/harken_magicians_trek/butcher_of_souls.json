@@ -1,0 +1,22 @@
+{
+  "name": "Butcher of Souls",
+  "icon": "harkenscythe:textures/items/blood_butcherer.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:bloody_foundations",
+  "pages": [
+    {
+      "type": "text",
+      "text": "It is said that this giant cleaver is used to build a legendary weapon, but this is merely just a rumor...$(br2)You can construct the cleaver using a giant chunk of livingmetal with a mix of biomass. The biomass is the primary source of its power and is more than alive."
+    },
+    {
+      "type": "text",
+      "text": "The cleaver itself is quite powerful and can land heavy blows through groups of foes, at the cost of blood essence.$(br2)It will also cause hit targets to bleed excessively, hitting the same target over and over again will increase the amplifier of the bleeding effect and reset the timer."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blood_butcherer",
+      "title": " ",
+      "text": "Just try not to cut yourself with this while wielding it.$(br2)It's extremely heavy and side effects from the biomass may vary!"
+    }
+  ]
+}
