@@ -1,5 +1,5 @@
 {
-  "parent": "harkenscythe:item/scythe",
+  "parent": "harkenscythe:item/cleaver",
   "textures": {
     "layer0": "harkenscythe:items/blood_butcherer"
   }
