@@ -19,7 +19,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mod.emt.harkenscythe.block.HSBlockAbsorber;
-import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.item.HSItemEssenceTrinketBlood;
@@ -217,17 +216,20 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
 
     public void createTrailParticles(double srcX, double srcY, double srcZ, double destX, double destY, double destZ)
     {
+        double r = this instanceof HSTileEntityBloodAbsorber ? 0.9D : 0.4D;
+        double g = this instanceof HSTileEntityBloodAbsorber ? 0.2D : 0.8D;
+        double b = this instanceof HSTileEntityBloodAbsorber ? 0.2D : 0.9D;
         double horizontalDist = Math.sqrt(Math.pow(destX - srcX, 2) + Math.pow(destZ - srcZ, 2));
         double hMax = horizontalDist * 0.2;
-        int particles = (int) (20 * horizontalDist);
+        int particles = (int) (30 * horizontalDist);
         for (int i = 0; i < particles; i++)
         {
-            float trailFactor = i / (particles - 1.0F);
-            float tx = (float) (srcX + (destX - srcX) * trailFactor);
+            double trailFactor = i / (particles - 1.0);
+            double tx = srcX + (destX - srcX) * trailFactor;
             double archFactor = 1 - Math.pow(2 * trailFactor - 1, 2);
-            float ty = (float) (srcY + (destY - srcY) * trailFactor + hMax * archFactor);
-            float tz = (float) (srcZ + (destZ - srcZ) * trailFactor);
-            HSParticleHandler.spawnGlowParticle(this, tx, ty, tz, 0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F, 100, 3.0F, 20);
+            double ty = srcY + (destY - srcY) * trailFactor + hMax * archFactor;
+            double tz = srcZ + (destZ - srcZ) * trailFactor;
+            world.spawnParticle(EnumParticleTypes.REDSTONE, tx, ty, tz, r, g, b);
         }
     }
 
