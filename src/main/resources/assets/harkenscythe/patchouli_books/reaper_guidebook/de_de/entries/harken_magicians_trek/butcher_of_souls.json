@@ -1,0 +1,22 @@
+{
+  "name": "Besser als Schlächter",
+  "icon": "harkenscythe:textures/items/blood_butcherer.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:bloody_foundations",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Es heißt, dass dieses riesige Hackbeil zum Bau einer legendären Waffe verwendet wird, aber das ist nur ein Gerücht...$(br2)Du kannst das Hackbeil aus einem riesigen Stück Lebendmetall mit einer Mischung aus Biomasse herstellen. Die Biomasse ist die Hauptquelle seiner Kraft und ist mehr als lebendig."
+    },
+    {
+      "type": "text",
+      "text": "Das Hackbeil selbst ist ziemlich mächtig und kann schwere Hiebe durch Gegnergruppen verteilen, was allerdings Blutessenz kostet.$(br2)Auch führt es dazu, dass getroffene Gegner übermäßig bluten. Wenn man dasselbe Ziel immer wieder trifft, wird der Bluteffekt verstärkt und der Timer zurückgesetzt."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:blood_butcherer",
+      "title": " ",
+      "text": "Versuche, dich nicht damit zu schneiden, während du es schwingst.$(br2)Es ist extrem schwer und die Nebenwirkungen der Biomasse können variieren!"
+    }
+  ]
+}
