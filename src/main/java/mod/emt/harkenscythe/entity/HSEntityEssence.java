@@ -6,13 +6,11 @@ import java.util.List;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHandSide;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -49,16 +47,9 @@ public abstract class HSEntityEssence extends EntityLivingBase
                 {
                     if (!entityItem.isDead && entityItem.getItem().getItem() == HSItems.blunt_harken_blade)
                     {
-                        this.world.playSound(null, this.getPosition(), HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
-                        this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
                         entityItem.setDead();
-                        this.setHealth(0);
-                        if (!this.world.isRemote)
-                        {
-                            ItemStack athame = new ItemStack(HSItems.harken_athame);
-                            athame.setItemDamage(entityItem.getItem().getItemDamage());
-                            this.world.spawnEntity(new EntityItem(this.world, this.posX, this.posY, this.posZ, athame));
-                        }
+                        this.createAthame();
+                        break;
                     }
                 }
             }
@@ -170,6 +161,17 @@ public abstract class HSEntityEssence extends EntityLivingBase
         return EnumHandSide.RIGHT;
     }
 
+    public void createAthame()
+    {
+        this.world.playSound(null, this.getPosition(), HSSoundEvents.ITEM_ATHAME_CREATE.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
+        this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
+        this.setHealth(0);
+        if (!this.world.isRemote)
+        {
+            this.world.spawnEntity(new EntityItem(this.world, this.posX, this.posY, this.posZ, new ItemStack(HSItems.harken_athame)));
+        }
+    }
+
     @Override
     protected boolean canTriggerWalking()
     {
@@ -191,4 +193,17 @@ public abstract class HSEntityEssence extends EntityLivingBase
 
     @Override
     public void applyEntityCollision(Entity entity) {}
+
+    @Override
+    public boolean processInitialInteract(EntityPlayer player, EnumHand hand)
+    {
+        ItemStack stack = player.getHeldItem(hand);
+        if (stack.getItem() == HSItems.blunt_harken_blade)
+        {
+            stack.shrink(1);
+            this.createAthame();
+            return true;
+        }
+        return super.processInitialInteract(player, hand);
+    }
 }

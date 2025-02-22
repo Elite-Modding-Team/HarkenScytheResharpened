@@ -134,15 +134,6 @@ public class HSEntitySoul extends HSEntityEssence
         return super.attackEntityFrom(source, amount);
     }
 
-    public void playLivingSound()
-    {
-        SoundEvent soundEvent = getAmbientSound();
-        if (soundEvent != null)
-        {
-            playSound(soundEvent, getSoundVolume(), getSoundPitch());
-        }
-    }
-
     // TODO: Streamline this with blood essence interaction
     @Override
     public boolean processInitialInteract(EntityPlayer player, EnumHand hand)
@@ -187,6 +178,15 @@ public class HSEntitySoul extends HSEntityEssence
             }
         }
         return super.processInitialInteract(player, hand);
+    }
+
+    public void playLivingSound()
+    {
+        SoundEvent soundEvent = getAmbientSound();
+        if (soundEvent != null)
+        {
+            playSound(soundEvent, getSoundVolume(), getSoundPitch());
+        }
     }
 
     public void repairEquipment(ItemStack stack)
