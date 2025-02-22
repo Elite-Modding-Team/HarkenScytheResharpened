@@ -1,0 +1,26 @@
+{
+  "name": "Treuer Anhänger",
+  "icon": "harkenscythe:textures/items/soul_trinket.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:use_altar",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Diese Anhänger sind bei den Harbingern sehr beliebt, da bereits bloßer Kontakt mit Essenzen zum Aufsammeln genügt, während sie eine beträchtliche Menge davon speichern können.$(br)Da es sich um empfindliche Relikte handelt, können sie nicht für direkte Tiegelinteraktionen verwendet werden, sondern ihre Essenz wird von Absorbern übertragen."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:essence_trinket_blood",
+      "recipe2": "harkenscythe:essence_trinket_soul"
+    },
+    {
+      "type": "text",
+      "text": "Dank einer alten Allianz der Harbinger mit den Withern ist bekannt, dass dieses Schmuckstück noch weiter verbessert werden kann."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:essence_trinket_blood_ethereal",
+      "recipe2": "harkenscythe:essence_trinket_soul_ethereal"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Independant",
+  "icon": "harkenscythe:textures/items/soul_trinket.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:use_altar",
+  "pages": [
+    {
+      "type": "text",
+      "text": "These trinkets are very popular among Harbingers, as mere contact with essence entities is enough to collect them, while they can store a considerable amount of them.$(br)As these are delicate relics, they cannot be used for direct crucible interactions but rather have their essence transferred by absorbers."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:essence_trinket_blood",
+      "recipe2": "harkenscythe:essence_trinket_soul"
+    },
+    {
+      "type": "text",
+      "text": "Thanks to an old alliance between the Harbingers and the Withers, it is known that this piece of jewelry can be improved even further."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:essence_trinket_blood_ethereal",
+      "recipe2": "harkenscythe:essence_trinket_soul_ethereal"
+    }
+  ]
+}
