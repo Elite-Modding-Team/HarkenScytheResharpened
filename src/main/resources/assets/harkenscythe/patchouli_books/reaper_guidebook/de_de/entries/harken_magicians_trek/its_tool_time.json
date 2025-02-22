@@ -2,7 +2,7 @@
   "name": "Es ist Werkzeugzeit!",
   "icon": "harkenscythe:textures/items/pickaxe_livingmetal.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:souls_guidance",
+  "advancement": "harkenscythe:use_altar",
   "pages": [
     {
       "type": "text",
