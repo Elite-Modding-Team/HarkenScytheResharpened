@@ -13,7 +13,9 @@
       "type": "entity",
       "name": " ",
       "text": "Die Seelenessenz einer gereapten Kreatur.",
-      "entity": "harkenscythe:soul"
+      "entity": "harkenscythe:soul",
+      "scale": 8.0,
+      "offset": -0.55
     }
   ]
 }

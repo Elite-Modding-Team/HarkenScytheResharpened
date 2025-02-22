@@ -14,7 +14,8 @@
       "damage": "   4",
       "speed": "  0.35",
       "drop1": "minecraft:dye:15",
-      "drop2": "harkenscythe:soul_essence"
+      "drop2": "harkenscythe:soul_essence",
+      "drop3": "harkenscythe:blood_essence"
     },
     {
       "type": "entity",

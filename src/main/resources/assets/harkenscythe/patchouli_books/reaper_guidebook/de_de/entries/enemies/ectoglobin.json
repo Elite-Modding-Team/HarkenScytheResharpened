@@ -12,8 +12,7 @@
       "knockback": "   0",
       "health": "  N/A",
       "damage": "  N/A",
-      "speed": "  N/A",
-      "drop1": "harkenscythe:soul_essence"
+      "speed": "  N/A"
     },
     {
       "type": "entity",

@@ -7,7 +7,7 @@
     {
       "type": "boss_info",
       "title": "Harbinger",
-      "piece": "queen",
+      "piece": "king",
       "hand": "harkenscythe:reaper_scythe",
       "resistance": "   10",
       "knockback": "   0",
@@ -17,7 +17,8 @@
       "drop1": "minecraft:bone",
       "drop2": "minecraft:ender_pearl",
       "drop3": "minecraft:totem_of_undying",
-      "drop4": "harkenscythe:essence_keeper_soul"
+      "drop4": "harkenscythe:essence_keeper_soul",
+      "drop5": "harkenscythe:soul_essence"
     },
     {
       "type": "entity",
