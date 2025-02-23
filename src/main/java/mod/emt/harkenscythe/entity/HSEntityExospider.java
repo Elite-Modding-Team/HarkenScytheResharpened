@@ -23,6 +23,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.ai.HSAIFollowHerd;
@@ -116,17 +117,18 @@ public class HSEntityExospider extends EntitySpider
             double d2 = this.rand.nextGaussian() * 0.02D;
             double d0 = this.rand.nextGaussian() * 0.02D;
             double d1 = this.rand.nextGaussian() * 0.02D;
-            this.world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width,
-                d2, d0, d1, this.getVariant() == 1 ? Block.getIdFromBlock(HSBlocks.biomass_block) : Block.getIdFromBlock(Blocks.SOUL_SAND));
+            this.world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, d2, d0, d1, this.getVariant() == 1 ? Block.getIdFromBlock(HSBlocks.biomass_block) : Block.getIdFromBlock(Blocks.SOUL_SAND));
         }
 
-        for (int k = 0; k < 20; ++k)
+        if (FMLLaunchHandler.side().isClient())
         {
-            double d2 = this.rand.nextGaussian() * 0.02D;
-            double d0 = this.rand.nextGaussian() * 0.02D;
-            double d1 = this.rand.nextGaussian() * 0.02D;
-            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width,
-                this.getVariant() == 1 ? Color.getColor("Blood Red", 12124160) : Color.getColor("Soul Blue", 4560335), d2, d0, d1);
+            for (int k = 0; k < 20; ++k)
+            {
+                double d2 = this.rand.nextGaussian() * 0.02D;
+                double d0 = this.rand.nextGaussian() * 0.02D;
+                double d1 = this.rand.nextGaussian() * 0.02D;
+                HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.getVariant() == 1 ? Color.getColor("Blood Red", 12124160) : Color.getColor("Soul Blue", 4560335), d2, d0, d1);
+            }
         }
     }
 

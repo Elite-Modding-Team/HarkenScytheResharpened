@@ -20,6 +20,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
@@ -75,7 +76,10 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                 }
                 target.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration, amplifier));
             }
-            createHitParticles(target);
+            if (FMLLaunchHandler.side().isClient())
+            {
+                createHitParticles(target);
+            }
         }
         return true;
     }

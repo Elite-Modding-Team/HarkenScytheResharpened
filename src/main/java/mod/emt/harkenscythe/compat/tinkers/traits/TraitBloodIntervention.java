@@ -13,6 +13,7 @@ import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
@@ -60,7 +61,7 @@ public class TraitBloodIntervention extends AbstractTrait
                         player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 30 * 20, 0));
                     }
 
-                    if (world.isRemote)
+                    if (FMLLaunchHandler.side().isClient())
                     {
                         HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity1.posX, entity1.posY + entity1.getEyeHeight(), entity1.posZ, Color.getColor("Blood Red", 12124160), entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
                     }

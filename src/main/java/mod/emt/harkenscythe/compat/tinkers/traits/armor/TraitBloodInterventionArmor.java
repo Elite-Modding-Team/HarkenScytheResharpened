@@ -14,6 +14,7 @@ import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
@@ -59,7 +60,7 @@ public class TraitBloodInterventionArmor extends AbstractArmorTrait
                         player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 30 * 20, 0));
                     }
 
-                    if (world.isRemote)
+                    if (FMLLaunchHandler.side().isClient())
                     {
                         HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity1.posX, entity1.posY + entity1.getEyeHeight(), entity1.posZ, Color.getColor("Blood Red", 12124160), player.posX, player.posY + player.getEyeHeight(), player.posZ);
                     }

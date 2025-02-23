@@ -33,6 +33,7 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
@@ -204,9 +205,12 @@ public class HSEntityHarbinger extends EntityCreature implements IMob
                 this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), this.getSoundCategory(), 0.5F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
             }
 
-            for (int i = 0; i < 2; i++)
+            if (FMLLaunchHandler.side().isClient())
             {
-                HSParticleHandler.spawnDarkColoredParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.getDataManager().get(HSEntityHarbinger.RARE) ? Color.getColor("Harken Red", 7614014) : Color.getColor("Harbinger Black", 1907997), 0.0D, 0.0D, 0.0D);
+                for (int i = 0; i < 2; i++)
+                {
+                    HSParticleHandler.spawnDarkColoredParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.getDataManager().get(HSEntityHarbinger.RARE) ? Color.getColor("Harken Red", 7614014) : Color.getColor("Harbinger Black", 1907997), 0.0D, 0.0D, 0.0D);
+                }
             }
         }
     }
