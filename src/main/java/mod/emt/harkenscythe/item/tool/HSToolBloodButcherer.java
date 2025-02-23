@@ -25,56 +25,13 @@ import mod.emt.harkenscythe.init.HSSoundEvents;
 public class HSToolBloodButcherer extends HSToolSword implements IHSTool
 {
     private final float attackSpeed;
+    private int currentDamage;
 
     public HSToolBloodButcherer(ToolMaterial material)
     {
         super(material, EnumRarity.COMMON);
         this.setMaxDamage(HSConfig.ITEMS.bloodButchererMaxCharges);
         this.attackSpeed = 0.8F;
-    }
-
-    @Override
-    public boolean isDamageable()
-    {
-        return false;
-    }
-
-    @Override
-    public boolean hasContainerItem(ItemStack stack)
-    {
-        return true;
-    }
-
-    @Override
-    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
-    {
-        if (entityLiving.swingProgress == 0 && stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost) entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
-        return super.onEntitySwing(entityLiving, stack);
-    }
-
-    @Override
-    public int getRGBDurabilityForDisplay(ItemStack stack)
-    {
-        return 9443858;
-    }
-
-    // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
-    @Override
-    public int getItemEnchantability(ItemStack stack)
-    {
-        return 0;
-    }
-
-    @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
-    {
-        return false;
-    }
-
-    @Override
-    public IRarity getForgeRarity(ItemStack stack)
-    {
-        return HSRegistry.RARITY_BLOODY;
     }
 
     @Override
@@ -120,13 +77,61 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
     {
         Multimap<String, AttributeModifier> multimap = HashMultimap.create();
+        double attackDamageMod = this.getAttackDamage() + 3.0D;
+        attackDamageMod = this.currentDamage >= HSConfig.ITEMS.bloodButchererMaxCharges ? attackDamageMod * 0.5D : attackDamageMod;
+        double attackSpeedMod = this.attackSpeed - 4.0D;
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
         {
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Damage modifier", this.getAttackDamage() + 3.0D, 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Speed modifier", this.attackSpeed - 4.0D, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Damage modifier", attackDamageMod, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Speed modifier", attackSpeedMod, 0));
         }
 
         return multimap;
+    }
+
+    @Override
+    public boolean isDamageable()
+    {
+        return false;
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack)
+    {
+        return true;
+    }
+
+    @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
+    {
+        if (entityLiving.swingProgress == 0 && stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost) entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
+        this.currentDamage = stack.getItemDamage();
+        return super.onEntitySwing(entityLiving, stack);
+    }
+
+    @Override
+    public int getRGBDurabilityForDisplay(ItemStack stack)
+    {
+        return 9443858;
+    }
+
+    // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
+    @Override
+    public int getItemEnchantability(ItemStack stack)
+    {
+        return 0;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
+    {
+        return false;
+    }
+
+    @Override
+    public IRarity getForgeRarity(ItemStack stack)
+    {
+        return HSRegistry.RARITY_BLOODY;
     }
 }
