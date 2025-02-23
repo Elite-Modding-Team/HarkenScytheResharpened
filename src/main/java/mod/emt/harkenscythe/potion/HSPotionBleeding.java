@@ -1,11 +1,16 @@
 package mod.emt.harkenscythe.potion;
 
+import java.awt.*;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 
 public class HSPotionBleeding extends Potion
 {
@@ -20,6 +25,17 @@ public class HSPotionBleeding extends Potion
     public void performEffect(EntityLivingBase entity, int amplifier)
     {
         entity.attackEntityFrom(DamageSource.MAGIC, 1.0F + (amplifier * 0.5F));
+
+        if (FMLLaunchHandler.side().isClient())
+        {
+            for (int i = 0; i < (amplifier + 1) * 10; i++)
+            {
+                double posX = entity.posX + (entity.world.rand.nextGaussian() * 0.5D);
+                double posY = entity.posY + (entity.world.rand.nextGaussian() * 0.5D) + (entity.height * 0.5F);
+                double posZ = entity.posZ + (entity.world.rand.nextGaussian() * 0.5D);
+                HSParticleHandler.spawnColoredParticle(EnumParticleTypes.WATER_SPLASH, posX, posY, posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
+            }
+        }
     }
 
     @Override
