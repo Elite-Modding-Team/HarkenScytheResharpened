@@ -1,9 +1,12 @@
 package mod.emt.harkenscythe.item.tool;
 
+import java.awt.*;
+
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -12,11 +15,13 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 
+import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSRegistry;
@@ -35,9 +40,16 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     }
 
     @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
+    {
+        super.onUpdate(stack, world, entity, itemSlot, isSelected);
+        this.currentDamage = stack.getItemDamage();
+    }
+
+    @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        if (attacker instanceof EntityPlayer)
+        if (hasCharges() && attacker instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) attacker;
             World world = player.getEntityWorld();
@@ -63,6 +75,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                 }
                 target.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration, amplifier));
             }
+            createHitParticles(target);
         }
         return true;
     }
@@ -78,7 +91,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     {
         Multimap<String, AttributeModifier> multimap = HashMultimap.create();
         double attackDamageMod = this.getAttackDamage() + 3.0D;
-        attackDamageMod = this.currentDamage >= HSConfig.ITEMS.bloodButchererMaxCharges ? attackDamageMod * 0.5D : attackDamageMod;
+        attackDamageMod = hasCharges() ? attackDamageMod : attackDamageMod * 0.5D;
         double attackSpeedMod = this.attackSpeed - 4.0D;
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
@@ -105,8 +118,10 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
     {
-        if (entityLiving.swingProgress == 0 && stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost) entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
-        this.currentDamage = stack.getItemDamage();
+        if (entityLiving.swingProgress == 0 && hasCharges())
+        {
+            entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
+        }
         return super.onEntitySwing(entityLiving, stack);
     }
 
@@ -133,5 +148,20 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     public IRarity getForgeRarity(ItemStack stack)
     {
         return HSRegistry.RARITY_BLOODY;
+    }
+
+    public boolean hasCharges()
+    {
+        return this.currentDamage < HSConfig.ITEMS.bloodButchererMaxCharges;
+    }
+
+    public void createHitParticles(EntityLivingBase target)
+    {
+        double centeredTargetY = target.posY + (target.height * 0.5F);
+        for (double offset = -0.5; offset <= 0.5; offset += 0.1)
+        {
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, target.posX + offset, centeredTargetY + offset, target.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
+            HSParticleHandler.spawnColoredParticle(EnumParticleTypes.REDSTONE, target.posX + offset, centeredTargetY - offset, target.posZ, Color.getColor("Blood Red", 12124160), 0.0D, 0.0D, 0.0D);
+        }
     }
 }
