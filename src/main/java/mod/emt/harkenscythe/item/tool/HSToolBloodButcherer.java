@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -72,6 +73,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
 
                 attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), attacker.getSoundCategory(), 1.0F, 0.5F / (attacker.world.rand.nextFloat() * 0.4F + 1.2F));
             }
+            
             if (!player.capabilities.isCreativeMode)
             {
                 if (stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost)
@@ -86,6 +88,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
             
            this.doBleedEffect(target);
         }
+        
         return true;
     }
     
@@ -161,9 +164,14 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
         return 9443858;
     }
 
-    // TODO: Add unique enchantments in the future. Enchanting disabled temporarily for now.
     @Override
-    public int getItemEnchantability(ItemStack stack)
+    public boolean isRepairable()
+    {
+        return false;
+    }
+
+    @Override
+    public float getXpRepairRatio(ItemStack stack)
     {
         return 0;
     }
@@ -171,7 +179,8 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
     {
-        return false;
+        if (enchantment == Enchantments.MENDING) return false;
+        return super.canApplyAtEnchantingTable(stack, enchantment);
     }
 
     @Override
