@@ -6,6 +6,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,15 +16,18 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -53,7 +57,21 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
         if (hasCharges() && attacker instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) attacker;
-            World world = player.getEntityWorld();
+
+            for (EntityLivingBase entity : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(2.0D, 0.25D, 2.0D)))
+            {
+                float attribute = (float) attacker.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+                float sweepCalculation = (HSMaterials.TOOL_BLOOD_BUTCHERER.getAttackDamage() + 4.0F) + EnchantmentHelper.getSweepingDamageRatio(attacker) * attribute;
+
+                if (entity != attacker && entity != target && !attacker.isOnSameTeam(entity))
+                {
+                    entity.knockBack(attacker, 0.5F, (double) MathHelper.sin(attacker.rotationYaw * 0.02F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.02F)));
+                    entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), sweepCalculation);
+                    this.doBleedEffect(entity);
+                }
+
+                attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), attacker.getSoundCategory(), 1.0F, 0.5F / (attacker.world.rand.nextFloat() * 0.4F + 1.2F));
+            }
             if (!player.capabilities.isCreativeMode)
             {
                 if (stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost)
@@ -65,23 +83,31 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                     return true;
                 }
             }
-            if (!world.isRemote)
-            {
-                int duration = 200;
-                int amplifier = 0;
-                if (target.isPotionActive(HSPotions.BLEEDING))
-                {
-                    duration = Math.max(20, target.getActivePotionEffect(HSPotions.BLEEDING).getDuration());
-                    amplifier = Math.min(4, target.getActivePotionEffect(HSPotions.BLEEDING).getAmplifier() + 1);
-                }
-                target.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration, amplifier));
-            }
-            if (FMLLaunchHandler.side().isClient())
-            {
-                createHitParticles(target);
-            }
+            
+           this.doBleedEffect(target);
         }
         return true;
+    }
+    
+    public void doBleedEffect(EntityLivingBase target) {
+        World world = target.getEntityWorld();
+        
+        if (!world.isRemote)
+        {
+            int duration = 200;
+            int amplifier = 0;
+            if (target.isPotionActive(HSPotions.BLEEDING))
+            {
+                duration = Math.max(20, target.getActivePotionEffect(HSPotions.BLEEDING).getDuration());
+                amplifier = Math.min(4, target.getActivePotionEffect(HSPotions.BLEEDING).getAmplifier() + 1);
+            }
+            target.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration, amplifier));
+        }
+        
+        if (FMLLaunchHandler.side().isClient())
+        {
+            createHitParticles(target);
+        }
     }
 
     @Override
