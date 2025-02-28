@@ -12,15 +12,16 @@
       "resistance": "   10",
       "knockback": "   0",
       "health": "  150",
-      "damage": "   9",
+      "damage": "   5",
       "speed": "  0.15",
-      "drop1": "harkenscythe:spectral_pickaxe"
+      "drop1": "harkenscythe:spectral_pickaxe",
+      "drop2": "harkenscythe:soul_essence_grieving"
     },
     {
       "type": "entity",
       "name": " ",
       "text": "Kann eine Illusion sein, muss aber nicht.",
-      "entity": "harkenscythe:spectral_miner"
+      "entity": "harkenscythe:spectral_miner{HandItems:[{Count:1,id:\"harkenscythe:spectral_pickaxe\"},{}]}"
     }
   ]
 }
