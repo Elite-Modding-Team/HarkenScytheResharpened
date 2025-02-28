@@ -1,6 +1,7 @@
 package mod.emt.harkenscythe.event;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
@@ -19,7 +20,7 @@ public class HSEventLivingSpawn
     public static void onSpawn(LivingSpawnEvent.SpecialSpawn event)
     {
         EntityLivingBase entity = event.getEntityLiving();
-        if (!(entity instanceof IMob)) return;
+        if (!(entity instanceof IMob || entity instanceof EntityMob)) return;
 
         // Mobs that spawn during the New Moon will gain the Strength effect
         if (HSConfig.GENERAL.newMoonStrengthEffect && !entity.world.isDaytime() && entity.world.getCurrentMoonPhaseFactor() == 0.0F)
