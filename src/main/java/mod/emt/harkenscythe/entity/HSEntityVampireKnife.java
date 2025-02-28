@@ -197,7 +197,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             prevRotationPitch = n2;
         }
 
-        if (this.ticksExisted > 40)
+        if (this.ticksExisted > HSConfig.ITEMS.vampireKnifeDespawnTime)
         {
             this.setDead();
         }

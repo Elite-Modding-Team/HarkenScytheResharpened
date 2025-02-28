@@ -394,6 +394,10 @@ public class HSConfig
         @Config.Comment("The cooldown of firing vampire knife projectiles in ticks")
         public int vampireKnifeCooldown = 5;
 
+        @Config.Name("Vampire Knife Despawn Time")
+        @Config.Comment("The amount of ticks after a vampire knife entity despawns")
+        public int vampireKnifeDespawnTime = 40;
+
         @Config.Name("Vampire Knife Drop Chance")
         @Config.Comment("The chance for vampire knives to drop under the right circumstances in percent")
         public double vampireKnifeDropChance = 0.0005D;
