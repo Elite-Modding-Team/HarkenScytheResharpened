@@ -15,13 +15,13 @@
       "damage": "   9",
       "speed": "  0.15",
       "drop1": "harkenscythe:spectral_pickaxe",
-      "drop2": "harkenscythe:soul_essence"
+      "drop2": "harkenscythe:soul_essence_grieving"
     },
     {
       "type": "entity",
       "name": " ",
       "text": "May or may not be an illusion.",
-      "entity": "harkenscythe:spectral_miner"
+      "entity": "harkenscythe:spectral_miner{HandItems:[{Count:1,id:\"harkenscythe:spectral_pickaxe\"},{}]}"
     }
   ]
 }

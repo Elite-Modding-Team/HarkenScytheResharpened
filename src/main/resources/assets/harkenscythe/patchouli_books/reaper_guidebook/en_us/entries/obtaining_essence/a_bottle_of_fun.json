@@ -12,55 +12,55 @@
     {
       "type": "spotlight",
       "item": "harkenscythe:blood_essence",
-      "title": "Common Blood Essence",
+      "title": "Common Blood",
       "text": "Common blood essence is worth 1 blood and is a bright red color.$(br2)It spawns when basic mobs are reaped. During the darkest nights, all common blood essence will become sickly blood essence."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:blood_essence_sickly",
-      "title": "Sickly Blood Essence",
+      "title": "Sickly Blood",
       "text": "Sickly blood essence is worth 2 blood and is a dark orange color.$(br2)It spawns when mobs with 40 or more max health are reaped, it can also spawn when players are reaped."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:blood_essence_intoxicated",
-      "title": "Intoxicated Blood Essence",
+      "title": "Intoxicated Blood",
       "text": "Intoxicated blood essence is worth 5 blood and is a bright green color.$(br2)It spawns when mobs with 100 or more max health are reaped, it can also spawn when bosses with less than 300 max health are reaped."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:blood_essence_warped",
-      "title": "Warped Blood Essence",
+      "title": "Warped Blood",
       "text": "Warped blood essence is worth 40 blood and is a vibrant purple color.$(br2)It spawns when bosses with 300 or more max health are reaped."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:soul_essence",
-      "title": "Common Soul Essence",
+      "title": "Common Soul",
       "text": "Common soul essence is worth 1 soul and is a bright blue color.$(br2)It spawns when basic mobs are reaped. During the darkest nights, all common soul essence will become grieving soul essence."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:soul_essence_grieving",
-      "title": "Grieving Soul Essence",
+      "title": "Grieving Soul",
       "text": "Grieving soul essence is worth 2 souls and is a dark blue color.$(br2)It spawns when mobs with 40 or more max health are reaped, it can also spawn when players are reaped."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:soul_essence_culled",
-      "title": "Culled Soul Essence",
+      "title": "Culled Soul",
       "text": "Culled soul essence is worth 5 souls and is a bright green color.$(br2)It spawns when mobs with 100 or more max health are reaped, it can also spawn when bosses with less than 300 max health are reaped."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:soul_essence_spectral",
-      "title": "Spectral Soul Essence",
+      "title": "Spectral Soul",
       "text": "Spectral soul essence is worth 20 souls and is a jet black color.$(br2)It spawns when special mobs are reaped and it is not often encountered."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:soul_essence_wrathful",
-      "title": "Wrathful Soul Essence",
+      "title": "Wrathful Soul",
       "text": "Wrathful soul essence is worth 40 souls and is a nightmarish orange color.$(br2)It spawns when bosses with 300 or more max health are reaped."
     }
   ]

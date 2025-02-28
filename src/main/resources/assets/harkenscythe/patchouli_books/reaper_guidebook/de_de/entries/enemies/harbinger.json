@@ -18,7 +18,9 @@
       "drop2": "minecraft:ender_pearl",
       "drop3": "minecraft:totem_of_undying",
       "drop4": "harkenscythe:essence_keeper_soul",
-      "drop5": "harkenscythe:soul_essence"
+      "drop5": "harkenscythe:soul_essence_grieving",
+      "drop6": "minecraft:ender_eye",
+      "drop7": "harkenscythe:abyssal_fragment"
     },
     {
       "type": "entity",

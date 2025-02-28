@@ -36,7 +36,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "harkenscythe:soul_essence",
+          "name": "harkenscythe:soul_essence_grieving",
           "weight": 1,
           "conditions": [
             {
@@ -47,15 +47,15 @@
             {
               "function": "set_count",
               "count": {
-                "min": 4,
-                "max": 8
+                "min": 3,
+                "max": 6
               }
             },
             {
               "function": "looting_enchant",
               "count": {
                 "min": 0,
-                "max": 2
+                "max": 1
               }
             }
           ]
