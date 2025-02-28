@@ -6,17 +6,17 @@
   "pages": [
     {
       "type": "text",
-      "text": "It is said that this giant cleaver is used to build a legendary weapon, but this is merely just a rumor...$(br2)You can construct the cleaver using a giant chunk of livingmetal with a mix of biomass. The biomass is the primary source of its power and is more than alive."
+      "text": "It is said that this giant cleaver is used to build a legendary weapon, but this is merely just a rumor...$(br2)You can construct the cleaver by hammering down a giant livingmetal chunk on a livingmetal sword with a mix of biomass. The biomass is the primary source of its power and is more than alive."
     },
     {
       "type": "text",
-      "text": "The cleaver itself is quite powerful and can land heavy blows through groups of foes, at the cost of blood essence.$(br2)It will also cause hit targets to bleed excessively, hitting the same target over and over again will increase the amplifier of the bleeding effect and reset the timer."
+      "text": "The cleaver itself is quite powerful and can sweep through large groups of foes at the cost of blood essence.$(br2)It will also cause all hit targets to bleed excessively, hitting the same targets over and over again will constantly increase the amplifier of the bleeding effect and reset the timer. The amplifier can only be reached upwards to V and will not go past that."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:blood_butcherer",
       "title": " ",
-      "text": "Just try not to cut yourself with this while wielding it.$(br2)It's extremely heavy and side effects from the biomass may vary!"
+      "text": "It's extremely heavy and side effects from the biomass may vary! So just try not to cut yourself with this while wielding it."
     }
   ]
 }
