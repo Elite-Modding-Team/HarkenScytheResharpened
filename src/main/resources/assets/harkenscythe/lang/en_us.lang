@@ -194,6 +194,7 @@ message.harkenscythe.deadtime_watch.no_blood=The watch needs to be recharged wit
 message.harkenscythe.dimensional_mirror.blacklist=A magical force prevents the mirror from working in this dimension!
 message.harkenscythe.dimensional_mirror.no_souls=The mirror needs to be recharged with souls to work!
 message.harkenscythe.dimensional_mirror.no_spawn=No spawn point is set for the mirror to work!
+message.harkenscythe.hs_butcher=%s was butchered to death
 message.harkenscythe.hs_lifesteal=%s was voluntold to donate blood
 message.harkenscythe.hs_reap=%s was reaped
 message.harkenscythe.vampire_knife.no_blood=The vampire knife needs to be recharged with blood to work!

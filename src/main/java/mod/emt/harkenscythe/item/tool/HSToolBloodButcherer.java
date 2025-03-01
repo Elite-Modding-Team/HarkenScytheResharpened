@@ -17,7 +17,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -25,13 +24,13 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
-
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSRegistry;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.util.HSDamageSource;
 
 public class HSToolBloodButcherer extends HSToolSword implements IHSTool
 {
@@ -59,6 +58,8 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
         {
             EntityPlayer player = (EntityPlayer) attacker;
 
+            target.attackEntityFrom(new HSDamageSource("hs_butcher", attacker), this.getAttackDamage());
+            
             // TODO: Change this into a @SubscribeEvent?
             if (player.getCooledAttackStrength(0) > 1.0F)
             {
@@ -69,7 +70,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                     if (entity != attacker && entity != target && !attacker.isOnSameTeam(entity))
                     {
                         entity.knockBack(attacker, 0.5F, (double) MathHelper.sin(attacker.rotationYaw * 0.02F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.02F)));
-                        entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), sweepCalculation);
+                        entity.attackEntityFrom(new HSDamageSource("hs_butcher", attacker), sweepCalculation);
                         this.doBleedEffect(entity);
                     }
 
