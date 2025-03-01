@@ -1,0 +1,48 @@
+{
+  "name": "It's Armor Time!",
+  "icon": "harkenscythe:textures/items/helmet_livingmetal.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:use_altar",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Seasoned soul reapers construct useful armor out of composed livingmetal.$(br2)When collecting souls, a random piece of livingmetal armor is getting infused and repaired according to the soul quality points."
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "That's some fine craftmanship!",
+      "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:livingmetal_boots\",Count:1},{id:\"harkenscythe:livingmetal_leggings\",Count:1},{id:\"harkenscythe:livingmetal_chestplate\",Count:1},{id:\"harkenscythe:livingmetal_helmet\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_helmet",
+      "recipe2": "harkenscythe:livingmetal_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:livingmetal_leggings",
+      "recipe2": "harkenscythe:livingmetal_boots"
+    },
+    {
+      "type": "text",
+      "text": "Seasoned blood reapers construct useful armor out of composed biomass.$(br2)As biomass is a constantly growing and self-healing material, it tries to slowly repair the armor's damage every minute."
+    },
+    {
+      "type": "entity",
+      "name": " ",
+      "text": "All the biomass working together in harmony!",
+      "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:biomass_boots\",Count:1},{id:\"harkenscythe:biomass_leggings\",Count:1},{id:\"harkenscythe:biomass_chestplate\",Count:1},{id:\"harkenscythe:biomass_helmet\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_helmet",
+      "recipe2": "harkenscythe:biomass_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:biomass_leggings",
+      "recipe2": "harkenscythe:biomass_boots"
+    }
+  ]
+}

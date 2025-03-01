@@ -11,7 +11,6 @@
     {
       "type": "crafting",
       "recipe": "harkenscythe:dimensional_mirror",
-      "title": " ",
       "text": "It has 4 available charges by default and can be charged on an Altar of Souls, similar to any other ritual.$(br2)Even the greatest stars discover themselves in the looking glass."
     }
   ]

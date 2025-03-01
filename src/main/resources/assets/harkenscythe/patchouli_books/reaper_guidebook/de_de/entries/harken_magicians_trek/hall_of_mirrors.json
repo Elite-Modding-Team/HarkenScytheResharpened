@@ -11,7 +11,6 @@
     {
       "type": "crafting",
       "recipe": "harkenscythe:dimensional_mirror",
-      "title": " ",
       "text": "Es verfügt standardmäßig über 4 Ladungen und kann wie bei jedem anderen Ritual im Altar aufgeladen werden.$(br2)Sogar die größten Stars entdecken sich selbst im Spiegelglas."
     }
   ]
