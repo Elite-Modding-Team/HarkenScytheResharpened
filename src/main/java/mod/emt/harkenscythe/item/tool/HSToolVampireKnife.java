@@ -113,6 +113,18 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     {
         return false;
     }
+    
+    @Override
+    public boolean isRepairable()
+    {
+        return false;
+    }
+
+    @Override
+    public float getXpRepairRatio(ItemStack stack)
+    {
+        return 0;
+    }
 
     @Override
     public IRarity getForgeRarity(ItemStack stack)
