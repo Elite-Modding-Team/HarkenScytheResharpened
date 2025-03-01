@@ -1,0 +1,12 @@
+{
+  "name": "Baubles",
+  "icon": "harkenscythe:textures/items/harbinger_tome.png",
+  "category": "mod_integration",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "text": "While Baubles is detected, Essence Trinkets can be equipped on all Baubles accessory slots."
+    }
+  ]
+}
