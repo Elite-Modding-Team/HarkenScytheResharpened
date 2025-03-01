@@ -1,17 +1,17 @@
 {
-  "name": "It's Armor Time!",
+  "name": "Es ist Rüstungszeit!",
   "icon": "harkenscythe:textures/items/helmet_livingmetal.png",
   "category": "harken_magicians_trek",
   "advancement": "harkenscythe:use_altar",
   "pages": [
     {
       "type": "text",
-      "text": "Seasoned soul reapers construct useful armor out of composed livingmetal.$(br2)When collecting souls, a random piece of livingmetal armor is getting infused and repaired according to the soul quality points."
+      "text": "Erfahrene Seelenreaper konstruieren nützliche Rüstungen aus zusammengesetztem Lebendmetall.$(br2)Beim Aufsammeln von Seelen wird ein zufälliges Stück Lebendmetall-Rüstung entsprechend der Seelenqualitätspunkte aufgefüllt und repariert."
     },
     {
       "type": "entity",
       "name": " ",
-      "text": "That's some fine craftsmanship!",
+      "text": "Das ist gute Handwerkskunst!",
       "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:livingmetal_boots\",Count:1},{id:\"harkenscythe:livingmetal_leggings\",Count:1},{id:\"harkenscythe:livingmetal_chestplate\",Count:1},{id:\"harkenscythe:livingmetal_helmet\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
     },
     {
@@ -26,12 +26,12 @@
     },
     {
       "type": "text",
-      "text": "Seasoned blood reapers construct useful armor out of composed biomass.$(br2)As biomass is a constantly growing and self-healing material, it tries to slowly repair the armor's damage every minute."
+      "text": "Erfahrene Blutreaper konstruieren nützliche Rüstungen aus zusammengesetzter Biomasse.$(br2)Da Biomasse ein ständig wachsendes und selbstheilendes Material ist, versucht sie, Rüstungsschaden jede Minute langsam zu reparieren."
     },
     {
       "type": "entity",
       "name": " ",
-      "text": "All the biomass working together in harmony!",
+      "text": "Die gesamte Biomasse arbeitet harmonisch zusammen!",
       "entity": "harkenscythe:spectral_human{ArmorItems:[{id:\"harkenscythe:biomass_boots\",Count:1},{id:\"harkenscythe:biomass_leggings\",Count:1},{id:\"harkenscythe:biomass_chestplate\",Count:1},{id:\"harkenscythe:biomass_helmet\",Count:1}],ArmorDropChances:[0f,0f,0f,0f]}"
     },
     {

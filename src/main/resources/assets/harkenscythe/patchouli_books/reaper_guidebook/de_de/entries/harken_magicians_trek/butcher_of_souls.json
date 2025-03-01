@@ -6,17 +6,16 @@
   "pages": [
     {
       "type": "text",
-      "text": "Es heißt, dass dieses riesige Hackbeil zum Bau einer legendären Waffe verwendet wird, aber das ist nur ein Gerücht...$(br2)Du kannst das Hackbeil aus einem riesigen Stück Lebendmetall mit einer Mischung aus Biomasse herstellen. Die Biomasse ist die Hauptquelle seiner Kraft und ist mehr als lebendig."
+      "text": "Es heißt, dass dieses riesige Hackbeil zum Bau einer legendären Waffe verwendet wird, aber das ist nur ein Gerücht...$(br2)Du kannst eines herstellen, indem du einen riesigen Block aus Lebendmetall auf ein Schwert aus Lebendmetall und einer Mischung aus Biomasse hämmerst. Die Biomasse ist die Hauptquelle seiner Kraft und ist mehr als lebendig."
     },
     {
       "type": "text",
-      "text": "Das Hackbeil selbst ist ziemlich mächtig und kann schwere Hiebe durch Gegnergruppen verteilen, was allerdings Blutessenz kostet.$(br2)Auch führt es dazu, dass getroffene Gegner übermäßig bluten. Wenn man dasselbe Ziel immer wieder trifft, wird der Bluteffekt verstärkt und der Timer zurückgesetzt."
+      "text": "Das Hackbeil selbst ist ziemlich mächtig und kann auf Kosten von Blutessenz durch große Gruppen von Gegnern schwingen.$(br2)Es bewirkt außerdem, dass alle getroffenen Ziele übermäßig bluten. Wenn man dieselben Ziele immer wieder trifft, wird Bluteffekts ständig verstärkt und der Timer zurückgesetzt. Der Verstärker kann nur Stufe V erreichen und wird nicht darüber hinausgehen."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:blood_butcherer",
-      "title": " ",
-      "text": "Versuche, dich nicht damit zu schneiden, während du es schwingst.$(br2)Es ist extrem schwer und die Nebenwirkungen der Biomasse können variieren!"
+      "text": "Es ist extrem schwer und die Nebenwirkungen der Biomasse können variieren! Vermeide also, dich damit zu schneiden, während du es schwingst."
     }
   ]
 }

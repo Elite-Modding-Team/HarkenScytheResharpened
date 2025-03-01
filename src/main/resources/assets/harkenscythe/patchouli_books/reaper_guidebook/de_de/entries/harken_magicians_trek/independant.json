@@ -10,6 +10,7 @@
     },
     {
       "type": "crafting",
+      "title": "Gewöhnliche Anhänger",
       "recipe": "harkenscythe:essence_trinket_blood",
       "recipe2": "harkenscythe:essence_trinket_soul"
     },
@@ -19,6 +20,7 @@
     },
     {
       "type": "crafting",
+      "title": "Himmlische Anhänger",
       "recipe": "harkenscythe:essence_trinket_blood_ethereal",
       "recipe2": "harkenscythe:essence_trinket_soul_ethereal"
     }
