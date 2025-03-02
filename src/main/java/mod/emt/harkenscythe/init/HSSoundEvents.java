@@ -7,8 +7,12 @@ import mod.emt.harkenscythe.HarkenScythe;
 
 public enum HSSoundEvents
 {
+    BLOCK_ABSORBER_ITEM_INSERT("block.absorber.item_insert"),
+    BLOCK_ABSORBER_ITEM_REMOVE("block.absorber.item_remove"),
     BLOCK_ALTAR_BOOK_CLOSE("block.altar.book_close"),
     BLOCK_ALTAR_BOOK_OPEN("block.altar.book_open"),
+    BLOCK_ALTAR_ITEM_INSERT("block.altar.item_insert"),
+    BLOCK_ALTAR_ITEM_REMOVE("block.altar.item_remove"),
     BLOCK_BIOMASS_BREAK("block.biomass.break"),
     BLOCK_BIOMASS_HARVEST("block.biomass.harvest"),
     BLOCK_BIOMASS_STEP("block.biomass.step"),
@@ -18,7 +22,7 @@ public enum HSSoundEvents
     BLOCK_BLOOD_ABSORBER_STOP("block.blood_absorber.stop"),
     BLOCK_BLOOD_ALTAR_ENCHANT("block.blood_altar.enchant"),
     BLOCK_BLOOD_ALTAR_ENCHANT_FAIL("block.blood_altar.enchant_fail"),
-    BLOCK_BOTTLE_PLACE("block.bottle.place"),
+    BLOCK_BOTTLE_INSERT("block.bottle.insert"),
     BLOCK_BOTTLE_REMOVE("block.bottle.remove"),
     BLOCK_LIVINGMETAL_BREAK("block.livingmetal.break"),
     BLOCK_LIVINGMETAL_STEP("block.livingmetal.step"),

@@ -1,4 +1,16 @@
 {
+  "block.absorber.item_insert": {
+    "sounds": [
+      "harkenscythe:blocks/absorber/item_insert1",
+      "harkenscythe:blocks/absorber/item_insert2"
+    ]
+  },
+  "block.absorber.item_remove": {
+    "sounds": [
+      "harkenscythe:blocks/absorber/item_remove1",
+      "harkenscythe:blocks/absorber/item_remove2"
+    ]
+  },
   "block.altar.book_close": {
     "sounds": [
       "harkenscythe:blocks/altar/book_close1",
@@ -13,6 +25,20 @@
       "harkenscythe:blocks/altar/book_open2",
       "harkenscythe:blocks/altar/book_open3",
       "harkenscythe:blocks/altar/book_open4"
+    ]
+  },
+  "block.altar.item_insert": {
+    "sounds": [
+      "harkenscythe:blocks/altar/item_insert1",
+      "harkenscythe:blocks/altar/item_insert2",
+      "harkenscythe:blocks/altar/item_insert3"
+    ]
+  },
+  "block.altar.item_remove": {
+    "sounds": [
+      "harkenscythe:blocks/altar/item_remove1",
+      "harkenscythe:blocks/altar/item_remove2",
+      "harkenscythe:blocks/altar/item_remove3"
     ]
   },
   "block.biomass.break": {
@@ -79,16 +105,20 @@
       "harkenscythe:blocks/altar/blood/loop"
     ]
   },
-  "block.bottle.place": {
+  "block.bottle.insert": {
     "sounds": [
-      "harkenscythe:bottle_place1",
-      "harkenscythe:bottle_place2"
+      "harkenscythe:bottle_insert1",
+      "harkenscythe:bottle_insert2",
+      "harkenscythe:bottle_insert3",
+      "harkenscythe:bottle_insert4"
     ]
   },
   "block.bottle.remove": {
     "sounds": [
       "harkenscythe:bottle_remove1",
-      "harkenscythe:bottle_remove2"
+      "harkenscythe:bottle_remove2",
+      "harkenscythe:bottle_remove3",
+      "harkenscythe:bottle_remove4"
     ]
   },
   "block.livingmetal.break": {

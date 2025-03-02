@@ -108,7 +108,7 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
             if (heldStack.getItem() instanceof HSItemEssenceKeeper && absorberStack.isEmpty())
             {
                 absorber.setInputStack(heldStack.splitStack(1));
-                world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_PLACE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_ABSORBER_ITEM_INSERT.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                 if (player instanceof EntityPlayerMP)
                 {
                     HSAdvancements.USE_ABSORBER.trigger((EntityPlayerMP) player);
@@ -124,7 +124,7 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
                 {
                     absorber.setInputStack(ItemStack.EMPTY);
                     if (!world.isRemote) player.addItemStackToInventory(inputStack);
-                    world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+                    world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_ABSORBER_ITEM_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
                     return true;
                 }
             }

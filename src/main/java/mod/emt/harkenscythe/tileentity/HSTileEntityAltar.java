@@ -280,6 +280,6 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     @SideOnly(Side.CLIENT)
     public void playActiveSound()
     {
-        Minecraft.getMinecraft().getSoundHandler().playSound(new HSSoundAltar(this, 0.5F));
+        Minecraft.getMinecraft().getSoundHandler().playSound(new HSSoundAltar(this, 0.3F));
     }
 }
