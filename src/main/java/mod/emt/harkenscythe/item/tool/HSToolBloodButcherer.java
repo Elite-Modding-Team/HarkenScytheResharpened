@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.item.tool;
 
-import java.awt.*;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.state.IBlockState;
@@ -24,6 +22,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
+
+import java.awt.*;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSMaterials;
@@ -59,67 +59,46 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
             EntityPlayer player = (EntityPlayer) attacker;
 
             target.attackEntityFrom(new HSDamageSource("hs_butcher", attacker), this.getAttackDamage());
-            
+
             // TODO: Change this into a @SubscribeEvent?
             if (player.getCooledAttackStrength(0) > 1.0F)
             {
-                for (EntityLivingBase entity : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(2.0D, 0.25D, 2.0D))) {
+                for (EntityLivingBase entity : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(2.0D, 0.25D, 2.0D)))
+                {
                     float attribute = (float) attacker.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
                     float sweepCalculation = (HSMaterials.TOOL_BLOOD_BUTCHERER.getAttackDamage() + 4.0F) + EnchantmentHelper.getSweepingDamageRatio(attacker) * attribute;
 
                     if (entity != attacker && entity != target && !attacker.isOnSameTeam(entity))
                     {
-                        entity.knockBack(attacker, 0.5F, (double) MathHelper.sin(attacker.rotationYaw * 0.02F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.02F)));
+                        entity.knockBack(attacker, 0.5F, MathHelper.sin(attacker.rotationYaw * 0.02F), -MathHelper.cos(attacker.rotationYaw * 0.02F));
                         entity.attackEntityFrom(new HSDamageSource("hs_butcher", attacker), sweepCalculation);
                         this.doBleedEffect(entity);
                     }
 
                     attacker.world.playSound(null, attacker.posX, attacker.posY, attacker.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), attacker.getSoundCategory(), 1.0F, 0.5F / (attacker.world.rand.nextFloat() * 0.4F + 1.2F));
                 }
-            } else
+            }
+            else
             {
-            	attacker.world.playSound(null, attacker.posX, attacker.posY, attacker.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (attacker.world.rand.nextFloat() * 0.4F + 1.2F));
+                attacker.world.playSound(null, attacker.posX, attacker.posY, attacker.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (attacker.world.rand.nextFloat() * 0.4F + 1.2F));
             }
 
-                if (!player.capabilities.isCreativeMode)
+            if (!player.capabilities.isCreativeMode)
+            {
+                if (stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost)
                 {
-                    if (stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost) {
-                        stack.setItemDamage(stack.getItemDamage() + HSConfig.ITEMS.bloodButchererBloodCost);
-                    } else
-                    {
-                        return true;
-                    }
+                    stack.setItemDamage(stack.getItemDamage() + HSConfig.ITEMS.bloodButchererBloodCost);
                 }
-
-                this.doBleedEffect(target);
+                else
+                {
+                    return true;
+                }
             }
 
-            return true;
-    }
-    
-    public void doBleedEffect(EntityLivingBase target)
-    {
-        World world = target.getEntityWorld();
-        
-        if (!world.isRemote)
-        {
-            int duration = 200;
-            int amplifier = 0;
-            
-            if (target.isPotionActive(HSPotions.BLEEDING))
-            {
-                duration = Math.max(20, target.getActivePotionEffect(HSPotions.BLEEDING).getDuration());
-                amplifier = Math.min(4, target.getActivePotionEffect(HSPotions.BLEEDING).getAmplifier() + 1);
-            }
-            
-            target.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration, amplifier));
-            target.playSound(HSSoundEvents.BLOCK_BLOOD_ABSORBER_STOP.getSoundEvent(), 0.5F, 1.5F / (target.world.rand.nextFloat() * 0.4F + 0.8F));
+            this.doBleedEffect(target);
         }
-        
-        if (FMLLaunchHandler.side().isClient())
-        {
-            createHitParticles(target);
-        }
+
+        return true;
     }
 
     @Override
@@ -145,10 +124,47 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
         return multimap;
     }
 
+    public void doBleedEffect(EntityLivingBase target)
+    {
+        World world = target.getEntityWorld();
+
+        if (!world.isRemote)
+        {
+            int duration = 200;
+            int amplifier = 0;
+
+            if (target.isPotionActive(HSPotions.BLEEDING))
+            {
+                duration = Math.max(20, target.getActivePotionEffect(HSPotions.BLEEDING).getDuration());
+                amplifier = Math.min(4, target.getActivePotionEffect(HSPotions.BLEEDING).getAmplifier() + 1);
+            }
+
+            target.addPotionEffect(new PotionEffect(HSPotions.BLEEDING, duration, amplifier));
+            target.playSound(HSSoundEvents.BLOCK_BLOOD_ABSORBER_STOP.getSoundEvent(), 0.5F, 1.5F / (target.world.rand.nextFloat() * 0.4F + 0.8F));
+        }
+
+        if (FMLLaunchHandler.side().isClient())
+        {
+            createHitParticles(target);
+        }
+    }
+
     @Override
     public boolean isDamageable()
     {
         return false;
+    }
+
+    @Override
+    public boolean isRepairable()
+    {
+        return false;
+    }
+
+    @Override
+    public float getXpRepairRatio(ItemStack stack)
+    {
+        return 0;
     }
 
     @Override
@@ -174,18 +190,6 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     public int getRGBDurabilityForDisplay(ItemStack stack)
     {
         return 9443858;
-    }
-
-    @Override
-    public boolean isRepairable()
-    {
-        return false;
-    }
-
-    @Override
-    public float getXpRepairRatio(ItemStack stack)
-    {
-        return 0;
     }
 
     @Override

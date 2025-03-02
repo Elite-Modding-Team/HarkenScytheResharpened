@@ -84,6 +84,18 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     }
 
     @Override
+    public boolean isRepairable()
+    {
+        return false;
+    }
+
+    @Override
+    public float getXpRepairRatio(ItemStack stack)
+    {
+        return 0;
+    }
+
+    @Override
     public boolean hasContainerItem(ItemStack stack)
     {
         return true;
@@ -112,18 +124,6 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
     {
         return false;
-    }
-    
-    @Override
-    public boolean isRepairable()
-    {
-        return false;
-    }
-
-    @Override
-    public float getXpRepairRatio(ItemStack stack)
-    {
-        return 0;
     }
 
     @Override
