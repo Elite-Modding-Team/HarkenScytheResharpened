@@ -140,11 +140,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         if (rotationPitch <= -360) rotationPitch += 360;
         if (soundTimer >= 3)
         {
-            if (!isInsideOfMaterial(Material.WATER))
-            {
-                playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.1F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
-            }
-
+        	playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.1F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
             soundTimer = 0;
         }
 
@@ -318,15 +314,11 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
 
         if (isInWater())
         {
-            beenInGround = true;
-
             for (int i2 = 0; i2 < 4; ++i2)
             {
                 float f3 = 0.25f;
                 world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, posX - motionX * f3, posY - motionY * f3, posZ - motionZ * f3, motionX, motionY, motionZ);
             }
-
-            res *= 0.6f;
         }
 
         motionX *= res;
