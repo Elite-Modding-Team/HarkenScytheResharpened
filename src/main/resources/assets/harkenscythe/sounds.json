@@ -1,18 +1,18 @@
 {
   "block.altar.book_close": {
     "sounds": [
-      "harkenscythe:altar_book_close1",
-      "harkenscythe:altar_book_close2",
-      "harkenscythe:altar_book_close3",
-      "harkenscythe:altar_book_close4"
+      "harkenscythe:blocks/altar/altar_book_close1",
+      "harkenscythe:blocks/altar/altar_book_close2",
+      "harkenscythe:blocks/altar/altar_book_close3",
+      "harkenscythe:blocks/altar/altar_book_close4"
     ]
   },
   "block.altar.book_open": {
     "sounds": [
-      "harkenscythe:altar_book_open1",
-      "harkenscythe:altar_book_open2",
-      "harkenscythe:altar_book_open3",
-      "harkenscythe:altar_book_open4"
+      "harkenscythe:blocks/altar/altar_book_open1",
+      "harkenscythe:blocks/altar/altar_book_open2",
+      "harkenscythe:blocks/altar/altar_book_open3",
+      "harkenscythe:blocks/altar/altar_book_open4"
     ]
   },
   "block.biomass.break": {
@@ -43,40 +43,40 @@
   },
   "block.blood_absorber.loop": {
     "sounds": [
-      "harkenscythe:absorber_blood_loop"
+      "harkenscythe:blocks/absorber/absorber_blood_loop"
     ]
   },
   "block.blood_absorber.start": {
     "sounds": [
-      "harkenscythe:absorber_blood_start1",
-      "harkenscythe:absorber_blood_start2"
+      "harkenscythe:blocks/absorber/absorber_blood_start1",
+      "harkenscythe:blocks/absorber/absorber_blood_start2"
     ]
   },
   "block.blood_absorber.stop": {
     "sounds": [
-      "harkenscythe:absorber_blood_stop1",
-      "harkenscythe:absorber_blood_stop2"
+      "harkenscythe:blocks/absorber/absorber_blood_stop1",
+      "harkenscythe:blocks/absorber/absorber_blood_stop2"
     ]
   },
   "block.blood_altar.enchant": {
     "sounds": [
-      "harkenscythe:altar_blood_success1",
-      "harkenscythe:altar_blood_success2",
-      "harkenscythe:altar_blood_success3",
-      "harkenscythe:altar_blood_success4"
+      "harkenscythe:blocks/altar/altar_blood_success1",
+      "harkenscythe:blocks/altar/altar_blood_success2",
+      "harkenscythe:blocks/altar/altar_blood_success3",
+      "harkenscythe:blocks/altar/altar_blood_success4"
     ]
   },
   "block.blood_altar.enchant_fail": {
     "sounds": [
-      "harkenscythe:altar_blood_fail1",
-      "harkenscythe:altar_blood_fail2",
-      "harkenscythe:altar_blood_fail3",
-      "harkenscythe:altar_blood_fail4"
+      "harkenscythe:blocks/altar/altar_blood_fail1",
+      "harkenscythe:blocks/altar/altar_blood_fail2",
+      "harkenscythe:blocks/altar/altar_blood_fail3",
+      "harkenscythe:blocks/altar/altar_blood_fail4"
     ]
   },
   "block.blood_altar.loop": {
     "sounds": [
-      "harkenscythe:altar_blood_loop"
+      "harkenscythe:blocks/altar/altar_blood_loop"
     ]
   },
   "block.bottle.place": {
@@ -111,40 +111,40 @@
   },
   "block.soul_absorber.loop": {
     "sounds": [
-      "harkenscythe:absorber_soul_loop"
+      "harkenscythe:blocks/absorber/absorber_soul_loop"
     ]
   },
   "block.soul_absorber.start": {
     "sounds": [
-      "harkenscythe:absorber_soul_start1",
-      "harkenscythe:absorber_soul_start2"
+      "harkenscythe:blocks/absorber/absorber_soul_start1",
+      "harkenscythe:blocks/absorber/absorber_soul_start2"
     ]
   },
   "block.soul_absorber.stop": {
     "sounds": [
-      "harkenscythe:absorber_soul_stop1",
-      "harkenscythe:absorber_soul_stop2"
+      "harkenscythe:blocks/absorber/absorber_soul_stop1",
+      "harkenscythe:blocks/absorber/absorber_soul_stop2"
     ]
   },
   "block.soul_altar.enchant": {
     "sounds": [
-      "harkenscythe:altar_soul_success1",
-      "harkenscythe:altar_soul_success2",
-      "harkenscythe:altar_soul_success3",
-      "harkenscythe:altar_soul_success4"
+      "harkenscythe:blocks/altar/altar_soul_success1",
+      "harkenscythe:blocks/altar/altar_soul_success2",
+      "harkenscythe:blocks/altar/altar_soul_success3",
+      "harkenscythe:blocks/altar/altar_soul_success4"
     ]
   },
   "block.soul_altar.enchant_fail": {
     "sounds": [
-      "harkenscythe:altar_soul_fail1",
-      "harkenscythe:altar_soul_fail2",
-      "harkenscythe:altar_soul_fail3",
-      "harkenscythe:altar_soul_fail4"
+      "harkenscythe:blocks/altar/altar_soul_fail1",
+      "harkenscythe:blocks/altar/altar_soul_fail2",
+      "harkenscythe:blocks/altar/altar_soul_fail3",
+      "harkenscythe:blocks/altar/altar_soul_fail4"
     ]
   },
   "block.soul_altar.loop": {
     "sounds": [
-      "harkenscythe:altar_soul_loop"
+      "harkenscythe:blocks/altar/altar_soul_loop"
     ]
   },
   "item.athame.create": {
