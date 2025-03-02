@@ -48,13 +48,16 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
         super.onUpdate(stack, world, entity, itemSlot, isSelected);
-        this.currentDamage = stack.getItemDamage();
+        if (isSelected)
+        {
+            this.currentDamage = stack.getItemDamage();
+        }
     }
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        if (hasCharges() && attacker instanceof EntityPlayer)
+        if (stack.getItemDamage() < stack.getMaxDamage() && attacker instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) attacker;
 
@@ -89,7 +92,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     {
         Multimap<String, AttributeModifier> multimap = HashMultimap.create();
         double attackDamageMod = this.getAttackDamage() + 3.0D;
-        attackDamageMod = hasCharges() ? attackDamageMod : attackDamageMod * 0.5D;
+        attackDamageMod = this.currentDamage < HSConfig.ITEMS.bloodButchererMaxCharges ? attackDamageMod : attackDamageMod * 0.5D;
         double attackSpeedMod = this.attackSpeed - 4.0D;
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
@@ -147,7 +150,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
     {
-        if (hasCharges())
+        if (stack.getItemDamage() < stack.getMaxDamage())
         {
             if (player.getCooledAttackStrength(0) == 1.0F)
             {
@@ -183,7 +186,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
     {
-        if (hasCharges() && entityLiving instanceof EntityPlayer && ((EntityPlayer) entityLiving).getCooledAttackStrength(0) > 0.1F)
+        if (stack.getItemDamage() < stack.getMaxDamage() && entityLiving instanceof EntityPlayer && ((EntityPlayer) entityLiving).getCooledAttackStrength(0) > 0.1F)
         {
             entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
         }
@@ -207,11 +210,6 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     public IRarity getForgeRarity(ItemStack stack)
     {
         return HSRegistry.RARITY_BLOODY;
-    }
-
-    public boolean hasCharges()
-    {
-        return this.currentDamage < HSConfig.ITEMS.bloodButchererMaxCharges;
     }
 
     public void createHitParticles(EntityLivingBase target)
