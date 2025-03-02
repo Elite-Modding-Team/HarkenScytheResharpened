@@ -2,7 +2,6 @@
   "name": "Harbinger",
   "icon": "harkenscythe:reaper_scythe",
   "category": "enemies",
-  "advancement": "harkenscythe:vengeful_revenant",
   "pages": [
     {
       "type": "boss_info",

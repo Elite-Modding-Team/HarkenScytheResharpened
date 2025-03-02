@@ -2,7 +2,6 @@
   "name": "Exospider",
   "icon": "minecraft:dye:15",
   "category": "enemies",
-  "advancement": "harkenscythe:shell_of_a_spider",
   "pages": [
     {
       "type": "boss_info",
