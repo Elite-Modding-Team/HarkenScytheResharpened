@@ -88,7 +88,7 @@ For more details, check out the detailed in-game guide provided by [**Patchouli*
 
 - Originally creating this amazing mod alongside Asgard Shield and making nostalgic memories for many Hexxit players ~ Jade_Knightblazer
 - Guidebook textures and a few other item textures ~ Kimiko0402
-- Absorber, Bottle, Altar (v1.3.0+), and Blood Butcherer sounds ~ PessiMysterio/TechnoMysterio
+- Absorber, Altar (v1.3.0+), and Blood Butcherer sounds ~ PessiMysterio/TechnoMysterio
 - Giving general feedback on improving the mod, as well as creating and maintaining [**Hexxit II**](https://www.technicpack.net/modpack/hexxit-ii.896745) ~ xJon
 - Creating the [**Hexxit edition of Red's Pack**](https://www.planetminecraft.com/texture-pack/reds-pack-hexxit-edition/), textures from the pack were used for one of the Ectoglobin and Hemoglobin variants ~ DeadDirtyRed
 
