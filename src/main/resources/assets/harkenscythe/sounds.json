@@ -27,8 +27,8 @@
   },
   "block.biomass.harvest": {
     "sounds": [
-      "harkenscythe:biomass_harvest1",
-      "harkenscythe:biomass_harvest2"
+      "harkenscythe:blocks/biomass/harvest1",
+      "harkenscythe:blocks/biomass/harvest2"
     ]
   },
   "block.biomass.step": {
