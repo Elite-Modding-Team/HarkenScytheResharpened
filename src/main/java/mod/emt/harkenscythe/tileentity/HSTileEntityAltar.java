@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.tileentity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -13,7 +10,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -21,6 +17,8 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.ArrayList;
+import java.util.List;
 import mod.emt.harkenscythe.block.HSBlockAltar;
 import mod.emt.harkenscythe.client.sound.HSSoundAltar;
 import mod.emt.harkenscythe.config.HSConfig;
@@ -83,8 +81,7 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
             this.tRot = (float) MathHelper.atan2(d1, d0);
             if (this.bookSpread == 0.0F)
             {
-                SoundEvent sndEvt = this instanceof HSTileEntityBloodAltar ? HSSoundEvents.BLOCK_BLOOD_ALTAR_APPROACH.getSoundEvent() : HSSoundEvents.BLOCK_SOUL_ALTAR_APPROACH.getSoundEvent();
-                this.world.playSound(null, this.pos, sndEvt, SoundCategory.BLOCKS, 0.3F, 1.5F / (this.getWorld().rand.nextFloat() * 0.4F + 1.2F));
+                this.world.playSound(null, this.pos, HSSoundEvents.BLOCK_ALTAR_BOOK_OPEN.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, 1.5F / (this.getWorld().rand.nextFloat() * 0.4F + 1.2F));
                 if (FMLLaunchHandler.side().isClient() && this.world.isRemote)
                 {
                     playActiveSound();
@@ -101,6 +98,10 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
         {
             this.tRot += 0.02F;
             this.bookSpread -= 0.1F;
+            if (this.bookSpread > 0.2F && this.bookSpread < 0.3F)
+            {
+                this.world.playSound(null, this.pos, HSSoundEvents.BLOCK_ALTAR_BOOK_CLOSE.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, 1.5F / (this.getWorld().rand.nextFloat() * 0.4F + 1.2F));
+            }
         }
 
         while (this.bookRotation >= (float) Math.PI)
@@ -279,6 +280,6 @@ public abstract class HSTileEntityAltar extends HSTileEntity implements ITickabl
     @SideOnly(Side.CLIENT)
     public void playActiveSound()
     {
-        Minecraft.getMinecraft().getSoundHandler().playSound(new HSSoundAltar(this, 0.3F));
+        Minecraft.getMinecraft().getSoundHandler().playSound(new HSSoundAltar(this, 0.5F));
     }
 }
