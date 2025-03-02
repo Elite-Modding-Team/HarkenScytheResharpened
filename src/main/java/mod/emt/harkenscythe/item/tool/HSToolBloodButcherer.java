@@ -60,29 +60,6 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
 
             target.attackEntityFrom(new HSDamageSource("hs_butcher", attacker), this.getAttackDamage());
 
-            // TODO: Change this into a @SubscribeEvent?
-            if (player.getCooledAttackStrength(0) > 1.0F)
-            {
-                for (EntityLivingBase entity : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(2.0D, 0.25D, 2.0D)))
-                {
-                    float attribute = (float) attacker.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
-                    float sweepCalculation = (HSMaterials.TOOL_BLOOD_BUTCHERER.getAttackDamage() + 4.0F) + EnchantmentHelper.getSweepingDamageRatio(attacker) * attribute;
-
-                    if (entity != attacker && entity != target && !attacker.isOnSameTeam(entity))
-                    {
-                        entity.knockBack(attacker, 0.5F, MathHelper.sin(attacker.rotationYaw * 0.02F), -MathHelper.cos(attacker.rotationYaw * 0.02F));
-                        entity.attackEntityFrom(new HSDamageSource("hs_butcher", attacker), sweepCalculation);
-                        this.doBleedEffect(entity);
-                    }
-
-                    attacker.world.playSound(null, attacker.posX, attacker.posY, attacker.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), attacker.getSoundCategory(), 1.0F, 0.5F / (attacker.world.rand.nextFloat() * 0.4F + 1.2F));
-                }
-            }
-            else
-            {
-                attacker.world.playSound(null, attacker.posX, attacker.posY, attacker.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (attacker.world.rand.nextFloat() * 0.4F + 1.2F));
-            }
-
             if (!player.capabilities.isCreativeMode)
             {
                 if (stack.getItemDamage() <= stack.getMaxDamage() - HSConfig.ITEMS.bloodButchererBloodCost)
@@ -168,6 +145,36 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     }
 
     @Override
+    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
+    {
+        if (hasCharges())
+        {
+            if (player.getCooledAttackStrength(0) == 1.0F)
+            {
+                for (EntityLivingBase target : player.world.getEntitiesWithinAABB(EntityLivingBase.class, entity.getEntityBoundingBox().grow(2.0D, 0.25D, 2.0D)))
+                {
+                    float attribute = (float) player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+                    float sweepCalculation = (HSMaterials.TOOL_BLOOD_BUTCHERER.getAttackDamage() + 4.0F) + EnchantmentHelper.getSweepingDamageRatio(player) * attribute;
+
+                    if (target != player && target != entity && !player.isOnSameTeam(target))
+                    {
+                        target.knockBack(player, 0.5F, MathHelper.sin(player.rotationYaw * 0.02F), -MathHelper.cos(player.rotationYaw * 0.02F));
+                        target.attackEntityFrom(new HSDamageSource("hs_butcher", player), sweepCalculation);
+                        this.doBleedEffect(target);
+                    }
+                    player.world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), player.getSoundCategory(), 1.0F, 0.5F / (player.world.rand.nextFloat() * 0.4F + 1.2F));
+                }
+            }
+            else
+            {
+                player.world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (player.world.rand.nextFloat() * 0.4F + 1.2F));
+            }
+        }
+
+        return super.onLeftClickEntity(stack, player, entity);
+    }
+
+    @Override
     public boolean hasContainerItem(ItemStack stack)
     {
         return true;
@@ -176,12 +183,9 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
     {
-        if (entityLiving instanceof EntityPlayer && hasCharges())
+        if (hasCharges() && entityLiving instanceof EntityPlayer && ((EntityPlayer) entityLiving).getCooledAttackStrength(0) > 0.1F)
         {
-            if (((EntityPlayer) entityLiving).getCooledAttackStrength(0) > 0.1F)
-            {
-                entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
-            }
+            entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
         }
         return super.onEntitySwing(entityLiving, stack);
     }
