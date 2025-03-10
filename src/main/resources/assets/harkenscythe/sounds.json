@@ -239,7 +239,10 @@
   },
   "item.vampire_knife.throw": {
     "sounds": [
-      "harkenscythe:vampire_knife_throw"
+      "harkenscythe:vampire_knife_throw1",
+      "harkenscythe:vampire_knife_throw2",
+      "harkenscythe:vampire_knife_throw3",
+      "harkenscythe:vampire_knife_throw4"
     ]
   },
   "essence.blood.despawn": {
