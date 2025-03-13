@@ -159,12 +159,13 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                     float attribute = (float) player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
                     float sweepCalculation = (HSMaterials.TOOL_BLOOD_BUTCHERER.getAttackDamage() + 4.0F) + EnchantmentHelper.getSweepingDamageRatio(player) * attribute;
 
-                    if (target != player && target != entity && !player.isOnSameTeam(target))
+                    if (target instanceof EntityLivingBase && !target.isOnSameTeam(player) && !target.isEntityEqual(player))
                     {
                         target.knockBack(player, 0.5F, MathHelper.sin(player.rotationYaw * 0.02F), -MathHelper.cos(player.rotationYaw * 0.02F));
                         target.attackEntityFrom(new HSDamageSource("hs_butcher", player), sweepCalculation);
                         this.doBleedEffect(target);
                     }
+                    
                     player.world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), player.getSoundCategory(), 1.0F, 0.5F / (player.world.rand.nextFloat() * 0.4F + 1.2F));
                 }
             }
@@ -190,6 +191,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
         {
             entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
         }
+        
         return super.onEntitySwing(entityLiving, stack);
     }
 
