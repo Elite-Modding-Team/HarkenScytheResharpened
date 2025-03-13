@@ -264,8 +264,8 @@ public class HSRegistry
 
         // Soul Altar
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
-        HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_soul, HSItems.essence_trinket_soul, 10);
-        HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_soul_ethereal, HSItems.essence_trinket_soul_ethereal, 10);
+        HSAltarRecipes.addSoulRecipe(HSItems.essence_trinket_soul, HSItems.essence_trinket_soul, 10);
+        HSAltarRecipes.addSoulRecipe(HSItems.essence_trinket_soul_ethereal, HSItems.essence_trinket_soul_ethereal, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_hood, HSItems.soulweave_hood, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_robe, HSItems.soulweave_robe, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_pants, HSItems.soulweave_pants, 10);
