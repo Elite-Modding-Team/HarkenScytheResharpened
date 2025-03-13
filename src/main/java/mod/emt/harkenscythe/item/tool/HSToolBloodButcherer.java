@@ -167,6 +167,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                     }
                     
                     player.world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), player.getSoundCategory(), 1.0F, 0.5F / (player.world.rand.nextFloat() * 0.4F + 1.2F));
+                    player.spawnSweepParticles();
                 }
             }
             else
