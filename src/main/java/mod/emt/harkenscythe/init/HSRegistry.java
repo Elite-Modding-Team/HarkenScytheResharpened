@@ -220,7 +220,12 @@ public class HSRegistry
         }
 
         OreDictionary.registerOre("blockBiomass", HSBlocks.biomass_block);
+        OreDictionary.registerOre("blockGlassSpectral", HSBlocks.spectral_glass);
+        OreDictionary.registerOre("blockGlassSpectral", HSBlocks.spectral_glass_inverted);
         OreDictionary.registerOre("blockLivingmetal", HSBlocks.livingmetal_block);
+
+        OreDictionary.registerOre("paneGlassSpectral", HSBlocks.spectral_glass_pane);
+        OreDictionary.registerOre("paneGlassSpectral", HSBlocks.spectral_glass_pane_inverted);
 
         OreDictionary.registerOre("essenceHarken", HSItems.blood_essence);
         OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_sickly);
@@ -278,6 +283,7 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 10);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 10);
         HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 5);
+        HSAltarRecipes.addSoulRecipe("paneGlass", Item.getItemFromBlock(HSBlocks.spectral_glass_pane), 1);
         HSAltarRecipes.addSoulRecipe("potion", Items.EXPERIENCE_BOTTLE, 10);
         HSAltarRecipes.addSoulRecipesConfig(HSConfig.RECIPES.customSoulAltarRecipes);
     }

@@ -13,7 +13,8 @@
       "item": "harkenscythe:biomass"
     },
     "S": {
-      "item": "harkenscythe:livingmetal_sword"
+      "item": "harkenscythe:livingmetal_sword",
+      "data": 32767
     }
   },
   "result": {

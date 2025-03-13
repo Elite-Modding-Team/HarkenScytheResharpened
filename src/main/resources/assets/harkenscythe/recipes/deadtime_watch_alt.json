@@ -1,0 +1,27 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "LFL",
+    "BSB",
+    "LBL"
+  ],
+  "key": {
+    "L": {
+      "item": "harkenscythe:livingmetal_ingot"
+    },
+    "F": {
+      "item": "harkenscythe:abyssal_fragment"
+    },
+    "B": {
+      "item": "harkenscythe:biomass"
+    },
+    "S": {
+      "item": "minecraft:skull",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "harkenscythe:deadtime_watch",
+    "data": 40
+  }
+}

@@ -11,7 +11,8 @@
       "ore": "ingotGold"
     },
     "S": {
-      "item": "harkenscythe:spectral_glass_pane_inverted"
+      "type": "forge:ore_dict",
+      "ore": "paneGlassSpectral"
     }
   },
   "result": {

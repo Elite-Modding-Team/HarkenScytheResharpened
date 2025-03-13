@@ -6,7 +6,8 @@
   ],
   "key": {
     "G": {
-      "item": "harkenscythe:spectral_glass"
+      "type": "forge:ore_dict",
+      "ore": "blockGlassSpectral"
     }
   },
   "result": {

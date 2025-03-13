@@ -10,7 +10,8 @@
       "item": "harkenscythe:livingmetal_block"
     },
     "S": {
-      "item": "harkenscythe:spectral_glass"
+      "type": "forge:ore_dict",
+      "ore": "blockGlassSpectral"
     },
     "R": {
       "type": "forge:ore_dict",
