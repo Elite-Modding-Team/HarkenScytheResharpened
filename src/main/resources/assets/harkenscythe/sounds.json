@@ -207,6 +207,14 @@
       "harkenscythe:glaive_till3"
     ]
   },
+  "item.glaive.stab": {
+    "sounds": [
+      "harkenscythe:glaive_stab1",
+      "harkenscythe:glaive_stab2",
+      "harkenscythe:glaive_stab3",
+      "harkenscythe:glaive_stab4"
+    ]
+  },
   "item.mirror.inactive": {
     "sounds": [
       "harkenscythe:mirror_inactive"
@@ -235,6 +243,14 @@
   "item.scythe.activate": {
     "sounds": [
       "harkenscythe:scythe_activate"
+    ]
+  },
+  "item.scythe.swing": {
+    "sounds": [
+      "harkenscythe:scythe_swing1",
+      "harkenscythe:scythe_swing2",
+      "harkenscythe:scythe_swing3",
+      "harkenscythe:scythe_swing4"
     ]
   },
   "item.vampire_knife.throw": {

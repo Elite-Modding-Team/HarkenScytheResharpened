@@ -123,7 +123,7 @@ public class HSToolScythe extends ItemSword implements IHSTool
             EntityPlayer player = (EntityPlayer) entityLiving;
             player.swingArm(EnumHand.MAIN_HAND);
             player.spawnSweepParticles();
-            player.playSound(HSSoundEvents.ITEM_SCYTHE_ACTIVATE.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+            player.playSound(HSSoundEvents.ITEM_SCYTHE_SWING.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             stack.damageItem(2, player);
             player.addStat(StatList.getObjectUseStats(this));
         }
