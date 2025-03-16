@@ -85,6 +85,9 @@ public class HSEntityHarbinger extends EntityCreature implements IMob
         }
 
         if (source == DamageSource.CACTUS) return false;
+
+        if (source.getTrueSource() != null && source.getTrueSource().getEntityData().getBoolean("IsSpectral")) return false;
+
         return super.attackEntityFrom(source, amount);
     }
 
