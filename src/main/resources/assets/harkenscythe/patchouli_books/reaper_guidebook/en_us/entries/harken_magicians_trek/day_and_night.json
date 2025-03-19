@@ -1,0 +1,26 @@
+{
+  "name": "Day and Night",
+  "icon": "harkenscythe:textures/blocks/spectral_glass_inverted.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Spectral Glass is a magical block imbued with souls that reacts sensitively to the effects of the sun and moon. Sometimes the blocks feel passable and sometimes not, a difference like night and day!$(br)The state of the glass is volatile and can be changed by the touch of athame to adapt its behavior to the reaper's needs."
+    },
+    {
+      "type": "text",
+      "text": "The state of the glass is volatile and can be changed by the touch of an athame to adapt its behavior to the reaper's needs."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_glass",
+      "text": "Passable during the day, solid during the night."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_glass_inverted",
+      "text": "Solid during the day, passable during the night."
+    }
+  ]
+}

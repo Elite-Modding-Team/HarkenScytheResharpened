@@ -1,0 +1,26 @@
+{
+  "name": "Tag und Nacht",
+  "icon": "harkenscythe:textures/blocks/spectral_glass_inverted.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:souls_guidance",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Spektralglas ist ein magischer, von Seelen durchdrungener Block, der empfindlich auf die Einwirkung von Sonne und Mond reagiert. Manchmal fühlen sich die Blöcke passierbar an und manchmal nicht, ein Unterschied wie Tag und Nacht!"
+    },
+    {
+      "type": "text",
+      "text": "Der Zustand des Glases ist flüchtig und kann durch den Kontakt eines Zeremoniendolchs verändert werden, um sein Verhalten den Bedürfnissen eines Reapers anzupassen."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_glass",
+      "text": "Passierbar am Tag, fest in der Nacht."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:spectral_glass_inverted",
+      "text": "Fest am Tag, passierbar in der Nacht."
+    }
+  ]
+}
