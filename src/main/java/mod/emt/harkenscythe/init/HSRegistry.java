@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.init;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
@@ -29,6 +27,7 @@ import net.minecraftforge.common.IRarity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
@@ -38,9 +37,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
+import java.util.ArrayList;
+import java.util.List;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.advancement.HSAdvancementTrigger;
 import mod.emt.harkenscythe.client.renderer.*;
@@ -210,6 +212,8 @@ public class HSRegistry
     {
         HarkenScythe.LOGGER.info("Registering ore dictionary entries...");
 
+        final IForgeRegistry<IRecipe> registry = event.getRegistry();
+
         // Ore Dictionary
         for (Item item : ForgeRegistries.ITEMS)
         {
@@ -286,6 +290,12 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe("paneGlass", Item.getItemFromBlock(HSBlocks.spectral_glass_pane), 1);
         HSAltarRecipes.addSoulRecipe("potion", Items.EXPERIENCE_BOTTLE, 10);
         HSAltarRecipes.addSoulRecipesConfig(HSConfig.RECIPES.customSoulAltarRecipes);
+
+        // Third Party Mod Integration
+        if (Loader.isModLoaded("patchouli"))
+        {
+            registry.register(new ShapelessOreRecipe(null, HSItems.reaper_guidebook, Items.BOOK, "essenceHarken").setRegistryName(HarkenScythe.MOD_ID, "reaper_guidebook"));
+        }
     }
 
     @SubscribeEvent
