@@ -41,7 +41,7 @@ public class HSToolAthame extends ItemSword implements IHSTool
         return false;
     }
 
-    // Wouldn't make sense to apply these enchantments to an item that doesn't even take damage and break
+    // Wouldn't make sense to apply these enchantments to an item that doesn't even break and take damage
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
     {
