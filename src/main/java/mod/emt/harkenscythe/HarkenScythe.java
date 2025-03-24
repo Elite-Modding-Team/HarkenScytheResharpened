@@ -6,6 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -39,6 +40,7 @@ public class HarkenScythe
     {
         HSNetworkHandler.registerPackets();
         HSCompatHandler.preInit();
+        FMLInterModComms.sendMessage("waila", "register", "mod.emt.harkenscythe.compat.hwyla.HSHWYLAPlugin.register");
         LOGGER.info(NAME + " pre-initialized");
     }
 

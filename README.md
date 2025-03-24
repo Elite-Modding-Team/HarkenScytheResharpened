@@ -73,6 +73,7 @@
 - With [**CraftTweaker**](https://www.curseforge.com/minecraft/mc-mods/crafttweaker) installed, altar ritual recipes can be added and removed. See [this example script](https://github.com/Elite-Modding-Team/HarkenScytheResharpened/blob/main/docs/crafttweaker/example.zs).
 - With [**GroovyScript**](https://www.curseforge.com/minecraft/mc-mods/groovyscript) installed, altar ritual recipes can be added and removed. See [this example script](https://github.com/Elite-Modding-Team/HarkenScytheResharpened/blob/main/docs/groovyscript/example.groovy).
 - With [**Baubles**](https://www.curseforge.com/minecraft/mc-mods/baubles) installed, Essence Trinkets can be equipped on all Baubles accessory slots.
+- With [**HWYLA**](https://www.curseforge.com/minecraft/mc-mods/hwyla) installed, Biomass crop growth is displayed in the HWYLA tooltip.
 
 ### 📖 In-game Guidebook
 
