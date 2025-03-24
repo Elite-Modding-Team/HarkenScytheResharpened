@@ -1,13 +1,12 @@
 package mod.emt.harkenscythe.item;
 
-import java.util.List;
-import java.util.concurrent.ConcurrentLinkedQueue;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
@@ -15,6 +14,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
@@ -45,7 +46,11 @@ public class HSItemDeadtimeWatch extends HSItem
             {
                 if (entity.isNonBoss())
                 {
-                    if (entity instanceof EntityLiving)
+                    if (entity instanceof EntityPlayer)
+                    {
+                        ((EntityPlayer) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, HSConfig.ITEMS.deadtimeWatchDuration, 6));
+                    }
+                    else if (entity instanceof EntityLiving)
                     {
                         ((EntityLiving) entity).setNoAI(true);
                     }
