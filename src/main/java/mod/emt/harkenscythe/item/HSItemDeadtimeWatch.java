@@ -125,7 +125,7 @@ public class HSItemDeadtimeWatch extends HSItem
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
     {
-        return false;
+        return slotChanged;
     }
 
     private void spawnPauseParticles(World world, Entity queuedEntity, float progress)

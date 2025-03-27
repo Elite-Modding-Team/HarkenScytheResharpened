@@ -146,7 +146,7 @@ public class HSItemNecronomicon extends HSItem
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
     {
-        return false;
+        return slotChanged;
     }
 
     public ItemStack getBloodContainer(EntityPlayer player)
