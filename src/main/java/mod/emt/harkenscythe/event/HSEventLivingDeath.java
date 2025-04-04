@@ -123,7 +123,7 @@ public class HSEventLivingDeath
             modifyAI((EntityCreature) entity);
         }
         if (!world.isRemote) world.spawnEntity(entity);
-        world.playSound(null, pos, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        world.playSound(null, pos, HSSoundEvents.ENTITY_ESSENCE_SOUL_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
         return entity;
     }
 
@@ -133,7 +133,7 @@ public class HSEventLivingDeath
         HSEntitySoul soul = new HSEntitySoul(world, entity);
         soul.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(soul);
-        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        world.playSound(null, entity.getPosition(), HSSoundEvents.ENTITY_ESSENCE_SOUL_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
     private static boolean isSuccessfulReap(EntityPlayer player, DamageSource damageSource)

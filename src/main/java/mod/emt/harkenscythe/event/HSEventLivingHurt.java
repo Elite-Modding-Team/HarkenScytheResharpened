@@ -126,7 +126,7 @@ public class HSEventLivingHurt
         HSEntityBlood blood = new HSEntityBlood(world, entity);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(blood);
-        world.playSound(null, entity.getPosition(), HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+        world.playSound(null, entity.getPosition(), HSSoundEvents.ENTITY_ESSENCE_BLOOD_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
     public static void spawnEctoglobin(World world, EntityLivingBase entity)

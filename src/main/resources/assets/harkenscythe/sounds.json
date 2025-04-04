@@ -200,6 +200,14 @@
       "harkenscythe:deadtime_watch_activate"
     ]
   },
+  "item.essence.bottle": {
+    "sounds": [
+      "harkenscythe:entities/essence/bottle1",
+      "harkenscythe:entities/essence/bottle2",
+      "harkenscythe:entities/essence/bottle3",
+      "harkenscythe:entities/essence/bottle4"
+    ]
+  },
   "item.glaive.till": {
     "sounds": [
       "harkenscythe:glaive_till1",
@@ -284,6 +292,38 @@
   "essence.soul.summon": {
     "sounds": [
       "harkenscythe:essence_soul_summon"
+    ]
+  },
+  "entity.essence.blood.despawn": {
+    "sounds": [
+      "harkenscythe:entities/essence/blood/despawn1",
+      "harkenscythe:entities/essence/blood/despawn2",
+      "harkenscythe:entities/essence/blood/despawn3",
+      "harkenscythe:entities/essence/blood/despawn4"
+    ]
+  },
+  "entity.essence.blood.spawn": {
+    "sounds": [
+      "harkenscythe:entities/essence/blood/spawn1",
+      "harkenscythe:entities/essence/blood/spawn2",
+      "harkenscythe:entities/essence/blood/spawn3",
+      "harkenscythe:entities/essence/blood/spawn4"
+    ]
+  },
+  "entity.essence.soul.despawn": {
+    "sounds": [
+      "harkenscythe:entities/essence/soul/despawn1",
+      "harkenscythe:entities/essence/soul/despawn2",
+      "harkenscythe:entities/essence/soul/despawn3",
+      "harkenscythe:entities/essence/soul/despawn4"
+    ]
+  },
+  "entity.essence.soul.spawn": {
+    "sounds": [
+      "harkenscythe:entities/essence/soul/spawn1",
+      "harkenscythe:entities/essence/soul/spawn2",
+      "harkenscythe:entities/essence/soul/spawn3",
+      "harkenscythe:entities/essence/soul/spawn4"
     ]
   },
   "entity.spectral_human.hurt": {
