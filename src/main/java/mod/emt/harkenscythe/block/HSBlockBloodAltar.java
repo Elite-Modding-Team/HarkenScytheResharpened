@@ -33,12 +33,12 @@ public class HSBlockBloodAltar extends HSBlockAltar
     @Override
     protected SoundEvent getSoundEvent()
     {
-        return HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT.getSoundEvent();
+        return HSSoundEvents.BLOCK_BLOOD_ALTAR_SUCCESS.getSoundEvent();
     }
 
     @Override
     protected SoundEvent getSoundEventFail()
     {
-        return HSSoundEvents.BLOCK_BLOOD_ALTAR_ENCHANT_FAIL.getSoundEvent();
+        return HSSoundEvents.BLOCK_BLOOD_ALTAR_FAIL.getSoundEvent();
     }
 }

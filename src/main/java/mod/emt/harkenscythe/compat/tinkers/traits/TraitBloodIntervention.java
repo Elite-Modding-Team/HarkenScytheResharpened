@@ -66,7 +66,7 @@ public class TraitBloodIntervention extends AbstractTrait
                         HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity1.posX, entity1.posY + entity1.getEyeHeight(), entity1.posZ, Color.getColor("Blood Red", 12124160), entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
                     }
 
-                    entity.playSound(HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), 0.2F, 2.0F / (world.rand.nextFloat() * 0.4F + 1.2F));
+                    entity.playSound(HSSoundEvents.RANDOM_SUMMON.getSoundEvent(), 0.2F, 2.0F / (world.rand.nextFloat() * 0.4F + 1.2F));
                 }
             }
         }

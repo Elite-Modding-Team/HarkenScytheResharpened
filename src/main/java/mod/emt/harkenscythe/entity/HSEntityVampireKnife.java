@@ -378,7 +378,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
             if (shootingEntity instanceof EntityPlayer && ((EntityPlayer) shootingEntity).shouldHeal())
             {
                 ((EntityPlayer) shootingEntity).heal(this.damage * (float) HSConfig.ITEMS.vampireKnifeProjectileHealing);
-                shootingEntity.playSound(HSSoundEvents.ESSENCE_BLOOD_SPAWN.getSoundEvent(), 0.2F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
+                shootingEntity.playSound(HSSoundEvents.ENTITY_HEMOGLOBIN_IDLE.getSoundEvent(), 0.2F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
                 shootingEntity.playSound(HSSoundEvents.BLOCK_BLOOD_ABSORBER_START.getSoundEvent(), 0.2F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 0.8F));
 
                 if (FMLLaunchHandler.side().isClient())

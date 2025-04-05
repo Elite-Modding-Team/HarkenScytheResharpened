@@ -79,13 +79,13 @@ public class HSEntityEctoglobin extends HSEntityGlobin
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
+        return HSSoundEvents.ENTITY_ECTOGLOBIN_IDLE.getSoundEvent();
     }
 
     @Override
     protected SoundEvent getDeathSound()
     {
-        return HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
+        return HSSoundEvents.ENTITY_ECTOGLOBIN_IDLE.getSoundEvent();
     }
 
     @Override
@@ -104,7 +104,7 @@ public class HSEntityEctoglobin extends HSEntityGlobin
     @Override
     protected SoundEvent getJumpSound()
     {
-        return HSSoundEvents.ESSENCE_SOUL_SPAWN.getSoundEvent();
+        return HSSoundEvents.ENTITY_ECTOGLOBIN_IDLE.getSoundEvent();
     }
 
     @Override

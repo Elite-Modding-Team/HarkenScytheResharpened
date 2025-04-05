@@ -84,7 +84,7 @@
       "harkenscythe:blocks/absorber/blood/stop2"
     ]
   },
-  "block.blood_altar.enchant": {
+  "block.blood_altar.success": {
     "sounds": [
       "harkenscythe:blocks/altar/blood/success1",
       "harkenscythe:blocks/altar/blood/success2",
@@ -92,7 +92,7 @@
       "harkenscythe:blocks/altar/blood/success4"
     ]
   },
-  "block.blood_altar.enchant_fail": {
+  "block.blood_altar.fail": {
     "sounds": [
       "harkenscythe:blocks/altar/blood/fail1",
       "harkenscythe:blocks/altar/blood/fail2",
@@ -103,22 +103,6 @@
   "block.blood_altar.loop": {
     "sounds": [
       "harkenscythe:blocks/altar/blood/loop"
-    ]
-  },
-  "block.bottle.insert": {
-    "sounds": [
-      "harkenscythe:bottle_insert1",
-      "harkenscythe:bottle_insert2",
-      "harkenscythe:bottle_insert3",
-      "harkenscythe:bottle_insert4"
-    ]
-  },
-  "block.bottle.remove": {
-    "sounds": [
-      "harkenscythe:bottle_remove1",
-      "harkenscythe:bottle_remove2",
-      "harkenscythe:bottle_remove3",
-      "harkenscythe:bottle_remove4"
     ]
   },
   "block.livingmetal.break": {
@@ -156,7 +140,7 @@
       "harkenscythe:blocks/absorber/soul/stop2"
     ]
   },
-  "block.soul_altar.enchant": {
+  "block.soul_altar.success": {
     "sounds": [
       "harkenscythe:blocks/altar/soul/success1",
       "harkenscythe:blocks/altar/soul/success2",
@@ -164,7 +148,7 @@
       "harkenscythe:blocks/altar/soul/success4"
     ]
   },
-  "block.soul_altar.enchant_fail": {
+  "block.soul_altar.fail": {
     "sounds": [
       "harkenscythe:blocks/altar/soul/fail1",
       "harkenscythe:blocks/altar/soul/fail2",
@@ -179,7 +163,7 @@
   },
   "item.athame.create": {
     "sounds": [
-      "harkenscythe:athame"
+      "harkenscythe:items/athame/create"
     ]
   },
   "item.blood_butcherer.swing": {
@@ -200,12 +184,28 @@
       "harkenscythe:items/deadtime_watch_activate"
     ]
   },
-  "item.essence.bottle": {
+  "item.bottle.essence": {
     "sounds": [
-      "harkenscythe:entities/essence/bottle1",
-      "harkenscythe:entities/essence/bottle2",
-      "harkenscythe:entities/essence/bottle3",
-      "harkenscythe:entities/essence/bottle4"
+      "harkenscythe:items/bottle/store_essence1",
+      "harkenscythe:items/bottle/store_essence2",
+      "harkenscythe:items/bottle/store_essence3",
+      "harkenscythe:items/bottle/store_essence4"
+    ]
+  },
+  "item.bottle.insert": {
+    "sounds": [
+      "harkenscythe:items/bottle/insert1",
+      "harkenscythe:items/bottle/insert2",
+      "harkenscythe:items/bottle/insert3",
+      "harkenscythe:items/bottle/insert4"
+    ]
+  },
+  "item.bottle.remove": {
+    "sounds": [
+      "harkenscythe:items/bottle/remove1",
+      "harkenscythe:items/bottle/remove2",
+      "harkenscythe:items/bottle/remove3",
+      "harkenscythe:items/bottle/remove4"
     ]
   },
   "item.glaive.till": {
@@ -248,11 +248,6 @@
       "harkenscythe:items/potion_throw"
     ]
   },
-  "item.scythe.activate": {
-    "sounds": [
-      "harkenscythe:scythe_activate"
-    ]
-  },
   "item.scythe.swing": {
     "sounds": [
       "harkenscythe:items/scythe/swing1",
@@ -269,29 +264,9 @@
       "harkenscythe:items/vampire_knife/throw4"
     ]
   },
-  "essence.blood.despawn": {
-    "sounds": [
-      "harkenscythe:essence_blood_despawn"
-    ]
-  },
-  "essence.blood.spawn": {
-    "sounds": [
-      "harkenscythe:entities/globin/blood/idle"
-    ]
-  },
-  "essence.soul.spawn": {
+  "entity.ectoglobin.idle": {
     "sounds": [
       "harkenscythe:entities/globin/soul/idle"
-    ]
-  },
-  "essence.soul.despawn": {
-    "sounds": [
-      "harkenscythe:essence_soul_despawn"
-    ]
-  },
-  "essence.soul.": {
-    "sounds": [
-      "harkenscythe:random/summon"
     ]
   },
   "entity.essence.blood.despawn": {
@@ -324,6 +299,11 @@
       "harkenscythe:entities/essence/soul/spawn2",
       "harkenscythe:entities/essence/soul/spawn3",
       "harkenscythe:entities/essence/soul/spawn4"
+    ]
+  },
+  "essence.hemoglobin.idle": {
+    "sounds": [
+      "harkenscythe:entities/globin/blood/idle"
     ]
   },
   "entity.spectral_human.hurt": {
@@ -412,6 +392,11 @@
   "guide.close": {
     "sounds": [
       "harkenscythe:guide/close"
+    ]
+  },
+  "random.summon": {
+    "sounds": [
+      "harkenscythe:random/summon"
     ]
   }
 }

@@ -205,7 +205,7 @@ public class HSEntityHarbinger extends EntityCreature implements IMob
         {
             if (this.rand.nextInt(100) == 0 && !this.isSilent())
             {
-                this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, HSSoundEvents.ESSENCE_SOUL_SUMMON.getSoundEvent(), this.getSoundCategory(), 0.5F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
+                this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, HSSoundEvents.RANDOM_SUMMON.getSoundEvent(), this.getSoundCategory(), 0.5F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
             }
 
             if (FMLLaunchHandler.side().isClient())
