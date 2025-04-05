@@ -248,7 +248,7 @@ public class HSRegistry
 
         // Blood Altar
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 10);
-        HSAltarRecipes.addBloodRecipe(HSItems.blood_butcherer, HSItems.blood_butcherer, 5);
+        HSAltarRecipes.addBloodRecipe(HSItems.blood_butcherer, HSItems.blood_butcherer, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_hood, HSItems.bloodweave_hood, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_robe, HSItems.bloodweave_robe, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_pants, HSItems.bloodweave_pants, 10);
@@ -256,7 +256,7 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(HSItems.deadtime_watch, HSItems.deadtime_watch, 5);
         HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_blood, HSItems.essence_trinket_blood, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_blood_ethereal, HSItems.essence_trinket_blood_ethereal, 10);
-        HSAltarRecipes.addBloodRecipe(HSItems.vampire_knife, HSItems.vampire_knife, 5);
+        HSAltarRecipes.addBloodRecipe(HSItems.vampire_knife, HSItems.vampire_knife, 10);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 40);
         HSAltarRecipes.addBloodRecipe(new ItemStack(Items.GOLDEN_APPLE, 1), new ItemStack(Items.GOLDEN_APPLE, 1, 1), 200); // Notch Apple
         HSAltarRecipes.addBloodRecipe(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, 1);
