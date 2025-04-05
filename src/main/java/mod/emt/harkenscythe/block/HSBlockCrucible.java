@@ -249,7 +249,7 @@ public abstract class HSBlockCrucible extends Block
             }
             float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
             if (heldItem == keeperType) pitch += 0.5F;
-            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, pitch);
+            world.playSound(null, pos, HSSoundEvents.ITEM_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, pitch);
             world.playSound(null, pos, HSSoundEvents.RANDOM_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + 1);
             player.addStat(StatList.getObjectUseStats(heldItem));
@@ -293,7 +293,7 @@ public abstract class HSBlockCrucible extends Block
             }
             float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
             if (heldItem == keeperType) pitch += 0.5F;
-            world.playSound(null, pos, HSSoundEvents.ITEM_ESSENCE_BOTTLE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, pitch);
+            world.playSound(null, pos, HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, pitch);
             world.playSound(null, pos, HSSoundEvents.RANDOM_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount - 1);
             player.addStat(StatList.getObjectUseStats(heldItem));

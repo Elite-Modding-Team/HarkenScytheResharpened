@@ -60,9 +60,9 @@ public class HSItemDimensionalMirror extends HSItem
                 player.setActiveHand(hand);
                 return new ActionResult<>(EnumActionResult.SUCCESS, stack);
             }
-            else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
+            else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_DIMENSIONAL_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
         }
-        else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
+        else world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_DIMENSIONAL_MIRROR_INACTIVE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.0F);
 
         if (HSDimensionBlacklist.isBlacklisted(player.dimension))
         {
@@ -98,7 +98,7 @@ public class HSItemDimensionalMirror extends HSItem
                     stack.setItemDamage(stack.getItemDamage() + (stack.getMaxDamage() / HSConfig.ITEMS.dimensionalMirrorUses));
                 }
                 player.getCooldownTracker().setCooldown(stack.getItem(), 100);
-                world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_MIRROR_TELEPORT.getSoundEvent(), SoundCategory.PLAYERS, 0.75F, 1.0F);
+                world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_DIMENSIONAL_MIRROR_TELEPORT.getSoundEvent(), SoundCategory.PLAYERS, 0.75F, 1.0F);
             }
         }
         return stack;

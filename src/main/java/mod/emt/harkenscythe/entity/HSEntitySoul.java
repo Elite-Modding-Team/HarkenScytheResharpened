@@ -151,7 +151,7 @@ public class HSEntitySoul extends HSEntityEssence
                 this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
                 float pitch = newStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) newStack.getItemDamage() / newStack.getMaxDamage() * 0.5F);
                 if (newStack.getItem() == HSItems.essence_keeper_soul) pitch += 0.5F;
-                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_ESSENCE_BOTTLE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
+                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
                 this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
                 this.setHealth(0);
             }
@@ -171,7 +171,7 @@ public class HSEntitySoul extends HSEntityEssence
                 this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
                 float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
                 if (stack.getItem() == HSItems.essence_keeper_soul) pitch += 0.5F;
-                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_ESSENCE_BOTTLE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
+                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
                 this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
                 this.recentlyHit = 60;
                 this.setHealth(0);

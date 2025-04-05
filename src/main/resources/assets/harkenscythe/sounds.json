@@ -84,14 +84,6 @@
       "harkenscythe:blocks/absorber/blood/stop2"
     ]
   },
-  "block.blood_altar.success": {
-    "sounds": [
-      "harkenscythe:blocks/altar/blood/success1",
-      "harkenscythe:blocks/altar/blood/success2",
-      "harkenscythe:blocks/altar/blood/success3",
-      "harkenscythe:blocks/altar/blood/success4"
-    ]
-  },
   "block.blood_altar.fail": {
     "sounds": [
       "harkenscythe:blocks/altar/blood/fail1",
@@ -103,6 +95,14 @@
   "block.blood_altar.loop": {
     "sounds": [
       "harkenscythe:blocks/altar/blood/loop"
+    ]
+  },
+  "block.blood_altar.success": {
+    "sounds": [
+      "harkenscythe:blocks/altar/blood/success1",
+      "harkenscythe:blocks/altar/blood/success2",
+      "harkenscythe:blocks/altar/blood/success3",
+      "harkenscythe:blocks/altar/blood/success4"
     ]
   },
   "block.livingmetal.break": {
@@ -140,14 +140,6 @@
       "harkenscythe:blocks/absorber/soul/stop2"
     ]
   },
-  "block.soul_altar.success": {
-    "sounds": [
-      "harkenscythe:blocks/altar/soul/success1",
-      "harkenscythe:blocks/altar/soul/success2",
-      "harkenscythe:blocks/altar/soul/success3",
-      "harkenscythe:blocks/altar/soul/success4"
-    ]
-  },
   "block.soul_altar.fail": {
     "sounds": [
       "harkenscythe:blocks/altar/soul/fail1",
@@ -161,107 +153,12 @@
       "harkenscythe:blocks/altar/soul/loop"
     ]
   },
-  "item.athame.create": {
+  "block.soul_altar.success": {
     "sounds": [
-      "harkenscythe:items/athame/create"
-    ]
-  },
-  "item.blood_butcherer.swing": {
-    "sounds": [
-      "harkenscythe:items/blood_butcherer/swing1",
-      "harkenscythe:items/blood_butcherer/swing2",
-      "harkenscythe:items/blood_butcherer/swing3",
-      "harkenscythe:items/blood_butcherer/swing4"
-    ]
-  },
-  "item.creep_ball.use": {
-    "sounds": [
-      "harkenscythe:items/creep_ball_use"
-    ]
-  },
-  "item.deadtime_watch.activate": {
-    "sounds": [
-      "harkenscythe:items/deadtime_watch_activate"
-    ]
-  },
-  "item.bottle.essence": {
-    "sounds": [
-      "harkenscythe:items/bottle/store_essence1",
-      "harkenscythe:items/bottle/store_essence2",
-      "harkenscythe:items/bottle/store_essence3",
-      "harkenscythe:items/bottle/store_essence4"
-    ]
-  },
-  "item.bottle.insert": {
-    "sounds": [
-      "harkenscythe:items/bottle/insert1",
-      "harkenscythe:items/bottle/insert2",
-      "harkenscythe:items/bottle/insert3",
-      "harkenscythe:items/bottle/insert4"
-    ]
-  },
-  "item.bottle.remove": {
-    "sounds": [
-      "harkenscythe:items/bottle/remove1",
-      "harkenscythe:items/bottle/remove2",
-      "harkenscythe:items/bottle/remove3",
-      "harkenscythe:items/bottle/remove4"
-    ]
-  },
-  "item.glaive.till": {
-    "sounds": [
-      "harkenscythe:items/glaive/till1",
-      "harkenscythe:items/glaive/till2",
-      "harkenscythe:items/glaive/till3"
-    ]
-  },
-  "item.glaive.stab": {
-    "sounds": [
-      "harkenscythe:items/glaive/stab1",
-      "harkenscythe:items/glaive/stab2",
-      "harkenscythe:items/glaive/stab3",
-      "harkenscythe:items/glaive/stab4"
-    ]
-  },
-  "item.mirror.inactive": {
-    "sounds": [
-      "harkenscythe:items/dimensional_mirror/inactive"
-    ]
-  },
-  "item.mirror.teleport": {
-    "sounds": [
-      "harkenscythe:items/dimensional_mirror/teleport"
-    ]
-  },
-  "item.necronomicon.activate": {
-    "sounds": [
-      "harkenscythe:items/necronomicon_activate"
-    ]
-  },
-  "item.potion.break": {
-    "sounds": [
-      "harkenscythe:items/potion_break"
-    ]
-  },
-  "item.potion.throw": {
-    "sounds": [
-      "harkenscythe:items/potion_throw"
-    ]
-  },
-  "item.scythe.swing": {
-    "sounds": [
-      "harkenscythe:items/scythe/swing1",
-      "harkenscythe:items/scythe/swing2",
-      "harkenscythe:items/scythe/swing3",
-      "harkenscythe:items/scythe/swing4"
-    ]
-  },
-  "item.vampire_knife.throw": {
-    "sounds": [
-      "harkenscythe:items/vampire_knife/throw1",
-      "harkenscythe:items/vampire_knife/throw2",
-      "harkenscythe:items/vampire_knife/throw3",
-      "harkenscythe:items/vampire_knife/throw4"
+      "harkenscythe:blocks/altar/soul/success1",
+      "harkenscythe:blocks/altar/soul/success2",
+      "harkenscythe:blocks/altar/soul/success3",
+      "harkenscythe:blocks/altar/soul/success4"
     ]
   },
   "entity.ectoglobin.idle": {
@@ -301,6 +198,46 @@
       "harkenscythe:entities/essence/soul/spawn4"
     ]
   },
+  "entity.exospider.hurt": {
+    "sounds": [
+      "harkenscythe:entities/exospider/hurt1",
+      "harkenscythe:entities/exospider/hurt2"
+    ]
+  },
+  "entity.exospider.death": {
+    "sounds": [
+      "harkenscythe:entities/exospider/death1",
+      "harkenscythe:entities/exospider/death2"
+    ]
+  },
+  "entity.exospider.step": {
+    "sounds": [
+      "harkenscythe:entities/spectral/exospider/step1",
+      "harkenscythe:entities/spectral/exospider/step2",
+      "harkenscythe:entities/spectral/exospider/step3"
+    ]
+  },
+  "entity.harbinger.hurt": {
+    "sounds": [
+      "harkenscythe:entities/harbinger/hurt1",
+      "harkenscythe:entities/harbinger/hurt2",
+      "harkenscythe:entities/harbinger/hurt3",
+      "harkenscythe:entities/harbinger/hurt4"
+    ]
+  },
+  "entity.harbinger.death": {
+    "sounds": [
+      "harkenscythe:entities/harbinger/death"
+    ]
+  },
+  "entity.harbinger.idle": {
+    "sounds": [
+      "harkenscythe:entities/harbinger/idle1",
+      "harkenscythe:entities/harbinger/idle2",
+      "harkenscythe:entities/harbinger/idle3",
+      "harkenscythe:entities/harbinger/idle4"
+    ]
+  },
   "essence.hemoglobin.idle": {
     "sounds": [
       "harkenscythe:entities/globin/blood/idle"
@@ -336,44 +273,9 @@
       "harkenscythe:entities/spectral/miner/run"
     ]
   },
-  "entity.harbinger.hurt": {
+  "guide.close": {
     "sounds": [
-      "harkenscythe:entities/harbinger/hurt1",
-      "harkenscythe:entities/harbinger/hurt2",
-      "harkenscythe:entities/harbinger/hurt3",
-      "harkenscythe:entities/harbinger/hurt4"
-    ]
-  },
-  "entity.harbinger.death": {
-    "sounds": [
-      "harkenscythe:entities/harbinger/death"
-    ]
-  },
-  "entity.harbinger.idle": {
-    "sounds": [
-      "harkenscythe:entities/harbinger/idle1",
-      "harkenscythe:entities/harbinger/idle2",
-      "harkenscythe:entities/harbinger/idle3",
-      "harkenscythe:entities/harbinger/idle4"
-    ]
-  },
-  "entity.exospider.hurt": {
-    "sounds": [
-      "harkenscythe:entities/exospider/hurt1",
-      "harkenscythe:entities/exospider/hurt2"
-    ]
-  },
-  "entity.exospider.death": {
-    "sounds": [
-      "harkenscythe:entities/exospider/death1",
-      "harkenscythe:entities/exospider/death2"
-    ]
-  },
-  "entity.exospider.step": {
-    "sounds": [
-      "harkenscythe:entities/spectral/exospider/step1",
-      "harkenscythe:entities/spectral/exospider/step2",
-      "harkenscythe:entities/spectral/exospider/step3"
+      "harkenscythe:guide/close"
     ]
   },
   "guide.flip": {
@@ -389,9 +291,107 @@
       "harkenscythe:guide/open"
     ]
   },
-  "guide.close": {
+  "item.athame.create": {
     "sounds": [
-      "harkenscythe:guide/close"
+      "harkenscythe:items/athame/create"
+    ]
+  },
+  "item.blood_butcherer.swing": {
+    "sounds": [
+      "harkenscythe:items/blood_butcherer/swing1",
+      "harkenscythe:items/blood_butcherer/swing2",
+      "harkenscythe:items/blood_butcherer/swing3",
+      "harkenscythe:items/blood_butcherer/swing4"
+    ]
+  },
+  "item.bottle.essence": {
+    "sounds": [
+      "harkenscythe:items/bottle/store_essence1",
+      "harkenscythe:items/bottle/store_essence2",
+      "harkenscythe:items/bottle/store_essence3",
+      "harkenscythe:items/bottle/store_essence4"
+    ]
+  },
+  "item.bottle.insert": {
+    "sounds": [
+      "harkenscythe:items/bottle/insert1",
+      "harkenscythe:items/bottle/insert2",
+      "harkenscythe:items/bottle/insert3",
+      "harkenscythe:items/bottle/insert4"
+    ]
+  },
+  "item.bottle.remove": {
+    "sounds": [
+      "harkenscythe:items/bottle/remove1",
+      "harkenscythe:items/bottle/remove2",
+      "harkenscythe:items/bottle/remove3",
+      "harkenscythe:items/bottle/remove4"
+    ]
+  },
+  "item.creep_ball.use": {
+    "sounds": [
+      "harkenscythe:items/creep_ball_use"
+    ]
+  },
+  "item.deadtime_watch.activate": {
+    "sounds": [
+      "harkenscythe:items/deadtime_watch_activate"
+    ]
+  },
+  "item.dimensional_mirror.inactive": {
+    "sounds": [
+      "harkenscythe:items/dimensional_mirror/inactive"
+    ]
+  },
+  "item.dimensional_mirror.teleport": {
+    "sounds": [
+      "harkenscythe:items/dimensional_mirror/teleport"
+    ]
+  },
+  "item.glaive.stab": {
+    "sounds": [
+      "harkenscythe:items/glaive/stab1",
+      "harkenscythe:items/glaive/stab2",
+      "harkenscythe:items/glaive/stab3",
+      "harkenscythe:items/glaive/stab4"
+    ]
+  },
+  "item.glaive.till": {
+    "sounds": [
+      "harkenscythe:items/glaive/till1",
+      "harkenscythe:items/glaive/till2",
+      "harkenscythe:items/glaive/till3"
+    ]
+  },
+  "item.necronomicon.activate": {
+    "sounds": [
+      "harkenscythe:items/necronomicon_activate"
+    ]
+  },
+  "item.potion.break": {
+    "sounds": [
+      "harkenscythe:items/potion_break"
+    ]
+  },
+  "item.potion.throw": {
+    "sounds": [
+      "harkenscythe:items/potion_throw"
+    ]
+  },
+  "item.scythe.swing": {
+    "sounds": [
+      "harkenscythe:items/scythe/swing1",
+      "harkenscythe:items/scythe/swing2",
+      "harkenscythe:items/scythe/swing3",
+      "harkenscythe:items/scythe/swing4"
+    ]
+  },
+  "item.vampire_knife.throw": {
+    "sounds": [
+      "harkenscythe:items/vampire_knife/throw1",
+      "harkenscythe:items/vampire_knife/throw2",
+      "harkenscythe:items/vampire_knife/throw3",
+      "harkenscythe:items/vampire_knife/throw4"
     ]
   },
   "random.summon": {
