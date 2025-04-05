@@ -238,7 +238,7 @@
       "harkenscythe:entities/harbinger/idle4"
     ]
   },
-  "essence.hemoglobin.idle": {
+  "entity.hemoglobin.idle": {
     "sounds": [
       "harkenscythe:entities/globin/blood/idle"
     ]
