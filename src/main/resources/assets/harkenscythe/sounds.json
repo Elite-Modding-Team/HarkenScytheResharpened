@@ -184,20 +184,20 @@
   },
   "item.blood_butcherer.swing": {
     "sounds": [
-      "harkenscythe:cleaver_swing1",
-      "harkenscythe:cleaver_swing2",
-      "harkenscythe:cleaver_swing3",
-      "harkenscythe:cleaver_swing4"
+      "harkenscythe:items/blood_butcherer/swing1",
+      "harkenscythe:items/blood_butcherer/swing2",
+      "harkenscythe:items/blood_butcherer/swing3",
+      "harkenscythe:items/blood_butcherer/swing4"
     ]
   },
   "item.creep_ball.use": {
     "sounds": [
-      "harkenscythe:creep_ball"
+      "harkenscythe:items/creep_ball_use"
     ]
   },
   "item.deadtime_watch.activate": {
     "sounds": [
-      "harkenscythe:deadtime_watch_activate"
+      "harkenscythe:items/deadtime_watch_activate"
     ]
   },
   "item.essence.bottle": {
@@ -210,42 +210,42 @@
   },
   "item.glaive.till": {
     "sounds": [
-      "harkenscythe:glaive_till1",
-      "harkenscythe:glaive_till2",
-      "harkenscythe:glaive_till3"
+      "harkenscythe:items/glaive/till1",
+      "harkenscythe:items/glaive/till2",
+      "harkenscythe:items/glaive/till3"
     ]
   },
   "item.glaive.stab": {
     "sounds": [
-      "harkenscythe:glaive_stab1",
-      "harkenscythe:glaive_stab2",
-      "harkenscythe:glaive_stab3",
-      "harkenscythe:glaive_stab4"
+      "harkenscythe:items/glaive/stab1",
+      "harkenscythe:items/glaive/stab2",
+      "harkenscythe:items/glaive/stab3",
+      "harkenscythe:items/glaive/stab4"
     ]
   },
   "item.mirror.inactive": {
     "sounds": [
-      "harkenscythe:mirror_inactive"
+      "harkenscythe:items/dimensional_mirror/inactive"
     ]
   },
   "item.mirror.teleport": {
     "sounds": [
-      "harkenscythe:mirror_teleport"
+      "harkenscythe:items/dimensional_mirror/teleport"
     ]
   },
   "item.necronomicon.activate": {
     "sounds": [
-      "harkenscythe:necronomicon_activate"
+      "harkenscythe:items/necronomicon_activate"
     ]
   },
   "item.potion.break": {
     "sounds": [
-      "harkenscythe:potion_break"
+      "harkenscythe:items/potion_break"
     ]
   },
   "item.potion.throw": {
     "sounds": [
-      "harkenscythe:potion_throw"
+      "harkenscythe:items/potion_throw"
     ]
   },
   "item.scythe.activate": {
@@ -255,18 +255,18 @@
   },
   "item.scythe.swing": {
     "sounds": [
-      "harkenscythe:scythe_swing1",
-      "harkenscythe:scythe_swing2",
-      "harkenscythe:scythe_swing3",
-      "harkenscythe:scythe_swing4"
+      "harkenscythe:items/scythe/swing1",
+      "harkenscythe:items/scythe/swing2",
+      "harkenscythe:items/scythe/swing3",
+      "harkenscythe:items/scythe/swing4"
     ]
   },
   "item.vampire_knife.throw": {
     "sounds": [
-      "harkenscythe:vampire_knife_throw1",
-      "harkenscythe:vampire_knife_throw2",
-      "harkenscythe:vampire_knife_throw3",
-      "harkenscythe:vampire_knife_throw4"
+      "harkenscythe:items/vampire_knife/throw1",
+      "harkenscythe:items/vampire_knife/throw2",
+      "harkenscythe:items/vampire_knife/throw3",
+      "harkenscythe:items/vampire_knife/throw4"
     ]
   },
   "essence.blood.despawn": {
@@ -276,12 +276,12 @@
   },
   "essence.blood.spawn": {
     "sounds": [
-      "harkenscythe:essence_blood_spawn"
+      "harkenscythe:entities/globin/blood/idle"
     ]
   },
   "essence.soul.spawn": {
     "sounds": [
-      "harkenscythe:essence_soul_spawn"
+      "harkenscythe:entities/globin/soul/idle"
     ]
   },
   "essence.soul.despawn": {
@@ -289,9 +289,9 @@
       "harkenscythe:essence_soul_despawn"
     ]
   },
-  "essence.soul.summon": {
+  "essence.soul.": {
     "sounds": [
-      "harkenscythe:essence_soul_summon"
+      "harkenscythe:random/summon"
     ]
   },
   "entity.essence.blood.despawn": {
@@ -328,72 +328,72 @@
   },
   "entity.spectral_human.hurt": {
     "sounds": [
-      "harkenscythe:spectral_human_hurt"
+      "harkenscythe:entities/spectral/human/hurt"
     ]
   },
   "entity.spectral_miner.hurt": {
     "sounds": [
-      "harkenscythe:spectral_miner_hurt1",
-      "harkenscythe:spectral_miner_hurt2",
-      "harkenscythe:spectral_miner_hurt3"
+      "harkenscythe:entities/spectral/miner/hurt1",
+      "harkenscythe:entities/spectral/miner/hurt2",
+      "harkenscythe:entities/spectral/miner/hurt3"
     ]
   },
   "entity.spectral_miner.death": {
     "sounds": [
-      "harkenscythe:spectral_miner_death"
+      "harkenscythe:entities/spectral/miner/death"
     ]
   },
   "entity.spectral_miner.step": {
     "sounds": [
-      "harkenscythe:spectral_miner_step1",
-      "harkenscythe:spectral_miner_step2",
-      "harkenscythe:spectral_miner_step3",
-      "harkenscythe:spectral_miner_step4"
+      "harkenscythe:entities/spectral/miner/step1",
+      "harkenscythe:entities/spectral/miner/step2",
+      "harkenscythe:entities/spectral/miner/step3",
+      "harkenscythe:entities/spectral/miner/step4"
     ]
   },
   "entity.spectral_miner.run": {
     "sounds": [
-      "harkenscythe:spectral_miner_run"
+      "harkenscythe:entities/spectral/miner/run"
     ]
   },
   "entity.harbinger.hurt": {
     "sounds": [
-      "harkenscythe:harbinger_hurt1",
-      "harkenscythe:harbinger_hurt2",
-      "harkenscythe:harbinger_hurt3",
-      "harkenscythe:harbinger_hurt4"
+      "harkenscythe:entities/harbinger/hurt1",
+      "harkenscythe:entities/harbinger/hurt2",
+      "harkenscythe:entities/harbinger/hurt3",
+      "harkenscythe:entities/harbinger/hurt4"
     ]
   },
   "entity.harbinger.death": {
     "sounds": [
-      "harkenscythe:harbinger_death"
+      "harkenscythe:entities/harbinger/death"
     ]
   },
   "entity.harbinger.idle": {
     "sounds": [
-      "harkenscythe:harbinger_idle1",
-      "harkenscythe:harbinger_idle2",
-      "harkenscythe:harbinger_idle3",
-      "harkenscythe:harbinger_idle4"
+      "harkenscythe:entities/harbinger/idle1",
+      "harkenscythe:entities/harbinger/idle2",
+      "harkenscythe:entities/harbinger/idle3",
+      "harkenscythe:entities/harbinger/idle4"
     ]
   },
   "entity.exospider.hurt": {
     "sounds": [
-      "harkenscythe:exospider_hurt1",
-      "harkenscythe:exospider_hurt2"
+      "harkenscythe:entities/exospider/hurt1",
+      "harkenscythe:entities/exospider/hurt2"
     ]
   },
   "entity.exospider.death": {
     "sounds": [
-      "harkenscythe:exospider_death1",
-      "harkenscythe:exospider_death2"
+      "harkenscythe:entities/exospider/death1",
+      "harkenscythe:entities/exospider/death2"
     ]
   },
   "entity.exospider.step": {
     "sounds": [
-      "harkenscythe:exospider_step1",
-      "harkenscythe:exospider_step2",
-      "harkenscythe:exospider_step3"
+      "harkenscythe:entities/spectral/exospider/step1",
+      "harkenscythe:entities/spectral/exospider/step2",
+      "harkenscythe:entities/spectral/exospider/step3"
     ]
   },
   "guide.flip": {
