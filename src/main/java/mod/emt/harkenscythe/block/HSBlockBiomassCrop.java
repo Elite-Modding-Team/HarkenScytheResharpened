@@ -79,7 +79,7 @@ public class HSBlockBiomassCrop extends BlockBush
             {
                 if (rand.nextInt(6) <= age)
                 {
-                    drops.add(new ItemStack(rand.nextInt(3) == 0 ? HSItems.germinated_biomass_seed : HSItems.biomass_seed, 1, 0));
+                    drops.add(new ItemStack(HSItems.germinated_biomass_seed, 1, 0));
                     if (bloodied && rand.nextBoolean())
                     {
                         drops.add(new ItemStack(HSItems.biomass, 1, 0));
