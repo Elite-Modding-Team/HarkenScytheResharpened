@@ -82,6 +82,8 @@ public class HSItems
     public static final HSItemEssence soul_essence_spectral = null;
 
     public static final HSItem abyssal_fragment = null;
+    public static final HSItem soumberglass_ingot = null;
+    public static final HSItem soul_soot = null;
 
     public static final HSItemNecronomicon ancient_necronomicon = null;
     public static final HSItem ancient_necronomicon_page = null;
@@ -193,6 +195,8 @@ public class HSItems
                 HSRegistry.setup(new HSItemEssence(EnumRarity.EPIC, HSConfig.ENTITIES.essenceSoulSpectralValue), "soul_essence_spectral").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemEssence(EnumRarity.EPIC, HSConfig.ENTITIES.essenceSoulWrathfulValue), "soul_essence_wrathful").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.RARE), "abyssal_fragment").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "soumberglass_ingot").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "soul_soot").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemNecronomicon(), "ancient_necronomicon").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "ancient_necronomicon_page").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "carnage_book").setCreativeTab(HarkenScythe.TAB),

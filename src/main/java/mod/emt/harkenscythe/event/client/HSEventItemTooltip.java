@@ -41,6 +41,8 @@ public class HSEventItemTooltip
     private static final ResourceLocation SOUL_CAKE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cake");
     private static final ResourceLocation SOUL_COOKIE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_cookie");
     private static final ResourceLocation SOUL_ESSENCE = new ResourceLocation(HarkenScythe.MOD_ID, "soul_essence");
+    private static final ResourceLocation SOUL_SOOT = new ResourceLocation(HarkenScythe.MOD_ID, "soul_soot");
+    private static final ResourceLocation SOUMBERGLASS_INGOT = new ResourceLocation(HarkenScythe.MOD_ID, "soumberglass_ingot");
     private static final ResourceLocation SPECTRAL_POTION_AFFLICTION = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_affliction");
     private static final ResourceLocation SPECTRAL_POTION_FLAME = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_flame");
     private static final ResourceLocation SPECTRAL_POTION_PURIFYING = new ResourceLocation(HarkenScythe.MOD_ID, "spectral_potion_purifying");
@@ -151,6 +153,14 @@ public class HSEventItemTooltip
         else if (item instanceof HSItemEssence && ForgeRegistries.ITEMS.getKey(item).getPath().contains(SOUL_ESSENCE.getPath()))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.soul_essence"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(SOUL_SOOT))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.soul_soot"));
+        }
+        else if (ForgeRegistries.ITEMS.getKey(item).equals(SOUMBERGLASS_INGOT))
+        {
+            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.soumberglass_ingot"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(SPECTRAL_POTION_AFFLICTION))
         {

@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.init;
 import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
+
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -22,6 +23,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
+
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.event.RegistryEvent;
@@ -43,6 +45,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.advancement.HSAdvancementTrigger;
 import mod.emt.harkenscythe.client.renderer.*;
@@ -222,6 +225,9 @@ public class HSRegistry
                 OreDictionary.registerOre("potion", item);
             }
         }
+        
+        // Furnace Recipes
+        GameRegistry.addSmelting(new ItemStack(HSItems.soul_soot), new ItemStack(HSItems.soumberglass_ingot), 0.7F);
 
         OreDictionary.registerOre("blockBiomass", HSBlocks.biomass_block);
         OreDictionary.registerOre("blockGlassSpectral", HSBlocks.spectral_glass);
