@@ -399,8 +399,8 @@ public class HSConfig
         public int vampireKnifeDespawnTime = 40;
 
         @Config.Name("Vampire Knife Drop Chance")
-        @Config.Comment("The chance for vampire knives to drop under the right circumstances in percent")
-        public double vampireKnifeDropChance = 0.0005D;
+        @Config.Comment("The chance for vampire knives to drop under the right circumstances in percentage")
+        public double vampireKnifeDropChance = 0.001D;
 
         @Config.Name("Vampire Knife Max Charges")
         @Config.Comment
