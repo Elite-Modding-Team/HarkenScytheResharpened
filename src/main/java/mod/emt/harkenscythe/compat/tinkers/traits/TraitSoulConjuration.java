@@ -19,8 +19,8 @@ public class TraitSoulConjuration extends AbstractTrait
     {
         World world = target.getEntityWorld();
 
-        // Chance is 20%
-        if (!target.isEntityAlive() && !world.isRemote & random.nextDouble() <= 0.2D)
+        // Chance is 25%
+        if (!target.isEntityAlive() && !world.isRemote & random.nextDouble() <= 0.25D)
         {
             HSEventLivingDeath.spawnSoul(world, target);
         }

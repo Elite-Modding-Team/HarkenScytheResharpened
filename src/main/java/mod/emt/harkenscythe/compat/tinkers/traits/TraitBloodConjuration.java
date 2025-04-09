@@ -19,8 +19,8 @@ public class TraitBloodConjuration extends AbstractTrait
     {
         World world = target.getEntityWorld();
 
-        // Chance is 10%
-        if (wasHit && !target.isDead && random.nextDouble() <= 0.1D)
+        // Chance is 20%
+        if (wasHit && !target.isDead && random.nextDouble() <= 0.2D)
         {
             HSEventLivingHurt.spawnBlood(world, target);
         }

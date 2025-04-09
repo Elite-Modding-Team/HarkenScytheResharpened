@@ -7,12 +7,12 @@ public class HSEnchantmentExude extends HSEnchantment
 {
     public HSEnchantmentExude(String name)
     {
-        super(name, Rarity.UNCOMMON, EnumEnchantmentType.ARMOR, EntityEquipmentSlot.values(), Faction.SOUL);
+        super(name, Rarity.UNCOMMON, EnumEnchantmentType.ARMOR, EntityEquipmentSlot.values(), Faction.BLOOD);
     }
 
     @Override
     public int getMaxLevel()
     {
-        return 3;
+        return 1;
     }
 }

@@ -27,7 +27,7 @@ public class HSEnchantmentBloodletting extends HSEnchantment
     public void onEntityDamaged(EntityLivingBase user, Entity entity, int level)
     {
         World world = user.getEntityWorld();
-        if (!world.isRemote && entity instanceof EntityLivingBase && user.getRNG().nextFloat() < 0.1F * level)
+        if (!world.isRemote && entity instanceof EntityLivingBase && user.getRNG().nextFloat() < 0.2F * level)
         {
             HSEntityBlood blood = new HSEntityBlood(world, (EntityLivingBase) entity);
             blood.setPosition(entity.posX, entity.posY, entity.posZ);

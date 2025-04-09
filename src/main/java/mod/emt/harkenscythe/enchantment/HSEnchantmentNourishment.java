@@ -7,12 +7,12 @@ public class HSEnchantmentNourishment extends HSEnchantment
 {
     public HSEnchantmentNourishment(String name)
     {
-        super(name, Rarity.UNCOMMON, EnumEnchantmentType.ARMOR, EntityEquipmentSlot.values(), Faction.BLOOD);
+        super(name, Rarity.UNCOMMON, EnumEnchantmentType.ARMOR, EntityEquipmentSlot.values(), Faction.SOUL);
     }
 
     @Override
     public int getMaxLevel()
     {
-        return 4;
+        return 1;
     }
 }

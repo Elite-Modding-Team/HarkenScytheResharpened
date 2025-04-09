@@ -11,32 +11,32 @@
     {
       "type": "text",
       "title": "Blight",
-      "text": "Afflicts the target with Wither, Levitation and Weakness effects for at least 5 seconds.$(br)Applicable to bows."
+      "text": "Afflicts the target with Wither, Levitation and Weakness effects for (5 * level) seconds.$(br2)Applicable Equipment: Bows$(br)Max Level: 3"
     },
     {
       "type": "text",
       "title": "Bloodletting",
-      "text": "Increases the chance for an additional blood essence drop on reaps by at least 5%.$(br)Applicable to swords."
+      "text": "Has a (15% * level) chance to cause blood essence to drop when hitting a target.$(br2)Applicable Equipment: All Weapons$(br)Max Level: 3"
     },
     {
       "type": "text",
       "title": "Exude",
-      "text": "Heals the target from Poison and Wither effects, heals and extinguishes them if burning.$(br)Applicable to armor."
+      "text": "Heals you from Poison and Wither effects, heals you and extinguishes fire while you are burning.$(br2)Applicable Equipment: Armor$(br)Max Level: 1"
     },
     {
       "type": "text",
       "title": "Hemorrhage",
-      "text": "Afflicts the target with the Bleeding effect, dealing periodic damage for at least 5 seconds.$(br)Applicable to swords."
+      "text": "Afflicts the target with the Bleeding effect, dealing periodic damage for (5 * level) seconds.$(br2)Applicable Equipment: All Weapons$(br)Max Level: 3"
     },
     {
       "type": "text",
       "title": "Nourishment",
-      "text": "Replenishes the hunger bar by each damage dealt.$(br)Applicable to armor."
+      "text": "Decreases your hunger bar instead of health by the damage dealt to you.$(br2)Applicable Equipment: Armor$(br)Max Level: 1"
     },
     {
       "type": "text",
       "title": "Soulsteal",
-      "text": "Increases the chance for an additional soul essence drop on reaps by at least 5%.$(br)Applicable to swords."
+      "text": "Has a (25% * level) chance to cause soul essence to drop when killing a target.$(br2)Applicable Equipment: All Weapons$(br)Max Level: 3"
     }
   ]
 }
