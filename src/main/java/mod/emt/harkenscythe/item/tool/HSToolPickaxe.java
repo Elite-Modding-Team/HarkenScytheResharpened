@@ -1,6 +1,7 @@
 package mod.emt.harkenscythe.item.tool;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
@@ -24,10 +25,16 @@ public class HSToolPickaxe extends ItemPickaxe implements IHSTool
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if (stack.isItemDamaged() && this.getToolMaterial() == HSMaterials.TOOL_BIOMASS && entity.ticksExisted % 1200 == 0)
+        if (stack.isItemDamaged() && entity != null && this.getToolMaterial() == HSMaterials.TOOL_BIOMASS && entity.ticksExisted % 40 == 0)
         {
-            stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
+            stack.attemptDamageItem(-1, world.rand, entity instanceof EntityPlayerMP ? (EntityPlayerMP) entity : null);
         }
+    }
+    
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
+    {
+        return slotChanged || oldStack.getItem() != newStack.getItem();
     }
 
     @Override

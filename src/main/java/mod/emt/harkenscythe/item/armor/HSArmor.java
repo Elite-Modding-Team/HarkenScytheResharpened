@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
@@ -71,9 +72,9 @@ public class HSArmor extends ItemArmor
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
-        if (stack.isItemDamaged() && this.getArmorMaterial() == HSMaterials.ARMOR_BIOMASS && entity.ticksExisted % 1200 == 0)
+        if (stack.isItemDamaged() && entity != null && this.getArmorMaterial() == HSMaterials.ARMOR_BIOMASS && entity.ticksExisted % 40 == 0)
         {
-            stack.setItemDamage(stack.getItemDamage() - world.rand.nextInt(3));
+            stack.attemptDamageItem(-1, world.rand, entity instanceof EntityPlayerMP ? (EntityPlayerMP) entity : null);
         }
     }
 

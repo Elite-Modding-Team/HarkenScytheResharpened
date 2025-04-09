@@ -26,7 +26,7 @@
     },
     {
       "type": "text",
-      "text": "Seasoned blood reapers construct useful armor out of composed biomass.$(br2)As biomass is a constantly growing and self-healing material, it tries to slowly repair the armor's damage every minute."
+      "text": "Seasoned blood reapers construct useful armor out of composed biomass.$(br2)As biomass is a constantly growing and self-healing material, it endlessly tries to repair the armor's damage. The colony thrives..."
     },
     {
       "type": "entity",

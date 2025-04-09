@@ -25,7 +25,7 @@
     },
     {
       "type": "text",
-      "text": "Seasoned blood reapers construct useful tools out of composed biomass.$(br2)As biomass is a constantly growing and self-healing material, it tries to slowly repair the tool's damage every minute."
+      "text": "Seasoned blood reapers construct useful tools out of composed biomass.$(br2)As biomass is a constantly growing and self-healing material, it endlessly tries to repair the tool's damage. The colony thrives..."
     },
     {
       "type": "crafting",

@@ -36,6 +36,12 @@ public class HSToolShears extends ItemShears implements IHSTool
     }
 
     @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
+    {
+        return slotChanged || oldStack.getItem() != newStack.getItem();
+    }
+
+    @Override
     public EnumRarity getRarity(ItemStack stack)
     {
         return rarity;
