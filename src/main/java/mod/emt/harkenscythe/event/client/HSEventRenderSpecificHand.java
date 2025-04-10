@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.ResourceLocation;
@@ -83,7 +84,8 @@ public class HSEventRenderSpecificHand
             GlStateManager.rotate(handedSide * -9.785F, 0.0F, 0.0F, 1.0F);
 
             final float ticks = (72000) - ((mc.player.getItemInUseCount() - event.getPartialTicks()) + 1.0F);
-            int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, mc.player.getHeldItemMainhand());
+            final ItemStack heldItem = rightHanded ? mc.player.getHeldItemMainhand() : mc.player.getHeldItemOffhand();
+            int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
             float drawTime = level <= 0 ? 20.0F : 20.0F / level; // Animation speed is affected by the Willingness enchantment
             float divTicks = ticks / drawTime;
             divTicks = ((divTicks * divTicks) + (divTicks * 2.0F)) / 3.0F;

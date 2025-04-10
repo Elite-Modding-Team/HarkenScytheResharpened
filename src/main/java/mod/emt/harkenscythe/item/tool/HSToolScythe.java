@@ -88,7 +88,8 @@ public class HSToolScythe extends ItemSword implements IHSTool
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft)
     {
-        int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, entityLiving.getHeldItemMainhand());
+    	ItemStack heldItem = entityLiving.getHeldItemMainhand() == stack ? entityLiving.getHeldItemMainhand() : entityLiving.getHeldItemOffhand();
+    	int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
         
         if (!world.isRemote && entityLiving instanceof EntityPlayer)
         {

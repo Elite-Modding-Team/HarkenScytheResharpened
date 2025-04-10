@@ -10,7 +10,7 @@ public class HSEnchantmentWillingness extends HSEnchantment
 {
     public HSEnchantmentWillingness(String name)
     {
-        super(name, Rarity.COMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND}, Faction.NEUTRAL);
+        super(name, Rarity.COMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND}, Faction.NEUTRAL);
     }
 
     @Override
