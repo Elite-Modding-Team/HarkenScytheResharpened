@@ -133,7 +133,7 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / (level <= 0 ? 20.0F : 20.0F / level)) >= 1.0F && entityLiving instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
-            player.swingArm(EnumHand.MAIN_HAND);
+            player.swingArm(player.getActiveHand());
             player.spawnSweepParticles();
             player.playSound(HSSoundEvents.ITEM_GLAIVE_STAB.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             
