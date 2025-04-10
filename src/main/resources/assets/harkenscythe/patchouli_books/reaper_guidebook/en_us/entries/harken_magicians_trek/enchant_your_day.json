@@ -37,6 +37,11 @@
       "type": "text",
       "title": "Soulsteal",
       "text": "Has a (25% * level) chance to cause soul essence to drop when killing a target.$(br2)Applicable Equipment: All Weapons$(br)Max Level: 3"
+    },
+    {
+      "type": "text",
+      "title": "Willingness",
+      "text": "Has a (25% * level) chance to not consume durability while reaping. Reap charge speed is also increased for every level.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 3"
     }
   ]
 }

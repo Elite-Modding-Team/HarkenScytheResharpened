@@ -182,6 +182,8 @@ enchantment.harkenscythe.nourishment=Nourishment
 enchantment.harkenscythe.nourishment.desc=Decreases your hunger bar instead of health by the damage dealt to you.
 enchantment.harkenscythe.soulsteal=Soulsteal
 enchantment.harkenscythe.soulsteal.desc=Has a 25%% chance or more depending on the level to cause soul essence to drop when killing a target with the tool.
+enchantment.harkenscythe.willingness=Willingness
+enchantment.harkenscythe.willingness.desc=Glaives and scythes have a 25%% chance or more depending on the level to not consume durability while reaping. Reap charging speed is also increased for every level.
 
 # POTIONS
 effect.harkenscythe.affliction=Spectral Affliction

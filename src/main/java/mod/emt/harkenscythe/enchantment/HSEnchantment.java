@@ -30,6 +30,6 @@ public abstract class HSEnchantment extends Enchantment
 
     public enum Faction
     {
-        BLOOD, SOUL
+        BLOOD, SOUL, NEUTRAL
     }
 }

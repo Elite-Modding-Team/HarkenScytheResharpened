@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.item.tool;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -26,6 +27,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSBlocks;
+import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSDamageSource;
@@ -84,6 +86,8 @@ public class HSToolGlaive extends ItemSword implements IHSTool
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft)
     {
+        int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, entityLiving.getHeldItemMainhand());
+        
         if (!world.isRemote && entityLiving instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
@@ -119,20 +123,26 @@ public class HSToolGlaive extends ItemSword implements IHSTool
                 continue;
             }
 
-            if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F)
+            if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / (level <= 0 ? 20.0F : 20.0F / level)) >= 1.0F)
             {
                 // Damage x 2 (Mojang is very strange with damage values...)
                 entityInAABB.attackEntityFrom(new HSDamageSource("hs_reap", entityLiving).setDamageBypassesArmor(), damage * 2);
             }
         }
 
-        if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / 20.0F) >= 1.0F && entityLiving instanceof EntityPlayer)
+        if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / (level <= 0 ? 20.0F : 20.0F / level)) >= 1.0F && entityLiving instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
             player.swingArm(EnumHand.MAIN_HAND);
             player.spawnSweepParticles();
             player.playSound(HSSoundEvents.ITEM_GLAIVE_STAB.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-            stack.damageItem(2, player);
+            
+            if (level >= 1 && itemRand.nextDouble() <  0.25D * level) {
+            	return;
+            } else {
+            	stack.damageItem(2, player);
+            }
+            
             player.addStat(StatList.getObjectUseStats(this));
         }
     }

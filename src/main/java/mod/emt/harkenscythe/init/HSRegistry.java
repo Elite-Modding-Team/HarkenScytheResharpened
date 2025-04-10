@@ -121,7 +121,8 @@ public class HSRegistry
             HSEnchantments.EXUDE,
             HSEnchantments.HEMORRHAGE,
             HSEnchantments.NOURISHMENT,
-            HSEnchantments.SOULSTEAL
+            HSEnchantments.SOULSTEAL,
+            HSEnchantments.WILLINGNESS
         );
     }
 

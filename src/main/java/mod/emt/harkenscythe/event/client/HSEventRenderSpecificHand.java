@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumHandSide;
@@ -21,8 +22,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.item.HSItemDimensionalMirror;
 import mod.emt.harkenscythe.item.HSItemNecronomicon;
+import mod.emt.harkenscythe.item.tool.HSToolGlaive;
+import mod.emt.harkenscythe.item.tool.HSToolScythe;
 
 // Courtesy of Fuzs
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)
@@ -52,6 +56,62 @@ public class HSEventRenderSpecificHand
                 renderItemFirstPersonBimanual(event.getInterpolatedPitch(), event.getEquipProgress(), event.getSwingProgress());
                 event.setCanceled(true);
             }
+        }
+    }
+    
+    // Courtesy of NeRdTheNed
+    @SubscribeEvent
+    public static void onRenderHSTool(RenderSpecificHandEvent event)
+    {
+        final Minecraft mc = Minecraft.getMinecraft();
+
+        // Only handle rendering if we're in first person and drawing back a custom tool.
+        if ((mc.gameSettings.thirdPersonView == 0) && mc.player.isHandActive() && (mc.player.getActiveHand() == event.getHand()) && (mc.player.getItemInUseCount() > 0) && (event.getItemStack().getItem() instanceof HSToolGlaive || event.getItemStack().getItem() instanceof HSToolScythe))
+        {
+            // Cancel rendering so we can render instead
+            event.setCanceled(true);
+            GlStateManager.pushMatrix();
+
+            final boolean rightHanded = (event.getHand() == EnumHand.MAIN_HAND ? mc.player.getPrimaryHand() : mc.player.getPrimaryHand().opposite()) == EnumHandSide.RIGHT;
+            final int handedSide = rightHanded ? 1 : -1;
+
+            GlStateManager.translate(handedSide * 0.2814318F, -0.3365561F + (event.getEquipProgress() * -0.6F), -0.5626847F);
+
+            // Rotate angles
+            GlStateManager.rotate(-13.935F, 1.0F, 0.0F, 0.0F);
+            GlStateManager.rotate(handedSide * 35.3F, 0.0F, 1.0F, 0.0F);
+            GlStateManager.rotate(handedSide * -9.785F, 0.0F, 0.0F, 1.0F);
+
+            final float ticks = (72000) - ((mc.player.getItemInUseCount() - event.getPartialTicks()) + 1.0F);
+            int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, mc.player.getHeldItemMainhand());
+            float drawTime = level <= 0 ? 20.0F : 20.0F / level; // Animation speed is affected by the Willingness enchantment
+            float divTicks = ticks / drawTime;
+            divTicks = ((divTicks * divTicks) + (divTicks * 2.0F)) / 3.0F;
+
+            if (divTicks > 1.0F)
+            {
+                divTicks = 1.0F;
+            }
+
+            // Bow animations and transformations
+            if (divTicks > 0.1F)
+            {
+                // Bow shake
+                GlStateManager.translate(0.0F, MathHelper.sin((ticks - 0.1F) * 1.3F) * (divTicks - 0.1F) * 0.004F, 0.0F);
+            }
+
+            // Backwards motion ("draw back" animation)
+            GlStateManager.translate(0.0F, 0.0F, divTicks * 0.04F);
+
+            // Relative scaling for FOV reasons
+            GlStateManager.scale(1.0F, 1.0F, 1.0F + (divTicks * 0.2F));
+
+            // Rotate bow based on handedness
+            GlStateManager.rotate(handedSide * 45.0F, 0.0F, -1.0F, 0.0F);
+
+            // Let Minecraft do the rest of the item rendering
+            mc.getItemRenderer().renderItemSide(mc.player, event.getItemStack(), rightHanded ? ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND : ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND, !rightHanded);
+            GlStateManager.popMatrix();
         }
     }
 

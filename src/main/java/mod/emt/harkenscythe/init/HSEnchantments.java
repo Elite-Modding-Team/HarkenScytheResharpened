@@ -14,4 +14,5 @@ public class HSEnchantments
     public static final HSEnchantmentHemorrhage HEMORRHAGE = new HSEnchantmentHemorrhage("hemorrhage");
     public static final HSEnchantmentNourishment NOURISHMENT = new HSEnchantmentNourishment("nourishment");
     public static final HSEnchantmentSoulsteal SOULSTEAL = new HSEnchantmentSoulsteal("soulsteal");
+    public static final HSEnchantmentWillingness WILLINGNESS = new HSEnchantmentWillingness("willingness");
 }
