@@ -2,16 +2,15 @@
   "type": "forge:ore_shaped",
   "pattern": [
     " H ",
-    "EOE",
+    "SOS",
     "OOO"
   ],
   "key": {
     "H": {
       "item": "minecraft:hopper"
     },
-    "E": {
-      "type": "forge:ore_dict",
-      "ore": "enderpearl"
+    "S": {
+      "item": "harkenscythe:soumberglass_ingot"
     },
     "O": {
       "type": "forge:ore_dict",

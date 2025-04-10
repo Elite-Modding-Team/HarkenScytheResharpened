@@ -1,7 +1,7 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    " MM",
+    " MG",
     "MSM",
     "SM "
   ],
@@ -13,6 +13,9 @@
     "S": {
       "type": "forge:ore_dict",
       "ore": "stickWood"
+    },
+    "G": {
+      "item": "harkenscythe:soumberglass_ingot"
     }
   },
   "result": {

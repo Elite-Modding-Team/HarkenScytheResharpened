@@ -2,16 +2,15 @@
   "type": "forge:ore_shaped",
   "pattern": [
     " B ",
-    "ENE",
+    "SNS",
     "NNN"
   ],
   "key": {
     "B": {
       "item": "harkenscythe:carnage_book"
     },
-    "E": {
-      "type": "forge:ore_dict",
-      "ore": "enderpearl"
+    "S": {
+      "item": "harkenscythe:soumberglass_ingot"
     },
     "N": {
       "type": "forge:ore_dict",

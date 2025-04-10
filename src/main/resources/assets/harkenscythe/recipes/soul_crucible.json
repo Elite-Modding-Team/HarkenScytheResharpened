@@ -2,7 +2,7 @@
   "type": "forge:ore_shaped",
   "pattern": [
     "O O",
-    "OEO",
+    "OSO",
     "OOO"
   ],
   "key": {
@@ -10,9 +10,8 @@
       "type": "forge:ore_dict",
       "ore": "obsidian"
     },
-    "E": {
-      "type": "forge:ore_dict",
-      "ore": "enderpearl"
+    "S": {
+      "item": "harkenscythe:soumberglass_ingot"
     }
   },
   "result": {

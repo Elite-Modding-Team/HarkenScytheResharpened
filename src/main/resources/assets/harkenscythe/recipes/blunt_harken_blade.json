@@ -10,8 +10,7 @@
       "ore": "ingotIron"
     },
     {
-      "type": "forge:ore_dict",
-      "ore": "bone"
+      "item": "harkenscythe:soumberglass_ingot"
     }
   ],
   "result": {

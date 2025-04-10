@@ -6,12 +6,13 @@
   "pages": [
     {
       "type": "text",
-      "text": "To get started with reaping soul essence, you first need to construct a scythe.$(br2)Scythes can be made with any vanilla material like iron, as well as certain materials from other mods if supported."
+      "text": "To get started with reaping soul essence, you first need to construct a scythe.$(br2)Scythes can be made with any vanilla material like iron, the quality of the material will also affect the odds of obtaining soul essence from a creature."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:iron_scythe",
-      "title": " "
+      "title": " ",
+      "text": "Soumberglass is needed as the core of the scythe in order for it to receive the ability to reap."
     }
   ]
 }
