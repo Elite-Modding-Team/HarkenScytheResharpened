@@ -74,6 +74,12 @@ public class HSToolScythe extends ItemSword implements IHSTool
     }
 
     @Override
+    public boolean canContinueUsing(ItemStack oldStack, ItemStack newStack)
+    {
+        return true;
+    }
+
+    @Override
     public EnumAction getItemUseAction(ItemStack stack)
     {
         return EnumAction.BOW;
