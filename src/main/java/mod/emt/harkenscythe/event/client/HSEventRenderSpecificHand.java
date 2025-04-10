@@ -86,7 +86,7 @@ public class HSEventRenderSpecificHand
             final float ticks = (72000) - ((mc.player.getItemInUseCount() - event.getPartialTicks()) + 1.0F);
             final ItemStack heldItem = rightHanded ? mc.player.getHeldItemMainhand() : mc.player.getHeldItemOffhand();
             int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
-            float drawTime = level <= 0 ? 20.0F : 20.0F / level; // Animation speed is affected by the Willingness enchantment
+            float drawTime = level <= 0 ? 20.0F : level == 1 ? 16.0F : 25.0F / level; // Animation speed is affected by the Willingness enchantment
             float divTicks = ticks / drawTime;
             divTicks = ((divTicks * divTicks) + (divTicks * 2.0F)) / 3.0F;
 

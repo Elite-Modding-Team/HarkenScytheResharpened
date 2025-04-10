@@ -53,9 +53,12 @@ public class HSToolScythe extends ItemSword implements IHSTool
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
-        player.playSound(SoundEvents.ENTITY_PLAYER_BREATH, 0.8F, 0.9F);
+    	int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, stack);
+    	
+    	// Slightly pitch up the sound per level of Willingness
+        player.playSound(SoundEvents.ENTITY_PLAYER_BREATH, 0.8F, 0.9F + (0.1F * level));
         player.setActiveHand(hand);
-        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+        return new ActionResult<>(EnumActionResult.PASS, stack);
     }
 
     @Override
@@ -77,6 +80,23 @@ public class HSToolScythe extends ItemSword implements IHSTool
     public boolean canContinueUsing(ItemStack oldStack, ItemStack newStack)
     {
         return true;
+    }
+
+    @Override
+    public void onUsingTick(ItemStack stack, EntityLivingBase player, int count)
+    {
+    	ItemStack heldItem = player.getHeldItemMainhand() == stack ? player.getHeldItemMainhand() : player.getHeldItemOffhand();
+    	int autoReapLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.AUTO_REAP, heldItem);
+    	int willingnessLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
+
+    	// With the Auto-Reap enchantment, automatically reap at full charge. Also supports Willingness charge speeds.
+        if (autoReapLevel > 0)
+        {
+            // Original speed at 20. Willingness I at 16. Divide 25 by level in subsequent Willingness levels (12.5 at II and 8.3 at III)
+            if (Math.min(1.0F, (getMaxItemUseDuration(stack) - count) / (willingnessLevel <= 0 ? 20.0F : willingnessLevel == 1 ? 16.0F : 25.0F / willingnessLevel)) >= 1.0F) {
+                player.stopActiveHand();
+            }
+        }
     }
 
     @Override
@@ -130,13 +150,14 @@ public class HSToolScythe extends ItemSword implements IHSTool
                 continue;
             }
 
-            if (Math.min(1.0F, (getMaxItemUseDuration(stack)  - timeLeft) / (level <= 0 ? 20.0F : 20.0F / level)) >= 1.0F) 
+            // Original speed at 20. Willingness I at 16. Divide 25 by level in subsequent Willingness levels (12.5 at II and 8.3 at III)
+            if (Math.min(1.0F, (getMaxItemUseDuration(stack)  - timeLeft) / (level <= 0 ? 20.0F : level == 1 ? 16.0F : 25.0F / level)) >= 1.0F) 
             {
                 entityInAABB.attackEntityFrom(new HSDamageSource("hs_reap", entityLiving).setDamageBypassesArmor(), getDamage(entityInAABB));
             }
         }
 
-        if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / (level <= 0 ? 20.0F : 20.0F / level)) >= 1.0F && entityLiving instanceof EntityPlayer)
+        if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / (level <= 0 ? 20.0F : level == 1 ? 16.0F : 25.0F / level)) >= 1.0F && entityLiving instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
             
@@ -144,7 +165,7 @@ public class HSToolScythe extends ItemSword implements IHSTool
             player.spawnSweepParticles();
             player.playSound(HSSoundEvents.ITEM_SCYTHE_SWING.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             
-            if (level >= 1 && itemRand.nextDouble() <  0.25D * level) {
+            if (level >= 1 && itemRand.nextDouble() <  0.2D * level) {
             	return;
             } else {
             	stack.damageItem(2, player);

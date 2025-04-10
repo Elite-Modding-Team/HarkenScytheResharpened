@@ -41,7 +41,16 @@
     {
       "type": "text",
       "title": "Willingness",
-      "text": "Has a (25% * level) chance to not consume durability while reaping. Reap charge speed is also increased for every level.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 3"
+      "text": "Has a (20% * level) chance to not consume durability while reaping. Reap charging speed is also increased for every level.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 3"
+    },
+    {
+      "type": "text",
+      "text": "These enchantments are treasure enchantments and can only be obtained from loot or other methods:"
+    },
+    {
+      "type": "text",
+      "title": "Auto-Reap",
+      "text": "Glaives and scythes will automatically reap at the end of charging. Incompatible with Mending.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 1"
     }
   ]
 }
