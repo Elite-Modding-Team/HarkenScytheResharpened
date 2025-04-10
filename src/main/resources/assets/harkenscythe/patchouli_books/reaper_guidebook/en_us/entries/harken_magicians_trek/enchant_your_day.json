@@ -50,7 +50,7 @@
     {
       "type": "text",
       "title": "Auto-Reap",
-      "text": "Glaives and scythes will automatically reap at the end of charging. Incompatible with Mending.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 1"
+      "text": "Glaives and scythes will automatically reap at the end of charging.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 1"
     }
   ]
 }

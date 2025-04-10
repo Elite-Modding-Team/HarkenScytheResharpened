@@ -171,7 +171,7 @@ entity.harkenscythe.vampire_knife.name=Vampire Knife
 
 # ENCHANTMENTS
 enchantment.harkenscythe.auto_reap=Auto-Reap
-enchantment.harkenscythe.auto_reap.desc=Glaives and scythes will automatically reap at the end of charging. Incompatible with Mending.
+enchantment.harkenscythe.auto_reap.desc=Glaives and scythes will automatically reap at the end of charging.
 enchantment.harkenscythe.blight=Blight
 enchantment.harkenscythe.blight.desc=Afflicts the target with Wither, Levitation and Weakness effects for at a few seconds or more depending on the level.
 enchantment.harkenscythe.bloodletting=Bloodletting
