@@ -22,6 +22,12 @@ public abstract class HSEntityGlobin extends EntitySlime
     {
         this.squishAmount *= 0.9F;
     }
+    
+    @Override
+    protected boolean canDamagePlayer()
+    {
+        return true;
+    }
 
     // Remove hardcoded slimeball drop
     @Override
