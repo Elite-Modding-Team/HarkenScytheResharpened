@@ -122,7 +122,7 @@ public class HSEventLivingHurt
 
     public static void spawnBlood(World world, EntityLivingBase entity)
     {
-        if (entity.isChild() || entity.getEntityData().getBoolean("IsSpectral") || entity.getMaxHealth() <= HSConfig.ENTITIES.essenceMaxHealthLimit || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForBloodReaping(entity)) return;
+        if (entity.isChild() || entity.getEntityData().getBoolean("IsSpectral") || (entity.getMaxHealth() <= HSConfig.ENTITIES.essenceMaxHealthLimit && HSConfig.ENTITIES.essenceMaxHealthLimit > 0.0D) || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForBloodReaping(entity)) return;
         HSEntityBlood blood = new HSEntityBlood(world, entity);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(blood);
