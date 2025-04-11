@@ -8,12 +8,12 @@ import mod.emt.harkenscythe.enchantment.*;
 @GameRegistry.ObjectHolder(HarkenScythe.MOD_ID)
 public class HSEnchantments
 {
-    public static final HSEnchantmentAutoReap AUTO_REAP = new HSEnchantmentAutoReap("auto_reap");
     public static final HSEnchantmentBlight BLIGHT = new HSEnchantmentBlight("blight");
     public static final HSEnchantmentBloodletting BLOODLETTING = new HSEnchantmentBloodletting("bloodletting");
     public static final HSEnchantmentExude EXUDE = new HSEnchantmentExude("exude");
     public static final HSEnchantmentHemorrhage HEMORRHAGE = new HSEnchantmentHemorrhage("hemorrhage");
     public static final HSEnchantmentNourishment NOURISHMENT = new HSEnchantmentNourishment("nourishment");
+    public static final HSEnchantmentReapingFrenzy REAPING_FRENZY = new HSEnchantmentReapingFrenzy("reaping_frenzy");
     public static final HSEnchantmentSoulsteal SOULSTEAL = new HSEnchantmentSoulsteal("soulsteal");
     public static final HSEnchantmentWillingness WILLINGNESS = new HSEnchantmentWillingness("willingness");
 }

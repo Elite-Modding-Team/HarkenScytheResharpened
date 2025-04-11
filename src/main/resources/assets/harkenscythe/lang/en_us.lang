@@ -185,7 +185,7 @@ enchantment.harkenscythe.reaping_frenzy.desc=Glaives and scythes will automatica
 enchantment.harkenscythe.soulsteal=Soulsteal
 enchantment.harkenscythe.soulsteal.desc=Has a 25%% chance or more depending on the level to cause soul essence to drop when killing a target with the tool.
 enchantment.harkenscythe.willingness=Willingness
-enchantment.harkenscythe.willingness.desc=Glaives and scythes have a 20%% chance or more depending on the level to not consume durability while reaping. Reap charging speed is also increased for every level.
+enchantment.harkenscythe.willingness.desc=Glaives and scythes have a 15%% chance or more depending on the level to not consume durability while reaping. Reap charging speed is also increased for every level.
 
 # POTIONS
 effect.harkenscythe.affliction=Spectral Affliction

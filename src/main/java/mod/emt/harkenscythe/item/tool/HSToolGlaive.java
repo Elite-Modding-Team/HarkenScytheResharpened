@@ -165,7 +165,7 @@ public class HSToolGlaive extends ItemSword implements IHSTool
             player.spawnSweepParticles();
             player.playSound(HSSoundEvents.ITEM_GLAIVE_STAB.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             
-            if (level >= 1 && itemRand.nextDouble() <  0.2D * level) {
+            if (level >= 1 && itemRand.nextDouble() <  0.15D * level) {
             	return;
             } else {
             	stack.damageItem(2, player);

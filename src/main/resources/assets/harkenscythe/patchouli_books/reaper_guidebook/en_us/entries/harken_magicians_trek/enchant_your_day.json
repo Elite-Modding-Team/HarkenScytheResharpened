@@ -41,7 +41,7 @@
     {
       "type": "text",
       "title": "Willingness",
-      "text": "Has a (20% * level) chance to not consume durability while reaping. Reap charging speed is also increased for every level.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 3"
+      "text": "Has a (15% * level) chance to not consume durability while reaping. Reap charging speed is also increased for every level.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 4"
     },
     {
       "type": "text",
