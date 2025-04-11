@@ -170,8 +170,6 @@ entity.harkenscythe.titanbearer.name=Titanbearer
 entity.harkenscythe.vampire_knife.name=Vampire Knife
 
 # ENCHANTMENTS
-enchantment.harkenscythe.auto_reap=Auto-Reap
-enchantment.harkenscythe.auto_reap.desc=Glaives and scythes will automatically reap at the end of charging.
 enchantment.harkenscythe.blight=Blight
 enchantment.harkenscythe.blight.desc=Afflicts the target with Wither, Levitation and Weakness effects for at a few seconds or more depending on the level.
 enchantment.harkenscythe.bloodletting=Bloodletting
@@ -182,6 +180,8 @@ enchantment.harkenscythe.hemorrhage=Hemorrhage
 enchantment.harkenscythe.hemorrhage.desc=Afflicts the target with the Bleeding effect, dealing periodic damage for a few seconds or more depending on the level.
 enchantment.harkenscythe.nourishment=Nourishment
 enchantment.harkenscythe.nourishment.desc=Decreases your hunger bar instead of health by the damage dealt to you.
+enchantment.harkenscythe.reaping_frenzy=Reaping Frenzy
+enchantment.harkenscythe.reaping_frenzy.desc=Glaives and scythes will automatically reap at the end of charging.
 enchantment.harkenscythe.soulsteal=Soulsteal
 enchantment.harkenscythe.soulsteal.desc=Has a 25%% chance or more depending on the level to cause soul essence to drop when killing a target with the tool.
 enchantment.harkenscythe.willingness=Willingness

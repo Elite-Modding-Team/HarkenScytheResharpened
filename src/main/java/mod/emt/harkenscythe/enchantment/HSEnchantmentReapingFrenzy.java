@@ -6,9 +6,9 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-public class HSEnchantmentAutoReap extends HSEnchantment
+public class HSEnchantmentReapingFrenzy extends HSEnchantment
 {
-    public HSEnchantmentAutoReap(String name)
+    public HSEnchantmentReapingFrenzy(String name)
     {
         super(name, Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND}, Faction.NEUTRAL);
     }

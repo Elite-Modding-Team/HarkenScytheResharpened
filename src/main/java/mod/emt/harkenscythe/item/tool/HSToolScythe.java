@@ -86,11 +86,11 @@ public class HSToolScythe extends ItemSword implements IHSTool
     public void onUsingTick(ItemStack stack, EntityLivingBase player, int count)
     {
     	ItemStack heldItem = player.getHeldItemMainhand() == stack ? player.getHeldItemMainhand() : player.getHeldItemOffhand();
-    	int autoReapLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.AUTO_REAP, heldItem);
+    	int reapingFrenzyLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.REAPING_FRENZY, heldItem);
     	int willingnessLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
 
     	// With the Auto-Reap enchantment, automatically reap at full charge. Also supports Willingness charge speeds.
-        if (autoReapLevel > 0)
+        if (reapingFrenzyLevel > 0)
         {
             // Original speed at 20. Willingness I at 16. Divide 25 by level in subsequent Willingness levels (12.5 at II and 8.3 at III)
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - count) / (willingnessLevel <= 0 ? 20.0F : willingnessLevel == 1 ? 16.0F : 25.0F / willingnessLevel)) >= 1.0F) {

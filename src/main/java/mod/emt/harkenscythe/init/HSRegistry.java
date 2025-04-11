@@ -116,12 +116,12 @@ public class HSRegistry
         HarkenScythe.LOGGER.info("Registering enchantments...");
 
         event.getRegistry().registerAll(
-            HSEnchantments.AUTO_REAP,
             HSEnchantments.BLIGHT,
             HSEnchantments.BLOODLETTING,
             HSEnchantments.EXUDE,
             HSEnchantments.HEMORRHAGE,
             HSEnchantments.NOURISHMENT,
+            HSEnchantments.REAPING_FRENZY,
             HSEnchantments.SOULSTEAL,
             HSEnchantments.WILLINGNESS
         );
