@@ -1,13 +1,16 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "EKE",
+    "SKS",
     " E "
   ],
   "key": {
     "E": {
       "type": "forge:ore_dict",
       "ore": "enderpearl"
+    },
+    "S": {
+      "item": "harkenscythe:soumberglass_ingot"
     },
     "K": {
       "item": "harkenscythe:basic_essence_keeper"

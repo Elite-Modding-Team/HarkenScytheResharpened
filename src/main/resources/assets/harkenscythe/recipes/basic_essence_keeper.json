@@ -1,11 +1,11 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "E E",
-    " E "
+    "S S",
+    " S "
   ],
   "key": {
-    "E": {
+    "S": {
       "item": "harkenscythe:soumberglass_ingot"
     }
   },
