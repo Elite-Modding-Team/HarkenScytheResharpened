@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.compat.tinkers.traits;
 
-import java.awt.*;
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +12,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
+import java.awt.*;
+import java.util.List;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSSoundEvents;

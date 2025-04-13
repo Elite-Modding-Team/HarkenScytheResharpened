@@ -19,8 +19,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSAdvancements;
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.item.HSItemEssenceKeeper;
+import mod.emt.harkenscythe.item.HSItemEssenceContainer;
 import mod.emt.harkenscythe.tileentity.HSTileEntityAbsorber;
 
 @SuppressWarnings("deprecation")
@@ -105,7 +106,7 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
             ItemStack absorberStack = absorber.getInputStack();
             ItemStack heldStack = player.getHeldItem(hand);
 
-            if (heldStack.getItem() instanceof HSItemEssenceKeeper && absorberStack.isEmpty())
+            if (heldStack.getItem() instanceof HSItemEssenceContainer && absorberStack.isEmpty())
             {
                 absorber.setInputStack(heldStack.splitStack(1));
                 world.playSound(absorberX, absorberY, absorberZ, HSSoundEvents.BLOCK_ABSORBER_ITEM_INSERT.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.0F / (absorber.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
@@ -131,4 +132,6 @@ public abstract class HSBlockAbsorber extends BlockEnchantmentTable
         }
         return false;
     }
+
+    protected abstract HSEnumFaction getFaction();
 }

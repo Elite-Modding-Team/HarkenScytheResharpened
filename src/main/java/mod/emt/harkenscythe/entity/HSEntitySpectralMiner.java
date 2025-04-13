@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -26,6 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
+import java.util.List;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSAdvancements;

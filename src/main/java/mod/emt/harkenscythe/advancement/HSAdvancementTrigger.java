@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.advancement;
 
-import java.util.*;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -12,6 +11,8 @@ import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.advancements.critereon.AbstractCriterionInstance;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.*;
 
 public class HSAdvancementTrigger implements ICriterionTrigger
 {

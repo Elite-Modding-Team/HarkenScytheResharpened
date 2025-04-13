@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.tileentity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -18,13 +15,12 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.ArrayList;
+import java.util.List;
 import mod.emt.harkenscythe.block.HSBlockAbsorber;
 import mod.emt.harkenscythe.config.HSConfig;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.item.HSItemEssenceTrinketBlood;
-import mod.emt.harkenscythe.item.HSItemEssenceTrinketSoul;
-import mod.emt.harkenscythe.item.HSItemEssenceVesselBlood;
-import mod.emt.harkenscythe.item.HSItemEssenceVesselSoul;
+import mod.emt.harkenscythe.item.HSItemEssenceContainer;
+import mod.emt.harkenscythe.util.HSContainerHelper;
 
 public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITickable
 {
@@ -188,13 +184,16 @@ public abstract class HSTileEntityAbsorber extends HSTileEntity implements ITick
     {
         getInputStack().setItemDamage(getInputStack().getItemDamage() + 1);
         Item item = getInputStack().getItem();
-        if (item instanceof HSItemEssenceTrinketBlood || item instanceof HSItemEssenceTrinketSoul)
+        if (item instanceof HSItemEssenceContainer)
         {
-            return;
-        }
-        if (getInputStack().getItemDamage() >= getInputStack().getMaxDamage())
-        {
-            setInputStack(new ItemStack(item instanceof HSItemEssenceVesselBlood || item instanceof HSItemEssenceVesselSoul ? HSItems.essence_vessel : HSItems.essence_keeper));
+            if (HSContainerHelper.isAnyTrinket(getInputStack()))
+            {
+                return;
+            }
+            if (getInputStack().getItemDamage() >= getInputStack().getMaxDamage())
+            {
+                setInputStack(HSContainerHelper.getEmptyContainer(getInputStack()));
+            }
         }
     }
 

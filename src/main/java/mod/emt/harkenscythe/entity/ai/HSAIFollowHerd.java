@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.entity.ai;
 
-import java.util.List;
-
 import com.google.common.base.Predicate;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -10,6 +8,8 @@ import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.pathfinding.PathNavigateFlying;
 import net.minecraft.pathfinding.PathNavigateGround;
 import net.minecraft.pathfinding.PathNodeType;
+
+import java.util.List;
 
 public class HSAIFollowHerd extends EntityAIBase
 {

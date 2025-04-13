@@ -12,8 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.item.HSItemEssence;
-import mod.emt.harkenscythe.item.HSItemEssenceKeeperBlood;
-import mod.emt.harkenscythe.item.HSItemEssenceKeeperSoul;
+import mod.emt.harkenscythe.util.HSContainerHelper;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)
 public class HSEventItemTooltip
@@ -55,11 +54,12 @@ public class HSEventItemTooltip
     {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
-        if (item instanceof HSItemEssenceKeeperBlood)
+
+        if (HSContainerHelper.isBloodFaction(stack))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.collected_blood") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage());
         }
-        else if (item instanceof HSItemEssenceKeeperSoul)
+        else if (HSContainerHelper.isSoulFaction(stack))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.collected_souls") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage());
         }

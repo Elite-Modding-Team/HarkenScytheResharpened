@@ -59,7 +59,7 @@ public class HSEventRenderSpecificHand
             }
         }
     }
-    
+
     // Courtesy of NeRdTheNed
     @SubscribeEvent
     public static void onRenderHSTool(RenderSpecificHandEvent event)

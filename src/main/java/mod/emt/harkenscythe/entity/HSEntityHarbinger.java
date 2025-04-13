@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import java.awt.*;
-import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -35,6 +33,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
+import java.awt.*;
+import java.util.List;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;

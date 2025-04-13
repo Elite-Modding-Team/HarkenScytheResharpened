@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.block;
 
-import java.util.Random;
-
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -17,6 +15,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
+import java.util.Random;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundTypes;

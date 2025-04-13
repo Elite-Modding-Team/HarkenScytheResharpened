@@ -1,10 +1,9 @@
 package mod.emt.harkenscythe.compat.crafttweaker;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.IAction;
+import java.util.LinkedList;
+import java.util.List;
 
 public class HSCraftTweakerPlugin
 {

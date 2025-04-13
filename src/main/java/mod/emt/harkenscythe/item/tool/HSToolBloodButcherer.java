@@ -165,7 +165,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                         target.attackEntityFrom(new HSDamageSource("hs_butcher", player), sweepCalculation);
                         this.doBleedEffect(target);
                     }
-                    
+
                     player.world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), player.getSoundCategory(), 1.0F, 0.5F / (player.world.rand.nextFloat() * 0.4F + 1.2F));
                     player.spawnSweepParticles();
                 }
@@ -192,7 +192,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
         {
             entityLiving.world.playSound(null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, HSSoundEvents.ITEM_BLOOD_BUTCHERER_SWING.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.5F / (entityLiving.world.rand.nextFloat() * 0.4F + 1.2F));
         }
-        
+
         return super.onEntitySwing(entityLiving, stack);
     }
 

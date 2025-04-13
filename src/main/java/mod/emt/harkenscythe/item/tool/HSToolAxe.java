@@ -32,15 +32,15 @@ public class HSToolAxe extends ItemAxe implements IHSTool
     }
 
     @Override
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
-    {
-        return slotChanged || oldStack.getItem() != newStack.getItem();
-    }
-
-    @Override
     public EnumRarity getRarity(ItemStack stack)
     {
         return rarity;
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
+    {
+        return slotChanged || oldStack.getItem() != newStack.getItem();
     }
 
     @Override

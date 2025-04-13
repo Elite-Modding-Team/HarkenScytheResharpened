@@ -1,14 +1,13 @@
 package mod.emt.harkenscythe.init;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.ArrayList;
+import java.util.List;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.recipe.HSRecipeBloodAltar;
 import mod.emt.harkenscythe.recipe.HSRecipeSoulAltar;

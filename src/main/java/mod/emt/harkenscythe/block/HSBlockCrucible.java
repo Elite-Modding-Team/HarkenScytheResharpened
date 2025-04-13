@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.block;
 
-import java.util.List;
-import java.util.Random;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
@@ -27,13 +25,17 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.List;
+import java.util.Random;
 import mod.emt.harkenscythe.config.HSConfig;
-import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.HSItemEssence;
+import mod.emt.harkenscythe.item.HSItemEssenceContainer;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.tileentity.HSTileEntityCrucible;
+import mod.emt.harkenscythe.util.HSContainerHelper;
 
 @SuppressWarnings("deprecation")
 public abstract class HSBlockCrucible extends Block
@@ -135,11 +137,13 @@ public abstract class HSBlockCrucible extends Block
             ItemStack heldStack = player.getHeldItem(hand);
             Item heldItem = heldStack.getItem();
             int essenceCount = ((HSTileEntityCrucible) te).getEssenceCount();
+            // Fill with essence item
             if (heldItem instanceof HSItemEssence && essenceCount + ((HSItemEssence) heldItem).getEssenceValue() <= HSConfig.BLOCKS.crucibleMaxAmount)
             {
                 HSItemEssence itemEssence = (HSItemEssence) heldItem;
-                return fillCrucibleItem(world, pos, state, player, heldStack, itemEssence, essenceCount);
+                return fillCrucibleFromItem(world, pos, state, player, heldStack, itemEssence, essenceCount);
             }
+            // Wash color from armor
             else if (essenceCount > 0 && heldItem instanceof HSArmorDyeable)
             {
                 HSArmorDyeable armor = (HSArmorDyeable) heldItem;
@@ -152,13 +156,15 @@ public abstract class HSBlockCrucible extends Block
                     return true;
                 }
             }
-            else if (essenceCount < HSConfig.BLOCKS.crucibleMaxAmount && !player.isSneaking() && (heldItem == getEssenceKeeper() || heldItem == getEssenceVessel()))
+            // Fill crucible from container
+            else if (essenceCount < HSConfig.BLOCKS.crucibleMaxAmount && !player.isSneaking() && HSContainerHelper.getFaction(heldStack) == getFaction())
             {
-                return fillCrucibleContainer(world, pos, state, player, hand, heldStack, heldItem, essenceCount, getEssenceKeeper(), getEssenceVessel());
+                return fillCrucibleFromContainer(world, pos, state, player, hand, heldStack, heldItem, essenceCount);
             }
-            else if (essenceCount > 0 && player.isSneaking())
+            // Empty crucible to container
+            else if (essenceCount > 0 && player.isSneaking() && heldItem instanceof HSItemEssenceContainer)
             {
-                return emptyCrucible(world, pos, state, player, hand, heldStack, heldItem, essenceCount, getEssenceKeeper(), getEssenceVessel());
+                return emptyCrucibleToContainer(world, pos, state, player, hand, heldStack, heldItem, essenceCount);
             }
         }
         return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
@@ -200,13 +206,9 @@ public abstract class HSBlockCrucible extends Block
         return new HSTileEntityCrucible();
     }
 
-    protected abstract Item getEssenceKeeper();
+    protected abstract HSEnumFaction getFaction();
 
-    protected abstract Item getEssenceVessel();
-
-    protected abstract Item getEssenceItem();
-
-    protected boolean fillCrucibleItem(World world, BlockPos pos, IBlockState state, EntityPlayer player, ItemStack heldStack, HSItemEssence heldItem, int essenceCount)
+    protected boolean fillCrucibleFromItem(World world, BlockPos pos, IBlockState state, EntityPlayer player, ItemStack heldStack, HSItemEssence heldItem, int essenceCount)
     {
         TileEntity te = world.getTileEntity(pos);
         if (te instanceof HSTileEntityCrucible)
@@ -223,32 +225,28 @@ public abstract class HSBlockCrucible extends Block
         return false;
     }
 
-    protected boolean fillCrucibleContainer(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int essenceCount, Item keeperType, Item vesselType)
+    protected boolean fillCrucibleFromContainer(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int essenceCount)
     {
         TileEntity te = world.getTileEntity(pos);
         if (te instanceof HSTileEntityCrucible)
         {
             if (!player.capabilities.isCreativeMode)
             {
+                // Partially filled
                 if (heldStack.getItemDamage() + 1 < heldStack.getMaxDamage())
                 {
                     heldStack.setItemDamage(heldStack.getItemDamage() + 1);
                 }
+                // Becoming empty
                 else
                 {
+                    ItemStack newStack = HSContainerHelper.getEmptyContainer(heldStack);
                     heldStack.shrink(1);
-                    if (heldItem == keeperType)
-                    {
-                        player.setHeldItem(hand, new ItemStack(HSItems.essence_keeper));
-                    }
-                    else if (heldItem == vesselType)
-                    {
-                        player.setHeldItem(hand, new ItemStack(HSItems.essence_vessel));
-                    }
+                    player.setHeldItem(hand, newStack);
                 }
             }
             float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
-            if (heldItem == keeperType) pitch += 0.5F;
+            if (!HSContainerHelper.isVessel(heldStack)) pitch += 0.5F;
             world.playSound(null, pos, HSSoundEvents.ITEM_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, pitch);
             world.playSound(null, pos, HSSoundEvents.RANDOM_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount + 1);
@@ -258,31 +256,36 @@ public abstract class HSBlockCrucible extends Block
         return false;
     }
 
-    protected boolean emptyCrucible(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int essenceCount, Item keeperType, Item vesselType)
+    protected boolean emptyCrucibleToContainer(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldStack, Item heldItem, int essenceCount)
     {
         TileEntity te = world.getTileEntity(pos);
         if (te instanceof HSTileEntityCrucible)
         {
             if (!player.capabilities.isCreativeMode)
             {
-                if (heldItem == HSItems.essence_keeper || heldItem == HSItems.essence_vessel)
+                // Interacting with an empty container
+                if (HSContainerHelper.isNeutralFaction(heldStack))
                 {
-                    heldStack.shrink(1);
-                    ItemStack newStack = heldItem == HSItems.essence_keeper ? new ItemStack(keeperType) : new ItemStack(vesselType);
+                    ItemStack newStack = HSContainerHelper.getFullContainerFaction(heldStack, getFaction());
                     newStack.setItemDamage(newStack.getMaxDamage() - 1);
+                    heldStack.shrink(1);
                     player.setHeldItem(hand, newStack);
                 }
-                else if (heldItem == keeperType || heldItem == vesselType)
+                // Interacting with a (partially) filled container
+                else if (HSContainerHelper.getFaction(heldStack) == getFaction())
                 {
+                    // Already filled
                     if (heldStack.getItemDamage() == 0) return false;
+                    // Partially filled
                     if (heldStack.getItemDamage() > 0)
                     {
                         heldStack.setItemDamage(heldStack.getItemDamage() - 1);
                     }
+                    // Becoming filled
                     if (heldStack.getItemDamage() <= 0)
                     {
+                        ItemStack newStack = HSContainerHelper.getFullContainerFaction(heldStack, getFaction());
                         heldStack.shrink(1);
-                        ItemStack newStack = heldItem == keeperType ? new ItemStack(keeperType) : new ItemStack(vesselType);
                         player.setHeldItem(hand, newStack);
                     }
                 }
@@ -292,7 +295,7 @@ public abstract class HSBlockCrucible extends Block
                 }
             }
             float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
-            if (heldItem == keeperType) pitch += 0.5F;
+            if (!HSContainerHelper.isVessel(heldStack)) pitch += 0.5F;
             world.playSound(null, pos, HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, pitch);
             world.playSound(null, pos, HSSoundEvents.RANDOM_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
             ((HSTileEntityCrucible) te).setEssenceCount(world, pos, state, essenceCount - 1);

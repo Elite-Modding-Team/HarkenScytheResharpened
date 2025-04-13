@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 
 import WayofTime.bloodmagic.ConfigHandler;
 import WayofTime.bloodmagic.util.helper.PlayerSacrificeHelper;
-import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.util.HSContainerHelper;
 
 public class HSBloodMagicPlugin
 {
@@ -33,12 +33,12 @@ public class HSBloodMagicPlugin
                 else
                 {
                     stack.shrink(1);
-                    player.setHeldItem(hand, item == HSItems.essence_keeper_blood ? new ItemStack(HSItems.essence_keeper) : new ItemStack(HSItems.essence_vessel));
+                    player.setHeldItem(hand, HSContainerHelper.getEmptyContainer(stack));
                 }
             }
 
             float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
-            if (item == HSItems.essence_keeper_blood) pitch += 0.5F;
+            if (!HSContainerHelper.isVessel(stack)) pitch += 0.5F;
             world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_REMOVE.getSoundEvent(), SoundCategory.BLOCKS, 1.0F, pitch);
             world.playSound(null, player.getPosition(), HSSoundEvents.RANDOM_SUMMON.getSoundEvent(), SoundCategory.BLOCKS, 0.3F, pitch);
             world.playSound(null, player.getPosition(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);

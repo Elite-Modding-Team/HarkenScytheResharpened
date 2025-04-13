@@ -41,18 +41,18 @@ public class HSToolAthame extends ItemSword implements IHSTool
         return false;
     }
 
+    @Override
+    public EnumRarity getRarity(ItemStack stack)
+    {
+        return rarity;
+    }
+
     // Wouldn't make sense to apply these enchantments to an item that doesn't even break and take damage
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
     {
         if (enchantment == Enchantments.MENDING || enchantment == Enchantments.UNBREAKING) return false;
         return super.canApplyAtEnchantingTable(stack, enchantment);
-    }
-
-    @Override
-    public EnumRarity getRarity(ItemStack stack)
-    {
-        return rarity;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.event;
 
-import java.util.Iterator;
 import javax.annotation.Nullable;
 
 import net.minecraft.enchantment.Enchantment;
@@ -29,6 +28,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.util.Iterator;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.*;

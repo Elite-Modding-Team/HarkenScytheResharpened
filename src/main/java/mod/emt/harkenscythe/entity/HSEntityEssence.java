@@ -1,13 +1,9 @@
 package mod.emt.harkenscythe.entity;
 
-import java.util.Collections;
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
@@ -15,9 +11,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Collections;
+import java.util.List;
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+import mod.emt.harkenscythe.util.HSContainerHelper;
 
 public abstract class HSEntityEssence extends EntityLivingBase
 {
@@ -172,6 +172,8 @@ public abstract class HSEntityEssence extends EntityLivingBase
         }
     }
 
+    protected abstract HSEnumFaction getFaction();
+
     @Override
     protected boolean canTriggerWalking()
     {
@@ -197,12 +199,62 @@ public abstract class HSEntityEssence extends EntityLivingBase
     @Override
     public boolean processInitialInteract(EntityPlayer player, EnumHand hand)
     {
-        ItemStack stack = player.getHeldItem(hand);
-        if (stack.getItem() == HSItems.blunt_harken_blade)
+        if (!this.isDead && this.getHealth() > 0)
         {
-            stack.shrink(1);
-            this.createAthame();
-            return true;
+            ItemStack stack = player.getHeldItem(hand);
+            // Interacting with blunt harken blade
+            if (stack.getItem() == HSItems.blunt_harken_blade)
+            {
+                stack.shrink(1);
+                this.createAthame();
+                return true;
+            }
+            int quantity = 0;
+            if (getFaction() == HSEnumFaction.BLOOD)
+            {
+                quantity = ((HSEntityBlood) this).getBloodQuantity();
+            }
+            else if (getFaction() == HSEnumFaction.SOUL)
+            {
+                quantity = ((HSEntitySoul) this).getSoulQuantity();
+            }
+            // Interacting with an empty container
+            if (HSContainerHelper.isNeutralFaction(stack))
+            {
+                stack.shrink(1);
+                ItemStack newStack = HSContainerHelper.getFullContainerFaction(stack, HSEnumFaction.BLOOD);
+                newStack.setItemDamage(newStack.getMaxDamage() - quantity);
+                player.setHeldItem(hand, newStack);
+                float pitch = newStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) newStack.getItemDamage() / newStack.getMaxDamage() * 0.5F);
+                if (!HSContainerHelper.isVessel(stack)) pitch += 0.5F;
+                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
+                this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
+                this.setHealth(0);
+            }
+            // Interacting with a (partially) filled container
+            else if ((HSContainerHelper.isBloodFaction(stack) && getFaction() == HSEnumFaction.BLOOD) || (HSContainerHelper.isSoulFaction(stack) && getFaction() == HSEnumFaction.SOUL))
+            {
+                // Already filled
+                if (stack.getItemDamage() == 0) return false;
+                // Partially filled
+                if (stack.getItemDamage() > 0)
+                {
+                    stack.setItemDamage(stack.getItemDamage() - quantity);
+                }
+                // Becoming filled
+                if (stack.getItemDamage() <= 0)
+                {
+                    ItemStack newStack = HSContainerHelper.getFullContainer(stack);
+                    stack.shrink(1);
+                    player.setHeldItem(hand, newStack);
+                }
+                float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
+                if (!HSContainerHelper.isVessel(stack)) pitch += 0.5F;
+                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
+                this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
+                this.recentlyHit = 60;
+                this.setHealth(0);
+            }
         }
         return super.processInitialInteract(player, hand);
     }

@@ -293,13 +293,17 @@ public class HSConfig
             })
         public int bloodButchererMaxCharges = 2000;
 
+        @Config.Name("Basic Blood Keeper Essence Capacity")
+        @Config.Comment("The amount of essence basic blood keepers can hold")
+        public int bloodKeeperBasicEssenceCapacity = 40;
+
         @Config.Name("Blood Keeper Essence Capacity")
         @Config.Comment("The amount of essence blood keepers can hold")
-        public int bloodKeeperEssenceCapacity = 40;
+        public int bloodKeeperEssenceCapacity = 80;
 
         @Config.Name("Blood Vessel Essence Capacity")
         @Config.Comment("The amount of essence blood vessels can hold")
-        public int bloodVesselEssenceCapacity = 80;
+        public int bloodVesselEssenceCapacity = 160;
 
         @Config.Name("Blood Trinket Essence Capacity")
         @Config.Comment("The amount of essence blood trinkets can hold")
@@ -366,13 +370,17 @@ public class HSConfig
         @Config.Comment("Provides the player with the Reaper's Guidebook on first spawn")
         public boolean reaperGuidebookProvision = true;
 
+        @Config.Name("Basic Soul Keeper Essence Capacity")
+        @Config.Comment("The amount of essence basic soul keepers can hold")
+        public int soulKeeperBasicEssenceCapacity = 30;
+
         @Config.Name("Soul Keeper Essence Capacity")
         @Config.Comment("The amount of essence soul keepers can hold")
-        public int soulKeeperEssenceCapacity = 20;
+        public int soulKeeperEssenceCapacity = 60;
 
         @Config.Name("Soul Vessel Essence Capacity")
         @Config.Comment("The amount of essence soul vessels can hold")
-        public int soulVesselEssenceCapacity = 40;
+        public int soulVesselEssenceCapacity = 120;
 
         @Config.Name("Soul Trinket Essence Capacity")
         @Config.Comment("The amount of essence soul trinkets can hold")

@@ -3,6 +3,7 @@ package mod.emt.harkenscythe.block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.tileentity.HSTileEntitySoulAbsorber;
 
 public class HSBlockSoulAbsorber extends HSBlockAbsorber
@@ -11,5 +12,11 @@ public class HSBlockSoulAbsorber extends HSBlockAbsorber
     public TileEntity createNewTileEntity(World world, int meta)
     {
         return new HSTileEntitySoulAbsorber();
+    }
+
+    @Override
+    protected HSEnumFaction getFaction()
+    {
+        return HSEnumFaction.SOUL;
     }
 }

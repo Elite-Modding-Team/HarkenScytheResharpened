@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.potion;
 
-import java.awt.*;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -9,6 +7,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
+import java.awt.*;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 

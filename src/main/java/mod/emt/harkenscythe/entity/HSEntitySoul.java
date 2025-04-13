@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import java.util.List;
-import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
@@ -18,13 +16,17 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
-import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmor;
@@ -112,74 +114,6 @@ public class HSEntitySoul extends HSEntityEssence
         }
     }
 
-    @Override
-    public void onEntityUpdate()
-    {
-        super.onEntityUpdate();
-        if (isEntityAlive() && this.ticksExisted % 200 == 0 && this.rand.nextBoolean())
-        {
-            playLivingSound();
-        }
-    }
-
-    public boolean attackEntityFrom(DamageSource source, float amount)
-    {
-        if (source.getTrueSource() instanceof HSEntityHarbinger)
-        {
-            this.setHealth(0);
-            ((EntityLivingBase) source.getTrueSource()).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 0));
-            HSEventLivingDeath.spawnSpectralEntity(this.world, this.getOriginalEntity(), this.getPosition(), true);
-            return true;
-        }
-        return super.attackEntityFrom(source, amount);
-    }
-
-    // TODO: Streamline this with blood essence interaction
-    @Override
-    public boolean processInitialInteract(EntityPlayer player, EnumHand hand)
-    {
-        if (!this.isDead && this.getHealth() > 0)
-        {
-            ItemStack stack = player.getHeldItem(hand);
-            Item item = stack.getItem();
-            if (item == HSItems.essence_keeper || item == HSItems.essence_vessel)
-            {
-                stack.shrink(1);
-                ItemStack newStack = item == HSItems.essence_keeper ? new ItemStack(HSItems.essence_keeper_soul) : new ItemStack(HSItems.essence_vessel_soul);
-                newStack.setItemDamage(newStack.getMaxDamage() - this.getSoulQuantity());
-                player.setHeldItem(hand, newStack);
-                this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
-                float pitch = newStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) newStack.getItemDamage() / newStack.getMaxDamage() * 0.5F);
-                if (newStack.getItem() == HSItems.essence_keeper_soul) pitch += 0.5F;
-                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
-                this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
-                this.setHealth(0);
-            }
-            else if (item == HSItems.essence_keeper_soul || item == HSItems.essence_vessel_soul)
-            {
-                if (stack.getItemDamage() == 0) return false;
-                if (stack.getItemDamage() > 0)
-                {
-                    stack.setItemDamage(stack.getItemDamage() - this.getSoulQuantity());
-                }
-                if (stack.getItemDamage() <= 0)
-                {
-                    stack.shrink(1);
-                    ItemStack newStack = item == HSItems.essence_keeper_soul ? new ItemStack(HSItems.essence_keeper_soul) : new ItemStack(HSItems.essence_vessel_soul);
-                    player.setHeldItem(hand, newStack);
-                }
-                this.repairEquipment(this.getRandomDamagedLivingmetalEquipment(player));
-                float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
-                if (stack.getItem() == HSItems.essence_keeper_soul) pitch += 0.5F;
-                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
-                this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
-                this.recentlyHit = 60;
-                this.setHealth(0);
-            }
-        }
-        return super.processInitialInteract(player, hand);
-    }
-
     public void playLivingSound()
     {
         SoundEvent soundEvent = getAmbientSound();
@@ -202,6 +136,34 @@ public class HSEntitySoul extends HSEntityEssence
         List<ItemStack> equipmentList = this.getDamagedPlayerEquipment(player);
         equipmentList = equipmentList.stream().filter(stack -> isLivingmetalItem(stack.getItem())).collect(Collectors.toList());
         return equipmentList.isEmpty() ? ItemStack.EMPTY : equipmentList.get(player.getRNG().nextInt(equipmentList.size()));
+    }
+
+    @Override
+    public void onEntityUpdate()
+    {
+        super.onEntityUpdate();
+        if (isEntityAlive() && this.ticksExisted % 200 == 0 && this.rand.nextBoolean())
+        {
+            playLivingSound();
+        }
+    }
+
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (source.getTrueSource() instanceof HSEntityHarbinger)
+        {
+            this.setHealth(0);
+            ((EntityLivingBase) source.getTrueSource()).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 0));
+            HSEventLivingDeath.spawnSpectralEntity(this.world, this.getOriginalEntity(), this.getPosition(), true);
+            return true;
+        }
+        return super.attackEntityFrom(source, amount);
+    }
+
+    @Override
+    protected HSEnumFaction getFaction()
+    {
+        return HSEnumFaction.SOUL;
     }
 
     @Nullable

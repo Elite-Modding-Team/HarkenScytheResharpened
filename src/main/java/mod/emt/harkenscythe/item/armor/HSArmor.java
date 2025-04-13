@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.item.armor;
 
-import java.util.List;
 import javax.annotation.Nullable;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.List;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSMaterials;

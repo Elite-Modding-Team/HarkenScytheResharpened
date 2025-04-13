@@ -2,7 +2,6 @@ package mod.emt.harkenscythe.util;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
 

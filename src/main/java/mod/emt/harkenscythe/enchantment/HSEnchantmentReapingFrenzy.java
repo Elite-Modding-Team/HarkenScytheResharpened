@@ -1,18 +1,26 @@
 package mod.emt.harkenscythe.enchantment;
 
-import mod.emt.harkenscythe.item.tool.HSToolGlaive;
-import mod.emt.harkenscythe.item.tool.HSToolScythe;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+
+import mod.emt.harkenscythe.init.HSEnumFaction;
+import mod.emt.harkenscythe.item.tool.HSToolGlaive;
+import mod.emt.harkenscythe.item.tool.HSToolScythe;
 
 public class HSEnchantmentReapingFrenzy extends HSEnchantment
 {
     public HSEnchantmentReapingFrenzy(String name)
     {
-        super(name, Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND}, Faction.NEUTRAL);
+        super(name, Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
     }
- 
+
+    @Override
+    public int getMaxLevel()
+    {
+        return 1;
+    }
+
     @Override
     public int getMinEnchantability(int enchantmentLevel)
     {
@@ -26,21 +34,21 @@ public class HSEnchantmentReapingFrenzy extends HSEnchantment
     }
 
     @Override
+    public boolean canApply(ItemStack stack)
+    {
+        // Exclusive to only glaives and scythes.
+        return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
+    }
+
+    @Override
     public boolean isTreasureEnchantment()
     {
         return true;
     }
 
     @Override
-    public int getMaxLevel()
+    protected HSEnumFaction getFaction()
     {
-        return 1;
-    }
-
-    @Override
-    public boolean canApply(ItemStack stack)
-    {
-    	// Exclusive to only glaives and scythes.
-        return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
+        return HSEnumFaction.NEUTRAL;
     }
 }

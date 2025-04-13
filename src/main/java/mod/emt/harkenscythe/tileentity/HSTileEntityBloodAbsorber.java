@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import mod.emt.harkenscythe.client.sound.HSSoundAbsorberBlood;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.item.HSItemEssenceKeeperBlood;
+import mod.emt.harkenscythe.util.HSContainerHelper;
 
 public class HSTileEntityBloodAbsorber extends HSTileEntityAbsorber implements ITickable
 {
@@ -25,7 +25,7 @@ public class HSTileEntityBloodAbsorber extends HSTileEntityAbsorber implements I
     public int scanContainerEssenceCounts(ItemStack container)
     {
         int totalCount = 0;
-        if (container.getItem() instanceof HSItemEssenceKeeperBlood)
+        if (HSContainerHelper.isBloodFaction(container))
         {
             totalCount = container.getMaxDamage() - container.getItemDamage();
         }

@@ -38,7 +38,7 @@ public class HSItemSpectralPotion extends HSItem
     {
         ItemStack itemStack = player.getHeldItem(hand);
 
-        if (!player.isCreative())
+        if (!player.capabilities.isCreativeMode)
         {
             itemStack.shrink(1);
         }

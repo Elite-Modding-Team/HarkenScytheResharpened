@@ -20,6 +20,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSAdvancements;
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.tileentity.HSTileEntityAltar;
@@ -160,6 +161,8 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
     protected abstract SoundEvent getSoundEvent();
 
     protected abstract SoundEvent getSoundEventFail();
+
+    protected abstract HSEnumFaction getFaction();
 
     protected void handleRecipe(World world, HSTileEntityAltar altar, ItemStack altarStack, EntityPlayer player, int altarX, int altarY, int altarZ)
     {

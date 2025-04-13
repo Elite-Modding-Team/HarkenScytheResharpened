@@ -36,12 +36,6 @@ public class HSToolShears extends ItemShears implements IHSTool
     }
 
     @Override
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
-    {
-        return slotChanged || oldStack.getItem() != newStack.getItem();
-    }
-
-    @Override
     public EnumRarity getRarity(ItemStack stack)
     {
         return rarity;
@@ -51,6 +45,12 @@ public class HSToolShears extends ItemShears implements IHSTool
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
     {
         return repairMaterial.test(repair) || super.getIsRepairable(toRepair, repair);
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
+    {
+        return slotChanged || oldStack.getItem() != newStack.getItem();
     }
 
     // Hardcoded blocks...

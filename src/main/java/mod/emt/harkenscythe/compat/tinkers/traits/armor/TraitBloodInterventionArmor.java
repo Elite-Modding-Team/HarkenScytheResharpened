@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.compat.tinkers.traits.armor;
 
-import java.awt.*;
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,6 +15,8 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import java.awt.*;
+import java.util.List;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.HSEntityBlood;
 import mod.emt.harkenscythe.init.HSSoundEvents;

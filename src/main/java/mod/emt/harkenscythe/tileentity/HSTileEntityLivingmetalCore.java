@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.tileentity;
 
-import java.util.List;
-import java.util.UUID;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityTameable;
@@ -15,6 +12,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.List;
+import java.util.UUID;
 import mod.emt.harkenscythe.block.HSBlockLivingmetalCore;
 import mod.emt.harkenscythe.config.HSConfig;
 

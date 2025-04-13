@@ -2,21 +2,16 @@ package mod.emt.harkenscythe.entity;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import mod.emt.harkenscythe.config.HSConfig;
-import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.network.packet.HSEssenceTypePacket;
@@ -85,48 +80,10 @@ public class HSEntityBlood extends HSEntityEssence
         }
     }
 
-    // TODO: Streamline this with soul essence interaction
     @Override
-    public boolean processInitialInteract(EntityPlayer player, EnumHand hand)
+    protected HSEnumFaction getFaction()
     {
-        if (!this.isDead && this.getHealth() > 0)
-        {
-            ItemStack stack = player.getHeldItem(hand);
-            Item item = stack.getItem();
-            if (item == HSItems.essence_keeper || item == HSItems.essence_vessel)
-            {
-                stack.shrink(1);
-                ItemStack newStack = item == HSItems.essence_keeper ? new ItemStack(HSItems.essence_keeper_blood) : new ItemStack(HSItems.essence_vessel_blood);
-                newStack.setItemDamage(newStack.getMaxDamage() - this.getBloodQuantity());
-                player.setHeldItem(hand, newStack);
-                float pitch = newStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) newStack.getItemDamage() / newStack.getMaxDamage() * 0.5F);
-                if (newStack.getItem() == HSItems.essence_keeper_blood) pitch += 0.5F;
-                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
-                this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
-                this.setHealth(0);
-            }
-            else if (item == HSItems.essence_keeper_blood || item == HSItems.essence_vessel_blood)
-            {
-                if (stack.getItemDamage() == 0) return false;
-                if (stack.getItemDamage() > 0)
-                {
-                    stack.setItemDamage(stack.getItemDamage() - this.getBloodQuantity());
-                }
-                if (stack.getItemDamage() <= 0)
-                {
-                    stack.shrink(1);
-                    ItemStack newStack = item == HSItems.essence_keeper_blood ? new ItemStack(HSItems.essence_keeper_blood) : new ItemStack(HSItems.essence_vessel_blood);
-                    player.setHeldItem(hand, newStack);
-                }
-                float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
-                if (stack.getItem() == HSItems.essence_keeper_blood) pitch += 0.5F;
-                this.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
-                this.world.spawnParticle(EnumParticleTypes.CLOUD, this.posX, this.posY + 1.5D, this.posZ, 0.0D, 0.1D, 0.0D);
-                this.recentlyHit = 60;
-                this.setHealth(0);
-            }
-        }
-        return super.processInitialInteract(player, hand);
+        return HSEnumFaction.BLOOD;
     }
 
     @Override

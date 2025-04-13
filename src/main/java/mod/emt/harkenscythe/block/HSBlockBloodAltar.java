@@ -7,6 +7,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import mod.emt.harkenscythe.init.HSAltarRecipes;
+import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
 
@@ -40,5 +41,11 @@ public class HSBlockBloodAltar extends HSBlockAltar
     protected SoundEvent getSoundEventFail()
     {
         return HSSoundEvents.BLOCK_BLOOD_ALTAR_FAIL.getSoundEvent();
+    }
+
+    @Override
+    protected HSEnumFaction getFaction()
+    {
+        return HSEnumFaction.BLOOD;
     }
 }

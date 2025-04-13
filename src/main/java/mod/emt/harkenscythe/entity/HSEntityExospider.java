@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import java.awt.*;
-import java.util.Iterator;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -25,6 +23,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
+import java.awt.*;
+import java.util.Iterator;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.ai.HSAIFollowHerd;
 import mod.emt.harkenscythe.init.*;
@@ -84,7 +84,10 @@ public class HSEntityExospider extends EntitySpider
     {
         if (this.getVariant() == 0 && player.getHeldItem(hand).getItem() == HSItems.biomass)
         {
-            if (!player.isCreative()) player.getHeldItem(hand).shrink(1);
+            if (!player.capabilities.isCreativeMode)
+            {
+                player.getHeldItem(hand).shrink(1);
+            }
             this.setVariant(1);
             this.setPassive();
             this.spawnExplosionParticle();

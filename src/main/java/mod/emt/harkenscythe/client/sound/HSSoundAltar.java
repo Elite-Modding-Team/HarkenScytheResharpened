@@ -15,6 +15,11 @@ import mod.emt.harkenscythe.tileentity.HSTileEntityBloodAltar;
 @SideOnly(Side.CLIENT)
 public class HSSoundAltar extends PositionedSound implements ITickableSound
 {
+    private static SoundEvent getSoundEvent(HSTileEntityAltar altar)
+    {
+        return altar instanceof HSTileEntityBloodAltar ? HSSoundEvents.BLOCK_BLOOD_ALTAR_LOOP.getSoundEvent() : HSSoundEvents.BLOCK_SOUL_ALTAR_LOOP.getSoundEvent();
+    }
+
     protected HSTileEntityAltar altar;
     protected BlockPos position;
 
@@ -43,10 +48,5 @@ public class HSSoundAltar extends PositionedSound implements ITickableSound
     public boolean isDonePlaying()
     {
         return this.volume <= 0.0F;
-    }
-
-    private static SoundEvent getSoundEvent(HSTileEntityAltar altar)
-    {
-        return altar instanceof HSTileEntityBloodAltar ? HSSoundEvents.BLOCK_BLOOD_ALTAR_LOOP.getSoundEvent() : HSSoundEvents.BLOCK_SOUL_ALTAR_LOOP.getSoundEvent();
     }
 }

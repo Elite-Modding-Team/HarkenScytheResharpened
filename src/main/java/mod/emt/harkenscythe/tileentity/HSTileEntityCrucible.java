@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.tileentity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,6 +7,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.List;
 import mod.emt.harkenscythe.block.HSBlockBloodCrucible;
 import mod.emt.harkenscythe.block.HSBlockCrucible;
 import mod.emt.harkenscythe.config.HSConfig;

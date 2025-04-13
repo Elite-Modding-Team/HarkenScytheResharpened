@@ -1,14 +1,13 @@
 package mod.emt.harkenscythe.compat.crafttweaker;
 
-import java.util.Collections;
-import java.util.List;
-
 import com.blamejared.mtlib.helpers.InputHelper;
 import com.blamejared.mtlib.helpers.LogHelper;
 import com.blamejared.mtlib.utils.BaseListAddition;
 import com.blamejared.mtlib.utils.BaseListRemoval;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IItemStack;
+import java.util.Collections;
+import java.util.List;
 import mod.emt.harkenscythe.init.HSAltarRecipes;
 import mod.emt.harkenscythe.recipe.HSRecipeSoulAltar;
 import stanhebben.zenscript.annotations.ZenClass;

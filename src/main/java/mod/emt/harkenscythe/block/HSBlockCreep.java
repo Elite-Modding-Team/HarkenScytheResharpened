@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.block;
 
-import java.util.Random;
 import javax.annotation.Nullable;
 
 import net.minecraft.advancements.CriteriaTriggers;
@@ -27,9 +26,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Random;
 import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundTypes;
+import mod.emt.harkenscythe.util.HSContainerHelper;
 
 @SuppressWarnings("deprecation")
 public class HSBlockCreep extends Block
@@ -113,7 +114,7 @@ public class HSBlockCreep extends Block
     {
         ItemStack heldStack = player.getHeldItem(hand);
         Item heldItem = heldStack.getItem();
-        if ((heldItem == HSItems.essence_keeper_blood || heldItem == HSItems.essence_vessel_blood) && this == HSBlocks.creep_block_tilled)
+        if (HSContainerHelper.isBloodFaction(heldStack) && this == HSBlocks.creep_block_tilled)
         {
             return bloodyGround(world, pos, player, hand, heldStack, heldItem);
         }
@@ -148,19 +149,13 @@ public class HSBlockCreep extends Block
             }
             else
             {
+                ItemStack newStack = HSContainerHelper.getEmptyContainer(heldStack);
                 heldStack.shrink(1);
-                if (heldItem == HSItems.essence_keeper_blood)
-                {
-                    player.setHeldItem(hand, new ItemStack(HSItems.essence_keeper));
-                }
-                else if (heldItem == HSItems.essence_vessel_blood)
-                {
-                    player.setHeldItem(hand, new ItemStack(HSItems.essence_vessel));
-                }
+                player.setHeldItem(hand, newStack);
             }
         }
         float pitch = heldStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) heldStack.getItemDamage() / heldStack.getMaxDamage() * 0.5F);
-        if (heldItem == HSItems.essence_keeper_blood || heldItem == HSItems.essence_keeper) pitch += 0.5F;
+        if (!HSContainerHelper.isVessel(heldStack)) pitch += 0.5F;
         world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, pitch);
         player.addStat(StatList.getObjectUseStats(heldItem));
         return true;

@@ -1,13 +1,16 @@
 package mod.emt.harkenscythe.event;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.item.HSItem;
-import mod.emt.harkenscythe.item.tool.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.init.Enchantments;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.item.HSItem;
+import mod.emt.harkenscythe.item.tool.HSToolAthame;
+import mod.emt.harkenscythe.item.tool.HSToolBloodButcherer;
+import mod.emt.harkenscythe.item.tool.HSToolVampireKnife;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSEventAnvilUpdate

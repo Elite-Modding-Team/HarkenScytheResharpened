@@ -1,16 +1,24 @@
 package mod.emt.harkenscythe.enchantment;
 
-import mod.emt.harkenscythe.item.tool.HSToolGlaive;
-import mod.emt.harkenscythe.item.tool.HSToolScythe;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+
+import mod.emt.harkenscythe.init.HSEnumFaction;
+import mod.emt.harkenscythe.item.tool.HSToolGlaive;
+import mod.emt.harkenscythe.item.tool.HSToolScythe;
 
 public class HSEnchantmentWillingness extends HSEnchantment
 {
     public HSEnchantmentWillingness(String name)
     {
-        super(name, Rarity.COMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND}, Faction.NEUTRAL);
+        super(name, Rarity.COMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
+    }
+
+    @Override
+    public int getMaxLevel()
+    {
+        return 4;
     }
 
     @Override
@@ -26,15 +34,15 @@ public class HSEnchantmentWillingness extends HSEnchantment
     }
 
     @Override
-    public int getMaxLevel()
+    public boolean canApply(ItemStack stack)
     {
-        return 4;
+        // Exclusive to only glaives and scythes.
+        return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
     }
 
     @Override
-    public boolean canApply(ItemStack stack)
+    protected HSEnumFaction getFaction()
     {
-    	// Exclusive to only glaives and scythes.
-        return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
+        return HSEnumFaction.NEUTRAL;
     }
 }

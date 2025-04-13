@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import java.awt.*;
-import java.util.List;
 import javax.annotation.Nullable;
 
 import com.google.common.base.Predicate;
@@ -27,6 +25,8 @@ import net.minecraftforge.fml.common.registry.IThrowableEntity;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import io.netty.buffer.ByteBuf;
+import java.awt.*;
+import java.util.List;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -140,7 +140,7 @@ public class HSEntityVampireKnife extends EntityArrow implements IThrowableEntit
         if (rotationPitch <= -360) rotationPitch += 360;
         if (soundTimer >= 3)
         {
-        	playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.1F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
+            playSound(HSSoundEvents.ITEM_VAMPIRE_KNIFE_THROW.getSoundEvent(), 0.1F, 3.0F / (rand.nextFloat() * 0.2F + 0.6F + ticksInAir / 15.0F));
             soundTimer = 0;
         }
 

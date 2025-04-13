@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.block;
 
-import java.util.List;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
@@ -21,6 +20,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 
+import java.util.List;
 import mod.emt.harkenscythe.init.HSBlocks;
 
 public class HSBlockCloth extends Block implements IShearable

@@ -1,0 +1,32 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "harkenscythe:items/basic_essence_keeper"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "harkenscythe:level": 0.25
+      },
+      "model": "harkenscythe:item/basic_essence_keeper_blood_025"
+    },
+    {
+      "predicate": {
+        "harkenscythe:level": 0.5
+      },
+      "model": "harkenscythe:item/basic_essence_keeper_blood_050"
+    },
+    {
+      "predicate": {
+        "harkenscythe:level": 0.75
+      },
+      "model": "harkenscythe:item/basic_essence_keeper_blood_075"
+    },
+    {
+      "predicate": {
+        "harkenscythe:level": 1
+      },
+      "model": "harkenscythe:item/basic_essence_keeper_blood_100"
+    }
+  ]
+}

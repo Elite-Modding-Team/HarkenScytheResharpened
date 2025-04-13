@@ -51,9 +51,9 @@ public class HSToolGlaive extends ItemSword implements IHSTool
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
-    	int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, stack);
-    	
-    	// Slightly pitch up the sound per level of Willingness
+        int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, stack);
+
+        // Slightly pitch up the sound per level of Willingness
         player.playSound(SoundEvents.ENTITY_PLAYER_BREATH, 0.8F, 0.9F + (0.1F * level));
         player.setActiveHand(hand);
         return new ActionResult<>(EnumActionResult.PASS, stack);
@@ -65,35 +65,6 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         if (stack.isItemDamaged() && entity != null && this.getToolMaterial() == HSMaterials.TOOL_BIOMASS && entity.ticksExisted % 40 == 0)
         {
             stack.attemptDamageItem(-1, world.rand, entity instanceof EntityPlayerMP ? (EntityPlayerMP) entity : null);
-        }
-    }
-
-    @Override
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
-    {
-        return slotChanged || oldStack.getItem() != newStack.getItem();
-    }
-
-    @Override
-    public boolean canContinueUsing(ItemStack oldStack, ItemStack newStack)
-    {
-        return true;
-    }
-    
-    @Override
-    public void onUsingTick(ItemStack stack, EntityLivingBase player, int count)
-    {
-    	ItemStack heldItem = player.getHeldItemMainhand() == stack ? player.getHeldItemMainhand() : player.getHeldItemOffhand();
-    	int reapingFrenzyLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.REAPING_FRENZY, heldItem);
-    	int willingnessLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
-
-    	// With the Auto-Reap enchantment, automatically reap at full charge. Also supports Willingness charge speeds.
-        if (reapingFrenzyLevel > 0)
-        {
-            // Original speed at 20. Willingness I at 16. Divide 25 by level in subsequent Willingness levels (12.5 at II and 8.3 at III)
-            if (Math.min(1.0F, (getMaxItemUseDuration(stack) - count) / (willingnessLevel <= 0 ? 20.0F : willingnessLevel == 1 ? 16.0F : 25.0F / willingnessLevel)) >= 1.0F) {
-                player.stopActiveHand();
-            }
         }
     }
 
@@ -112,9 +83,9 @@ public class HSToolGlaive extends ItemSword implements IHSTool
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft)
     {
-    	ItemStack heldItem = entityLiving.getHeldItemMainhand() == stack ? entityLiving.getHeldItemMainhand() : entityLiving.getHeldItemOffhand();
-    	int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
-        
+        ItemStack heldItem = entityLiving.getHeldItemMainhand() == stack ? entityLiving.getHeldItemMainhand() : entityLiving.getHeldItemOffhand();
+        int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
+
         if (!world.isRemote && entityLiving instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
@@ -164,13 +135,16 @@ public class HSToolGlaive extends ItemSword implements IHSTool
             player.swingArm(player.getActiveHand());
             player.spawnSweepParticles();
             player.playSound(HSSoundEvents.ITEM_GLAIVE_STAB.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-            
-            if (level >= 1 && itemRand.nextDouble() <  0.15D * level) {
-            	return;
-            } else {
-            	stack.damageItem(2, player);
+
+            if (level >= 1 && itemRand.nextDouble() < 0.15D * level)
+            {
+                return;
             }
-            
+            else
+            {
+                stack.damageItem(2, player);
+            }
+
             player.addStat(StatList.getObjectUseStats(this));
         }
     }
@@ -179,6 +153,36 @@ public class HSToolGlaive extends ItemSword implements IHSTool
     public EnumRarity getRarity(ItemStack stack)
     {
         return rarity;
+    }
+
+    @Override
+    public void onUsingTick(ItemStack stack, EntityLivingBase player, int count)
+    {
+        ItemStack heldItem = player.getHeldItemMainhand() == stack ? player.getHeldItemMainhand() : player.getHeldItemOffhand();
+        int reapingFrenzyLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.REAPING_FRENZY, heldItem);
+        int willingnessLevel = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
+
+        // With the Auto-Reap enchantment, automatically reap at full charge. Also supports Willingness charge speeds.
+        if (reapingFrenzyLevel > 0)
+        {
+            // Original speed at 20. Willingness I at 16. Divide 25 by level in subsequent Willingness levels (12.5 at II and 8.3 at III)
+            if (Math.min(1.0F, (getMaxItemUseDuration(stack) - count) / (willingnessLevel <= 0 ? 20.0F : willingnessLevel == 1 ? 16.0F : 25.0F / willingnessLevel)) >= 1.0F)
+            {
+                player.stopActiveHand();
+            }
+        }
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
+    {
+        return slotChanged || oldStack.getItem() != newStack.getItem();
+    }
+
+    @Override
+    public boolean canContinueUsing(ItemStack oldStack, ItemStack newStack)
+    {
+        return true;
     }
 
     @Override

@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "E E",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "harkenscythe:soumberglass_ingot"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:basic_essence_keeper"
+  }
+}

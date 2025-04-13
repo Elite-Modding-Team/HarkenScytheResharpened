@@ -50,6 +50,9 @@ public class HSThaumcraftPlugin
         proxy.registerObjectTag(new ItemStack(HSItems.carnage_book), new AspectList().add(Aspect.MAGIC, 10).add(Aspect.MIND, 10).add(Aspect.AVERSION, 10));
         proxy.registerObjectTag(new ItemStack(HSItems.damaged_vampire_knife), new AspectList().add(Aspect.METAL, 20).add(Aspect.CRAFT, 20).add(Aspect.VOID, 20).add(Aspect.EXCHANGE, 20));
         proxy.registerObjectTag(new ItemStack(HSItems.dimensional_mirror, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.CRYSTAL, 15).add(Aspect.ELDRITCH, 10).add(Aspect.MOTION, 10));
+        proxy.registerObjectTag(new ItemStack(HSItems.basic_essence_keeper), new AspectList().add(Aspect.VOID, 10).add(Aspect.ELDRITCH, 10));
+        proxy.registerObjectTag(new ItemStack(HSItems.basic_essence_keeper_blood), new AspectList().add(Aspect.AVERSION, 5).add(Aspect.ELDRITCH, 10));
+        proxy.registerObjectTag(new ItemStack(HSItems.basic_essence_keeper_soul), new AspectList().add(Aspect.SOUL, 5).add(Aspect.ELDRITCH, 10));
         proxy.registerObjectTag(new ItemStack(HSItems.essence_keeper), new AspectList().add(Aspect.VOID, 20).add(Aspect.ELDRITCH, 20));
         proxy.registerObjectTag(new ItemStack(HSItems.essence_keeper_blood), new AspectList().add(Aspect.AVERSION, 10).add(Aspect.ELDRITCH, 20));
         proxy.registerObjectTag(new ItemStack(HSItems.essence_keeper_soul), new AspectList().add(Aspect.SOUL, 10).add(Aspect.ELDRITCH, 20));

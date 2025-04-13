@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.client.particle;
 
-import java.awt.*;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.util.EnumParticleTypes;
@@ -9,6 +7,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.awt.*;
 import mod.emt.harkenscythe.tileentity.HSTileEntityAbsorber;
 
 @SideOnly(Side.CLIENT)

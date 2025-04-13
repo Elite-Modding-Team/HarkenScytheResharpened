@@ -7,13 +7,15 @@ import net.minecraft.item.ItemStack;
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import baubles.api.IBauble;
-import mod.emt.harkenscythe.item.HSItemEssenceTrinketBlood;
+import mod.emt.harkenscythe.init.HSEnumContainerType;
+import mod.emt.harkenscythe.init.HSEnumFaction;
+import mod.emt.harkenscythe.item.HSItemEssenceContainer;
 
-public class HSBaublesItemEssenceTrinketBlood extends HSItemEssenceTrinketBlood implements IBauble
+public class HSBaublesItemEssenceTrinket extends HSItemEssenceContainer implements IBauble
 {
-    public HSBaublesItemEssenceTrinketBlood()
+    public HSBaublesItemEssenceTrinket(HSEnumContainerType containerType, HSEnumFaction faction)
     {
-        super();
+        super(containerType, faction);
     }
 
     @Override
