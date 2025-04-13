@@ -227,7 +227,8 @@
   },
   "entity.harbinger.death": {
     "sounds": [
-      "harkenscythe:entities/harbinger/death"
+      "harkenscythe:entities/harbinger/death1",
+      "harkenscythe:entities/harbinger/death2"
     ]
   },
   "entity.harbinger.idle": {
