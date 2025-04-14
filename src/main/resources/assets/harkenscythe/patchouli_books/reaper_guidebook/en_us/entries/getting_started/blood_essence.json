@@ -3,7 +3,7 @@
   "icon": "harkenscythe:textures/items/essence_blood.png",
   "category": "getting_started",
   "advancement": "harkenscythe:reapers_first_tool",
-  "sortnum": 4,
+  "sortnum": 5,
   "pages": [
     {
       "type": "text",

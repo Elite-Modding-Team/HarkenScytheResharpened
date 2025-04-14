@@ -1,0 +1,23 @@
+{
+  "name": "Dark and Somber",
+  "icon": "harkenscythe:textures/items/soumberglass_ingot.png",
+  "category": "getting_started",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "In order to start constructing most of the necessary equipment throughout your journey as a reaper, you'll need to create soumberglass."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:soul_soot",
+      "text": "Start by simply mixing a batch of soul sand, bone meal, and coal together into soot."
+    },
+    {
+      "type": "smelting",
+      "recipe": "harkenscythe:soul_soot",
+      "recipe2": "harkenscythe:soumberglass_ingot",
+      "text": "Now smelt down the soot into a pure soumberglass ingot."
+    }
+  ]
+}

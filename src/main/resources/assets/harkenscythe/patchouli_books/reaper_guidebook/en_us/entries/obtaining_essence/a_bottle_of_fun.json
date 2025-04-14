@@ -7,7 +7,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "To bottle reaped essence, you need to target and $(4)right-click$() them with either essence keepers or essence vessels.$(br2)Essences possess different levels of quality which determine their bottled amount."
+      "text": "To bottle reaped essence, you need to target and $(4)right-click$() them with essence containers.$(br2)Essences possess different levels of quality which determine their bottled amount."
     },
     {
       "type": "spotlight",

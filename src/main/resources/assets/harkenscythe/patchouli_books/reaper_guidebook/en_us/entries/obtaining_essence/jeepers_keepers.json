@@ -7,12 +7,22 @@
   "pages": [
     {
       "type": "text",
-      "text": "To store your freshly reaped essence on the go, you need to construct an essence keeper.$(br)It can be upgraded to an essence vessel if more capacity is desired.$(br2)Experienced reapers keep several for both essence types!"
+      "text": "To store your freshly reaped essence on the go, you need to construct an essence container. Upgrades are also available if more capacity is desired.$(br2)Experienced reapers keep several for both essence types!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:basic_essence_keeper",
+      "text": "The most basic container available. You'll need to shape it with pure soumberglass."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:essence_keeper",
-      "recipe2": "harkenscythe:essence_vessel"
+      "text": "You can upgrade the basic essence keeper into a more advanced variant. The ender pearl gives the keeper a more green color."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:essence_vessel",
+      "text": "Finally, you can upgrade the more advanced essence keeper into an essence vessel. Spend those ender pearls wisely!"
     }
   ]
 }
