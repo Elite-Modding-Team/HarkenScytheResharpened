@@ -27,6 +27,12 @@
       "harkenscythe:blocks/altar/book_open4"
     ]
   },
+  "block.altar.craft": {
+    "sounds": [
+      "harkenscythe:blocks/altar/craft1",
+      "harkenscythe:blocks/altar/craft2"
+    ]
+  },
   "block.altar.item_insert": {
     "sounds": [
       "harkenscythe:blocks/altar/item_insert1",

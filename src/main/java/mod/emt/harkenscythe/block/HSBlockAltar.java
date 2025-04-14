@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -183,7 +182,7 @@ public abstract class HSBlockAltar extends BlockEnchantmentTable
         }
 
         world.playSound(altarX, altarY, altarZ, getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
-        world.playSound(altarX, altarY, altarZ, SoundEvents.ENTITY_ENDEREYE_DEATH, SoundCategory.BLOCKS, 1.0F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
+        world.playSound(altarX, altarY, altarZ, HSSoundEvents.BLOCK_ALTAR_CRAFT.getSoundEvent(), SoundCategory.BLOCKS, 0.6F, 1.5F / (altar.getWorld().rand.nextFloat() * 0.4F + 1.2F), false);
 
         for (int i = 0; i < requiredEssence; i++)
         {

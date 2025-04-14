@@ -7,7 +7,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
@@ -28,6 +27,7 @@ import mod.emt.harkenscythe.entity.HSEntityEssence;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSEnumContainerType;
 import mod.emt.harkenscythe.init.HSEnumFaction;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSContainerHelper;
 
 public class HSItemEssenceContainer extends HSItem
@@ -143,7 +143,7 @@ public class HSItemEssenceContainer extends HSItem
                         }
                     }
                     float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
-                    essence.world.playSound(null, player.getPosition(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 1.0F, pitch);
+                    essence.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
                     essence.world.spawnParticle(EnumParticleTypes.CLOUD, essence.posX, essence.posY + 1.5D, essence.posZ, 0.0D, 0.1D, 0.0D);
                     essence.recentlyHit = 60;
                     essence.setHealth(0);

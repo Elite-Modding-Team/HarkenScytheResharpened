@@ -11,6 +11,7 @@ public enum HSSoundEvents
     BLOCK_ABSORBER_ITEM_REMOVE("block.absorber.item_remove"),
     BLOCK_ALTAR_BOOK_CLOSE("block.altar.book_close"),
     BLOCK_ALTAR_BOOK_OPEN("block.altar.book_open"),
+    BLOCK_ALTAR_CRAFT("block.altar.craft"),
     BLOCK_ALTAR_ITEM_INSERT("block.altar.item_insert"),
     BLOCK_ALTAR_ITEM_REMOVE("block.altar.item_remove"),
     BLOCK_BIOMASS_BREAK("block.biomass.break"),
