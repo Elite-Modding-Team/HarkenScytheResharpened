@@ -263,7 +263,7 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipe(HSItems.essence_trinket_blood_ethereal, HSItems.essence_trinket_blood_ethereal, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.vampire_knife, HSItems.vampire_knife, 10);
         HSAltarRecipes.addBloodRecipe(Items.GLASS_BOTTLE, Items.DRAGON_BREATH, 20);
-        HSAltarRecipes.addBloodRecipe(new ItemStack(Items.GOLDEN_APPLE, 1), new ItemStack(Items.GOLDEN_APPLE, 1, 1), 200); // Notch Apple
+        HSAltarRecipes.addBloodRecipe(new ItemStack(Items.GOLDEN_APPLE, 1), new ItemStack(Items.GOLDEN_APPLE, 1, 1), 100); // Notch Apple
         HSAltarRecipes.addBloodRecipe(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, 1);
         HSAltarRecipes.addBloodRecipe(Items.POISONOUS_POTATO, Items.POTATO, 1);
         HSAltarRecipes.addBloodRecipe(Items.CHORUS_FRUIT_POPPED, Items.CHORUS_FRUIT, 1);
@@ -287,7 +287,7 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_pane_inverted), Item.getItemFromBlock(HSBlocks.spectral_glass_pane), 1);
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 1);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 1);
-        HSAltarRecipes.addSoulRecipe(HSItems.unpowered_totem_of_undying, Items.TOTEM_OF_UNDYING, 100);
+        HSAltarRecipes.addSoulRecipe(HSItems.unpowered_totem_of_undying, Items.TOTEM_OF_UNDYING, 50);
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 5);
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 5);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 5);
