@@ -372,23 +372,23 @@ public class HSConfig
 
         @Config.Name("Basic Soul Keeper Essence Capacity")
         @Config.Comment("The amount of essence basic soul keepers can hold")
-        public int soulKeeperBasicEssenceCapacity = 30;
+        public int soulKeeperBasicEssenceCapacity = 40;
 
         @Config.Name("Soul Keeper Essence Capacity")
         @Config.Comment("The amount of essence soul keepers can hold")
-        public int soulKeeperEssenceCapacity = 60;
+        public int soulKeeperEssenceCapacity = 80;
 
         @Config.Name("Soul Vessel Essence Capacity")
         @Config.Comment("The amount of essence soul vessels can hold")
-        public int soulVesselEssenceCapacity = 120;
+        public int soulVesselEssenceCapacity = 160;
 
         @Config.Name("Soul Trinket Essence Capacity")
         @Config.Comment("The amount of essence soul trinkets can hold")
-        public int soulTrinketEssenceCapacity = 200;
+        public int soulTrinketEssenceCapacity = 400;
 
         @Config.Name("Ethereal Soul Trinket Essence Capacity")
         @Config.Comment("The amount of essence ethereal soul trinkets can hold")
-        public int soulTrinketEtherealEssenceCapacity = 800;
+        public int soulTrinketEtherealEssenceCapacity = 1600;
 
         @Config.Name("Vampire Knife Blood Cost")
         @Config.Comment
