@@ -37,7 +37,7 @@ public class TinkersConstruct
         BIOMASS.addTrait(BLOOD_CONJURATION, MaterialTypes.HEAD);
         BIOMASS.addTrait(BLOOD_INTERVENTION, MaterialTypes.HEAD);
         BIOMASS.addTrait(BLOOD_INTERVENTION);
-        TinkerRegistry.integrate(BIOMASS).preInit();
+        TinkerRegistry.integrate(BIOMASS, null, "Biomass").preInit();
 
         TinkerRegistry.addMaterialStats(LIVINGMETAL,
             new HeadMaterialStats(500, 7.5F, 5.5F, HarvestLevels.OBSIDIAN),
@@ -47,7 +47,7 @@ public class TinkersConstruct
         LIVINGMETAL.addTrait(SOUL_CONJURATION, MaterialTypes.HEAD);
         LIVINGMETAL.addTrait(SOUL_INTERVENTION, MaterialTypes.HEAD);
         LIVINGMETAL.addTrait(SOUL_INTERVENTION);
-        TinkerRegistry.integrate(LIVINGMETAL).preInit();
+        TinkerRegistry.integrate(LIVINGMETAL, null, "Livingmetal").preInit();
 
         TinkerRegistry.addMaterialStats(BLOODWEAVE_CLOTH,
             new BowStringMaterialStats(2.0F));
