@@ -221,9 +221,9 @@ public abstract class HSEntityEssence extends EntityLivingBase
             // Interacting with an empty container
             if (HSContainerHelper.isNeutralFaction(stack))
             {
-                stack.shrink(1);
-                ItemStack newStack = HSContainerHelper.getFullContainerFaction(stack, HSEnumFaction.BLOOD);
+                ItemStack newStack = HSContainerHelper.getFullContainerFaction(stack, getFaction());
                 newStack.setItemDamage(newStack.getMaxDamage() - quantity);
+                stack.shrink(1);
                 player.setHeldItem(hand, newStack);
                 float pitch = newStack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) newStack.getItemDamage() / newStack.getMaxDamage() * 0.5F);
                 if (!HSContainerHelper.isVessel(stack)) pitch += 0.5F;
