@@ -85,28 +85,6 @@ public class HSToolGlaive extends ItemSword implements IHSTool
     {
         ItemStack heldItem = entityLiving.getHeldItemMainhand() == stack ? entityLiving.getHeldItemMainhand() : entityLiving.getHeldItemOffhand();
         int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
-
-        if (!world.isRemote && entityLiving instanceof EntityPlayer)
-        {
-            EntityPlayer player = (EntityPlayer) entityLiving;
-            RayTraceResult rayTraceResult = rayTrace(world, player, false);
-            if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
-            {
-                BlockPos creepPos = rayTraceResult.getBlockPos();
-                IBlockState creepState = world.getBlockState(creepPos);
-                if (creepState.getBlock() == HSBlocks.creep_block)
-                {
-                    world.setBlockState(creepPos, HSBlocks.creep_block_tilled.getDefaultState());
-                    if (!player.capabilities.isCreativeMode)
-                    {
-                        stack.damageItem(1, player);
-                    }
-                    world.playSound(null, creepPos, HSSoundEvents.ITEM_GLAIVE_TILL.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
-                    player.addStat(StatList.getObjectUseStats(stack.getItem()));
-                }
-            }
-        }
-
         float damage = this.getAttackDamage() + 4.0F; // Has to be done like this otherwise it'll calculate wrong
         float range = 3.0F;
         AxisAlignedBB bb = new AxisAlignedBB(entityLiving.posX - range, entityLiving.posY - range, entityLiving.posZ - range, entityLiving.posX + range, entityLiving.posY + range, entityLiving.posZ + range);
@@ -132,6 +110,17 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         if (Math.min(1.0F, (getMaxItemUseDuration(stack) - timeLeft) / (level <= 0 ? 20.0F : level == 1 ? 16.0F : 25.0F / level)) >= 1.0F && entityLiving instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityLiving;
+            RayTraceResult rayTraceResult = rayTrace(world, player, false);
+            if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK)
+            {
+                BlockPos creepPos = rayTraceResult.getBlockPos();
+                IBlockState creepState = world.getBlockState(creepPos);
+                if (creepState.getBlock() == HSBlocks.creep_block)
+                {
+                    world.setBlockState(creepPos, HSBlocks.creep_block_tilled.getDefaultState());
+                    world.playSound(null, creepPos, HSSoundEvents.ITEM_GLAIVE_TILL.getSoundEvent(), SoundCategory.BLOCKS, 0.8F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
+                }
+            }
             player.swingArm(player.getActiveHand());
             player.spawnSweepParticles();
             player.playSound(HSSoundEvents.ITEM_GLAIVE_STAB.getSoundEvent(), 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
