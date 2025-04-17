@@ -429,6 +429,10 @@ public class HSConfig
         @Config.Name("Vampire Knife Projectile Ignore I-Frames")
         @Config.Comment("Lets targets of vampire knife projectiles receive damage continuously without brief invulnerability phases")
         public boolean vampireKnifeProjectileIgnoreIFrames = true;
+
+        @Config.Name("Hoes Till Creep Blocks")
+        @Config.Comment("Hoes are able to till creep blocks like glaives")
+        public boolean hoesTillCreepBlocks = false;
     }
 
     public static class RecipeSettings
