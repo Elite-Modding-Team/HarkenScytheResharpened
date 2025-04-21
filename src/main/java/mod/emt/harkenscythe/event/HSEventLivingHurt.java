@@ -97,7 +97,7 @@ public class HSEventLivingHurt
                     int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.BLIGHT, bow);
                     if (!bow.isEmpty() && level > 0)
                     {
-                        int duration = level * 100;
+                        int duration = level * 80; // 4 seconds * level
                         entity.addPotionEffect(new PotionEffect(MobEffects.WITHER, duration));
                         entity.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, duration));
                         entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, duration));
