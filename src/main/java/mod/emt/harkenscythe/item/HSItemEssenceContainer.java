@@ -41,6 +41,7 @@ public class HSItemEssenceContainer extends HSItem
         setContainerType(containerType);
         setFaction(faction);
         setMaxStackSize(1);
+        setNoRepair();
         if (getFaction() != HSEnumFaction.NEUTRAL)
         {
             switch (getContainerType())
