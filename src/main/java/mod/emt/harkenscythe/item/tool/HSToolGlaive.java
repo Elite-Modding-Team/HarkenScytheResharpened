@@ -86,7 +86,7 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         ItemStack heldItem = entityLiving.getHeldItemMainhand() == stack ? entityLiving.getHeldItemMainhand() : entityLiving.getHeldItemOffhand();
         int level = EnchantmentHelper.getEnchantmentLevel(HSEnchantments.WILLINGNESS, heldItem);
         float damage = this.getAttackDamage() + 4.0F; // Has to be done like this otherwise it'll calculate wrong
-        float range = 3.0F;
+        float range = (float) EntityPlayer.REACH_DISTANCE.getDefaultValue() - 1.0F; // 4 by default without reach distance boosts
         AxisAlignedBB bb = new AxisAlignedBB(entityLiving.posX - range, entityLiving.posY - range, entityLiving.posZ - range, entityLiving.posX + range, entityLiving.posY + range, entityLiving.posZ + range);
 
         for (int i = 0; i < world.getEntitiesWithinAABB(EntityLivingBase.class, bb).size(); i++)

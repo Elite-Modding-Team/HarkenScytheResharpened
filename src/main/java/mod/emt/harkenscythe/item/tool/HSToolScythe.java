@@ -104,7 +104,7 @@ public class HSToolScythe extends ItemSword implements IHSTool
             }
         }
 
-        float range = 3.0F;
+        float range = (float) EntityPlayer.REACH_DISTANCE.getDefaultValue() - 1.0F; // 4 by default without reach distance boosts
         AxisAlignedBB bb = new AxisAlignedBB(entityLiving.posX - range, entityLiving.posY - range, entityLiving.posZ - range, entityLiving.posX + range, entityLiving.posY + range, entityLiving.posZ + range);
 
         for (int i = 0; i < world.getEntitiesWithinAABB(EntityLivingBase.class, bb).size(); i++)
