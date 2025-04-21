@@ -75,7 +75,7 @@ public class HSBlockSoulCake extends BlockCake
     {
         player.addStat(StatList.CAKE_SLICES_EATEN);
         player.getFoodStats().addStats(4, 0.2F);
-        player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 0));
+        player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 8 * 20, 1));
         int i = state.getValue(BITES);
         ItemStack stack = this.getPickBlock(state, null, world, pos, player);
 

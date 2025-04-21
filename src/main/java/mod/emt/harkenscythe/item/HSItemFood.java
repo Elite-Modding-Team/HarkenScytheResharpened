@@ -46,7 +46,7 @@ public class HSItemFood extends ItemFood
     {
         if (this == HSItems.soul_cookie)
         {
-            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 4 * 20, 0));
+            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 1));
         }
 
         super.onFoodEaten(stack, world, player);
