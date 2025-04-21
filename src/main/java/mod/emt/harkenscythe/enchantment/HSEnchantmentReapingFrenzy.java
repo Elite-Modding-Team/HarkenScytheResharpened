@@ -34,7 +34,7 @@ public class HSEnchantmentReapingFrenzy extends HSEnchantment
     }
 
     @Override
-    public boolean canApply(ItemStack stack)
+    public boolean canApplyAtEnchantingTable(ItemStack stack)
     {
         // Exclusive to only glaives and scythes.
         return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
