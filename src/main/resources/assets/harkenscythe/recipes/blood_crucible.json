@@ -2,7 +2,7 @@
   "type": "forge:ore_shaped",
   "pattern": [
     "N N",
-    "NSN",
+    "NKN",
     "NNN"
   ],
   "key": {
@@ -10,8 +10,8 @@
       "type": "forge:ore_dict",
       "ore": "netherrack"
     },
-    "S": {
-      "item": "harkenscythe:soumberglass_ingot"
+    "K": {
+      "item": "harkenscythe:basic_essence_keeper"
     }
   },
   "result": {
