@@ -29,7 +29,7 @@ public class HSEventGuiOpen
             EntityPlayerSP player = Minecraft.getMinecraft().player;
             if (player.getHeldItemMainhand().getItem() instanceof HSItemGuidebook || player.getHeldItemOffhand().getItem() instanceof HSItemGuidebook)
             {
-                player.playSound(HSSoundEvents.BLOCK_ALTAR_BOOK_CLOSE.getSoundEvent(), 0.6F, 0.7F + player.getRNG().nextFloat() * 0.4F);
+                player.playSound(HSSoundEvents.GUIDE_CLOSE.getSoundEvent(), 0.6F, 0.7F + player.getRNG().nextFloat() * 0.4F);
             }
             wasGuidebookOpen = false;
         }

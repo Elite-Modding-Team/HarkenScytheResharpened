@@ -38,7 +38,7 @@ public class HSItemGuidebook extends HSItem
         if (player instanceof EntityPlayerMP)
         {
             PatchouliAPI.instance.openBookGUI((EntityPlayerMP) player, book);
-            world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.BLOCK_ALTAR_BOOK_OPEN.getSoundEvent(), SoundCategory.PLAYERS, 0.6F, 0.7F + player.getRNG().nextFloat() * 0.4F);
+            world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.GUIDE_OPEN.getSoundEvent(), SoundCategory.PLAYERS, 0.6F, 0.7F + player.getRNG().nextFloat() * 0.4F);
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);

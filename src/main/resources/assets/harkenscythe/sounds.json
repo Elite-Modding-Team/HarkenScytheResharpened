@@ -282,7 +282,10 @@
   },
   "guide.close": {
     "sounds": [
-      "harkenscythe:guide/close"
+      "harkenscythe:guide/close1",
+      "harkenscythe:guide/close2",
+      "harkenscythe:guide/close3",
+      "harkenscythe:guide/close4"
     ]
   },
   "guide.flip": {
@@ -295,7 +298,10 @@
   },
   "guide.open": {
     "sounds": [
-      "harkenscythe:guide/open"
+      "harkenscythe:guide/open1",
+      "harkenscythe:guide/open2",
+      "harkenscythe:guide/open3",
+      "harkenscythe:guide/open4"
     ]
   },
   "item.athame.create": {
