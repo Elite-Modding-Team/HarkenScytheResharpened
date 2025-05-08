@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "To get started with reaping soul essence, you first need to construct a reaping scythe.$(br2)Reaping scythes can be made with any vanilla material like iron, the quality of the material will also affect the odds of obtaining soul essence from a creature."
+      "text": "To get started with reaping soul essence, you first need to construct a reaping scythe.$(br2)Reaping scythes can be made with any vanilla material like iron."
     },
     {
       "type": "crafting",
