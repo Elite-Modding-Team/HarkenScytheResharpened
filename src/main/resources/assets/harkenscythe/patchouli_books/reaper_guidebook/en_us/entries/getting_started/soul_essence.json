@@ -7,7 +7,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "To reap soul essence from an entity, you need to use the scythe's special ability by $(4)right-clicking$() and letting go, whilst targeting a creature. If the creature is killed during this process, it may drop its soul, depending on the tool material quality of the scythe."
+      "text": "To reap soul essence from an entity, you need to use the reaping scythe's special ability by $(4)right-clicking$() and letting go, whilst targeting a creature. If the creature is killed during this process, it will drop its soul."
     },
     {
       "type": "entity",

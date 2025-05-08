@@ -6,13 +6,13 @@
   "pages": [
     {
       "type": "text",
-      "text": "To get started with reaping blood essence, you first need to construct a glaive.$(br2)Glaives can be made with any vanilla material like iron, the quality of the material will also affect the odds of obtaining blood essence from a creature."
+      "text": "To get started with reaping blood essence, you first need to construct a reaping glaive.$(br2)Reaping glaives can be made with any vanilla material like iron, the quality of the material will also affect the odds of obtaining blood essence from a creature."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:iron_glaive",
       "title": " ",
-      "text": "Soumberglass is needed as the core of the glaive in order for it to receive the ability to reap."
+      "text": "Soumberglass is needed as the core of the reaping glaive in order for it to receive the ability to reap."
     }
   ]
 }
