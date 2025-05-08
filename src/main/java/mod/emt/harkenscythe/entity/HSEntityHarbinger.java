@@ -56,6 +56,7 @@ public class HSEntityHarbinger extends EntityCreature implements IMob
         super(world);
         this.setSize(0.8F, 2.1F);
         this.getDataManager().set(RARE, this.world.rand.nextDouble() < 0.05D);
+        this.experienceValue = 50;
     }
 
     // Immune to all negative effects

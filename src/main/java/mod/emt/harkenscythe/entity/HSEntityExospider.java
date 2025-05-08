@@ -39,6 +39,7 @@ public class HSEntityExospider extends EntitySpider
         super(world);
         this.isImmuneToFire = true;
         this.timeUntilNextBiomass = this.rand.nextInt(6000) + 6000;
+        this.experienceValue = 20;
     }
 
     public int getVariant()

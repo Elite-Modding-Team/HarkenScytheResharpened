@@ -39,6 +39,7 @@ public class HSEntitySpectralMiner extends EntityMob
     {
         super(world);
         this.setSize(0.6F, 1.95F);
+        this.experienceValue = 40;
     }
 
     /**

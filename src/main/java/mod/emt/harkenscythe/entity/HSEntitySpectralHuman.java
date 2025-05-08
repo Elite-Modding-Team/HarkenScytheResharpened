@@ -24,6 +24,7 @@ public class HSEntitySpectralHuman extends EntityMob
     {
         super(world);
         this.setSize(0.6F, 1.95F);
+        this.experienceValue = 20;
     }
 
     @Override
