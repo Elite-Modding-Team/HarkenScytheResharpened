@@ -94,6 +94,10 @@ public class HSConfig
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
+        
+        @Config.Name("Essence Reaping Affected by Tool Damage")
+        @Config.Comment("The chance for blood/soul essence to appear from reaping is affected by the tool damage (wood has a low chance while diamond has a high chance), otherwise blood/soul essence will always spawn from reaping instead")
+        public boolean essenceDamageReaping = false;
 
         @Config.Name("Blood Essence Common Value")
         @Config.Comment("How much souls common soul essence is worth")

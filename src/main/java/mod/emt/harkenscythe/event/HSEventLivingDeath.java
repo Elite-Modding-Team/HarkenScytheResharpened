@@ -145,7 +145,7 @@ public class HSEventLivingDeath
     {
         if (stack.getItem() instanceof HSToolScythe && damageSource.getDamageType().equals("hs_reap"))
         {
-            if (stack.getItem() == HSItems.reaper_scythe || stack.getItem() == HSItems.lady_harken_scythe) return true;
+            if (stack.getItem() == HSItems.reaper_scythe || stack.getItem() == HSItems.lady_harken_scythe || !HSConfig.ENTITIES.essenceDamageReaping) return true;
             int damage = stack.getMaxDamage() - stack.getItemDamage();
             double chance = Math.min(0.8D, Math.max(0.4D, (double) damage / 500));
             return player.getRNG().nextDouble() < chance;

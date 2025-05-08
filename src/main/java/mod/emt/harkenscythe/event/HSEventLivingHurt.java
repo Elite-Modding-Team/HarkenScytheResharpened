@@ -147,7 +147,7 @@ public class HSEventLivingHurt
     {
         if (player.getHeldItemMainhand().getItem() instanceof HSToolGlaive && damageSource.getDamageType().equals("hs_reap"))
         {
-            if (damage >= target.getHealth()) return true;
+            if (damage >= target.getHealth() || !HSConfig.ENTITIES.essenceDamageReaping) return true;
             int toolDamage = stack.getMaxDamage() - stack.getItemDamage();
             double chance = Math.min(0.6D, Math.max(0.2D, (double) toolDamage / 500));
             return player.getRNG().nextDouble() < chance;
