@@ -218,9 +218,9 @@
   },
   "entity.exospider.step": {
     "sounds": [
-      "harkenscythe:entities/spectral/exospider/step1",
-      "harkenscythe:entities/spectral/exospider/step2",
-      "harkenscythe:entities/spectral/exospider/step3"
+      "harkenscythe:entities/exospider/step1",
+      "harkenscythe:entities/exospider/step2",
+      "harkenscythe:entities/exospider/step3"
     ]
   },
   "entity.harbinger.hurt": {
