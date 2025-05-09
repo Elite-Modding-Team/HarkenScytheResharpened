@@ -70,14 +70,14 @@ public class HSEventLivingHurt
             {
                 // Nourishment enchantment
                 EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-                if (player.getFoodStats().getFoodLevel() > 0 && isEnchantmentReap(HSEnchantments.NOURISHMENT, player))
+                if (player.getFoodStats().getFoodLevel() > 0 && isEnchantment(HSEnchantments.NOURISHMENT, player))
                 {
                     int damage = Math.min(player.getFoodStats().getFoodLevel(), Math.round(event.getAmount()));
                     player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - damage);
                     event.setAmount(0);
                 }
                 // Exude enchantment
-                if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && isEnchantmentReap(HSEnchantments.EXUDE, player))
+                if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && isEnchantment(HSEnchantments.EXUDE, player))
                 {
                     player.removePotionEffect(MobEffects.POISON);
                     player.removePotionEffect(MobEffects.WITHER);
@@ -155,9 +155,15 @@ public class HSEventLivingHurt
         return false;
     }
 
-    private static boolean isEnchantmentReap(Enchantment enchantment, EntityPlayer player)
+    private static boolean isEnchantment(Enchantment enchantment, EntityPlayer player)
     {
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
         return (level > 0 && player.getRNG().nextFloat() < 0.05F * level);
+    }
+
+    private static boolean isEnchantmentReap(Enchantment enchantment, EntityPlayer player)
+    {
+        int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
+        return (level > 0 && player.getRNG().nextFloat() < 0.2F * level);
     }
 }
