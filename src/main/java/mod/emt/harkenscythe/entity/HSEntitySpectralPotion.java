@@ -118,9 +118,12 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                         }
                     }
                 }
-                if (result.typeOfHit == RayTraceResult.Type.ENTITY && result.entityHit != null)
+                if (result.typeOfHit == RayTraceResult.Type.ENTITY)
                 {
-                    result.entityHit.setFire(5);
+                    if (result.entityHit != null && this.getThrower() != null && result.entityHit instanceof EntityLivingBase && this.getThrower() != null && this.getThrower() != result.entityHit)
+                    {
+                	    result.entityHit.setFire(5);
+                    }
                 }
             }
             else if (getPotionEffect().getPotion() instanceof HSPotionWater)
@@ -143,9 +146,12 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                         }
                     }
                 }
-                if (result.typeOfHit == RayTraceResult.Type.ENTITY && result.entityHit != null)
+                if (result.typeOfHit == RayTraceResult.Type.ENTITY)
                 {
-                    this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.0D)).forEach(Entity::extinguish);
+                    if (result.entityHit != null && this.getThrower() != null && result.entityHit instanceof EntityLivingBase && this.getThrower() != null && this.getThrower() != result.entityHit)
+                    {
+                	    this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.0D)).forEach(Entity::extinguish);
+                    }
                 }
             }
             else
