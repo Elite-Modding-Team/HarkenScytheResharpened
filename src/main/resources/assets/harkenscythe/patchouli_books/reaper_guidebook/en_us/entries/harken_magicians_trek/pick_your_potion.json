@@ -17,13 +17,13 @@
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_water",
       "title": "Water",
-      "text": "The Spectral Potion of Water can be created by collecting up water by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Purifying."
+      "text": "The Spectral Potion of Water can be created by collecting up water by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Purifying.$(br2)You can also throw it to extinguish fires."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_flame",
       "title": "Flame",
-      "text": "The Spectral Potion of Flame can be created by collecting fire by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Affliction."
+      "text": "The Spectral Potion of Flame can be created by collecting fire by $(4)right-clicking$() and can be soul-infused into a Spectral Potion of Affliction.$(br2)You can also throw it to start fires and destroy cobwebs."
     },
     {
       "type": "spotlight",

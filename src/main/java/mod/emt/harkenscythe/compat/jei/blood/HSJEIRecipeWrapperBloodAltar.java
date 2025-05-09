@@ -15,6 +15,7 @@ import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.recipe.HSRecipeBloodAltar;
 
+// TODO: getInputStack should return a list and the ingredient method should be changed to setInputs()
 public class HSJEIRecipeWrapperBloodAltar implements IRecipeWrapper
 {
     private static final ResourceLocation REPAIR_ICON = new ResourceLocation(HarkenScythe.MOD_ID, "textures/gui/repair.png");

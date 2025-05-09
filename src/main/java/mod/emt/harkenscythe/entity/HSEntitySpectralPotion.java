@@ -21,6 +21,7 @@ import mod.emt.harkenscythe.item.HSItemSpectralPotion;
 import mod.emt.harkenscythe.potion.HSPotionFlame;
 import mod.emt.harkenscythe.potion.HSPotionWater;
 
+// TODO: The radius for placing/extinguishing fires and destroying cobwebs should be increased
 public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAdditionalSpawnData
 {
     private PotionEffect potionEffect;
@@ -108,6 +109,10 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                                 if (world.isAirBlock(pos))
                                 {
                                     world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+                                }
+                                else if (world.getBlockState(pos).getBlock() == Blocks.WEB)
+                                {
+                                    world.setBlockToAir(pos);
                                 }
                             }
                         }
