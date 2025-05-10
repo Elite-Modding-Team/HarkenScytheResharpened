@@ -50,7 +50,7 @@ public class HSEventLivingDeath
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
-        if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, damageSource))
+        if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, entity, damageSource))
         {
             if (entity instanceof HSEntitySpectralMiner) return;
             spawnSoul(world, entity);
@@ -136,9 +136,9 @@ public class HSEventLivingDeath
         world.playSound(null, entity.getPosition(), HSSoundEvents.ENTITY_ESSENCE_SOUL_SPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (world.rand.nextFloat() * 0.4F + 1.2F));
     }
 
-    private static boolean isSuccessfulReap(EntityPlayer player, DamageSource damageSource)
+    private static boolean isSuccessfulReap(EntityPlayer player, EntityLivingBase target, DamageSource damageSource)
     {
-        return isRegularReap(player, damageSource, player.getHeldItemMainhand()) || isEnchantmentReap(HSEnchantments.SOULSTEAL, player);
+        return isRegularReap(player, damageSource, player.getHeldItemMainhand()) || (isEnchantmentReap(HSEnchantments.SOULSTEAL, player) && !(target instanceof HSEntityGlobin));
     }
 
     private static boolean isRegularReap(EntityPlayer player, DamageSource damageSource, ItemStack stack)

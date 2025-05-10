@@ -140,7 +140,7 @@ public class HSEventLivingHurt
     private static boolean isSuccessfulReap(DamageSource damageSource, EntityLivingBase target, float damage)
     {
         EntityPlayer player = (EntityPlayer) damageSource.getTrueSource();
-        return isRegularReap(player, target, damage, damageSource, player.getHeldItemMainhand()) || isEnchantmentReap(HSEnchantments.BLOODLETTING, player);
+        return isRegularReap(player, target, damage, damageSource, player.getHeldItemMainhand()) || (isEnchantmentReap(HSEnchantments.BLOODLETTING, player) && !(target instanceof HSEntityGlobin));
     }
 
     private static boolean isRegularReap(EntityPlayer player, EntityLivingBase target, float damage, DamageSource damageSource, ItemStack stack)
