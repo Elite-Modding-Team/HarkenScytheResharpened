@@ -5,6 +5,7 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.compat.jer.HSJERPlugin;
 import mod.emt.harkenscythe.compat.thaumcraft.HSThaumcraftPlugin;
 import mod.emt.harkenscythe.compat.tinkers.ConstructsArmory;
 import mod.emt.harkenscythe.compat.tinkers.TinkersConstruct;
@@ -28,6 +29,11 @@ public class HSCompatHandler
 
     public static void init()
     {
+    	if (Loader.isModLoaded("jeresources"))
+    	{
+            HSJERPlugin.init();
+    	}
+    	
         if (Loader.isModLoaded("tconstruct"))
         {
             TinkersConstruct.init();

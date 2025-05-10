@@ -66,6 +66,9 @@ dependencies {
     // Had Enough Items
     implementation rfg.deobf('curse.maven:had-enough-items-557549:5471944')
 
+    // Just Enough Resources
+    implementation rfg.deobf('curse.maven:just-enough-resources-jer-240630:4440936')
+
     // Patchouli
     implementation rfg.deobf('curse.maven:patchouli-rofl-edition-905159:5201041')
 
