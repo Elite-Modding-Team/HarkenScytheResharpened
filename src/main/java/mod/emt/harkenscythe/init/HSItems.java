@@ -264,7 +264,7 @@ public class HSItems
         }
 
         // THIRD PARTY MOD INTEGRATION
-        if (Loader.isModLoaded("patchouli"))
+        if (Loader.isModLoaded("patchouli") && !HSConfig.GENERAL.disableGuidebook)
         {
             registry.register(HSRegistry.setup(new HSItemGuidebook(), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB));
         }

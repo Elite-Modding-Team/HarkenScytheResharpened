@@ -46,6 +46,10 @@ public class HSConfig
         @Config.Name("Disable Enchantments")
         @Config.Comment("Disables all enchantments")
         public boolean disableEnchantments = false;
+        
+        @Config.Name("Disable Guidebook")
+        @Config.Comment("Disables the guidebook that is provided when Patchouli is installed")
+        public boolean disableGuidebook = false;
 
         @Config.Name("Disable Potions")
         @Config.Comment("Disables all potions")

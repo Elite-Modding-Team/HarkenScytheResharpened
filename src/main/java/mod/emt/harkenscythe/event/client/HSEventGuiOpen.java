@@ -10,6 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID, value = Side.CLIENT)
@@ -20,7 +21,7 @@ public class HSEventGuiOpen
     @SubscribeEvent
     public static void onGuiOpen(GuiOpenEvent event)
     {
-        if (Loader.isModLoaded("patchouli") && event.getGui() != null && event.getGui().getClass().getName().contains("vazkii.patchouli.client.book.gui"))
+        if (Loader.isModLoaded("patchouli") && !HSConfig.GENERAL.disableGuidebook && event.getGui() != null && event.getGui().getClass().getName().contains("vazkii.patchouli.client.book.gui"))
         {
             wasGuidebookOpen = true;
         }

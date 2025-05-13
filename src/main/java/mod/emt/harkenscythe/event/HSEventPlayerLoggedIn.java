@@ -15,7 +15,7 @@ public class HSEventPlayerLoggedIn
     @SubscribeEvent
     public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
     {
-        if (Loader.isModLoaded("patchouli") && HSConfig.ITEMS.reaperGuidebookProvision && !event.player.getTags().contains("hasReaperGuidebook"))
+        if (Loader.isModLoaded("patchouli") && !HSConfig.GENERAL.disableGuidebook && HSConfig.ITEMS.reaperGuidebookProvision && !event.player.getTags().contains("hasReaperGuidebook"))
         {
             HSPatchouliPlugin.giveBookToPlayer(event.player);
             event.player.addTag("hasReaperGuidebook");
