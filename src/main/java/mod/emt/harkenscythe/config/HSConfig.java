@@ -28,6 +28,10 @@ public class HSConfig
     @Config.LangKey("cfg.harkenscythe.items")
     @Config.Name("Items")
     public static final ItemSettings ITEMS = new ItemSettings();
+    
+    @Config.LangKey("cfg.harkenscythe.mod_integration")
+    @Config.Name("Mod Integration")
+    public static final ModIntegrationSettings MOD_INTEGRATION = new ModIntegrationSettings();
 
     @Config.LangKey("cfg.harkenscythe.recipes")
     @Config.Name("Recipes")
@@ -437,6 +441,25 @@ public class HSConfig
         @Config.Name("Hoes Till Creep Blocks")
         @Config.Comment("Hoes are able to till creep blocks like glaives")
         public boolean hoesTillCreepBlocks = false;
+    }
+    
+    public static class ModIntegrationSettings
+    {
+        @Config.Name("Blood Magic Integration")
+        @Config.Comment("Enables Blood Magic integration")
+        public boolean bloodMagicIntegration = true;
+        
+        @Config.Name("Construct's Armory Integration")
+        @Config.Comment("Enables Construct's Armory integration (requires Tinkers' Construct integration to be enabled!)")
+        public boolean constructsArmoryIntegration = true;
+        
+        @Config.Name("Just Enough Resources Integration")
+        @Config.Comment("Enables Just Enough Resources integration")
+        public boolean jerIntegration = true;
+        
+        @Config.Name("Tinkers' Construct Integration")
+        @Config.Comment("Enables Tinkers' Construct integration")
+        public boolean tinkersConstructIntegration = true;
     }
 
     public static class RecipeSettings

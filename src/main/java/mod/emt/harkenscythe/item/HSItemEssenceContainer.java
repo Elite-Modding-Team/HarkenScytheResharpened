@@ -96,7 +96,7 @@ public class HSItemEssenceContainer extends HSItem
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
-        return Loader.isModLoaded("bloodmagic") && getFaction() == HSEnumFaction.BLOOD ? HSBloodMagicPlugin.onBloodContainerRightClick(world, player, hand) : super.onItemRightClick(world, player, hand);
+        return Loader.isModLoaded("bloodmagic") && HSConfig.MOD_INTEGRATION.bloodMagicIntegration && getFaction() == HSEnumFaction.BLOOD ? HSBloodMagicPlugin.onBloodContainerRightClick(world, player, hand) : super.onItemRightClick(world, player, hand);
     }
 
     @Override

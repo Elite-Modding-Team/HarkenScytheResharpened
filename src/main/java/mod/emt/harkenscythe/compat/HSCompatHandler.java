@@ -9,18 +9,19 @@ import mod.emt.harkenscythe.compat.jer.HSJERPlugin;
 import mod.emt.harkenscythe.compat.thaumcraft.HSThaumcraftPlugin;
 import mod.emt.harkenscythe.compat.tinkers.ConstructsArmory;
 import mod.emt.harkenscythe.compat.tinkers.TinkersConstruct;
+import mod.emt.harkenscythe.config.HSConfig;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSCompatHandler
 {
     public static void preInit()
     {
-        if (Loader.isModLoaded("tconstruct"))
+        if (Loader.isModLoaded("tconstruct") && HSConfig.MOD_INTEGRATION.tinkersConstructIntegration)
         {
             TinkersConstruct.preInit();
 
             // Only load Construct's Armory if Tinkers' Construct is also loaded
-            if (Loader.isModLoaded("conarm"))
+            if (Loader.isModLoaded("conarm") && HSConfig.MOD_INTEGRATION.constructsArmoryIntegration)
             {
                 ConstructsArmory.preInit();
             }
@@ -29,12 +30,12 @@ public class HSCompatHandler
 
     public static void init()
     {
-    	if (Loader.isModLoaded("jeresources"))
+    	if (Loader.isModLoaded("jeresources") && HSConfig.MOD_INTEGRATION.jerIntegration)
     	{
             HSJERPlugin.init();
     	}
     	
-        if (Loader.isModLoaded("tconstruct"))
+        if (Loader.isModLoaded("tconstruct") && HSConfig.MOD_INTEGRATION.tinkersConstructIntegration)
         {
             TinkersConstruct.init();
         }
