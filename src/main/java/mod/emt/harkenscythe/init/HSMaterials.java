@@ -12,10 +12,10 @@ import mod.emt.harkenscythe.config.HSConfig;
 @SuppressWarnings("DataFlowIssue")
 public class HSMaterials
 {
-    public static final ItemArmor.ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("hs_armor_biomass", "biomass", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.BLOCK_CHORUS_FLOWER_GROW, 1.0F).setRepairItem(new ItemStack(HSItems.biomass));
-    public static final ItemArmor.ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("hs_armor_livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(HSItems.livingmetal_ingot));
-    public static final ItemArmor.ArmorMaterial ARMOR_BLOODWEAVE = EnumHelper.addArmorMaterial("hs_armor_bloodweave", "bloodweave", 15, new int[] {1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.bloodweave_cloth)));
-    public static final ItemArmor.ArmorMaterial ARMOR_SOULWEAVE = EnumHelper.addArmorMaterial("hs_armor_soulweave", "soulweave", 15, new int[] {1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.soulweave_cloth)));
+    public static final ItemArmor.ArmorMaterial ARMOR_BIOMASS = EnumHelper.addArmorMaterial("hs_armor_biomass", "biomass", 24, new int[] {2, 5, 6, 2}, 20, HSSoundEvents.EQUIP_BIOMASS.getSoundEvent(), 1.0F).setRepairItem(new ItemStack(HSItems.biomass));
+    public static final ItemArmor.ArmorMaterial ARMOR_LIVINGMETAL = EnumHelper.addArmorMaterial("hs_armor_livingmetal", "livingmetal", 24, new int[] {2, 5, 6, 2}, 20, HSSoundEvents.EQUIP_LIVINGMETAL.getSoundEvent(), 1.0F).setRepairItem(new ItemStack(HSItems.livingmetal_ingot));
+    public static final ItemArmor.ArmorMaterial ARMOR_BLOODWEAVE = EnumHelper.addArmorMaterial("hs_armor_bloodweave", "bloodweave", 15, new int[] {1, 2, 3, 1}, 15, HSSoundEvents.EQUIP_ROBE.getSoundEvent(), 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.bloodweave_cloth)));
+    public static final ItemArmor.ArmorMaterial ARMOR_SOULWEAVE = EnumHelper.addArmorMaterial("hs_armor_soulweave", "soulweave", 15, new int[] {1, 2, 3, 1}, 15, HSSoundEvents.EQUIP_ROBE.getSoundEvent(), 0.0F).setRepairItem(new ItemStack(Item.getItemFromBlock(HSBlocks.soulweave_cloth)));
 
     public static final Item.ToolMaterial TOOL_ATHAME_BASIC = EnumHelper.addToolMaterial("hs_tool_athame_basic", 2, 250, 6.0F, -1.5F, 14).setRepairItem(new ItemStack(Items.IRON_INGOT));
     public static final Item.ToolMaterial TOOL_BIOMASS = EnumHelper.addToolMaterial("hs_tool_biomass", 3, 481, 7.5F, 2.5F, 20).setRepairItem(new ItemStack(HSItems.biomass));

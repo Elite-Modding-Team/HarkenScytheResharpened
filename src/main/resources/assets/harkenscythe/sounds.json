@@ -280,6 +280,30 @@
       "harkenscythe:entities/spectral/miner/run"
     ]
   },
+  "equip.biomass": {
+    "sounds": [
+      "harkenscythe:equip/biomass/equip1",
+      "harkenscythe:equip/biomass/equip2",
+      "harkenscythe:equip/biomass/equip3",
+      "harkenscythe:equip/biomass/equip4"
+    ]
+  },
+  "equip.livingmetal": {
+    "sounds": [
+      "harkenscythe:equip/livingmetal/equip1",
+      "harkenscythe:equip/livingmetal/equip2",
+      "harkenscythe:equip/livingmetal/equip3",
+      "harkenscythe:equip/livingmetal/equip4"
+    ]
+  },
+  "equip.robe": {
+    "sounds": [
+      "harkenscythe:equip/robe/equip1",
+      "harkenscythe:equip/robe/equip2",
+      "harkenscythe:equip/robe/equip3",
+      "harkenscythe:equip/robe/equip4"
+    ]
+  },
   "guide.close": {
     "sounds": [
       "harkenscythe:guide/close1",
