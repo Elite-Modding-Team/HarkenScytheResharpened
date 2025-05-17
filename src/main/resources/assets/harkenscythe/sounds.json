@@ -167,6 +167,11 @@
       "harkenscythe:blocks/altar/soul/success4"
     ]
   },
+  "enchantment.auto_reap": {
+    "sounds": [
+      "harkenscythe:enchantments/auto_reap"
+    ]
+  },
   "entity.ectoglobin.idle": {
     "sounds": [
       "harkenscythe:entities/globin/soul/idle"

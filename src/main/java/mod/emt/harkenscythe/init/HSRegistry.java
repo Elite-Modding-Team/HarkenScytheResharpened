@@ -108,6 +108,7 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEnchantments(@Nonnull final RegistryEvent.Register<Enchantment> event)
     {
+    	// TODO: Split this into multiple config options, it's likely that Reaping Frenzy won't have this option because you obtain this enchantment differently
         if (HSConfig.GENERAL.disableEnchantments) return;
 
         HarkenScythe.LOGGER.info("Registering enchantments...");

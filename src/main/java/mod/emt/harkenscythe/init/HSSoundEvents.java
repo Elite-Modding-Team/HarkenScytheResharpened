@@ -31,6 +31,7 @@ public enum HSSoundEvents
     BLOCK_SOUL_ALTAR_FAIL("block.soul_altar.fail"),
     BLOCK_SOUL_ALTAR_LOOP("block.soul_altar.loop"),
     BLOCK_SOUL_ALTAR_SUCCESS("block.soul_altar.success"),
+    ENCHANTMENT_AUTO_REAP("enchantment.auto_reap"),
     ENTITY_ECTOGLOBIN_IDLE("entity.ectoglobin.idle"),
     ENTITY_ESSENCE_BLOOD_DESPAWN("entity.essence.blood.despawn"),
     ENTITY_ESSENCE_BLOOD_SPAWN("entity.essence.blood.spawn"),

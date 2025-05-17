@@ -164,6 +164,7 @@ public class HSToolScythe extends ItemSword implements IHSTool
             // Original speed at 20. Willingness I at 16. Divide 25 by level in subsequent Willingness levels (12.5 at II and 8.3 at III)
             if (Math.min(1.0F, (getMaxItemUseDuration(stack) - count) / (willingnessLevel <= 0 ? 20.0F : willingnessLevel == 1 ? 16.0F : 25.0F / willingnessLevel)) >= 1.0F)
             {
+                player.playSound(HSSoundEvents.ENCHANTMENT_AUTO_REAP.getSoundEvent(), 0.8F, 1.5F + (0.1F * willingnessLevel));
                 player.stopActiveHand();
             }
         }
