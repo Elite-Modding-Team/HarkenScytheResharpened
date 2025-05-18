@@ -1,0 +1,11 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "harkenscythe:spectral_glass"
+    }
+  ],
+  "result": {
+    "item": "harkenscythe:spectral_glass_inverted"
+  }
+}

@@ -50,7 +50,7 @@
     {
       "type": "text",
       "title": "Reaping Frenzy",
-      "text": "Reaping glaives and reaping scythes will automatically reap at the end of charging.$(br2)Applicable Equipment: Reaping Glaives and Reaping Scythes$(br)Max Level: 1$(br2)An Abyssal Fragment must be forged into a reaping glaive or reaping scythe at an anvil in order for it to gain this ability."
+      "text": "Reaping glaives and reaping scythes will automatically reap at the end of charging.$(br2)Applicable Equipment: Reaping Glaives and Reaping Scythes$(br)Max Level: 1$(br2)An Abyssal Fragment must be forged into a reaping glaive or reaping scythe at an anvil in order for the respective tool to gain this enchantment."
     }
   ]
 }

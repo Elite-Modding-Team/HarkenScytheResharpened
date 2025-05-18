@@ -253,6 +253,7 @@ public class HSRegistry
         HarkenScythe.LOGGER.info("Registering recipes...");
 
         // Blood Altar
+        // TODO: Better way to repair items, preferably like the absorbers
         HSAltarRecipes.addBloodRecipe(HSItems.biomass_seed, HSItems.germinated_biomass_seed, 5);
         HSAltarRecipes.addBloodRecipe(HSItems.blood_butcherer, HSItems.blood_butcherer, 10);
         HSAltarRecipes.addBloodRecipe(HSItems.bloodweave_hood, HSItems.bloodweave_hood, 10);
@@ -273,6 +274,7 @@ public class HSRegistry
         HSAltarRecipes.addBloodRecipesConfig(HSConfig.RECIPES.customBloodAltarRecipes);
 
         // Soul Altar
+        // TODO: Better way to repair items, preferably like the absorbers
         HSAltarRecipes.addSoulRecipe(HSItems.dimensional_mirror, HSItems.dimensional_mirror, 5);
         HSAltarRecipes.addSoulRecipe(HSItems.essence_trinket_soul, HSItems.essence_trinket_soul, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.essence_trinket_soul_ethereal, HSItems.essence_trinket_soul_ethereal, 10);
@@ -282,23 +284,19 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_shoes, HSItems.soulweave_shoes, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_flame, HSItems.spectral_potion_affliction, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_water, HSItems.spectral_potion_purifying, 10);
-        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass), Item.getItemFromBlock(HSBlocks.spectral_glass_inverted), 1);
-        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_pane), Item.getItemFromBlock(HSBlocks.spectral_glass_pane_inverted), 1);
-        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_inverted), Item.getItemFromBlock(HSBlocks.spectral_glass), 1);
-        HSAltarRecipes.addSoulRecipe(Item.getItemFromBlock(HSBlocks.spectral_glass_pane_inverted), Item.getItemFromBlock(HSBlocks.spectral_glass_pane), 1);
         HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 1);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 1);
         HSAltarRecipes.addSoulRecipe(HSItems.unpowered_totem_of_undying, Items.TOTEM_OF_UNDYING, 50);
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 5);
         HSAltarRecipes.addSoulRecipe("sand", Item.getItemFromBlock(Blocks.SOUL_SAND), 5);
         HSAltarRecipes.addSoulRecipe("wool", Item.getItemFromBlock(HSBlocks.soulweave_cloth), 5);
-        HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 2);
+        HSAltarRecipes.addSoulRecipe("blockGlass", Item.getItemFromBlock(HSBlocks.spectral_glass), 1);
         HSAltarRecipes.addSoulRecipe("paneGlass", Item.getItemFromBlock(HSBlocks.spectral_glass_pane), 1);
         HSAltarRecipes.addSoulRecipe("potion", Items.EXPERIENCE_BOTTLE, 10);
         HSAltarRecipes.addSoulRecipesConfig(HSConfig.RECIPES.customSoulAltarRecipes);
 
         // Third Party Mod Integration
-        if (Loader.isModLoaded("patchouli"))
+        if (Loader.isModLoaded("patchouli") && !HSConfig.GENERAL.disableGuidebook)
         {
             registry.register(new ShapelessOreRecipe(null, HSItems.reaper_guidebook, Items.BOOK, "essenceHarken").setRegistryName(HarkenScythe.MOD_ID, "reaper_guidebook"));
         }
