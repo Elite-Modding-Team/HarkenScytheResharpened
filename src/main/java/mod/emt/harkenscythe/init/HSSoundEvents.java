@@ -49,6 +49,9 @@ public enum HSSoundEvents
     ENTITY_SPECTRAL_MINER_HURT("entity.spectral_miner.hurt"),
     ENTITY_SPECTRAL_MINER_RUN("entity.spectral_miner.run"),
     ENTITY_SPECTRAL_MINER_STEP("entity.spectral_miner.step"),
+    ENTITY_WITHERS_FURY_DEATH("entity.withers_fury.death"),
+    ENTITY_WITHERS_FURY_HURT("entity.withers_fury.hurt"),
+    ENTITY_WITHERS_FURY_IDLE("entity.withers_fury.idle"),
     EQUIP_BIOMASS("equip.biomass"),
     EQUIP_LIVINGMETAL("equip.livingmetal"),
     EQUIP_ROBE("equip.robe"),
@@ -66,11 +69,16 @@ public enum HSSoundEvents
     ITEM_DIMENSIONAL_MIRROR_TELEPORT("item.dimensional_mirror.teleport"),
     ITEM_GLAIVE_STAB("item.glaive.stab"),
     ITEM_GLAIVE_TILL("item.glaive.till"),
+    ITEM_HEARKENGRIM_HIT("item.hearkengrim.hit"),
+    ITEM_HEARKENGRIM_SLASH("item.hearkengrim.slash"),
+    ITEM_LADY_HARKEN_HIT("item.lady_harken.hit"),
     ITEM_NECRONOMICON_ACTIVE("item.necronomicon.activate"),
     ITEM_POTION_BREAK("item.potion.break"),
     ITEM_POTION_THROW("item.potion.throw"),
     ITEM_SCYTHE_SWING("item.scythe.swing"),
     ITEM_VAMPIRE_KNIFE_THROW("item.vampire_knife.throw"),
+    RANDOM_BLOOD("random.blood"),
+    RANDOM_SOUL("random.soul"),
     RANDOM_SUMMON("random.summon");
 
     private final SoundEvent soundEvent;

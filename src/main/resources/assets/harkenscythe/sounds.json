@@ -209,16 +209,16 @@
       "harkenscythe:entities/essence/soul/spawn4"
     ]
   },
-  "entity.exospider.hurt": {
-    "sounds": [
-      "harkenscythe:entities/exospider/hurt1",
-      "harkenscythe:entities/exospider/hurt2"
-    ]
-  },
   "entity.exospider.death": {
     "sounds": [
       "harkenscythe:entities/exospider/death1",
       "harkenscythe:entities/exospider/death2"
+    ]
+  },
+  "entity.exospider.hurt": {
+    "sounds": [
+      "harkenscythe:entities/exospider/hurt1",
+      "harkenscythe:entities/exospider/hurt2"
     ]
   },
   "entity.exospider.step": {
@@ -228,18 +228,18 @@
       "harkenscythe:entities/exospider/step3"
     ]
   },
+  "entity.harbinger.death": {
+    "sounds": [
+      "harkenscythe:entities/harbinger/death1",
+      "harkenscythe:entities/harbinger/death2"
+    ]
+  },
   "entity.harbinger.hurt": {
     "sounds": [
       "harkenscythe:entities/harbinger/hurt1",
       "harkenscythe:entities/harbinger/hurt2",
       "harkenscythe:entities/harbinger/hurt3",
       "harkenscythe:entities/harbinger/hurt4"
-    ]
-  },
-  "entity.harbinger.death": {
-    "sounds": [
-      "harkenscythe:entities/harbinger/death1",
-      "harkenscythe:entities/harbinger/death2"
     ]
   },
   "entity.harbinger.idle": {
@@ -260,6 +260,11 @@
       "harkenscythe:entities/spectral/human/hurt"
     ]
   },
+  "entity.spectral_miner.death": {
+    "sounds": [
+      "harkenscythe:entities/spectral/miner/death"
+    ]
+  },
   "entity.spectral_miner.hurt": {
     "sounds": [
       "harkenscythe:entities/spectral/miner/hurt1",
@@ -267,9 +272,9 @@
       "harkenscythe:entities/spectral/miner/hurt3"
     ]
   },
-  "entity.spectral_miner.death": {
+  "entity.spectral_miner.run": {
     "sounds": [
-      "harkenscythe:entities/spectral/miner/death"
+      "harkenscythe:entities/spectral/miner/run"
     ]
   },
   "entity.spectral_miner.step": {
@@ -280,9 +285,25 @@
       "harkenscythe:entities/spectral/miner/step4"
     ]
   },
-  "entity.spectral_miner.run": {
+  "entity.withers_fury.death": {
     "sounds": [
-      "harkenscythe:entities/spectral/miner/run"
+      "harkenscythe:entities/withers_fury/death"
+    ]
+  },
+  "entity.withers_fury.hurt": {
+    "sounds": [
+      "harkenscythe:entities/withers_fury/hurt1",
+      "harkenscythe:entities/withers_fury/hurt2",
+      "harkenscythe:entities/withers_fury/hurt3",
+      "harkenscythe:entities/withers_fury/hurt4"
+    ]
+  },
+  "entity.withers_fury.idle": {
+    "sounds": [
+      "harkenscythe:entities/withers_fury/idle1",
+      "harkenscythe:entities/withers_fury/idle2",
+      "harkenscythe:entities/withers_fury/idle3",
+      "harkenscythe:entities/withers_fury/idle4"
     ]
   },
   "equip.biomass": {
@@ -405,6 +426,21 @@
       "harkenscythe:items/glaive/till3"
     ]
   },
+  "item.hearkengrim.hit": {
+    "sounds": [
+      "harkenscythe:items/hearkengrim/hit"
+    ]
+  },
+  "item.hearkengrim.slash": {
+    "sounds": [
+      "harkenscythe:items/hearkengrim/slash"
+    ]
+  },
+  "item.lady_harken.hit": {
+    "sounds": [
+      "harkenscythe:items/lady_harken/hit"
+    ]
+  },
   "item.necronomicon.activate": {
     "sounds": [
       "harkenscythe:items/necronomicon_activate"
@@ -434,6 +470,16 @@
       "harkenscythe:items/vampire_knife/throw2",
       "harkenscythe:items/vampire_knife/throw3",
       "harkenscythe:items/vampire_knife/throw4"
+    ]
+  },
+  "random.blood": {
+    "sounds": [
+      "harkenscythe:random/blood"
+    ]
+  },
+  "random.soul": {
+    "sounds": [
+      "harkenscythe:random/soul"
     ]
   },
   "random.summon": {
