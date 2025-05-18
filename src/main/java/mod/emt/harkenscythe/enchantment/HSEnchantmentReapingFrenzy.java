@@ -3,7 +3,7 @@ package mod.emt.harkenscythe.enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-
+import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.item.tool.HSToolGlaive;
 import mod.emt.harkenscythe.item.tool.HSToolScythe;
@@ -34,16 +34,22 @@ public class HSEnchantmentReapingFrenzy extends HSEnchantment
     }
 
     @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack)
+    public boolean canApply(ItemStack stack)
     {
         // Exclusive to only glaives and scythes.
         return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
     }
 
     @Override
-    public boolean isTreasureEnchantment()
+    public boolean isAllowedOnBooks()
     {
-        return true;
+        return HSConfig.ENCHANTMENTS.reapingFrenzyEnchanting;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack)
+    {
+        return HSConfig.ENCHANTMENTS.reapingFrenzyEnchanting ? (stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe) : false;
     }
 
     @Override

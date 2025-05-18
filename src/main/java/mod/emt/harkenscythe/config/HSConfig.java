@@ -20,6 +20,10 @@ public class HSConfig
     @Config.LangKey("cfg.harkenscythe.blocks")
     @Config.Name("Blocks")
     public static final BlockSettings BLOCKS = new BlockSettings();
+    
+    @Config.LangKey("cfg.harkenscythe.enchantments")
+    @Config.Name("Enchantments")
+    public static final EnchantmentSettings ENCHANTMENTS = new EnchantmentSettings();
 
     @Config.LangKey("cfg.harkenscythe.entities")
     @Config.Name("Entities")
@@ -43,7 +47,7 @@ public class HSConfig
         @Config.Comment("Prints debug values to console")
         public boolean debugMode = false;
 
-        @Config.Name("Disable Enchantments")
+        @Config.Name("Disable All Enchantments")
         @Config.Comment("Disables all enchantments")
         public boolean disableEnchantments = false;
         
@@ -51,7 +55,7 @@ public class HSConfig
         @Config.Comment("Disables the guidebook that is provided when Patchouli is installed")
         public boolean disableGuidebook = false;
 
-        @Config.Name("Disable Potions")
+        @Config.Name("Disable All Potions")
         @Config.Comment("Disables all potions")
         public boolean disablePotions = false;
 
@@ -78,6 +82,22 @@ public class HSConfig
         @Config.Comment("The level of the regeneration effect provided by active livingmetal cores")
         @Config.RangeInt(min = 1)
         public int livingmetalCoreRegenLevel = 1;
+    }
+    
+    public static class EnchantmentSettings
+    {
+        @Config.Name("Reaping Frenzy Anvil Support")
+        @Config.Comment("Using Abyssal Fragments with scythes or glaives at an anvil will apply Reaping Frenzy")
+        public boolean reapingFrenzyAnvil = true;
+        
+        @Config.Name("Reaping Frenzy Anvil Cost")
+        @Config.Comment("The cost in XP levels when applying Reaping Frenzy with an Abyssal Fragment")
+        @Config.RangeInt(min = 1)
+        public int reapingFrenzyAnvilCost = 15;
+        
+        @Config.Name("Reaping Frenzy Enchanting")
+        @Config.Comment("Makes Reaping Frenzy available in all enchantment methods")
+        public boolean reapingFrenzyEnchanting = false;
     }
 
     public static class EntitySettings

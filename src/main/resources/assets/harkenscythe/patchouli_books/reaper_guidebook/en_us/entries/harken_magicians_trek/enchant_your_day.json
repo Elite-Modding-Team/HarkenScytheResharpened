@@ -41,16 +41,16 @@
     {
       "type": "text",
       "title": "Willingness",
-      "text": "Has a (15% * level) chance to not consume durability while reaping. Reap charging speed is also increased for every level.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 4"
+      "text": "Has a (15% * level) chance to not consume durability while reaping. Reap charging speed is also increased for every level.$(br2)Applicable Equipment: Reaping Glaives and Reaping Scythes$(br)Max Level: 4"
     },
     {
       "type": "text",
-      "text": "These enchantments are treasure enchantments and can only be obtained from loot or other methods:"
+      "text": "These enchantments are specialized enchantments and can only be obtained from loot or other methods:"
     },
     {
       "type": "text",
       "title": "Reaping Frenzy",
-      "text": "Glaives and scythes will automatically reap at the end of charging.$(br2)Applicable Equipment: Glaives and Scythes$(br)Max Level: 1"
+      "text": "Reaping glaives and reaping scythes will automatically reap at the end of charging.$(br2)Applicable Equipment: Reaping Glaives and Reaping Scythes$(br)Max Level: 1$(br2)An Abyssal Fragment must be forged into a reaping glaive or reaping scythe at an anvil in order for it to gain this ability."
     }
   ]
 }

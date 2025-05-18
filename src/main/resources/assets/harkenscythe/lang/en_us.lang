@@ -184,11 +184,11 @@ enchantment.harkenscythe.hemorrhage.desc=Afflicts the target with Bleeding.
 enchantment.harkenscythe.nourishment=Nourishment
 enchantment.harkenscythe.nourishment.desc=Decreases your hunger bar instead of health by the damage dealt to you.
 enchantment.harkenscythe.reaping_frenzy=Reaping Frenzy
-enchantment.harkenscythe.reaping_frenzy.desc=Glaives and scythes will automatically reap at the end of charging.
+enchantment.harkenscythe.reaping_frenzy.desc=Reaping glaives and reaping scythes will automatically reap at the end of charging.
 enchantment.harkenscythe.soulsteal=Soul Tether
 enchantment.harkenscythe.soulsteal.desc=Has a chance to cause soul essence to drop when killing a target with the tool.
 enchantment.harkenscythe.willingness=Willingness
-enchantment.harkenscythe.willingness.desc=Glaives and scythes have increased reap charging speed and a chance to not consume durability while reaping.
+enchantment.harkenscythe.willingness.desc=Has a chance to not consume durability while reaping. Reap charging speed is also increased.
 
 # POTIONS
 effect.harkenscythe.affliction=Spectral Affliction
