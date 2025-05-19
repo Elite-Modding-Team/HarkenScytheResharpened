@@ -205,27 +205,27 @@
               "data": 4
             }
           ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
         },
         {
-          "conditions": [
-            {
-              "condition": "killed_by_player"
-            },
-            {
-              "condition": "random_chance_with_looting",
-              "chance": 0.15,
-              "looting_multiplier": 0.04
-            }
-          ],
-          "name": "diamond",
-          "rolls": 1,
-          "entries": [
-            {
-              "type": "item",
-              "name": "minecraft:diamond",
-              "weight": 1
-            }
-          ]
+          "condition": "random_chance_with_looting",
+          "chance": 0.15,
+          "looting_multiplier": 0.04
+        }
+      ],
+      "name": "diamond",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 1
         }
       ]
     }
