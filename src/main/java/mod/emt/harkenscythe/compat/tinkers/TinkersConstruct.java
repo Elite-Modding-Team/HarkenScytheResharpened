@@ -24,12 +24,14 @@ public class TinkersConstruct
 
     // These traits are for tools and not armor
     public static final AbstractTraitLeveled BLOOD_CONJURATION = new TraitBloodConjuration(1);
-    public static final AbstractTrait BLOOD_INTERVENTION = new TraitBloodIntervention();
+    public static final AbstractTraitLeveled BLOOD_INTERVENTION = new TraitBloodIntervention(1);
+    public static final AbstractTraitLeveled BLOOD_INTERVENTION2 = new TraitBloodIntervention(2);
     public static final AbstractTraitLeveled SOUL_CONJURATION = new TraitSoulConjuration(1);
-    public static final AbstractTrait SOUL_INTERVENTION = new TraitSoulIntervention();
+    public static final AbstractTraitLeveled SOUL_INTERVENTION = new TraitSoulIntervention(1);
+    public static final AbstractTraitLeveled SOUL_INTERVENTION2 = new TraitSoulIntervention(2);
     
     // Unused but modpack and addon developers might want these?
-    public static final AbstractTrait BLOOD_INTERVENTION2 = new TraitBloodConjuration(2);
+    public static final AbstractTrait BLOOD_CONJURATION2 = new TraitBloodConjuration(2);
     public static final AbstractTraitLeveled SOUL_CONJURATION2 = new TraitSoulConjuration(2);
 
     public static void preInit()
@@ -40,7 +42,7 @@ public class TinkersConstruct
             new ExtraMaterialStats(100),
             new BowMaterialStats(0.675F, 1.6F, 7.5F));
         BIOMASS.addTrait(BLOOD_CONJURATION, MaterialTypes.HEAD);
-        BIOMASS.addTrait(BLOOD_INTERVENTION, MaterialTypes.HEAD);
+        BIOMASS.addTrait(BLOOD_INTERVENTION2, MaterialTypes.HEAD);
         BIOMASS.addTrait(BLOOD_INTERVENTION);
         TinkerRegistry.integrate(BIOMASS, null, "Biomass").preInit();
 
@@ -50,7 +52,7 @@ public class TinkersConstruct
             new ExtraMaterialStats(100),
             new BowMaterialStats(0.675F, 1.6F, 7.5F));
         LIVINGMETAL.addTrait(SOUL_CONJURATION, MaterialTypes.HEAD);
-        LIVINGMETAL.addTrait(SOUL_INTERVENTION, MaterialTypes.HEAD);
+        LIVINGMETAL.addTrait(SOUL_INTERVENTION2, MaterialTypes.HEAD);
         LIVINGMETAL.addTrait(SOUL_INTERVENTION);
         TinkerRegistry.integrate(LIVINGMETAL, null, "Livingmetal").preInit();
 
