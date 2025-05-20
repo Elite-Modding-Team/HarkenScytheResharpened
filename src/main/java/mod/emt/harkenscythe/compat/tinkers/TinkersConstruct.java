@@ -11,6 +11,7 @@ import mod.emt.harkenscythe.init.HSItems;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.traits.AbstractTraitLeveled;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 public class TinkersConstruct
@@ -22,10 +23,14 @@ public class TinkersConstruct
     public static final Material SOULWEAVE_CLOTH = new Material("soulweave_cloth", 0x1E8CA7);
 
     // These traits are for tools and not armor
-    public static final AbstractTrait BLOOD_CONJURATION = new TraitBloodConjuration();
+    public static final AbstractTraitLeveled BLOOD_CONJURATION = new TraitBloodConjuration(1);
     public static final AbstractTrait BLOOD_INTERVENTION = new TraitBloodIntervention();
-    public static final AbstractTrait SOUL_CONJURATION = new TraitSoulConjuration();
+    public static final AbstractTraitLeveled SOUL_CONJURATION = new TraitSoulConjuration(1);
     public static final AbstractTrait SOUL_INTERVENTION = new TraitSoulIntervention();
+    
+    // Unused but modpack and addon developers might want these?
+    public static final AbstractTrait BLOOD_INTERVENTION2 = new TraitBloodConjuration(2);
+    public static final AbstractTraitLeveled SOUL_CONJURATION2 = new TraitSoulConjuration(2);
 
     public static void preInit()
     {

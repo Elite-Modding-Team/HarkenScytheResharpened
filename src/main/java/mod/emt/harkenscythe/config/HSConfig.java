@@ -72,10 +72,12 @@ public class HSConfig
                 "The radius in blocks crucibles can be detected by altars",
                 "Warning: Performance sensitive"
             })
+        @Config.RangeInt(min = 1)
         public int crucibleDetectionRange = 4;
 
         @Config.Name("Crucible Max Amount")
         @Config.Comment("The maximum amount of essence to be stored in crucibles")
+        @Config.RangeInt(min = 1)
         public int crucibleMaxAmount = 100;
 
         @Config.Name("Livingmetal Core Regeneration Level")
@@ -113,6 +115,7 @@ public class HSConfig
 
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
+        @Config.RangeInt(min = 1)
         public int essenceDespawnTime = 6000;
 
         @Config.Name("Essence Max Health Limit")
@@ -129,10 +132,12 @@ public class HSConfig
 
         @Config.Name("Blood Essence Common Value")
         @Config.Comment("How much souls common soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceBloodCommonValue = 1;
 
         @Config.Name("Blood Essence Sickly Value")
         @Config.Comment("How much souls common soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceBloodSicklyValue = 2;
 
         @Config.Name("Blood Essence Sickly Max Health")
@@ -141,6 +146,7 @@ public class HSConfig
 
         @Config.Name("Blood Essence Intoxicated Value")
         @Config.Comment("How much souls common soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceBloodIntoxicatedValue = 5;
 
         @Config.Name("Blood Essence Intoxicated Max Health")
@@ -149,6 +155,7 @@ public class HSConfig
 
         @Config.Name("Blood Essence Warped Value")
         @Config.Comment("How much souls common soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceBloodWarpedValue = 40;
 
         @Config.Name("Blood Essence Warped Max Health")
@@ -161,10 +168,12 @@ public class HSConfig
 
         @Config.Name("Soul Essence Common Value")
         @Config.Comment("How much souls common soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceSoulCommonValue = 1;
 
         @Config.Name("Soul Essence Culled Value")
         @Config.Comment("How much souls culled soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceSoulCulledValue = 5;
 
         @Config.Name("Soul Essence Grieving Max Health")
@@ -173,6 +182,7 @@ public class HSConfig
 
         @Config.Name("Soul Essence Grieving Value")
         @Config.Comment("How much souls grieving soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceSoulGrievingValue = 2;
 
         @Config.Name("Soul Essence Wrathful Max Health")
@@ -181,10 +191,12 @@ public class HSConfig
 
         @Config.Name("Soul Essence Spectral Value")
         @Config.Comment("How much souls spectral soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceSoulSpectralValue = 20;
 
         @Config.Name("Soul Essence Wrathful Value")
         @Config.Comment("How much souls wrathful soul essence is worth")
+        @Config.RangeInt(min = 1)
         public int essenceSoulWrathfulValue = 40;
 
         @Config.RequiresMcRestart
@@ -323,26 +335,32 @@ public class HSConfig
                 "The maximum amount of blood charges blood butcherers can take",
                 "When changing this, you may want to modify the recipe data value accordingly"
             })
+        @Config.RangeInt(min = 1)
         public int bloodButchererMaxCharges = 2000;
 
         @Config.Name("Basic Blood Keeper Essence Capacity")
         @Config.Comment("The amount of essence basic blood keepers can hold")
+        @Config.RangeInt(min = 1)
         public int bloodKeeperBasicEssenceCapacity = 40;
 
         @Config.Name("Blood Keeper Essence Capacity")
         @Config.Comment("The amount of essence blood keepers can hold")
+        @Config.RangeInt(min = 1)
         public int bloodKeeperEssenceCapacity = 80;
 
         @Config.Name("Blood Vessel Essence Capacity")
         @Config.Comment("The amount of essence blood vessels can hold")
+        @Config.RangeInt(min = 1)
         public int bloodVesselEssenceCapacity = 160;
 
         @Config.Name("Blood Trinket Essence Capacity")
         @Config.Comment("The amount of essence blood trinkets can hold")
+        @Config.RangeInt(min = 1)
         public int bloodTrinketEssenceCapacity = 400;
 
         @Config.Name("Ethereal Blood Trinket Essence Capacity")
         @Config.Comment("The amount of essence ethereal blood trinkets can hold")
+        @Config.RangeInt(min = 1)
         public int bloodTrinketEtherealEssenceCapacity = 1600;
 
         @Config.Name("Deadtime Watch Durability")
@@ -351,10 +369,12 @@ public class HSConfig
                 "The amount of durability deadtime watches have",
                 "When changing this, you may want to modify the recipe data value accordingly"
             })
+        @Config.RangeInt(min = 1)
         public int deadtimeWatchDurability = 40;
 
         @Config.Name("Deadtime Watch Duration")
         @Config.Comment("The time stop duration of deadtime watches in ticks")
+        @Config.RangeInt(min = 1)
         public int deadtimeWatchDuration = 300;
 
         @Config.Name("Deadtime Watch Radius")
@@ -363,6 +383,7 @@ public class HSConfig
 
         @Config.Name("Deadtime Watch Uses")
         @Config.Comment("The amount of uses fully charged deadtime watches have")
+        @Config.RangeInt(min = 1)
         public int deadtimeWatchUses = 20;
 
         @Config.Name("Dimensional Mirror Dimension Blacklist")
@@ -380,6 +401,7 @@ public class HSConfig
                 "The amount of durability dimensional mirrors have",
                 "When changing this, you may want to modify the recipe data value accordingly"
             })
+        @Config.RangeInt(min = 1)
         public int dimensionalMirrorDurability = 20;
 
         @Config.Name("Dimensional Mirror Home Dimension")
@@ -392,6 +414,7 @@ public class HSConfig
 
         @Config.Name("Dimensional Mirror Uses")
         @Config.Comment("The amount of uses fully charged dimensional mirrors have")
+        @Config.RangeInt(min = 1)
         public int dimensionalMirrorUses = 4;
 
         @Config.Name("Necronomicon Summon Blood Cost")
@@ -404,22 +427,27 @@ public class HSConfig
 
         @Config.Name("Basic Soul Keeper Essence Capacity")
         @Config.Comment("The amount of essence basic soul keepers can hold")
+        @Config.RangeInt(min = 1)
         public int soulKeeperBasicEssenceCapacity = 40;
 
         @Config.Name("Soul Keeper Essence Capacity")
         @Config.Comment("The amount of essence soul keepers can hold")
+        @Config.RangeInt(min = 1)
         public int soulKeeperEssenceCapacity = 80;
 
         @Config.Name("Soul Vessel Essence Capacity")
         @Config.Comment("The amount of essence soul vessels can hold")
+        @Config.RangeInt(min = 1)
         public int soulVesselEssenceCapacity = 160;
 
         @Config.Name("Soul Trinket Essence Capacity")
         @Config.Comment("The amount of essence soul trinkets can hold")
+        @Config.RangeInt(min = 1)
         public int soulTrinketEssenceCapacity = 400;
 
         @Config.Name("Ethereal Soul Trinket Essence Capacity")
         @Config.Comment("The amount of essence ethereal soul trinkets can hold")
+        @Config.RangeInt(min = 1)
         public int soulTrinketEtherealEssenceCapacity = 1600;
 
         @Config.Name("Vampire Knife Blood Cost")
@@ -436,6 +464,7 @@ public class HSConfig
 
         @Config.Name("Vampire Knife Despawn Time")
         @Config.Comment("The amount of ticks after a vampire knife entity despawns")
+        @Config.RangeInt(min = 1)
         public int vampireKnifeDespawnTime = 40;
 
         @Config.Name("Vampire Knife Drop Chance")
@@ -448,6 +477,7 @@ public class HSConfig
                 "The maximum amount of blood charges vampire knifes can take",
                 "When changing this, you may want to modify the recipe data value accordingly"
             })
+        @Config.RangeInt(min = 1)
         public int vampireKnifeMaxCharges = 2000;
 
         @Config.Name("Vampire Knife Projectile Damage")
@@ -484,6 +514,24 @@ public class HSConfig
         @Config.Name("Tinkers' Construct Integration")
         @Config.Comment("Enables Tinkers' Construct integration")
         public boolean tinkersConstructIntegration = true;
+        
+        @Config.Name("Tinkers' Construct Integration: Blood Conjuration Max Level")
+        @Config.Comment("Max level that the Blood Conjuration trait can be")
+        @Config.RangeInt(min = 1)
+        public int bloodConjurationTraitMaxLevel = 3;
+        
+        @Config.Name("Tinkers' Construct Integration: Blood Conjuration Chance Per Level")
+        @Config.Comment("The default chance (multiplied by level) for the Blood Conjuration trait to spawn essence")
+        public double bloodConjurationChancePerLevel = 0.2D;
+        
+        @Config.Name("Tinkers' Construct Integration: Soul Conjuration Max Level")
+        @Config.Comment("Max level that the Soul Conjuration trait can be")
+        @Config.RangeInt(min = 1)
+        public int soulConjurationTraitMaxLevel = 3;
+        
+        @Config.Name("Tinkers' Construct Integration: Soul Conjuration Chance Per Level")
+        @Config.Comment("The default chance (multiplied by level) for the Soul Conjuration trait to spawn essence")
+        public double soulConjurationChancePerLevel = 0.25D;
     }
 
     public static class RecipeSettings
