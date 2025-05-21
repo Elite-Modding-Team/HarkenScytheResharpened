@@ -14,27 +14,34 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.traits.AbstractArmorTraitLeveled;
+
 import java.awt.*;
 import java.util.List;
+
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSSoundEvents;
+
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-public class TraitSoulInterventionArmor extends AbstractArmorTrait
+public class TraitSoulInterventionArmor extends AbstractArmorTraitLeveled
 {
-    public TraitSoulInterventionArmor()
+    public TraitSoulInterventionArmor(int level)
     {
-        super("soul_intervention", 0x006B9F);
+        super("soul_intervention", 0x006B9F, 3, level);
     }
 
     @Override
     public void onArmorTick(ItemStack armor, World world, EntityPlayer player)
     {
-        if (player.ticksExisted % 40 == 0 && ToolHelper.getCurrentDurability(armor) >= 1)
+        ModifierNBT data = new ModifierNBT(TinkerUtil.getModifierTag(armor, name));
+        
+        if (player.ticksExisted % (120 / data.level) == 0 && ToolHelper.getCurrentDurability(armor) >= 1)
         {
-            int radius = 8;
+            int radius = 2 + (2 * data.level);
             AxisAlignedBB area = new AxisAlignedBB(player.posX - radius, player.posY - radius, player.posZ - radius, player.posX + radius, player.posY + radius, player.posZ + radius);
             List<EntityLivingBase> list = world.getEntitiesWithinAABB(EntityLivingBase.class, area, EntitySelectors.IS_ALIVE);
 
@@ -55,8 +62,8 @@ public class TraitSoulInterventionArmor extends AbstractArmorTrait
 
                     if (player instanceof EntityPlayer)
                     {
-                        // 30 seconds of Strength
-                        player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 30 * 20, 0));
+                        // 10 seconds of Resistance * level
+                        player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, (10 * data.level) * 20, 0));
                     }
 
                     if (FMLLaunchHandler.side().isClient())
