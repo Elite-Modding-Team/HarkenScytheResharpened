@@ -468,6 +468,20 @@ public class HSConfig
         @Config.RangeInt(min = 1)
         public int soulTrinketEtherealEssenceCapacity = 1600;
 
+        @Config.Name("Tome of Refreshing Durability")
+        @Config.Comment
+            ({
+                "The amount of durability a Tome of Refreshing has",
+                "When changing this, you may want to modify the recipe data value accordingly"
+            })
+        @Config.RangeInt(min = 1)
+        public int refreshTomeDurability = 20;
+
+        @Config.Name("Tome of Refreshing Uses")
+        @Config.Comment("The amount of uses a fully charged Tome of Refreshing has")
+        @Config.RangeInt(min = 1)
+        public int refreshTomeUses = 20;
+
         @Config.Name("Vampire Knife Blood Cost")
         @Config.Comment
             ({

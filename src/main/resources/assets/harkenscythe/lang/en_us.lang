@@ -128,6 +128,7 @@ item.harkenscythe.livingmetal_shovel.name=Livingmetal Shovel
 item.harkenscythe.livingmetal_sword.name=Livingmetal Sword
 item.harkenscythe.reaper_guidebook.name=Reaper's Guidebook
 item.harkenscythe.reaper_scythe.name=Soul Reaper
+item.harkenscythe.refresh_tome.name=Tome of Refreshing
 item.harkenscythe.shadow_book.name=Book of Shadows
 item.harkenscythe.soul_cake.name=Cake of Souls
 item.harkenscythe.soul_cookie.name=Cookie of Souls
@@ -206,6 +207,8 @@ message.harkenscythe.dimensional_mirror.no_spawn=No spawn point is set for the m
 message.harkenscythe.hs_butcher=%s was butchered to death
 message.harkenscythe.hs_lifesteal=%s was voluntold to donate blood
 message.harkenscythe.hs_reap=%s was reaped
+message.harkenscythe.refresh_tome.no_souls=The tome needs to be recharged with souls to work!
+message.harkenscythe.refresh_tome.refresh=Enchanting table enchantments rerolled!
 message.harkenscythe.vampire_knife.no_blood=The vampire knife needs to be recharged with blood to work!
 
 # SET BONUSES

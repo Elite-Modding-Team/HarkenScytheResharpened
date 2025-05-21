@@ -204,6 +204,7 @@ public class HSItems
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "ancient_necronomicon_page").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "carnage_book").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.UNCOMMON), "shadow_book").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSItemRefreshTome(), "refresh_tome").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemCreepball(), "creepball").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "biomass_seed").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemBiomassSeedGerminated(), "germinated_biomass_seed").setCreativeTab(HarkenScythe.TAB),
