@@ -21,6 +21,10 @@
       "name": " ",
       "text": "May or may not be an illusion.",
       "entity": "harkenscythe:spectral_miner{HandItems:[{Count:1,id:\"harkenscythe:spectral_pickaxe\"},{}]}"
+    },
+    {
+      "type": "text",
+      "text": "A warped version of the Spectral Human that messes with your sanity.$(br2)Most of its victims have reported disturbing noises nearby and seeing nothing but pitch darkness. It at least might explain where the cave ambient noises are coming from."
     }
   ]
 }

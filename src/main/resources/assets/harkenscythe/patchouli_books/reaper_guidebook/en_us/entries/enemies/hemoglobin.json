@@ -16,8 +16,12 @@
     {
       "type": "entity",
       "name": " ",
-      "text": "Leftover remains of blood essence.",
+      "text": "Blood boiled.",
       "entity": "harkenscythe:hemoglobin"
+    },
+    {
+      "type": "text",
+      "text": "When blood essence is outside the Spirit Realm for too long, it will become a Hemoglobin.$(br2)The Hemoglobin is an aggressive state of blood essence that acts similar to slimes and will attack you on sight. They won't drop anything significant or spawn any essences when reaping them."
     }
   ]
 }

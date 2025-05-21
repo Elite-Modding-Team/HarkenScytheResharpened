@@ -28,6 +28,14 @@
       "entity": "harkenscythe:harbinger{HandItems:[{Count:1,id:\"harkenscythe:reaper_scythe\"},{}]}",
       "scale": 0.9,
       "offset": 0.9
+    },
+    {
+      "type": "text",
+      "text": "Guardians from the Spirit Realm representing Death itself, serving to reap creatures to take their essence back to their homeworld.$(br2)They carry all sorts of items usable for reaping, including the Soul Reaper which is a powerful scythe originating from the Spirit Realm."
+    },
+    {
+      "type": "text",
+      "text": "Unlike your usual hostiles, they are neutral to you and other fellow reapers. It is best to leave them to their business unless you want a really bad time."
     }
   ]
 }

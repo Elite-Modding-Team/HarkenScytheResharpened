@@ -16,8 +16,12 @@
     {
       "type": "entity",
       "name": " ",
-      "text": "Leftover remains of soul essence.",
+      "text": "It weighs 21 grams.",
       "entity": "harkenscythe:ectoglobin"
+    },
+    {
+      "type": "text",
+      "text": "When soul essence is outside the Spirit Realm for too long or it is unable to copy the form of the creature it spawned from, it will become an Ectoglobin.$(br2)The Ectoglobin is an aggressive state of soul essence that acts similar to slimes and will attack you on sight. They won't drop anything significant or spawn any essences when reaping them."
     }
   ]
 }

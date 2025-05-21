@@ -19,6 +19,10 @@
       "name": " ",
       "text": "Bound to the mortal plane...",
       "entity": "harkenscythe:spectral_human"
+    },
+    {
+      "type": "text",
+      "text": "Ghosts of former residents of the Overworld, they seem to have inhabited it a very long time ago before the villagers and illagers settled.$(br2)Defeating them will make them shed off some bits of pure essence and send them back to the Spirit Realm."
     }
   ]
 }
