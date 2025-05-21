@@ -157,7 +157,7 @@ public class HSEventLivingDeath
     {
         if (HSConfig.GENERAL.disableEnchantments) return false;
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
-        return (level > 0 && player.getRNG().nextFloat() < 0.25F * level);
+        return (level > 0 && player.getRNG().nextFloat() < HSConfig.ENCHANTMENTS.soulTetherChancePerLevel * level);
     }
 
     private static boolean isWhitelistedMob(Entity entity)

@@ -88,6 +88,15 @@ public class HSConfig
     
     public static class EnchantmentSettings
     {
+        @Config.Name("Bloodletting Max Level")
+        @Config.Comment("Max level that the Bloodletting enchantment can be")
+        @Config.RangeInt(min = 1)
+        public int bloodlettingMaxLevel = 3;
+        
+        @Config.Name("Bloodletting Chance Per Level")
+        @Config.Comment("The default chance (multiplied by level) for the Bloodletting enchantment to spawn essence")
+        public double bloodlettingChancePerLevel = 0.2D;
+        
         @Config.Name("Reaping Frenzy Anvil Support")
         @Config.Comment("Using Abyssal Fragments with scythes or glaives at an anvil will apply Reaping Frenzy")
         public boolean reapingFrenzyAnvil = true;
@@ -100,6 +109,15 @@ public class HSConfig
         @Config.Name("Reaping Frenzy Enchanting")
         @Config.Comment("Makes Reaping Frenzy available in all enchantment methods")
         public boolean reapingFrenzyEnchanting = false;
+        
+        @Config.Name("Soul Tether Max Level")
+        @Config.Comment("Max level that the Soul Tether enchantment can be")
+        @Config.RangeInt(min = 1)
+        public int soulTetherMaxLevel = 3;
+        
+        @Config.Name("Soul Tether Chance Per Level")
+        @Config.Comment("The default chance (multiplied by level) for the Soul Tether enchantment to spawn essence")
+        public double soulTetherChancePerLevel = 0.25D;
     }
 
     public static class EntitySettings
