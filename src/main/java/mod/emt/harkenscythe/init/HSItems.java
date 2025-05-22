@@ -173,6 +173,10 @@ public class HSItems
                 HSRegistry.setup(new HSItemEssenceContainer(HSEnumContainerType.VESSEL, HSEnumFaction.NEUTRAL), "essence_vessel").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemEssenceContainer(HSEnumContainerType.VESSEL, HSEnumFaction.BLOOD), "essence_vessel_blood").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemEssenceContainer(HSEnumContainerType.VESSEL, HSEnumFaction.SOUL), "essence_vessel_soul").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),
@@ -269,26 +273,6 @@ public class HSItems
         if (Loader.isModLoaded("patchouli") && !HSConfig.GENERAL.disableGuidebook)
         {
             registry.register(HSRegistry.setup(new HSItemGuidebook(), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB));
-        }
-        if (Loader.isModLoaded("baubles"))
-        {
-            registry.registerAll
-                (
-                    HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood").setCreativeTab(HarkenScythe.TAB),
-                    HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
-                    HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
-                    HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB)
-                );
-        }
-        else
-        {
-            registry.registerAll
-                (
-                    HSRegistry.setup(new HSItemEssenceContainer(HSEnumContainerType.TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood").setCreativeTab(HarkenScythe.TAB),
-                    HSRegistry.setup(new HSItemEssenceContainer(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
-                    HSRegistry.setup(new HSItemEssenceContainer(HSEnumContainerType.TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
-                    HSRegistry.setup(new HSItemEssenceContainer(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB)
-                );
         }
 
         // ITEM BLOCKS
