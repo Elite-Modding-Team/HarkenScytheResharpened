@@ -35,6 +35,7 @@ public class HSItemDimensionalMirror extends HSItem
         this.status = 0.0F;
         setMaxDamage(HSConfig.ITEMS.dimensionalMirrorDurability);
         setMaxStackSize(1);
+        setNoRepair();
         addPropertyOverride(new ResourceLocation(HarkenScythe.MOD_ID + ":dimensional_mirror_status"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)

@@ -36,6 +36,7 @@ public class HSToolVampireKnife extends HSToolSword implements IHSTool
         super(material, EnumRarity.COMMON);
         this.attackSpeed = attackSpeed;
         this.setMaxDamage(HSConfig.ITEMS.vampireKnifeMaxCharges);
+        setNoRepair();
     }
 
     @Override

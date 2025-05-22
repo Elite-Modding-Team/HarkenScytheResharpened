@@ -36,6 +36,7 @@ public class HSItemNecronomicon extends HSItem
     {
         super(EnumRarity.RARE);
         setMaxStackSize(1);
+        setNoRepair();
     }
 
     @Override

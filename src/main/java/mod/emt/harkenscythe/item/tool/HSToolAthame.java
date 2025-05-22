@@ -6,21 +6,21 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
-public class HSToolAthame extends ItemSword implements IHSTool
+public class HSToolAthame extends HSToolSword implements IHSTool
 {
     private final EnumRarity rarity;
     private final ToolMaterial material;
 
     public HSToolAthame(ToolMaterial material, EnumRarity rarity)
     {
-        super(material);
+        super(material, rarity);
         this.rarity = rarity;
         this.material = material;
+        setNoRepair();
     }
 
     @Override

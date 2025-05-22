@@ -21,6 +21,7 @@ public class HSItemRefreshTome extends HSItem
         super(EnumRarity.RARE);
         setMaxDamage(HSConfig.ITEMS.refreshTomeDurability);
         setMaxStackSize(1);
+        setNoRepair();
 	}
 	
     @Override

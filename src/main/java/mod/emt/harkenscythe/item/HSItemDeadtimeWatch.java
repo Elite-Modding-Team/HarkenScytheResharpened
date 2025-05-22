@@ -29,6 +29,7 @@ public class HSItemDeadtimeWatch extends HSItem
         super(rarity);
         setMaxDamage(HSConfig.ITEMS.deadtimeWatchDurability);
         setMaxStackSize(1);
+        setNoRepair();
     }
 
     @Override

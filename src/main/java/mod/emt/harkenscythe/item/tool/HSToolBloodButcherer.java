@@ -42,6 +42,7 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
         super(material, EnumRarity.COMMON);
         this.setMaxDamage(HSConfig.ITEMS.bloodButchererMaxCharges);
         this.attackSpeed = 0.8F;
+        setNoRepair();
     }
 
     @Override

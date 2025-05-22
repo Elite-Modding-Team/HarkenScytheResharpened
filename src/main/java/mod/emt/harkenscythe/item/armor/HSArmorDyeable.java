@@ -20,6 +20,7 @@ public class HSArmorDyeable extends HSArmor
     {
         super(material, renderIndex, equipmentSlot, rarity);
         this.defaultColor = defaultColor;
+        setNoRepair();
     }
 
     public int getDefaultColor()
