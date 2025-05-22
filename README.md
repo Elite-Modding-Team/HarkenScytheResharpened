@@ -2,7 +2,7 @@
 
 ### Reap -What- You -Sow- 𓌳 A remake of [**Harken Scythe**](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1286397-harken-scythe-reap-what-you-sow-biomass-blocks-and), exclusively for Minecraft 1.12.2
 
-#### Also check out [**Asgard Shield: Reloaded**](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded), Harken Scythe's sister mod!
+#### [**Baubles**](https://www.curseforge.com/minecraft/mc-mods/baubles) or [**Bubbles**](https://www.curseforge.com/minecraft/mc-mods/bubbles-a-baubles-fork) are required for this mod to work. You can also check out [**Asgard Shield: Reloaded**](https://www.curseforge.com/minecraft/mc-mods/asgard-shield-reloaded), Harken Scythe's sister mod!
 
 ![Harken Scythe Banner](https://raw.githubusercontent.com/Elite-Modding-Team/HarkenScytheResharpened/refs/heads/main/docs/banner.png)
 
