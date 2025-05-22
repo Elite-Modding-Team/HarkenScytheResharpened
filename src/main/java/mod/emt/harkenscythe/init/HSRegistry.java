@@ -48,6 +48,7 @@ import mod.emt.harkenscythe.advancement.HSAdvancementTrigger;
 import mod.emt.harkenscythe.client.renderer.*;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.*;
+import mod.emt.harkenscythe.recipe.HSRecipeRefreshTomeUse;
 import mod.emt.harkenscythe.tileentity.*;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
@@ -225,6 +226,9 @@ public class HSRegistry
                 OreDictionary.registerOre("potion", item);
             }
         }
+        
+        // Misc Recipes
+        registry.register(new HSRecipeRefreshTomeUse());
 
         // Furnace Recipes
         GameRegistry.addSmelting(new ItemStack(HSItems.soul_soot), new ItemStack(HSItems.soumberglass_ingot), 0.7F);

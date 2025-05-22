@@ -29,6 +29,7 @@ public class HSItemRefreshTome extends HSItem
         ItemStack stack = player.getHeldItem(hand);
         if (stack.getItemDamage() <= stack.getMaxDamage() - (stack.getMaxDamage() / HSConfig.ITEMS.refreshTomeUses))
         {
+        	// Reroll enchantments in enchanting tables
         	if (!world.isRemote)
         	{
         		player.xpSeed = world.rand.nextInt();
@@ -40,7 +41,7 @@ public class HSItemRefreshTome extends HSItem
             }
             
             player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.refresh_tome.refresh"), true);
-            player.getCooldownTracker().setCooldown(stack.getItem(), 100);
+            player.getCooldownTracker().setCooldown(stack.getItem(), 60);
         	return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
         else world.playSound(null, player.getPosition(), HSSoundEvents.BLOCK_SOUL_ALTAR_FAIL.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, 1.0F / (world.rand.nextFloat() * 0.4F + 1.2F));
@@ -48,18 +49,25 @@ public class HSItemRefreshTome extends HSItem
         if (stack.getItemDamage() > stack.getMaxDamage() - (stack.getMaxDamage() / HSConfig.ITEMS.refreshTomeUses))
         {
             player.sendStatusMessage(new TextComponentTranslation("message.harkenscythe.refresh_tome.no_souls"), true);
-            player.getCooldownTracker().setCooldown(stack.getItem(), 100);
+            player.getCooldownTracker().setCooldown(stack.getItem(), 60);
         }
 
         return new ActionResult<>(EnumActionResult.PASS, stack);
     }
-	
+
     @Override
     public boolean isDamageable()
     {
         return false;
     }
-    
+
+    @Override
+    public ItemStack getContainerItem(ItemStack stack)
+    {
+    	ItemStack newStack = stack.copy();
+    	return newStack;
+    }
+
     @Override
     public boolean hasContainerItem(ItemStack stack)
     {

@@ -89,6 +89,7 @@ public class HSItems
     public static final HSItem ancient_necronomicon_page = null;
     public static final HSItem carnage_book = null;
     public static final HSItem shadow_book = null;
+    public static final HSItemRefreshTome refresh_tome = null;
 
     public static final HSItemCreepball creepball = null;
     public static final HSItem biomass_seed = null;
