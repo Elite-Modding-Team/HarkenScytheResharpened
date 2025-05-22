@@ -52,6 +52,7 @@ public enum HSSoundEvents
     ENTITY_WITHERS_FURY_DEATH("entity.withers_fury.death"),
     ENTITY_WITHERS_FURY_HURT("entity.withers_fury.hurt"),
     ENTITY_WITHERS_FURY_IDLE("entity.withers_fury.idle"),
+    EQUIP_BAUBLE("equip.bauble"),
     EQUIP_BIOMASS("equip.biomass"),
     EQUIP_LIVINGMETAL("equip.livingmetal"),
     EQUIP_ROBE("equip.robe"),
@@ -79,7 +80,8 @@ public enum HSSoundEvents
     ITEM_VAMPIRE_KNIFE_THROW("item.vampire_knife.throw"),
     RANDOM_BLOOD("random.blood"),
     RANDOM_SOUL("random.soul"),
-    RANDOM_SUMMON("random.summon");
+    RANDOM_SUMMON("random.summon"),
+    UNEQUIP_BAUBLE("unequip.bauble");
 
     private final SoundEvent soundEvent;
 

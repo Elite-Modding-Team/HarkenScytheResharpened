@@ -306,6 +306,13 @@
       "harkenscythe:entities/withers_fury/idle4"
     ]
   },
+  "equip.bauble": {
+    "sounds": [
+      "harkenscythe:equip/bauble/equip1",
+      "harkenscythe:equip/bauble/equip2",
+      "harkenscythe:equip/bauble/equip3"
+    ]
+  },
   "equip.biomass": {
     "sounds": [
       "harkenscythe:equip/biomass/equip1",
@@ -485,6 +492,13 @@
   "random.summon": {
     "sounds": [
       "harkenscythe:random/summon"
+    ]
+  },
+  "unequip.bauble": {
+    "sounds": [
+      "harkenscythe:equip/bauble/unequip1",
+      "harkenscythe:equip/bauble/unequip2",
+      "harkenscythe:equip/bauble/unequip3"
     ]
   }
 }
