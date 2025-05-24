@@ -1,19 +1,22 @@
 package mod.emt.harkenscythe.event;
 
-import mod.emt.harkenscythe.HarkenScythe;
-import mod.emt.harkenscythe.init.HSItems;
-import mod.emt.harkenscythe.recipe.HSRecipeRefreshTomeUse;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+
+import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.recipe.HSRecipeRefreshTomeUse;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
-public class HSEventItemCrafted {
+public class HSEventItemCrafted
+{
     @SubscribeEvent
-    public static void onCrafting(PlayerEvent.ItemCraftedEvent event)
+    public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event)
     {
         // Convert enchantment levels into essence and experience
         if (!event.player.world.isRemote && HSRecipeRefreshTomeUse.matches(event.craftMatrix))
@@ -35,16 +38,25 @@ public class HSEventItemCrafted {
 
                     if (totalLevels > 0)
                     {
-                    	for (int slots = event.craftMatrix.getSizeInventory(), i = 0; i < slots; ++i)
-                    	{
-                        // TODO: Make it spawn experience
+                        for (int slots = event.craftMatrix.getSizeInventory(), i = 0; i < slots; ++i)
+                        {
+                            if (event.craftMatrix.getStackInSlot(i).getItem() == HSItems.refresh_tome)
+                            {
+                                // Add essence into the tome
+                                event.craftMatrix.getStackInSlot(i).damageItem(-totalLevels, event.player);
 
-                    		// Add essence into the tome
-                    		if (event.craftMatrix.getStackInSlot(i).getItem() == HSItems.refresh_tome)
-                    		{
-                    			event.craftMatrix.getStackInSlot(i).damageItem(-totalLevels, event.player);
-                    		}
-                    	}
+                                // Spawn experience orbs
+                                int j = totalLevels + event.player.world.rand.nextInt(5) + event.player.world.rand.nextInt(5);
+                                while (j > 0)
+                                {
+                                    int k = EntityXPOrb.getXPSplit(i);
+                                    j -= k;
+                                    event.player.world.spawnEntity(new EntityXPOrb(event.player.world, event.player.posX, event.player.posY, event.player.posZ, j));
+                                }
+
+                                break;
+                            }
+                        }
                     }
 
                     break;
