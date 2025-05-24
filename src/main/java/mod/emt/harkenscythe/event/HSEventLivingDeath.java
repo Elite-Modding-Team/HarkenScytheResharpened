@@ -51,10 +51,9 @@ public class HSEventLivingDeath
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
-        EntityPlayer playerSource = (EntityPlayer) trueSource;
         if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, entity, damageSource))
         {
-            if (BaublesApi.isBaubleEquipped(playerSource, HSItems.silence_ring) > 0) return;
+            if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.silence_ring) > 0) return;
             if (entity instanceof HSEntitySpectralMiner) return;
             spawnSoul(world, entity);
             if (HSArmor.isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
