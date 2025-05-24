@@ -39,7 +39,6 @@ public class HSEventLivingHurt
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
-        EntityPlayer playerSource = (EntityPlayer) trueSource;
         if (trueSource instanceof HSEntityHarbinger)
         {
             if (entity instanceof EntityCreature)
@@ -60,7 +59,7 @@ public class HSEventLivingHurt
         }
         if (trueSource instanceof EntityPlayer && isSuccessfulReap(damageSource, entity, event.getAmount()))
         {
-            if (BaublesApi.isBaubleEquipped(playerSource, HSItems.silence_ring) > 0) return;
+            if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.silence_ring) > 0) return;
             spawnBlood(world, entity);
             if (HSArmor.isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
