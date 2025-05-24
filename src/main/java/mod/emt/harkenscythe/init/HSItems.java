@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.init;
 
 import javax.annotation.Nonnull;
 
+import baubles.api.BaubleType;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -25,12 +26,13 @@ import net.minecraftforge.registries.IForgeRegistry;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.block.HSBlockBiomassCrop;
 import mod.emt.harkenscythe.block.HSBlockSoulCake;
-import mod.emt.harkenscythe.compat.baubles.HSBaublesItemEssenceTrinket;
 import mod.emt.harkenscythe.compat.patchouli.item.HSItemGuidebook;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.item.*;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
+import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItem;
+import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItemEssenceTrinket;
 import mod.emt.harkenscythe.item.tool.*;
 
 @SuppressWarnings({"DataFlowIssue", "deprecation", "unused"})
@@ -47,10 +49,12 @@ public class HSItems
     public static final HSItemEssenceContainer essence_vessel = null;
     public static final HSItemEssenceContainer essence_vessel_blood = null;
     public static final HSItemEssenceContainer essence_vessel_soul = null;
-    public static final HSItemEssenceContainer essence_trinket_blood = null;
-    public static final HSItemEssenceContainer essence_trinket_blood_ethereal = null;
-    public static final HSItemEssenceContainer essence_trinket_soul = null;
-    public static final HSItemEssenceContainer essence_trinket_soul_ethereal = null;
+    public static final HSBaublesItemEssenceTrinket essence_trinket_blood = null;
+    public static final HSBaublesItemEssenceTrinket essence_trinket_blood_ethereal = null;
+    public static final HSBaublesItemEssenceTrinket essence_trinket_soul = null;
+    public static final HSBaublesItemEssenceTrinket essence_trinket_soul_ethereal = null;
+    
+    public static final HSBaublesItem silence_ring = null;
 
     public static final HSToolScythe wooden_scythe = null;
     public static final HSToolScythe stone_scythe = null;
@@ -177,6 +181,7 @@ public class HSItems
                 HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItem(EnumRarity.UNCOMMON, BaubleType.RING), "silence_ring").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),

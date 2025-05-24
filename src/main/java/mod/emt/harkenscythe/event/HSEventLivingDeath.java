@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.event;
 
 import javax.annotation.Nullable;
 
+import baubles.api.BaublesApi;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -50,8 +51,10 @@ public class HSEventLivingDeath
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
+        EntityPlayer playerSource = (EntityPlayer) trueSource;
         if (trueSource instanceof EntityPlayer && isSuccessfulReap((EntityPlayer) trueSource, entity, damageSource))
         {
+            if (BaublesApi.isBaubleEquipped(playerSource, HSItems.silence_ring) > 0) return;
             if (entity instanceof HSEntitySpectralMiner) return;
             spawnSoul(world, entity);
             if (HSArmor.isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
@@ -138,7 +141,7 @@ public class HSEventLivingDeath
 
     private static boolean isSuccessfulReap(EntityPlayer player, EntityLivingBase target, DamageSource damageSource)
     {
-        return isRegularReap(player, damageSource, player.getHeldItemMainhand()) || (isEnchantmentReap(HSEnchantments.SOULSTEAL, player) && !(target instanceof HSEntityGlobin));
+        return (isRegularReap(player, damageSource, player.getHeldItemMainhand()) || (isEnchantmentReap(HSEnchantments.SOULSTEAL, player)) && !(target instanceof HSEntityGlobin));
     }
 
     private static boolean isRegularReap(EntityPlayer player, DamageSource damageSource, ItemStack stack)

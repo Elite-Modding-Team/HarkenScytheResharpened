@@ -17,11 +17,12 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
+import baubles.api.BaublesApi;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.*;
 import mod.emt.harkenscythe.init.HSEnchantments;
+import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSPotions;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.armor.HSArmor;
@@ -38,6 +39,7 @@ public class HSEventLivingHurt
         World world = entity.getEntityWorld();
         DamageSource damageSource = event.getSource();
         Entity trueSource = damageSource.getTrueSource();
+        EntityPlayer playerSource = (EntityPlayer) trueSource;
         if (trueSource instanceof HSEntityHarbinger)
         {
             if (entity instanceof EntityCreature)
@@ -58,6 +60,7 @@ public class HSEventLivingHurt
         }
         if (trueSource instanceof EntityPlayer && isSuccessfulReap(damageSource, entity, event.getAmount()))
         {
+            if (BaublesApi.isBaubleEquipped(playerSource, HSItems.silence_ring) > 0) return;
             spawnBlood(world, entity);
             if (HSArmor.isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
@@ -140,7 +143,7 @@ public class HSEventLivingHurt
     private static boolean isSuccessfulReap(DamageSource damageSource, EntityLivingBase target, float damage)
     {
         EntityPlayer player = (EntityPlayer) damageSource.getTrueSource();
-        return isRegularReap(player, target, damage, damageSource, player.getHeldItemMainhand()) || (isEnchantmentReap(HSEnchantments.BLOODLETTING, player) && !(target instanceof HSEntityGlobin));
+        return (isRegularReap(player, target, damage, damageSource, player.getHeldItemMainhand()) || (isEnchantmentReap(HSEnchantments.BLOODLETTING, player)) && !(target instanceof HSEntityGlobin));
     }
 
     private static boolean isRegularReap(EntityPlayer player, EntityLivingBase target, float damage, DamageSource damageSource, ItemStack stack)

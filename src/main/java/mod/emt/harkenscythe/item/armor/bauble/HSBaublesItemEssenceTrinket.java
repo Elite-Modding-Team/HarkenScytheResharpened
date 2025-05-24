@@ -1,4 +1,4 @@
-package mod.emt.harkenscythe.compat.baubles;
+package mod.emt.harkenscythe.item.armor.bauble;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

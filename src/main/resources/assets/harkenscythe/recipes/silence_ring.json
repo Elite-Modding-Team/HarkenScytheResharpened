@@ -1,0 +1,19 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " S ",
+    "SGS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "harkenscythe:soumberglass_ingot"
+    },
+    "G": {
+      "item": "minecraft:ghast_tear"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:silence_ring"
+  }
+}
