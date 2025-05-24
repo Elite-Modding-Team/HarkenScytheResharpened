@@ -10,27 +10,29 @@ import net.minecraft.util.ResourceLocation;
 import java.util.ArrayList;
 import java.util.List;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.recipe.HSRecipeSoulAltar;
 
-// TODO: getInputStack should return a list and the ingredient method should be changed to setInputs()
 public class HSJEIRecipeWrapperSoulAltar implements IRecipeWrapper
 {
     private static final ResourceLocation REPAIR_ICON = new ResourceLocation(HarkenScythe.MOD_ID, "textures/gui/repair.png");
     private final HSRecipeSoulAltar recipe;
+    private final List<ItemStack> inputs = new ArrayList<>();
 
     public HSJEIRecipeWrapperSoulAltar(HSRecipeSoulAltar recipe)
     {
         this.recipe = recipe;
+        this.inputs.add(getInputStack());
     }
 
     @Override
     public void getIngredients(IIngredients ingredients)
     {
-        ingredients.setInput(ItemStack.class, getInputStack());
-        ingredients.setOutput(ItemStack.class, recipe.getOutput());
+        ingredients.setInputs(VanillaTypes.ITEM, inputs);
+        ingredients.setOutput(VanillaTypes.ITEM, recipe.getOutput());
     }
 
     @Override

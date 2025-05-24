@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.recipe;
 
 import net.minecraft.item.ItemStack;
 
+// TODO: Refactor to use Ingredient instead of ItemStack
 public class HSRecipeSoulAltar
 {
     private final ItemStack input;
