@@ -33,6 +33,7 @@ public class HSItemRefreshTome extends HSItem
             if (!world.isRemote)
             {
                 player.xpSeed = world.rand.nextInt();
+                world.playSound(null, player.posX, player.posY, player.posZ, HSSoundEvents.ITEM_TOME_REFRESH.getSoundEvent(), SoundCategory.PLAYERS, 0.6F, 1.0F / (itemRand.nextFloat() * 0.4F + 0.8F));
             }
 
             if (!player.capabilities.isCreativeMode)

@@ -77,6 +77,8 @@ public enum HSSoundEvents
     ITEM_POTION_BREAK("item.potion.break"),
     ITEM_POTION_THROW("item.potion.throw"),
     ITEM_SCYTHE_SWING("item.scythe.swing"),
+    ITEM_TOME_CLEANSE("item.tome.cleanse"),
+    ITEM_TOME_REFRESH("item.tome.refresh"),
     ITEM_VAMPIRE_KNIFE_THROW("item.vampire_knife.throw"),
     RANDOM_BLOOD("random.blood"),
     RANDOM_SOUL("random.soul"),

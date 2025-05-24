@@ -471,6 +471,16 @@
       "harkenscythe:items/scythe/swing4"
     ]
   },
+  "item.tome.cleanse": {
+    "sounds": [
+      "harkenscythe:items/tome/cleanse"
+    ]
+  },
+  "item.tome.refresh": {
+    "sounds": [
+      "harkenscythe:items/tome/refresh"
+    ]
+  },
   "item.vampire_knife.throw": {
     "sounds": [
       "harkenscythe:items/vampire_knife/throw1",
