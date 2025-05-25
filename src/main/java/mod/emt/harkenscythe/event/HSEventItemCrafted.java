@@ -56,6 +56,7 @@ public class HSEventItemCrafted
                                     event.player.world.spawnEntity(new EntityXPOrb(event.player.world, event.player.posX, event.player.posY, event.player.posZ, j));
                                 }
 
+                                event.player.world.playSound(null, event.player.posX, event.player.posY, event.player.posZ, HSSoundEvents.BLOCK_ALTAR_BOOK_CLOSE.getSoundEvent(), SoundCategory.PLAYERS, 0.8F, 1.1F);
                                 break;
                             }
                         }
