@@ -21,7 +21,6 @@ import mod.emt.harkenscythe.item.HSItemSpectralPotion;
 import mod.emt.harkenscythe.potion.HSPotionFlame;
 import mod.emt.harkenscythe.potion.HSPotionWater;
 
-// TODO: The radius for placing/extinguishing fires and destroying cobwebs should be increased
 public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAdditionalSpawnData
 {
     private PotionEffect potionEffect;
@@ -99,11 +98,11 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                 if (result.typeOfHit == RayTraceResult.Type.BLOCK)
                 {
                     this.world.playEvent(2002, new BlockPos(this), getPotionEffect().getPotion().getLiquidColor());
-                    for (int x = -1; x <= 1; x++)
+                    for (int x = -2; x <= 2; x++)
                     {
-                        for (int y = 0; y <= 2; y++)
+                        for (int y = 0; y <= 3; y++)
                         {
-                            for (int z = -1; z <= 1; z++)
+                            for (int z = -2; z <= 2; z++)
                             {
                                 BlockPos pos = this.getPosition().add(x, y, z);
                                 if (world.isAirBlock(pos))
@@ -122,7 +121,7 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                 {
                     if (result.entityHit != null && this.getThrower() != null && result.entityHit instanceof EntityLivingBase && this.getThrower() != null && this.getThrower() != result.entityHit)
                     {
-                	    result.entityHit.setFire(5);
+                        result.entityHit.setFire(5);
                     }
                 }
             }
@@ -131,11 +130,11 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                 if (result.typeOfHit == RayTraceResult.Type.BLOCK)
                 {
                     this.world.playEvent(2002, new BlockPos(this), getPotionEffect().getPotion().getLiquidColor());
-                    for (int x = -1; x <= 1; x++)
+                    for (int x = -2; x <= 2; x++)
                     {
-                        for (int y = 0; y <= 2; y++)
+                        for (int y = 0; y <= 3; y++)
                         {
-                            for (int z = -1; z <= 1; z++)
+                            for (int z = -2; z <= 2; z++)
                             {
                                 BlockPos pos = this.getPosition().add(x, y, z);
                                 if (world.getBlockState(pos).getBlock() == Blocks.FIRE)
@@ -150,7 +149,7 @@ public class HSEntitySpectralPotion extends EntityThrowable implements IEntityAd
                 {
                     if (result.entityHit != null && this.getThrower() != null && result.entityHit instanceof EntityLivingBase && this.getThrower() != null && this.getThrower() != result.entityHit)
                     {
-                	    this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.0D)).forEach(Entity::extinguish);
+                        this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.0D)).forEach(Entity::extinguish);
                     }
                 }
             }
