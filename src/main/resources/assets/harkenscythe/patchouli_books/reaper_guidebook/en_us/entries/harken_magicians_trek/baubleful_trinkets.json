@@ -6,13 +6,13 @@
   "pages": [
     {
       "type": "text",
-      "text": "This section should list all of the currently obtainable baubles to utilize in Harken Scythe.$(br2)The Reaper's Ring of Silence is the perfect ring to start off with, this will command your weaponry to be silent and not spawn any essences. Perfect for when you need to utilize the reaping tools for combat only!"
+      "text": "This section lists all of the currently obtainable baubles to utilize in Harken Scythe.$(br2)The Reaper's Ring of Silence is the perfect ring to start off with: This will command your weaponry to be silent and not spawn any essences. Perfect for when you need to utilize the reaping tools for combat only!"
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:silence_ring",
       "title": "Ring of Silence",
-      "text": "No talking!"
+      "text": "And the vision that was planted in my brain$(br)Still remains$(br)Within the Ring of Silence"
     },
     {
       "type": "text",

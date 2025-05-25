@@ -91,6 +91,7 @@ item.harkenscythe.bloodweave_shoes.name=Bloodweave Shoes
 item.harkenscythe.blunt_harken_blade.name=Blunt Harken Blade
 item.harkenscythe.carnage_book.name=Book of Carnage
 item.harkenscythe.creepball.name=Creepball
+item.harkenscythe.damaged_vampire_knife.name=Damaged Vampire Knife
 item.harkenscythe.deadtime_watch.name=Deadtime Watch
 item.harkenscythe.diamond_glaive.name=Diamond Reaping Glaive
 item.harkenscythe.diamond_scythe.name=Diamond Reaping Scythe
@@ -105,7 +106,6 @@ item.harkenscythe.essence_trinket_blood.name=Blood Trinket
 item.harkenscythe.essence_trinket_blood_ethereal.name=Ethereal Blood Trinket
 item.harkenscythe.essence_trinket_soul.name=Soul Trinket
 item.harkenscythe.essence_trinket_soul_ethereal.name=Ethereal Soul Trinket
-item.harkenscythe.damaged_vampire_knife.name=Damaged Vampire Knife
 item.harkenscythe.germinated_biomass_seed.name=Germinated Biomass Seed
 item.harkenscythe.golden_glaive.name=Golden Reaping Glaive
 item.harkenscythe.golden_scythe.name=Golden Reaping Scythe
@@ -218,8 +218,8 @@ setbonus.harkenscythe.bloodweave=25%% chance for additional reaped blood essence
 setbonus.harkenscythe.soulweave=25%% chance for additional reaped soul essence
 
 # TOOLTIPS
-tooltip.harkenscythe.altar=Certain items can be placed on it to infuse with nearby stored essence. An athame is required to infuse items.
 tooltip.harkenscythe.abyssal_fragment=It's gazing back...
+tooltip.harkenscythe.altar=Certain items can be placed on it to infuse with nearby stored essence. An athame is required to infuse items.
 tooltip.harkenscythe.ancient_necronomicon=The Book of the Dead: Bound in human flesh and inked in blood, this ancient book contains incoherent ramblings about prophesies, necromancy, funerary incantations, and demon resurrection passages.
 tooltip.harkenscythe.ancient_necronomicon_page=A missing page of the Ancient Necronomicon, written in an ancient ominous text.
 tooltip.harkenscythe.athame=Right-click on an Altar of Blood or Altar of Souls to infuse an item with its power. Does not break or lose durability.

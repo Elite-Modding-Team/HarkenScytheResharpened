@@ -1,16 +1,25 @@
 {
-  "name": "Treuer Anhänger",
+  "name": "Bauble-volle Anhänger",
   "icon": "harkenscythe:textures/items/soul_trinket.png",
   "category": "harken_magicians_trek",
   "advancement": "harkenscythe:use_altar",
   "pages": [
     {
       "type": "text",
+      "text": "Dieser Abschnitt listet alle derzeit erhältlichen Baubles auf, die du in Harken Scythe verwenden kannst.$(br2)Der Reaper-Ring der Stille ist der perfekte Ring für den Anfang: Er befiehlt deinen Waffen, zu schweigen und keine Essenzen zu spawnen. Perfekt für den Fall, wenn du Reaping-Werkzeuge nur zu Kampfzwecken einsetzen möchtest!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:silence_ring",
+      "title": "Reaper-Ring der Stille",
+      "text": "Und die Vision, die in mein Gehirn gepflanzt wurde$(br)Besteht fortwährend$(br)Im Ring der Stille"
+    },
+    {
+      "type": "text",
       "text": "Diese Anhänger sind bei den Harbingern sehr beliebt, da bereits bloßer Kontakt mit Essenzen zum Aufsammeln genügt, während sie eine beträchtliche Menge davon speichern können.$(br)Da es sich um empfindliche Relikte handelt, können sie nicht für direkte Tiegelinteraktionen verwendet werden, sondern ihre Essenz wird von Absorbern übertragen."
     },
     {
       "type": "crafting",
-      "title": "Gewöhnliche Anhänger",
       "recipe": "harkenscythe:essence_trinket_blood",
       "recipe2": "harkenscythe:essence_trinket_soul"
     },
@@ -20,7 +29,6 @@
     },
     {
       "type": "crafting",
-      "title": "Himmlische Anhänger",
       "recipe": "harkenscythe:essence_trinket_blood_ethereal",
       "recipe2": "harkenscythe:essence_trinket_soul_ethereal"
     }
