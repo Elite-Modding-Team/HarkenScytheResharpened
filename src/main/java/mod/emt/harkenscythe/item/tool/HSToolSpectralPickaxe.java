@@ -7,6 +7,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 
 import mod.emt.harkenscythe.init.HSMaterials;
+import mod.emt.harkenscythe.util.HSAttributeModifier;
 
 public class HSToolSpectralPickaxe extends HSToolPickaxe implements IHSTool
 {
@@ -15,7 +16,7 @@ public class HSToolSpectralPickaxe extends HSToolPickaxe implements IHSTool
     public HSToolSpectralPickaxe()
     {
         super(HSMaterials.TOOL_SPECTRAL, EnumRarity.EPIC);
-        this.reach = new AttributeModifier("14D707B8-D3E8-4BDa-8C54-F196F80B5C94", 3.0F, 0);
+        this.reach = new AttributeModifier(HSAttributeModifier.REACH_DISTANCE_ID, "reach distance spectral pickaxe", 3.0F, 0);
     }
 
     @Override

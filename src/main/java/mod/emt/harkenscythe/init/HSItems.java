@@ -33,6 +33,7 @@ import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItem;
 import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItemEssenceTrinket;
+import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItemLifesteal;
 import mod.emt.harkenscythe.item.tool.*;
 
 @SuppressWarnings({"DataFlowIssue", "deprecation", "unused"})
@@ -181,7 +182,8 @@ public class HSItems
                 HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.BLOOD), "essence_trinket_blood_ethereal").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSBaublesItem(EnumRarity.UNCOMMON, BaubleType.RING), "silence_ring").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItem(EnumRarity.UNCOMMON, BaubleType.RING, HSSoundEvents.EQUIP_BAUBLE.getSoundEvent(), HSSoundEvents.UNEQUIP_BAUBLE.getSoundEvent()), "silence_ring").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItemLifesteal(EnumRarity.RARE, BaubleType.RING, HSSoundEvents.EQUIP_BIOMASS.getSoundEvent(), HSSoundEvents.ENTITY_ESSENCE_BLOOD_DESPAWN.getSoundEvent()), "parasitica_ring").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),

@@ -126,6 +126,7 @@ item.harkenscythe.livingmetal_scythe.name=Livingmetal Reaping Scythe
 item.harkenscythe.livingmetal_shears.name=Livingmetal Shears
 item.harkenscythe.livingmetal_shovel.name=Livingmetal Shovel
 item.harkenscythe.livingmetal_sword.name=Livingmetal Sword
+item.harkenscythe.parasitica_ring.name=Reaper's Ring of Parasitica
 item.harkenscythe.reaper_guidebook.name=Reaper's Guidebook
 item.harkenscythe.reaper_scythe.name=Soul Reaper
 item.harkenscythe.refresh_tome.name=Tome of Refreshing
@@ -157,6 +158,9 @@ item.harkenscythe.vampire_knife.name=Vampire Knife
 item.harkenscythe.vampire_knife_projectile.name=Vampire Knife Projectile
 item.harkenscythe.wooden_glaive.name=Wooden Reaping Glaive
 item.harkenscythe.wooden_scythe.name=Wooden Reaping Scythe
+
+# MISC
+info.equip=When equipped:
 
 # ENTITIES
 entity.harkenscythe.blood.name=Blood Essence
