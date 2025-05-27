@@ -2,6 +2,7 @@ package mod.emt.harkenscythe.util;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
@@ -9,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.UUID;
+
 import mod.emt.harkenscythe.HarkenScythe;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
@@ -35,9 +37,17 @@ public class HSAttributeModifier
     {
         Entity entity = event.getEntity();
 
-        if (event.getEntity() instanceof EntityLivingBase)
+        if (entity instanceof EntityLivingBase)
         {
-            ((EntityLivingBase) entity).getAttributeMap().registerAttribute(LIFESTEAL);
+            registerAttribute(((EntityLivingBase) entity).getAttributeMap(), LIFESTEAL);
+        }
+    }
+
+    private static void registerAttribute(AbstractAttributeMap attributeMap, IAttribute attribute)
+    {
+        if (attributeMap.getAttributeInstance(attribute) == null)
+        {
+            attributeMap.registerAttribute(attribute);
         }
     }
 }
