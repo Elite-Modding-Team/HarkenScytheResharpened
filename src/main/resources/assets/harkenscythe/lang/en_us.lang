@@ -37,6 +37,9 @@ advancement.harkenscythe.better_than_scourge.desc=Fully obtain the powerful life
 advancement.harkenscythe.shell_of_a_spider.name=Shell of a Spider
 advancement.harkenscythe.shell_of_a_spider.desc=Encounter an Exospider.
 
+# ATTRIBUTES
+attribute.name.harkenscythe.lifesteal=Lifesteal
+
 # BLOCKS
 tile.harkenscythe.blood_absorber.name=Blood Absorber
 tile.harkenscythe.blood_altar.name=Altar of Blood

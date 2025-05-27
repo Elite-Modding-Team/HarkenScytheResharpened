@@ -14,6 +14,7 @@ public class HSBaublesItemLifesteal extends HSBaublesAttributeItem implements IB
     public HSBaublesItemLifesteal(EnumRarity rarity, BaubleType type, SoundEvent equipSound, SoundEvent unequipSound) {
         super(rarity, type, equipSound, unequipSound);
         
-		this.attributeMap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(HSAttributeModifier.ATTACK_DAMAGE_ID, "lifesteal bauble damage", -0.1D, 1));
+		this.attributeMap.put(HSAttributeModifier.LIFESTEAL.getName(), new AttributeModifier(HSAttributeModifier.LIFESTEAL_ID, "lifesteal bauble", 0.035D, 1));
+		this.attributeMap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(HSAttributeModifier.ATTACK_DAMAGE_ID, "lifesteal bauble damage", -0.05D, 1));
     }
 }

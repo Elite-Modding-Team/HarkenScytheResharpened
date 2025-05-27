@@ -2,8 +2,20 @@ package mod.emt.harkenscythe.util;
 
 import java.util.UUID;
 
+import mod.emt.harkenscythe.HarkenScythe;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
+import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+// TODO: Lifesteal seems to not increase on equipment and baubles? Entities work as intended.
+@Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSAttributeModifier
 {
+    // Attribute UUIDs
     public static final UUID ARMOR_ID = UUID.fromString("AC5A5C93-3817-4616-9291-A88D582E52C6");
     public static final UUID ARMOR_TOUGHNESS_ID = UUID.fromString("7D600623-4498-4214-887B-7A65228A07F4");
     public static final UUID ATTACK_DAMAGE_ID = UUID.fromString("26CA5F48-A789-490D-83C2-FA240B5DEFF6");
@@ -14,4 +26,19 @@ public class HSAttributeModifier
     public static final UUID MAX_HEALTH_ID = UUID.fromString("5E9197FE-F701-4866-8EF2-AB3648708DE6");
     public static final UUID MOVEMENT_SPEED_ID = UUID.fromString("A1376F2D-2AE4-47CF-9B39-10BBE852ACD9");
     public static final UUID REACH_DISTANCE_ID = UUID.fromString("14D707B8-D3E8-4BDA-8C54-F196F80B5C94");
+
+    // Attributes
+    public static final IAttribute LIFESTEAL = (new RangedAttribute(null, "harkenscythe.lifesteal", 0.0D, 0.0D, Double.MAX_VALUE));
+
+    // Registers attributes to all entities
+    @SubscribeEvent
+    public static void onEntityConstructEvent(EntityConstructing event)
+    {
+        Entity entity = event.getEntity();
+
+        if (event.getEntity() instanceof EntityLivingBase)
+        {
+            ((EntityLivingBase) entity).getAttributeMap().registerAttribute(LIFESTEAL);
+        }
+    }
 }
