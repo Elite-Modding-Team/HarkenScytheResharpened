@@ -1,5 +1,7 @@
 package mod.emt.harkenscythe.item.armor.bauble;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,18 +16,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
 import java.util.List;
 import java.util.Map.Entry;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
-
 public class HSBaublesAttributeItem extends HSBaublesItem implements IBauble
 {
-    protected final Multimap<String, AttributeModifier> attributeMap = HashMultimap.<String, AttributeModifier>create();
+    protected final Multimap<String, AttributeModifier> attributeMap = HashMultimap.create();
 
     public HSBaublesAttributeItem(EnumRarity rarity, BaubleType type, SoundEvent equipSound, SoundEvent unequipSound)
     {
@@ -74,11 +72,12 @@ public class HSBaublesAttributeItem extends HSBaublesItem implements IBauble
             if (amount < 0)
             {
                 tooltip.add(" " + new TextComponentTranslation("attribute.modifier.take." + entry.getValue().getOperation(), ItemStack.DECIMALFORMAT.format(Math.abs(amount)), I18n.format(name))
-                		.setStyle(new Style().setColor(TextFormatting.RED)).getFormattedText());
-            } else
+                    .setStyle(new Style().setColor(TextFormatting.RED)).getFormattedText());
+            }
+            else
             {
                 tooltip.add(" " + new TextComponentTranslation("attribute.modifier.plus." + entry.getValue().getOperation(), ItemStack.DECIMALFORMAT.format(Math.abs(amount)), I18n.format(name))
-                		.setStyle(new Style().setColor(TextFormatting.BLUE)).getFormattedText());
+                    .setStyle(new Style().setColor(TextFormatting.BLUE)).getFormattedText());
             }
         }
     }

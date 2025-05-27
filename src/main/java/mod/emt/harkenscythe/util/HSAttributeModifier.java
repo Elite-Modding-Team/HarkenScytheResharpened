@@ -1,8 +1,5 @@
 package mod.emt.harkenscythe.util;
 
-import java.util.UUID;
-
-import mod.emt.harkenscythe.HarkenScythe;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -11,7 +8,9 @@ import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-// TODO: Lifesteal seems to not increase on equipment and baubles? Entities work as intended.
+import java.util.UUID;
+import mod.emt.harkenscythe.HarkenScythe;
+
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
 public class HSAttributeModifier
 {
@@ -28,7 +27,7 @@ public class HSAttributeModifier
     public static final UUID REACH_DISTANCE_ID = UUID.fromString("14D707B8-D3E8-4BDA-8C54-F196F80B5C94");
 
     // Attributes
-    public static final IAttribute LIFESTEAL = (new RangedAttribute(null, "harkenscythe.lifesteal", 0.0D, 0.0D, Double.MAX_VALUE));
+    public static final IAttribute LIFESTEAL = new RangedAttribute(null, "harkenscythe.lifesteal", 0.0D, 0.0D, Double.MAX_VALUE).setShouldWatch(true);
 
     // Registers attributes to all entities
     @SubscribeEvent
