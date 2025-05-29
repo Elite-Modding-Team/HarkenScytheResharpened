@@ -1,16 +1,14 @@
 package mod.emt.harkenscythe.util;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
-import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.UUID;
-
 import mod.emt.harkenscythe.HarkenScythe;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
@@ -29,17 +27,16 @@ public class HSAttributeModifier
     public static final UUID REACH_DISTANCE_ID = UUID.fromString("14D707B8-D3E8-4BDA-8C54-F196F80B5C94");
 
     // Attributes
-    public static final IAttribute LIFESTEAL = new RangedAttribute(null, "harkenscythe.lifesteal", 0.0D, 0.0D, Double.MAX_VALUE).setShouldWatch(true);
+    public static final IAttribute LIFESTEAL = new RangedAttribute(null, HarkenScythe.MOD_ID + ".lifesteal", 0.0D, 0.0D, Double.MAX_VALUE).setShouldWatch(true);
 
     // Registers attributes to all entities
     @SubscribeEvent
-    public static void onEntityConstructEvent(EntityConstructing event)
+    public static void onEntityConstructEvent(EntityJoinWorldEvent event)
     {
-        Entity entity = event.getEntity();
-
-        if (entity instanceof EntityLivingBase)
+        if (event.getEntity() instanceof EntityPlayer)
         {
-            registerAttribute(((EntityLivingBase) entity).getAttributeMap(), LIFESTEAL);
+            EntityPlayer player = (EntityPlayer) event.getEntity();
+            registerAttribute(player.getAttributeMap(), LIFESTEAL);
         }
     }
 

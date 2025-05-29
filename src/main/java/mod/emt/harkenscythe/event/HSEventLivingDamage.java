@@ -1,6 +1,7 @@
 package mod.emt.harkenscythe.event;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -33,12 +34,18 @@ public class HSEventLivingDamage
             EntityLivingBase trueSource = (EntityLivingBase) damageSource.getTrueSource();
             IAttributeInstance lifesteal = trueSource.getEntityAttribute(HSAttributeModifier.LIFESTEAL);
 
-            if (lifesteal != null && lifesteal.getModifier(HSAttributeModifier.LIFESTEAL_ID) != null && lifesteal.getModifier(HSAttributeModifier.LIFESTEAL_ID).getAmount() > 0)
+            if (lifesteal != null && !lifesteal.getModifiers().isEmpty())
             {
                 // Only activate lifesteal effect when there is more than 0 lifesteal on the user, an additional check is done to see if the user's health is not full or at zero
                 if (trueSource.getHealth() > 0.0F && trueSource.getHealth() < trueSource.getMaxHealth())
                 {
-                    float lifestealDamage = event.getAmount() * (float) lifesteal.getModifier(HSAttributeModifier.LIFESTEAL_ID).getAmount();
+                    float lifestealValue = 0.0F;
+                    for (AttributeModifier attributemodifier : lifesteal.getModifiers())
+                    {
+                        lifestealValue += (float) attributemodifier.getAmount();
+                    }
+                    if (lifestealValue <= 0) return;
+                    float lifestealDamage = event.getAmount() * lifestealValue;
 
                     // Apply lifesteal damage with calculation based on how much lifesteal the user has
                     entity.attackEntityFrom(new HSDamageSource("hs_lifesteal", trueSource), lifestealDamage);
