@@ -1,5 +1,6 @@
 package mod.emt.harkenscythe.util;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
@@ -33,10 +34,17 @@ public class HSAttributeModifier
     @SubscribeEvent
     public static void onEntityConstructEvent(EntityJoinWorldEvent event)
     {
-        if (event.getEntity() instanceof EntityPlayer)
+        if (event.getEntity() instanceof EntityLivingBase)
         {
-            EntityPlayer player = (EntityPlayer) event.getEntity();
-            registerAttribute(player.getAttributeMap(), LIFESTEAL);
+            // Global attributes go here
+            EntityLivingBase entity = (EntityLivingBase) event.getEntity();
+            registerAttribute(entity.getAttributeMap(), LIFESTEAL);
+
+            if (event.getEntity() instanceof EntityPlayer)
+            {
+                // Player attributes go here
+                EntityPlayer player = (EntityPlayer) event.getEntity();
+            }
         }
     }
 
