@@ -1,11 +1,12 @@
 package mod.emt.harkenscythe.item;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
@@ -25,6 +26,9 @@ import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.HSEntityGlobin;
 import mod.emt.harkenscythe.entity.HSEntitySoul;
+import mod.emt.harkenscythe.entity.ai.HSAIMasterHurtByTarget;
+import mod.emt.harkenscythe.entity.ai.HSAIMasterHurtTarget;
+import mod.emt.harkenscythe.entity.ai.HSAIPassiveMobAttack;
 import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.init.HSAdvancements;
 import mod.emt.harkenscythe.init.HSSoundEvents;
@@ -77,8 +81,16 @@ public class HSItemNecronomicon extends HSItem
                     }
                     revivedEntity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(new AttributeModifier("Minion Attack Damage Bonus", world.rand.nextDouble() * 2.0D + 1.0D + entitySoul.getDataManager().get(HSEntitySoul.SOUL_TYPE), 2));
                     revivedEntity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Minion Health Bonus", world.rand.nextDouble() * 2.0D + 1.0D + entitySoul.getDataManager().get(HSEntitySoul.SOUL_TYPE), 2));
-                    // TODO: Replace with actual minion AI
-                    if (player.getLastAttackedEntity() != null && revivedEntity instanceof EntityLiving) ((EntityLiving) revivedEntity).setAttackTarget(player.getLastAttackedEntity());
+                    if (revivedEntity instanceof EntityCreature)
+                    {
+                        EntityCreature minion = (EntityCreature) revivedEntity;
+                        minion.targetTasks.addTask(1, new HSAIMasterHurtByTarget(minion, player));
+                        minion.targetTasks.addTask(2, new HSAIMasterHurtTarget(minion, player));
+                        if (!(minion instanceof IMob))
+                        {
+                            minion.tasks.addTask(1, new HSAIPassiveMobAttack(minion, 1.5D, true));
+                        }
+                    }
                 }
                 entitySoul.setHealth(0);
                 ItemStack bloodContainer = getBloodContainer(player);
