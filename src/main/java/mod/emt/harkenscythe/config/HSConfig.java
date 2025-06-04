@@ -118,6 +118,30 @@ public class HSConfig
         @Config.Name("Soul Tether Chance Per Level")
         @Config.Comment("The default chance (multiplied by level) for the Soul Tether enchantment to spawn essence")
         public double soulTetherChancePerLevel = 0.25D;
+
+        @Config.Name("Enable Blight Enchantment")
+        public boolean enchantmentBlightToggle = true;
+
+        @Config.Name("Enable Bloodletting Enchantment")
+        public boolean enchantmentBloodlettingToggle = true;
+
+        @Config.Name("Enable Exude Enchantment")
+        public boolean enchantmentExudeToggle = true;
+
+        @Config.Name("Enable Hemorrhage Enchantment")
+        public boolean enchantmentHemorrhageToggle = true;
+
+        @Config.Name("Enable Nourishment Enchantment")
+        public boolean enchantmentNourishmentToggle = true;
+
+        @Config.Name("Enable Reaping Frenzy Enchantment")
+        public boolean enchantmentReapingFrenzyToggle = true;
+
+        @Config.Name("Enable Soulsteal Enchantment")
+        public boolean enchantmentSoulstealToggle = true;
+
+        @Config.Name("Enable Willingness Enchantment")
+        public boolean enchantmentWillingnessToggle = true;
     }
 
     public static class EntitySettings

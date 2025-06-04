@@ -109,21 +109,20 @@ public class HSRegistry
     @SubscribeEvent
     public static void registerEnchantments(@Nonnull final RegistryEvent.Register<Enchantment> event)
     {
-    	// TODO: Split this into multiple config options, it's likely that Reaping Frenzy won't have this option because you obtain this enchantment differently
         if (HSConfig.GENERAL.disableEnchantments) return;
 
         HarkenScythe.LOGGER.info("Registering enchantments...");
 
-        event.getRegistry().registerAll(
-            HSEnchantments.BLIGHT,
-            HSEnchantments.BLOODLETTING,
-            HSEnchantments.EXUDE,
-            HSEnchantments.HEMORRHAGE,
-            HSEnchantments.NOURISHMENT,
-            HSEnchantments.REAPING_FRENZY,
-            HSEnchantments.SOULSTEAL,
-            HSEnchantments.WILLINGNESS
-        );
+        final IForgeRegistry<Enchantment> registry = event.getRegistry();
+
+        if (HSConfig.ENCHANTMENTS.enchantmentBlightToggle) registry.register(HSEnchantments.BLIGHT);
+        if (HSConfig.ENCHANTMENTS.enchantmentBloodlettingToggle) registry.register(HSEnchantments.BLOODLETTING);
+        if (HSConfig.ENCHANTMENTS.enchantmentExudeToggle) registry.register(HSEnchantments.EXUDE);
+        if (HSConfig.ENCHANTMENTS.enchantmentHemorrhageToggle) registry.register(HSEnchantments.HEMORRHAGE);
+        if (HSConfig.ENCHANTMENTS.enchantmentNourishmentToggle) registry.register(HSEnchantments.NOURISHMENT);
+        if (HSConfig.ENCHANTMENTS.enchantmentReapingFrenzyToggle) registry.register(HSEnchantments.REAPING_FRENZY);
+        if (HSConfig.ENCHANTMENTS.enchantmentSoulstealToggle) registry.register(HSEnchantments.SOULSTEAL);
+        if (HSConfig.ENCHANTMENTS.enchantmentWillingnessToggle) registry.register(HSEnchantments.WILLINGNESS);
     }
 
     @SubscribeEvent
@@ -226,7 +225,7 @@ public class HSRegistry
                 OreDictionary.registerOre("potion", item);
             }
         }
-        
+
         // Misc Recipes
         registry.register(new HSRecipeRefreshTomeUse());
 
