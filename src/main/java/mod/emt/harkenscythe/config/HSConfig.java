@@ -120,28 +120,36 @@ public class HSConfig
         public double soulTetherChancePerLevel = 0.25D;
 
         @Config.Name("Enable Blight Enchantment")
-        public boolean enchantmentBlightToggle = true;
+        @Config.Comment("Enables the Blight enchantment")
+        public boolean enchantmentBlight = true;
 
         @Config.Name("Enable Bloodletting Enchantment")
-        public boolean enchantmentBloodlettingToggle = true;
+        @Config.Comment("Enables the Bloodletting enchantment")
+        public boolean enchantmentBloodletting = true;
 
         @Config.Name("Enable Exude Enchantment")
-        public boolean enchantmentExudeToggle = true;
+        @Config.Comment("Enables the Exude enchantment")
+        public boolean enchantmentExude = true;
 
         @Config.Name("Enable Hemorrhage Enchantment")
-        public boolean enchantmentHemorrhageToggle = true;
+        @Config.Comment("Enables the Hemorrhage enchantment")
+        public boolean enchantmentHemorrhage = true;
 
         @Config.Name("Enable Nourishment Enchantment")
-        public boolean enchantmentNourishmentToggle = true;
+        @Config.Comment("Enables the Nourishment enchantment")
+        public boolean enchantmentNourishment = true;
 
         @Config.Name("Enable Reaping Frenzy Enchantment")
-        public boolean enchantmentReapingFrenzyToggle = true;
+        @Config.Comment("Enables the Reaping Frenzy enchantment")
+        public boolean enchantmentReapingFrenzy = true;
 
         @Config.Name("Enable Soulsteal Enchantment")
-        public boolean enchantmentSoulstealToggle = true;
+        @Config.Comment("Enables the Soulsteal enchantment")
+        public boolean enchantmentSoulsteal = true;
 
         @Config.Name("Enable Willingness Enchantment")
-        public boolean enchantmentWillingnessToggle = true;
+        @Config.Comment("Enables the Willingness enchantment")
+        public boolean enchantmentWillingness = true;
     }
 
     public static class EntitySettings

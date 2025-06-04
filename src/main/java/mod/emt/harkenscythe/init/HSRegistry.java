@@ -115,14 +115,14 @@ public class HSRegistry
 
         final IForgeRegistry<Enchantment> registry = event.getRegistry();
 
-        if (HSConfig.ENCHANTMENTS.enchantmentBlightToggle) registry.register(HSEnchantments.BLIGHT);
-        if (HSConfig.ENCHANTMENTS.enchantmentBloodlettingToggle) registry.register(HSEnchantments.BLOODLETTING);
-        if (HSConfig.ENCHANTMENTS.enchantmentExudeToggle) registry.register(HSEnchantments.EXUDE);
-        if (HSConfig.ENCHANTMENTS.enchantmentHemorrhageToggle) registry.register(HSEnchantments.HEMORRHAGE);
-        if (HSConfig.ENCHANTMENTS.enchantmentNourishmentToggle) registry.register(HSEnchantments.NOURISHMENT);
-        if (HSConfig.ENCHANTMENTS.enchantmentReapingFrenzyToggle) registry.register(HSEnchantments.REAPING_FRENZY);
-        if (HSConfig.ENCHANTMENTS.enchantmentSoulstealToggle) registry.register(HSEnchantments.SOULSTEAL);
-        if (HSConfig.ENCHANTMENTS.enchantmentWillingnessToggle) registry.register(HSEnchantments.WILLINGNESS);
+        if (HSConfig.ENCHANTMENTS.enchantmentBlight) registry.register(HSEnchantments.BLIGHT);
+        if (HSConfig.ENCHANTMENTS.enchantmentBloodletting) registry.register(HSEnchantments.BLOODLETTING);
+        if (HSConfig.ENCHANTMENTS.enchantmentExude) registry.register(HSEnchantments.EXUDE);
+        if (HSConfig.ENCHANTMENTS.enchantmentHemorrhage) registry.register(HSEnchantments.HEMORRHAGE);
+        if (HSConfig.ENCHANTMENTS.enchantmentNourishment) registry.register(HSEnchantments.NOURISHMENT);
+        if (HSConfig.ENCHANTMENTS.enchantmentReapingFrenzy) registry.register(HSEnchantments.REAPING_FRENZY);
+        if (HSConfig.ENCHANTMENTS.enchantmentSoulsteal) registry.register(HSEnchantments.SOULSTEAL);
+        if (HSConfig.ENCHANTMENTS.enchantmentWillingness) registry.register(HSEnchantments.WILLINGNESS);
     }
 
     @SubscribeEvent
