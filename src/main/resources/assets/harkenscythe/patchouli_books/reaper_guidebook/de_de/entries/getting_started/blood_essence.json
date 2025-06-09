@@ -7,7 +7,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "Um Blutessenz von einer Kreatur zu reapen, musst du die Spezialfähigkeit der Glefe nutzen, indem du mit der $(4)rechten Maustaste$() klickst und loslässt, während du auf eine Kreatur zielst. Wenn die Kreatur während dieses Vorgangs verletzt wird, kann sie je nach Materialqualität der Glefe Blut verlieren."
+      "text": "Um Blutessenz von einer Kreatur zu reapen, musst du die Spezialfähigkeit der Reapingglefe nutzen, indem du mit der $(4)rechten Maustaste$() klickst und loslässt, während du auf eine Kreatur zielst. Wenn die Kreatur während dieses Vorgangs verletzt wird, wwird sie Blut verlieren."
     },
     {
       "type": "entity",

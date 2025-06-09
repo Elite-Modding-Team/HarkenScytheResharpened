@@ -28,6 +28,14 @@
       "entity": "harkenscythe:harbinger{HandItems:[{Count:1,id:\"harkenscythe:reaper_scythe\"},{}]}",
       "scale": 0.9,
       "offset": 0.9
+    },
+    {
+      "type": "text",
+      "text": "Wächter aus dem Geisterreich, die den Tod selbst repräsentieren und dazu dienen, Kreaturen zu reapen, um ihre Essenz zurück in ihre Heimatwelt zu bringen.$(br2)Sie tragen alle Arten von Gegenständen bei sich, die zum Reaping verwendet werden können, einschließlich des Seelenschnitters, einer mächtigen Sense, die aus dem Geisterreich stammt."
+    },
+    {
+      "type": "text",
+      "text": "Im Gegensatz zu deinen üblichen Feinden sind sie dir und anderen Sensenmännern gegenüber neutral. Am besten lässt man sie in Frieden, es sei denn, man will richtig Ärger haben."
     }
   ]
 }

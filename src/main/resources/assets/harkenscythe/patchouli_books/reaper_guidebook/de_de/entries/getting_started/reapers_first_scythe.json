@@ -6,12 +6,13 @@
   "pages": [
     {
       "type": "text",
-      "text": "Um mit der Gewinnung von Seelenessenz beginnen zu können, musst du zunächst eine Sense herstellen.$(br2)Sensen können aus jedem beliebigen Material aus dem Originalspiel, beispielsweise Eisen, sowie aus bestimmten Materialien aus anderen Mods, sofern diese unterstützt werden, hergestellt werden."
+      "text": "Um mit der Gewinnung von Seelenessenz beginnen zu können, musst du zunächst eine Reapingsense herstellen.$(br2)Sensen können aus jedem beliebigen Material aus dem Originalspiel, beispielsweise Eisen, sowie aus bestimmten Materialien aus anderen Mods, sofern unterstützt, hergestellt werden."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:iron_scythe",
-      "title": " "
+      "title": " ",
+      "text": "Düsterseelenglas wird als Hauptbestandteil für die Reapingsense benötigt, damit sie die Fähigkeit des Reapens erhält."
     }
   ]
 }

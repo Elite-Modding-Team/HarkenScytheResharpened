@@ -16,8 +16,12 @@
     {
       "type": "entity",
       "name": " ",
-      "text": "Überreste von Blutessenz.",
+      "text": "Das Blut kocht.",
       "entity": "harkenscythe:hemoglobin"
+    },
+    {
+      "type": "text",
+      "text": "Wenn Blutessenz zu lang außerhalb des Geisterreichs verweilt, wird sie zu einem Hämoglobin.$(br2)Das Hämoglobin ist ein aggressiver Zustand von Blutessenz, der sich ähnlich wie Schleim verhält und bei Sichtkontakt angreift. Sie lassen nichts Bedeutendes fallen und spawnen keine Essenzen, wenn sie gereapt werden."
     }
   ]
 }

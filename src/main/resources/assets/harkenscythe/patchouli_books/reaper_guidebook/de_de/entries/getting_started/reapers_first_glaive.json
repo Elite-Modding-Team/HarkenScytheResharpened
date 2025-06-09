@@ -6,12 +6,13 @@
   "pages": [
     {
       "type": "text",
-      "text": "Um mit der Gewinnung von Blutessenz beginnen zu können, musst du zunächst eine Glefe herstellen.$(br2)Glefen können aus jedem beliebigen Material aus dem Originalspiel, beispielsweise Eisen, sowie aus bestimmten Materialien aus anderen Mods, sofern diese unterstützt werden, hergestellt werden."
+      "text": "Um mit der Gewinnung von Blutessenz beginnen zu können, musst du zunächst eine Reapingglefe herstellen.$(br2)Glefen können aus jedem beliebigen Material aus dem Originalspiel, beispielsweise Eisen, sowie aus bestimmten Materialien aus anderen Mods, sofern diese unterstützt werden, hergestellt werden."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:iron_glaive",
-      "title": " "
+      "title": " ",
+      "text": "Düsterseelenglas wird als Hauptbestandteil für die Reapingglefe benötigt, damit sie die Fähigkeit des Reapens erhält."
     }
   ]
 }

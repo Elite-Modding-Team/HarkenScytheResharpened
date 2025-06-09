@@ -19,6 +19,10 @@
       "name": " ",
       "text": "An die Ebene der Sterblichen gebunden...",
       "entity": "harkenscythe:spectral_human"
+    },
+    {
+      "type": "text",
+      "text": "Geister früherer Bewohner der Oberwelt. Sie scheinen sie schon vor langer Zeit bewohnt zu haben, bevor sich die Dorfbewohner und Illager niederließen.$(br2)Wenn du sie besiegst, werden sie einige Teile ihrer reinen Essenz abwerfen und in das Geisterreich zurückkehren."
     }
   ]
 }

@@ -11,32 +11,46 @@
     {
       "type": "text",
       "title": "Fäule",
-      "text": "Belegt das Ziel mindestens 5 Sekunden lang mit den Effekten Verdorrung, Schwebekraft und Schwäche.$(br)Anwendbar auf Bögen."
+      "text": "Belegt das Ziel (5 * Stufe) Sekunden lang mit den Effekten Verdorrung, Schwebekraft und Schwäche.$(br2)Anwendbar auf: Bögen$(br)Maximale Stufe: 3"
     },
     {
       "type": "text",
       "title": "Aderlass",
-      "text": "Erhöht die Chance auf einen zusätzlichen Blutessenz-Drop beim Reapen um mindestens 5%.$(br)Anwendbar auf Schwerter."
+      "text": "Erhöht die Chance auf einen zusätzlichen Blutessenz-Drop beim Reapen um (15% * Stufe).$(br2)Anwendbar auf: Alle Waffen$(br)Maximale Stufe: 3"
     },
     {
       "type": "text",
       "title": "Verströmung",
-      "text": "Heilt das Ziel von Gift und Verdorrung, heilt und löscht es, falls es brennt.$(br)Anwendbar auf Rüstung."
+      "text": "Heilt das Ziel von Gift und Verdorrung, heilt und löscht es, falls es brennt.$(br2)Anwendbar auf: Rüstung$(br)Maximale Stufe: 1"
     },
     {
       "type": "text",
       "title": "Blutung",
-      "text": "Belegt das Ziel mit dem Effekt Bluten, der mindestens 5 Sekunden lang periodischen Schaden verursacht.$(br)Anwendbar auf Schwerter."
+      "text": "Belegt das Ziel mit dem Effekt Bluten, der (5 * Stufe) Sekunden lang periodischen Schaden verursacht.$(br2)Anwendbar auf: Alle Waffen$(br)Maximale Stufe: 3"
     },
     {
       "type": "text",
       "title": "Ernährung",
-      "text": "Füllt den Hungerbalken mit jedem zugefügten Schaden wieder auf.$(br)Anwendbar auf Rüstung."
+      "text": "Füllt den Hungerbalken mit jedem zugefügten Schaden wieder auf.$(br2)Anwendbar auf: Rüstung$(br)Maximale Stufe: 1"
     },
     {
       "type": "text",
-      "title": "Seelenraub",
-      "text": "Erhöht die Chance auf einen zusätzlichen Seelenessenz-Drop beim Reapen um mindestens 5%.$(br)Anwendbar auf Schwerter."
+      "title": "Seelenfesselung",
+      "text": "Erhöht die Chance auf einen zusätzlichen Seelenessenz-Drop beim Reapen um 25% * Stufe.$(br2)Anwendbar auf: Alle Waffen$(br)Maximale Stufe: 3"
+    },
+    {
+      "type": "text",
+      "title": "Bereitschaft",
+      "text": "Erhöht die Chance, beim Reapen keine Haltbarkeit zu verbrauchen um 15 * Stufe. Die Aufladegeschwindigkeit des Reapens wird außerdem für jede Stufe erhöht.$(br2)Anwendbar auf: Reapinglefen und -sensen$(br)Maximale Stufe: 4"
+    },
+    {
+      "type": "text",
+      "text": "Diese Verzauberungen sind spezielle Verzauberungen und können nur durch Loot oder andere Methoden erhalten werden:"
+    },
+    {
+      "type": "text",
+      "title": "Reaping-Raserei",
+      "text": "Reapingglefen und -sensen reapen am Ende des Ladevorgangs automatisch.$(br2)Anwendbar auf: Reapingglefen und -sensen$(br)Maximale Stufe: 1$(br2)Ein Abgrundfragment muss an einem Amboss auf eine Reapingglefe oder -sense geschmiedet werden, damit das jeweilige Werkzeug diese Verzauberung erhält."
     }
   ]
 }

@@ -7,7 +7,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "Um Seelenessenz von einer Kreatur zu reapen, musst du die Spezialfähigkeit der Glefe nutzen, indem du mit der $(4)rechten Maustaste$() klickst und loslässt, während du auf eine Kreatur zielst. Wenn die Kreatur während dieses Vorgangs getötet wird, kann sie je nach Materialqualität der Sense ihre Seele verlieren."
+      "text": "Um Seelenessenz von einer Kreatur zu reapen, musst du die Spezialfähigkeit der Reapingsense nutzen, indem du mit der $(4)rechten Maustaste$() klickst und loslässt, während du auf eine Kreatur zielst. Wenn die Kreatur während dieses Vorgangs getötet wird, wird sie ihre Seele verlieren."
     },
     {
       "type": "entity",

@@ -17,13 +17,13 @@
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_water",
       "title": "Wasser",
-      "text": "Der Spektrale Trank des Wassers kann durch Aufsammeln von Wasser durch $(4)Rechtsklick$() hergestellt und mit Seelen in einen Spektralen Trank der Reinigung verwandelt werden."
+      "text": "Der Spektrale Trank des Wassers kann durch Aufsammeln von Wasser durch $(4)Rechtsklick$() hergestellt und mit Seelen in einen Spektralen Trank der Reinigung verwandelt werden.$(br2)Kann auch geworfen werden, um Brände zu löschen."
     },
     {
       "type": "spotlight",
       "item": "harkenscythe:spectral_potion_flame",
       "title": "Flamme",
-      "text": "Der Spektrale Trank der Flamme kann durch Aufsammeln von Feuer durch $(4)Rechtsklick$() hergestellt und mit Seelen in einen Spektralen Trank des Leidens verwandelt werden."
+      "text": "Der Spektrale Trank der Flamme kann durch Aufsammeln von Feuer durch $(4)Rechtsklick$() hergestellt und mit Seelen in einen Spektralen Trank des Leidens verwandelt werden.$(br2)Kann auch geworfen werden, um Feuer zu entfachen und Spinnennetze zu zerstören."
     },
     {
       "type": "spotlight",

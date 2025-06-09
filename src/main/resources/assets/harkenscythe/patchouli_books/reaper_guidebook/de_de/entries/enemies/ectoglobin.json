@@ -16,8 +16,12 @@
     {
       "type": "entity",
       "name": " ",
-      "text": "Überreste von Seelenessenz.",
+      "text": "Es wiegt 21 Gramm.",
       "entity": "harkenscythe:ectoglobin"
+    },
+    {
+      "type": "text",
+      "text": "Wenn Seelenessenz zu lang außerhalb des Geisterreichs verweilt oder nicht in der Lage ist, die Form der ursprünglichen Kreatur anzunehmen, wird sie zu einem Ektoglobin.$(br2)Das Ektoglobin ist ein aggressiver Zustand von Seelenessenz, der sich ähnlich wie Schleim verhält und bei Sichtkontakt angreift. Sie lassen nichts Bedeutendes fallen und spawnen keine Essenzen, wenn sie gereapt werden."
     }
   ]
 }

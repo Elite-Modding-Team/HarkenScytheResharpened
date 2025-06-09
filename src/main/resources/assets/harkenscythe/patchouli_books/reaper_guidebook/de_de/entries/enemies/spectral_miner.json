@@ -21,6 +21,10 @@
       "name": " ",
       "text": "Kann eine Illusion sein, muss aber nicht.",
       "entity": "harkenscythe:spectral_miner{HandItems:[{Count:1,id:\"harkenscythe:spectral_pickaxe\"},{}]}"
+    },
+    {
+      "type": "text",
+      "text": "Eine entartete Version des Spektralmenschen, die dich um den Verstand bringt.$(br2)Die meisten seiner Opfer haben berichtet, dass sie beunruhigende Geräusche in der Nähe hörten und nichts als Dunkelheit sahen. Das könnte zumindest erklären, woher die Höhlengeräusche kommen."
     }
   ]
 }
