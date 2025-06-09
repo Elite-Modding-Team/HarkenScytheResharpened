@@ -37,7 +37,10 @@ public class HSAIMasterHurtByTarget extends EntityAITarget
     @Override
     public void startExecuting()
     {
-        this.taskOwner.setAttackTarget(this.target);
+        if (this.target != this.master)
+        {
+            this.taskOwner.setAttackTarget(this.target);
+        }
         if (this.master != null)
         {
             this.timestamp = this.master.getRevengeTimer();

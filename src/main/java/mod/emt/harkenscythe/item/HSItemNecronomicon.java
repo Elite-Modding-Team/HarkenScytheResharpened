@@ -4,6 +4,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
@@ -21,6 +23,7 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Iterator;
 import java.util.List;
 import mod.emt.harkenscythe.client.sound.HSSoundNecronomicon;
 import mod.emt.harkenscythe.config.HSConfig;
@@ -84,9 +87,28 @@ public class HSItemNecronomicon extends HSItem
                     if (revivedEntity instanceof EntityCreature)
                     {
                         EntityCreature minion = (EntityCreature) revivedEntity;
+                        minion.setAttackTarget(null);
+                        minion.setRevengeTarget(null);
+                        minion.setLastAttackedEntity(null);
                         minion.targetTasks.addTask(1, new HSAIMasterHurtByTarget(minion, player));
                         minion.targetTasks.addTask(2, new HSAIMasterHurtTarget(minion, player));
-                        if (!(minion instanceof IMob))
+                        if (minion instanceof IMob)
+                        {
+                            try
+                            {
+                                Iterator<EntityAITasks.EntityAITaskEntry> iterator = minion.targetTasks.taskEntries.iterator();
+                                while (iterator.hasNext())
+                                {
+                                    EntityAITasks.EntityAITaskEntry entry = iterator.next();
+                                    if (entry != null && entry.action instanceof EntityAINearestAttackableTarget)
+                                    {
+                                        iterator.remove();
+                                    }
+                                }
+                            }
+                            catch (Exception ignored) {}
+                        }
+                        else
                         {
                             minion.tasks.addTask(1, new HSAIPassiveMobAttack(minion, 1.5D, true));
                         }
