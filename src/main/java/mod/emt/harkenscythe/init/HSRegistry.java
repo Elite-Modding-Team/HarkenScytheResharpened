@@ -121,7 +121,7 @@ public class HSRegistry
         if (HSConfig.ENCHANTMENTS.enchantmentHemorrhage) registry.register(HSEnchantments.HEMORRHAGE);
         if (HSConfig.ENCHANTMENTS.enchantmentNourishment) registry.register(HSEnchantments.NOURISHMENT);
         if (HSConfig.ENCHANTMENTS.enchantmentReapingFrenzy) registry.register(HSEnchantments.REAPING_FRENZY);
-        if (HSConfig.ENCHANTMENTS.enchantmentSoulsteal) registry.register(HSEnchantments.SOULSTEAL);
+        if (HSConfig.ENCHANTMENTS.enchantmentSoulTether) registry.register(HSEnchantments.SOULSTEAL);
         if (HSConfig.ENCHANTMENTS.enchantmentWillingness) registry.register(HSEnchantments.WILLINGNESS);
     }
 

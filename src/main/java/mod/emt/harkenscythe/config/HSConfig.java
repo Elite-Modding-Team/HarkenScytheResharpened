@@ -143,9 +143,9 @@ public class HSConfig
         @Config.Comment("Enables the Reaping Frenzy enchantment")
         public boolean enchantmentReapingFrenzy = true;
 
-        @Config.Name("Enable Soulsteal Enchantment")
-        @Config.Comment("Enables the Soulsteal enchantment")
-        public boolean enchantmentSoulsteal = true;
+        @Config.Name("Enable Soul Tether Enchantment")
+        @Config.Comment("Enables the Soul Tether enchantment")
+        public boolean enchantmentSoulTether = true;
 
         @Config.Name("Enable Willingness Enchantment")
         @Config.Comment("Enables the Willingness enchantment")
