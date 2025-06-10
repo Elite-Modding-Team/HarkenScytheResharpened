@@ -33,13 +33,13 @@ public class TraitSoulConjuration extends AbstractTraitLeveled
             if (BaublesApi.isBaubleEquipped(playerSource, HSItems.silence_ring) > 0) return;
 
             // Spawn blood instead if the reversal ring is equipped
-        	if (BaublesApi.isBaubleEquipped(playerSource, HSItems.reversal_ring) > 0)
+            if (BaublesApi.isBaubleEquipped(playerSource, HSItems.reversal_ring) > 0)
             {
-        		HSEventLivingHurt.spawnBlood(world, target);
-        	} else
+                HSEventLivingHurt.spawnBlood(world, target);
+            } else
             {
-        		HSEventLivingDeath.spawnSoul(world, target);
-        	}
+                HSEventLivingDeath.spawnSoul(world, target);
+            }
         }
     }
 }

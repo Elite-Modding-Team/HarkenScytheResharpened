@@ -30,6 +30,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Iterator;
+
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.config.HSConfig;
 import mod.emt.harkenscythe.entity.*;
@@ -55,25 +56,25 @@ public class HSEventLivingDeath
         {
             if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.silence_ring) > 0) return;
             if (entity instanceof HSEntitySpectralMiner) return;
-            
+
             // Spawn blood instead if the reversal ring is equipped
-        	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
+            if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
             {
-        		HSEventLivingHurt.spawnBlood(world, entity);
-        	} else
+                HSEventLivingHurt.spawnBlood(world, entity);
+            } else
             {
-        		spawnSoul(world, entity);
-        	}
-            
+                spawnSoul(world, entity);
+            }
+
             if (HSArmor.isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
-            	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
-            	{
-            		HSEventLivingHurt.spawnBlood(world, entity);
-            	} else
+                if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
                 {
-            		spawnSoul(world, entity);
-            	}
+                    HSEventLivingHurt.spawnBlood(world, entity);
+                } else
+                {
+                    spawnSoul(world, entity);
+                }
             }
         }
         // Exospiders will have a 1/4th chance to spawn its soul regardless of conditions
@@ -85,23 +86,19 @@ public class HSEventLivingDeath
                 if (((HSEntityExospider) entity).getVariant() == 1)
                 {
                     HSEventLivingHurt.spawnBlood(world, entity);
-                }
-                else
+                } else
                 {
                     spawnSoul(world, entity);
                 }
             }
-        }
-        else if (entity instanceof HSEntitySpectralMiner)
+        } else if (entity instanceof HSEntitySpectralMiner)
         {
             spawnSoul(world, entity);
-        }
-        else if (trueSource instanceof HSEntityHarbinger)
+        } else if (trueSource instanceof HSEntityHarbinger)
         {
             ((EntityLivingBase) trueSource).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 0));
             spawnSpectralEntity(world, entity, entity.getPosition(), false);
-        }
-        else if (entity.getEntityData().getBoolean("IsSpectral"))
+        } else if (entity.getEntityData().getBoolean("IsSpectral"))
         {
             entity.dropItem(HSItems.soul_essence, 1);
         }
@@ -146,7 +143,8 @@ public class HSEventLivingDeath
 
     public static void spawnSoul(World world, EntityLivingBase entity)
     {
-        if (entity.isChild() || entity.getEntityData().getBoolean("IsSpectral") || (entity.getMaxHealth() <= HSConfig.ENTITIES.essenceMaxHealthLimit && HSConfig.ENTITIES.essenceMaxHealthLimit > 0.0D) || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForSoulReaping(entity)) return;
+        if (entity.isChild() || entity.getEntityData().getBoolean("IsSpectral") || (entity.getMaxHealth() <= HSConfig.ENTITIES.essenceMaxHealthLimit && HSConfig.ENTITIES.essenceMaxHealthLimit > 0.0D) || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForSoulReaping(entity))
+            return;
         HSEntitySoul soul = new HSEntitySoul(world, entity);
         soul.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(soul);
@@ -162,7 +160,8 @@ public class HSEventLivingDeath
     {
         if (stack.getItem() instanceof HSToolScythe && damageSource.getDamageType().equals("hs_reap"))
         {
-            if (stack.getItem() == HSItems.reaper_scythe || stack.getItem() == HSItems.lady_harken_scythe || !HSConfig.ENTITIES.essenceDamageReaping) return true;
+            if (stack.getItem() == HSItems.reaper_scythe || stack.getItem() == HSItems.lady_harken_scythe || !HSConfig.ENTITIES.essenceDamageReaping)
+                return true;
             int damage = stack.getMaxDamage() - stack.getItemDamage();
             double chance = Math.min(0.8D, Math.max(0.4D, (double) damage / 500));
             return player.getRNG().nextDouble() < chance;

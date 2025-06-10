@@ -45,8 +45,7 @@ public class HSEventLivingHurt
             {
                 // +100% Harbinger damage against animals
                 event.setAmount(event.getAmount() * 2.0F);
-            }
-            else if (!(entity instanceof EntityPlayer))
+            } else if (!(entity instanceof EntityPlayer))
             {
                 // +50% Harbinger damage against non-players
                 event.setAmount(event.getAmount() * 1.5F);
@@ -62,23 +61,23 @@ public class HSEventLivingHurt
             if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.silence_ring) > 0) return;
 
             // Spawn blood instead if the reversal ring is equipped
-        	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
+            if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
             {
-        		HSEventLivingDeath.spawnSoul(world, entity);
-        	} else
+                HSEventLivingDeath.spawnSoul(world, entity);
+            } else
             {
-        		spawnBlood(world, entity);
-        	}
-        	
+                spawnBlood(world, entity);
+            }
+
             if (HSArmor.isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
-            	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
-            	{
-            		HSEventLivingDeath.spawnSoul(world, entity);
-            	} else
+                if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
                 {
-            		spawnBlood(world, entity);
-            	}
+                    HSEventLivingDeath.spawnSoul(world, entity);
+                } else
+                {
+                    spawnBlood(world, entity);
+                }
             }
         }
         if (!HSConfig.GENERAL.disableEnchantments)
@@ -139,7 +138,8 @@ public class HSEventLivingHurt
 
     public static void spawnBlood(World world, EntityLivingBase entity)
     {
-        if (entity.isChild() || entity.getEntityData().getBoolean("IsSpectral") || (entity.getMaxHealth() <= HSConfig.ENTITIES.essenceMaxHealthLimit && HSConfig.ENTITIES.essenceMaxHealthLimit > 0.0D) || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForBloodReaping(entity)) return;
+        if (entity.isChild() || entity.getEntityData().getBoolean("IsSpectral") || (entity.getMaxHealth() <= HSConfig.ENTITIES.essenceMaxHealthLimit && HSConfig.ENTITIES.essenceMaxHealthLimit > 0.0D) || entity instanceof HSEntityGlobin || HSEntityBlacklists.isBlacklistedForBloodReaping(entity))
+            return;
         HSEntityBlood blood = new HSEntityBlood(world, entity);
         blood.setPosition(entity.posX, entity.posY, entity.posZ);
         if (!world.isRemote) world.spawnEntity(blood);
