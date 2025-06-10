@@ -55,10 +55,25 @@ public class HSEventLivingDeath
         {
             if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.silence_ring) > 0) return;
             if (entity instanceof HSEntitySpectralMiner) return;
-            spawnSoul(world, entity);
+            
+            // Spawn blood instead if the reversal ring is equipped
+        	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
+            {
+        		HSEventLivingHurt.spawnBlood(world, entity);
+        	} else
+            {
+        		spawnSoul(world, entity);
+        	}
+            
             if (HSArmor.isWearingFullSoulweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
-                spawnSoul(world, entity);
+            	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
+            	{
+            		HSEventLivingHurt.spawnBlood(world, entity);
+            	} else
+                {
+            		spawnSoul(world, entity);
+            	}
             }
         }
         // Exospiders will have a 1/4th chance to spawn its soul regardless of conditions

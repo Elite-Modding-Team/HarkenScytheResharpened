@@ -60,10 +60,25 @@ public class HSEventLivingHurt
         if (trueSource instanceof EntityPlayer && isSuccessfulReap(damageSource, entity, event.getAmount()))
         {
             if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.silence_ring) > 0) return;
-            spawnBlood(world, entity);
+
+            // Spawn blood instead if the reversal ring is equipped
+        	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
+            {
+        		HSEventLivingDeath.spawnSoul(world, entity);
+        	} else
+            {
+        		spawnBlood(world, entity);
+        	}
+        	
             if (HSArmor.isWearingFullBloodweaveSet((EntityPlayer) trueSource) && world.rand.nextDouble() < 0.25D)
             {
-                spawnBlood(world, entity);
+            	if (BaublesApi.isBaubleEquipped((EntityPlayer) trueSource, HSItems.reversal_ring) > 0)
+            	{
+            		HSEventLivingDeath.spawnSoul(world, entity);
+            	} else
+                {
+            		spawnBlood(world, entity);
+            	}
             }
         }
         if (!HSConfig.GENERAL.disableEnchantments)

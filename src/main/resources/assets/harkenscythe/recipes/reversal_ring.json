@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " B ",
+    "BAL",
+    " L "
+  ],
+  "key": {
+    "B": {
+      "item": "harkenscythe:biomass"
+    },
+    "L": {
+      "item": "harkenscythe:livingmetal_ingot"
+    },
+    "A": {
+      "item": "harkenscythe:abyssal_fragment"
+    }
+  },
+  "result": {
+    "item": "harkenscythe:reversal_ring"
+  }
+}

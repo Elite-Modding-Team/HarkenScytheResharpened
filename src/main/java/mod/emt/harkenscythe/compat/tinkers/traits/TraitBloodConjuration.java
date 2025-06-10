@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import baubles.api.BaublesApi;
 import mod.emt.harkenscythe.config.HSConfig;
+import mod.emt.harkenscythe.event.HSEventLivingDeath;
 import mod.emt.harkenscythe.event.HSEventLivingHurt;
 import mod.emt.harkenscythe.init.HSItems;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
@@ -30,7 +31,15 @@ public class TraitBloodConjuration extends AbstractTraitLeveled
         if (wasHit && !target.isDead && random.nextDouble() <= (HSConfig.MOD_INTEGRATION.bloodConjurationChancePerLevel * data.level))
         {
             if (BaublesApi.isBaubleEquipped(playerSource, HSItems.silence_ring) > 0) return;
-            HSEventLivingHurt.spawnBlood(world, target);
+
+            // Spawn souls instead if the reversal ring is equipped
+        	if (BaublesApi.isBaubleEquipped(playerSource, HSItems.reversal_ring) > 0)
+            {
+        		HSEventLivingDeath.spawnSoul(world, target);
+        	} else
+            {
+        		HSEventLivingHurt.spawnBlood(world, target);
+        	}
         }
     }
 }

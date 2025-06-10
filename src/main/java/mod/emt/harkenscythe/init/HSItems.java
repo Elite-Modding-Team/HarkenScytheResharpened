@@ -57,6 +57,9 @@ public class HSItems
     public static final HSBaublesItemEssenceTrinket essence_trinket_soul_ethereal = null;
     
     public static final HSBaublesItem silence_ring = null;
+    public static final HSBaublesItemLifesteal parasitica_ring = null;
+    public static final HSBaublesItemEssenceAlteration alteration_ring = null;
+    public static final HSBaublesItem reversal_ring = null;
 
     public static final HSToolScythe wooden_scythe = null;
     public static final HSToolScythe stone_scythe = null;
@@ -186,6 +189,7 @@ public class HSItems
                 HSRegistry.setup(new HSBaublesItem(EnumRarity.UNCOMMON, BaubleType.RING, HSSoundEvents.EQUIP_BAUBLE.getSoundEvent(), HSSoundEvents.UNEQUIP_BAUBLE.getSoundEvent()), "silence_ring").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItemLifesteal(EnumRarity.RARE, BaubleType.RING, HSSoundEvents.EQUIP_BIOMASS.getSoundEvent(), HSSoundEvents.ENTITY_ESSENCE_BLOOD_DESPAWN.getSoundEvent()), "parasitica_ring").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItemEssenceAlteration(EnumRarity.RARE, BaubleType.RING, HSSoundEvents.EQUIP_LIVINGMETAL.getSoundEvent(), HSSoundEvents.ENTITY_ESSENCE_SOUL_DESPAWN.getSoundEvent()), "alteration_ring").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItem(EnumRarity.RARE, BaubleType.RING, HSSoundEvents.EQUIP_BIOMASS.getSoundEvent(), HSSoundEvents.ENTITY_ESSENCE_SOUL_DESPAWN.getSoundEvent()), "reversal_ring").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),
