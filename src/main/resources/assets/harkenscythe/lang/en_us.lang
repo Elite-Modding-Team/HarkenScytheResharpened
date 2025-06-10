@@ -38,6 +38,7 @@ advancement.harkenscythe.shell_of_a_spider.name=Shell of a Spider
 advancement.harkenscythe.shell_of_a_spider.desc=Encounter an Exospider.
 
 # ATTRIBUTES
+attribute.name.harkenscythe.essence_alteration=Essence Alteration
 attribute.name.harkenscythe.lifesteal=Lifesteal
 
 # BLOCKS
