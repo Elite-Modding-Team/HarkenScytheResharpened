@@ -32,6 +32,7 @@ import mod.emt.harkenscythe.item.*;
 import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.armor.HSArmorDyeable;
 import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItem;
+import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItemEssenceAlteration;
 import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItemEssenceTrinket;
 import mod.emt.harkenscythe.item.armor.bauble.HSBaublesItemLifesteal;
 import mod.emt.harkenscythe.item.tool.*;
@@ -184,6 +185,7 @@ public class HSItems
                 HSRegistry.setup(new HSBaublesItemEssenceTrinket(HSEnumContainerType.ETHEREAL_TRINKET, HSEnumFaction.SOUL), "essence_trinket_soul_ethereal").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItem(EnumRarity.UNCOMMON, BaubleType.RING, HSSoundEvents.EQUIP_BAUBLE.getSoundEvent(), HSSoundEvents.UNEQUIP_BAUBLE.getSoundEvent()), "silence_ring").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSBaublesItemLifesteal(EnumRarity.RARE, BaubleType.RING, HSSoundEvents.EQUIP_BIOMASS.getSoundEvent(), HSSoundEvents.ENTITY_ESSENCE_BLOOD_DESPAWN.getSoundEvent()), "parasitica_ring").setCreativeTab(HarkenScythe.TAB),
+                HSRegistry.setup(new HSBaublesItemEssenceAlteration(EnumRarity.RARE, BaubleType.RING, HSSoundEvents.EQUIP_LIVINGMETAL.getSoundEvent(), HSSoundEvents.ENTITY_ESSENCE_SOUL_DESPAWN.getSoundEvent()), "alteration_ring").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.WOOD, 1.4F, EnumRarity.COMMON), "wooden_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.STONE, 1.4F, EnumRarity.COMMON), "stone_scythe").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolScythe(ToolMaterial.IRON, 1.4F, EnumRarity.COMMON), "iron_scythe").setCreativeTab(HarkenScythe.TAB),
