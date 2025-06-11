@@ -106,4 +106,18 @@ public class HSBlockSoulCake extends BlockCake
 
         return true;
     }
+
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        super.updateTick(worldIn, pos, state, rand);
+        int slicesEaten = getMetaFromState(state);
+
+        // Restore slices overtime
+        if (slicesEaten > 0)
+        {
+            slicesEaten--;
+            worldIn.setBlockState(pos, state.withProperty(BITES, Integer.valueOf(slicesEaten)), 2);
+        }
+    }
 }
