@@ -1,11 +1,14 @@
 package mod.emt.harkenscythe.entity;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
@@ -15,6 +18,7 @@ import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.network.packet.HSEssenceTypePacket;
+import mod.emt.harkenscythe.util.HSAttributeModifier;
 
 public class HSEntityBlood extends HSEntityEssence
 {
@@ -55,6 +59,28 @@ public class HSEntityBlood extends HSEntityEssence
         else // Anything else
         {
             bloodType = 0; // Common
+        }
+
+        if (bloodType < 2)
+        {
+            DamageSource lastDmgSource = entity.getLastDamageSource();
+            if (lastDmgSource != null && lastDmgSource.getTrueSource() instanceof EntityLivingBase)
+            {
+                EntityLivingBase trueSource = (EntityLivingBase) lastDmgSource.getTrueSource();
+                IAttributeInstance essenceAlteration = trueSource.getEntityAttribute(HSAttributeModifier.ESSENCE_ALTERATION);
+                if (essenceAlteration != null && !essenceAlteration.getModifiers().isEmpty())
+                {
+                    double essenceAlterationChance = 0.0D;
+                    for (AttributeModifier attributemodifier : essenceAlteration.getModifiers())
+                    {
+                        essenceAlterationChance += attributemodifier.getAmount();
+                    }
+                    if (world.rand.nextDouble() < essenceAlterationChance)
+                    {
+                        bloodType = Math.min(bloodType + 1, 3);
+                    }
+                }
+            }
         }
 
         this.getDataManager().set(BLOOD_TYPE, bloodType);

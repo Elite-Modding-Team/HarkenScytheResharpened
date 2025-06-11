@@ -6,6 +6,8 @@ import com.google.common.collect.Lists;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -33,6 +35,7 @@ import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tool.IHSTool;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.network.packet.HSEssenceTypePacket;
+import mod.emt.harkenscythe.util.HSAttributeModifier;
 
 public class HSEntitySoul extends HSEntityEssence
 {
@@ -87,6 +90,28 @@ public class HSEntitySoul extends HSEntityEssence
         else // Anything else
         {
             soulType = 0; // Common
+        }
+
+        if (soulType < 2)
+        {
+            DamageSource lastDmgSource = entity.getLastDamageSource();
+            if (lastDmgSource != null && lastDmgSource.getTrueSource() instanceof EntityLivingBase)
+            {
+                EntityLivingBase trueSource = (EntityLivingBase) lastDmgSource.getTrueSource();
+                IAttributeInstance essenceAlteration = trueSource.getEntityAttribute(HSAttributeModifier.ESSENCE_ALTERATION);
+                if (essenceAlteration != null && !essenceAlteration.getModifiers().isEmpty())
+                {
+                    double essenceAlterationChance = 0.0D;
+                    for (AttributeModifier attributemodifier : essenceAlteration.getModifiers())
+                    {
+                        essenceAlterationChance += attributemodifier.getAmount();
+                    }
+                    if (world.rand.nextDouble() < essenceAlterationChance)
+                    {
+                        soulType = Math.min(soulType + 1, 4);
+                    }
+                }
+            }
         }
 
         this.getDataManager().set(SOUL_TYPE, soulType);
