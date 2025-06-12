@@ -15,6 +15,24 @@
       "text": "And the vision that was planted in my brain$(br)Still remains$(br)Within the Ring of Silence"
     },
     {
+      "type": "crafting",
+      "recipe": "harkenscythe:parasitica_ring",
+      "title": "Ring of Parasitica",
+      "text": "The Reaper's Ring of Parasitica gives you a bit of lifesteal thanks to the work of the biomass used to construct it.$(br2)Wearing more than one ring will stack the amount of lifesteal given!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:alteration_ring",
+      "title": "Ring of Alteration",
+      "text": "The Reaper's Ring of Alteration as the name implies, gives you a bit of essence alteration.$(br2)Wearing more than one ring will stack the amount of essence alteration given!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:reversal_ring",
+      "title": "Ring of Reversal",
+      "text": "The Reaper's Ring of Reversal uses the power of both blood and soul to reverse the effects of reaping.$(br2)Reaping for blood essence will give soul essence instead and vice versa."
+    },
+    {
       "type": "text",
       "text": "These trinkets are very popular among Harbingers, as mere contact with essence entities is enough to collect them, while they can store a considerable amount of them.$(br)As these are delicate relics, they cannot be used for direct crucible interactions but rather have their essence transferred by absorbers."
     },
