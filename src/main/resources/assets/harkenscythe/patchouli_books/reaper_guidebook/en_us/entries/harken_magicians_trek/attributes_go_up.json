@@ -18,7 +18,7 @@
       "type": "spotlight",
       "item": "harkenscythe:parasitica_ring",
       "title": "Lifesteal",
-      "text": "Lifesteal allows you to always heal from dealing damage, the higher your lifesteal, the higher you will heal.$(br2)Having a lifesteal of 15% for example will always heal you by 15% of the damage dealt to your opponent. Successful lifesteal can be indicated by the blood red particles shown and the sound played."
+      "text": "Lifesteal allows you to always heal from dealing damage, the higher your lifesteal, the higher you will heal.$(br2)Having a lifesteal of 15% for example will always heal you by 15% of the damage dealt to your opponent. Successful lifesteal can be indicated by the beam particles shown and the sound played."
     }
   ]
 }

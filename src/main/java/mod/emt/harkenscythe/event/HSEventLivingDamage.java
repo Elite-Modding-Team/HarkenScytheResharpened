@@ -15,6 +15,7 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import java.awt.*;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
+import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSAttributeModifier;
 import mod.emt.harkenscythe.util.HSDamageSource;
@@ -59,7 +60,15 @@ public class HSEventLivingDamage
                     // Beam particles while lifesteal is activated
                     if (FMLLaunchHandler.side().isClient())
                     {
-                        HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, Color.getColor("Blood Red", 12124160), trueSource.posX, trueSource.posY + trueSource.getEyeHeight(), trueSource.posZ);
+                        // Beam particles are blue under special circumstances
+                        if (trueSource instanceof HSEntityEctoglobin)
+                        {
+                            HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, Color.getColor("Soul Blue", 4560335), trueSource.posX, trueSource.posY + trueSource.getEyeHeight(), trueSource.posZ);
+                        }
+                        else
+                        {
+                            HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, Color.getColor("Blood Red", 12124160), trueSource.posX, trueSource.posY + trueSource.getEyeHeight(), trueSource.posZ);
+                        }
                     }
                 }
             }
