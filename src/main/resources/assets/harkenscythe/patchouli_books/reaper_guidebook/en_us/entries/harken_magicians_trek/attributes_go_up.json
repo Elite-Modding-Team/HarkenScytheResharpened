@@ -1,0 +1,24 @@
+{
+  "name": "Attributes Go Up!",
+  "icon": "minecraft:textures/items/book_enchanted.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:use_altar",
+  "pages": [
+    {
+      "type": "text",
+      "text": "You can encounter these new attributes that can be found within your journey as a reaper:"
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:alteration_ring",
+      "title": "Essence Alteration",
+      "text": "The amount of essence alteration you have will affect the chance for reaped essence to upgrade to the next tier (at a maximum of 100%).$(br2)Blood essence can only be upgraded upwards to intoxicated (worth 5 essence) while soul essence can only be upgraded upwards to culled (worth 5 essence)."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:parasitica_ring",
+      "title": "Lifesteal",
+      "text": "Lifesteal allows you to always heal from dealing damage, the higher your lifesteal, the higher you will heal.$(br2)Having a lifesteal of 15% for example will always heal you by 15% of the damage dealt to your opponent. Successful lifesteal can be indicated by the blood red particles shown and the sound played."
+    }
+  ]
+}
