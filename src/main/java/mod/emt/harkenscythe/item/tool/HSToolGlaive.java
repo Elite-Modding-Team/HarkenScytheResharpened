@@ -30,7 +30,7 @@ import mod.emt.harkenscythe.init.HSBlocks;
 import mod.emt.harkenscythe.init.HSEnchantments;
 import mod.emt.harkenscythe.init.HSMaterials;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.util.HSAttributeModifier;
+import mod.emt.harkenscythe.init.HSAttributes;
 import mod.emt.harkenscythe.util.HSDamageSource;
 
 @SuppressWarnings("deprecation")
@@ -48,7 +48,7 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         this.rarity = rarity;
         this.material = material;
 
-        this.alteration = new AttributeModifier(HSAttributeModifier.ESSENCE_ALTERATION_ID, "essence alteration glaive", alterationRate, 1);
+        this.alteration = new AttributeModifier(HSAttributes.ESSENCE_ALTERATION_ID, "essence alteration glaive", alterationRate, 1);
     }
 
     @Override
@@ -188,7 +188,7 @@ public class HSToolGlaive extends ItemSword implements IHSTool
         {
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Damage modifier", this.getAttackDamage() + 3.0D, 0));
             multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Speed modifier", this.attackSpeed - 4.0D, 0));
-            multimap.put(HSAttributeModifier.ESSENCE_ALTERATION.getName(), alteration);
+            multimap.put(HSAttributes.ESSENCE_ALTERATION.getName(), alteration);
         }
 
         return multimap;

@@ -35,7 +35,7 @@ import mod.emt.harkenscythe.item.armor.HSArmor;
 import mod.emt.harkenscythe.item.tool.IHSTool;
 import mod.emt.harkenscythe.network.HSNetworkHandler;
 import mod.emt.harkenscythe.network.packet.HSEssenceTypePacket;
-import mod.emt.harkenscythe.util.HSAttributeModifier;
+import mod.emt.harkenscythe.init.HSAttributes;
 
 public class HSEntitySoul extends HSEntityEssence
 {
@@ -98,7 +98,7 @@ public class HSEntitySoul extends HSEntityEssence
             if (lastDmgSource != null && lastDmgSource.getTrueSource() instanceof EntityLivingBase)
             {
                 EntityLivingBase trueSource = (EntityLivingBase) lastDmgSource.getTrueSource();
-                IAttributeInstance essenceAlteration = trueSource.getEntityAttribute(HSAttributeModifier.ESSENCE_ALTERATION);
+                IAttributeInstance essenceAlteration = trueSource.getEntityAttribute(HSAttributes.ESSENCE_ALTERATION);
                 if (essenceAlteration != null && !essenceAlteration.getModifiers().isEmpty())
                 {
                     double essenceAlterationChance = 0.0D;

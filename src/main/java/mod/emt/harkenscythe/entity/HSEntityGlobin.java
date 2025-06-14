@@ -1,6 +1,5 @@
 package mod.emt.harkenscythe.entity;
 
-import mod.emt.harkenscythe.util.HSAttributeModifier;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
@@ -11,13 +10,6 @@ public abstract class HSEntityGlobin extends EntitySlime
     {
         super(world);
         this.setSlimeSize(1 + world.rand.nextInt(3), true);
-    }
-    
-    @Override
-    protected void applyEntityAttributes()
-    {
-        super.applyEntityAttributes();
-        this.getAttributeMap().registerAttribute(HSAttributeModifier.LIFESTEAL).setBaseValue(1.0D);
     }
 
     public void setSize(int size, boolean resetHealth)

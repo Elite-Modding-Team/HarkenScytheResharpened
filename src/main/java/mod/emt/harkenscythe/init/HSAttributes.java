@@ -1,7 +1,8 @@
-package mod.emt.harkenscythe.util;
+package mod.emt.harkenscythe.init;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,9 +12,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.UUID;
 import mod.emt.harkenscythe.HarkenScythe;
+import mod.emt.harkenscythe.entity.HSEntityGlobin;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
-public class HSAttributeModifier
+public class HSAttributes
 {
     // Attribute UUIDs
     public static final UUID ARMOR_ID = UUID.fromString("AC5A5C93-3817-4616-9291-A88D582E52C6");
@@ -48,6 +50,11 @@ public class HSAttributeModifier
                 EntityPlayer player = (EntityPlayer) event.getEntity();
                 registerAttribute(player.getAttributeMap(), ESSENCE_ALTERATION);
             }
+        }
+        if (event.getEntity() instanceof HSEntityGlobin)
+        {
+            HSEntityGlobin globin = (HSEntityGlobin) event.getEntity();
+            globin.getEntityAttribute(LIFESTEAL).applyModifier(new AttributeModifier("globin lifesteal damage", 1.0D, 1));
         }
     }
 

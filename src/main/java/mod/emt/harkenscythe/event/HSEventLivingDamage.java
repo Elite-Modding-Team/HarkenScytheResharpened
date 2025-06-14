@@ -16,8 +16,8 @@ import java.awt.*;
 import mod.emt.harkenscythe.HarkenScythe;
 import mod.emt.harkenscythe.client.particle.HSParticleHandler;
 import mod.emt.harkenscythe.entity.HSEntityEctoglobin;
+import mod.emt.harkenscythe.init.HSAttributes;
 import mod.emt.harkenscythe.init.HSSoundEvents;
-import mod.emt.harkenscythe.util.HSAttributeModifier;
 import mod.emt.harkenscythe.util.HSDamageSource;
 
 @Mod.EventBusSubscriber(modid = HarkenScythe.MOD_ID)
@@ -33,7 +33,7 @@ public class HSEventLivingDamage
         if (entity instanceof EntityLivingBase && damageSource.getTrueSource() instanceof EntityLivingBase)
         {
             EntityLivingBase trueSource = (EntityLivingBase) damageSource.getTrueSource();
-            IAttributeInstance lifesteal = trueSource.getEntityAttribute(HSAttributeModifier.LIFESTEAL);
+            IAttributeInstance lifesteal = trueSource.getEntityAttribute(HSAttributes.LIFESTEAL);
 
             if (lifesteal != null && !lifesteal.getModifiers().isEmpty())
             {
