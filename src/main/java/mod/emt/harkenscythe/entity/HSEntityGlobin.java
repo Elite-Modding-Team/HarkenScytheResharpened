@@ -10,6 +10,7 @@ public abstract class HSEntityGlobin extends EntitySlime
     {
         super(world);
         this.setSlimeSize(1 + world.rand.nextInt(3), true);
+        this.isImmuneToFire = true;
     }
 
     public void setSize(int size, boolean resetHealth)

@@ -27,6 +27,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
     {
         super(world);
         this.innerRotation = this.rand.nextInt(100000);
+        this.isImmuneToFire = true;
     }
 
     public int getInnerRotation()
