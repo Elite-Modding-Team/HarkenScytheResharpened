@@ -198,6 +198,23 @@ public class HSEntityHarbinger extends EntityCreature implements IMob
     }
 
     @Override
+    protected void updateAITasks()
+    {
+        super.updateAITasks();
+
+        // Regenerate health when target is lost except when player is in Creative
+        if (this.getAttackTarget() == null && this.getHealth() < this.getMaxHealth())
+        {
+            if (this.attackingPlayer != null && this.attackingPlayer.isCreative())
+            {
+            } else if (this.ticksExisted % 20 == 0)
+            {
+                this.heal(this.getMaxHealth() * 0.2F);
+            }
+        }
+    }
+
+    @Override
     public void onUpdate()
     {
         super.onUpdate();
