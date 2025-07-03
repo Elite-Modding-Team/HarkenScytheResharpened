@@ -61,7 +61,7 @@ public class HSEventLivingDamage
                     if (FMLLaunchHandler.side().isClient())
                     {
                         // Beam particles are blue under special circumstances
-                        if (trueSource instanceof HSEntityEctoglobin)
+                        if (entity instanceof HSEntityEctoglobin)
                         {
                             HSParticleHandler.spawnBeamParticles(EnumParticleTypes.REDSTONE, 20, world, entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ, Color.getColor("Soul Blue", 4560335), trueSource.posX, trueSource.posY + trueSource.getEyeHeight(), trueSource.posZ);
                         }
