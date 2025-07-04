@@ -13,6 +13,6 @@ public class HSBaublesItemEssenceAlteration extends HSBaublesAttributeItem imple
     public HSBaublesItemEssenceAlteration(EnumRarity rarity, BaubleType type, SoundEvent equipSound, SoundEvent unequipSound) {
         super(rarity, type, equipSound, unequipSound);
         
-		this.attributeMap.put(HSAttributes.ESSENCE_ALTERATION.getName(), new AttributeModifier(HSAttributes.ESSENCE_ALTERATION_ID, "essence alteration bauble", 0.035D, 1));
+		this.attributeMap.put(HSAttributes.ESSENCE_ALTERATION.getName(), new AttributeModifier(HSAttributes.ESSENCE_ALTERATION_ID, "essence alteration bauble", 0.1D, 1));
     }
 }
