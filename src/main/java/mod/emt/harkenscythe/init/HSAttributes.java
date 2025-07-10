@@ -6,7 +6,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -36,7 +36,7 @@ public class HSAttributes
 
     // Registers attributes to all entities
     @SubscribeEvent
-    public static void onEntityConstructEvent(EntityJoinWorldEvent event)
+    public static void onEntityConstructEvent(EntityEvent.EntityConstructing event)
     {
         if (event.getEntity() instanceof EntityLivingBase)
         {
