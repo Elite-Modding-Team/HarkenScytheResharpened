@@ -99,6 +99,7 @@ public class HSItemEssenceContainer extends HSItem
         return Loader.isModLoaded("bloodmagic") && HSConfig.MOD_INTEGRATION.bloodMagicIntegration && getFaction() == HSEnumFaction.BLOOD ? HSBloodMagicPlugin.onBloodContainerRightClick(world, player, hand) : super.onItemRightClick(world, player, hand);
     }
 
+    // TODO: In the future, all containers should magnetize essence but it should be an optional toggle when sneaking and right-clicking the container
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
     {
@@ -116,7 +117,7 @@ public class HSItemEssenceContainer extends HSItem
                     {
                         continue;
                     }
-                    if (getContainerType() == HSEnumContainerType.ETHEREAL_TRINKET)
+                    if (getContainerType() == HSEnumContainerType.ETHEREAL_TRINKET || getContainerType() == HSEnumContainerType.TRINKET)
                     {
                         double d1 = (entity.posX - essence.posX) / 8.0D;
                         double d2 = (entity.posY + (double) entity.getEyeHeight() / 2.0D - essence.posY) / 8.0D;
