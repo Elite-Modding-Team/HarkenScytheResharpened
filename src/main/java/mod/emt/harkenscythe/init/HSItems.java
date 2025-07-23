@@ -169,6 +169,12 @@ public class HSItems
         HarkenScythe.LOGGER.info("Registering items...");
 
         final IForgeRegistry<Item> registry = event.getRegistry();
+        
+        // THIRD PARTY MOD INTEGRATION
+        if (Loader.isModLoaded("patchouli") && !HSConfig.GENERAL.disableGuidebook)
+        {
+            registry.register(HSRegistry.setup(new HSItemGuidebook(), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB));
+        }
 
         // ITEMS
         registry.registerAll
@@ -280,12 +286,6 @@ public class HSItems
                     HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.PURIFYING), "spectral_potion_purifying").setCreativeTab(HarkenScythe.TAB),
                     HSRegistry.setup(new HSItemSpectralPotion(EnumRarity.UNCOMMON, HSPotions.WATER), "spectral_potion_water").setCreativeTab(HarkenScythe.TAB)
                 );
-        }
-
-        // THIRD PARTY MOD INTEGRATION
-        if (Loader.isModLoaded("patchouli") && !HSConfig.GENERAL.disableGuidebook)
-        {
-            registry.register(HSRegistry.setup(new HSItemGuidebook(), "reaper_guidebook").setCreativeTab(HarkenScythe.TAB));
         }
 
         // ITEM BLOCKS
