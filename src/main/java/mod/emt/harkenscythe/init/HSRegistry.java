@@ -287,7 +287,9 @@ public class HSRegistry
         HSAltarRecipes.addSoulRecipe(HSItems.soulweave_shoes, HSItems.soulweave_shoes, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_flame, HSItems.spectral_potion_affliction, 10);
         HSAltarRecipes.addSoulRecipe(HSItems.spectral_potion_water, HSItems.spectral_potion_purifying, 10);
-        HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 1);
+        HSAltarRecipes.addSoulRecipe(HSItems.refresh_tome, HSItems.refresh_tome, 5);
+        HSAltarRecipes.addSoulRecipe(HSItems.shadow_book, HSItems.refresh_tome, 5);
+        HSAltarRecipes.addSoulRecipe(Items.CAKE, HSItems.soul_cake, 10);
         HSAltarRecipes.addSoulRecipe(Items.COOKIE, HSItems.soul_cookie, 1);
         HSAltarRecipes.addSoulRecipe(HSItems.unpowered_totem_of_undying, Items.TOTEM_OF_UNDYING, 50);
         HSAltarRecipes.addSoulRecipe("ingotIron", HSItems.livingmetal_ingot, 5);

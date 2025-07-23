@@ -1,0 +1,17 @@
+{
+  "name": "Scrambled Up",
+  "icon": "harkenscythe:textures/items/refresh_tome.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Ever had trouble with constantly getting enchantments that you don't want from your enchanting table?$(br2)No problem! Simply $(4)right-click$() with the Tome of Refreshing on hand and the enchantments on the table will be rerolled."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:refresh_tome",
+      "text": "The tome can be created by imbuing a Book of Shadows on an Altar of Souls.$(br2)It also allows you to disenchant items in exchange for more charges and experience. You may do so by adding it alongside the enchanted item on the crafting grid."
+    }
+  ]
+}
