@@ -13,7 +13,6 @@ import thaumcraft.api.aspects.AspectEventProxy;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.AspectRegistryEvent;
 
-// TODO: Entities are not registering aspects for some reason...
 @SuppressWarnings("deprecation")
 public class HSThaumcraftPlugin
 {
@@ -86,17 +85,17 @@ public class HSThaumcraftPlugin
         proxy.registerObjectTag(new ItemStack(HSItems.vampire_knife, 1, OreDictionary.WILDCARD_VALUE), new AspectList().add(Aspect.LIFE, 40).add(Aspect.MOTION, 40).add(Aspect.ENERGY, 40).add(Aspect.AVERSION, 40));
 
         // Entities
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "ectoglobin", new AspectList().add(Aspect.ALCHEMY, 10).add(Aspect.WATER, 15).add(Aspect.AVERSION, 15));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "exospider", new AspectList().add(Aspect.PROTECT, 10).add(Aspect.SOUL, 10).add(Aspect.TRAP, 10));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "harbinger", new AspectList().add(Aspect.EXCHANGE, 20).add(Aspect.TRAP, 20).add(Aspect.SENSES, 20).add(Aspect.SOUL, 20));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "hemoglobin", new AspectList().add(Aspect.ALCHEMY, 10).add(Aspect.WATER, 15).add(Aspect.SOUL, 15));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "spectral_human", new AspectList().add(Aspect.SOUL, 10).add(Aspect.MAN, 15).add(Aspect.DEATH, 15));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "spectral_miner", new AspectList().add(Aspect.TOOL, 20).add(Aspect.MAN, 20).add(Aspect.DEATH, 20).add(Aspect.SOUL, 20));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "ectoglobin", new AspectList().add(Aspect.ALCHEMY, 10).add(Aspect.WATER, 15).add(Aspect.AVERSION, 15));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "exospider", new AspectList().add(Aspect.PROTECT, 15).add(Aspect.SOUL, 15).add(Aspect.TRAP, 15));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "harbinger", new AspectList().add(Aspect.EXCHANGE, 25).add(Aspect.TRAP, 25).add(Aspect.SENSES, 25).add(Aspect.SOUL, 25));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "hemoglobin", new AspectList().add(Aspect.ALCHEMY, 10).add(Aspect.WATER, 15).add(Aspect.SOUL, 15));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "spectral_human", new AspectList().add(Aspect.SOUL, 10).add(Aspect.MAN, 15).add(Aspect.DEATH, 15));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "spectral_miner", new AspectList().add(Aspect.TOOL, 25).add(Aspect.MAN, 25).add(Aspect.DEATH, 25).add(Aspect.SOUL, 25));
 
         // Entities - Misc
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "blood", new AspectList().add(Aspect.AURA, 10).add(Aspect.AVERSION, 10));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "soul", new AspectList().add(Aspect.AURA, 10).add(Aspect.SOUL, 10));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "spectral_potion", new AspectList().add(Aspect.SOUL, 5).add(Aspect.CRYSTAL, 10).add(Aspect.MOTION, 10));
-        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_PREFIX + "vampire_knife", new AspectList().add(Aspect.AVERSION, 20).add(Aspect.ENERGY, 20).add(Aspect.MOTION, 20).add(Aspect.LIFE, 20));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "blood", new AspectList().add(Aspect.AURA, 10).add(Aspect.AVERSION, 10));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "soul", new AspectList().add(Aspect.AURA, 10).add(Aspect.SOUL, 10));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "spectral_potion", new AspectList().add(Aspect.SOUL, 5).add(Aspect.CRYSTAL, 10).add(Aspect.MOTION, 10));
+        ThaumcraftApi.registerEntityTag(HarkenScythe.MOD_ID + "." + "vampire_knife", new AspectList().add(Aspect.AVERSION, 20).add(Aspect.ENERGY, 20).add(Aspect.MOTION, 20).add(Aspect.LIFE, 20));
     }
 }
