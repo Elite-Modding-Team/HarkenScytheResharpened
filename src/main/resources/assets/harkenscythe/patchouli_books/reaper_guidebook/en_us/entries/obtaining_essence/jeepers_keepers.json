@@ -17,12 +17,12 @@
     {
       "type": "crafting",
       "recipe": "harkenscythe:essence_keeper",
-      "text": "You can upgrade the basic essence keeper into a more advanced variant. The ender pearl gives the keeper a more green color."
+      "text": "You can upgrade the basic essence keeper into a more advanced variant. The ender pearl gives the keeper a more green color and higher capacity."
     },
     {
       "type": "crafting",
       "recipe": "harkenscythe:essence_vessel",
-      "text": "Finally, you can upgrade the more advanced essence keeper into an essence vessel. Spend those ender pearls wisely!"
+      "text": "Finally, you can upgrade the more advanced essence keeper into an essence vessel. It has the largest capacity, so spend those ender pearls wisely!"
     }
   ]
 }
