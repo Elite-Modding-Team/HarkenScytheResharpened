@@ -2,7 +2,7 @@
   "name": "It's Armor Time!",
   "icon": "harkenscythe:textures/items/helmet_livingmetal.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:use_altar",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

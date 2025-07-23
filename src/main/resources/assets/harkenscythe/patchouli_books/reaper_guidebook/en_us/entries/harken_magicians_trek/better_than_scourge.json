@@ -2,7 +2,7 @@
   "name": "Better than Scourge",
   "icon": "harkenscythe:textures/gui/guidebook/icons/better_than_scourge.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:bloody_foundations",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

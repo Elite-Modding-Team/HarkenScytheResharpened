@@ -2,7 +2,7 @@
   "name": "It's Tool Time!",
   "icon": "harkenscythe:textures/items/pickaxe_livingmetal.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:use_altar",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

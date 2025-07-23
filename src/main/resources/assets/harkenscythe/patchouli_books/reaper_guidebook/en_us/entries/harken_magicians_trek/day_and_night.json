@@ -2,7 +2,7 @@
   "name": "Day and Night",
   "icon": "harkenscythe:textures/blocks/spectral_glass_inverted.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:souls_guidance",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

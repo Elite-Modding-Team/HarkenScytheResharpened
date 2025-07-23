@@ -2,7 +2,7 @@
   "name": "Hall of Mirrors",
   "icon": "harkenscythe:textures/items/dimensional_mirror_lit.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:souls_guidance",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",
