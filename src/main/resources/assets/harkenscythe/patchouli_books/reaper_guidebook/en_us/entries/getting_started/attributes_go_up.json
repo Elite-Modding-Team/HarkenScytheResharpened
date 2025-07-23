@@ -1,8 +1,8 @@
 {
   "name": "Attributes Go Up!",
   "icon": "minecraft:textures/items/book_writable.png",
-  "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:not_a_wizard_this_time",
+  "category": "getting_started",
+  "sortnum": 6,
   "pages": [
     {
       "type": "text",
