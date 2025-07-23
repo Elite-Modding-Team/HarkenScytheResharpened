@@ -411,7 +411,7 @@ public class HSConfig
         @Config.Name("Ethereal Blood Trinket Essence Capacity")
         @Config.Comment("The amount of essence ethereal blood trinkets can hold")
         @Config.RangeInt(min = 1)
-        public int bloodTrinketEtherealEssenceCapacity = 1600;
+        public int bloodTrinketEtherealEssenceCapacity = 5000;
 
         @Config.Name("Deadtime Watch Durability")
         @Config.Comment
@@ -498,7 +498,7 @@ public class HSConfig
         @Config.Name("Ethereal Soul Trinket Essence Capacity")
         @Config.Comment("The amount of essence ethereal soul trinkets can hold")
         @Config.RangeInt(min = 1)
-        public int soulTrinketEtherealEssenceCapacity = 1600;
+        public int soulTrinketEtherealEssenceCapacity = 5000;
 
         @Config.Name("Tome of Refreshing Durability")
         @Config.Comment

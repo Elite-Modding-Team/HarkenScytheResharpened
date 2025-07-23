@@ -34,7 +34,7 @@
     },
     {
       "type": "text",
-      "text": "These trinkets are very popular among Harbingers, as mere contact with essence entities is enough to collect them, while they can store a considerable amount of them.$(br)As these are delicate relics, they cannot be used for direct crucible interactions but rather have their essence transferred by absorbers."
+      "text": "These trinkets are very popular among Harbingers, as mere contact with essence entities is enough to collect them, while they can store a considerable amount of them.$(br)As these are delicate relics, they cannot be used for direct crucible interactions but rather have their essence transferred by absorbers.$(br2)Essence will also be attracted, making it very useful for quicker essence collecting."
     },
     {
       "type": "crafting",
@@ -43,7 +43,7 @@
     },
     {
       "type": "text",
-      "text": "Thanks to an old alliance between the Harbingers and the Withers, it is known that this piece of jewelry can be improved even further. Not only does its capacity increase, also essence seems to get attracted by it."
+      "text": "Thanks to an old alliance between the Harbingers and the Withers, it is known that this piece of jewelry can be improved even further.$(br2)The capacity increased is MASSIVE!"
     },
     {
       "type": "crafting",
