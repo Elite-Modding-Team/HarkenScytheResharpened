@@ -2,7 +2,6 @@
   "name": "A Bottle of Fun",
   "icon": "harkenscythe:textures/items/essence_vessel_soul_100.png",
   "category": "obtaining_essence",
-  "advancement": "harkenscythe:keeper_of_the_reaper",
   "sortnum": 1,
   "pages": [
     {

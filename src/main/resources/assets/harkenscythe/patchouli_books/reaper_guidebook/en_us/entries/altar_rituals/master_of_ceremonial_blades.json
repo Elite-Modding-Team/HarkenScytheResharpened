@@ -2,7 +2,7 @@
   "name": "Ceremonial Blade Master",
   "icon": "harkenscythe:textures/items/blunt_harken_blade.png",
   "category": "altar_rituals",
-  "advancement": "harkenscythe:your_time_is_up",
+  "advancement": "harkenscythe:keeper_of_the_reaper",
   "sortnum": 1,
   "pages": [
     {

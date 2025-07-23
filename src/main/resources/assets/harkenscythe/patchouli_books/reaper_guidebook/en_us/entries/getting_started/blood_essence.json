@@ -2,7 +2,6 @@
   "name": "Blood Essence",
   "icon": "harkenscythe:textures/items/essence_blood.png",
   "category": "getting_started",
-  "advancement": "harkenscythe:reapers_first_tool",
   "sortnum": 5,
   "pages": [
     {
