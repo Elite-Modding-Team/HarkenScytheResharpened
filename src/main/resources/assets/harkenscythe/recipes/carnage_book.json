@@ -13,8 +13,7 @@
       "ore": "ingotGold"
     },
     {
-      "item": "harkenscythe:basic_essence_keeper_blood",
-      "data": 0
+      "item": "minecraft:netherrack"
     }
   ],
   "result": {
