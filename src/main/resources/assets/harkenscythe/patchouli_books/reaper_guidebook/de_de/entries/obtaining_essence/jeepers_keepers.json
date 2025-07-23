@@ -2,7 +2,6 @@
   "name": "Behalte den Behälter",
   "icon": "harkenscythe:textures/items/essence_vessel.png",
   "category": "obtaining_essence",
-  "advancement": "harkenscythe:reapers_first_tool",
   "sortnum": 0,
   "pages": [
     {

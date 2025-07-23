@@ -2,7 +2,7 @@
   "name": "Eingetrichtert",
   "icon": "minecraft:textures/items/hopper.png",
   "category": "obtaining_essence",
-  "advancement": "harkenscythe:your_time_is_up",
+  "advancement": "harkenscythe:keeper_of_the_reaper",
   "sortnum": 3,
   "pages": [
     {

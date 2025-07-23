@@ -2,7 +2,7 @@
   "name": "Genau zur rechten Zeit",
   "icon": "harkenscythe:textures/items/deadtime_watch.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:bloody_foundations",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

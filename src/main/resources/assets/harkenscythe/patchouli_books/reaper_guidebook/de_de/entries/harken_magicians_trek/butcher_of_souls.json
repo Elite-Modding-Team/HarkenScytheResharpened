@@ -2,7 +2,7 @@
   "name": "Besser als Schlächter",
   "icon": "harkenscythe:textures/items/blood_butcherer.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:bloody_foundations",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

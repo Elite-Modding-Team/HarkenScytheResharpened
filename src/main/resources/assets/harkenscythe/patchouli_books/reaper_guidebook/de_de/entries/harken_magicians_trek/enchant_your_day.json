@@ -2,7 +2,7 @@
   "name": "Verzaubere deinen Tag",
   "icon": "minecraft:textures/items/book_enchanted.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:use_altar",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

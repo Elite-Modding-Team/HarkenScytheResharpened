@@ -2,7 +2,7 @@
   "name": "Einkleiden zum Erfolg",
   "icon": "harkenscythe:textures/items/soulweave_robe.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:use_altar",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

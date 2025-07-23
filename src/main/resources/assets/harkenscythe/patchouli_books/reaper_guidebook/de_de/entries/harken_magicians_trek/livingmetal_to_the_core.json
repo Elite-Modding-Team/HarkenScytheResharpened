@@ -2,7 +2,7 @@
   "name": "Kern des Lebendmetalls",
   "icon": "harkenscythe:textures/items/livingmetal_ingot.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:souls_guidance",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

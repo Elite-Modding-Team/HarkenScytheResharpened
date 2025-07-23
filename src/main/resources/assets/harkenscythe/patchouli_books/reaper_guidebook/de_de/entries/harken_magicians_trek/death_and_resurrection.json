@@ -2,7 +2,7 @@
   "name": "Tod und Auferstehung",
   "icon": "harkenscythe:textures/items/ancient_necronomicon.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:souls_guidance",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

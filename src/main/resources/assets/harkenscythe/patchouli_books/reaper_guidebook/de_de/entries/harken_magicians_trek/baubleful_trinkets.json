@@ -2,7 +2,7 @@
   "name": "Bauble-volle Anhänger",
   "icon": "harkenscythe:textures/items/soul_trinket.png",
   "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:use_altar",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
   "pages": [
     {
       "type": "text",

@@ -2,7 +2,6 @@
   "name": "Seelenessenz",
   "icon": "harkenscythe:textures/items/essence_soul.png",
   "category": "getting_started",
-  "advancement": "harkenscythe:reapers_first_tool",
   "sortnum": 3,
   "pages": [
     {
