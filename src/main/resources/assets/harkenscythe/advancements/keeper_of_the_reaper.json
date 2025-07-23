@@ -7,7 +7,7 @@
       "translate": "advancement.harkenscythe.keeper_of_the_reaper.desc"
     },
     "icon": {
-      "item": "harkenscythe:essence_keeper"
+      "item": "harkenscythe:basic_essence_keeper"
     },
     "frame": "task",
     "show_toast": true,
@@ -15,6 +15,16 @@
   },
   "parent": "harkenscythe:reapers_first_tool",
   "criteria": {
+    "obtain_basic_essence_keeper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:basic_essence_keeper"
+          }
+        ]
+      }
+    },
     "obtain_essence_keeper": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -38,6 +48,7 @@
   },
   "requirements": [
     [
+      "obtain_basic_essence_keeper",
       "obtain_essence_keeper",
       "obtain_essence_vessel"
     ]

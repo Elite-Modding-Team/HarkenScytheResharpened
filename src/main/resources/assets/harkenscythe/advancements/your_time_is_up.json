@@ -15,6 +15,26 @@
   },
   "parent": "harkenscythe:keeper_of_the_reaper",
   "criteria": {
+    "obtain_basic_essence_keeper_blood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:basic_essence_keeper_blood"
+          }
+        ]
+      }
+    },
+    "obtain_basic_essence_keeper_soul": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "harkenscythe:basic_essence_keeper_soul"
+          }
+        ]
+      }
+    },
     "obtain_essence_keeper_blood": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -58,6 +78,8 @@
   },
   "requirements": [
     [
+      "obtain_basic_essence_keeper_blood",
+      "obtain_basic_essence_keeper_soul",
       "obtain_essence_keeper_blood",
       "obtain_essence_keeper_soul",
       "obtain_essence_vessel_blood",
