@@ -161,7 +161,9 @@ public class HSConfig
                 "Syntax:  modid:entity",
                 "Example: minecraft:cow"
             })
-        public String[] bloodReapingBlacklist = new String[] {};
+        public String[] bloodReapingBlacklist = new String[] {
+                "testdummy:dummy"
+        };
 
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
@@ -311,7 +313,9 @@ public class HSConfig
                 "Syntax:  modid:entity",
                 "Example: minecraft:cow"
             })
-        public String[] soulReapingBlacklist = new String[] {};
+        public String[] soulReapingBlacklist = new String[] {
+                "testdummy:dummy"
+        };
 
         @Config.Name("Spectral Entity Attack Damage")
         @Config.Comment("The amount of damage dealt by spectral entities, summoned by the Harbinger")
