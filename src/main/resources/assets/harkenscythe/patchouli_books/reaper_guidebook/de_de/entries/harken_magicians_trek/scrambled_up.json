@@ -1,0 +1,17 @@
+{
+  "name": "Durcheinandergebracht",
+  "icon": "harkenscythe:textures/items/refresh_tome.png",
+  "category": "harken_magicians_trek",
+  "advancement": "harkenscythe:not_a_wizard_this_time",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Hattest du schon mal Probleme damit, dass du ständig Verzauberungen bekommst, die du gar nicht willst?$(br2)Kein Problem! Halte einfach den Roman der Erneuerung, $(4)klicke mit der rechten Maustaste$() und die Verzauberungen auf dem Tisch werden neu gewürfelt."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:refresh_tome",
+      "text": "Der Roman kann hergestellt werden, indem man ein Buch der Schatten auf einem Seelenaltar mit Magie versieht.$(br2)Außerdem kannst du damit Gegenstände im Austausch gegen mehr Aufladungen und Erfahrung entzaubern. Dazu musst du es neben dem verzauberten Gegenstand auf dem Craftingfeld platzieren."
+    }
+  ]
+}

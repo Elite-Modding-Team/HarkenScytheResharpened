@@ -38,6 +38,7 @@ advancement.harkenscythe.shell_of_a_spider.name=Schale einer Spinne
 advancement.harkenscythe.shell_of_a_spider.desc=Begegne einer Exospinne.
 
 # ATTRIBUTES
+attribute.name.harkenscythe.essence_alteration=Essenzwandel
 attribute.name.harkenscythe.lifesteal=Lebenserhalt
 
 # BLOCKS
@@ -64,6 +65,7 @@ tile.harkenscythe.spectral_glass_pane_inverted.name=Solare Spektralglasscheibe
 
 # ITEMS
 item.harkenscythe.abyssal_fragment.name=Abgrundfragment
+item.harkenscythe.alteration_ring.name=Reaper-Ring des Wandels
 item.harkenscythe.ancient_necronomicon.name=Antikes Nekronomikon
 item.harkenscythe.ancient_necronomicon_page.name=Seite des Antiken Nekronomikons
 item.harkenscythe.basic_essence_keeper.name=Einfacher Essenzbehälter
@@ -133,6 +135,7 @@ item.harkenscythe.parasitica_ring.name=Reaper-Ring der Parasitica
 item.harkenscythe.reaper_guidebook.name=Reaper-Handbuch
 item.harkenscythe.reaper_scythe.name=Seelenschnitter
 item.harkenscythe.refresh_tome.name=Roman der Erneuerung
+item.harkenscythe.reversal_ring.name=Reaper-Ring der Rollenumkehr
 item.harkenscythe.shadow_book.name=Buch der Schatten
 item.harkenscythe.silence_ring.name=Reaper-Ring der Stille
 item.harkenscythe.soul_cake.name=Seelenkuchen
@@ -254,7 +257,7 @@ tooltip.harkenscythe.reaper_scythe.4=Und die Blumen ohne Wahl.
 tooltip.harkenscythe.repair=Aufladungsrezept
 tooltip.harkenscythe.shadow_book=Ein Buch mit religiösen Inschriften und Anleitungen zum Kanalisieren von Seelenessenz.
 tooltip.harkenscythe.shears=Wirksam auf alle Arten von Stoff, Blättern und Spinnweben.
-tooltip.harkenscythe.soul_cake=Verleiht Regeneration (0:08), wenn ein Stück gegessen wird und wird gedroppt, wenn noch kein Stück gegessen wurde.
+tooltip.harkenscythe.soul_cake=Verleiht Regeneration (0:08), wenn ein Stück gegessen wird und wird gedroppt, wenn noch kein Stück gegessen wurde. Fehlende Stücke werden im Laufe der Zeit wiederhergestellt.
 tooltip.harkenscythe.soul_cookie=Verleiht Regeneration II (0:05), wenn gegessen.
 tooltip.harkenscythe.soul_essence=Seele in physischer Form.
 tooltip.harkenscythe.soul_soot=Dieses Gemisch kann zu einem starken Glasmaterial geschmolzen werden.

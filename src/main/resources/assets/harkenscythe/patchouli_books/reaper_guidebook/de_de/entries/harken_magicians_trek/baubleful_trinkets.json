@@ -11,12 +11,30 @@
     {
       "type": "crafting",
       "recipe": "harkenscythe:silence_ring",
-      "title": "Reaper-Ring der Stille",
+      "title": "Ring der Stille",
       "text": "Und die Vision, die in mein Gehirn gepflanzt wurde$(br)Besteht fortwährend$(br)Im Ring der Stille"
     },
     {
+      "type": "crafting",
+      "recipe": "harkenscythe:parasitica_ring",
+      "title": "Ring der Parasitica",
+      "text": "Der Reaper-Ring der Parasitica gewährt dir dank der verwendeten Biomasse ein wenig Lebenserhalt.$(br2)Wenn du mehr als einen Ring trägst, summiert sich der gewährte Lebenserhalt!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:alteration_ring",
+      "title": "Ring des Wandels",
+      "text": "Der Reaper-Ring des Wandels verleiht dir, wie der Name schon sagt, eine gewisse Veränderung der Essenz.$(br2)Wenn du mehr als einen Ring trägst, summiert sich die Menge des Essenzwandels!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:reversal_ring",
+      "title": "Ring der Umkehr",
+      "text": "Der Reaper-Ring der Rollenumkehr nutzt die Kraft von Blut und Seele, um die Auswirkungen des Reapens umzukehren.$(br2)Das Reapen von Blutessenz führt stattdessen zur Gewinnung von Seelenessenz und umgekehrt."
+    },
+    {
       "type": "text",
-      "text": "Diese Anhänger sind bei den Harbingern sehr beliebt, da bereits bloßer Kontakt mit Essenzen zum Aufsammeln genügt, während sie eine beträchtliche Menge davon speichern können.$(br)Da es sich um empfindliche Relikte handelt, können sie nicht für direkte Tiegelinteraktionen verwendet werden, sondern ihre Essenz wird von Absorbern übertragen."
+      "text": "Diese Anhänger sind bei den Harbingern sehr beliebt, da bereits bloßer Kontakt mit Essenzen zum Aufsammeln genügt, während sie eine beträchtliche Menge davon speichern können.$(br)Da es sich um empfindliche Relikte handelt, können sie nicht für direkte Tiegelinteraktionen verwendet werden, sondern ihre Essenz wird von Absorbern übertragen.$(br2)Essenz wird ebenfalls angezogen, was das Sammeln erheblich beschleunigt."
     },
     {
       "type": "crafting",
@@ -25,7 +43,7 @@
     },
     {
       "type": "text",
-      "text": "Dank einer alten Allianz der Harbinger mit den Withern ist bekannt, dass dieses Schmuckstück noch weiter verbessert werden kann. Nicht nur seine Kapazität nimmt zu, auch Essenz scheint davon angezogen zu werden."
+      "text": "Dank einer alten Allianz der Harbinger mit den Withern ist bekannt, dass dieses Schmuckstück noch weiter verbessert werden kann.$(br2)Die erhöhte Kapazität ist ENORM!"
     },
     {
       "type": "crafting",

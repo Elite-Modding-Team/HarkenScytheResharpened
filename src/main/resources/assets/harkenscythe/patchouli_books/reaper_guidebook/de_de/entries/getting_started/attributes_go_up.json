@@ -1,0 +1,24 @@
+{
+  "name": "Attribute steigen!",
+  "icon": "minecraft:textures/items/book_writable.png",
+  "category": "getting_started",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Auf deiner Reise als Reaper kannst du auf folgende neue Attribute stoßen:"
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:alteration_ring",
+      "title": "Essenzwandel",
+      "text": "Der Grad der Essenzveränderung beeinflusst die Chance, dass die gereapte Essenz auf die nächste Stufe aufgewertet wird (maximal 100%).$(br2)Blutessenz kann nur bis zur Stufe Vergiftet (im Wert von 5 Essenzen) aufgewertet werden, während Seelenessenz nur bis zur Stufe Auserwählt (im Wert von 5 Essenzen) aufgewertet werden kann."
+    },
+    {
+      "type": "spotlight",
+      "item": "harkenscythe:parasitica_ring",
+      "title": "Lebenserhalt",
+      "text": "Mit Lebenserhalt kannst du dich jederzeit durch verteilten Schaden heilen. Je höher dein Lebenserhalt ist, desto mehr wirst du dich heilen. Wenn du beispielsweise einen Lebenserhalt von 15% hast, wirst du dich immer um 15% des Schadens heilen, den du deinem Gegner zugefügt hast. Ein erfolgreicher Lebenserhalt wird durch Strahlenpartikel und einen Ton signalisiert."
+    }
+  ]
+}

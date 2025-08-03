@@ -1,8 +1,8 @@
 {
   "name": "Verzaubere deinen Tag",
   "icon": "minecraft:textures/items/book_enchanted.png",
-  "category": "harken_magicians_trek",
-  "advancement": "harkenscythe:not_a_wizard_this_time",
+  "category": "getting_started",
+  "sortnum": 7,
   "pages": [
     {
       "type": "text",

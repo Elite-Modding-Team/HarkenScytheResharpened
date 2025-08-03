@@ -10,8 +10,18 @@
     },
     {
       "type": "crafting",
+      "recipe": "harkenscythe:basic_essence_keeper",
+      "text": "Der einfachste verfügbare Behälter. Du musst ihn aus reinem Düsterseelenglas formen."
+    },
+    {
+      "type": "crafting",
       "recipe": "harkenscythe:essence_keeper",
-      "recipe2": "harkenscythe:essence_vessel"
+      "text": "Du kannst den einfachen Essenzbehälter zu einer fortgeschritteneren Variante aufrüsten. Die Enderperle verleiht dem Behälter eine grünere Farbe und eine höhere Kapazität."
+    },
+    {
+      "type": "crafting",
+      "recipe": "harkenscythe:essence_vessel",
+      "text": "Schließlich kannst du den fortgeschritteneren Essenzbehälter zu einem Essenzgefäß aufwerten. Es hat die größte Kapazität, also setze deine Enderperlen mit Bedacht ein!"
     }
   ]
 }

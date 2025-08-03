@@ -2,7 +2,7 @@
   "name": "Zeremonienklingen-Meister",
   "icon": "harkenscythe:textures/items/blunt_harken_blade.png",
   "category": "altar_rituals",
-  "advancement": "harkenscythe:keeper_of_the_reaper"",
+  "advancement": "harkenscythe:keeper_of_the_reaper",
   "sortnum": 1,
   "pages": [
     {

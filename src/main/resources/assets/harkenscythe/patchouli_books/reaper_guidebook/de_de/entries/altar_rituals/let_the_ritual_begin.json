@@ -2,7 +2,7 @@
   "name": "Lass das Ritual beginnen",
   "icon": "harkenscythe:textures/items/harken_athame.png",
   "category": "altar_rituals",
-  "advancement": "harkenscythe:keeper_of_the_reaper"",
+  "advancement": "harkenscythe:keeper_of_the_reaper",
   "sortnum": 2,
   "pages": [
     {
