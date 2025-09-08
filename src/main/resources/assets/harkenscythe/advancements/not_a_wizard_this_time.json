@@ -13,7 +13,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "harkenscythe:keeper_of_the_reaper",
+  "parent": "harkenscythe:root",
   "criteria": {
     "obtain_athame": {
       "trigger": "minecraft:inventory_changed",

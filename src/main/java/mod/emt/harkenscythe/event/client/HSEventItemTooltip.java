@@ -26,7 +26,6 @@ public class HSEventItemTooltip
     private static final ResourceLocation BIOMASS = new ResourceLocation(HarkenScythe.MOD_ID, "biomass");
     private static final ResourceLocation BIOMASS_SEED = new ResourceLocation(HarkenScythe.MOD_ID, "biomass_seed");
     private static final ResourceLocation BLOOD_ESSENCE = new ResourceLocation(HarkenScythe.MOD_ID, "blood_essence");
-    private static final ResourceLocation BLUNT_HARKEN_BLADE = new ResourceLocation(HarkenScythe.MOD_ID, "blunt_harken_blade");
     private static final ResourceLocation CARNAGE_BOOK = new ResourceLocation(HarkenScythe.MOD_ID, "carnage_book");
     private static final ResourceLocation CREEPBALL = new ResourceLocation(HarkenScythe.MOD_ID, "creepball");
     private static final ResourceLocation DAMAGED_VAMPIRE_KNIFE = new ResourceLocation(HarkenScythe.MOD_ID, "damaged_vampire_knife");
@@ -90,10 +89,6 @@ public class HSEventItemTooltip
         else if (item instanceof HSItemEssence && ForgeRegistries.ITEMS.getKey(item).getPath().contains(BLOOD_ESSENCE.getPath()))
         {
             event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.blood_essence"));
-        }
-        else if (ForgeRegistries.ITEMS.getKey(item).equals(BLUNT_HARKEN_BLADE))
-        {
-            event.getToolTip().add(1, I18n.format("tooltip.harkenscythe.blunt_blade"));
         }
         else if (ForgeRegistries.ITEMS.getKey(item).equals(CARNAGE_BOOK))
         {

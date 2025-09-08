@@ -129,7 +129,6 @@ public class HSItems
     public static final HSItemBlockSpecial soul_cake = null;
     public static final HSItemFood soul_cookie = null;
 
-    public static final HSItem blunt_harken_blade = null;
     public static final HSToolAthame harken_athame = null;
 
     public static final HSItem unpowered_totem_of_undying = null;
@@ -255,7 +254,6 @@ public class HSItems
                 HSRegistry.setup(new HSArmor(HSMaterials.ARMOR_LIVINGMETAL, 4, EntityEquipmentSlot.FEET, EnumRarity.UNCOMMON), "livingmetal_boots").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemBlockSpecial(HSBlocks.soul_cake, EnumRarity.UNCOMMON), "soul_cake").setMaxStackSize(1).setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemFood(3, 0.2F, false, 16, true, EnumRarity.UNCOMMON), "soul_cookie").setCreativeTab(HarkenScythe.TAB),
-                HSRegistry.setup(new HSItem(EnumRarity.COMMON), "blunt_harken_blade").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSToolAthame(HSMaterials.TOOL_ATHAME_BASIC, EnumRarity.COMMON), "harken_athame").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItem(EnumRarity.COMMON), "unpowered_totem_of_undying").setCreativeTab(HarkenScythe.TAB),
                 HSRegistry.setup(new HSItemDimensionalMirror(EnumRarity.UNCOMMON), "dimensional_mirror").setCreativeTab(HarkenScythe.TAB),

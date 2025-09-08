@@ -19,6 +19,7 @@ import mod.emt.harkenscythe.init.HSItems;
 import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.util.HSContainerHelper;
 
+// TODO: Change the athame conversion into its own crafting system.
 public abstract class HSEntityEssence extends EntityLivingBase
 {
     private int innerRotation;
@@ -39,7 +40,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
     public void onEntityUpdate()
     {
         super.onEntityUpdate();
-        if (this.ticksExisted % 20 == 0)
+        /*if (this.ticksExisted % 20 == 0)
         {
             List<EntityItem> list = this.world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox());
             if (!list.isEmpty())
@@ -54,7 +55,7 @@ public abstract class HSEntityEssence extends EntityLivingBase
                     }
                 }
             }
-        }
+        }*/
         if (this.ticksExisted == HSConfig.ENTITIES.essenceDespawnTime)
         {
             this.world.playSound(null, this.getPosition(), this instanceof HSEntityBlood ? HSSoundEvents.ENTITY_ESSENCE_BLOOD_DESPAWN.getSoundEvent() : HSSoundEvents.ENTITY_ESSENCE_SOUL_DESPAWN.getSoundEvent(), SoundCategory.NEUTRAL, 1.0F, 1.5F / (this.world.rand.nextFloat() * 0.4F + 1.2F));
@@ -204,12 +205,12 @@ public abstract class HSEntityEssence extends EntityLivingBase
         {
             ItemStack stack = player.getHeldItem(hand);
             // Interacting with blunt harken blade
-            if (stack.getItem() == HSItems.blunt_harken_blade)
+            /*if (stack.getItem() == HSItems.blunt_harken_blade)
             {
                 stack.shrink(1);
                 this.createAthame();
                 return true;
-            }
+            }*/
             int quantity = 0;
             if (getFaction() == HSEnumFaction.BLOOD)
             {
