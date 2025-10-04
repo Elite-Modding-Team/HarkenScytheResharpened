@@ -175,7 +175,7 @@ public class HSEventLivingHurt
     private static boolean isEnchantment(Enchantment enchantment, EntityPlayer player)
     {
         int level = EnchantmentHelper.getMaxEnchantmentLevel(enchantment, player);
-        return (level > 0 && player.getRNG().nextFloat() < 0.05F * level);
+        return (level > 0 && player.getRNG().nextFloat() < 0.2F * level);
     }
 
     private static boolean isEnchantmentReap(Enchantment enchantment, EntityPlayer player)
