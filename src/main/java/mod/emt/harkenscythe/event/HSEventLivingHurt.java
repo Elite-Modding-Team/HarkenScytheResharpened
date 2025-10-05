@@ -93,7 +93,7 @@ public class HSEventLivingHurt
                     event.setAmount(0);
                 }
                 // Exude enchantment
-                if ((player.isPotionActive(MobEffects.POISON) || player.isPotionActive(MobEffects.WITHER) || player.isBurning()) && isEnchantment(HSEnchantments.EXUDE, player))
+                if ((player.isPotionActive(MobEffects.POISON) || player.getActivePotionEffect(MobEffects.WITHER) != null || player.isBurning()) && EnchantmentHelper.getMaxEnchantmentLevel(HSEnchantments.EXUDE, player) > 0)
                 {
                     player.removePotionEffect(MobEffects.POISON);
                     player.removePotionEffect(MobEffects.WITHER);
