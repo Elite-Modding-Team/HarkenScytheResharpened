@@ -159,10 +159,11 @@ public class HSToolBloodButcherer extends HSToolSword implements IHSTool
                 {
                     float attribute = (float) player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
                     float sweepCalculation = (HSMaterials.TOOL_BLOOD_BUTCHERER.getAttackDamage() + 4.0F) + EnchantmentHelper.getSweepingDamageRatio(player) * attribute;
+                    float knockback = 0.5F + (EnchantmentHelper.getKnockbackModifier(player) * 0.5F);
 
                     if (target instanceof EntityLivingBase && !target.isOnSameTeam(player) && !target.isEntityEqual(player))
                     {
-                        target.knockBack(player, 0.5F, MathHelper.sin(player.rotationYaw * 0.02F), -MathHelper.cos(player.rotationYaw * 0.02F));
+                        target.knockBack(player, knockback, MathHelper.sin(player.rotationYaw * 0.02F), -MathHelper.cos(player.rotationYaw * 0.02F));
                         target.attackEntityFrom(new HSDamageSource("hs_butcher", player), sweepCalculation);
                         this.doBleedEffect(target);
                     }
