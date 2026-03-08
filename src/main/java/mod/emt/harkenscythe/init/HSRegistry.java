@@ -193,6 +193,29 @@ public class HSRegistry
         return biomes.toArray(new Biome[0]);
     }
 
+    public static void registerOreDictionaries() {
+        OreDictionary.registerOre("blockBiomass", HSBlocks.biomass_block);
+        OreDictionary.registerOre("blockGlassSpectral", HSBlocks.spectral_glass);
+        OreDictionary.registerOre("blockGlassSpectral", HSBlocks.spectral_glass_inverted);
+        OreDictionary.registerOre("blockLivingmetal", HSBlocks.livingmetal_block);
+
+        OreDictionary.registerOre("paneGlassSpectral", HSBlocks.spectral_glass_pane);
+        OreDictionary.registerOre("paneGlassSpectral", HSBlocks.spectral_glass_pane_inverted);
+
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence);
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_sickly);
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_intoxicated);
+        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_warped);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_grieving);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_culled);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_spectral);
+        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_wrathful);
+
+        OreDictionary.registerOre("ingotBiomass", HSItems.biomass);
+        OreDictionary.registerOre("ingotLivingmetal", HSItems.livingmetal_ingot);
+    }
+
     @SubscribeEvent
     public static void registerPotions(@Nonnull final RegistryEvent.Register<Potion> event)
     {
@@ -231,27 +254,6 @@ public class HSRegistry
 
         // Furnace Recipes
         GameRegistry.addSmelting(new ItemStack(HSItems.soul_soot), new ItemStack(HSItems.soumberglass_ingot), 0.7F);
-
-        OreDictionary.registerOre("blockBiomass", HSBlocks.biomass_block);
-        OreDictionary.registerOre("blockGlassSpectral", HSBlocks.spectral_glass);
-        OreDictionary.registerOre("blockGlassSpectral", HSBlocks.spectral_glass_inverted);
-        OreDictionary.registerOre("blockLivingmetal", HSBlocks.livingmetal_block);
-
-        OreDictionary.registerOre("paneGlassSpectral", HSBlocks.spectral_glass_pane);
-        OreDictionary.registerOre("paneGlassSpectral", HSBlocks.spectral_glass_pane_inverted);
-
-        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence);
-        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_sickly);
-        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_intoxicated);
-        OreDictionary.registerOre("essenceHarken", HSItems.blood_essence_warped);
-        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence);
-        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_grieving);
-        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_culled);
-        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_spectral);
-        OreDictionary.registerOre("essenceHarken", HSItems.soul_essence_wrathful);
-
-        OreDictionary.registerOre("ingotBiomass", HSItems.biomass);
-        OreDictionary.registerOre("ingotLivingmetal", HSItems.livingmetal_ingot);
 
         HarkenScythe.LOGGER.info("Registering recipes...");
 

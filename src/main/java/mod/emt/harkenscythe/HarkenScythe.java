@@ -48,6 +48,7 @@ public class HarkenScythe
     public void init(FMLInitializationEvent event)
     {
         HSRegistry.registerAdvancements();
+        HSRegistry.registerOreDictionaries();
         HSRegistry.registerTileEntities();
         HSCompatHandler.init();
         LOGGER.info(NAME + " initialized");
