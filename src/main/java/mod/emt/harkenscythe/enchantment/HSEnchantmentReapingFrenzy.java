@@ -8,6 +8,8 @@ import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.item.tool.HSToolGlaive;
 import mod.emt.harkenscythe.item.tool.HSToolScythe;
 
+import javax.annotation.Nonnull;
+
 public class HSEnchantmentReapingFrenzy extends HSEnchantment
 {
     public HSEnchantmentReapingFrenzy(String name)
@@ -34,10 +36,9 @@ public class HSEnchantmentReapingFrenzy extends HSEnchantment
     }
 
     @Override
-    public boolean canApply(ItemStack stack)
+    public boolean canApply(@Nonnull ItemStack stack)
     {
-        // Exclusive to only glaives and scythes.
-        return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
+        return super.canApply(stack);
     }
 
     @Override
@@ -47,7 +48,7 @@ public class HSEnchantmentReapingFrenzy extends HSEnchantment
     }
 
     @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack)
+    public boolean canApplyAtEnchantingTable(@Nonnull ItemStack stack)
     {
         return HSConfig.ENCHANTMENTS.reapingFrenzyEnchanting ? (stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe) : false;
     }

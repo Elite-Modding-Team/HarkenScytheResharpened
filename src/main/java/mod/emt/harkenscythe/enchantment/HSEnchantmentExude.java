@@ -5,6 +5,10 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 
 import mod.emt.harkenscythe.init.HSEnumFaction;
 
+import net.minecraft.item.ItemStack;
+
+import javax.annotation.Nonnull;
+
 public class HSEnchantmentExude extends HSEnchantment
 {
     public HSEnchantmentExude(String name)
@@ -22,5 +26,17 @@ public class HSEnchantmentExude extends HSEnchantment
     protected HSEnumFaction getFaction()
     {
         return HSEnumFaction.BLOOD;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(@Nonnull ItemStack stack)
+    {
+        return super.canApplyAtEnchantingTable(stack);
+    }
+
+    @Override
+    public boolean canApply(@Nonnull ItemStack stack)
+    {
+        return super.canApply(stack);
     }
 }

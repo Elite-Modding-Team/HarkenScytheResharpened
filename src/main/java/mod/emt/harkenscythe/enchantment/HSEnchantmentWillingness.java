@@ -1,5 +1,7 @@
 package mod.emt.harkenscythe.enchantment;
 
+import com.sun.istack.internal.NotNull;
+
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -7,6 +9,8 @@ import net.minecraft.item.ItemStack;
 import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.item.tool.HSToolGlaive;
 import mod.emt.harkenscythe.item.tool.HSToolScythe;
+
+import javax.annotation.Nonnull;
 
 public class HSEnchantmentWillingness extends HSEnchantment
 {
@@ -38,6 +42,12 @@ public class HSEnchantmentWillingness extends HSEnchantment
     {
         // Exclusive to only glaives and scythes.
         return stack.getItem() instanceof HSToolGlaive || stack.getItem() instanceof HSToolScythe;
+    }
+
+    @Override
+    public boolean canApply(@Nonnull ItemStack stack)
+    {
+        return super.canApply(stack);
     }
 
     @Override
