@@ -20,7 +20,7 @@ public class HSConfig
     @Config.LangKey("cfg.harkenscythe.blocks")
     @Config.Name("Blocks")
     public static final BlockSettings BLOCKS = new BlockSettings();
-    
+
     @Config.LangKey("cfg.harkenscythe.enchantments")
     @Config.Name("Enchantments")
     public static final EnchantmentSettings ENCHANTMENTS = new EnchantmentSettings();
@@ -32,7 +32,7 @@ public class HSConfig
     @Config.LangKey("cfg.harkenscythe.items")
     @Config.Name("Items")
     public static final ItemSettings ITEMS = new ItemSettings();
-    
+
     @Config.LangKey("cfg.harkenscythe.mod_integration")
     @Config.Name("Mod Integration")
     public static final ModIntegrationSettings MOD_INTEGRATION = new ModIntegrationSettings();
@@ -50,7 +50,7 @@ public class HSConfig
         @Config.Name("Disable All Enchantments")
         @Config.Comment("Disables all enchantments")
         public boolean disableEnchantments = false;
-        
+
         @Config.Name("Disable Guidebook")
         @Config.Comment("Disables the guidebook that is provided when Patchouli is installed")
         public boolean disableGuidebook = false;
@@ -85,36 +85,36 @@ public class HSConfig
         @Config.RangeInt(min = 1)
         public int livingmetalCoreRegenLevel = 1;
     }
-    
+
     public static class EnchantmentSettings
     {
         @Config.Name("Bloodletting Max Level")
         @Config.Comment("Max level that the Bloodletting enchantment can be")
         @Config.RangeInt(min = 1)
         public int bloodlettingMaxLevel = 3;
-        
+
         @Config.Name("Bloodletting Chance Per Level")
         @Config.Comment("The default chance (multiplied by level) for the Bloodletting enchantment to spawn essence")
         public double bloodlettingChancePerLevel = 0.2D;
-        
+
         @Config.Name("Reaping Frenzy Anvil Support")
         @Config.Comment("Using Abyssal Fragments with scythes or glaives at an anvil will apply Reaping Frenzy")
         public boolean reapingFrenzyAnvil = true;
-        
+
         @Config.Name("Reaping Frenzy Anvil Cost")
         @Config.Comment("The cost in XP levels when applying Reaping Frenzy with an Abyssal Fragment")
         @Config.RangeInt(min = 1)
         public int reapingFrenzyAnvilCost = 15;
-        
+
         @Config.Name("Reaping Frenzy Enchanting")
         @Config.Comment("Makes Reaping Frenzy available in all enchantment methods")
         public boolean reapingFrenzyEnchanting = false;
-        
+
         @Config.Name("Soul Tether Max Level")
         @Config.Comment("Max level that the Soul Tether enchantment can be")
         @Config.RangeInt(min = 1)
         public int soulTetherMaxLevel = 3;
-        
+
         @Config.Name("Soul Tether Chance Per Level")
         @Config.Comment("The default chance (multiplied by level) for the Soul Tether enchantment to spawn essence")
         public double soulTetherChancePerLevel = 0.25D;
@@ -162,8 +162,12 @@ public class HSConfig
                 "Example: minecraft:cow"
             })
         public String[] bloodReapingBlacklist = new String[] {
-                "testdummy:dummy"
+            "testdummy:dummy"
         };
+
+        @Config.Name("Essence Attraction Radius")
+        @Config.Comment("The radius in blocks essence trinkets or essence containers (when holding and sneaking) are able to draw in essence entities")
+        public double essenceAttractionRadius = 5.0D;
 
         @Config.Name("Essence Despawn Time")
         @Config.Comment("The amount of ticks after a blood/soul essence entity despawns")
@@ -177,7 +181,7 @@ public class HSConfig
         @Config.Name("Essence Mob Spawning")
         @Config.Comment("Spawns globins (or spectral miners from spectral souls) after a blood/soul essence entity despawns")
         public boolean essenceMobSpawning = true;
-        
+
         @Config.Name("Essence Reaping Affected by Tool Damage")
         @Config.Comment("The chance for blood/soul essence to appear from reaping is affected by the tool damage (wood has a low chance while diamond has a high chance), otherwise blood/soul essence will always spawn from reaping instead")
         public boolean essenceDamageReaping = false;
@@ -314,7 +318,7 @@ public class HSConfig
                 "Example: minecraft:cow"
             })
         public String[] soulReapingBlacklist = new String[] {
-                "testdummy:dummy"
+            "testdummy:dummy"
         };
 
         @Config.Name("Spectral Entity Attack Damage")
@@ -564,39 +568,39 @@ public class HSConfig
         @Config.Comment("Hoes are able to till creep blocks like glaives")
         public boolean hoesTillCreepBlocks = false;
     }
-    
+
     public static class ModIntegrationSettings
     {
         @Config.Name("Blood Magic Integration")
         @Config.Comment("Enables Blood Magic integration")
         public boolean bloodMagicIntegration = true;
-        
+
         @Config.Name("Construct's Armory Integration")
         @Config.Comment("Enables Construct's Armory integration (requires Tinkers' Construct integration to be enabled!)")
         public boolean constructsArmoryIntegration = true;
-        
+
         @Config.Name("Just Enough Resources Integration")
         @Config.Comment("Enables Just Enough Resources integration")
         public boolean jerIntegration = true;
-        
+
         @Config.Name("Tinkers' Construct Integration")
         @Config.Comment("Enables Tinkers' Construct integration")
         public boolean tinkersConstructIntegration = true;
-        
+
         @Config.Name("Tinkers' Construct Integration: Blood Conjuration Max Level")
         @Config.Comment("Max level that the Blood Conjuration trait can be")
         @Config.RangeInt(min = 1)
         public int bloodConjurationTraitMaxLevel = 3;
-        
+
         @Config.Name("Tinkers' Construct Integration: Blood Conjuration Chance Per Level")
         @Config.Comment("The default chance (multiplied by level) for the Blood Conjuration trait to spawn essence")
         public double bloodConjurationChancePerLevel = 0.2D;
-        
+
         @Config.Name("Tinkers' Construct Integration: Soul Conjuration Max Level")
         @Config.Comment("Max level that the Soul Conjuration trait can be")
         @Config.RangeInt(min = 1)
         public int soulConjurationTraitMaxLevel = 3;
-        
+
         @Config.Name("Tinkers' Construct Integration: Soul Conjuration Chance Per Level")
         @Config.Comment("The default chance (multiplied by level) for the Soul Conjuration trait to spawn essence")
         public double soulConjurationChancePerLevel = 0.25D;

@@ -107,7 +107,7 @@ public class HSEntityBlood extends HSEntityEssence
     }
 
     @Override
-    protected HSEnumFaction getFaction()
+    public HSEnumFaction getFaction()
     {
         return HSEnumFaction.BLOOD;
     }

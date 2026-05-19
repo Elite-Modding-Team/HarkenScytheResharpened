@@ -186,7 +186,7 @@ public class HSEntitySoul extends HSEntityEssence
     }
 
     @Override
-    protected HSEnumFaction getFaction()
+    public HSEnumFaction getFaction()
     {
         return HSEnumFaction.SOUL;
     }

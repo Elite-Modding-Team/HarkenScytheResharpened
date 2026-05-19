@@ -1,18 +1,31 @@
 package mod.emt.harkenscythe.util;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 
+import mod.emt.harkenscythe.entity.HSEntityBlood;
+import mod.emt.harkenscythe.entity.HSEntityEssence;
+import mod.emt.harkenscythe.entity.HSEntitySoul;
 import mod.emt.harkenscythe.init.HSEnumContainerType;
 import mod.emt.harkenscythe.init.HSEnumFaction;
 import mod.emt.harkenscythe.init.HSItems;
+import mod.emt.harkenscythe.init.HSSoundEvents;
 import mod.emt.harkenscythe.item.HSItemEssenceContainer;
 
 public class HSContainerHelper
 {
+    public static boolean isContainer(ItemStack stack)
+    {
+        return stack.getItem() instanceof HSItemEssenceContainer;
+    }
+
     public static HSEnumContainerType getContainerType(ItemStack stack)
     {
-        if (stack.getItem() instanceof HSItemEssenceContainer)
+        if (isContainer(stack))
         {
             return ((HSItemEssenceContainer) stack.getItem()).getContainerType();
         }
@@ -21,7 +34,7 @@ public class HSContainerHelper
 
     public static HSEnumFaction getFaction(ItemStack stack)
     {
-        if (stack.getItem() instanceof HSItemEssenceContainer)
+        if (isContainer(stack))
         {
             return ((HSItemEssenceContainer) stack.getItem()).getFaction();
         }
@@ -94,6 +107,62 @@ public class HSContainerHelper
     {
         HSEnumFaction faction = getFaction(stack);
         return faction == HSEnumFaction.NEUTRAL;
+    }
+
+    public static boolean collectEssence(ItemStack stack, HSEntityEssence essence, EntityPlayer player, EnumHand hand)
+    {
+        if (!essence.isDead && essence.getHealth() > 0)
+        {
+            // Getting essence faction and quantity
+            int quantity = 0;
+            if (essence.getFaction() == HSEnumFaction.BLOOD)
+            {
+                quantity = ((HSEntityBlood) essence).getBloodQuantity();
+            }
+            else if (essence.getFaction() == HSEnumFaction.SOUL)
+            {
+                quantity = ((HSEntitySoul) essence).getSoulQuantity();
+            }
+            if (quantity <= 0) return false;
+            // Interacting with an empty container
+            if (isNeutralFaction(stack))
+            {
+                ItemStack newStack = getFullContainerFaction(stack, essence.getFaction());
+                newStack.setItemDamage(newStack.getMaxDamage() - quantity);
+                stack.shrink(1);
+                player.setHeldItem(hand, newStack);
+            }
+            // Interacting with a (partially) filled container
+            else if ((isBloodFaction(stack) && essence.getFaction() == HSEnumFaction.BLOOD) || (isSoulFaction(stack) && essence.getFaction() == HSEnumFaction.SOUL))
+            {
+                // Already filled
+                if (stack.getItemDamage() == 0) return false;
+                // Partially filled
+                if (stack.getItemDamage() > 0)
+                {
+                    stack.setItemDamage(stack.getItemDamage() - quantity);
+                }
+                // Becoming filled
+                if (stack.getItemDamage() <= 0)
+                {
+                    ItemStack newStack = getFullContainer(stack);
+                    stack.shrink(1);
+                    player.setHeldItem(hand, newStack);
+                }
+            }
+            else
+            {
+                return false;
+            }
+            float pitch = stack.getItemDamage() == 0 ? 1.0F : 1.0F - ((float) stack.getItemDamage() / stack.getMaxDamage() * 0.5F);
+            if (!isVessel(stack)) pitch += 0.5F;
+            player.world.playSound(null, player.getPosition(), HSSoundEvents.ITEM_BOTTLE_ESSENCE.getSoundEvent(), SoundCategory.PLAYERS, 1.0F, pitch);
+            player.world.spawnParticle(EnumParticleTypes.CLOUD, essence.posX, essence.posY + 1.5D, essence.posZ, 0.0D, 0.1D, 0.0D);
+            essence.recentlyHit = 60;
+            essence.setHealth(0);
+            return true;
+        }
+        return false;
     }
 
     private static Item getContainerItem(HSEnumContainerType containerType, HSEnumFaction faction)
