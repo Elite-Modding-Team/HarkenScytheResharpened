@@ -1,7 +1,5 @@
 package mod.emt.harkenscythe.enchantment;
 
-import com.sun.istack.internal.NotNull;
-
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
